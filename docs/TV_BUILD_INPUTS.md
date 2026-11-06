@@ -1,6 +1,6 @@
 # 电视端构建输入与导出范围
 
-当前电视端源码为 **同频4K TV 1.3.0 / versionCode 1300**，包名 `com.tongpin.player4k.tv`，最低安卓 API21；可选 Media3 兼容核心仅在 API23 及以上进入。此仓库保存现有工程和审查资料，没有改写播放器源码。
+当前电视端源码为 **同频4K TV 1.3.2 / versionCode 1302**，包名 `com.tongpin.player4k.tv`，最低安卓 API21；可选 Media3 兼容核心仅在 API23 及以上进入。此仓库保存现有工程和审查资料，包含当前已审查的自有播放器源码与历史快照。
 
 ## 已保存的内容
 
@@ -17,10 +17,11 @@ build/1.1.0/preflight/generated/com/tongpin/player4k/tv/R.java
 build/1.2.0/generated/com/tongpin/player4k/tv/R.java
 build/1.2.0/preflight/generated/com/tongpin/player4k/tv/R.java
 build/1.2.1/generated/com/tongpin/player4k/tv/R.java
+build/1.3.1/generated/com/tongpin/player4k/tv/R.java
 build/resource-check/generated/com/tongpin/player4k/tv/R.java
 ```
 
-原 `.gitignore` 仍会忽略整个 `build`，这些夹具须在首次提交时明确强制加入。API 检查器的 `.class` 会由构建脚本重新编译，不是必要输入，未保留。
+`.gitignore` 仅开放上述6份明确的R.java测试夹具，其余build文件继续忽略。API 检查器的 `.class` 会由构建脚本重新编译，不是必要输入，未保留。
 
 ## 未上传的内容
 
@@ -28,35 +29,30 @@ build/resource-check/generated/com/tongpin/player4k/tv/R.java
 - `verification/stutter-2026-11-05` 整个运行时探测目录，其中有临时片源/HLS 地址和私有探测记录。
 - 普通 `build` 产物、`output` APK、缓存、编译后的测试类、DEX 和资源载体包。APK 由仓库的 Release 资产单独备份；恢复位置见下文。
 
-逐文件复制记录在 `tongpin-4k-tv/GITHUB_EXPORT.json`。426 个原文件共 22,845,375 字节，已核对与原工程字节一致；此数量不含新写的导出记录和本说明。没有超过 90MiB 的单文件。
+逐文件复制记录在 `tongpin-4k-tv/GITHUB_EXPORT.json`。其中原始426文件、22,845,375字节属于首次归档的历史计数；本轮追加文件以当前定向同步报告为准，不能用旧计数描述全部仓库。没有超过 90MiB 的单文件。
 
 ## 外部工具与路径要求
 
 现有脚本是本机 Windows 构建流程。它们原样保存，不能把本次备份当成已经完成跨平台或干净机器构建适配。
 
 1. 需要 Python 和能编译 Java8 目标的完整 JDK/JBR。`build_tv.py` 默认 Java 路径为 `D:\PyCharm\PyCharm 2024.3.1.1\jbr\bin\java.exe`，可用环境变量 `TP_TV_JAVA` 指向新的 `java.exe`。
-2. Android SDK 固定从项目同级的 `kanke-noads/tools` 读取，需有 `build-tools-35.0.1` 及 `platform-35/android.jar`、`platform-35/data/api-versions.xml`。工具来源和哈希在 `verification/toolchain/tools.json`；公开下载地址为：
+2. Android SDK 固定从项目同级的 `kanke-noads/tools` 读取，需有 `build-tools-35.0.1` （含 `core-lambda-stubs.jar`）及 `platform-35/android.jar`、`platform-35/data/api-versions.xml`。工具来源和哈希在 `verification/toolchain/tools.json`；公开下载地址为：
    - <https://dl.google.com/android/repository/build-tools_r35.0.1_windows.zip>
    - <https://dl.google.com/android/repository/platform-35_r02.zip>
 3. 脚本用目录 junction 避免 aapt2 的中文路径问题。`TP_TV_WORK_ALIAS` 和 `TP_TV_TOOLS_ALIAS` 应设置为新的 ASCII 路径；若别名已指向原工程，脚本会拒绝把它改指向新克隆。
 4. 部分测试入口仍把上述 JBR 路径写作 `JAVA` 常量；`run_data_tests.py` / `run_queue_tests.py` 使用 `CATALOG_TEST_JAVA_HOME`。换电脑需按各入口配置实际路径，不能只改一个环境变量就假定所有测试已适配。
 
-SDK、JDK 和原签名私钥并未随源码提交。现有 `BUILDING.md` 保存历史构建说明；涉及当前版本时应同时参考本说明、实际 `build_tv.py` 与 `verification/1.3.0`。
+SDK、JDK 和原签名私钥并未随源码提交。现有 `BUILDING.md` 保存历史构建说明；涉及当前版本时应同时参考本说明、实际 `build_tv.py` 与 `verification/1.3.2`。
 
 ## 旧安装包与版本合同
 
-1.3.0 构建检查会读取并核对 `output/tongpin-4k-tv-1.2.1.apk`。先从仓库 Release 恢复到这个路径，其 SHA256 必须为：
+1.3.2直接增量合同读取并核对 `output/tongpin-4k-tv-1.3.1.apk`，SHA256必须为 `cb8bbf4e39ba875a30831cd6cf523b83d6133613a21550d374e381c11872e1f6`。1.3.0和1.3.1的冻结资源ID、源码与历史审查字节继续保留；旧1.2.1和1.3.0包供各自历史构建合同使用。
 
-```text
-51c9f6ffe387ff26791d1da3e4498aea7af393c4c863cd08e899c2f4b2d957af
-```
-
-最新归档包 `tongpin-4k-tv-1.3.0.apk` 的 SHA256 为：
-
-```text
-1110cc47e206a2e129501377a3342cd47620d4819f0c443db3ba6387290fae3f
-```
+本轮正式TV1.3.2 APK为7,637,824字节，SHA256 `97263917b7ec1297719aa64149195c52dcdeee8ea5614e566be83b97c3160a4b`；它是可安装产物，非当前1.3.2重建输入。实际结果见 `verification/1.3.2/result.json`。
 
 工具与旧包就绪后，可在电视端目录运行 `python build_tv.py --preflight`，只编译和静态审计，不签名、不发布；这条入口不需要私钥。正式构建还需要本机原签名材料。脚本会拒绝覆盖已有同版本 release；后续发版需按现有版本合同更新，不应删除校验以强行通过。
 
 本次导出只做了文件完整性和依赖锁表核对，未在干净电脑上重建，也没有新增电视真机播放验收。
+
+
+1.3.2与手机共用11来源资产，保留原8来源ID和顺序；分类参数按当前单源实际声明的ID／父级执行，未知或矛盾信息明确标注。新增实际文字字幕轨选择与画面焦点长按OK临时2×；不把公开HLS可达写成4K、无水印或完整片库保证。源表审查和主机检查位于 `ui/player-catalog-1.3.2`。

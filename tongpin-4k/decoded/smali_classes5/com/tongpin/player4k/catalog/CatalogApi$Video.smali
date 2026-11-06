@@ -17,6 +17,14 @@
 # instance fields
 .field public author:Ljava/lang/String;
 
+.field categoryCatalog:Lcom/tongpin/player4k/catalog/CatalogCategories;
+
+.field public categoryId:Ljava/lang/String;
+
+.field public categoryLabel:Ljava/lang/String;
+
+.field public categoryName:Ljava/lang/String;
+
 .field public description:Ljava/lang/String;
 
 .field public id:Ljava/lang/String;
@@ -38,7 +46,7 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 55
+    .line 57
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 53
@@ -62,5 +70,14 @@
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->licence:Ljava/lang/String;
 
     .line 55
+    iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->categoryId:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->categoryName:Ljava/lang/String;
+
+    const-string v0, "\u672a\u5206\u7c7b"
+
+    iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->categoryLabel:Ljava/lang/String;
+
+    .line 57
     return-void
 .end method

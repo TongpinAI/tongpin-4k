@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "kind": "host Java policy and verbatim extracted reflection helper bodies",
+  "stdout": "PASS 45 policy/reflection assertions",
+  "android_device_execution": false,
+  "limitations": "No Android Looper/UI/native subtitle stream execution; these require device acceptance.",
+  "source_sha256": {
+    "SubtitlePolicy.java": "a891f56a8d81221aa98e88a909692ee18b427c984f9f0074f60f1a19f625c552",
+    "SubtitleControls.java": "d0b1a24d7fd658e2683d322c106f217f4d95c900c8415002bad1970e0f275784"
+  },
+  "reflection_body_sha256": "f383d5d0b2164c85d9e752616d158f20ede432aed1fc3f1bb37c291fb15152e2"
+}

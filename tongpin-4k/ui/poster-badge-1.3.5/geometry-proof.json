@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "actual_bundled_fit_xy_sets_child_bounds_directly": true,
+  "outer_scale_matrix_is_null": true,
+  "fixed_layer_logo_size_preserved_by_layer_layout": true,
+  "underlying_library_inputs_unchanged": true,
+  "library_sha256": {
+    "decoded/smali_classes4/t2/o.smali": "35e2f5186ff54af6bb43ca38628326f8bf3b98f36db73f32da30795d4148b85e",
+    "decoded/smali_classes4/t2/q.smali": "c1d06e329f199376a7a75d6fadcc660ff3c22910678f3f99e44355f9b146c9cb",
+    "decoded/smali_classes4/u2/c.smali": "99baa984553e678264f9245af0574f31c8b93b0b37feb9138974e0a00d076715",
+    "decoded/smali_classes4/t2/z.smali": "af3aebc191b5974a154eb2083a245a1e480cb34509e680bbc66cb20ec353ce3e"
+  },
+  "native_render_tested": false
+}

@@ -1,0 +1,7 @@
+version: 3.0.3
+apkFileName: consumer-carrier.apk
+sdkInfo:
+  minSdkVersion: 23
+doNotCompress:
+- dex
+- AndroidManifest.xml

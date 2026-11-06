@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "old_contract_default_rules_retained": true,
+  "new136_preimages_accepted": true,
+  "old_evidence_json_modified": false,
+  "chain": {
+    "135": true,
+    "134": true,
+    "133": true,
+    "132": true,
+    "131": true,
+    "130": true,
+    "121": true,
+    "120": true,
+    "legacy113": true
+  },
+  "projected_asset_sha256": "f4d9810b075ca7a67d28b22bcb4aeef18d06a37f655c0fa074c5a7a4cbccd658"
+}

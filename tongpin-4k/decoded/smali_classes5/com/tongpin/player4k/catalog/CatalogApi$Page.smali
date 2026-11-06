@@ -15,6 +15,10 @@
 
 
 # instance fields
+.field public categories:Lcom/tongpin/player4k/catalog/CatalogCategories;
+
+.field public categoryMismatchCount:I
+
 .field public hasMore:Z
 
 .field public items:Ljava/util/List;
@@ -32,16 +36,16 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 61
+    .line 65
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 59
+    .line 61
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Page;->items:Ljava/util/List;
 
-    .line 61
+    .line 65
     return-void
 .end method

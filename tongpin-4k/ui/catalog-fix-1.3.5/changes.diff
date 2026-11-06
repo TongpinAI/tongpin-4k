@@ -1,0 +1,81 @@
+--- before/open-sources/src/com/tongpin/player4k/catalog/LegacyEpisodeOrder.java
++++ open-sources/src/com/tongpin/player4k/catalog/LegacyEpisodeOrder.java
+@@ -6,6 +6,8 @@
+ import android.content.SharedPreferences;
+ import android.view.View;
+ import android.widget.TextView;
++import java.util.ArrayList;
++import java.util.List;
+ 
+ /** Display ordering only. Playback indices and the provider's episode list stay canonical. */
+ public final class LegacyEpisodeOrder {
+@@ -38,6 +40,26 @@
+         apply(gridAdapter, descending);
+         bindButton(activity.findViewById(ORDER), activity, false);
+         bindButton(activity.findViewById(ALL_TITLE), activity, true);
++        bindSummary(activity, horizontalAdapter != null ? horizontalAdapter : gridAdapter);
++    }
++
++    private static void bindSummary(Activity activity, Object adapter) {
++        View view = activity.findViewById(0x7f0a0b3d);
++        if (!(view instanceof TextView) || adapter == null) return;
++        ArrayList<String> names = new ArrayList<>();
++        try {
++            List<?> entries = (List<?>) adapter.getClass().getMethod("b").invoke(adapter);
++            if (entries != null) for (Object entry : entries) {
++                if (entry == null) continue;
++                Object url = entry.getClass().getMethod("getUrl").invoke(entry);
++                if (!(url instanceof String) || ((String) url).trim().isEmpty()) continue;
++                Object title = entry.getClass().getMethod("getTitle").invoke(entry);
++                names.add(title instanceof String ? (String) title : "");
++            }
++        } catch (Exception brokenAdapter) { throw new IllegalStateException("无法更新选集数量", brokenAdapter); }
++        String text = EpisodeSummary.describe(names);
++        ((TextView) view).setText(text);
++        view.setContentDescription("当前线路：" + text);
+     }
+ 
+     private static void bindButton(View view, Context context, boolean allTitle) {
+--- before/open-sources/src/com/tongpin/player4k/catalog/CatalogActivity.java
++++ open-sources/src/com/tongpin/player4k/catalog/CatalogActivity.java
+@@ -323,6 +323,13 @@
+         });
+     }
+ 
++    private static String episodeSummary(Line line) {
++        ArrayList<String> names = new ArrayList<>();
++        for (Episode episode : line.episodes)
++            if (episode != null && episode.streams != null && !episode.streams.isEmpty()) names.add(episode.name);
++        return EpisodeSummary.describe(names);
++    }
++
+     private void showDetail(Detail value) {
+         detail = value;
+         selectedEpisode = null;
+@@ -362,7 +369,7 @@
+         }
+         Spinner lines = new Spinner(this);
+         ArrayList<String> names = new ArrayList<>();
+-        for (Line line : value.lines) names.add(line.name + " · " + line.episodes.size() + " 集/段");
++        for (Line line : value.lines) names.add(line.name + " · " + episodeSummary(line));
+         lines.setAdapter(pickerAdapter(names));
+         lines.setContentDescription("选择播放线路");
+         LinearLayout lineControls = row();
+@@ -387,6 +394,7 @@
+         Runnable renderEpisodes = () -> {
+             int selected = lines.getSelectedItemPosition();
+             if (selected < 0 || selected >= value.lines.size()) return;
++            episodeHint.setText(episodeSummary(value.lines.get(selected)) + " · 实际画质以播放时显示为准");
+             List<Episode> displayed = displayEpisodes(value.lines.get(selected).episodes, episodesDescending);
+             ArrayList<String> labels = new ArrayList<>();
+             for (Episode episode : displayed) {
+--- before/decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity.smali
++++ decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity.smali
+@@ -14260,6 +14260,7 @@
+     .line 52
+     .line 53
+     :cond_1
++    invoke-virtual {p0}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->refreshEpisodeOrder()V
+     return-void
+ .end method
+ 

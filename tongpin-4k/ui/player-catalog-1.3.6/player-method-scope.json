@@ -1,0 +1,52 @@
+{
+  "passed": true,
+  "smali": {
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity.smali": {
+      "before_path": "ui/player-catalog-1.3.6/before/decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity.smali",
+      "before_sha256": "2774c016bb7a795a53a7e8528eff1755ab31a2e7506ac91ff87d81435f7e544e",
+      "after_sha256": "00ac1c43dc76a4d539d9985ab05abdd897b7ebc5e19b01c07f12c31d582ae9ff",
+      "modified_methods": [
+        "I1()V",
+        "S2(II)V",
+        "T1(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;Lcom/shenma/tvlauncher/domain/Json;)Lm7/f0;",
+        "dispatchTouchEvent(Landroid/view/MotionEvent;)Z",
+        "onConfigurationChanged(Landroid/content/res/Configuration;)V",
+        "onDestroy()V",
+        "onPause()V",
+        "onResume()V",
+        "seekCommit(J)V",
+        "t1(I)V"
+      ],
+      "added_methods": [
+        "legacyAttachSubtitles()V",
+        "legacyPlayerTransition()V",
+        "legacyResumeSubtitles()V",
+        "legacyTouch(Landroid/view/MotionEvent;)Z"
+      ],
+      "added_fields": [],
+      "exact_preimage_recovered": true
+    },
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity$e.smali": {
+      "before_path": "ui/player-catalog-1.3.6/before/decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity$e.smali",
+      "before_sha256": "9c6feff5414d8309a5a9b639f8106a3d101d44792d651c82d38bca3b03a10c3e",
+      "after_sha256": "f661fd333565c9a763c9819e7747b45908396e555f0318693ce810320eb4f6e8",
+      "modified_methods": [
+        "onLongPress(Landroid/view/MotionEvent;)V"
+      ],
+      "added_methods": [],
+      "added_fields": [],
+      "exact_preimage_recovered": true
+    },
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/EmptyControlVideoView.smali": {
+      "before_path": "ui/player-catalog-1.3.6/before/decoded/smali_classes5/com/shenma/tvlauncher/phone/EmptyControlVideoView.smali",
+      "before_sha256": "fbfefc39c46e65dde2007d7a6467d31cd330c7b7335146f28c2adc50ce4f44cd",
+      "after_sha256": "4b7bbd774456542361e451c7f1f44be4e857fa2ede2a2fbcfd1cf98abc978e0f",
+      "modified_methods": [
+        "setStateAndUi(I)V"
+      ],
+      "added_methods": [],
+      "added_fields": [],
+      "exact_preimage_recovered": true
+    }
+  }
+}

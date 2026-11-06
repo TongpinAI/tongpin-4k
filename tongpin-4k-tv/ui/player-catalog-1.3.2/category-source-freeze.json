@@ -1,0 +1,43 @@
+{
+  "passed": true,
+  "source_ready": true,
+  "version": "1.3.2",
+  "scope": "Provider-scoped actual source classification and three validated public MacCMS JSON providers; native UI not device-tested.",
+  "source_sha256": {
+    "src/com/tongpin/player4k/tv/CatalogApi.java": "6b670a6b4df2b200037a9f69f61fe7005021370c0307c69215034459dca8dd73",
+    "src/com/tongpin/player4k/tv/CatalogCategories.java": "94ad50088414706688648027634e6acd76fc52214bac47dcf29d1d2e9e86ae8a",
+    "src/com/tongpin/player4k/tv/TvHomeActivity.java": "f7d6324973f34f76966ab2535dcdccec23bbca2cef54f64fd6a379ca828ba6b9",
+    "assets/tongpin_open_sources.json": "7e6a9616a36c68788500c68b313265bda50e28efe7af695cc9b368f89078aa1d",
+    "tests/src/com/tongpin/player4k/tv/CatalogCategoriesTest.java": "0112d6a0fbca7b0eab777752edcad6649aabf3756b222ca70707caad20db0530",
+    "tests/fixtures/categories/class-360zy.json": "620309b06e0a86a29c5b739c34cc31f589d1b075a4124b7c1d595c3e5d4b6ced",
+    "tests/fixtures/categories/class-bfzy.json": "681195572e322b0909cde989aa4f8437681bed2dd056bedcfd0b2de71508215e",
+    "tests/fixtures/categories/class-guangsu.json": "010f2e557a41b741adc061cdfb0fe8c91a8811affc14454b3013d5ec040be1c3",
+    "tests/fixtures/categories/class-hongniu.json": "457f68547221edbd1cebcc40cd3164f2486c5eb97ffc65e1438bc96810154316",
+    "tests/fixtures/categories/class-huya.json": "deb4ac35f2403e7ff3e39371d257394cf96eca5c9406f8d0548a9a53af17f50b",
+    "tests/fixtures/categories/class-ikun.json": "f06e2ff905d2b8a79511180d0f0b397238004e9960b975c9248eea7b6f4fc53d",
+    "tests/fixtures/categories/class-jinying.json": "cf6fc9ec25a24ff9745dce56419fae14a71556294c3798f0da3bc7c3a499fb1a",
+    "tests/fixtures/categories/class-mdzy.json": "64eaca5914bc01389d43c6ca83ed68c08cad52fea4727d8e0f25e88b22eb49f4",
+    "tests/fixtures/categories/class-qiyi.json": "1fe71b5ec723fa808b213470a5f539280c10faae22028a4fd97a76cb583f313a",
+    "tests/fixtures/categories/provenance.json": "ec3ed32843de0eb3df3c1bd733dc31f83c98dc4bc74a49078cddbdaefa451b14",
+    "ui/player-catalog-1.3.2/source-audit.public.json": "81375fd31574e4a56356d3018019752a0110f50fab8c5cb62ba1633ca0c761a6",
+    "ui/player-catalog-1.3.2/SOURCE-AUDIT.md": "a00030c116ec13d92e1356cb52bc82f9c0a808990e2e146580933f81c7226404"
+  },
+  "provider_ids": [
+    "mdzy",
+    "360zy",
+    "blender",
+    "ryzy",
+    "ikun",
+    "guangsu",
+    "hongniu",
+    "jinying",
+    "huya",
+    "bfzy",
+    "qiyi"
+  ],
+  "provider_asset_sha256": "7e6a9616a36c68788500c68b313265bda50e28efe7af695cc9b368f89078aa1d",
+  "preserved_eight_provider_prefix": true,
+  "tests_report": "../tongpin-4k/ui/player-catalog-1.3.6/categories/verification.json",
+  "device_tested": false,
+  "remote_code_executed": false
+}

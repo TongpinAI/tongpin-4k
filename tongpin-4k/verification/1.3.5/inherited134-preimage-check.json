@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "old134contract_default_rules_retained": true,
+  "new135_source_preimages_accepted": true,
+  "old_json_evidence_modified": false,
+  "overrides": [
+    "decoded/res/drawable/place_image_laye.xml",
+    "decoded/res/layout/item_recommend.xml",
+    "decoded/res/layout/mv_type_details_item.xml",
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/SearchActivity$c.smali",
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity.smali",
+    "decoded/smali_classes5/i6/e.smali",
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogActivity.java",
+    "open-sources/src/com/tongpin/player4k/catalog/LegacyEpisodeOrder.java"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "source_sha256": {
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity.smali": "00ac1c43dc76a4d539d9985ab05abdd897b7ebc5e19b01c07f12c31d582ae9ff",
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity$e.smali": "f661fd333565c9a763c9819e7747b45908396e555f0318693ce810320eb4f6e8",
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/EmptyControlVideoView.smali": "4b7bbd774456542361e451c7f1f44be4e857fa2ede2a2fbcfd1cf98abc978e0f"
+  },
+  "three_changed_native_classes_assembled": true,
+  "proof_only_not_production": true,
+  "proof_apk_sha256": "4400f1483a1bd888ce13c478124654718dfa71b292a61c5ef4dcb0ae1485ddd7",
+  "device_test": false
+}

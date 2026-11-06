@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "verdict": "clear: selected-line counts are conservative and current, no playback model mutation or unresolved reflection target found",
+  "reviewer": "poster_badge_fix independent episode-scope review",
+  "source_sha256": {
+    "src/com/tongpin/player4k/tv/EpisodeSummary.java": "dcd277c899d816954ab60262030326bd59e65106c91085fa3d69bee057f1198a",
+    "src/com/tongpin/player4k/tv/TvHomeActivity.java": "456349355837414d988c10a46e9bee5c551e47f7ec671b125d441cf6aba76085"
+  },
+  "facts_checked": [
+    "Counts unique positive numbered episodes rather than maximum number or raw entry count",
+    "Duplicate episode aliases and upper/lower parts retain one episode identity; distinct parts may be described separately",
+    "Extras are separated; explicit 1080P/2160p/4K and date labels fall back to selectable/other entries without becoming episode maxima",
+    "Unknown or malformed names remain selectable and are not silently deleted",
+    "No completion assertion is inferred from the final visible episode number",
+    "Phone and TV helper policies are byte-identical apart from package declaration",
+    "Playback indices, original list order, streams, queue identities and saved progress are not mutated",
+    "TV line controls, selected-line status and episode header use the same current line summary and drop stale upstream subtitle text from detail status"
+  ],
+  "reported_policy_assertions": 33,
+  "native_device_tested": false,
+  "visual_font_scaling_verified": false,
+  "notes": [
+    "Unparseable naming formats remain other/selectable entries; this is not an external catalogue completion or endpoint-availability assertion."
+  ]
+}

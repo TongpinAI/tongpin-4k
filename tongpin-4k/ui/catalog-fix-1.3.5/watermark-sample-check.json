@@ -1,0 +1,57 @@
+{
+  "sample_date": "2026-11-06",
+  "frames": [
+    {
+      "provider": "mdzy",
+      "title": "嫁金钗",
+      "episode": 30,
+      "second": 5,
+      "width": 1920,
+      "height": 1080,
+      "frame_sha256": "e88f5fa34877ed84c28ced713535e527019f239e3b0cf24564b359060eba271e",
+      "visual_observation": "No 瓜子影视 corner logo visible in this sampled frame; no whole-episode or future-source guarantee"
+    },
+    {
+      "provider": "mdzy",
+      "title": "嫁金钗",
+      "episode": 30,
+      "second": 600,
+      "width": 1920,
+      "height": 1080,
+      "frame_sha256": "2fd77388597b39edb9e33e6eee3ec6619a7b029aa29bfd284aa2ad46f404b826",
+      "visual_observation": "No 瓜子影视 corner logo visible in this sampled frame; no whole-episode or future-source guarantee"
+    },
+    {
+      "provider": "360zy",
+      "title": "嫁金钗",
+      "episode": 30,
+      "second": 5,
+      "width": 1920,
+      "height": 1080,
+      "frame_sha256": "78da5113d0fe33e97f81c111eb8c63d74eab886808c0b03fe25b9a3a28dba41d",
+      "visual_observation": "No 瓜子影视 corner logo visible in this sampled frame; no whole-episode or future-source guarantee"
+    },
+    {
+      "provider": "ikun",
+      "title": "嫁金钗",
+      "episode": 30,
+      "second": 5,
+      "width": 1920,
+      "height": 1080,
+      "frame_sha256": "cb52740b689423555093ce1165bddeb943f09903430cd2aba38e91aa853ce7b4",
+      "visual_observation": "No 瓜子影视 corner logo visible in this sampled frame; no whole-episode or future-source guarantee"
+    },
+    {
+      "provider": "ikun",
+      "title": "嫁金钗",
+      "episode": 30,
+      "second": 600,
+      "width": 1920,
+      "height": 1080,
+      "frame_sha256": "7a572101a4e806c875a154d099f96af48deb1e8eac9ec1b590c0947158953f73",
+      "visual_observation": "No 瓜子影视 corner logo visible in this sampled frame; no whole-episode or future-source guarantee"
+    }
+  ],
+  "app_policy_changed": false,
+  "all_sources_claimed_clean": false
+}

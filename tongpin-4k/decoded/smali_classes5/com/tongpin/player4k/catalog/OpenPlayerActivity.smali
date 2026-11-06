@@ -94,7 +94,7 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 49
+    .line 50
     const/4 v0, 0x6
 
     new-array v0, v0, [F
@@ -121,15 +121,15 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 45
+    .line 46
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
-    .line 59
+    .line 60
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->foreground:Z
 
-    .line 64
+    .line 65
     const/high16 v0, 0x3f800000    # 1.0f
 
     iput v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->speed:F
@@ -140,7 +140,7 @@
 .method static synthetic access$000(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;)Z
     .locals 0
 
-    .line 45
+    .line 46
     iget-boolean p0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->destroying:Z
 
     return p0
@@ -149,34 +149,34 @@
 .method static synthetic access$100(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;)I
     .locals 0
 
-    .line 45
+    .line 46
     iget p0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->playGeneration:I
 
     return p0
 .end method
 
-.method static synthetic access$1000(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;)V
+.method static synthetic access$1000(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;Z)V
     .locals 0
 
-    .line 45
+    .line 46
+    invoke-direct {p0, p1}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->saveProgress(Z)V
+
+    return-void
+.end method
+
+.method static synthetic access$1100(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;)V
+    .locals 0
+
+    .line 46
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->showDimensions()V
 
     return-void
 .end method
 
-.method static synthetic access$1100(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;)Z
-    .locals 0
-
-    .line 45
-    iget-boolean p0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->foreground:Z
-
-    return p0
-.end method
-
 .method static synthetic access$1200(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;Z)V
     .locals 0
 
-    .line 45
+    .line 46
     invoke-direct {p0, p1}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->keepScreenOn(Z)V
 
     return-void
@@ -185,7 +185,7 @@
 .method static synthetic access$1300(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;)Lcom/shuyu/gsyvideoplayer/utils/OrientationUtils;
     .locals 0
 
-    .line 45
+    .line 46
     iget-object p0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->orientation:Lcom/shuyu/gsyvideoplayer/utils/OrientationUtils;
 
     return-object p0
@@ -194,7 +194,7 @@
 .method static synthetic access$1400(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;)V
     .locals 0
 
-    .line 45
+    .line 46
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->failed()V
 
     return-void
@@ -203,7 +203,7 @@
 .method static synthetic access$1502(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;Z)Z
     .locals 0
 
-    .line 45
+    .line 46
     iput-boolean p1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->fullscreen:Z
 
     return p1
@@ -212,7 +212,7 @@
 .method static synthetic access$1600(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;)V
     .locals 0
 
-    .line 45
+    .line 46
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->normalSystemBars()V
 
     return-void
@@ -221,7 +221,7 @@
 .method static synthetic access$1700(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;)V
     .locals 0
 
-    .line 45
+    .line 46
     invoke-direct {p0, p1}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->prepareFullscreen(Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;)V
 
     return-void
@@ -230,7 +230,7 @@
 .method static synthetic access$1800(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;)V
     .locals 0
 
-    .line 45
+    .line 46
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->fullscreenFailed()V
 
     return-void
@@ -239,7 +239,7 @@
 .method static synthetic access$1900(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;)Lcom/tongpin/player4k/catalog/PlayQueue;
     .locals 0
 
-    .line 45
+    .line 46
     iget-object p0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->queue:Lcom/tongpin/player4k/catalog/PlayQueue;
 
     return-object p0
@@ -248,7 +248,7 @@
 .method static synthetic access$200(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;)[Ljava/lang/String;
     .locals 0
 
-    .line 45
+    .line 46
     iget-object p0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->urls:[Ljava/lang/String;
 
     return-object p0
@@ -257,7 +257,7 @@
 .method static synthetic access$2000(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;)Z
     .locals 0
 
-    .line 45
+    .line 46
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->autoNext()Z
 
     move-result p0
@@ -268,7 +268,7 @@
 .method static synthetic access$2100(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;)I
     .locals 0
 
-    .line 45
+    .line 46
     iget p0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->episodeIndex:I
 
     return p0
@@ -277,7 +277,7 @@
 .method static synthetic access$2200(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;I)V
     .locals 0
 
-    .line 45
+    .line 46
     invoke-direct {p0, p1}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->changeEpisode(I)V
 
     return-void
@@ -286,7 +286,7 @@
 .method static synthetic access$2300(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;)V
     .locals 0
 
-    .line 45
+    .line 46
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->applyPendingDecoder()V
 
     return-void
@@ -295,7 +295,7 @@
 .method static synthetic access$300(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;)I
     .locals 0
 
-    .line 45
+    .line 46
     iget p0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->selected:I
 
     return p0
@@ -304,7 +304,7 @@
 .method static synthetic access$400(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;)Z
     .locals 0
 
-    .line 45
+    .line 46
     iget-boolean p0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->transitioning:Z
 
     return p0
@@ -313,7 +313,7 @@
 .method static synthetic access$402(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;Z)Z
     .locals 0
 
-    .line 45
+    .line 46
     iput-boolean p1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->transitioning:Z
 
     return p1
@@ -322,7 +322,7 @@
 .method static synthetic access$500(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;)V
     .locals 0
 
-    .line 45
+    .line 46
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->updateNavigation()V
 
     return-void
@@ -331,52 +331,52 @@
 .method static synthetic access$600(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;)V
     .locals 0
 
-    .line 45
+    .line 46
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->applySpeed()V
 
     return-void
 .end method
 
-.method static synthetic access$700(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;)J
-    .locals 2
-
-    .line 45
-    iget-wide v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->position:J
-
-    return-wide v0
-.end method
-
-.method static synthetic access$702(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;J)J
+.method static synthetic access$700(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;)Z
     .locals 0
 
-    .line 45
-    iput-wide p1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->position:J
+    .line 46
+    iget-boolean p0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->foreground:Z
 
-    return-wide p1
+    return p0
 .end method
 
 .method static synthetic access$800(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;)Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
     .locals 0
 
-    .line 45
+    .line 46
     iget-object p0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
 
     return-object p0
 .end method
 
-.method static synthetic access$900(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;Z)V
+.method static synthetic access$900(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;)J
+    .locals 2
+
+    .line 46
+    iget-wide v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->position:J
+
+    return-wide v0
+.end method
+
+.method static synthetic access$902(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;J)J
     .locals 0
 
-    .line 45
-    invoke-direct {p0, p1}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->saveProgress(Z)V
+    .line 46
+    iput-wide p1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->position:J
 
-    return-void
+    return-wide p1
 .end method
 
 .method private applyInsets(Landroid/view/View;Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
     .locals 6
 
-    .line 627
+    .line 648
     invoke-virtual {p2}, Landroid/view/WindowInsets;->getSystemWindowInsetLeft()I
 
     move-result v0
@@ -385,7 +385,7 @@
 
     move-result v1
 
-    .line 628
+    .line 649
     invoke-virtual {p2}, Landroid/view/WindowInsets;->getSystemWindowInsetRight()I
 
     move-result v2
@@ -394,22 +394,22 @@
 
     move-result v3
 
-    .line 629
+    .line 650
     sget v4, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v5, 0x1c
 
     if-lt v4, v5, :cond_0
 
-    .line 630
+    .line 651
     invoke-virtual {p2}, Landroid/view/WindowInsets;->getDisplayCutout()Landroid/view/DisplayCutout;
 
     move-result-object v4
 
-    .line 631
+    .line 652
     if-eqz v4, :cond_0
 
-    .line 632
+    .line 653
     invoke-virtual {v4}, Landroid/view/DisplayCutout;->getSafeInsetLeft()I
 
     move-result v5
@@ -426,7 +426,7 @@
 
     move-result v1
 
-    .line 633
+    .line 654
     invoke-virtual {v4}, Landroid/view/DisplayCutout;->getSafeInsetRight()I
 
     move-result v5
@@ -443,18 +443,18 @@
 
     move-result v3
 
-    .line 636
+    .line 657
     :cond_0
     invoke-virtual {p1, v0, v1, v2, v3}, Landroid/view/View;->setPadding(IIII)V
 
-    .line 637
+    .line 658
     return-object p2
 .end method
 
 .method private applyPendingDecoder()V
     .locals 2
 
-    .line 425
+    .line 430
     iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->decoderReloadPending:Z
 
     if-eqz v0, :cond_0
@@ -473,7 +473,7 @@
 
     invoke-direct {p0, v0, v1}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->play(IZ)V
 
-    .line 426
+    .line 431
     :cond_0
     return-void
 .end method
@@ -481,7 +481,7 @@
 .method private applySpeed()V
     .locals 3
 
-    .line 439
+    .line 444
     :try_start_0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
 
@@ -498,7 +498,7 @@
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/LinkageError; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 440
+    .line 445
     goto :goto_1
 
     :catch_0
@@ -520,7 +520,7 @@
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    .line 441
+    .line 446
     :goto_1
     return-void
 .end method
@@ -528,7 +528,7 @@
 .method private autoNext()Z
     .locals 3
 
-    .line 428
+    .line 433
     const-string v0, "tongpin_ui"
 
     const/4 v1, 0x0
@@ -551,7 +551,7 @@
 .method private button(Ljava/lang/String;Z)Landroid/widget/Button;
     .locals 0
 
-    .line 678
+    .line 699
     if-eqz p2, :cond_0
 
     const/4 p2, 0x0
@@ -572,7 +572,7 @@
 .method static canAutoAdvance(ZZZIIIII)Z
     .locals 0
 
-    .line 760
+    .line 784
     if-eqz p0, :cond_0
 
     if-nez p1, :cond_0
@@ -583,7 +583,7 @@
 
     if-ne p5, p6, :cond_0
 
-    .line 761
+    .line 785
     const/4 p0, 0x1
 
     invoke-static {p6, p7, p0}, Lcom/tongpin/player4k/catalog/PlayQueue;->step(III)I
@@ -597,7 +597,7 @@
     :cond_0
     const/4 p0, 0x0
 
-    .line 760
+    .line 784
     :goto_0
     return p0
 .end method
@@ -605,7 +605,7 @@
 .method private changeEpisode(I)V
     .locals 2
 
-    .line 282
+    .line 285
     iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->destroying:Z
 
     if-nez v0, :cond_2
@@ -632,23 +632,23 @@
 
     goto :goto_1
 
-    .line 283
+    .line 286
     :cond_0
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->saveProgress(Z)V
 
-    .line 284
+    .line 287
     invoke-direct {p0, p1}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->readEpisode(I)V
 
-    .line 285
+    .line 288
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->heading:Landroid/widget/TextView;
 
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->title:Ljava/lang/String;
 
     invoke-virtual {p1, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 286
+    .line 289
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->quality:Landroid/widget/Button;
 
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->urls:[Ljava/lang/String;
@@ -659,7 +659,7 @@
 
     invoke-virtual {p1, v1}, Landroid/widget/Button;->setEnabled(Z)V
 
-    .line 287
+    .line 290
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->lower:Landroid/widget/Button;
 
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->urls:[Ljava/lang/String;
@@ -678,7 +678,7 @@
     :goto_0
     invoke-virtual {p1, v0}, Landroid/widget/Button;->setVisibility(I)V
 
-    .line 288
+    .line 291
     iget p1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->selected:I
 
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->restoredProgress()J
@@ -687,10 +687,10 @@
 
     invoke-direct {p0, p1, v0, v1}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->playAt(IJ)V
 
-    .line 289
+    .line 292
     return-void
 
-    .line 282
+    .line 285
     :cond_2
     :goto_1
     return-void
@@ -699,7 +699,7 @@
 .method private chooseAspect()V
     .locals 4
 
-    .line 460
+    .line 465
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {v0, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
@@ -718,7 +718,7 @@
 
     move-result-object v1
 
-    .line 461
+    .line 466
     iget v2, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->aspect:I
 
     if-nez v2, :cond_0
@@ -739,7 +739,7 @@
 
     move-result-object v0
 
-    .line 464
+    .line 469
     const-string v1, "\u53d6\u6d88"
 
     const/4 v2, 0x0
@@ -750,14 +750,14 @@
 
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
-    .line 465
+    .line 470
     return-void
 .end method
 
 .method private chooseEpisodes()V
     .locals 6
 
-    .line 331
+    .line 334
     iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->transitioning:Z
 
     if-nez v0, :cond_3
@@ -780,13 +780,13 @@
 
     goto/16 :goto_2
 
-    .line 332
+    .line 335
     :cond_0
     invoke-static {p0}, Lcom/tongpin/player4k/catalog/LegacyEpisodeOrder;->isDescending(Landroid/content/Context;)Z
 
     move-result v0
 
-    .line 333
+    .line 336
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->queue:Lcom/tongpin/player4k/catalog/PlayQueue;
 
     iget-object v1, v1, Lcom/tongpin/player4k/catalog/PlayQueue;->episodes:Ljava/util/List;
@@ -795,10 +795,10 @@
 
     move-result v1
 
-    .line 334
+    .line 337
     new-array v2, v1, [Ljava/lang/String;
 
-    .line 335
+    .line 338
     const/4 v3, 0x0
 
     :goto_0
@@ -826,7 +826,7 @@
 
     goto :goto_0
 
-    .line 336
+    .line 339
     :cond_1
     new-instance v3, Landroid/app/AlertDialog$Builder;
 
@@ -860,7 +860,7 @@
 
     iget v4, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->episodeIndex:I
 
-    .line 337
+    .line 340
     invoke-static {v4, v1, v0}, Lcom/tongpin/player4k/catalog/LegacyEpisodeOrder;->index(IIZ)I
 
     move-result v4
@@ -873,7 +873,7 @@
 
     move-result-object v1
 
-    .line 341
+    .line 344
     if-eqz v0, :cond_2
 
     const-string v2, "\u5207\u6362\u6b63\u5e8f"
@@ -900,20 +900,20 @@
 
     move-result-object v1
 
-    .line 342
+    .line 345
     new-instance v2, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda5;
 
     invoke-direct {v2, p0, v1, v0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda5;-><init>(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;Landroid/app/AlertDialog;Z)V
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog;->setOnShowListener(Landroid/content/DialogInterface$OnShowListener;)V
 
-    .line 346
+    .line 349
     invoke-virtual {v1}, Landroid/app/AlertDialog;->show()V
 
-    .line 347
+    .line 350
     return-void
 
-    .line 331
+    .line 334
     :cond_3
     :goto_2
     return-void
@@ -922,7 +922,7 @@
 .method private chooseQuality()V
     .locals 4
 
-    .line 249
+    .line 252
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->urls:[Ljava/lang/String;
 
     invoke-static {v0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->hasQualityChoices([Ljava/lang/String;)Z
@@ -941,7 +941,7 @@
 
     goto :goto_1
 
-    .line 250
+    .line 253
     :cond_0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->urls:[Ljava/lang/String;
 
@@ -949,7 +949,7 @@
 
     new-array v1, v0, [Ljava/lang/String;
 
-    .line 251
+    .line 254
     const/4 v2, 0x0
 
     :goto_0
@@ -965,7 +965,7 @@
 
     goto :goto_0
 
-    .line 252
+    .line 255
     :cond_1
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
@@ -983,12 +983,12 @@
 
     invoke-direct {v3, p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda2;-><init>(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;)V
 
-    .line 253
+    .line 256
     invoke-virtual {v0, v1, v2, v3}, Landroid/app/AlertDialog$Builder;->setSingleChoiceItems([Ljava/lang/CharSequence;ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    .line 256
+    .line 259
     const-string v1, "\u53d6\u6d88"
 
     const/4 v2, 0x0
@@ -999,10 +999,10 @@
 
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
-    .line 257
+    .line 260
     return-void
 
-    .line 249
+    .line 252
     :cond_2
     :goto_1
     return-void
@@ -1011,14 +1011,14 @@
 .method private chooseSpeed()V
     .locals 6
 
-    .line 431
+    .line 436
     sget-object v0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->SPEEDS:[F
 
     array-length v0, v0
 
     new-array v1, v0, [Ljava/lang/String;
 
-    .line 432
+    .line 437
     const/4 v2, 0x2
 
     const/4 v3, 0x0
@@ -1067,7 +1067,7 @@
 
     goto :goto_0
 
-    .line 433
+    .line 438
     :cond_1
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
@@ -1087,7 +1087,7 @@
 
     move-result-object v0
 
-    .line 435
+    .line 440
     const-string v1, "\u53d6\u6d88"
 
     const/4 v2, 0x0
@@ -1098,14 +1098,14 @@
 
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
-    .line 436
+    .line 441
     return-void
 .end method
 
 .method private decoderChanged()V
     .locals 3
 
-    .line 417
+    .line 422
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
 
     if-eqz v0, :cond_2
@@ -1116,7 +1116,7 @@
 
     goto :goto_1
 
-    .line 418
+    .line 423
     :cond_0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
 
@@ -1134,10 +1134,10 @@
 
     if-ne v0, v1, :cond_1
 
-    .line 419
+    .line 424
     iput-boolean v2, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->decoderReloadPending:Z
 
-    .line 420
+    .line 425
     const-string v0, "\u5df2\u4fdd\u5b58\u89e3\u7801\u65b9\u5f0f\uff0c\u7ee7\u7eed\u64ad\u653e\u65f6\u5e94\u7528"
 
     const/4 v1, 0x0
@@ -1150,17 +1150,17 @@
 
     goto :goto_0
 
-    .line 421
+    .line 426
     :cond_1
     iget v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->selected:I
 
     invoke-direct {p0, v0, v2}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->play(IZ)V
 
-    .line 422
+    .line 427
     :goto_0
     return-void
 
-    .line 417
+    .line 422
     :cond_2
     :goto_1
     return-void
@@ -1169,7 +1169,7 @@
 .method private dp(I)I
     .locals 1
 
-    .line 681
+    .line 702
     int-to-float p1, p1
 
     invoke-virtual {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->getResources()Landroid/content/res/Resources;
@@ -1194,7 +1194,7 @@
 .method private enterFullscreen()V
     .locals 2
 
-    .line 501
+    .line 507
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
 
     if-eqz v0, :cond_1
@@ -1209,14 +1209,17 @@
 
     goto :goto_2
 
-    .line 503
+    .line 508
     :cond_0
+    invoke-static {p0}, Lcom/tongpin/player4k/catalog/HoldSpeedControls;->reset(Landroid/app/Activity;)V
+
+    .line 510
     :try_start_0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->orientation:Lcom/shuyu/gsyvideoplayer/utils/OrientationUtils;
 
     invoke-virtual {v0}, Lcom/shuyu/gsyvideoplayer/utils/OrientationUtils;->resolveByClick()V
 
-    .line 504
+    .line 511
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
 
     const/4 v1, 0x1
@@ -1225,16 +1228,16 @@
 
     move-result-object v0
 
-    .line 505
+    .line 512
     invoke-direct {p0, v0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->prepareFullscreen(Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;)V
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/LinkageError; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 508
+    .line 515
     goto :goto_1
 
-    .line 506
+    .line 513
     :catch_0
     move-exception v0
 
@@ -1243,15 +1246,15 @@
     :catch_1
     move-exception v0
 
-    .line 507
+    .line 514
     :goto_0
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->fullscreenFailed()V
 
-    .line 509
+    .line 516
     :goto_1
     return-void
 
-    .line 501
+    .line 507
     :cond_1
     :goto_2
     return-void
@@ -1260,46 +1263,55 @@
 .method private failed()V
     .locals 3
 
-    .line 488
+    .line 493
     iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->destroying:Z
 
     if-eqz v0, :cond_0
 
     return-void
 
-    .line 489
+    .line 494
     :cond_0
+    invoke-static {p0}, Lcom/tongpin/player4k/catalog/HoldSpeedControls;->reset(Landroid/app/Activity;)V
+
+    iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
+
+    const/4 v1, 0x7
+
+    invoke-static {v0, v1}, Lcom/tongpin/player4k/catalog/SubtitleControls;->stateChanged(Landroid/view/View;I)V
+
+    .line 495
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->transitioning:Z
 
-    .line 490
+    .line 496
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->updateNavigation()V
 
-    .line 491
+    .line 497
     invoke-direct {p0, v0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->keepScreenOn(Z)V
 
-    .line 492
+    .line 498
     iget-boolean v1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->fullscreen:Z
 
     if-eqz v1, :cond_1
 
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->leaveFullscreen()V
 
-    .line 493
+    .line 499
     :cond_1
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
 
     invoke-static {v1}, Lcom/tongpin/player4k/catalog/PlaybackResolution;->reset(Landroid/view/View;)V
 
-    .line 494
+    .line 500
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->actual:Landroid/widget/TextView;
 
     const/16 v2, 0x8
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 495
+    .line 501
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->error:Landroid/widget/TextView;
 
     iget-object v2, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->urls:[Ljava/lang/String;
@@ -1322,29 +1334,29 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 496
+    .line 502
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->error:Landroid/widget/TextView;
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 497
+    .line 503
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->recovery:Landroid/widget/LinearLayout;
 
     invoke-virtual {v1, v0}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    .line 498
+    .line 504
     return-void
 .end method
 
 .method private fullscreenFailed()V
     .locals 3
 
-    .line 526
+    .line 535
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->fullscreen:Z
 
-    .line 528
+    .line 537
     :try_start_0
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->orientation:Lcom/shuyu/gsyvideoplayer/utils/OrientationUtils;
 
@@ -1354,17 +1366,17 @@
 
     invoke-virtual {v1}, Lcom/shuyu/gsyvideoplayer/utils/OrientationUtils;->backToProtVideo()I
 
-    .line 529
+    .line 538
     :cond_0
     invoke-static {p0}, Lk6/c;->C(Landroid/content/Context;)Z
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/LinkageError; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 533
+    .line 542
     goto :goto_1
 
-    .line 530
+    .line 539
     :catch_0
     move-exception v1
 
@@ -1373,7 +1385,7 @@
     :catch_1
     move-exception v1
 
-    .line 531
+    .line 540
     :goto_0
     const-string v1, "\u5168\u5c4f\u4e0d\u53ef\u7528\uff0c\u8bf7\u8fd4\u56de\u7247\u5e93\u91cd\u8bd5"
 
@@ -1383,33 +1395,33 @@
 
     invoke-virtual {v1}, Landroid/widget/Toast;->show()V
 
-    .line 532
+    .line 541
     invoke-virtual {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->finish()V
 
-    .line 534
+    .line 543
     :goto_1
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->normalSystemBars()V
 
-    .line 535
+    .line 544
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->error:Landroid/widget/TextView;
 
     const-string v2, "\u6682\u65f6\u65e0\u6cd5\u8fdb\u5165\u5168\u5c4f\uff0c\u53ef\u7ee7\u7eed\u7a97\u53e3\u64ad\u653e\u6216\u91cd\u8bd5\u3002"
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 536
+    .line 545
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->error:Landroid/widget/TextView;
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 537
+    .line 546
     return-void
 .end method
 
 .method static hasQualityChoices([Ljava/lang/String;)Z
     .locals 1
 
-    .line 787
+    .line 811
     if-eqz p0, :cond_0
 
     array-length p0, p0
@@ -1430,7 +1442,7 @@
 .method private hideSystemBars()V
     .locals 2
 
-    .line 661
+    .line 682
     invoke-virtual {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->getWindow()Landroid/view/Window;
 
     move-result-object v0
@@ -1443,7 +1455,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setSystemUiVisibility(I)V
 
-    .line 665
+    .line 686
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1e
@@ -1460,7 +1472,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 666
+    .line 687
     invoke-virtual {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->getWindow()Landroid/view/Window;
 
     move-result-object v0
@@ -1473,7 +1485,7 @@
 
     invoke-interface {v0, v1}, Landroid/view/WindowInsetsController;->setSystemBarsBehavior(I)V
 
-    .line 667
+    .line 688
     invoke-virtual {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->getWindow()Landroid/view/Window;
 
     move-result-object v0
@@ -1488,7 +1500,7 @@
 
     invoke-interface {v0, v1}, Landroid/view/WindowInsetsController;->hide(I)V
 
-    .line 669
+    .line 690
     :cond_0
     return-void
 .end method
@@ -1496,7 +1508,7 @@
 .method private installNavigation(Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;)V
     .locals 12
 
-    .line 350
+    .line 353
     const-string v0, "tp_public_episode_controls"
 
     invoke-virtual {p1, v0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;->findViewWithTag(Ljava/lang/Object;)Landroid/view/View;
@@ -1509,20 +1521,20 @@
 
     return-void
 
-    .line 351
+    .line 354
     :cond_0
     new-instance v1, Landroid/widget/LinearLayout;
 
     invoke-direct {v1, p0}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
-    .line 352
+    .line 355
     invoke-virtual {v1, v0}, Landroid/widget/LinearLayout;->setTag(Ljava/lang/Object;)V
 
     const/16 v0, 0x10
 
     invoke-virtual {v1, v0}, Landroid/widget/LinearLayout;->setGravity(I)V
 
-    .line 353
+    .line 356
     const/16 v0, 0x8
 
     invoke-direct {p0, v0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->dp(I)I
@@ -1541,7 +1553,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->setBackgroundColor(I)V
 
-    .line 354
+    .line 357
     const-string v2, "\u4e0b\u4e00\u96c6"
 
     const-string v3, "\u66f4\u591a"
@@ -1554,7 +1566,7 @@
 
     move-result-object v2
 
-    .line 355
+    .line 358
     move v3, v4
 
     :goto_0
@@ -1566,10 +1578,10 @@
 
     if-ge v3, v7, :cond_1
 
-    .line 356
+    .line 359
     nop
 
-    .line 357
+    .line 360
     aget-object v7, v2, v3
 
     const/4 v8, 0x2
@@ -1578,7 +1590,7 @@
 
     move-result-object v7
 
-    .line 358
+    .line 361
     new-instance v9, Landroid/content/res/ColorStateList;
 
     const v10, -0x101009e
@@ -1603,7 +1615,7 @@
 
     invoke-virtual {v7, v9}, Landroid/widget/Button;->setTextColor(Landroid/content/res/ColorStateList;)V
 
-    .line 360
+    .line 363
     const/high16 v5, 0x41500000    # 13.0f
 
     invoke-virtual {v7, v5}, Landroid/widget/Button;->setTextSize(F)V
@@ -1612,7 +1624,7 @@
 
     invoke-virtual {v7, v5}, Landroid/widget/Button;->setSingleLine(Z)V
 
-    .line 361
+    .line 364
     const/4 v5, 0x6
 
     invoke-direct {p0, v5}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->dp(I)I
@@ -1625,14 +1637,14 @@
 
     invoke-virtual {v7, v9, v4, v5, v4}, Landroid/widget/Button;->setPadding(IIII)V
 
-    .line 362
+    .line 365
     new-instance v5, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda19;
 
     invoke-direct {v5, p0, v3}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda19;-><init>(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;I)V
 
     invoke-virtual {v7, v5}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 367
+    .line 370
     new-instance v5, Landroid/widget/LinearLayout$LayoutParams;
 
     invoke-direct {p0, v6}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->dp(I)I
@@ -1643,7 +1655,7 @@
 
     invoke-direct {v5, v4, v6, v9}, Landroid/widget/LinearLayout$LayoutParams;-><init>(IIF)V
 
-    .line 368
+    .line 371
     invoke-direct {p0, v8}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->dp(I)I
 
     move-result v6
@@ -1656,12 +1668,12 @@
 
     invoke-virtual {v1, v7, v5}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 355
+    .line 358
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 370
+    .line 373
     :cond_1
     invoke-virtual {p1}, Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;->getFullscreenButton()Landroid/widget/ImageView;
 
@@ -1673,7 +1685,7 @@
 
     check-cast v2, Landroid/view/View;
 
-    .line 371
+    .line 374
     new-instance v3, Landroid/widget/FrameLayout$LayoutParams;
 
     invoke-direct {p0, v6}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->dp(I)I
@@ -1684,7 +1696,7 @@
 
     invoke-direct {v3, v5, v7, v8}, Landroid/widget/FrameLayout$LayoutParams;-><init>(III)V
 
-    .line 372
+    .line 375
     invoke-direct {p0, v6}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->dp(I)I
 
     move-result v5
@@ -1693,7 +1705,7 @@
 
     invoke-virtual {p1, v1, v3}, Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 373
+    .line 376
     invoke-virtual {v2}, Landroid/view/View;->getVisibility()I
 
     move-result v3
@@ -1705,7 +1717,7 @@
     :cond_2
     invoke-virtual {v1, v0}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    .line 374
+    .line 377
     invoke-virtual {p1}, Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
 
     move-result-object p1
@@ -1716,27 +1728,27 @@
 
     invoke-virtual {p1, v0}, Landroid/view/ViewTreeObserver;->addOnGlobalLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
 
-    .line 376
+    .line 379
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->updateNavigation()V
 
-    .line 377
+    .line 380
     return-void
 .end method
 
 .method private keepScreenOn(Z)V
     .locals 1
 
-    .line 481
+    .line 486
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
 
     if-eqz v0, :cond_0
 
-    .line 482
+    .line 487
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
 
     invoke-virtual {v0, p1}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->setKeepScreenOn(Z)V
 
-    .line 483
+    .line 488
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
 
     invoke-virtual {v0}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->getCurrentPlayer()Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;
@@ -1745,7 +1757,7 @@
 
     invoke-virtual {v0, p1}, Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;->setKeepScreenOn(Z)V
 
-    .line 485
+    .line 490
     :cond_0
     return-void
 .end method
@@ -1753,7 +1765,7 @@
 .method static synthetic lambda$installNavigation$1(Landroid/widget/LinearLayout;Landroid/view/View;)V
     .locals 0
 
-    .line 375
+    .line 378
     invoke-virtual {p1}, Landroid/view/View;->getVisibility()I
 
     move-result p1
@@ -1776,7 +1788,10 @@
 .method private leaveFullscreen()V
     .locals 1
 
-    .line 553
+    .line 562
+    invoke-static {p0}, Lcom/tongpin/player4k/catalog/HoldSpeedControls;->reset(Landroid/app/Activity;)V
+
+    .line 563
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->orientation:Lcom/shuyu/gsyvideoplayer/utils/OrientationUtils;
 
     if-eqz v0, :cond_0
@@ -1785,39 +1800,49 @@
 
     invoke-virtual {v0}, Lcom/shuyu/gsyvideoplayer/utils/OrientationUtils;->backToProtVideo()I
 
-    .line 554
+    .line 564
     :cond_0
     invoke-static {p0}, Lk6/c;->C(Landroid/content/Context;)Z
 
-    .line 555
+    .line 565
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->fullscreen:Z
 
-    .line 556
+    .line 566
+    iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
+
+    invoke-static {v0}, Lcom/tongpin/player4k/catalog/SubtitleControls;->attach(Landroid/view/View;)V
+
+    .line 567
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->normalSystemBars()V
 
-    .line 557
+    .line 568
     return-void
 .end method
 
 .method private moreControls()V
-    .locals 15
+    .locals 16
 
-    .line 398
-    iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
+    .line 401
+    move-object/from16 v7, p0
+
+    iget-object v0, v7, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
 
     if-eqz v0, :cond_4
 
-    iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->destroying:Z
+    iget-boolean v0, v7, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->destroying:Z
 
     if-eqz v0, :cond_0
 
     goto/16 :goto_3
 
-    .line 399
+    .line 402
     :cond_0
-    iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->urls:[Ljava/lang/String;
+    invoke-static/range {p0 .. p0}, Lcom/tongpin/player4k/catalog/HoldSpeedControls;->reset(Landroid/app/Activity;)V
+
+    .line 403
+    iget-object v0, v7, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->urls:[Ljava/lang/String;
 
     invoke-static {v0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->hasQualityChoices([Ljava/lang/String;)Z
 
@@ -1835,9 +1860,9 @@
 
     move-result-object v0
 
-    iget v1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->selected:I
+    iget v1, v7, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->selected:I
 
-    invoke-direct {p0, v1}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->qualityLabel(I)Ljava/lang/String;
+    invoke-direct {v7, v1}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->qualityLabel(I)Ljava/lang/String;
 
     move-result-object v1
 
@@ -1855,162 +1880,162 @@
     const-string v0, "\u753b\u8d28 \u00b7 \u5355\u4e00\u64ad\u653e\u7ebf\u8def"
 
     :goto_0
-    move-object v1, v0
+    move-object v8, v0
 
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "\u500d\u901f \u00b7 "
+    const-string v1, "\u500d\u901f \u00b7 "
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    iget v2, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->speed:F
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    const-string v2, "\u00d7"
+    iget v1, v7, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->speed:F
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v1, "\u00d7"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v9
 
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "\u753b\u9762\u6bd4\u4f8b \u00b7 "
+    const-string v1, "\u753b\u9762\u6bd4\u4f8b \u00b7 "
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 401
-    iget v3, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->aspect:I
+    .line 405
+    iget v1, v7, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->aspect:I
 
-    if-nez v3, :cond_2
+    if-nez v1, :cond_2
 
-    const-string v3, "\u539f\u6bd4\u4f8b"
+    const-string v1, "\u539f\u6bd4\u4f8b"
 
     goto :goto_1
 
     :cond_2
-    const-string v3, "\u586b\u5145\u5c4f\u5e55"
+    const-string v1, "\u586b\u5145\u5c4f\u5e55"
 
     :goto_1
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v12
 
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "\u81ea\u52a8\u8fde\u64ad \u00b7 "
+    const-string v1, "\u81ea\u52a8\u8fde\u64ad \u00b7 "
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    invoke-direct {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->autoNext()Z
+    invoke-direct/range {p0 .. p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->autoNext()Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_3
+    if-eqz v1, :cond_3
 
-    const-string v3, "\u5f00"
+    const-string v1, "\u5f00"
 
     goto :goto_2
 
     :cond_3
-    const-string v3, "\u5173"
+    const-string v1, "\u5173"
 
     :goto_2
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v13
 
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "\u89e3\u7801 \u00b7 "
+    const-string v1, "\u89e3\u7801 \u00b7 "
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    invoke-static {p0}, Lcom/tongpin/player4k/catalog/DecoderPolicy;->label(Landroid/content/Context;)Ljava/lang/String;
+    invoke-static/range {p0 .. p0}, Lcom/tongpin/player4k/catalog/DecoderPolicy;->label(Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v14
 
-    const-string v3, "\u540e\u9000 10 \u79d2"
+    const-string v15, "\u5b57\u5e55"
 
-    const-string v4, "\u524d\u8fdb 10 \u79d2"
+    const-string v10, "\u540e\u9000 10 \u79d2"
 
-    filled-new-array/range {v1 .. v7}, [Ljava/lang/String;
+    const-string v11, "\u524d\u8fdb 10 \u79d2"
 
-    move-result-object v10
+    filled-new-array/range {v8 .. v15}, [Ljava/lang/String;
 
-    .line 402
-    const/4 v0, 0x7
+    move-result-object v2
 
-    new-array v12, v0, [I
+    .line 406
+    const/16 v0, 0x8
 
-    fill-array-data v12, :array_0
+    new-array v4, v0, [I
 
-    .line 404
-    new-array v11, v0, [Z
+    fill-array-data v4, :array_0
 
-    fill-array-data v11, :array_1
+    .line 408
+    new-array v3, v0, [Z
 
-    invoke-direct {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->autoNext()Z
+    fill-array-data v3, :array_1
 
-    move-result v13
+    invoke-direct/range {p0 .. p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->autoNext()Z
 
-    new-instance v14, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda1;
+    move-result v5
 
-    invoke-direct {v14, p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda1;-><init>(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;)V
+    new-instance v6, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda1;
 
-    const-string v9, "\u64ad\u653e\u8bbe\u7f6e"
+    invoke-direct {v6, v7}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda1;-><init>(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;)V
 
-    move-object v8, p0
+    const-string v1, "\u64ad\u653e\u8bbe\u7f6e"
 
-    invoke-static/range {v8 .. v14}, Lcom/tongpin/player4k/catalog/PlayerOptionsSheet;->show(Landroid/app/Activity;Ljava/lang/String;[Ljava/lang/String;[Z[IZLandroid/content/DialogInterface$OnClickListener;)V
+    move-object/from16 v0, p0
 
-    .line 414
+    invoke-static/range {v0 .. v6}, Lcom/tongpin/player4k/catalog/PlayerOptionsSheet;->show(Landroid/app/Activity;Ljava/lang/String;[Ljava/lang/String;[Z[IZLandroid/content/DialogInterface$OnClickListener;)V
+
+    .line 419
     return-void
 
-    .line 398
+    .line 401
     :cond_4
     :goto_3
     return-void
-
-    nop
 
     :array_0
     .array-data 4
@@ -2021,10 +2046,12 @@
         0x3
         0x8
         0x9
+        0xa
     .end array-data
 
     :array_1
     .array-data 1
+        0x1t
         0x1t
         0x1t
         0x1t
@@ -2038,7 +2065,7 @@
 .method private normalSystemBars()V
     .locals 4
 
-    .line 641
+    .line 662
     invoke-virtual {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->getWindow()Landroid/view/Window;
 
     move-result-object v0
@@ -2047,7 +2074,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/Window;->clearFlags(I)V
 
-    .line 642
+    .line 663
     invoke-virtual {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->getWindow()Landroid/view/Window;
 
     move-result-object v0
@@ -2056,7 +2083,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/Window;->setStatusBarColor(I)V
 
-    .line 643
+    .line 664
     invoke-virtual {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->getWindow()Landroid/view/Window;
 
     move-result-object v0
@@ -2075,14 +2102,14 @@
     :goto_0
     invoke-virtual {v0, v1}, Landroid/view/Window;->setNavigationBarColor(I)V
 
-    .line 644
+    .line 665
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1c
 
     if-lt v0, v1, :cond_1
 
-    .line 645
+    .line 666
     invoke-virtual {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->getWindow()Landroid/view/Window;
 
     move-result-object v0
@@ -2091,23 +2118,23 @@
 
     move-result-object v0
 
-    .line 646
+    .line 667
     const/4 v1, 0x2
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->layoutInDisplayCutoutMode:I
 
-    .line 647
+    .line 668
     invoke-virtual {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->getWindow()Landroid/view/Window;
 
     move-result-object v1
 
     invoke-virtual {v1, v0}, Landroid/view/Window;->setAttributes(Landroid/view/WindowManager$LayoutParams;)V
 
-    .line 649
+    .line 670
     :cond_1
     nop
 
-    .line 651
+    .line 672
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     if-lt v0, v3, :cond_2
@@ -2119,7 +2146,7 @@
     :cond_2
     const/16 v0, 0x2700
 
-    .line 652
+    .line 673
     :goto_1
     invoke-virtual {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->getWindow()Landroid/view/Window;
 
@@ -2131,14 +2158,14 @@
 
     invoke-virtual {v1, v0}, Landroid/view/View;->setSystemUiVisibility(I)V
 
-    .line 653
+    .line 674
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1e
 
     if-lt v0, v1, :cond_3
 
-    .line 654
+    .line 675
     invoke-virtual {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->getWindow()Landroid/view/Window;
 
     move-result-object v0
@@ -2147,7 +2174,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/Window;->setDecorFitsSystemWindows(Z)V
 
-    .line 655
+    .line 676
     invoke-virtual {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->getWindow()Landroid/view/Window;
 
     move-result-object v0
@@ -2156,7 +2183,7 @@
 
     move-result-object v0
 
-    .line 656
+    .line 677
     if-eqz v0, :cond_3
 
     invoke-static {}, Landroid/view/WindowInsets$Type;->systemBars()I
@@ -2165,7 +2192,7 @@
 
     invoke-interface {v0, v1}, Landroid/view/WindowInsetsController;->show(I)V
 
-    .line 658
+    .line 679
     :cond_3
     return-void
 .end method
@@ -2173,7 +2200,7 @@
 .method private openSource()V
     .locals 3
 
-    .line 618
+    .line 639
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->sourceUrl:Ljava/lang/String;
 
     invoke-static {v0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->validHttpUrl(Ljava/lang/String;)Z
@@ -2184,7 +2211,7 @@
 
     return-void
 
-    .line 620
+    .line 641
     :cond_0
     :try_start_0
     new-instance v0, Landroid/content/Intent;
@@ -2210,10 +2237,10 @@
     .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 623
+    .line 644
     goto :goto_1
 
-    .line 621
+    .line 642
     :catch_0
     move-exception v0
 
@@ -2222,7 +2249,7 @@
     :catch_1
     move-exception v0
 
-    .line 622
+    .line 643
     :goto_0
     const-string v0, "\u6ca1\u6709\u53ef\u6253\u5f00\u6765\u6e90\u7684\u5e94\u7528"
 
@@ -2234,7 +2261,7 @@
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    .line 624
+    .line 645
     :goto_1
     return-void
 .end method
@@ -2242,7 +2269,7 @@
 .method private play(IZ)V
     .locals 4
 
-    .line 212
+    .line 213
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
 
     if-eqz v0, :cond_3
@@ -2261,13 +2288,13 @@
 
     goto :goto_1
 
-    .line 213
+    .line 214
     :cond_0
     const-wide/16 v0, 0x0
 
     if-eqz p2, :cond_2
 
-    .line 214
+    .line 215
     iget-object p2, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
 
     invoke-virtual {p2}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->getCurrentPlayer()Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;
@@ -2282,39 +2309,39 @@
 
     move-result-wide v2
 
-    .line 215
+    .line 216
     cmp-long p2, v2, v0
 
     if-lez p2, :cond_1
 
     iput-wide v2, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->position:J
 
-    .line 216
+    .line 217
     :cond_1
     goto :goto_0
 
     :cond_2
     iput-wide v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->position:J
 
-    .line 217
+    .line 218
     :goto_0
     iget-wide v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->position:J
 
     invoke-direct {p0, p1, v0, v1}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->playAt(IJ)V
 
-    .line 218
+    .line 219
     return-void
 
-    .line 212
+    .line 213
     :cond_3
     :goto_1
     return-void
 .end method
 
 .method private playAt(IJ)V
-    .locals 2
+    .locals 4
 
-    .line 221
+    .line 222
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
 
     if-eqz v0, :cond_4
@@ -2333,195 +2360,203 @@
 
     goto/16 :goto_4
 
-    .line 222
+    .line 223
     :cond_0
-    const-wide/16 v0, 0x0
+    invoke-static {p0}, Lcom/tongpin/player4k/catalog/HoldSpeedControls;->reset(Landroid/app/Activity;)V
 
-    invoke-static {v0, v1, p2, p3}, Ljava/lang/Math;->max(JJ)J
+    .line 224
+    iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
+
+    const/4 v1, 0x1
+
+    invoke-static {v0, v1}, Lcom/tongpin/player4k/catalog/SubtitleControls;->stateChanged(Landroid/view/View;I)V
+
+    .line 225
+    const-wide/16 v2, 0x0
+
+    invoke-static {v2, v3, p2, p3}, Ljava/lang/Math;->max(JJ)J
 
     move-result-wide p2
 
     iput-wide p2, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->position:J
 
-    .line 223
-    const/4 p2, 0x1
-
-    iput-boolean p2, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->transitioning:Z
-
-    .line 224
-    iget p3, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->playGeneration:I
-
-    add-int/2addr p3, p2
-
-    iput p3, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->playGeneration:I
-
-    .line 225
-    invoke-direct {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->updateNavigation()V
-
     .line 226
-    iput p1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->selected:I
+    iput-boolean v1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->transitioning:Z
 
     .line 227
-    iget-object p3, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->error:Landroid/widget/TextView;
+    iget p2, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->playGeneration:I
 
-    const/16 v0, 0x8
+    add-int/2addr p2, v1
 
-    invoke-virtual {p3, v0}, Landroid/widget/TextView;->setVisibility(I)V
+    iput p2, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->playGeneration:I
 
     .line 228
-    iget-object p3, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->recovery:Landroid/widget/LinearLayout;
-
-    invoke-virtual {p3, v0}, Landroid/widget/LinearLayout;->setVisibility(I)V
+    invoke-direct {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->updateNavigation()V
 
     .line 229
-    iget-object p3, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
-
-    invoke-static {p3}, Lcom/tongpin/player4k/catalog/PlaybackResolution;->reset(Landroid/view/View;)V
+    iput p1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->selected:I
 
     .line 230
-    iget-object p3, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->quality:Landroid/widget/Button;
+    iget-object p2, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->error:Landroid/widget/TextView;
 
-    iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->urls:[Ljava/lang/String;
+    const/16 p3, 0x8
 
-    invoke-static {v0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->hasQualityChoices([Ljava/lang/String;)Z
+    invoke-virtual {p2, p3}, Landroid/widget/TextView;->setVisibility(I)V
 
-    move-result v0
+    .line 231
+    iget-object p2, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->recovery:Landroid/widget/LinearLayout;
 
-    if-eqz v0, :cond_1
+    invoke-virtual {p2, p3}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    .line 232
+    iget-object p2, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {p2}, Lcom/tongpin/player4k/catalog/PlaybackResolution;->reset(Landroid/view/View;)V
 
-    const-string v1, "\u753b\u8d28 \u00b7 "
+    .line 233
+    iget-object p2, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->quality:Landroid/widget/Button;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object p3, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->urls:[Ljava/lang/String;
 
-    move-result-object v0
+    invoke-static {p3}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->hasQualityChoices([Ljava/lang/String;)Z
+
+    move-result p3
+
+    if-eqz p3, :cond_1
+
+    new-instance p3, Ljava/lang/StringBuilder;
+
+    invoke-direct {p3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v0, "\u753b\u8d28 \u00b7 "
+
+    invoke-virtual {p3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p3
 
     invoke-direct {p0, p1}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->qualityLabel(I)Ljava/lang/String;
 
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
     move-result-object v0
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object p3
+
+    invoke-virtual {p3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p3
 
     goto :goto_0
 
     :cond_1
-    const-string v0, "\u5355\u4e00\u64ad\u653e\u7ebf\u8def"
+    const-string p3, "\u5355\u4e00\u64ad\u653e\u7ebf\u8def"
 
     :goto_0
-    invoke-virtual {p3, v0}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {p2, p3}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
 
-    .line 231
-    iget-object p3, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->quality:Landroid/widget/Button;
+    .line 234
+    iget-object p2, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->quality:Landroid/widget/Button;
 
-    iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->urls:[Ljava/lang/String;
+    iget-object p3, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->urls:[Ljava/lang/String;
 
-    invoke-static {v0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->hasQualityChoices([Ljava/lang/String;)Z
+    invoke-static {p3}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->hasQualityChoices([Ljava/lang/String;)Z
 
-    move-result v0
+    move-result p3
 
-    if-eqz v0, :cond_2
+    if-eqz p3, :cond_2
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance p3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "\u9009\u62e9\u64ad\u653e\u753b\u8d28\uff0c\u5f53\u524d\u9009\u9879\uff1a"
+    const-string v0, "\u9009\u62e9\u64ad\u653e\u753b\u8d28\uff0c\u5f53\u524d\u9009\u9879\uff1a"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object p3
 
     invoke-direct {p0, p1}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->qualityLabel(I)Ljava/lang/String;
 
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
     move-result-object v0
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object p3
+
+    invoke-virtual {p3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p3
 
     goto :goto_1
 
     :cond_2
-    const-string v0, "\u6b64\u96c6\u4ec5\u63d0\u4f9b\u4e00\u4e2a\u64ad\u653e\u9009\u9879\uff0c\u5b9e\u9645\u753b\u8d28\u89c1\u753b\u9762\u5185\u5c3a\u5bf8"
+    const-string p3, "\u6b64\u96c6\u4ec5\u63d0\u4f9b\u4e00\u4e2a\u64ad\u653e\u9009\u9879\uff0c\u5b9e\u9645\u753b\u8d28\u89c1\u753b\u9762\u5185\u5c3a\u5bf8"
 
     :goto_1
-    invoke-virtual {p3, v0}, Landroid/widget/Button;->setContentDescription(Ljava/lang/CharSequence;)V
-
-    .line 233
-    :try_start_0
-    iget-object p3, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
-
-    invoke-virtual {p3}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->getCurrentPlayer()Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;
-
-    move-result-object p3
-
-    .line 234
-    invoke-virtual {p3}, Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;->release()V
-
-    .line 235
-    invoke-static {p0, p2}, Lcom/tongpin/player4k/catalog/DecoderPolicy;->select(Landroid/content/Context;Z)V
-
-    const/4 p2, 0x0
-
-    iput-boolean p2, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->decoderReloadPending:Z
+    invoke-virtual {p2, p3}, Landroid/widget/Button;->setContentDescription(Ljava/lang/CharSequence;)V
 
     .line 236
+    :try_start_0
+    iget-object p2, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
+
+    invoke-virtual {p2}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->getCurrentPlayer()Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;
+
+    move-result-object p2
+
+    .line 237
+    invoke-virtual {p2}, Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;->release()V
+
+    .line 238
+    invoke-static {p0, v1}, Lcom/tongpin/player4k/catalog/DecoderPolicy;->select(Landroid/content/Context;Z)V
+
+    const/4 p3, 0x0
+
+    iput-boolean p3, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->decoderReloadPending:Z
+
+    .line 239
     new-instance v0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks;
 
     iget v1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->playGeneration:I
 
     invoke-direct {v0, p0, v1}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks;-><init>(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;I)V
 
-    invoke-virtual {p3, v0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;->setVideoAllCallBack(Lm6/h;)V
+    invoke-virtual {p2, v0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;->setVideoAllCallBack(Lm6/h;)V
 
-    .line 237
+    .line 240
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->urls:[Ljava/lang/String;
 
     aget-object p1, v0, p1
 
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->title:Ljava/lang/String;
 
-    invoke-virtual {p3, p1, p2, v0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;->setUp(Ljava/lang/String;ZLjava/lang/String;)Z
+    invoke-virtual {p2, p1, p3, v0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;->setUp(Ljava/lang/String;ZLjava/lang/String;)Z
 
     move-result p1
 
     if-nez p1, :cond_3
 
-    .line 238
+    .line 241
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->failed()V
 
-    .line 239
+    .line 242
     return-void
 
-    .line 241
+    .line 244
     :cond_3
-    iget-wide p1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->position:J
+    iget-wide v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->position:J
 
-    invoke-virtual {p3, p1, p2}, Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;->setSeekOnStart(J)V
+    invoke-virtual {p2, v0, v1}, Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;->setSeekOnStart(J)V
 
-    .line 242
-    invoke-virtual {p3}, Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;->startPlayLogic()V
+    .line 245
+    invoke-virtual {p2}, Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;->startPlayLogic()V
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/LinkageError; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 245
+    .line 248
     goto :goto_3
 
-    .line 243
+    .line 246
     :catch_0
     move-exception p1
 
@@ -2530,15 +2565,15 @@
     :catch_1
     move-exception p1
 
-    .line 244
+    .line 247
     :goto_2
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->failed()V
 
-    .line 246
+    .line 249
     :goto_3
     return-void
 
-    .line 221
+    .line 222
     :cond_4
     :goto_4
     return-void
@@ -2547,7 +2582,7 @@
 .method static playbackErrorText(I)Ljava/lang/String;
     .locals 1
 
-    .line 791
+    .line 815
     const/4 v0, 0x1
 
     if-le p0, v0, :cond_0
@@ -2556,11 +2591,11 @@
 
     goto :goto_0
 
-    .line 792
+    .line 816
     :cond_0
     const-string p0, "\u6b64\u7ebf\u8def\u6682\u65f6\u65e0\u6cd5\u64ad\u653e\u3002\u8bf7\u91cd\u8bd5\uff0c\u6216\u8fd4\u56de\u7247\u5e93\u66f4\u6362\u7ebf\u8def\u3002"
 
-    .line 791
+    .line 815
     :goto_0
     return-object p0
 .end method
@@ -2568,34 +2603,40 @@
 .method private prepareFullscreen(Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;)V
     .locals 3
 
-    .line 512
+    .line 519
     if-eqz p1, :cond_2
 
-    .line 513
+    .line 520
+    invoke-static {p0}, Lcom/tongpin/player4k/catalog/HoldSpeedControls;->reset(Landroid/app/Activity;)V
+
+    .line 521
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->fullscreen:Z
 
-    .line 514
+    .line 522
+    invoke-static {p1}, Lcom/tongpin/player4k/catalog/SubtitleControls;->attach(Landroid/view/View;)V
+
+    .line 523
     invoke-static {p1}, Lcom/tongpin/player4k/catalog/PlaybackResolution;->attach(Landroid/view/View;)V
 
-    .line 515
+    .line 524
     invoke-static {p1}, Lcom/tongpin/player4k/catalog/PlaybackResolution;->refresh(Landroid/view/View;)V
 
-    .line 516
+    .line 525
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->hideSystemBars()V
 
-    .line 517
+    .line 526
     invoke-direct {p0, p1}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->sizeControls(Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;)V
 
-    .line 518
+    .line 527
     new-instance v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda8;
 
     invoke-direct {v1, p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda8;-><init>(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;)V
 
     invoke-virtual {p1, v1}, Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;->setOnApplyWindowInsetsListener(Landroid/view/View$OnApplyWindowInsetsListener;)V
 
-    .line 519
+    .line 528
     invoke-virtual {p1}, Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;->getBackButton()Landroid/widget/ImageView;
 
     move-result-object v1
@@ -2606,7 +2647,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 520
+    .line 529
     invoke-virtual {p1}, Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;->getFullscreenButton()Landroid/widget/ImageView;
 
     move-result-object v1
@@ -2617,10 +2658,10 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 521
+    .line 530
     invoke-virtual {p1}, Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;->requestApplyInsets()V
 
-    .line 522
+    .line 531
     iget-boolean v1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->foreground:Z
 
     if-eqz v1, :cond_1
@@ -2650,10 +2691,10 @@
     :goto_0
     invoke-direct {p0, v0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->keepScreenOn(Z)V
 
-    .line 523
+    .line 532
     return-void
 
-    .line 512
+    .line 519
     :cond_2
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -2667,7 +2708,7 @@
 .method private qualityLabel(I)Ljava/lang/String;
     .locals 4
 
-    .line 260
+    .line 263
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->widths:[I
 
     aget v0, v0, p1
@@ -2682,7 +2723,7 @@
 
     if-lez v0, :cond_1
 
-    .line 261
+    .line 264
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -2743,7 +2784,7 @@
 
     return-object p1
 
-    .line 263
+    .line 266
     :cond_1
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->labels:[Ljava/lang/String;
 
@@ -2775,7 +2816,7 @@
 
     return-object p1
 
-    .line 264
+    .line 267
     :cond_2
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->widths:[I
 
@@ -2839,7 +2880,7 @@
 .method private readEpisode(I)V
     .locals 5
 
-    .line 268
+    .line 271
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->queue:Lcom/tongpin/player4k/catalog/PlayQueue;
 
     iget-object v0, v0, Lcom/tongpin/player4k/catalog/PlayQueue;->episodes:Ljava/util/List;
@@ -2850,10 +2891,10 @@
 
     check-cast v0, Lcom/tongpin/player4k/catalog/CatalogApi$Episode;
 
-    .line 269
+    .line 272
     iput p1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->episodeIndex:I
 
-    .line 270
+    .line 273
     new-instance p1, Ljava/lang/StringBuilder;
 
     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
@@ -2884,21 +2925,21 @@
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->title:Ljava/lang/String;
 
-    .line 271
+    .line 274
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->queue:Lcom/tongpin/player4k/catalog/PlayQueue;
 
     iget-object p1, p1, Lcom/tongpin/player4k/catalog/PlayQueue;->sourceUrl:Ljava/lang/String;
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->sourceUrl:Ljava/lang/String;
 
-    .line 272
+    .line 275
     iget-object p1, v0, Lcom/tongpin/player4k/catalog/CatalogApi$Episode;->streams:Ljava/util/List;
 
     invoke-interface {p1}, Ljava/util/List;->size()I
 
     move-result p1
 
-    .line 273
+    .line 276
     new-array v1, p1, [Ljava/lang/String;
 
     iput-object v1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->urls:[Ljava/lang/String;
@@ -2915,13 +2956,13 @@
 
     iput-object v1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->heights:[I
 
-    .line 274
+    .line 277
     const/4 v1, 0x0
 
     :goto_0
     if-ge v1, p1, :cond_0
 
-    .line 275
+    .line 278
     iget-object v2, v0, Lcom/tongpin/player4k/catalog/CatalogApi$Episode;->streams:Ljava/util/List;
 
     invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -2930,7 +2971,7 @@
 
     check-cast v2, Lcom/tongpin/player4k/catalog/CatalogApi$Stream;
 
-    .line 276
+    .line 279
     iget-object v3, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->urls:[Ljava/lang/String;
 
     iget-object v4, v2, Lcom/tongpin/player4k/catalog/CatalogApi$Stream;->url:Ljava/lang/String;
@@ -2955,12 +2996,12 @@
 
     aput v2, v3, v1
 
-    .line 274
+    .line 277
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 278
+    .line 281
     :cond_0
     iget-object p1, v0, Lcom/tongpin/player4k/catalog/CatalogApi$Episode;->streams:Ljava/util/List;
 
@@ -2970,25 +3011,25 @@
 
     iput p1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->selected:I
 
-    .line 279
+    .line 282
     return-void
 .end method
 
 .method private requestVideoLayout(Landroid/view/View;)V
     .locals 2
 
-    .line 468
+    .line 473
     invoke-virtual {p1}, Landroid/view/View;->requestLayout()V
 
-    .line 469
+    .line 474
     instance-of v0, p1, Landroid/view/ViewGroup;
 
     if-eqz v0, :cond_0
 
-    .line 470
+    .line 475
     check-cast p1, Landroid/view/ViewGroup;
 
-    .line 471
+    .line 476
     const/4 v0, 0x0
 
     :goto_0
@@ -3008,7 +3049,7 @@
 
     goto :goto_0
 
-    .line 473
+    .line 478
     :cond_0
     return-void
 .end method
@@ -3016,7 +3057,7 @@
 .method static resolutionText(II)Ljava/lang/String;
     .locals 0
 
-    .line 783
+    .line 807
     invoke-static {p0, p1}, Lcom/tongpin/player4k/catalog/PlaybackResolution;->resolutionText(II)Ljava/lang/String;
 
     move-result-object p0
@@ -3027,7 +3068,7 @@
 .method private restoredProgress()J
     .locals 6
 
-    .line 292
+    .line 295
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->queue:Lcom/tongpin/player4k/catalog/PlayQueue;
 
     const-wide/16 v1, 0x0
@@ -3036,7 +3077,7 @@
 
     return-wide v1
 
-    .line 293
+    .line 296
     :cond_0
     :try_start_0
     const-string v0, "tongpin_progress"
@@ -3085,7 +3126,7 @@
 
     return-wide v0
 
-    .line 294
+    .line 297
     :catch_0
     move-exception v0
 
@@ -3095,7 +3136,7 @@
 .method static resumePosition(JJZ)J
     .locals 4
 
-    .line 326
+    .line 329
     const-wide/16 v0, 0x0
 
     if-nez p4, :cond_1
@@ -3124,11 +3165,11 @@
 
     goto :goto_0
 
-    .line 327
+    .line 330
     :cond_0
     return-wide p0
 
-    .line 326
+    .line 329
     :cond_1
     :goto_0
     return-wide v0
@@ -3137,7 +3178,7 @@
 .method private saveProgress(Z)V
     .locals 17
 
-    .line 298
+    .line 301
     move-object/from16 v1, p0
 
     move/from16 v0, p1
@@ -3152,7 +3193,7 @@
 
     goto/16 :goto_3
 
-    .line 300
+    .line 303
     :cond_0
     :try_start_0
     iget-object v2, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
@@ -3161,12 +3202,12 @@
 
     move-result-object v2
 
-    .line 301
+    .line 304
     invoke-virtual {v2}, Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;->getCurrentPositionWhenPlaying()J
 
     move-result-wide v3
 
-    .line 302
+    .line 305
     const-wide/16 v5, 0x0
 
     cmp-long v7, v3, v5
@@ -3175,7 +3216,7 @@
 
     iput-wide v3, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->position:J
 
-    .line 303
+    .line 306
     :cond_1
     iget-wide v3, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->position:J
 
@@ -3187,7 +3228,7 @@
 
     move-result-wide v2
 
-    .line 304
+    .line 307
     iget-object v4, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->queue:Lcom/tongpin/player4k/catalog/PlayQueue;
 
     iget v7, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->episodeIndex:I
@@ -3196,7 +3237,7 @@
 
     move-result-object v4
 
-    .line 305
+    .line 308
     const-string v7, "tongpin_progress"
 
     const/4 v8, 0x0
@@ -3205,7 +3246,7 @@
 
     move-result-object v7
 
-    .line 306
+    .line 309
     invoke-interface {v7}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v8
@@ -3213,7 +3254,7 @@
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/LinkageError; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 307
+    .line 310
     cmp-long v9, v2, v5
 
     const-string v10, "t_"
@@ -3263,13 +3304,13 @@
 
     goto/16 :goto_1
 
-    .line 309
+    .line 312
     :cond_2
     invoke-interface {v7}, Landroid/content/SharedPreferences;->getAll()Ljava/util/Map;
 
     move-result-object v9
 
-    .line 310
+    .line 313
     new-instance v12, Ljava/lang/StringBuilder;
 
     invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
@@ -3300,10 +3341,10 @@
 
     if-lt v7, v12, :cond_5
 
-    .line 311
+    .line 314
     nop
 
-    .line 312
+    .line 315
     invoke-interface {v9}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
     move-result-object v7
@@ -3329,7 +3370,7 @@
 
     check-cast v14, Ljava/util/Map$Entry;
 
-    .line 313
+    .line 316
     invoke-interface {v14}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v15
@@ -3364,7 +3405,7 @@
 
     if-gez v15, :cond_3
 
-    .line 314
+    .line 317
     invoke-interface {v14}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v9
@@ -3387,11 +3428,11 @@
 
     move-result-object v9
 
-    .line 313
+    .line 316
     :cond_3
     goto :goto_0
 
-    .line 316
+    .line 319
     :cond_4
     if-eqz v9, :cond_5
 
@@ -3433,7 +3474,7 @@
 
     invoke-interface {v7, v9}, Landroid/content/SharedPreferences$Editor;->remove(Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
-    .line 318
+    .line 321
     :cond_5
     new-instance v7, Ljava/lang/StringBuilder;
 
@@ -3477,11 +3518,11 @@
 
     invoke-interface {v2, v3, v9, v10}, Landroid/content/SharedPreferences$Editor;->putLong(Ljava/lang/String;J)Landroid/content/SharedPreferences$Editor;
 
-    .line 320
+    .line 323
     :goto_1
     invoke-interface {v8}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    .line 321
+    .line 324
     if-eqz v0, :cond_6
 
     iput-wide v5, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->position:J
@@ -3491,7 +3532,7 @@
 
     goto :goto_2
 
-    .line 322
+    .line 325
     :catch_0
     move-exception v0
 
@@ -3504,10 +3545,10 @@
     :goto_2
     nop
 
-    .line 323
+    .line 326
     return-void
 
-    .line 298
+    .line 301
     :cond_7
     :goto_3
     return-void
@@ -3516,7 +3557,7 @@
 .method private seekBy(J)V
     .locals 8
 
-    .line 444
+    .line 449
     iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->transitioning:Z
 
     if-nez v0, :cond_2
@@ -3527,7 +3568,7 @@
 
     goto :goto_3
 
-    .line 446
+    .line 451
     :cond_0
     const/4 v0, 0x0
 
@@ -3538,7 +3579,7 @@
 
     move-result-object v1
 
-    .line 447
+    .line 452
     invoke-virtual {v1}, Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;->getCurrentPositionWhenPlaying()J
 
     move-result-wide v2
@@ -3553,18 +3594,22 @@
 
     move-result-wide p1
 
-    .line 448
+    .line 453
     const-wide/16 v2, 0x0
 
     cmp-long v2, p1, v2
 
     if-ltz v2, :cond_1
 
+    iget-object v2, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
+
+    invoke-static {v2}, Lcom/tongpin/player4k/catalog/SubtitleControls;->clear(Landroid/view/View;)V
+
     invoke-virtual {v1, p1, p2}, Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;->seekTo(J)V
 
     goto :goto_0
 
-    .line 449
+    .line 454
     :cond_1
     const-string p1, "\u6b64\u65f6\u6682\u4e0d\u80fd\u8df3\u8f6c\u8fdb\u5ea6"
 
@@ -3577,7 +3622,7 @@
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/LinkageError; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 450
+    .line 455
     :goto_0
     goto :goto_2
 
@@ -3598,11 +3643,11 @@
 
     invoke-virtual {p1}, Landroid/widget/Toast;->show()V
 
-    .line 451
+    .line 456
     :goto_2
     return-void
 
-    .line 444
+    .line 449
     :cond_2
     :goto_3
     return-void
@@ -3611,7 +3656,7 @@
 .method static seekTarget(JJJ)J
     .locals 4
 
-    .line 454
+    .line 459
     const-wide/16 v0, 0x0
 
     cmp-long v2, p4, v0
@@ -3622,7 +3667,7 @@
 
     return-wide p0
 
-    .line 455
+    .line 460
     :cond_0
     const-wide/16 v2, 0x1
 
@@ -3636,7 +3681,7 @@
 
     move-result-wide p0
 
-    .line 456
+    .line 461
     cmp-long v2, p2, v0
 
     if-lez v2, :cond_1
@@ -3663,7 +3708,7 @@
 .method private showDimensions()V
     .locals 1
 
-    .line 476
+    .line 481
     iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->destroying:Z
 
     if-nez v0, :cond_1
@@ -3674,16 +3719,16 @@
 
     goto :goto_0
 
-    .line 477
+    .line 482
     :cond_0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
 
     invoke-static {v0}, Lcom/tongpin/player4k/catalog/PlaybackResolution;->refresh(Landroid/view/View;)V
 
-    .line 478
+    .line 483
     return-void
 
-    .line 476
+    .line 481
     :cond_1
     :goto_0
     return-void
@@ -3692,17 +3737,17 @@
 .method private sizeControls(Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;)V
     .locals 6
 
-    .line 540
+    .line 549
     invoke-virtual {p1}, Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;->getFullscreenButton()Landroid/widget/ImageView;
 
     move-result-object v0
 
-    .line 541
+    .line 550
     invoke-virtual {v0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v1
 
-    .line 542
+    .line 551
     const/16 v2, 0x30
 
     invoke-direct {p0, v2}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->dp(I)I
@@ -3719,7 +3764,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 543
+    .line 552
     const/16 v1, 0xc
 
     invoke-direct {p0, v1}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->dp(I)I
@@ -3740,24 +3785,24 @@
 
     invoke-virtual {v0, v3, v4, v5, v1}, Landroid/view/View;->setPadding(IIII)V
 
-    .line 544
+    .line 553
     const-string v1, "\u5207\u6362\u5168\u5c4f"
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    .line 545
+    .line 554
     invoke-virtual {v0}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
     move-result-object v0
 
     check-cast v0, Landroid/view/View;
 
-    .line 546
+    .line 555
     invoke-virtual {v0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v1
 
-    .line 547
+    .line 556
     iget v3, v1, Landroid/view/ViewGroup$LayoutParams;->height:I
 
     if-lez v3, :cond_0
@@ -3778,7 +3823,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 548
+    .line 557
     :cond_0
     invoke-virtual {p1}, Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;->getBackButton()Landroid/widget/ImageView;
 
@@ -3788,22 +3833,22 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    .line 549
+    .line 558
     invoke-direct {p0, p1}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->installNavigation(Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;)V
 
-    .line 550
+    .line 559
     return-void
 .end method
 
 .method private text(Ljava/lang/String;II)Landroid/widget/TextView;
     .locals 1
 
-    .line 672
+    .line 693
     invoke-static {p0, p1, p2, p3}, Lcom/tongpin/player4k/catalog/PhoneUi;->text(Landroid/content/Context;Ljava/lang/String;II)Landroid/widget/TextView;
 
     move-result-object p1
 
-    .line 673
+    .line 694
     const/4 p2, 0x6
 
     invoke-direct {p0, p2}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->dp(I)I
@@ -3818,41 +3863,41 @@
 
     invoke-virtual {p1, v0, p3, v0, p2}, Landroid/widget/TextView;->setPadding(IIII)V
 
-    .line 674
+    .line 695
     return-object p1
 .end method
 
 .method private updateNavigation()V
     .locals 2
 
-    .line 380
+    .line 383
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
 
     if-nez v0, :cond_0
 
     return-void
 
-    .line 381
+    .line 384
     :cond_0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
 
     invoke-direct {p0, v0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->updateNavigation(Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;)V
 
-    .line 382
+    .line 385
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
 
     invoke-virtual {v0}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->getCurrentPlayer()Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;
 
     move-result-object v0
 
-    .line 383
+    .line 386
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
 
     if-eq v0, v1, :cond_1
 
     invoke-direct {p0, v0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->updateNavigation(Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;)V
 
-    .line 384
+    .line 387
     :cond_1
     return-void
 .end method
@@ -3860,12 +3905,12 @@
 .method private updateNavigation(Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;)V
     .locals 6
 
-    .line 387
+    .line 390
     if-nez p1, :cond_0
 
     return-void
 
-    .line 388
+    .line 391
     :cond_0
     const-string v0, "tp_public_episode_controls"
 
@@ -3873,18 +3918,18 @@
 
     move-result-object p1
 
-    .line 389
+    .line 392
     instance-of v0, p1, Landroid/widget/LinearLayout;
 
     if-nez v0, :cond_1
 
     return-void
 
-    .line 390
+    .line 393
     :cond_1
     check-cast p1, Landroid/widget/LinearLayout;
 
-    .line 391
+    .line 394
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->queue:Lcom/tongpin/player4k/catalog/PlayQueue;
 
     const/4 v1, 0x0
@@ -3904,7 +3949,7 @@
 
     move-result v0
 
-    .line 392
+    .line 395
     :goto_0
     invoke-virtual {p1, v1}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
 
@@ -3936,7 +3981,7 @@
     :goto_1
     invoke-virtual {v2, v3}, Landroid/view/View;->setEnabled(Z)V
 
-    .line 393
+    .line 396
     invoke-virtual {p1, v4}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
 
     move-result-object v2
@@ -3957,7 +4002,7 @@
     :goto_2
     invoke-virtual {v2, v3}, Landroid/view/View;->setEnabled(Z)V
 
-    .line 394
+    .line 397
     const/4 v2, 0x2
 
     invoke-virtual {p1, v2}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
@@ -3981,28 +4026,28 @@
     :cond_5
     invoke-virtual {p1, v1}, Landroid/view/View;->setEnabled(Z)V
 
-    .line 395
+    .line 398
     return-void
 .end method
 
 .method static validHttpUrl(Ljava/lang/String;)Z
     .locals 3
 
-    .line 765
+    .line 789
     const/4 v0, 0x0
 
     if-nez p0, :cond_0
 
     return v0
 
-    .line 767
+    .line 791
     :cond_0
     :try_start_0
     new-instance v1, Ljava/net/URI;
 
     invoke-direct {v1, p0}, Ljava/net/URI;-><init>(Ljava/lang/String;)V
 
-    .line 768
+    .line 792
     invoke-virtual {v1}, Ljava/net/URI;->getScheme()Ljava/lang/String;
 
     move-result-object p0
@@ -4024,7 +4069,7 @@
 
     move-result-object p0
 
-    .line 769
+    .line 793
     :goto_0
     const-string v2, "http"
 
@@ -4049,7 +4094,7 @@
 
     if-eqz p0, :cond_3
 
-    .line 770
+    .line 794
     invoke-virtual {v1}, Ljava/net/URI;->getUserInfo()Ljava/lang/String;
 
     move-result-object p0
@@ -4081,11 +4126,11 @@
     :cond_3
     nop
 
-    .line 769
+    .line 793
     :goto_1
     return v0
 
-    .line 771
+    .line 795
     :catch_0
     move-exception p0
 
@@ -4095,7 +4140,7 @@
 .method static validateStreams([Ljava/lang/String;[Ljava/lang/String;[I[II)Ljava/lang/String;
     .locals 1
 
-    .line 775
+    .line 799
     if-eqz p0, :cond_3
 
     if-eqz p1, :cond_3
@@ -4134,7 +4179,7 @@
 
     goto :goto_1
 
-    .line 778
+    .line 802
     :cond_0
     array-length p1, p0
 
@@ -4160,13 +4205,13 @@
 
     goto :goto_0
 
-    .line 779
+    .line 803
     :cond_2
     const/4 p0, 0x0
 
     return-object p0
 
-    .line 777
+    .line 801
     :cond_3
     :goto_1
     const-string p0, "\u64ad\u653e\u4fe1\u606f\u4e0d\u5b8c\u6574\uff0c\u8bf7\u8fd4\u56de\u7247\u5e93\u91cd\u9009\u3002"
@@ -4176,10 +4221,55 @@
 
 
 # virtual methods
+.method public dispatchTouchEvent(Landroid/view/MotionEvent;)Z
+    .locals 2
+
+    .line 623
+    const/4 v0, 0x0
+
+    if-nez p1, :cond_0
+
+    return v0
+
+    .line 624
+    :cond_0
+    iget-object v1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
+
+    if-eqz v1, :cond_1
+
+    iget-boolean v1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->foreground:Z
+
+    if-eqz v1, :cond_1
+
+    iget-boolean v1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->destroying:Z
+
+    if-nez v1, :cond_1
+
+    iget-object v1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
+
+    invoke-static {p0, p1, v1, v0}, Lcom/tongpin/player4k/catalog/HoldSpeedControls;->touch(Landroid/app/Activity;Landroid/view/MotionEvent;Landroid/view/View;Z)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    const/4 p1, 0x1
+
+    return p1
+
+    .line 625
+    :cond_1
+    invoke-super {p0, p1}, Landroid/app/Activity;->dispatchTouchEvent(Landroid/view/MotionEvent;)Z
+
+    move-result p1
+
+    return p1
+.end method
+
 .method synthetic lambda$chooseAspect$0$com-tongpin-player4k-catalog-OpenPlayerActivity(Landroid/content/DialogInterface;I)V
     .locals 0
 
-    .line 462
+    .line 467
     if-nez p2, :cond_0
 
     const/4 p2, 0x0
@@ -4192,7 +4282,7 @@
     :goto_0
     iput p2, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->aspect:I
 
-    .line 463
+    .line 468
     iget p2, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->aspect:I
 
     invoke-static {p2}, Lcom/shuyu/gsyvideoplayer/utils/GSYVideoType;->setShowType(I)V
@@ -4207,29 +4297,29 @@
 
     invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
 
-    .line 464
+    .line 469
     return-void
 .end method
 
 .method synthetic lambda$chooseEpisodes$0$com-tongpin-player4k-catalog-OpenPlayerActivity(IZLandroid/content/DialogInterface;I)V
     .locals 0
 
-    .line 338
+    .line 341
     invoke-interface {p3}, Landroid/content/DialogInterface;->dismiss()V
 
-    .line 339
+    .line 342
     invoke-static {p4, p1, p2}, Lcom/tongpin/player4k/catalog/LegacyEpisodeOrder;->index(IIZ)I
 
     move-result p1
 
-    .line 340
+    .line 343
     iget p2, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->episodeIndex:I
 
     if-eq p1, p2, :cond_0
 
     invoke-direct {p0, p1}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->changeEpisode(I)V
 
-    .line 341
+    .line 344
     :cond_0
     return-void
 .end method
@@ -4237,7 +4327,7 @@
 .method synthetic lambda$chooseEpisodes$1$com-tongpin-player4k-catalog-OpenPlayerActivity(Landroid/app/AlertDialog;ZLandroid/content/DialogInterface;)V
     .locals 1
 
-    .line 342
+    .line 345
     const/4 p3, -0x3
 
     invoke-virtual {p1, p3}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
@@ -4256,27 +4346,27 @@
 .method synthetic lambda$chooseEpisodes$2$com-tongpin-player4k-catalog-OpenPlayerActivity(ZLandroid/app/AlertDialog;Landroid/view/View;)V
     .locals 0
 
-    .line 343
+    .line 346
     xor-int/lit8 p1, p1, 0x1
 
     invoke-static {p0, p1}, Lcom/tongpin/player4k/catalog/LegacyEpisodeOrder;->setDescending(Landroid/content/Context;Z)V
 
-    .line 344
+    .line 347
     invoke-virtual {p2}, Landroid/app/AlertDialog;->dismiss()V
 
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->chooseEpisodes()V
 
-    .line 345
+    .line 348
     return-void
 .end method
 
 .method synthetic lambda$chooseQuality$0$com-tongpin-player4k-catalog-OpenPlayerActivity(Landroid/content/DialogInterface;I)V
     .locals 0
 
-    .line 254
+    .line 257
     invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
 
-    .line 255
+    .line 258
     iget p1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->selected:I
 
     if-ne p2, p1, :cond_0
@@ -4294,7 +4384,7 @@
 
     invoke-direct {p0, p2, p1}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->play(IZ)V
 
-    .line 256
+    .line 259
     :cond_1
     return-void
 .end method
@@ -4302,7 +4392,7 @@
 .method synthetic lambda$chooseSpeed$0$com-tongpin-player4k-catalog-OpenPlayerActivity(Landroid/content/DialogInterface;I)V
     .locals 1
 
-    .line 434
+    .line 439
     sget-object v0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->SPEEDS:[F
 
     aget p2, v0, p2
@@ -4313,14 +4403,14 @@
 
     invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
 
-    .line 435
+    .line 440
     return-void
 .end method
 
 .method synthetic lambda$installNavigation$0$com-tongpin-player4k-catalog-OpenPlayerActivity(ILandroid/view/View;)V
     .locals 2
 
-    .line 363
+    .line 366
     const/4 p2, 0x1
 
     if-ne p1, p2, :cond_0
@@ -4329,7 +4419,7 @@
 
     goto :goto_0
 
-    .line 364
+    .line 367
     :cond_0
     const/4 v0, 0x3
 
@@ -4339,7 +4429,7 @@
 
     goto :goto_0
 
-    .line 365
+    .line 368
     :cond_1
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->queue:Lcom/tongpin/player4k/catalog/PlayQueue;
 
@@ -4366,7 +4456,7 @@
 
     invoke-direct {p0, p1}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->changeEpisode(I)V
 
-    .line 366
+    .line 369
     :cond_3
     :goto_0
     return-void
@@ -4375,12 +4465,12 @@
 .method synthetic lambda$moreControls$0$com-tongpin-player4k-catalog-OpenPlayerActivity(Landroid/content/DialogInterface;I)V
     .locals 3
 
-    .line 405
+    .line 409
     const/4 p1, 0x0
 
     if-nez p2, :cond_1
 
-    .line 406
+    .line 410
     iget-object p2, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->urls:[Ljava/lang/String;
 
     invoke-static {p2}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->hasQualityChoices([Ljava/lang/String;)Z
@@ -4393,7 +4483,7 @@
 
     goto :goto_2
 
-    .line 407
+    .line 411
     :cond_0
     const-string p2, "\u6b64\u96c6\u4ec5\u63d0\u4f9b\u4e00\u4e2a\u64ad\u653e\u7248\u672c"
 
@@ -4405,7 +4495,7 @@
 
     goto :goto_2
 
-    .line 408
+    .line 412
     :cond_1
     const/4 v0, 0x1
 
@@ -4415,11 +4505,11 @@
 
     goto :goto_2
 
-    .line 409
+    .line 413
     :cond_2
     const/4 v1, 0x2
 
-    if-eq p2, v1, :cond_6
+    if-eq p2, v1, :cond_7
 
     const/4 v2, 0x3
 
@@ -4427,7 +4517,7 @@
 
     goto :goto_0
 
-    .line 410
+    .line 414
     :cond_3
     const/4 v1, 0x4
 
@@ -4437,7 +4527,7 @@
 
     goto :goto_2
 
-    .line 411
+    .line 415
     :cond_4
     const/4 v1, 0x5
 
@@ -4469,8 +4559,12 @@
 
     goto :goto_2
 
-    .line 412
+    .line 416
     :cond_5
+    const/4 p1, 0x6
+
+    if-ne p2, p1, :cond_6
+
     new-instance p1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda7;
 
     invoke-direct {p1, p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda7;-><init>(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;)V
@@ -4479,22 +4573,30 @@
 
     goto :goto_2
 
-    .line 409
+    .line 417
     :cond_6
+    iget-object p1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
+
+    invoke-static {p0, p1}, Lcom/tongpin/player4k/catalog/SubtitleControls;->show(Landroid/app/Activity;Landroid/view/View;)V
+
+    goto :goto_2
+
+    .line 413
+    :cond_7
     :goto_0
-    if-ne p2, v1, :cond_7
+    if-ne p2, v1, :cond_8
 
     const-wide/16 p1, -0x2710
 
     goto :goto_1
 
-    :cond_7
+    :cond_8
     const-wide/16 p1, 0x2710
 
     :goto_1
     invoke-direct {p0, p1, p2}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->seekBy(J)V
 
-    .line 413
+    .line 418
     :goto_2
     return-void
 .end method
@@ -4502,7 +4604,7 @@
 .method synthetic lambda$onCreate$0$com-tongpin-player4k-catalog-OpenPlayerActivity(Landroid/view/View;Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
     .locals 0
 
-    .line 107
+    .line 108
     invoke-direct {p0, p1, p2}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->applyInsets(Landroid/view/View;Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
 
     move-result-object p1
@@ -4513,7 +4615,7 @@
 .method synthetic lambda$onCreate$1$com-tongpin-player4k-catalog-OpenPlayerActivity(Landroid/view/View;)V
     .locals 0
 
-    .line 113
+    .line 114
     invoke-virtual {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->onBackPressed()V
 
     return-void
@@ -4522,7 +4624,7 @@
 .method synthetic lambda$onCreate$2$com-tongpin-player4k-catalog-OpenPlayerActivity(Landroid/view/View;)V
     .locals 1
 
-    .line 141
+    .line 142
     iget p1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->selected:I
 
     const/4 v0, 0x1
@@ -4535,7 +4637,7 @@
 .method synthetic lambda$onCreate$3$com-tongpin-player4k-catalog-OpenPlayerActivity(Landroid/view/View;)V
     .locals 0
 
-    .line 143
+    .line 144
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->chooseQuality()V
 
     return-void
@@ -4544,7 +4646,7 @@
 .method synthetic lambda$onCreate$4$com-tongpin-player4k-catalog-OpenPlayerActivity(Landroid/view/View;)V
     .locals 0
 
-    .line 167
+    .line 168
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->enterFullscreen()V
 
     return-void
@@ -4553,7 +4655,7 @@
 .method synthetic lambda$onCreate$5$com-tongpin-player4k-catalog-OpenPlayerActivity(Landroid/view/View;)V
     .locals 0
 
-    .line 168
+    .line 169
     invoke-virtual {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->onBackPressed()V
 
     return-void
@@ -4562,7 +4664,7 @@
 .method synthetic lambda$onCreate$6$com-tongpin-player4k-catalog-OpenPlayerActivity(Landroid/view/View;)V
     .locals 0
 
-    .line 184
+    .line 185
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->chooseQuality()V
 
     return-void
@@ -4571,7 +4673,7 @@
 .method synthetic lambda$onCreate$7$com-tongpin-player4k-catalog-OpenPlayerActivity(Landroid/view/View;)V
     .locals 0
 
-    .line 189
+    .line 190
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->openSource()V
 
     return-void
@@ -4580,7 +4682,7 @@
 .method synthetic lambda$prepareFullscreen$0$com-tongpin-player4k-catalog-OpenPlayerActivity(Landroid/view/View;Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
     .locals 0
 
-    .line 518
+    .line 527
     invoke-direct {p0, p1, p2}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->applyInsets(Landroid/view/View;Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
 
     move-result-object p1
@@ -4591,7 +4693,7 @@
 .method synthetic lambda$prepareFullscreen$1$com-tongpin-player4k-catalog-OpenPlayerActivity(Landroid/view/View;)V
     .locals 0
 
-    .line 519
+    .line 528
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->leaveFullscreen()V
 
     return-void
@@ -4600,7 +4702,7 @@
 .method synthetic lambda$prepareFullscreen$2$com-tongpin-player4k-catalog-OpenPlayerActivity(Landroid/view/View;)V
     .locals 0
 
-    .line 520
+    .line 529
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->leaveFullscreen()V
 
     return-void
@@ -4609,7 +4711,7 @@
 .method public onBackPressed()V
     .locals 1
 
-    .line 560
+    .line 571
     iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->fullscreen:Z
 
     if-eqz v0, :cond_0
@@ -4618,7 +4720,7 @@
 
     goto :goto_0
 
-    .line 561
+    .line 572
     :cond_0
     invoke-static {p0}, Lk6/c;->C(Landroid/content/Context;)Z
 
@@ -4628,7 +4730,7 @@
 
     invoke-super {p0}, Landroid/app/Activity;->onBackPressed()V
 
-    .line 562
+    .line 573
     :cond_1
     :goto_0
     return-void
@@ -4637,10 +4739,13 @@
 .method public onConfigurationChanged(Landroid/content/res/Configuration;)V
     .locals 2
 
-    .line 565
+    .line 576
+    invoke-static {p0}, Lcom/tongpin/player4k/catalog/HoldSpeedControls;->reset(Landroid/app/Activity;)V
+
+    .line 577
     invoke-super {p0, p1}, Landroid/app/Activity;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
-    .line 566
+    .line 578
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
 
     if-eqz v0, :cond_0
@@ -4649,7 +4754,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 567
+    .line 579
     :try_start_0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
 
@@ -4660,7 +4765,7 @@
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/LinkageError; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 568
+    .line 580
     goto :goto_1
 
     :catch_0
@@ -4674,7 +4779,7 @@
     :goto_0
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->fullscreenFailed()V
 
-    .line 570
+    .line 582
     :cond_0
     :goto_1
     return-void
@@ -4683,20 +4788,20 @@
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 16
 
-    .line 68
+    .line 69
     move-object/from16 v1, p0
 
     move-object/from16 v2, p1
 
     invoke-super/range {p0 .. p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 69
+    .line 70
     nop
 
-    .line 70
+    .line 71
     const-string v3, ""
 
-    .line 72
+    .line 73
     const/4 v4, 0x4
 
     const/high16 v5, 0x3f800000    # 1.0f
@@ -4708,7 +4813,7 @@
 
     move-result-object v0
 
-    .line 73
+    .line 74
     const-string v7, "queue_token"
 
     invoke-virtual {v0, v7}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
@@ -4717,7 +4822,7 @@
 
     iput-object v7, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->queueToken:Ljava/lang/String;
 
-    .line 74
+    .line 75
     iget-object v7, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->queueToken:Ljava/lang/String;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_2
@@ -4726,7 +4831,7 @@
 
     if-eqz v7, :cond_2
 
-    .line 75
+    .line 76
     :try_start_1
     iget-object v7, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->queueToken:Ljava/lang/String;
 
@@ -4738,7 +4843,7 @@
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_2
 
-    .line 76
+    .line 77
     const-string v7, "queue_index"
 
     if-nez v2, :cond_0
@@ -4758,7 +4863,7 @@
     :goto_0
     iput v0, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->episodeIndex:I
 
-    .line 77
+    .line 78
     iget v0, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->episodeIndex:I
 
     if-ltz v0, :cond_1
@@ -4775,12 +4880,12 @@
 
     if-ge v0, v7, :cond_1
 
-    .line 78
+    .line 79
     iget v0, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->episodeIndex:I
 
     invoke-direct {v1, v0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->readEpisode(I)V
 
-    .line 79
+    .line 80
     iget-object v0, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->queue:Lcom/tongpin/player4k/catalog/PlayQueue;
 
     iget-object v7, v0, Lcom/tongpin/player4k/catalog/PlayQueue;->author:Ljava/lang/String;
@@ -4798,7 +4903,7 @@
 
     goto :goto_1
 
-    .line 77
+    .line 78
     :cond_1
     :try_start_4
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -4809,7 +4914,7 @@
 
     throw v0
 
-    .line 81
+    .line 82
     :cond_2
     const-string v7, "title"
 
@@ -4819,7 +4924,7 @@
 
     iput-object v7, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->title:Ljava/lang/String;
 
-    .line 82
+    .line 83
     const-string v7, "source_url"
 
     invoke-virtual {v0, v7}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
@@ -4828,7 +4933,7 @@
 
     iput-object v7, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->sourceUrl:Ljava/lang/String;
 
-    .line 83
+    .line 84
     const-string v7, "author"
 
     invoke-virtual {v0, v7}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
@@ -4837,7 +4942,7 @@
     :try_end_4
     .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_2
 
-    .line 84
+    .line 85
     :try_start_5
     const-string v9, "licence"
 
@@ -4847,7 +4952,7 @@
     :try_end_5
     .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_1
 
-    .line 85
+    .line 86
     :try_start_6
     const-string v10, "stream_urls"
 
@@ -4857,7 +4962,7 @@
 
     iput-object v10, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->urls:[Ljava/lang/String;
 
-    .line 86
+    .line 87
     const-string v10, "stream_labels"
 
     invoke-virtual {v0, v10}, Landroid/content/Intent;->getStringArrayExtra(Ljava/lang/String;)[Ljava/lang/String;
@@ -4866,7 +4971,7 @@
 
     iput-object v10, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->labels:[Ljava/lang/String;
 
-    .line 87
+    .line 88
     const-string v10, "stream_widths"
 
     invoke-virtual {v0, v10}, Landroid/content/Intent;->getIntArrayExtra(Ljava/lang/String;)[I
@@ -4875,7 +4980,7 @@
 
     iput-object v10, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->widths:[I
 
-    .line 88
+    .line 89
     const-string v10, "stream_heights"
 
     invoke-virtual {v0, v10}, Landroid/content/Intent;->getIntArrayExtra(Ljava/lang/String;)[I
@@ -4884,18 +4989,18 @@
 
     iput-object v10, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->heights:[I
 
-    .line 89
+    .line 90
     invoke-virtual {v0, v8, v6}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v0
 
     iput v0, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->selected:I
 
-    .line 91
+    .line 92
     :goto_1
     if-eqz v2, :cond_6
 
-    .line 92
+    .line 93
     iget v0, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->selected:I
 
     invoke-virtual {v2, v8, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
@@ -4904,7 +5009,7 @@
 
     iput v0, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->selected:I
 
-    .line 93
+    .line 94
     const-string v0, "position"
 
     const-wide/16 v10, 0x0
@@ -4919,7 +5024,7 @@
 
     iput-wide v10, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->position:J
 
-    .line 94
+    .line 95
     const-string v0, "speed"
 
     invoke-virtual {v2, v0, v5}, Landroid/os/Bundle;->getFloat(Ljava/lang/String;F)F
@@ -4928,7 +5033,7 @@
 
     iput v0, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->speed:F
 
-    .line 95
+    .line 96
     iget v0, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->speed:F
 
     invoke-static {v0}, Ljava/lang/Float;->isNaN(F)Z
@@ -4956,7 +5061,7 @@
     :cond_3
     iput v5, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->speed:F
 
-    .line 96
+    .line 97
     :cond_4
     const-string v0, "aspect"
 
@@ -4976,7 +5081,7 @@
     :goto_2
     iput v0, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->aspect:I
 
-    .line 98
+    .line 99
     :cond_6
     iget-object v0, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->urls:[Ljava/lang/String;
 
@@ -4994,10 +5099,10 @@
     :try_end_6
     .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_0
 
-    .line 101
+    .line 102
     goto :goto_4
 
-    .line 99
+    .line 100
     :catch_0
     move-exception v0
 
@@ -5017,7 +5122,7 @@
 
     move-object v9, v7
 
-    .line 100
+    .line 101
     :goto_3
     iget-object v0, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->queueToken:Ljava/lang/String;
 
@@ -5030,7 +5135,7 @@
     :cond_7
     const-string v0, "\u64ad\u653e\u5217\u8868\u65e0\u6cd5\u8bfb\u53d6\uff0c\u8bf7\u8fd4\u56de\u7247\u5e93\u91cd\u65b0\u9009\u96c6\u3002"
 
-    .line 102
+    .line 103
     :goto_4
     iget-object v8, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->title:Ljava/lang/String;
 
@@ -5066,42 +5171,42 @@
     :goto_6
     iput-object v8, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->title:Ljava/lang/String;
 
-    .line 103
+    .line 104
     invoke-direct/range {p0 .. p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->normalSystemBars()V
 
-    .line 104
+    .line 105
     new-instance v8, Landroid/widget/LinearLayout;
 
     invoke-direct {v8, v1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
-    .line 105
+    .line 106
     const/4 v10, 0x1
 
     invoke-virtual {v8, v10}, Landroid/widget/LinearLayout;->setOrientation(I)V
 
-    .line 106
+    .line 107
     const v11, -0xa0d17
 
     invoke-virtual {v8, v11}, Landroid/widget/LinearLayout;->setBackgroundColor(I)V
 
-    .line 107
+    .line 108
     new-instance v11, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda11;
 
     invoke-direct {v11, v1}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda11;-><init>(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;)V
 
     invoke-virtual {v8, v11}, Landroid/widget/LinearLayout;->setOnApplyWindowInsetsListener(Landroid/view/View$OnApplyWindowInsetsListener;)V
 
-    .line 108
+    .line 109
     new-instance v11, Landroid/widget/LinearLayout;
 
     invoke-direct {v11, v1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
-    .line 109
+    .line 110
     const/16 v12, 0x10
 
     invoke-virtual {v11, v12}, Landroid/widget/LinearLayout;->setGravity(I)V
 
-    .line 110
+    .line 111
     const/16 v13, 0x38
 
     invoke-direct {v1, v13}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->dp(I)I
@@ -5110,7 +5215,7 @@
 
     invoke-virtual {v11, v13}, Landroid/widget/LinearLayout;->setMinimumHeight(I)V
 
-    .line 111
+    .line 112
     const/16 v13, 0x8
 
     invoke-direct {v1, v13}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->dp(I)I
@@ -5131,21 +5236,21 @@
 
     invoke-virtual {v11, v14, v15, v13, v12}, Landroid/widget/LinearLayout;->setPadding(IIII)V
 
-    .line 112
+    .line 113
     const-string v12, "\u8fd4\u56de"
 
     invoke-direct {v1, v12, v6}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->button(Ljava/lang/String;Z)Landroid/widget/Button;
 
     move-result-object v12
 
-    .line 113
+    .line 114
     new-instance v13, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda12;
 
     invoke-direct {v13, v1}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda12;-><init>(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;)V
 
     invoke-virtual {v12, v13}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 114
+    .line 115
     new-instance v13, Landroid/widget/LinearLayout$LayoutParams;
 
     const/16 v14, 0x50
@@ -5160,7 +5265,7 @@
 
     invoke-virtual {v11, v12, v13}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 115
+    .line 116
     iget-object v12, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->title:Ljava/lang/String;
 
     const/16 v13, 0x14
@@ -5173,33 +5278,33 @@
 
     iput-object v12, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->heading:Landroid/widget/TextView;
 
-    .line 116
+    .line 117
     iget-object v12, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->heading:Landroid/widget/TextView;
 
     const/4 v13, 0x0
 
     invoke-virtual {v12, v13, v10}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;I)V
 
-    .line 117
+    .line 118
     iget-object v12, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->heading:Landroid/widget/TextView;
 
     const/4 v13, 0x2
 
     invoke-virtual {v12, v13}, Landroid/widget/TextView;->setMaxLines(I)V
 
-    .line 118
+    .line 119
     iget-object v12, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->heading:Landroid/widget/TextView;
 
     sget-object v13, Landroid/text/TextUtils$TruncateAt;->END:Landroid/text/TextUtils$TruncateAt;
 
     invoke-virtual {v12, v13}, Landroid/widget/TextView;->setEllipsize(Landroid/text/TextUtils$TruncateAt;)V
 
-    .line 119
+    .line 120
     new-instance v12, Landroid/widget/LinearLayout$LayoutParams;
 
     invoke-direct {v12, v6, v14, v5}, Landroid/widget/LinearLayout$LayoutParams;-><init>(IIF)V
 
-    .line 120
+    .line 121
     const/16 v13, 0x8
 
     invoke-direct {v1, v13}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->dp(I)I
@@ -5208,12 +5313,12 @@
 
     iput v4, v12, Landroid/widget/LinearLayout$LayoutParams;->leftMargin:I
 
-    .line 121
+    .line 122
     iget-object v4, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->heading:Landroid/widget/TextView;
 
     invoke-virtual {v11, v4, v12}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 122
+    .line 123
     new-instance v4, Landroid/widget/LinearLayout$LayoutParams;
 
     const/4 v12, -0x1
@@ -5222,23 +5327,23 @@
 
     invoke-virtual {v8, v11, v4}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 123
+    .line 124
     new-instance v4, Landroid/widget/ScrollView;
 
     invoke-direct {v4, v1}, Landroid/widget/ScrollView;-><init>(Landroid/content/Context;)V
 
-    .line 124
+    .line 125
     invoke-virtual {v4, v10}, Landroid/widget/ScrollView;->setFillViewport(Z)V
 
-    .line 125
+    .line 126
     new-instance v11, Landroid/widget/LinearLayout;
 
     invoke-direct {v11, v1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
-    .line 126
+    .line 127
     invoke-virtual {v11, v10}, Landroid/widget/LinearLayout;->setOrientation(I)V
 
-    .line 127
+    .line 128
     const/16 v13, 0x18
 
     invoke-direct {v1, v13}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->dp(I)I
@@ -5247,27 +5352,27 @@
 
     invoke-virtual {v11, v6, v6, v6, v13}, Landroid/widget/LinearLayout;->setPadding(IIII)V
 
-    .line 128
+    .line 129
     new-instance v13, Landroid/widget/FrameLayout$LayoutParams;
 
     invoke-direct {v13, v12, v14}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
 
     invoke-virtual {v4, v11, v13}, Landroid/widget/ScrollView;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 129
+    .line 130
     new-instance v13, Landroid/widget/LinearLayout$LayoutParams;
 
     invoke-direct {v13, v12, v6, v5}, Landroid/widget/LinearLayout$LayoutParams;-><init>(IIF)V
 
     invoke-virtual {v8, v4, v13}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 130
+    .line 131
     invoke-virtual {v1, v8}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->setContentView(Landroid/view/View;)V
 
-    .line 131
+    .line 132
     invoke-virtual {v8}, Landroid/widget/LinearLayout;->requestApplyInsets()V
 
-    .line 132
+    .line 133
     if-nez v7, :cond_a
 
     move-object v4, v3
@@ -5279,7 +5384,7 @@
 
     move-result-object v4
 
-    .line 133
+    .line 134
     :goto_7
     if-eqz v9, :cond_c
 
@@ -5331,7 +5436,7 @@
 
     move-result-object v4
 
-    .line 135
+    .line 136
     :cond_c
     const/16 v7, 0x10
 
@@ -5341,7 +5446,7 @@
 
     iput-object v3, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->error:Landroid/widget/TextView;
 
-    .line 136
+    .line 137
     iget-object v3, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->error:Landroid/widget/TextView;
 
     const/16 v7, 0xc
@@ -5358,38 +5463,38 @@
 
     invoke-virtual {v3, v6, v8, v6, v13}, Landroid/widget/TextView;->setPadding(IIII)V
 
-    .line 137
+    .line 138
     iget-object v3, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->error:Landroid/widget/TextView;
 
     invoke-virtual {v3, v10}, Landroid/widget/TextView;->setAccessibilityLiveRegion(I)V
 
-    .line 138
+    .line 139
     iget-object v3, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->error:Landroid/widget/TextView;
 
     invoke-virtual {v3, v9}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 139
+    .line 140
     new-instance v3, Landroid/widget/LinearLayout;
 
     invoke-direct {v3, v1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
     iput-object v3, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->recovery:Landroid/widget/LinearLayout;
 
-    .line 140
+    .line 141
     const-string v3, "\u91cd\u8bd5"
 
     invoke-direct {v1, v3, v10}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->button(Ljava/lang/String;Z)Landroid/widget/Button;
 
     move-result-object v3
 
-    .line 141
+    .line 142
     new-instance v8, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda13;
 
     invoke-direct {v8, v1}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda13;-><init>(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;)V
 
     invoke-virtual {v3, v8}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 142
+    .line 143
     const-string v8, "\u6362\u753b\u8d28"
 
     invoke-direct {v1, v8, v6}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->button(Ljava/lang/String;Z)Landroid/widget/Button;
@@ -5398,7 +5503,7 @@
 
     iput-object v8, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->lower:Landroid/widget/Button;
 
-    .line 143
+    .line 144
     iget-object v8, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->lower:Landroid/widget/Button;
 
     new-instance v9, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda14;
@@ -5407,7 +5512,7 @@
 
     invoke-virtual {v8, v9}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 144
+    .line 145
     iget-object v8, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->recovery:Landroid/widget/LinearLayout;
 
     new-instance v9, Landroid/widget/LinearLayout$LayoutParams;
@@ -5416,12 +5521,12 @@
 
     invoke-virtual {v8, v3, v9}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 145
+    .line 146
     new-instance v3, Landroid/widget/LinearLayout$LayoutParams;
 
     invoke-direct {v3, v6, v14, v5}, Landroid/widget/LinearLayout$LayoutParams;-><init>(IIF)V
 
-    .line 146
+    .line 147
     const/16 v8, 0x8
 
     invoke-direct {v1, v8}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->dp(I)I
@@ -5430,14 +5535,14 @@
 
     iput v9, v3, Landroid/widget/LinearLayout$LayoutParams;->leftMargin:I
 
-    .line 147
+    .line 148
     iget-object v8, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->recovery:Landroid/widget/LinearLayout;
 
     iget-object v9, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->lower:Landroid/widget/Button;
 
     invoke-virtual {v8, v9, v3}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 148
+    .line 149
     iget-object v3, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->lower:Landroid/widget/Button;
 
     iget-object v8, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->urls:[Ljava/lang/String;
@@ -5458,58 +5563,58 @@
     :goto_9
     invoke-virtual {v3, v8}, Landroid/widget/Button;->setVisibility(I)V
 
-    .line 149
+    .line 150
     iget-object v3, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->recovery:Landroid/widget/LinearLayout;
 
     const/16 v8, 0x8
 
     invoke-virtual {v3, v8}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    .line 151
+    .line 152
     if-nez v0, :cond_e
 
-    .line 153
+    .line 154
     :try_start_7
     invoke-static {v1, v10}, Lcom/tongpin/player4k/catalog/DecoderPolicy;->select(Landroid/content/Context;Z)V
 
-    .line 154
+    .line 155
     iget v3, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->aspect:I
 
     invoke-static {v3}, Lcom/shuyu/gsyvideoplayer/utils/GSYVideoType;->setShowType(I)V
 
-    .line 155
+    .line 156
     new-instance v3, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
 
     invoke-direct {v3, v1}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;-><init>(Landroid/content/Context;)V
 
     iput-object v3, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
 
-    .line 156
+    .line 157
     iget-object v3, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
 
     invoke-virtual {v3, v10}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->setIsTouchWiget(Z)V
 
-    .line 157
+    .line 158
     iget-object v3, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
 
     invoke-virtual {v3, v10}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->setIsTouchWigetFull(Z)V
 
-    .line 158
+    .line 159
     iget-object v3, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
 
     invoke-virtual {v3, v10}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->setNeedLockFull(Z)V
 
-    .line 159
+    .line 160
     iget-object v3, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
 
     invoke-virtual {v3, v10}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->setRotateViewAuto(Z)V
 
-    .line 160
+    .line 161
     iget-object v3, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
 
     invoke-virtual {v3, v6}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->setShowFullAnimation(Z)V
 
-    .line 161
+    .line 162
     new-instance v3, Lcom/shuyu/gsyvideoplayer/utils/OrientationUtils;
 
     iget-object v8, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
@@ -5518,22 +5623,22 @@
 
     iput-object v3, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->orientation:Lcom/shuyu/gsyvideoplayer/utils/OrientationUtils;
 
-    .line 162
+    .line 163
     iget-object v3, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->orientation:Lcom/shuyu/gsyvideoplayer/utils/OrientationUtils;
 
     invoke-virtual {v3, v6}, Lcom/shuyu/gsyvideoplayer/utils/OrientationUtils;->setEnable(Z)V
 
-    .line 163
+    .line 164
     new-instance v3, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$AspectBox;
 
     invoke-direct {v3, v1}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$AspectBox;-><init>(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;)V
 
-    .line 164
+    .line 165
     const/high16 v8, -0x1000000
 
     invoke-virtual {v3, v8}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$AspectBox;->setBackgroundColor(I)V
 
-    .line 165
+    .line 166
     iget-object v8, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
 
     new-instance v9, Landroid/widget/FrameLayout$LayoutParams;
@@ -5542,14 +5647,14 @@
 
     invoke-virtual {v3, v8, v9}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$AspectBox;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 166
+    .line 167
     new-instance v8, Landroid/widget/LinearLayout$LayoutParams;
 
     invoke-direct {v8, v12, v14}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
     invoke-virtual {v11, v3, v8}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 167
+    .line 168
     iget-object v3, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
 
     invoke-virtual {v3}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->getFullscreenButton()Landroid/widget/ImageView;
@@ -5562,7 +5667,7 @@
 
     invoke-virtual {v3, v8}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 168
+    .line 169
     iget-object v3, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
 
     invoke-virtual {v3}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->getBackButton()Landroid/widget/ImageView;
@@ -5575,7 +5680,7 @@
 
     invoke-virtual {v3, v8}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 169
+    .line 170
     iget-object v3, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
 
     invoke-direct {v1, v3}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->sizeControls(Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;)V
@@ -5583,10 +5688,10 @@
     .catch Ljava/lang/RuntimeException; {:try_start_7 .. :try_end_7} :catch_4
     .catch Ljava/lang/LinkageError; {:try_start_7 .. :try_end_7} :catch_3
 
-    .line 172
+    .line 173
     goto :goto_b
 
-    .line 170
+    .line 171
     :catch_3
     move-exception v0
 
@@ -5595,11 +5700,11 @@
     :catch_4
     move-exception v0
 
-    .line 171
+    .line 172
     :goto_a
     const-string v0, "\u64ad\u653e\u5668\u65e0\u6cd5\u542f\u52a8\uff0c\u8bf7\u8fd4\u56de\u7247\u5e93\u540e\u91cd\u8bd5\u3002"
 
-    .line 174
+    .line 175
     :cond_e
     :goto_b
     iget-object v3, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
@@ -5630,14 +5735,14 @@
     :goto_c
     iput-object v3, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->actual:Landroid/widget/TextView;
 
-    .line 175
+    .line 176
     iget-object v3, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->actual:Landroid/widget/TextView;
 
     const/16 v13, 0x8
 
     invoke-virtual {v3, v13}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 176
+    .line 177
     iget-object v3, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
 
     if-nez v3, :cond_10
@@ -5646,18 +5751,18 @@
 
     invoke-virtual {v11, v3}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 177
+    .line 178
     :cond_10
     new-instance v3, Landroid/widget/LinearLayout;
 
     invoke-direct {v3, v1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
-    .line 178
+    .line 179
     const/16 v13, 0x10
 
     invoke-virtual {v3, v13}, Landroid/widget/LinearLayout;->setGravity(I)V
 
-    .line 179
+    .line 180
     invoke-direct {v1, v13}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->dp(I)I
 
     move-result v15
@@ -5678,7 +5783,7 @@
 
     invoke-virtual {v3, v15, v7, v8, v13}, Landroid/widget/LinearLayout;->setPadding(IIII)V
 
-    .line 180
+    .line 181
     const-string v7, "\u753b\u8d28\u9009\u9879"
 
     invoke-direct {v1, v7, v10}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->button(Ljava/lang/String;Z)Landroid/widget/Button;
@@ -5687,26 +5792,26 @@
 
     iput-object v7, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->quality:Landroid/widget/Button;
 
-    .line 181
+    .line 182
     iget-object v7, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->quality:Landroid/widget/Button;
 
     invoke-static {v7, v10}, Lcom/tongpin/player4k/catalog/PhoneUi;->styleButton(Landroid/widget/Button;I)V
 
-    .line 182
+    .line 183
     iget-object v7, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->quality:Landroid/widget/Button;
 
     const/4 v8, 0x2
 
     invoke-virtual {v7, v8}, Landroid/widget/Button;->setMaxLines(I)V
 
-    .line 183
+    .line 184
     iget-object v7, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->quality:Landroid/widget/Button;
 
     sget-object v8, Landroid/text/TextUtils$TruncateAt;->END:Landroid/text/TextUtils$TruncateAt;
 
     invoke-virtual {v7, v8}, Landroid/widget/Button;->setEllipsize(Landroid/text/TextUtils$TruncateAt;)V
 
-    .line 184
+    .line 185
     iget-object v7, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->quality:Landroid/widget/Button;
 
     new-instance v8, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda17;
@@ -5715,7 +5820,7 @@
 
     invoke-virtual {v7, v8}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 185
+    .line 186
     iget-object v7, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->quality:Landroid/widget/Button;
 
     new-instance v8, Landroid/widget/LinearLayout$LayoutParams;
@@ -5724,14 +5829,14 @@
 
     invoke-virtual {v3, v7, v8}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 186
+    .line 187
     const-string v5, "\u6765\u6e90"
 
     invoke-direct {v1, v5, v6}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->button(Ljava/lang/String;Z)Landroid/widget/Button;
 
     move-result-object v5
 
-    .line 187
+    .line 188
     iget-object v7, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->sourceUrl:Ljava/lang/String;
 
     invoke-static {v7}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->validHttpUrl(Ljava/lang/String;)Z
@@ -5740,19 +5845,19 @@
 
     invoke-virtual {v5, v7}, Landroid/widget/Button;->setEnabled(Z)V
 
-    .line 188
+    .line 189
     const-string v7, "\u5728\u6d4f\u89c8\u5668\u67e5\u770b\u539f\u59cb\u6765\u6e90"
 
     invoke-virtual {v5, v7}, Landroid/widget/Button;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    .line 189
+    .line 190
     new-instance v7, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda18;
 
     invoke-direct {v7, v1}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda18;-><init>(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;)V
 
     invoke-virtual {v5, v7}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 190
+    .line 191
     new-instance v7, Landroid/widget/LinearLayout$LayoutParams;
 
     const/16 v8, 0x50
@@ -5763,7 +5868,7 @@
 
     invoke-direct {v7, v8, v14}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    .line 191
+    .line 192
     const/16 v8, 0x8
 
     invoke-direct {v1, v8}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->dp(I)I
@@ -5772,25 +5877,25 @@
 
     iput v8, v7, Landroid/widget/LinearLayout$LayoutParams;->leftMargin:I
 
-    .line 192
+    .line 193
     invoke-virtual {v3, v5, v7}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 193
+    .line 194
     new-instance v5, Landroid/widget/LinearLayout$LayoutParams;
 
     invoke-direct {v5, v12, v14}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
     invoke-virtual {v11, v3, v5}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 194
+    .line 195
     new-instance v3, Landroid/widget/LinearLayout;
 
     invoke-direct {v3, v1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
-    .line 195
+    .line 196
     invoke-virtual {v3, v10}, Landroid/widget/LinearLayout;->setOrientation(I)V
 
-    .line 196
+    .line 197
     const/16 v5, 0x10
 
     invoke-direct {v1, v5}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->dp(I)I
@@ -5803,17 +5908,17 @@
 
     invoke-virtual {v3, v7, v6, v5, v6}, Landroid/widget/LinearLayout;->setPadding(IIII)V
 
-    .line 197
+    .line 198
     iget-object v5, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->error:Landroid/widget/TextView;
 
     invoke-virtual {v3, v5}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 198
+    .line 199
     iget-object v5, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->recovery:Landroid/widget/LinearLayout;
 
     invoke-virtual {v3, v5}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 199
+    .line 200
     invoke-virtual {v4}, Ljava/lang/String;->isEmpty()Z
 
     move-result v5
@@ -5828,7 +5933,7 @@
 
     invoke-virtual {v3, v4}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 200
+    .line 201
     :cond_11
     new-instance v4, Landroid/widget/LinearLayout$LayoutParams;
 
@@ -5836,7 +5941,7 @@
 
     invoke-virtual {v11, v3, v4}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 201
+    .line 202
     iget-object v3, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->quality:Landroid/widget/Button;
 
     if-nez v0, :cond_12
@@ -5857,7 +5962,7 @@
     :goto_d
     invoke-virtual {v3, v10}, Landroid/widget/Button;->setEnabled(Z)V
 
-    .line 202
+    .line 203
     if-nez v0, :cond_14
 
     iget v0, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->selected:I
@@ -5878,23 +5983,23 @@
 
     goto :goto_f
 
-    .line 204
+    .line 205
     :cond_14
     iget-object v2, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->quality:Landroid/widget/Button;
 
     invoke-virtual {v2, v6}, Landroid/widget/Button;->setEnabled(Z)V
 
-    .line 205
+    .line 206
     iget-object v2, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->error:Landroid/widget/TextView;
 
     invoke-virtual {v2, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 206
+    .line 207
     iget-object v0, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->error:Landroid/widget/TextView;
 
     invoke-virtual {v0, v6}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 207
+    .line 208
     iget-object v0, v1, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->actual:Landroid/widget/TextView;
 
     invoke-static {v6, v6}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->resolutionText(II)Ljava/lang/String;
@@ -5903,7 +6008,7 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 209
+    .line 210
     :goto_f
     return-void
 .end method
@@ -5911,7 +6016,12 @@
 .method protected onDestroy()V
     .locals 2
 
-    .line 597
+    .line 611
+    invoke-static {p0}, Lcom/tongpin/player4k/catalog/HoldSpeedControls;->release(Landroid/app/Activity;)V
+
+    invoke-static {p0}, Lcom/tongpin/player4k/catalog/SubtitleControls;->release(Landroid/app/Activity;)V
+
+    .line 612
     invoke-virtual {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->isFinishing()Z
 
     move-result v0
@@ -5922,23 +6032,23 @@
 
     invoke-direct {p0, v1}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->saveProgress(Z)V
 
-    .line 598
+    .line 613
     :cond_0
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->destroying:Z
 
-    .line 599
+    .line 614
     invoke-direct {p0, v1}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->keepScreenOn(Z)V
 
-    .line 600
+    .line 615
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
 
     if-eqz v0, :cond_1
 
     invoke-static {}, Lk6/c;->E()V
 
-    .line 601
+    .line 616
     :cond_1
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->orientation:Lcom/shuyu/gsyvideoplayer/utils/OrientationUtils;
 
@@ -5948,11 +6058,11 @@
 
     invoke-virtual {v0}, Lcom/shuyu/gsyvideoplayer/utils/OrientationUtils;->releaseListener()V
 
-    .line 602
+    .line 617
     :cond_2
     invoke-static {v1}, Lcom/shuyu/gsyvideoplayer/utils/GSYVideoType;->setShowType(I)V
 
-    .line 603
+    .line 618
     invoke-virtual {p0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->isFinishing()Z
 
     move-result v0
@@ -5967,31 +6077,36 @@
 
     invoke-static {p0, v0}, Lcom/tongpin/player4k/catalog/PlayQueue;->delete(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 604
+    .line 619
     :cond_3
     invoke-super {p0}, Landroid/app/Activity;->onDestroy()V
 
-    .line 605
+    .line 620
     return-void
 .end method
 
 .method protected onPause()V
     .locals 4
 
-    .line 573
+    .line 585
+    invoke-static {p0}, Lcom/tongpin/player4k/catalog/HoldSpeedControls;->reset(Landroid/app/Activity;)V
+
+    invoke-static {p0}, Lcom/tongpin/player4k/catalog/SubtitleControls;->pause(Landroid/app/Activity;)V
+
+    .line 586
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->foreground:Z
 
-    .line 574
+    .line 587
     invoke-direct {p0, v0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->saveProgress(Z)V
 
-    .line 575
+    .line 588
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
 
     if-eqz v1, :cond_2
 
-    .line 576
+    .line 589
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
 
     invoke-virtual {v1}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->getCurrentPlayer()Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;
@@ -6002,7 +6117,7 @@
 
     move-result v1
 
-    .line 577
+    .line 590
     const/4 v2, 0x1
 
     if-eq v1, v2, :cond_1
@@ -6024,7 +6139,7 @@
     :goto_0
     iput-boolean v2, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->resumeAfterPause:Z
 
-    .line 578
+    .line 591
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
 
     invoke-virtual {v1}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->getCurrentPlayer()Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;
@@ -6033,11 +6148,11 @@
 
     invoke-virtual {v1}, Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;->onVideoPause()V
 
-    .line 580
+    .line 593
     :cond_2
     invoke-direct {p0, v0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->keepScreenOn(Z)V
 
-    .line 581
+    .line 594
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->orientation:Lcom/shuyu/gsyvideoplayer/utils/OrientationUtils;
 
     if-eqz v1, :cond_3
@@ -6046,26 +6161,26 @@
 
     invoke-virtual {v1, v0}, Lcom/shuyu/gsyvideoplayer/utils/OrientationUtils;->setEnable(Z)V
 
-    .line 582
+    .line 595
     :cond_3
     invoke-super {p0}, Landroid/app/Activity;->onPause()V
 
-    .line 583
+    .line 596
     return-void
 .end method
 
 .method protected onResume()V
     .locals 2
 
-    .line 586
+    .line 599
     invoke-super {p0}, Landroid/app/Activity;->onResume()V
 
-    .line 587
+    .line 600
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->foreground:Z
 
-    .line 588
+    .line 601
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
 
     if-eqz v1, :cond_0
@@ -6074,7 +6189,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 589
+    .line 602
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
 
     invoke-virtual {v1}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->getCurrentPlayer()Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;
@@ -6083,10 +6198,10 @@
 
     invoke-virtual {v1}, Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;->onVideoResume()V
 
-    .line 590
+    .line 603
     invoke-direct {p0, v0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->keepScreenOn(Z)V
 
-    .line 591
+    .line 604
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->orientation:Lcom/shuyu/gsyvideoplayer/utils/OrientationUtils;
 
     if-eqz v1, :cond_0
@@ -6095,25 +6210,35 @@
 
     invoke-virtual {v1, v0}, Lcom/shuyu/gsyvideoplayer/utils/OrientationUtils;->setEnable(Z)V
 
-    .line 593
+    .line 606
     :cond_0
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->resumeAfterPause:Z
 
-    .line 594
+    .line 607
+    iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
+
+    invoke-static {p0, v0}, Lcom/tongpin/player4k/catalog/SubtitleControls;->resume(Landroid/app/Activity;Landroid/view/View;)V
+
+    .line 608
+    :cond_1
     return-void
 .end method
 
 .method protected onSaveInstanceState(Landroid/os/Bundle;)V
     .locals 5
 
-    .line 608
+    .line 629
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
 
     if-eqz v0, :cond_0
 
-    .line 609
+    .line 630
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->player:Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;
 
     invoke-virtual {v0}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->getCurrentPlayer()Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;
@@ -6124,7 +6249,7 @@
 
     move-result-wide v0
 
-    .line 610
+    .line 631
     const-wide/16 v2, 0x0
 
     cmp-long v2, v0, v2
@@ -6149,7 +6274,7 @@
 
     iput-wide v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->position:J
 
-    .line 612
+    .line 633
     :cond_0
     const-string v0, "queue_index"
 
@@ -6163,7 +6288,7 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 613
+    .line 634
     const-string v0, "position"
 
     iget-wide v1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->position:J
@@ -6182,9 +6307,9 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 614
+    .line 635
     invoke-super {p0, p1}, Landroid/app/Activity;->onSaveInstanceState(Landroid/os/Bundle;)V
 
-    .line 615
+    .line 636
     return-void
 .end method

@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "classes": {
+    "decoded/smali_classes5/i6/e.smali": {
+      "added_methods": [
+        "bindScore(Landroid/widget/TextView;Ljava/lang/String;)V",
+        "posterUri(Ljava/lang/String;)Ljava/lang/String;"
+      ],
+      "modified_methods": [
+        "e(Li6/e$c;I)V"
+      ],
+      "removed_methods": [],
+      "unchanged_method_count": 12,
+      "method_sha256": {
+        "bindScore(Landroid/widget/TextView;Ljava/lang/String;)V": "81867f59272369ef4dbece31bef838287c8f7f99f194c7025ed8a7b6cfdab08e",
+        "posterUri(Ljava/lang/String;)Ljava/lang/String;": "6c77d07531d5470592fb5402fdbea700d5828f227cf9a696ecaf3108520c0889",
+        "e(Li6/e$c;I)V": "f3ca343996081adb97f4b0ed50c9a7d41519ae2ef007ff42068b0d9ddb616ee1"
+      }
+    },
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/SearchActivity$c.smali": {
+      "added_methods": [],
+      "modified_methods": [
+        "n(Lme/jingbin/library/adapter/b;Lcom/shenma/tvlauncher/vod/domain/VodDataInfo;I)V"
+      ],
+      "removed_methods": [],
+      "unchanged_method_count": 4,
+      "method_sha256": {
+        "n(Lme/jingbin/library/adapter/b;Lcom/shenma/tvlauncher/vod/domain/VodDataInfo;I)V": "414cb64cff130f6c888cbee19c29cd7ae14b117da50dabec62725fc974a22757"
+      }
+    }
+  }
+}

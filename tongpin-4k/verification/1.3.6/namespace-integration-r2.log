@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "own_smali_count": 137,
+  "actual_abi_invocations": 2181,
+  "source_hashes": {
+    "com/tongpin/player4k/catalog/CatalogActivity.java": "3e6497f49a2f84800f951114f5fe957fe5ac77f15254b0e5768282522ea3751b",
+    "com/tongpin/player4k/catalog/CatalogApi.java": "bb26fbdcff341cc8b8676addf5a2320799f9283d5011bd2a907833ff2eef9864",
+    "com/tongpin/player4k/catalog/CatalogCategories.java": "3c368a9e8ebbfbcf15e8426b1cdacfd0e3289efdfeb1f887569840528425f03b",
+    "com/tongpin/player4k/catalog/DecoderPolicy.java": "57e1335322d9b99eecc9e360417e389c3b144d08619d42718c6413993c77c24a",
+    "com/tongpin/player4k/catalog/EpisodeSummary.java": "e5cd0398babaf9949bc8713f54b160a4e2c01c5f78c9143e0309583d311798d0",
+    "com/tongpin/player4k/catalog/HoldSpeedControls.java": "60355936fc925597d77e6ca497afda7eb363325de72ea3a0019c76687073a1bb",
+    "com/tongpin/player4k/catalog/HoldSpeedState.java": "bfa09d212a5539adee07dd997df347bef8ccf67ce1dd315ede4b0d101c11e279",
+    "com/tongpin/player4k/catalog/LegacyEpisodeOrder.java": "41d20250fe12357c43d335033db23a524a40757b46581256ab65d4c5599e8a84",
+    "com/tongpin/player4k/catalog/LegacyPlayerControls.java": "a349186d28fd04ffdf72e6006443b9e2570255ab1903f08d8f4c661fa35e4ec3",
+    "com/tongpin/player4k/catalog/LegacySeekState.java": "b689197479729830ad43c575f3a06de34dbe3310fb129407eba1717c72dfb28a",
+    "com/tongpin/player4k/catalog/OpenPlayerActivity.java": "685375d966147b8609584c8e0557a0d4d7469f8bb0bc6822d245b294ded86cce",
+    "com/tongpin/player4k/catalog/PhoneUi.java": "8d8e39fea8e3b5c2e7e15301014e54ba55294713a28ee22600056a04e0b9fe8a",
+    "com/tongpin/player4k/catalog/PlaybackResolution.java": "053602bf9af43ba6f503470c72717eee8e367545c9035b3c7ef4716100975f36",
+    "com/tongpin/player4k/catalog/PlayerOptionsSheet.java": "5eeb12dc1214e08389967db7505dbf041ee0cddcba71fcddfaad19c7553628cf",
+    "com/tongpin/player4k/catalog/PlayQueue.java": "4243c5837fe4067e9606085852e7fb168d97775329c3490dd15f618ef82fb241",
+    "com/tongpin/player4k/catalog/SubtitleControls.java": "d0b1a24d7fd658e2683d322c106f217f4d95c900c8415002bad1970e0f275784",
+    "com/tongpin/player4k/catalog/SubtitlePolicy.java": "a891f56a8d81221aa98e88a909692ee18b427c984f9f0074f60f1a19f625c552"
+  }
+}

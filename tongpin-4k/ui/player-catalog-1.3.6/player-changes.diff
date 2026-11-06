@@ -1,0 +1,577 @@
+--- before/open-sources/src/com/tongpin/player4k/catalog/OpenPlayerActivity.java
++++ after/open-sources/src/com/tongpin/player4k/catalog/OpenPlayerActivity.java
+@@ -13,6 +13,7 @@
+ import android.os.Bundle;
+ import android.text.TextUtils;
+ import android.view.Gravity;
++import android.view.MotionEvent;
+ import android.view.DisplayCutout;
+ import android.view.View;
+ import android.view.ViewGroup;
+@@ -219,6 +220,8 @@
+ 
+     private void playAt(int index, long resumeAt) {
+         if (player == null || destroying || index < 0 || index >= urls.length) return;
++        HoldSpeedControls.reset(this);
++        SubtitleControls.stateChanged(player, 1);
+         position = Math.max(0L, resumeAt);
+         transitioning = true;
+         ++playGeneration;
+@@ -396,12 +399,13 @@
+ 
+     private void moreControls() {
+         if (player == null || destroying) return;
++        HoldSpeedControls.reset(this);
+         String[] items = {hasQualityChoices(urls) ? "切换画质 · " + qualityLabel(selected) : "画质 · 单一播放线路",
+                 "倍速 · " + speed + "×", "后退 10 秒", "前进 10 秒",
+-                "画面比例 · " + (aspect == 0 ? "原比例" : "填充屏幕"), "自动连播 · " + (autoNext() ? "开" : "关"), "解码 · " + DecoderPolicy.label(this)};
++                "画面比例 · " + (aspect == 0 ? "原比例" : "填充屏幕"), "自动连播 · " + (autoNext() ? "开" : "关"), "解码 · " + DecoderPolicy.label(this), "字幕"};
+         int[] kinds = {PlayerOptionsSheet.SOURCE, PlayerOptionsSheet.SPEED, PlayerOptionsSheet.SEEK_BACK,
+-                PlayerOptionsSheet.SEEK_FORWARD, PlayerOptionsSheet.ASPECT, PlayerOptionsSheet.AUTO_NEXT, PlayerOptionsSheet.DECODER};
+-        PlayerOptionsSheet.show(this, "播放设置", items, new boolean[]{true, true, true, true, true, true, true}, kinds, autoNext(), (dialog, action) -> {
++                PlayerOptionsSheet.SEEK_FORWARD, PlayerOptionsSheet.ASPECT, PlayerOptionsSheet.AUTO_NEXT, PlayerOptionsSheet.DECODER, PlayerOptionsSheet.SUBTITLES};
++        PlayerOptionsSheet.show(this, "播放设置", items, new boolean[]{true, true, true, true, true, true, true, true}, kinds, autoNext(), (dialog, action) -> {
+             if (action == 0) {
+                 if (hasQualityChoices(urls)) chooseQuality();
+                 else Toast.makeText(this, "此集仅提供一个播放版本", Toast.LENGTH_SHORT).show();
+@@ -409,7 +413,8 @@
+             else if (action == 2 || action == 3) seekBy(action == 2 ? -10000L : 10000L);
+             else if (action == 4) chooseAspect();
+             else if (action == 5) getSharedPreferences("tongpin_ui", MODE_PRIVATE).edit().putBoolean("auto_next", !autoNext()).apply();
+-            else DecoderPolicy.choose(this, this::decoderChanged);
++            else if (action == 6) DecoderPolicy.choose(this, this::decoderChanged);
++            else SubtitleControls.show(this, player);
+         });
+     }
+ 
+@@ -445,7 +450,7 @@
+         try {
+             GSYBaseVideoPlayer current = player.getCurrentPlayer();
+             long target = seekTarget(current.getCurrentPositionWhenPlaying(), delta, current.getDuration());
+-            if (target >= 0) current.seekTo(target);
++            if (target >= 0) { SubtitleControls.clear(player); current.seekTo(target); }
+             else Toast.makeText(this, "此时暂不能跳转进度", Toast.LENGTH_SHORT).show();
+         } catch (RuntimeException | LinkageError unavailable) { Toast.makeText(this, "当前线路暂不能跳转进度", Toast.LENGTH_SHORT).show(); }
+     }
+@@ -486,6 +491,7 @@
+ 
+     private void failed() {
+         if (destroying) return;
++        HoldSpeedControls.reset(this); SubtitleControls.stateChanged(player, 7);
+         transitioning = false;
+         updateNavigation();
+         keepScreenOn(false);
+@@ -499,6 +505,7 @@
+ 
+     private void enterFullscreen() {
+         if (player == null || destroying || fullscreen) return;
++        HoldSpeedControls.reset(this);
+         try {
+             orientation.resolveByClick();
+             GSYBaseVideoPlayer full = player.startWindowFullscreen(this, true, true);
+@@ -510,7 +517,9 @@
+ 
+     private void prepareFullscreen(GSYBaseVideoPlayer full) {
+         if (full == null) throw new IllegalStateException("Fullscreen player unavailable");
++        HoldSpeedControls.reset(this);
+         fullscreen = true;
++        SubtitleControls.attach(full);
+         PlaybackResolution.attach(full);
+         PlaybackResolution.refresh(full);
+         hideSystemBars();
+@@ -550,9 +559,11 @@
+     }
+ 
+     private void leaveFullscreen() {
++        HoldSpeedControls.reset(this);
+         if (orientation != null) orientation.backToProtVideo();
+         k6.c.C(this);
+         fullscreen = false;
++        SubtitleControls.attach(player);
+         normalSystemBars();
+     }
+ 
+@@ -562,6 +573,7 @@
+     }
+ 
+     @Override public void onConfigurationChanged(Configuration config) {
++        HoldSpeedControls.reset(this);
+         super.onConfigurationChanged(config);
+         if (player != null && orientation != null) {
+             try { player.onConfigurationChanged(this, config, orientation); }
+@@ -570,6 +582,7 @@
+     }
+ 
+     @Override protected void onPause() {
++        HoldSpeedControls.reset(this); SubtitleControls.pause(this);
+         foreground = false;
+         saveProgress(false);
+         if (player != null) {
+@@ -591,9 +604,11 @@
+             if (orientation != null) orientation.setEnable(true);
+         }
+         resumeAfterPause = false;
++        if (player != null) SubtitleControls.resume(this, player);
+     }
+ 
+     @Override protected void onDestroy() {
++        HoldSpeedControls.release(this); SubtitleControls.release(this);
+         if (isFinishing()) saveProgress(false);
+         destroying = true;
+         keepScreenOn(false);
+@@ -602,6 +617,12 @@
+         GSYVideoType.setShowType(GSYVideoType.SCREEN_TYPE_DEFAULT);
+         if (isFinishing() && queueToken != null) PlayQueue.delete(this, queueToken);
+         super.onDestroy();
++    }
++
++    @Override public boolean dispatchTouchEvent(MotionEvent event) {
++        if (event == null) return false;
++        if (player != null && foreground && !destroying && HoldSpeedControls.touch(this, event, player, false)) return true;
++        return super.dispatchTouchEvent(event);
+     }
+ 
+     @Override protected void onSaveInstanceState(Bundle state) {
+@@ -699,6 +720,7 @@
+         public void i(String url, Object... args) { runOnUiThread(() -> {
+             if (!current(url)) return;
+             transitioning = false; updateNavigation(); applySpeed();
++            if (foreground) SubtitleControls.attach(player);
+             long resume = resumePosition(position, player.getCurrentPlayer().getDuration(), false);
+             if (resume != position) { position = resume; player.getCurrentPlayer().seekTo(resume); saveProgress(true); }
+             showDimensions();
+@@ -710,7 +732,8 @@
+         public void d(String url, Object... args) { runOnUiThread(() -> { if (current(url)) failed(); }); }
+         public void f(String url, Object... args) { runOnUiThread(() -> {
+             if (destroying) return;
+-            fullscreen = false; orientation.backToProtVideo(); normalSystemBars();
++            HoldSpeedControls.reset(OpenPlayerActivity.this);
++            fullscreen = false; orientation.backToProtVideo(); SubtitleControls.attach(player); normalSystemBars();
+         }); }
+         public void u(String url, Object... args) { runOnUiThread(() -> {
+             if (!destroying) {
+@@ -720,6 +743,7 @@
+         }); }
+         public void c(String url, Object... args) { runOnUiThread(() -> {
+             if (!current(url) || player.getCurrentPlayer().getCurrentState() != 6) return;
++            HoldSpeedControls.reset(OpenPlayerActivity.this); SubtitleControls.stateChanged(player, 6);
+             keepScreenOn(false);
+             saveProgress(true);
+             if (queue == null || !canAutoAdvance(foreground, transitioning, autoNext(), generation,
+@@ -735,22 +759,22 @@
+                         expectedEpisode, episodeIndex, queue.episodes.size())) changeEpisode(next); else updateNavigation();
+             });
+         }); }
+-        public void l(String url, Object... args) { keepScreenOn(false); }
+-        public void j(String url, Object... args) { keepScreenOn(false); }
+-        public void w(String url, Object... args) { keepScreenOn(false); }
+-        public void o(String url, Object... args) { keepScreenOn(foreground); player.post(() -> { if (current(url)) applyPendingDecoder(); }); }
+-        public void v(String url, Object... args) { keepScreenOn(foreground); player.post(() -> { if (current(url)) applyPendingDecoder(); }); }
++        public void l(String url, Object... args) { HoldSpeedControls.reset(OpenPlayerActivity.this); if (current(url)) SubtitleControls.stateChanged(player, 0); keepScreenOn(false); }
++        public void j(String url, Object... args) { HoldSpeedControls.reset(OpenPlayerActivity.this); if (current(url) && foreground) SubtitleControls.stateChanged(player, 5); keepScreenOn(false); }
++        public void w(String url, Object... args) { HoldSpeedControls.reset(OpenPlayerActivity.this); if (current(url) && foreground) SubtitleControls.stateChanged(player, 5); keepScreenOn(false); }
++        public void o(String url, Object... args) { keepScreenOn(foreground); player.post(() -> { if (current(url)) { if (foreground) SubtitleControls.attach(player); applyPendingDecoder(); } }); }
++        public void v(String url, Object... args) { keepScreenOn(foreground); player.post(() -> { if (current(url)) { if (foreground) SubtitleControls.attach(player); applyPendingDecoder(); } }); }
+         public void a(String url, Object... args) {}
+         public void b(String url, Object... args) {}
+         public void e(String url, Object... args) {}
+         public void g(String url, Object... args) {}
+-        public void h(String url, Object... args) {}
+-        public void k(String url, Object... args) {}
++        public void h(String url, Object... args) { if (current(url)) SubtitleControls.clear(player); }
++        public void k(String url, Object... args) { if (current(url)) SubtitleControls.clear(player); }
+         public void m(String url, Object... args) {}
+         public void n(String url, Object... args) {}
+         public void p(String url, Object... args) {}
+         public void q(String url, Object... args) {}
+-        public void r(String url, Object... args) {}
++        public void r(String url, Object... args) { if (current(url)) SubtitleControls.clear(player); }
+         public void s(String url, Object... args) {}
+         public void t(String url, Object... args) {}
+     }
+--- before/open-sources/src/com/tongpin/player4k/catalog/LegacyPlayerControls.java
++++ after/open-sources/src/com/tongpin/player4k/catalog/LegacyPlayerControls.java
+@@ -100,6 +100,7 @@
+     }
+ 
+     private static void showMore(Activity activity, Host host) {
++        HoldSpeedControls.reset(activity);
+         ArrayList<String> labels = new ArrayList<>();
+         ArrayList<Boolean> enabled = new ArrayList<>();
+         ArrayList<Integer> actions = new ArrayList<>();
+@@ -111,11 +112,13 @@
+         }
+         labels.add("自动连播：" + (autoNextEnabled(activity) ? "开" : "关")); enabled.add(true); actions.add(8);
+         labels.add("解码 · " + DecoderPolicy.label(activity)); enabled.add(true); actions.add(9);
++        labels.add("字幕"); enabled.add(true); actions.add(10);
+         boolean[] availability = new boolean[enabled.size()];
+         int[] kinds = new int[actions.size()];
+         for (int i = 0; i < availability.length; i++) { availability[i] = enabled.get(i); kinds[i] = actions.get(i); }
+         PlayerOptionsSheet.show(activity, "播放设置", labels.toArray(new String[0]), availability, kinds, autoNextEnabled(activity), (dialog, index) -> {
+             int action = actions.get(index);
++            if (action == 10) { SubtitleControls.show(activity, activity.findViewById(0x7f0a036e)); return; }
+             if (action == 9) { DecoderPolicy.choose(activity, host::legacyDecoderChanged); return; }
+             if (action == 8) {
+                 activity.getSharedPreferences(PREFERENCES, Context.MODE_PRIVATE).edit()
+--- before/open-sources/src/com/tongpin/player4k/catalog/PlayerOptionsSheet.java
++++ after/open-sources/src/com/tongpin/player4k/catalog/PlayerOptionsSheet.java
+@@ -21,7 +21,7 @@
+ /** Compact native playback actions; callers retain their existing action identities. */
+ public final class PlayerOptionsSheet {
+     public static final int EPISODES = 0, SOURCE = 1, SPEED = 2, ASPECT = 3, SKIP = 4;
+-    public static final int SEEK_BACK = 5, SEEK_FORWARD = 6, LOCK = 7, AUTO_NEXT = 8, DECODER = 9;
++    public static final int SEEK_BACK = 5, SEEK_FORWARD = 6, LOCK = 7, AUTO_NEXT = 8, DECODER = 9, SUBTITLES = 10;
+     private PlayerOptionsSheet() {}
+ 
+     public static void show(Activity activity, String title, String[] labels, boolean[] enabled,
+@@ -155,8 +155,8 @@
+         return widthDp >= 320 * Math.max(1f, fontScale);
+     }
+     static int sectionFor(int kind) {
+-        if (kind < EPISODES || kind > DECODER) throw new IllegalArgumentException("Unknown playback action");
+-        return kind == DECODER ? 1 : kind <= SOURCE ? 0 : kind <= SKIP ? 1 : kind <= SEEK_FORWARD ? 2 : 3;
++        if (kind < EPISODES || kind > SUBTITLES) throw new IllegalArgumentException("Unknown playback action");
++        return kind == DECODER || kind == SUBTITLES ? 1 : kind <= SOURCE ? 0 : kind <= SKIP ? 1 : kind <= SEEK_FORWARD ? 2 : 3;
+     }
+     static int[] sectionIndices(int[] kinds, int section) {
+         int count = 0;
+--- before/decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity.smali
++++ after/decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity.smali
+@@ -1975,6 +1975,7 @@
+ 
+ .method private final I1()V
+     .locals 11
++    invoke-direct {p0}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->legacyPlayerTransition()V
+     const/4 v0, 0x0
+     iput-boolean v0, p0, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->tpDecoderPending:Z
+     invoke-direct {p0}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->seekReset()V
+@@ -5148,6 +5149,7 @@
+ 
+ .method private final S2(II)V
+     .locals 3
++    invoke-direct {p0}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->legacyPlayerTransition()V
+ 
+     .line 1
+     iget-object v0, p0, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->G:Lh6/v0;
+@@ -5283,6 +5285,7 @@
+ 
+ .method private static final T1(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;Lcom/shenma/tvlauncher/domain/Json;)Lm7/f0;
+     .locals 5
++    invoke-direct {p0}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->legacyPlayerTransition()V
+     invoke-direct {p0}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->seekReset()V
+ 
+     .line 1
+@@ -13899,6 +13902,7 @@
+ 
+ .method private final t1(I)V
+     .locals 6
++    invoke-direct {p0}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->legacyPlayerTransition()V
+     const/4 v0, 0x2
+     const/4 v1, 0x0
+     if-ne p1, v0, :viewport_state
+@@ -16287,12 +16291,14 @@
+ 
+ .method public onConfigurationChanged(Landroid/content/res/Configuration;)V
+     .locals 1
++    invoke-direct {p0}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->legacyPlayerTransition()V
+     const-string v0, "newConfig"
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/y;->f(Ljava/lang/Object;Ljava/lang/String;)V
+     invoke-super {p0, p1}, Landroidx/appcompat/app/AppCompatActivity;->onConfigurationChanged(Landroid/content/res/Configuration;)V
+     iget v0, p1, Landroid/content/res/Configuration;->orientation:I
+     invoke-direct {p0, v0}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->t1(I)V
+     invoke-direct {p0}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->configureEpisodeGrid()V
++    invoke-direct {p0}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->legacyAttachSubtitles()V
+     return-void
+ .end method
+ 
+@@ -16408,6 +16414,8 @@
+ 
+ .method protected onDestroy()V
+     .locals 3
++    invoke-static {p0}, Lcom/tongpin/player4k/catalog/HoldSpeedControls;->release(Landroid/app/Activity;)V
++    invoke-static {p0}, Lcom/tongpin/player4k/catalog/SubtitleControls;->release(Landroid/app/Activity;)V
+ 
+     const/4 v0, 0x0
+     invoke-static {v0}, Lcom/shuyu/gsyvideoplayer/utils/GSYVideoType;->setShowType(I)V
+@@ -16505,6 +16513,8 @@
+ 
+ .method protected onPause()V
+     .locals 1
++    invoke-static {p0}, Lcom/tongpin/player4k/catalog/HoldSpeedControls;->reset(Landroid/app/Activity;)V
++    invoke-static {p0}, Lcom/tongpin/player4k/catalog/SubtitleControls;->pause(Landroid/app/Activity;)V
+     invoke-direct {p0}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->seekReset()V
+ 
+     const/4 v0, 0x0
+@@ -16845,6 +16855,7 @@
+     .line 124
+     .line 125
+     :cond_2
++    invoke-direct {p0}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->legacyResumeSubtitles()V
+     return-void
+ .end method
+ 
+@@ -17789,6 +17800,7 @@
+     if-ltz v0, :seek_commit_done
+     invoke-direct {p0}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->seekPlayer()Lcom/shenma/tvlauncher/phone/EmptyControlVideoView;
+     move-result-object v0
++    invoke-static {v0}, Lcom/tongpin/player4k/catalog/SubtitleControls;->clear(Landroid/view/View;)V
+     invoke-virtual {v0, p1, p2}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->seekTo(J)V
+     :seek_commit_done
+     return-void
+@@ -17882,6 +17894,12 @@
+     const/4 v0, 0x0
+     return v0
+     :seek_dispatch_event
++    invoke-direct {p0, p1}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->legacyTouch(Landroid/view/MotionEvent;)Z
++    move-result v0
++    if-eqz v0, :hold_dispatch_pass
++    const/4 v0, 0x1
++    return v0
++    :hold_dispatch_pass
+     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
+     move-result v0
+     const/4 v1, 0x3
+@@ -17971,3 +17989,51 @@
+     invoke-virtual {v0}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->startPlayLogic()V
+     return-void
+ .end method
++
++.method private final legacyTouch(Landroid/view/MotionEvent;)Z
++    .locals 2
++    invoke-direct {p0}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->seekPlayer()Lcom/shenma/tvlauncher/phone/EmptyControlVideoView;
++    move-result-object v0
++    invoke-virtual {p0}, Lcom/shenma/tvlauncher/phone/base/BaseDbActivity;->getMDataBind()Landroidx/databinding/ViewDataBinding;
++    move-result-object v1
++    check-cast v1, Lc6/w;
++    iget-object v1, v1, Lc6/w;->n:Landroid/widget/ImageView;
++    invoke-virtual {v1}, Landroid/view/View;->isSelected()Z
++    move-result v1
++    invoke-static {p0, p1, v0, v1}, Lcom/tongpin/player4k/catalog/HoldSpeedControls;->touch(Landroid/app/Activity;Landroid/view/MotionEvent;Landroid/view/View;Z)Z
++    move-result v0
++    return v0
++.end method
++
++.method private final legacyPlayerTransition()V
++    .locals 1
++    invoke-static {p0}, Lcom/tongpin/player4k/catalog/HoldSpeedControls;->reset(Landroid/app/Activity;)V
++    invoke-direct {p0}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->seekPlayer()Lcom/shenma/tvlauncher/phone/EmptyControlVideoView;
++    move-result-object v0
++    invoke-static {v0}, Lcom/tongpin/player4k/catalog/SubtitleControls;->clear(Landroid/view/View;)V
++    return-void
++.end method
++
++.method private final legacyAttachSubtitles()V
++    .locals 3
++    invoke-direct {p0}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->seekPlayer()Lcom/shenma/tvlauncher/phone/EmptyControlVideoView;
++    move-result-object v0
++    invoke-virtual {v0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->getCurrentState()I
++    move-result v1
++    const/4 v2, 0x2
++    if-eq v1, v2, :subtitle_attach
++    const/4 v2, 0x5
++    if-ne v1, v2, :subtitle_attach_done
++    :subtitle_attach
++    invoke-static {v0}, Lcom/tongpin/player4k/catalog/SubtitleControls;->attach(Landroid/view/View;)V
++    :subtitle_attach_done
++    return-void
++.end method
++
++.method private final legacyResumeSubtitles()V
++    .locals 1
++    invoke-direct {p0}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->seekPlayer()Lcom/shenma/tvlauncher/phone/EmptyControlVideoView;
++    move-result-object v0
++    invoke-static {p0, v0}, Lcom/tongpin/player4k/catalog/SubtitleControls;->resume(Landroid/app/Activity;Landroid/view/View;)V
++    return-void
++.end method
+--- before/decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity$e.smali
++++ after/decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity$e.smali
+@@ -320,171 +320,10 @@
+     return p1
+ .end method
+ 
+-.method public onLongPress(Landroid/view/MotionEvent;)V
+-    .locals 3
+-
+-    .line 1
+-    const-string v0, "e"
+-
+-    .line 2
+-    .line 3
+-    invoke-static {p1, v0}, Lkotlin/jvm/internal/y;->f(Ljava/lang/Object;Ljava/lang/String;)V
+-
+-    .line 4
+-    .line 5
+-    .line 6
+-    iget-object p1, p0, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity$e;->b:Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;
+-
+-    .line 7
+-    .line 8
+-    invoke-virtual {p1}, Lcom/shenma/tvlauncher/phone/base/BaseDbActivity;->getMDataBind()Landroidx/databinding/ViewDataBinding;
+-
+-    .line 9
+-    .line 10
+-    .line 11
+-    move-result-object p1
+-
+-    .line 12
+-    check-cast p1, Lc6/w;
+-
+-    .line 13
+-    .line 14
+-    iget-object p1, p1, Lc6/w;->n:Landroid/widget/ImageView;
+-
+-    .line 15
+-    .line 16
+-    invoke-virtual {p1}, Landroid/view/View;->isSelected()Z
+-
+-    .line 17
+-    .line 18
+-    .line 19
+-    move-result p1
+-
+-    .line 20
+-    if-eqz p1, :cond_0
+-
+-    .line 21
+-    .line 22
+-    return-void
+-
+-    .line 23
+-    :cond_0
+-    iget-object p1, p0, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity$e;->b:Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;
+-
+-    .line 24
+-    .line 25
+-    invoke-static {p1}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->W0(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)Z
+-
+-    .line 26
+-    .line 27
+-    .line 28
+-    move-result p1
+-
+-    .line 29
+-    const/4 v0, 0x0
+-
+-    .line 30
+-    if-eqz p1, :cond_2
+-
+-    .line 31
+-    .line 32
+-    iget-object p1, p0, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity$e;->b:Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;
+-
+-    .line 33
+-    .line 34
+-    invoke-static {p1}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->Y0(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)Z
+-
+-    .line 35
+-    .line 36
+-    .line 37
+-    move-result p1
+-
+-    .line 38
+-    if-eqz p1, :cond_1
+-
+-    .line 39
+-    .line 40
+-    iget-object p1, p0, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity$e;->b:Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;
+-
+-    .line 41
+-    .line 42
+-    invoke-static {p1}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->l1(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V
+-
+-    .line 43
+-    .line 44
+-    .line 45
+-    return-void
+-
+-    .line 46
+-    :cond_1
+-    iget-object p1, p0, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity$e;->b:Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;
+-
+-    .line 47
+-    .line 48
+-    const/4 v1, -0x1
+-
+-    .line 49
+-    invoke-static {p1, v1, v0}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->m1(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;II)V
+-
+-    .line 50
+-    .line 51
+-    .line 52
+-    return-void
+-
+-    .line 53
+-    :cond_2
+-    iget-object p1, p0, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity$e;->b:Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;
+-
+-    .line 54
+-    .line 55
+-    sget-object v1, Lcom/shenma/tvlauncher/application/MyApplication;->e:Landroid/app/Application;
+-
+-    .line 56
+-    .line 57
+-    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+-
+-    .line 58
+-    .line 59
+-    .line 60
+-    move-result-object v1
+-
+-    .line 61
+-    sget v2, Lb6/c;->g:I
+-
+-    .line 62
+-    .line 63
+-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
+-
+-    .line 64
+-    .line 65
+-    .line 66
+-    move-result v1
+-
+-    .line 67
+-    float-to-int v1, v1
+-
+-    .line 68
+-    iget-object v2, p0, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity$e;->b:Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;
+-
+-    .line 69
+-    .line 70
+-    invoke-virtual {v2, v2}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->H1(Landroid/content/Context;)I
+-
+-    .line 71
+-    .line 72
+-    .line 73
+-    move-result v2
+-
+-    .line 74
+-    sub-int/2addr v1, v2
+-
+-    .line 75
+-    invoke-static {p1, v1, v0}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->m1(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;II)V
+-
+-    .line 76
+-    .line 77
+-    .line 78
+-    return-void
++.method public onLongPress(Landroid/view/MotionEvent;)V
++    .locals 0
++    # The passive Activity observer applies temporary speed without changing fullscreen.
++    return-void
+ .end method
+ 
+ .method public onSingleTapUp(Landroid/view/MotionEvent;)Z
+--- before/decoded/smali_classes5/com/shenma/tvlauncher/phone/EmptyControlVideoView.smali
++++ after/decoded/smali_classes5/com/shenma/tvlauncher/phone/EmptyControlVideoView.smali
+@@ -243,6 +243,8 @@
+     invoke-super {p0, p1}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->setStateAndUi(I)V
+ 
+     invoke-static {p0, p1}, Lcom/tongpin/player4k/catalog/PlaybackResolution;->stateChanged(Landroid/view/View;I)V
+-
+-    return-void
+-.end method
++    invoke-static {p0, p1}, Lcom/tongpin/player4k/catalog/HoldSpeedControls;->stateChanged(Landroid/view/View;I)V
++    invoke-static {p0, p1}, Lcom/tongpin/player4k/catalog/SubtitleControls;->stateChanged(Landroid/view/View;I)V
++
++    return-void
++.end method

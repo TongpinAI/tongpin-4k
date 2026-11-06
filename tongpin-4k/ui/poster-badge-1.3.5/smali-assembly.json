@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "two_changed_smali_classes_assemble": true,
+  "proof_dex_sha256": "2d52df915ec8ac4504411cc77cbdbf56a5f919c4a206f1e86f433231161036a8",
+  "proof_only_not_production_app": true,
+  "production_native_device_tested": false
+}

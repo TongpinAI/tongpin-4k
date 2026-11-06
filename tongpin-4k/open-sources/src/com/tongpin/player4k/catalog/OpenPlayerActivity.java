@@ -13,6 +13,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.DisplayCutout;
 import android.view.View;
 import android.view.ViewGroup;
@@ -219,6 +220,8 @@ public final class OpenPlayerActivity extends Activity {
 
     private void playAt(int index, long resumeAt) {
         if (player == null || destroying || index < 0 || index >= urls.length) return;
+        HoldSpeedControls.reset(this);
+        SubtitleControls.stateChanged(player, 1);
         position = Math.max(0L, resumeAt);
         transitioning = true;
         ++playGeneration;
@@ -396,12 +399,13 @@ public final class OpenPlayerActivity extends Activity {
 
     private void moreControls() {
         if (player == null || destroying) return;
+        HoldSpeedControls.reset(this);
         String[] items = {hasQualityChoices(urls) ? "切换画质 · " + qualityLabel(selected) : "画质 · 单一播放线路",
                 "倍速 · " + speed + "×", "后退 10 秒", "前进 10 秒",
-                "画面比例 · " + (aspect == 0 ? "原比例" : "填充屏幕"), "自动连播 · " + (autoNext() ? "开" : "关"), "解码 · " + DecoderPolicy.label(this)};
+                "画面比例 · " + (aspect == 0 ? "原比例" : "填充屏幕"), "自动连播 · " + (autoNext() ? "开" : "关"), "解码 · " + DecoderPolicy.label(this), "字幕"};
         int[] kinds = {PlayerOptionsSheet.SOURCE, PlayerOptionsSheet.SPEED, PlayerOptionsSheet.SEEK_BACK,
-                PlayerOptionsSheet.SEEK_FORWARD, PlayerOptionsSheet.ASPECT, PlayerOptionsSheet.AUTO_NEXT, PlayerOptionsSheet.DECODER};
-        PlayerOptionsSheet.show(this, "播放设置", items, new boolean[]{true, true, true, true, true, true, true}, kinds, autoNext(), (dialog, action) -> {
+                PlayerOptionsSheet.SEEK_FORWARD, PlayerOptionsSheet.ASPECT, PlayerOptionsSheet.AUTO_NEXT, PlayerOptionsSheet.DECODER, PlayerOptionsSheet.SUBTITLES};
+        PlayerOptionsSheet.show(this, "播放设置", items, new boolean[]{true, true, true, true, true, true, true, true}, kinds, autoNext(), (dialog, action) -> {
             if (action == 0) {
                 if (hasQualityChoices(urls)) chooseQuality();
                 else Toast.makeText(this, "此集仅提供一个播放版本", Toast.LENGTH_SHORT).show();
@@ -409,7 +413,8 @@ public final class OpenPlayerActivity extends Activity {
             else if (action == 2 || action == 3) seekBy(action == 2 ? -10000L : 10000L);
             else if (action == 4) chooseAspect();
             else if (action == 5) getSharedPreferences("tongpin_ui", MODE_PRIVATE).edit().putBoolean("auto_next", !autoNext()).apply();
-            else DecoderPolicy.choose(this, this::decoderChanged);
+            else if (action == 6) DecoderPolicy.choose(this, this::decoderChanged);
+            else SubtitleControls.show(this, player);
         });
     }
 
@@ -445,7 +450,7 @@ public final class OpenPlayerActivity extends Activity {
         try {
             GSYBaseVideoPlayer current = player.getCurrentPlayer();
             long target = seekTarget(current.getCurrentPositionWhenPlaying(), delta, current.getDuration());
-            if (target >= 0) current.seekTo(target);
+            if (target >= 0) { SubtitleControls.clear(player); current.seekTo(target); }
             else Toast.makeText(this, "此时暂不能跳转进度", Toast.LENGTH_SHORT).show();
         } catch (RuntimeException | LinkageError unavailable) { Toast.makeText(this, "当前线路暂不能跳转进度", Toast.LENGTH_SHORT).show(); }
     }
@@ -486,6 +491,7 @@ public final class OpenPlayerActivity extends Activity {
 
     private void failed() {
         if (destroying) return;
+        HoldSpeedControls.reset(this); SubtitleControls.stateChanged(player, 7);
         transitioning = false;
         updateNavigation();
         keepScreenOn(false);
@@ -499,6 +505,7 @@ public final class OpenPlayerActivity extends Activity {
 
     private void enterFullscreen() {
         if (player == null || destroying || fullscreen) return;
+        HoldSpeedControls.reset(this);
         try {
             orientation.resolveByClick();
             GSYBaseVideoPlayer full = player.startWindowFullscreen(this, true, true);
@@ -510,7 +517,9 @@ public final class OpenPlayerActivity extends Activity {
 
     private void prepareFullscreen(GSYBaseVideoPlayer full) {
         if (full == null) throw new IllegalStateException("Fullscreen player unavailable");
+        HoldSpeedControls.reset(this);
         fullscreen = true;
+        SubtitleControls.attach(full);
         PlaybackResolution.attach(full);
         PlaybackResolution.refresh(full);
         hideSystemBars();
@@ -550,9 +559,11 @@ public final class OpenPlayerActivity extends Activity {
     }
 
     private void leaveFullscreen() {
+        HoldSpeedControls.reset(this);
         if (orientation != null) orientation.backToProtVideo();
         k6.c.C(this);
         fullscreen = false;
+        SubtitleControls.attach(player);
         normalSystemBars();
     }
 
@@ -562,6 +573,7 @@ public final class OpenPlayerActivity extends Activity {
     }
 
     @Override public void onConfigurationChanged(Configuration config) {
+        HoldSpeedControls.reset(this);
         super.onConfigurationChanged(config);
         if (player != null && orientation != null) {
             try { player.onConfigurationChanged(this, config, orientation); }
@@ -570,6 +582,7 @@ public final class OpenPlayerActivity extends Activity {
     }
 
     @Override protected void onPause() {
+        HoldSpeedControls.reset(this); SubtitleControls.pause(this);
         foreground = false;
         saveProgress(false);
         if (player != null) {
@@ -591,9 +604,11 @@ public final class OpenPlayerActivity extends Activity {
             if (orientation != null) orientation.setEnable(true);
         }
         resumeAfterPause = false;
+        if (player != null) SubtitleControls.resume(this, player);
     }
 
     @Override protected void onDestroy() {
+        HoldSpeedControls.release(this); SubtitleControls.release(this);
         if (isFinishing()) saveProgress(false);
         destroying = true;
         keepScreenOn(false);
@@ -602,6 +617,12 @@ public final class OpenPlayerActivity extends Activity {
         GSYVideoType.setShowType(GSYVideoType.SCREEN_TYPE_DEFAULT);
         if (isFinishing() && queueToken != null) PlayQueue.delete(this, queueToken);
         super.onDestroy();
+    }
+
+    @Override public boolean dispatchTouchEvent(MotionEvent event) {
+        if (event == null) return false;
+        if (player != null && foreground && !destroying && HoldSpeedControls.touch(this, event, player, false)) return true;
+        return super.dispatchTouchEvent(event);
     }
 
     @Override protected void onSaveInstanceState(Bundle state) {
@@ -699,6 +720,7 @@ public final class OpenPlayerActivity extends Activity {
         public void i(String url, Object... args) { runOnUiThread(() -> {
             if (!current(url)) return;
             transitioning = false; updateNavigation(); applySpeed();
+            if (foreground) SubtitleControls.attach(player);
             long resume = resumePosition(position, player.getCurrentPlayer().getDuration(), false);
             if (resume != position) { position = resume; player.getCurrentPlayer().seekTo(resume); saveProgress(true); }
             showDimensions();
@@ -710,7 +732,8 @@ public final class OpenPlayerActivity extends Activity {
         public void d(String url, Object... args) { runOnUiThread(() -> { if (current(url)) failed(); }); }
         public void f(String url, Object... args) { runOnUiThread(() -> {
             if (destroying) return;
-            fullscreen = false; orientation.backToProtVideo(); normalSystemBars();
+            HoldSpeedControls.reset(OpenPlayerActivity.this);
+            fullscreen = false; orientation.backToProtVideo(); SubtitleControls.attach(player); normalSystemBars();
         }); }
         public void u(String url, Object... args) { runOnUiThread(() -> {
             if (!destroying) {
@@ -720,6 +743,7 @@ public final class OpenPlayerActivity extends Activity {
         }); }
         public void c(String url, Object... args) { runOnUiThread(() -> {
             if (!current(url) || player.getCurrentPlayer().getCurrentState() != 6) return;
+            HoldSpeedControls.reset(OpenPlayerActivity.this); SubtitleControls.stateChanged(player, 6);
             keepScreenOn(false);
             saveProgress(true);
             if (queue == null || !canAutoAdvance(foreground, transitioning, autoNext(), generation,
@@ -735,22 +759,22 @@ public final class OpenPlayerActivity extends Activity {
                         expectedEpisode, episodeIndex, queue.episodes.size())) changeEpisode(next); else updateNavigation();
             });
         }); }
-        public void l(String url, Object... args) { keepScreenOn(false); }
-        public void j(String url, Object... args) { keepScreenOn(false); }
-        public void w(String url, Object... args) { keepScreenOn(false); }
-        public void o(String url, Object... args) { keepScreenOn(foreground); player.post(() -> { if (current(url)) applyPendingDecoder(); }); }
-        public void v(String url, Object... args) { keepScreenOn(foreground); player.post(() -> { if (current(url)) applyPendingDecoder(); }); }
+        public void l(String url, Object... args) { HoldSpeedControls.reset(OpenPlayerActivity.this); if (current(url)) SubtitleControls.stateChanged(player, 0); keepScreenOn(false); }
+        public void j(String url, Object... args) { HoldSpeedControls.reset(OpenPlayerActivity.this); if (current(url) && foreground) SubtitleControls.stateChanged(player, 5); keepScreenOn(false); }
+        public void w(String url, Object... args) { HoldSpeedControls.reset(OpenPlayerActivity.this); if (current(url) && foreground) SubtitleControls.stateChanged(player, 5); keepScreenOn(false); }
+        public void o(String url, Object... args) { keepScreenOn(foreground); player.post(() -> { if (current(url)) { if (foreground) SubtitleControls.attach(player); applyPendingDecoder(); } }); }
+        public void v(String url, Object... args) { keepScreenOn(foreground); player.post(() -> { if (current(url)) { if (foreground) SubtitleControls.attach(player); applyPendingDecoder(); } }); }
         public void a(String url, Object... args) {}
         public void b(String url, Object... args) {}
         public void e(String url, Object... args) {}
         public void g(String url, Object... args) {}
-        public void h(String url, Object... args) {}
-        public void k(String url, Object... args) {}
+        public void h(String url, Object... args) { if (current(url)) SubtitleControls.clear(player); }
+        public void k(String url, Object... args) { if (current(url)) SubtitleControls.clear(player); }
         public void m(String url, Object... args) {}
         public void n(String url, Object... args) {}
         public void p(String url, Object... args) {}
         public void q(String url, Object... args) {}
-        public void r(String url, Object... args) {}
+        public void r(String url, Object... args) { if (current(url)) SubtitleControls.clear(player); }
         public void s(String url, Object... args) {}
         public void t(String url, Object... args) {}
     }

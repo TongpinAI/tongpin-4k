@@ -6,6 +6,8 @@ import android.content.ContextWrapper;
 import android.content.SharedPreferences;
 import android.view.View;
 import android.widget.TextView;
+import java.util.ArrayList;
+import java.util.List;
 
 /** Display ordering only. Playback indices and the provider's episode list stay canonical. */
 public final class LegacyEpisodeOrder {
@@ -38,6 +40,26 @@ public final class LegacyEpisodeOrder {
         apply(gridAdapter, descending);
         bindButton(activity.findViewById(ORDER), activity, false);
         bindButton(activity.findViewById(ALL_TITLE), activity, true);
+        bindSummary(activity, horizontalAdapter != null ? horizontalAdapter : gridAdapter);
+    }
+
+    private static void bindSummary(Activity activity, Object adapter) {
+        View view = activity.findViewById(0x7f0a0b3d);
+        if (!(view instanceof TextView) || adapter == null) return;
+        ArrayList<String> names = new ArrayList<>();
+        try {
+            List<?> entries = (List<?>) adapter.getClass().getMethod("b").invoke(adapter);
+            if (entries != null) for (Object entry : entries) {
+                if (entry == null) continue;
+                Object url = entry.getClass().getMethod("getUrl").invoke(entry);
+                if (!(url instanceof String) || ((String) url).trim().isEmpty()) continue;
+                Object title = entry.getClass().getMethod("getTitle").invoke(entry);
+                names.add(title instanceof String ? (String) title : "");
+            }
+        } catch (Exception brokenAdapter) { throw new IllegalStateException("无法更新选集数量", brokenAdapter); }
+        String text = EpisodeSummary.describe(names);
+        ((TextView) view).setText(text);
+        view.setContentDescription("当前线路：" + text);
     }
 
     private static void bindButton(View view, Context context, boolean allTitle) {

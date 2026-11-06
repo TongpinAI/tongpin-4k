@@ -1,0 +1,586 @@
+{
+  "passed": true,
+  "scope": "actual final classes5 DEX instructions versus frozen tested r2",
+  "content_helpers_fresh_dex_verified": true,
+  "content_helper_methods": [
+    {
+      "class": "EpisodeSummary",
+      "method": "<clinit>()V",
+      "instructions_sha256": "67baf62191a6396448b4a26e5f852cc80287f404027f2bdd952530575c93ef71"
+    },
+    {
+      "class": "EpisodeSummary",
+      "method": "<init>()V",
+      "instructions_sha256": "8f8dcae5f3ad16d5c943bdc2594abc2c124d4f388aea14939264465fa4e7554d"
+    },
+    {
+      "class": "EpisodeSummary",
+      "method": "describe(Ljava/lang/Iterable;)Ljava/lang/String;",
+      "instructions_sha256": "e05d7f1e7ef9dea5e6c70bb60fb84c53ef56a247f8755b455b42193fa54a1ee5"
+    },
+    {
+      "class": "EpisodeSummary",
+      "method": "number(Ljava/lang/String;)I",
+      "instructions_sha256": "d1fd0964e715a59ea05882f0bb7ded2e9079ddbc29a42532d2dc682d3256947f"
+    },
+    {
+      "class": "LegacyEpisodeOrder",
+      "method": "<init>()V",
+      "instructions_sha256": "8f8dcae5f3ad16d5c943bdc2594abc2c124d4f388aea14939264465fa4e7554d"
+    },
+    {
+      "class": "LegacyEpisodeOrder",
+      "method": "activity(Landroid/content/Context;)Landroid/app/Activity;",
+      "instructions_sha256": "3412da42773fafce134f41a8ab421d5cad81a642cbce36a479e5815b19fc55ad"
+    },
+    {
+      "class": "LegacyEpisodeOrder",
+      "method": "apply(Ljava/lang/Object;Z)V",
+      "instructions_sha256": "bf208e7c83ea519d0c59635a3a9cb29915ab5746fb7871078df1adfed3af76aa"
+    },
+    {
+      "class": "LegacyEpisodeOrder",
+      "method": "bind(Landroid/app/Activity;Ljava/lang/Object;Ljava/lang/Object;)V",
+      "instructions_sha256": "b0f913bd8cb408cdf87283a847d4eef9ad6d45b8caf9534ace02ed9277afdfe0"
+    },
+    {
+      "class": "LegacyEpisodeOrder",
+      "method": "bindButton(Landroid/view/View;Landroid/content/Context;Z)V",
+      "instructions_sha256": "bbac156e43ff17403235c6ce8c285c6b0f2f83be8073404ad2373b5f5e2b42b2"
+    },
+    {
+      "class": "LegacyEpisodeOrder",
+      "method": "bindDialog(Landroid/content/Context;Landroid/view/View;Ljava/lang/Object;)V",
+      "instructions_sha256": "b5792225b2c7c71000911d865299f7418c9301e3ab58f66803b02397052cf9d6"
+    },
+    {
+      "class": "LegacyEpisodeOrder",
+      "method": "bindSummary(Landroid/app/Activity;Ljava/lang/Object;)V",
+      "instructions_sha256": "5d1e40182abfea2ae812084137b3cb1cecf2d6ff374b71555c300963aed8807c"
+    },
+    {
+      "class": "LegacyEpisodeOrder",
+      "method": "dialogLabel(Landroid/widget/TextView;Z)V",
+      "instructions_sha256": "047f047bbf251233bd3a13f3ba8891c24e8889da478092b8897cc06a28501c07"
+    },
+    {
+      "class": "LegacyEpisodeOrder",
+      "method": "index(IIZ)I",
+      "instructions_sha256": "6d99ec0a04b8dd1cadbc6581ef88e28016c74130dc75a67644755a5590a34936"
+    },
+    {
+      "class": "LegacyEpisodeOrder",
+      "method": "isDescending(Landroid/content/Context;)Z",
+      "instructions_sha256": "9950a524d50869053b3cdd67dc51cbd3103c7641d71a105be7007a3ad155d4ae"
+    },
+    {
+      "class": "LegacyEpisodeOrder",
+      "method": "lambda$bindButton$0(Landroid/content/Context;Landroid/view/View;)V",
+      "instructions_sha256": "d78bf3713771014dfd64d05420cad8e8a2c142d3f7ba448efeef02bb95dc2b4c"
+    },
+    {
+      "class": "LegacyEpisodeOrder",
+      "method": "lambda$bindDialog$0(Landroid/content/Context;Ljava/lang/Object;Landroid/widget/TextView;Landroid/view/View;)V",
+      "instructions_sha256": "627cc48b3b057c262268b148cf6bcec4d4ba02dd21ee8ee7ce31761157e4ea4b"
+    },
+    {
+      "class": "LegacyEpisodeOrder",
+      "method": "setDescending(Landroid/content/Context;Z)V",
+      "instructions_sha256": "437d1f981e380d9c55219b671b446250b78b4cb121e155280087ef9edf832b96"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "<init>()V",
+      "instructions_sha256": "feea88892b58181af974a0fc1cd674644894c094630c0c006deae4bb31031abd"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "access$100(Lcom/tongpin/player4k/catalog/CatalogActivity;)I",
+      "instructions_sha256": "22f41592d49e451b2e200a541bb00ffec052450826eeec9759d8ed4501dd1d71"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "access$1000(Lcom/tongpin/player4k/catalog/CatalogActivity;Ljava/lang/String;Landroid/widget/ImageView;Ljava/lang/String;)V",
+      "instructions_sha256": "787d3b3ed0884207f2fb91c892f6483895982b82a3edc59c140f398e3d665ec9"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "access$102(Lcom/tongpin/player4k/catalog/CatalogActivity;I)I",
+      "instructions_sha256": "a57c08e2c460b40e62cb2a92a791acd4b60e8a17c6af3b6b16b188fbef986f08"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "access$200(Lcom/tongpin/player4k/catalog/CatalogActivity;I)V",
+      "instructions_sha256": "8d919e7b44fbbc769bbb3a56c9d7c34fa493a0fa04595c136510a3b46eeb56db"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "access$300(Lcom/tongpin/player4k/catalog/CatalogActivity;I)I",
+      "instructions_sha256": "0d7751779d939287fb6ad2bae14a88e9b9fbd4de8996f98dbb96a884be8a0a81"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "access$400(Lcom/tongpin/player4k/catalog/CatalogActivity;)Lcom/tongpin/player4k/catalog/CatalogApi$Episode;",
+      "instructions_sha256": "76544b727690473c23d21c213cc60d265141621edaa3bb32df23ed36378ce9b7"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "access$500(Lcom/tongpin/player4k/catalog/CatalogActivity;)Ljava/util/ArrayList;",
+      "instructions_sha256": "3fbedf1bcbcd45c8efb7bcf877d723ee0ed1674f12cfe01f8b7e7d915cce576f"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "access$600(Lcom/tongpin/player4k/catalog/CatalogActivity;)Landroid/widget/LinearLayout;",
+      "instructions_sha256": "658d53892638006a638a877464935a8c90208c0588deb6b201f8b7dbd5a69205"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "access$800(Lcom/tongpin/player4k/catalog/CatalogActivity;)Landroid/widget/LinearLayout;",
+      "instructions_sha256": "7d6a411ec9599aadefcbab16aefd9b302715a9f7c5bbd1da16dd04eabe883203"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "access$900(Lcom/tongpin/player4k/catalog/CatalogActivity;Ljava/lang/String;II)Landroid/widget/TextView;",
+      "instructions_sha256": "a8abfd41cc861091098f497663370fabee3075f815a712586460c22bb152a745"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "alive()Z",
+      "instructions_sha256": "37ed0360e2373965298f523ccf882ac2c24da01e69bb0b4a42f6d789d62f9138"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "attribution(Lcom/tongpin/player4k/catalog/CatalogApi$Video;)Ljava/lang/String;",
+      "instructions_sha256": "5025d2a3c20bce3e049d334271ef04d95cb14b382f0c2a24e6f851182d4cebcc"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "bindEntry(Landroid/view/View;)V",
+      "instructions_sha256": "8a5666fbbad4b2a1f162dd58d0330fce3a6a965222f3347a66d321ba8f0506c4"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "buildScreen()V",
+      "instructions_sha256": "c9cd03c23cb45abb8016b78b780fcd5f832f856a9989a0df0142db18fb5a6698"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "button(Ljava/lang/String;Z)Landroid/widget/Button;",
+      "instructions_sha256": "a1ef91d3f88ae5e9ae149d4784269074d5459897333036b1582d2ba7a0f79780"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "column()Landroid/widget/LinearLayout;",
+      "instructions_sha256": "b2cc4635951bfc9c99392eb59a970d713d2f162af114155a45d516145d47e8e0"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "displayEpisodes(Ljava/util/List;Z)Ljava/util/List;",
+      "instructions_sha256": "0d9c777430bef8b273d97cf7d2b4396b385d1200426832723e770945da6fbbb4"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "dp(I)I",
+      "instructions_sha256": "02d14f95c8885074e8708048ca22b45e9fac0674dc6e8d40c72f78b5554bb48f"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "episodeColumns(I)I",
+      "instructions_sha256": "0bf6262001c9a69ef80daaa1ff2b0e298e73a29eb36bcd2cd0642ddfab6e6bba"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "episodeSummary(Lcom/tongpin/player4k/catalog/CatalogApi$Line;)Ljava/lang/String;",
+      "instructions_sha256": "0a54554c547fc9886a0875f47fecb4e6707a8745465f79ec3e686084438c0f45"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "httpUrl(Ljava/lang/String;)Z",
+      "instructions_sha256": "c893eafb5154853f30c0a21cd8185a15ad27ebb7bf726d1b6b8fd4689144d8c5"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "label(Ljava/lang/String;II)Landroid/widget/TextView;",
+      "instructions_sha256": "72d3a8e895339ff1a465946e6d40ada4dd09970b048445ded98cac45a6bc1fba"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "lambda$bindEntry$0(Landroid/view/View;)V",
+      "instructions_sha256": "d804c35ab73fe39847e7b991d03c11aaa7a6e0cbbe0741852d759b935402d81c"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "loadDetail(Lcom/tongpin/player4k/catalog/CatalogApi$Video;)V",
+      "instructions_sha256": "dd9762c5aa95b75ef6a7ba14dcb09a581151d6762dc2eb337b92462c0c64efeb"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "loadPage(I)V",
+      "instructions_sha256": "12f0bbc544aa97a6a749e29ab05836ddeb5ef875872d23828cdd786b98041af2"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "loadPoster(Ljava/lang/String;Landroid/widget/ImageView;Ljava/lang/String;)V",
+      "instructions_sha256": "4d9137d9ffe7f6c04a284befc8b8a00e9225a2bf87505efac2240e0043e20d49"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "pickerAdapter(Ljava/util/List;)Landroid/widget/ArrayAdapter;",
+      "instructions_sha256": "5014ee855ecc534a15c2ebfc8b22d1910a32ec9959096b484e56660a750d4e37"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "play(Lcom/tongpin/player4k/catalog/CatalogApi$Detail;Lcom/tongpin/player4k/catalog/CatalogApi$Episode;)V",
+      "instructions_sha256": "922285115f44a57cfb08da352ffa7c4b9a70c487a3bed9362a0e40433a831d31"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "quality(Lcom/tongpin/player4k/catalog/CatalogApi$Stream;)Ljava/lang/String;",
+      "instructions_sha256": "66d8aa93435a32e726b9f1ea881053b1c5027fba0e22eafc9d76f0f6dccfac1b"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "read(Ljava/io/InputStream;I)[B",
+      "instructions_sha256": "4fb098ac2ad28492623890344690e6111db7cced0792689dffaeab435be8b0d9"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "row()Landroid/widget/LinearLayout;",
+      "instructions_sha256": "550e49016bb7bfb21cd66a644fbeac3a613fd6d6a0ba53a1ea1d88f68d89344d"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "showDetail(Lcom/tongpin/player4k/catalog/CatalogApi$Detail;)V",
+      "instructions_sha256": "5c3ad02e02561c175eb8b25f5232d33e934f7f7c5af873b20724a0f34b54c7e6"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "showSource()V",
+      "instructions_sha256": "66ee6cf2adc296a014f59bf23fd5779ab122deff0955c859e7503e10d6907d73"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "submitSearch()V",
+      "instructions_sha256": "574c3af753a8ab0f009fb035af19474c9080f3f1e1b2d29e9d3537803b24126b"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "updatePager()V",
+      "instructions_sha256": "b13e60bc75bbec8078befeff7a60a84e9cddded706421960ab3b4510ea70a4cf"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "lambda$buildScreen$0$com-tongpin-player4k-catalog-CatalogActivity(Landroid/view/View;)V",
+      "instructions_sha256": "964d817ff4983b70ddbc49f5dbac531f5f518cb923842d3e5a75adcf6b9d521a"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "lambda$buildScreen$1$com-tongpin-player4k-catalog-CatalogActivity(Landroid/view/View;)V",
+      "instructions_sha256": "77e687e3ac7975705f92f26528cb495727683bc42f85d1522c674d7c46275e55"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "lambda$buildScreen$2$com-tongpin-player4k-catalog-CatalogActivity(Landroid/view/View;)V",
+      "instructions_sha256": "074e35893ff3dee392f8c1806f0db763dfea1cdf741d8365666a9e20c7133a18"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "lambda$buildScreen$3$com-tongpin-player4k-catalog-CatalogActivity(Landroid/widget/TextView;ILandroid/view/KeyEvent;)Z",
+      "instructions_sha256": "947b032fd5c33c866a0f76c3ee9d8830e5162da225e6a1ae7443c4a7b3effd78"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "lambda$buildScreen$4$com-tongpin-player4k-catalog-CatalogActivity(Landroid/view/View;)V",
+      "instructions_sha256": "5ca7eaa735815628f8f59e35d1c4b94c7eb67c72b4c66000b95094cc6305b3f3"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "lambda$buildScreen$5$com-tongpin-player4k-catalog-CatalogActivity(Landroid/widget/AdapterView;Landroid/view/View;IJ)V",
+      "instructions_sha256": "6e13f317c77785c4395c0968d7aaaf5af79ab6b52ee9a6738e12e5f83c10281f"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "lambda$buildScreen$6$com-tongpin-player4k-catalog-CatalogActivity(Landroid/view/View;)V",
+      "instructions_sha256": "7345e0faca2abd80407377453bd0ecc1ca96618b20208e1d90b84cc829bd2aaa"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "lambda$buildScreen$7$com-tongpin-player4k-catalog-CatalogActivity(Landroid/view/View;)V",
+      "instructions_sha256": "6e26ece2b521e894c7b01e3adf1750d822c7fcd00c217b371cc971e397b2f608"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "lambda$loadDetail$0$com-tongpin-player4k-catalog-CatalogActivity(Lcom/tongpin/player4k/catalog/CatalogApi$Video;I)V",
+      "instructions_sha256": "2432df1e1f4ea68b933265cfb443954003c3dcd53391a18fffd1a85a470c12de"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "lambda$loadDetail$1$com-tongpin-player4k-catalog-CatalogActivity(ILcom/tongpin/player4k/catalog/CatalogApi$Detail;)V",
+      "instructions_sha256": "21da332619bf21a4989a7ec4b087ccb56eff1cb662eaa3359580d0833e55ccd7"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "lambda$loadDetail$2$com-tongpin-player4k-catalog-CatalogActivity(I)V",
+      "instructions_sha256": "c4eab58fe896290ad515aad2b3e4b660686435769c4dd445aff52e938c7a6f30"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "lambda$loadPage$0$com-tongpin-player4k-catalog-CatalogActivity(Lcom/tongpin/player4k/catalog/CatalogApi$Provider;Ljava/lang/String;II)V",
+      "instructions_sha256": "b1908ae06cb3731a4b38ef50869c8ae8db9c0a4103a31a3f3e16114cb247658b"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "lambda$loadPage$1$com-tongpin-player4k-catalog-CatalogActivity(ILcom/tongpin/player4k/catalog/CatalogApi$Page;)V",
+      "instructions_sha256": "0e1b7601e7cd067d77d7cea9d3954085ff8b215e053c33d323b2073bca1faf61"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "lambda$loadPage$2$com-tongpin-player4k-catalog-CatalogActivity(I)V",
+      "instructions_sha256": "0cc9a7ef161f41640209cd4c47e3c1a33775695e11e6020963fb25a799ba92a3"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "lambda$loadPoster$0$com-tongpin-player4k-catalog-CatalogActivity(Ljava/lang/String;Landroid/widget/ImageView;)V",
+      "instructions_sha256": "1a7a9c52aba8317d09242b4252c78a393a078d54e0f61c7ac391c2495c3b7026"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "lambda$loadPoster$1$com-tongpin-player4k-catalog-CatalogActivity(Ljava/lang/String;Landroid/widget/ImageView;Landroid/graphics/Bitmap;)V",
+      "instructions_sha256": "260d8bf2bc200dd7db72c7f47c7753a7a6a173121a3cae253d71716d0cf7a63f"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "lambda$onCreate$0$com-tongpin-player4k-catalog-CatalogActivity(Landroid/content/DialogInterface;I)V",
+      "instructions_sha256": "7e6e4ce332d0c6d1318ef7210752cf235613460624c39df632592be3653d8cc8"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "lambda$onCreate$1$com-tongpin-player4k-catalog-CatalogActivity(Landroid/content/DialogInterface;)V",
+      "instructions_sha256": "7e6e4ce332d0c6d1318ef7210752cf235613460624c39df632592be3653d8cc8"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "lambda$play$0$com-tongpin-player4k-catalog-CatalogActivity(Lcom/tongpin/player4k/catalog/CatalogApi$Detail;Lcom/tongpin/player4k/catalog/CatalogApi$Line;II)V",
+      "instructions_sha256": "0ee929cef717b0923d6ce982fa2b867ee69cba185b5f2721ec99b5de7d53609b"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "lambda$play$1$com-tongpin-player4k-catalog-CatalogActivity(ILcom/tongpin/player4k/catalog/CatalogApi$Detail;Ljava/lang/String;I)V",
+      "instructions_sha256": "2443d995eca8af08c008617564b14a6a1e05ddbd99de5241d96e2a7e06e591f3"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "lambda$play$2$com-tongpin-player4k-catalog-CatalogActivity(I)V",
+      "instructions_sha256": "a51e064a5a522add94337b72295205016af2fd2370e7644c2938123ecee9e4d1"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "lambda$showDetail$0$com-tongpin-player4k-catalog-CatalogActivity(Landroid/widget/Spinner;Lcom/tongpin/player4k/catalog/CatalogApi$Detail;Landroid/widget/TextView;Landroid/widget/Button;Landroid/widget/GridView;)V",
+      "instructions_sha256": "e42cd379aeb27267c8174ffbfaa0d87f3259bcc180f50acb7dbe31f46bcbae11"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "lambda$showDetail$1$com-tongpin-player4k-catalog-CatalogActivity(Ljava/util/List;Landroid/widget/GridView;Lcom/tongpin/player4k/catalog/CatalogApi$Detail;Landroid/widget/AdapterView;Landroid/view/View;IJ)V",
+      "instructions_sha256": "e542bc94c6ecb71258cbdf33504b4ca3035d217dc5ca705339379dc165cf9b58"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "lambda$showDetail$2$com-tongpin-player4k-catalog-CatalogActivity(Ljava/lang/Runnable;Landroid/view/View;)V",
+      "instructions_sha256": "2b41f5097894baa49b6db354029c45fb67297f152b6d481e2f29eb095dde8d10"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "lambda$showSource$0$com-tongpin-player4k-catalog-CatalogActivity(Ljava/lang/String;Landroid/content/DialogInterface;I)V",
+      "instructions_sha256": "68182c6adcd68e67bac677a2480b4526ed46a3c232774da9b94000d86daa15c1"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "onBackPressed()V",
+      "instructions_sha256": "5ea42d617be8da45f042048df8cad0b877044b90b52800e02db2d74399ea2c43"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "onCreate(Landroid/os/Bundle;)V",
+      "instructions_sha256": "11de678ebe52082f002a5b11336a8ab978feae63599b0d615a7ce9ddac2f2581"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "onDestroy()V",
+      "instructions_sha256": "4da1517a48ac373d4c36c12605c089ba09a0180923fc2c2e689ced050c124726"
+    },
+    {
+      "class": "CatalogActivity",
+      "method": "onSaveInstanceState(Landroid/os/Bundle;)V",
+      "instructions_sha256": "54d41dd8e71c64a3411cdfdca68a628c5aa304382d6591b3c4250bd418e867bb"
+    }
+  ],
+  "content_native_methods": [
+    {
+      "class": "com/shenma/tvlauncher/phone/VideoDetailPlayActivity",
+      "method": "v2()V",
+      "instructions_sha256": "6d95b34a92e6b773d86cc03b5d6e26835bd6499860f4d70efa0d892e629ce528"
+    },
+    {
+      "class": "i6/e",
+      "method": "e(Li6/e$c;I)V",
+      "instructions_sha256": "ff093bab9bc0f9d51799a02cdadc82944a0c5eb02d947e3e3e585906ec5fbadd"
+    },
+    {
+      "class": "i6/e",
+      "method": "bindScore(Landroid/widget/TextView;Ljava/lang/String;)V",
+      "instructions_sha256": "5df12df482029e2bb4b91f9e017884511055b279bb10f2841e5a5536bda59579"
+    },
+    {
+      "class": "i6/e",
+      "method": "posterUri(Ljava/lang/String;)Ljava/lang/String;",
+      "instructions_sha256": "143758cd73e3efac792496254adce1be71e322acbb8289819a6ee88a0c2181a8"
+    },
+    {
+      "class": "com/shenma/tvlauncher/phone/SearchActivity$c",
+      "method": "n(Lme/jingbin/library/adapter/b;Lcom/shenma/tvlauncher/vod/domain/VodDataInfo;I)V",
+      "instructions_sha256": "18cef2c1f68d9602340b686c23fabae9f3d5c21d37791638432123d8420e38d3"
+    }
+  ],
+  "decoder_policy_fresh_dex_verified": true,
+  "decoder_policy_methods": [
+    {
+      "method": "<clinit>()V",
+      "instructions_sha256": "9414763d28515fd03eec342e353a5dd298b9864748cdd772d37d4d414af97c11"
+    },
+    {
+      "method": "<init>()V",
+      "instructions_sha256": "8f8dcae5f3ad16d5c943bdc2594abc2c124d4f388aea14939264465fa4e7554d"
+    },
+    {
+      "method": "choose(Landroid/app/Activity;Ljava/lang/Runnable;)V",
+      "instructions_sha256": "a11f9c45dc353cd0f73a2d91491e345e269090d66181e51fda4c19c9a1e3e3e5"
+    },
+    {
+      "method": "codecValue(I)I",
+      "instructions_sha256": "ff217ee623cbb62b727b54afeb2d43362089204f0373bc8b1277efb3961aea77"
+    },
+    {
+      "method": "configure(Landroid/content/Context;)V",
+      "instructions_sha256": "070665e95d09e2416117c1d94755e75f7b4954d124eada3ec28f0d7dc10f61ab"
+    },
+    {
+      "method": "label(Landroid/content/Context;)Ljava/lang/String;",
+      "instructions_sha256": "9204108f69f8163dfdbd4aa615ab419bfce880853c8a83a110160647d43e6c54"
+    },
+    {
+      "method": "lambda$choose$0(Landroid/app/Activity;Ljava/lang/Runnable;Landroid/content/DialogInterface;I)V",
+      "instructions_sha256": "bca0a74d1d2915e370d1e488453996e2ca464e25fe41c7507b7dda061b88bd60"
+    },
+    {
+      "method": "mode(Landroid/content/Context;)I",
+      "instructions_sha256": "2e15606d41d5b6e3ac6129637a7198c84e37fc382d022424d60472557c0bc7fe"
+    },
+    {
+      "method": "normalizedMode(I)I",
+      "instructions_sha256": "75344d8e36d802637a8710e9e93d67c6966559f006d04c9a82dc5083410ae894"
+    },
+    {
+      "method": "select(Landroid/content/Context;Z)V",
+      "instructions_sha256": "4c1d9c115bd5233b549a8ad445437892df465a67910c0a1ef798c5e3535390b8"
+    },
+    {
+      "method": "useExo(IZ)Z",
+      "instructions_sha256": "9774dc3d06415947d0cf8e5746fa0ad98d441ed720718aa617635584dea9544c"
+    }
+  ],
+  "native_decoder_helpers_verified": true,
+  "native_seek_hooks": {
+    "user_preview_returns_before_automatic_logic": true,
+    "tracking_begin_and_single_finish_hooks": true,
+    "poll_deferred_before_progress_update": true,
+    "swipe_uses_transaction_helper": true
+  },
+  "seek_state_fresh_dex_verified": true,
+  "seek_state_methods": [
+    {
+      "method": "<init>()V",
+      "instructions_sha256": "358921376bcb7407ae8a6fcad7675caf86dd25ea1d13b8db15a2112b61ccd9af"
+    },
+    {
+      "method": "beginPosition(JJIIZ)V",
+      "instructions_sha256": "de592da40a86025f66dd8dae665e3ec26c6cad25fde785cba940c511091e01a8"
+    },
+    {
+      "method": "clamp(JJ)J",
+      "instructions_sha256": "0bf950d843ef28e7ebd3e62a5ade8d62fe3b2d9cbbc0d7af83bac34c63515b5f"
+    },
+    {
+      "method": "commit(JJ)J",
+      "instructions_sha256": "bb1f8bbccaa52b2966c1866e2845c05ec05dd6c402846bd9a77653488ef8bb3a"
+    },
+    {
+      "method": "allowAutomatic(IIIJ)Z",
+      "instructions_sha256": "f983a70fc2e6c0441e09418411e0419bc3dfe5511b5eb0344fdd4890e62bc72b"
+    },
+    {
+      "method": "begin(IJII)V",
+      "instructions_sha256": "e6a2e3ae8ae1b3b675d47f5be9233542d000dce7009f0104c015f0dbcc72613e"
+    },
+    {
+      "method": "cancel()V",
+      "instructions_sha256": "a36f8052c9a45ee9d3c6cf1bbc521579950ab10119d0a68b39bab93ea81ca301"
+    },
+    {
+      "method": "defer(JJ)Z",
+      "instructions_sha256": "a80fcf831c45432b47504ed805c1d6bc564b3160f5109f917fd5f07dba2265ce"
+    },
+    {
+      "method": "finish(JIIJ)J",
+      "instructions_sha256": "5c1d08844194f10e94e9ed62243f33f3e45b152b9b2625c0b700244a96ff307c"
+    },
+    {
+      "method": "isCancelled()Z",
+      "instructions_sha256": "f10bf183c702099ceaf463cc2bdbdf7dbd3071e735ffa07f3ffc6df98b218989"
+    },
+    {
+      "method": "isGesture()Z",
+      "instructions_sha256": "6f27f97e972d26a8681b2576515201e2328b0b9c3fea917898252b525cf892d3"
+    },
+    {
+      "method": "preview(IJIIJ)J",
+      "instructions_sha256": "cf0e9ab4d3a21b42e3e221acbcd8b2cfdb6851d8f9b1c0694bc7dae3f348c716"
+    },
+    {
+      "method": "reset()V",
+      "instructions_sha256": "0b457df534609d20c61dce6874c109d696779ca09dddfda0f46a330dcc675c68"
+    },
+    {
+      "method": "seconds()I",
+      "instructions_sha256": "ffd34f29c1a3599f8a4f0548e6281f30158bff877b2aae9247d242e0f0cd2bf2"
+    },
+    {
+      "method": "swipe(FZJJIIJ)J",
+      "instructions_sha256": "55e0e25ae3d10403c77fc57c8b3c974065948cde853fcfda7376b9b7bafb02f3"
+    }
+  ],
+  "show_ms": 3000,
+  "single_initial_window_per_reset": true,
+  "methods": [
+    {
+      "class": "PlaybackResolution",
+      "method": "badgeDeadline(JJII)J",
+      "instructions_sha256": "6220412e2ad822dfaa1b23865d358a6ae96c00654bf205d637359e1b05e87812"
+    },
+    {
+      "class": "PlaybackResolution",
+      "method": "badgeVisible(JJII)Z",
+      "instructions_sha256": "20a7933e79b513d8ac0b632abc61048e32ef310da803abbce1dc55e110dfed52"
+    },
+    {
+      "class": "PlaybackResolution$Monitor",
+      "method": "clear()V",
+      "instructions_sha256": "83007e240a3ee3023524c45686fc8e83ce96457ec16f78b82e53b692e6228f7e"
+    },
+    {
+      "class": "PlaybackResolution",
+      "method": "update(Lcom/tongpin/player4k/catalog/PlaybackResolution$Monitor;)V",
+      "instructions_sha256": "a0fa5ff3eec6e04ae7c92509dbcd5b8a5b7e56a050ee48e921d86edc763fff2e"
+    }
+  ],
+  "native_runtime_tested": false
+}

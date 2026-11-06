@@ -21,7 +21,7 @@ import android.widget.TextView;
 /** Compact native playback actions; callers retain their existing action identities. */
 public final class PlayerOptionsSheet {
     public static final int EPISODES = 0, SOURCE = 1, SPEED = 2, ASPECT = 3, SKIP = 4;
-    public static final int SEEK_BACK = 5, SEEK_FORWARD = 6, LOCK = 7, AUTO_NEXT = 8, DECODER = 9;
+    public static final int SEEK_BACK = 5, SEEK_FORWARD = 6, LOCK = 7, AUTO_NEXT = 8, DECODER = 9, SUBTITLES = 10;
     private PlayerOptionsSheet() {}
 
     public static void show(Activity activity, String title, String[] labels, boolean[] enabled,
@@ -155,8 +155,8 @@ public final class PlayerOptionsSheet {
         return widthDp >= 320 * Math.max(1f, fontScale);
     }
     static int sectionFor(int kind) {
-        if (kind < EPISODES || kind > DECODER) throw new IllegalArgumentException("Unknown playback action");
-        return kind == DECODER ? 1 : kind <= SOURCE ? 0 : kind <= SKIP ? 1 : kind <= SEEK_FORWARD ? 2 : 3;
+        if (kind < EPISODES || kind > SUBTITLES) throw new IllegalArgumentException("Unknown playback action");
+        return kind == DECODER || kind == SUBTITLES ? 1 : kind <= SOURCE ? 0 : kind <= SKIP ? 1 : kind <= SEEK_FORWARD ? 2 : 3;
     }
     static int[] sectionIndices(int[] kinds, int section) {
         int count = 0;

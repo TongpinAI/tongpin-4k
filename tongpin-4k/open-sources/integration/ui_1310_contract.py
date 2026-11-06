@@ -97,7 +97,7 @@ def verify(live_overrides=None, excluded_sources=()):
             overrides[relative] = before_path
         elif name not in OWN_NEW:
             assert digest == baseline["source_sha256"][name], "Unrelated own source changed"
-    assert sha((ROOT / "decoded/assets/tongpin_open_sources.json").read_bytes()) == baseline["provider_asset_sha256"]
+    assert sha(live("decoded/assets/tongpin_open_sources.json").read_bytes()) == baseline["provider_asset_sha256"]
     expected_new = {"drawable/tp_player_action_bg":"0x7f080751"}
     assert freeze["new_resource_names"] == expected_new
     public = "decoded/res/values/public.xml"

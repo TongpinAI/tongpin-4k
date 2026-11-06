@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "verdict": "clear after independent builder diff and read-only gate execution",
+  "source_sha256": {
+    "build_tv.py": "57d95129792aedac588d0fd6f40a035c79b426732919429d918a82e3bc65e3b2"
+  },
+  "frozen_inputs_sha256": "17edb86168fcaa0a4b87373706b0630ae14c573a81e512074fdf1e78cd9e7e61",
+  "checks": [
+    "Version1.3.2/code1302/previous1.3.1 and unchanged package/min21/target33 permission/export contracts pass.",
+    "Exact current source/resource/asset snapshot equals reviewed freeze; exact seven changed existing inputs and three added source paths; no deletions.",
+    "All review-report digests and passed flags, root independent review source hashes, original prior evidence, previous APK and pinned runtime lock checked.",
+    "Shared eleven-provider asset matches mobile bytes and retains original eight exact records; allowed asset paths and URL credentials contract pass.",
+    "All Media3 resource continuity, runtime ABI closure, SDK23 backend/SDK26 seek isolation and final package/certificate/DEX/provider hash gates remain enabled for1.3.2.",
+    "Tampered manifest snapshot rejected by exact freeze gate."
+  ],
+  "device_tested": false,
+  "build_or_sign_invoked": false
+}

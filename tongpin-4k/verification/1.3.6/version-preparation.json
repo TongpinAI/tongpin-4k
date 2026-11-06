@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "version_name": "1.3.6",
+  "version_code": 1360,
+  "previous": "1.3.5",
+  "source_promotion_authorized": true,
+  "version_inputs_sha256": {
+    "build_tongpin.py": "2ad85e5d7c0eb6fb48eaf7aca0426461fd98ef1a3ab34fafd3918b3f74090c28",
+    "decoded/AndroidManifest.xml": "43d4d5f6dd56315ab680be26d00b7602e20810c89c26e0560c833fe13688c515",
+    "decoded/apktool.yml": "00d9226ec90df3cb183d777f375aa4a0cd8c4b6ed9e669259c8d5568b909aac6",
+    "decoded/res/values/strings.xml": "beceaa56c429eb6e1e6a998d585fdba251a75bc5bea17888228e05bbeff1b3e3"
+  },
+  "baseline_apk_sha256": "d8b1a9fe626c4f6bae59a4194c9851844fbd30bc3b5b1226aee5fe4e11b5b293",
+  "baseline_evidence_mutated": false
+}

@@ -1,0 +1,23 @@
+Traceback (most recent call last):
+  File "C:\Users\Administrator.DESKTOP-R9V7M9S\Documents\ChatGPT\����\tongpin-4k\open-sources\integration\check_timer_dex_1360.py", line 110, in <module>
+    staged = native_strings(body(decoder_stage,name,signature))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator.DESKTOP-R9V7M9S\Documents\ChatGPT\����\tongpin-4k\open-sources\integration\check_timer_dex_1360.py", line 100, in native_strings
+    return re.sub(r'"(?:\\.|[^"\\])*"',lambda m:json.dumps(json.loads(m[0]),ensure_ascii=True),value)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\anaconda\AAA\Lib\re\__init__.py", line 185, in sub
+    return _compile(pattern, flags).sub(repl, string, count)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator.DESKTOP-R9V7M9S\Documents\ChatGPT\����\tongpin-4k\open-sources\integration\check_timer_dex_1360.py", line 100, in <lambda>
+    return re.sub(r'"(?:\\.|[^"\\])*"',lambda m:json.dumps(json.loads(m[0]),ensure_ascii=True),value)
+                                                           ^^^^^^^^^^^^^^^^
+  File "D:\anaconda\AAA\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\anaconda\AAA\Lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\anaconda\AAA\Lib\json\decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+json.decoder.JSONDecodeError: Invalid \escape: line 1 column 2 (char 1)

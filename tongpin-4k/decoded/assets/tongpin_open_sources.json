@@ -55,6 +55,27 @@
       "kind": "maccms",
       "api": "https://jyzyapi.com/provide/vod/from/jinyingm3u8/at/json",
       "homepage": "https://www.jinyingzy.net/"
+    },
+    {
+      "id": "huya",
+      "name": "虎牙资源（第三方）",
+      "kind": "maccms",
+      "api": "https://www.huyaapi.com/api.php/provide/vod/from/hym3u8",
+      "homepage": "https://www.huyaapi.com/"
+    },
+    {
+      "id": "bfzy",
+      "name": "暴风资源",
+      "kind": "maccms",
+      "api": "https://bfzyapi.com/api.php/provide/vod",
+      "homepage": "https://bfzyapi.com/"
+    },
+    {
+      "id": "qiyi",
+      "name": "奇艺资源（第三方）",
+      "kind": "maccms",
+      "api": "https://www.iqiyizyapi.com/api.php/provide/vod",
+      "homepage": "https://www.iqiyizyapi.com/"
     }
   ]
 }

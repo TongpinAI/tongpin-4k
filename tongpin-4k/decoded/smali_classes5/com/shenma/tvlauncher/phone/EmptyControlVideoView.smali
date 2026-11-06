@@ -243,6 +243,8 @@
     invoke-super {p0, p1}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->setStateAndUi(I)V
 
     invoke-static {p0, p1}, Lcom/tongpin/player4k/catalog/PlaybackResolution;->stateChanged(Landroid/view/View;I)V
+    invoke-static {p0, p1}, Lcom/tongpin/player4k/catalog/HoldSpeedControls;->stateChanged(Landroid/view/View;I)V
+    invoke-static {p0, p1}, Lcom/tongpin/player4k/catalog/SubtitleControls;->stateChanged(Landroid/view/View;I)V
 
     return-void
 .end method

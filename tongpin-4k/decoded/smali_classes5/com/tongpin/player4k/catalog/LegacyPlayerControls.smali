@@ -90,7 +90,7 @@
 .method private static action(Landroid/app/Activity;Ljava/lang/String;ILandroid/widget/TextView;)Landroid/widget/TextView;
     .locals 2
 
-    .line 135
+    .line 138
     const/16 v0, 0xd
 
     const/4 v1, -0x1
@@ -99,12 +99,12 @@
 
     move-result-object p0
 
-    .line 136
+    .line 139
     invoke-virtual {p3}, Landroid/widget/TextView;->getBackground()Landroid/graphics/drawable/Drawable;
 
     move-result-object p1
 
-    .line 137
+    .line 140
     if-eqz p1, :cond_0
 
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getConstantState()Landroid/graphics/drawable/Drawable$ConstantState;
@@ -113,7 +113,7 @@
 
     if-eqz p3, :cond_0
 
-    .line 138
+    .line 141
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getConstantState()Landroid/graphics/drawable/Drawable$ConstantState;
 
     move-result-object p1
@@ -128,11 +128,11 @@
 
     invoke-virtual {p0, p1}, Landroid/widget/TextView;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 139
+    .line 142
     :cond_0
     invoke-static {p0, p2}, Lcom/tongpin/player4k/catalog/LegacyPlayerControls;->style(Landroid/widget/TextView;I)V
 
-    .line 140
+    .line 143
     return-object p0
 .end method
 
@@ -622,7 +622,7 @@
 .method static synthetic lambda$showMore$0(Ljava/util/ArrayList;Landroid/app/Activity;Lcom/tongpin/player4k/catalog/LegacyPlayerControls$Host;Landroid/content/DialogInterface;I)V
     .locals 0
 
-    .line 118
+    .line 120
     invoke-virtual {p0, p4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object p0
@@ -633,10 +633,26 @@
 
     move-result p0
 
-    .line 119
-    const/16 p3, 0x9
+    .line 121
+    const/16 p3, 0xa
 
     if-ne p0, p3, :cond_0
+
+    const p0, 0x7f0a036e
+
+    invoke-virtual {p1, p0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+
+    move-result-object p0
+
+    invoke-static {p1, p0}, Lcom/tongpin/player4k/catalog/SubtitleControls;->show(Landroid/app/Activity;Landroid/view/View;)V
+
+    return-void
+
+    .line 122
+    :cond_0
+    const/16 p3, 0x9
+
+    if-ne p0, p3, :cond_1
 
     invoke-static {p2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -648,15 +664,15 @@
 
     return-void
 
-    .line 120
-    :cond_0
+    .line 123
+    :cond_1
     const/16 p3, 0x8
 
     const/4 p4, 0x0
 
-    if-ne p0, p3, :cond_1
+    if-ne p0, p3, :cond_2
 
-    .line 121
+    .line 124
     const-string p0, "tongpin_ui"
 
     invoke-virtual {p1, p0, p4}, Landroid/app/Activity;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
@@ -667,7 +683,7 @@
 
     move-result-object p0
 
-    .line 122
+    .line 125
     invoke-static {p1}, Lcom/tongpin/player4k/catalog/LegacyPlayerControls;->autoNextEnabled(Landroid/content/Context;)Z
 
     move-result p1
@@ -682,11 +698,11 @@
 
     invoke-interface {p0}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    .line 123
+    .line 126
     return-void
 
-    .line 126
-    :cond_1
+    .line 129
+    :cond_2
     :try_start_0
     invoke-static {p0}, Lcom/tongpin/player4k/catalog/LegacyPlayerControls;->actionViewId(I)I
 
@@ -700,9 +716,9 @@
 
     move-result p0
 
-    if-nez p0, :cond_2
+    if-nez p0, :cond_3
 
-    .line 127
+    .line 130
     const-string p0, "\u5f53\u524d\u64cd\u4f5c\u6682\u4e0d\u53ef\u7528"
 
     invoke-static {p1, p0, p4}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
@@ -713,15 +729,15 @@
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 130
-    :cond_2
+    .line 133
+    :cond_3
     goto :goto_0
 
-    .line 128
+    .line 131
     :catch_0
     move-exception p0
 
-    .line 129
+    .line 132
     const-string p0, "\u5f53\u524d\u64cd\u4f5c\u6682\u4e0d\u53ef\u7528\uff0c\u8bf7\u7a0d\u540e\u91cd\u8bd5"
 
     invoke-static {p1, p0, p4}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
@@ -730,7 +746,7 @@
 
     invoke-virtual {p0}, Landroid/widget/Toast;->show()V
 
-    .line 131
+    .line 134
     :goto_0
     return-void
 .end method
@@ -785,21 +801,24 @@
     .locals 12
 
     .line 103
+    invoke-static {p0}, Lcom/tongpin/player4k/catalog/HoldSpeedControls;->reset(Landroid/app/Activity;)V
+
+    .line 104
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    .line 104
+    .line 105
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    .line 105
+    .line 106
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    .line 106
+    .line 107
     const/4 v3, 0x0
 
     move v4, v3
@@ -813,7 +832,7 @@
 
     if-ge v4, v5, :cond_5
 
-    .line 107
+    .line 108
     invoke-static {v4}, Lcom/tongpin/player4k/catalog/LegacyPlayerControls;->actionViewId(I)I
 
     move-result v5
@@ -822,7 +841,7 @@
 
     move-result-object v5
 
-    .line 108
+    .line 109
     const/4 v7, 0x5
 
     if-eq v4, v7, :cond_1
@@ -842,7 +861,7 @@
     :cond_0
     goto :goto_3
 
-    .line 109
+    .line 110
     :cond_1
     const/4 v7, 0x7
 
@@ -863,7 +882,7 @@
 
     aget-object v7, v7, v4
 
-    .line 110
+    .line 111
     :goto_1
     invoke-virtual {v0, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
@@ -894,13 +913,13 @@
 
     invoke-virtual {v2, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 106
+    .line 107
     :goto_3
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
 
-    .line 112
+    .line 113
     :cond_5
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -950,7 +969,7 @@
 
     invoke-virtual {v2, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 113
+    .line 114
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -989,21 +1008,40 @@
 
     invoke-virtual {v2, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 114
+    .line 115
+    const-string v4, "\u5b57\u5e55"
+
+    invoke-virtual {v0, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    invoke-static {v6}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v4
+
+    invoke-virtual {v1, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const/16 v4, 0xa
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    invoke-virtual {v2, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 116
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v4
 
     new-array v8, v4, [Z
 
-    .line 115
+    .line 117
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
     move-result v5
 
     new-array v9, v5, [I
 
-    .line 116
+    .line 118
     move v5, v3
 
     :goto_5
@@ -1037,7 +1075,7 @@
 
     goto :goto_5
 
-    .line 117
+    .line 119
     :cond_7
     new-array v1, v3, [Ljava/lang/String;
 
@@ -1063,7 +1101,7 @@
 
     invoke-static/range {v5 .. v11}, Lcom/tongpin/player4k/catalog/PlayerOptionsSheet;->show(Landroid/app/Activity;Ljava/lang/String;[Ljava/lang/String;[Z[IZLandroid/content/DialogInterface$OnClickListener;)V
 
-    .line 132
+    .line 135
     return-void
 .end method
 
@@ -1096,7 +1134,7 @@
 .method private static style(Landroid/widget/TextView;I)V
     .locals 5
 
-    .line 144
+    .line 147
     invoke-virtual {p0}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -1105,12 +1143,12 @@
 
     move-result p1
 
-    .line 145
+    .line 148
     invoke-virtual {p0, p1}, Landroid/widget/TextView;->setMinWidth(I)V
 
     invoke-virtual {p0, p1}, Landroid/widget/TextView;->setMinimumWidth(I)V
 
-    .line 146
+    .line 149
     invoke-virtual {p0}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
 
     move-result-object p1
@@ -1123,7 +1161,7 @@
 
     invoke-virtual {p0, p1}, Landroid/widget/TextView;->setMinHeight(I)V
 
-    .line 147
+    .line 150
     const/16 p1, 0x11
 
     invoke-virtual {p0, p1}, Landroid/widget/TextView;->setGravity(I)V
@@ -1136,7 +1174,7 @@
 
     invoke-virtual {p0, v0}, Landroid/widget/TextView;->setTextSize(F)V
 
-    .line 148
+    .line 151
     invoke-virtual {p0}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -1157,7 +1195,7 @@
 
     move-result v2
 
-    .line 149
+    .line 152
     invoke-virtual {p0}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
 
     move-result-object v4
@@ -1174,10 +1212,10 @@
 
     move-result v3
 
-    .line 148
+    .line 151
     invoke-virtual {p0, v0, v2, v1, v3}, Landroid/widget/TextView;->setPadding(IIII)V
 
-    .line 150
+    .line 153
     new-instance v0, Landroid/content/res/ColorStateList;
 
     const v1, -0x101009e
@@ -1206,9 +1244,9 @@
 
     invoke-virtual {p0, v0}, Landroid/widget/TextView;->setTextColor(Landroid/content/res/ColorStateList;)V
 
-    .line 152
+    .line 155
     invoke-virtual {p0, p1}, Landroid/widget/TextView;->setFocusable(Z)V
 
-    .line 153
+    .line 156
     return-void
 .end method

@@ -15,11 +15,13 @@
 
 .field public final synthetic f$3:I
 
-.field public final synthetic f$4:I
+.field public final synthetic f$4:Lcom/tongpin/player4k/catalog/CatalogCategories$Selection;
+
+.field public final synthetic f$5:I
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/tongpin/player4k/catalog/CatalogActivity;Lcom/tongpin/player4k/catalog/CatalogApi$Provider;Ljava/lang/String;II)V
+.method public synthetic constructor <init>(Lcom/tongpin/player4k/catalog/CatalogActivity;Lcom/tongpin/player4k/catalog/CatalogApi$Provider;Ljava/lang/String;ILcom/tongpin/player4k/catalog/CatalogCategories$Selection;I)V
     .locals 0
 
     .line 0
@@ -33,7 +35,9 @@
 
     iput p4, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda3;->f$3:I
 
-    iput p5, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda3;->f$4:I
+    iput-object p5, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda3;->f$4:Lcom/tongpin/player4k/catalog/CatalogCategories$Selection;
+
+    iput p6, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda3;->f$5:I
 
     return-void
 .end method
@@ -41,7 +45,7 @@
 
 # virtual methods
 .method public final run()V
-    .locals 5
+    .locals 6
 
     .line 0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda3;->f$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
@@ -52,9 +56,11 @@
 
     iget v3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda3;->f$3:I
 
-    iget v4, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda3;->f$4:I
+    iget-object v4, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda3;->f$4:Lcom/tongpin/player4k/catalog/CatalogCategories$Selection;
 
-    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/tongpin/player4k/catalog/CatalogActivity;->lambda$loadPage$0$com-tongpin-player4k-catalog-CatalogActivity(Lcom/tongpin/player4k/catalog/CatalogApi$Provider;Ljava/lang/String;II)V
+    iget v5, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda3;->f$5:I
+
+    invoke-virtual/range {v0 .. v5}, Lcom/tongpin/player4k/catalog/CatalogActivity;->lambda$loadPage$0$com-tongpin-player4k-catalog-CatalogActivity(Lcom/tongpin/player4k/catalog/CatalogApi$Provider;Ljava/lang/String;ILcom/tongpin/player4k/catalog/CatalogCategories$Selection;I)V
 
     return-void
 .end method

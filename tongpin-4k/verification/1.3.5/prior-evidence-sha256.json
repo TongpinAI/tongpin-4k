@@ -1,0 +1,21 @@
+{
+  "verification/1.3.4/apk-entry-diff.json": "8de7b20728c7ca2e318f32e9d058ef3805887312c534ef39caf3258a4a26334f",
+  "verification/1.3.4/build-result.json": "80d9113e604a2e8a6442999f1464e502bf7f50e168b3eee1e87a0ab8cce69bbf",
+  "verification/1.3.4/final-framework-api-review.json": "335973afbba7b17dced474e0595a5f23c56fcb4e3f00ecac807ad41335d08116",
+  "verification/1.3.4/final-jni-options-proof.json": "fddf0313ba3888685d18d95b21dd9904203e5f7c640d62b5d0af58358f380ccb",
+  "verification/1.3.4/final-own-abi-check.json": "e1284127092028aa27060dfde9100970c9d111671346fc96246e700b17c2f542",
+  "verification/1.3.4/final-timer-proof.json": "e5a847c2eed7b368b77f69e16b7fea0498b186706d546af74d1e52f7c7ac0df8",
+  "verification/1.3.4/framework-api.json": "9312ccb6d8d9bbaf8ecf974e8515c41e7d206dc2454b8fef521876bbdc433467",
+  "verification/1.3.4/frozen-inputs.json": "febabf41a22698363c392dd5e10576543899a4c196a461ca313a65e509f6ba8c",
+  "verification/1.3.4/integration-contract.json": "4699cf1ac8fbe44a23f2336654a4bdbec47b058ffbd6c0bf774df434ba9aeff6",
+  "verification/1.3.4/layout-contract.json": "fddc7579d4abb08482bb08b523898c8cbad87ba0a3d7be38d60c6ade40da830f",
+  "verification/1.3.4/own-abi-check.json": "79e6db49e8cafaf916da029f320f5fd963886a55272c4edac4354737385741d1",
+  "verification/1.3.4/post-build-check.json": "5e5ed437cd1d9b874311c930b016c13f3c6fab214679f55e62ab6e56561302dc",
+  "verification/1.3.4/prior-evidence-sha256.json": "068dfd9e49c07b6070ff8df47f3c07e94c5e32499a2b3c3b683b76235a0a78c1",
+  "verification/1.3.4/resource-build-timing.json": "3ff3ed90f6d9275953774d41c489b0df40bfc7e6438105f8ee77e1deb3ef5f45",
+  "verification/1.3.4/resource-id-check.json": "01de3c865b334cc048ed128a3debbd26e96a6b911b1a6a1eab083756a3001e2c",
+  "verification/1.3.4/reviewed-framework-api.json": "1d007f4e5d1748f71ff962dd63d6edff0f4cf5c79d93c15f8a44aeba140565ff",
+  "verification/1.3.4/unchanged-dex-inputs.json": "435a44d361840b6aab262fd87639e729b1d923ab8260c43d84503d3df87c857c",
+  "verification/1.3.4/version-preparation.json": "a3585eaee4372ea7e7993e50f6e074565264bac55108aff21bda2a4f5eeae864",
+  "open-sources/integration/1.3.4.json": "62b550f93fe6bd4e9db830d1dccc8708190aae49ffebf53d8561df851ebf6377"
+}

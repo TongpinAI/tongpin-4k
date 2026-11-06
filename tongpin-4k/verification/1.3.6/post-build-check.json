@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "apk_sha256": "20e3e6e2972958baa8d39d6fa67c155a7ba778867203433b205d9fbe049c6e31",
+  "downloads_sha256": "20e3e6e2972958baa8d39d6fa67c155a7ba778867203433b205d9fbe049c6e31",
+  "own_class_count": 137,
+  "actual_final_abi_invocations": 2181,
+  "own_methods_verified": 738,
+  "scoped_native_methods_verified": 21,
+  "provider_count": 11,
+  "asset_sha256": "7e6a9616a36c68788500c68b313265bda50e28efe7af695cc9b368f89078aa1d",
+  "original_and_added_resource_ids_retained": true,
+  "native_libraries_retained": 42,
+  "first_four_dex_unchanged": true,
+  "prior_135_evidence_unchanged": true,
+  "signature_v1_v2_v3": true,
+  "device_tested": false
+}

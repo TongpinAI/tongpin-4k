@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "source_sha256": {
+    "decoded/smali_classes5/i6/e.smali": "ae2c3c29ffa1862e3ce5a7f130f4df037185c72149c680a219441733a3d85c99",
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/SearchActivity$c.smali": "24e4cd9eeb6d8e2bce4596a1452551cb1c985a7458777a4814f147ca135a0020",
+    "decoded/res/layout/mv_type_details_item.xml": "90dc024086899f34648f40dff3c718af4988383a07b75a68d78ed4d8de07d681",
+    "decoded/res/layout/item_recommend.xml": "5ac21a765a2e5c9aeafb2afdc8c1917f11a10cb37da79b6d8b164f5380e5bc41",
+    "decoded/res/drawable/place_image_laye.xml": "1ed7e95b44aba6e2c6729132f141d00bdf6bb0623933ee782c7e6bdea1a91966"
+  }
+}

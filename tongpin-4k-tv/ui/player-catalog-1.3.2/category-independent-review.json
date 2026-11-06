@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "verdict": "clear: independently reviewed category/source scope, no blocking issue found",
+  "reviewer": "watermark_source_review (player/builder owner, not category implementation owner)",
+  "source_sha256": {
+    "src/com/tongpin/player4k/tv/CatalogApi.java": "6b670a6b4df2b200037a9f69f61fe7005021370c0307c69215034459dca8dd73",
+    "src/com/tongpin/player4k/tv/CatalogCategories.java": "94ad50088414706688648027634e6acd76fc52214bac47dcf29d1d2e9e86ae8a",
+    "src/com/tongpin/player4k/tv/TvHomeActivity.java": "f7d6324973f34f76966ab2535dcdccec23bbca2cef54f64fd6a379ca828ba6b9",
+    "assets/tongpin_open_sources.json": "7e6a9616a36c68788500c68b313265bda50e28efe7af695cc9b368f89078aa1d"
+  },
+  "owner_freeze_sha256": "073f34a3543e692edd6b0e68aaa9b21be45e6e04b207a6cd35b23dcbe3c4c32f",
+  "independent_host_assertions": {
+    "phone_categories": 144,
+    "phone_historical_parser_http": 78,
+    "tv_categories": 144,
+    "tv_historical_parser_http": 112
+  },
+  "exact_eight_provider_preimage_recovered": true,
+  "review_notes": [
+    "Per-provider real category IDs and declared parent relations; no fixed IDs or title-keyword genre inference.",
+    "Selection is immutable and tied to provider ID; t is removed for unfiltered requests; actual returned memberships checked if upstream ignores t.",
+    "Unknown/conflicting/cyclic categories stay explicit or unavailable; raw pagination preserved after filtering.",
+    "Phone page tickets and TV generation prevent stale response application; source switch resets selection; TV picker checks both source and category snapshot.",
+    "Exact old eight-provider bytes recovered by deleting one append span. Three appended public HTTPS JSON providers have bounded existing-parser and HLS evidence; no decoded 4K guarantee.",
+    "Playback URL selection, newest-episode and 4K policies outside the classification additions remain unchanged. No remote JAR/Python/JavaScript is executed."
+  ],
+  "device_tested": false,
+  "network_scope": "Independent host loopback HTTP fixtures; upstream availability supported by pinned owner public audit, not re-probed here."
+}

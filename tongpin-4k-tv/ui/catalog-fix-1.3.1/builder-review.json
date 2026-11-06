@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "verdict": "clear",
+  "source_sha256": {
+    "build_tv.py": "8be258d6de4a23491bbaebeb4c265f317187dd96da0f73c89fd2338714f5718d",
+    "AndroidManifest.xml": "d677a24327d5264e6007a3fd30110608ecf054e85fe956b1b61616de9324dded",
+    "res/values/strings.xml": "b06343e0b12bbc45e1bafc33e837633bb04b93a0b01022fceec252fc43551579"
+  },
+  "facts_checked": [
+    "Version1.3.1/code1301/previous1.3.0 agree across builder/manifest/strings",
+    "Catalog freeze gate compares complete source/resources/assets snapshot and independent review hashes; only Home+new EpisodeSummary+version metadata permitted",
+    "All Media3 resources/runtime ABI/guard inspector/license packaging branches include1.3.1; existing stable IDs and same certificate preserved",
+    "19-artifact runtime lock remains frozen; no new playback-backend or library changes in this release",
+    "Python syntax parsed without executing signing/build; actual final preflight/signing still required",
+    "Re-reviewed exact source-freeze flag correction: only literal ui/catalog-fix-1.3.1/source-freeze.json uses source_ready is True; all report SHA checks remain exact and every other report requires passed is True"
+  ],
+  "native_device_tested": false,
+  "actual_build_run_by_reviewer": false
+}

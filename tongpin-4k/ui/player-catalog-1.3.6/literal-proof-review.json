@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "reviewer": "root",
+  "source_sha256": {
+    "open-sources/integration/check_timer_dex_1360.py": "3eeb4918d760de166f54c7cc5c200124e60decbf7b789c8d10a4001adf852628"
+  },
+  "checks": [
+    "Smali escaped apostrophe tokens normalize without changing paired backslashes; eight slash-parity cases pass.",
+    "All opcodes, registers, descriptors, branches and complete own/native method comparisons retained."
+  ],
+  "candidate_bytes_changed": false
+}

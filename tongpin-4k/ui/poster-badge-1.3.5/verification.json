@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "interpreted_actual_smali_helper_cases": 22,
+  "host_smali_interpreter": true,
+  "both_adapter_hooks_verified": true,
+  "bindings_and_geometry_preserved": true,
+  "loading_and_failure_use_existing_brand_resources": true,
+  "native_device_tested": false,
+  "network_retry_added": false,
+  "upstream_cover_availability_verified": false
+}

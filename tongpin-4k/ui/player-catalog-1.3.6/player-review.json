@@ -1,0 +1,85 @@
+{
+  "passed": true,
+  "verdict": "No actionable issue found in final2x hold, right-drag3x upgrade, original-gesture cancellation/capture or native dispatch hooks.",
+  "reviewer": "episode_count_fix (independent of phone player author)",
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/HoldSpeedState.java": "bfa09d212a5539adee07dd997df347bef8ccf67ce1dd315ede4b0d101c11e279",
+    "open-sources/src/com/tongpin/player4k/catalog/HoldSpeedControls.java": "60355936fc925597d77e6ca497afda7eb363325de72ea3a0019c76687073a1bb",
+    "open-sources/src/com/tongpin/player4k/catalog/OpenPlayerActivity.java": "685375d966147b8609584c8e0557a0d4d7469f8bb0bc6822d245b294ded86cce",
+    "open-sources/src/com/tongpin/player4k/catalog/LegacyPlayerControls.java": "a349186d28fd04ffdf72e6006443b9e2570255ab1903f08d8f4c661fa35e4ec3",
+    "open-sources/src/com/tongpin/player4k/catalog/PlayerOptionsSheet.java": "5eeb12dc1214e08389967db7505dbf041ee0cddcba71fcddfaad19c7553628cf",
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity.smali": "00ac1c43dc76a4d539d9985ab05abdd897b7ebc5e19b01c07f12c31d582ae9ff",
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity$e.smali": "f661fd333565c9a763c9819e7747b45908396e555f0318693ce810320eb4f6e8",
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/EmptyControlVideoView.smali": "4b7bbd774456542361e451c7f1f44be4e857fa2ede2a2fbcfd1cf98abc978e0f"
+  },
+  "stub_sha256": {
+    "open-sources/toolchain/stubs/com/shuyu/gsyvideoplayer/video/base/GSYVideoView.java": "bf969b8b09c2ae696e9052c704f977ec77a2a6dc615763f1d72588bf05ce8d89",
+    "open-sources/toolchain/stubs/com/shuyu/gsyvideoplayer/video/base/GSYVideoViewBridge.java": "bb0698aa17be8a4b7b18fe7d4231c657b3b4969096cb8f64e9b1a71fe051eadd"
+  },
+  "native_method_scope_checked": [
+    {
+      "path": "decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity.smali",
+      "actual_changed_methods": [
+        "I1()V",
+        "S2(II)V",
+        "T1(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;Lcom/shenma/tvlauncher/domain/Json;)Lm7/f0;",
+        "dispatchTouchEvent(Landroid/view/MotionEvent;)Z",
+        "onConfigurationChanged(Landroid/content/res/Configuration;)V",
+        "onDestroy()V",
+        "onPause()V",
+        "onResume()V",
+        "seekCommit(J)V",
+        "t1(I)V"
+      ],
+      "actual_added_methods": [
+        "legacyAttachSubtitles()V",
+        "legacyPlayerTransition()V",
+        "legacyResumeSubtitles()V",
+        "legacyTouch(Landroid/view/MotionEvent;)Z"
+      ],
+      "removed_methods": []
+    },
+    {
+      "path": "decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity$e.smali",
+      "actual_changed_methods": [
+        "onLongPress(Landroid/view/MotionEvent;)V"
+      ],
+      "actual_added_methods": [],
+      "removed_methods": []
+    },
+    {
+      "path": "decoded/smali_classes5/com/shenma/tvlauncher/phone/EmptyControlVideoView.smali",
+      "actual_changed_methods": [
+        "setStateAndUi(I)V"
+      ],
+      "actual_added_methods": [],
+      "removed_methods": []
+    }
+  ],
+  "actual_bundled_abi_checked": [
+    "GSYVideoControlView.mLockCurScreen:Z",
+    "GSYBaseVideoPlayer.getCurrentPlayer()",
+    "GSYVideoView.getSpeed()F",
+    "GSYVideoView.setSpeedPlaying(FZ)V",
+    "GSYVideoView.setSpeed(FZZ)V"
+  ],
+  "independent_host_assertions": {
+    "HoldSpeedStateTest": 102,
+    "HoldSpeedGestureTest": 54
+  },
+  "checks": [
+    "Native radial slop is applied before activation; a swipe before long-press still follows original dispatch and seek.",
+    "Only an eligible playing/unlocked video can activate; one synthetic ACTION_CANCEL reaches the original route under a re-entry guard, then the held gesture is consumed.",
+    "48dp rightward movement upgrades once from2x to3x; left/vertical movement does not falsely upgrade, repeated upgrades do not rewrite original fixed speed.",
+    "Captured MOVE/UP/CANCEL and multi-pointer paths cannot reach original seek; cancellation/state/lifecycle reset restores saved speed once while draining the captured remainder until terminal/newDOWN.",
+    "Both public dispatch and native dispatch honor boolean touch return; native legacyTouchZ/register/invoke/branch paths and actual before-method scope checked.",
+    "Pause, episode/source/fullscreen transition and destroy cleanup, weak owners, pending cancellation, MotionEvent recycling and hint removal inspected.",
+    "Fixed-speed preferences unchanged; bundled GSY getSpeed/setSpeed/setSpeedPlaying/currentPlayer/lock ABI remains valid.",
+    "Subtitle action identity10 remains disjoint from decoder9 and all prior playback options."
+  ],
+  "limits": [
+    "No phone or TV device/native UI interaction was performed.",
+    "Smali source reviewed; final APK assembly/signing remains the builder responsibility.",
+    "Subtitle consumer implementation is outside this independent hold-speed review and is reviewed separately by root."
+  ]
+}

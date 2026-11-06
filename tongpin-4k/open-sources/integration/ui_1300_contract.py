@@ -95,7 +95,7 @@ def verify(live_overrides=None, excluded_sources=()):
             overrides[relative] = before_path
         elif name not in OWN_NEW:
             assert digest == baseline["source_sha256"][name], "Unrelated own source changed"
-    assert sha((ROOT / "decoded/assets/tongpin_open_sources.json").read_bytes()) == baseline["provider_asset_sha256"]
+    assert sha(live("decoded/assets/tongpin_open_sources.json").read_bytes()) == baseline["provider_asset_sha256"]
     result = {"passed":True, "baseline":"immutable signed1.2.1 contract and source hashes", "smali":records,
               "modified_own_sources":sorted(OWN_CHANGED), "new_own_sources":sorted(OWN_NEW),
               "new_resources":[], "native_runtime_verified":False}

@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "verdict": "clear",
+  "source_sha256": {
+    "decoded/smali_classes5/i6/e.smali": "ae2c3c29ffa1862e3ce5a7f130f4df037185c72149c680a219441733a3d85c99",
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/SearchActivity$c.smali": "24e4cd9eeb6d8e2bce4596a1452551cb1c985a7458777a4814f147ca135a0020",
+    "decoded/res/layout/mv_type_details_item.xml": "90dc024086899f34648f40dff3c718af4988383a07b75a68d78ed4d8de07d681",
+    "decoded/res/layout/item_recommend.xml": "5ac21a765a2e5c9aeafb2afdc8c1917f11a10cb37da79b6d8b164f5380e5bc41",
+    "decoded/res/drawable/place_image_laye.xml": "1ed7e95b44aba6e2c6729132f141d00bdf6bb0623933ee782c7e6bdea1a91966"
+  },
+  "facts_checked": [
+    "bindScore uses one local, assigns text and both VISIBLE/GONE branches on each valid-record binding; null TextView returns safely",
+    "Grid holder/index registers and search int/View register reuse are valid; detail click action and title/state bindings remain",
+    "posterUri trims ASCII whitespace only and maps null/empty to null without changing nonempty URI protocol/domain",
+    "Actual bundled SimpleDraweeView String overload passes null through l/k, n2/e.J(null) clears builder image request before controller build",
+    "Both layouts preserve IDs/classes/poster bounds/aspect/corner radius and actual-image scale policy",
+    "Placeholder resources exist; actual bundled t2/o.q FIT_XY direct-bounds fast path disables matrix, so fixed 50dp LayerDrawable mark is not stretched",
+    "Existing 22-case helper interpretation and actual two-class smali assembly reports match reviewed source scope"
+  ],
+  "geometry_dependency_proof": {
+    "drawable": "decoded/smali_classes4/t2/o.smali q()V",
+    "xml_scale_mapping": "decoded/smali_classes4/u2/c.smali c(TypedArray,int); t2/q.a -> t2/z fit_xy",
+    "null_image_request": "decoded/smali_classes4/n2/e.smali J(Uri)"
+  },
+  "native_device_tested": false,
+  "upstream_cover_availability_tested": false,
+  "network_retry_added": false
+}

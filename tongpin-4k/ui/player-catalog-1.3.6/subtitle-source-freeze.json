@@ -1,0 +1,19 @@
+{
+  "scope": "new phone subtitle helpers only; no existing player or bundled libraries edited by this owner",
+  "frozen": true,
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/SubtitleControls.java": "d0b1a24d7fd658e2683d322c106f217f4d95c900c8415002bad1970e0f275784",
+    "open-sources/src/com/tongpin/player4k/catalog/SubtitlePolicy.java": "a891f56a8d81221aa98e88a909692ee18b427c984f9f0074f60f1a19f625c552"
+  },
+  "api": [
+    "attach(android.view.View)",
+    "stateChanged(android.view.View,int)",
+    "show(android.app.Activity,android.view.View)",
+    "pause(android.app.Activity)",
+    "release(android.app.Activity)",
+    "clear(android.view.View)",
+    "resume(android.app.Activity,android.view.View)"
+  ],
+  "device_tested": false,
+  "lifecycle": "Explicit resume clears background marker; pause records background without clearing effective caption; foreground user-paused state5 preserves it; attach guards actual state2/5. getCurrentCues snapshot on new bind/resume/fullscreen only, on actual Exo applicationLooper. Seek/off/detach clear cached text; queued cue serial prevents pre-clear UI work from repainting."
+}

@@ -1,0 +1,10 @@
+{
+  "open-sources/src/com/tongpin/player4k/catalog/OpenPlayerActivity.java": "d4cae6f413bea38ee19c2ceca7760ea110fea74dbe6f29055c24c151d95c79d9",
+  "open-sources/src/com/tongpin/player4k/catalog/LegacyPlayerControls.java": "121aec6450d737f31084d5e8f1953e2e0ad3d3f876ec96b9d443020beb0fd97f",
+  "open-sources/src/com/tongpin/player4k/catalog/PlayerOptionsSheet.java": "85ef8cfa27771481ee3e257ea6a9f7940a4e7318c8d2ec7c5537880d17e9a3fe",
+  "decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity.smali": "2774c016bb7a795a53a7e8528eff1755ab31a2e7506ac91ff87d81435f7e544e",
+  "decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity$e.smali": "9c6feff5414d8309a5a9b639f8106a3d101d44792d651c82d38bca3b03a10c3e",
+  "decoded/smali_classes5/com/shenma/tvlauncher/phone/EmptyControlVideoView.smali": "fbfefc39c46e65dde2007d7a6467d31cd330c7b7335146f28c2adc50ce4f44cd",
+  "open-sources/toolchain/stubs/com/shuyu/gsyvideoplayer/video/base/GSYVideoView.java": "f6503e1f541cc5fa14f68918c5ecbfc70e26a562b92ad0a0592c12f08ce78138",
+  "open-sources/toolchain/stubs/com/shuyu/gsyvideoplayer/video/base/GSYVideoViewBridge.java": "13d1826e1537c742210aef49a49c445a3b74113ab8406d4594771913e2dd1f55"
+}

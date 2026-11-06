@@ -1,5 +1,9 @@
 # 公开片源播放器
 
+当前1.3.6保留上下集、倍速、自动连播、本机断点和3秒画质提示，增加长按画面临时2×、按住右滑48dp升3×及字幕轨选择。普通触摸保持原分发，长按激活时取消原手势并接管本次触摸，右滑不快进；松手或取消时恢复原速度；字幕仅使用当前流现有的受支持文字轨。具体行为和验证边界见 `../ui/player-catalog-1.3.6/SUBTITLES.md` 与 `../ui/player-catalog-1.3.6/player-review.json`。
+
+以下1.1.0集成记录保留历史原文，当前整包结果以 `../verification/1.3.6` 为准。
+
 `OpenPlayerActivity` 是独立原生 `Activity`，只消费片库传来的 HTTP(S) 直链，不调用原软件账号、解析或片源服务。
 
 Intent 契约为 `title/licence/author/source_url` 字符串，`stream_urls/stream_labels` 字符串数组，`stream_widths/stream_heights` 整数数组，以及 `selected` 整数。四个数组必须等长且非空，索引必须有效。链接只允许带合法主机的 HTTP(S)，拒绝嵌入账号密码的 URL。

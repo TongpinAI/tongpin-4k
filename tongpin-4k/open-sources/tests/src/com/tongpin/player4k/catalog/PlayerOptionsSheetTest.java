@@ -27,6 +27,8 @@ public final class PlayerOptionsSheetTest {
         check(java.util.Arrays.equals(PlayerOptionsSheet.sectionIndices(publicPlayer, 2), new int[]{2, 3}));
         check(java.util.Arrays.equals(PlayerOptionsSheet.sectionIndices(publicPlayer, 3), new int[]{5}));
         check(PlayerOptionsSheet.sectionFor(PlayerOptionsSheet.DECODER) == 1);
+        check(PlayerOptionsSheet.sectionFor(PlayerOptionsSheet.SUBTITLES) == 1);
+        check(java.util.Arrays.equals(PlayerOptionsSheet.sectionIndices(new int[]{1,2,5,6,3,8,9,10},1), new int[]{1,4,6,7}));
         check(java.util.Arrays.equals(PlayerOptionsSheet.sectionIndices(new int[]{1,2,5,6,3,8,9},1), new int[]{1,4,6}));
         int[] filtered = {2, 5, 6, 8};
         check(PlayerOptionsSheet.sectionIndices(filtered, 0).length == 0);
@@ -35,7 +37,7 @@ public final class PlayerOptionsSheetTest {
         check(java.util.Arrays.equals(PlayerOptionsSheet.sectionIndices(filtered, 3), new int[]{3}));
         try { PlayerOptionsSheet.sectionFor(-1); throw new AssertionError("negative kind accepted"); }
         catch (IllegalArgumentException expected) { check(true); }
-        try { PlayerOptionsSheet.sectionFor(10); throw new AssertionError("unknown kind accepted"); }
+        try { PlayerOptionsSheet.sectionFor(11); throw new AssertionError("unknown kind accepted"); }
         catch (IllegalArgumentException expected) { check(true); }
         check(PlayerOptionsSheet.maximumHeight(800) == 600);
         check(PlayerOptionsSheet.maximumHeight(320) == 240);

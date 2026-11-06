@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "verdict": "clear: selected-line counts are conservative and current, no playback model mutation or unresolved reflection target found",
+  "reviewer": "poster_badge_fix independent episode-scope review",
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/EpisodeSummary.java": "e5cd0398babaf9949bc8713f54b160a4e2c01c5f78c9143e0309583d311798d0",
+    "open-sources/src/com/tongpin/player4k/catalog/LegacyEpisodeOrder.java": "41d20250fe12357c43d335033db23a524a40757b46581256ab65d4c5599e8a84",
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogActivity.java": "70f1431b3b90ec07ff7da4a20302b725dd1f8638b7a25f6cc4b1ff3629e4766f",
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity.smali": "2774c016bb7a795a53a7e8528eff1755ab31a2e7506ac91ff87d81435f7e544e"
+  },
+  "facts_checked": [
+    "Counts unique positive numbered episodes rather than maximum number or raw entry count",
+    "Duplicate episode aliases and upper/lower parts retain one episode identity; distinct parts may be described separately",
+    "Extras are separated; explicit 1080P/2160p/4K and date labels fall back to selectable/other entries without becoming episode maxima",
+    "Unknown or malformed names remain selectable and are not silently deleted",
+    "No completion assertion is inferred from the final visible episode number",
+    "Phone and TV helper policies are byte-identical apart from package declaration",
+    "Playback indices, original list order, streams, queue identities and saved progress are not mutated",
+    "Legacy header ID0x7f0a0b3d resolves to tv_video_list_more, matching the screenshot header; tv_total belongs to the separate dialog",
+    "Actual f6/g class and b() getter are public, as are VodUrl and getUrl/getTitle reflection targets",
+    "v2() refresh occurs after both canonical adapters are updated; initial load and source switches flow through it",
+    "The old upstream getTrunk text is written earlier in w2(); final v2 rebind replaces it, and later header uses are click/read operations",
+    "Public catalog line picker and selected-line hint use the selected actual line summary"
+  ],
+  "reported_policy_assertions": 33,
+  "native_device_tested": false,
+  "visual_font_scaling_verified": false,
+  "notes": [
+    "Unparseable naming formats remain other/selectable entries; this is not an external catalogue completion or endpoint-availability assertion."
+  ]
+}

@@ -1,0 +1,181 @@
+{
+  "code": 1,
+  "class": [
+    {
+      "type_id": 1,
+      "type_name": "电影"
+    },
+    {
+      "type_id": 2,
+      "type_name": "连续剧"
+    },
+    {
+      "type_id": 3,
+      "type_name": "综艺"
+    },
+    {
+      "type_id": 4,
+      "type_name": "动漫"
+    },
+    {
+      "type_id": 5,
+      "type_name": "动作片"
+    },
+    {
+      "type_id": 6,
+      "type_name": "喜剧片"
+    },
+    {
+      "type_id": 7,
+      "type_name": "爱情片"
+    },
+    {
+      "type_id": 8,
+      "type_name": "科幻片"
+    },
+    {
+      "type_id": 9,
+      "type_name": "恐怖片"
+    },
+    {
+      "type_id": 10,
+      "type_name": "剧情片"
+    },
+    {
+      "type_id": 11,
+      "type_name": "战争片"
+    },
+    {
+      "type_id": 12,
+      "type_name": "国产剧"
+    },
+    {
+      "type_id": 13,
+      "type_name": "港澳剧"
+    },
+    {
+      "type_id": 14,
+      "type_name": "日剧"
+    },
+    {
+      "type_id": 15,
+      "type_name": "欧美剧"
+    },
+    {
+      "type_id": 16,
+      "type_name": "台湾剧"
+    },
+    {
+      "type_id": 17,
+      "type_name": "泰剧"
+    },
+    {
+      "type_id": 18,
+      "type_name": "韩剧"
+    },
+    {
+      "type_id": 19,
+      "type_name": "纪录片"
+    },
+    {
+      "type_id": 20,
+      "type_name": "动漫电影"
+    },
+    {
+      "type_id": 21,
+      "type_name": "伦理片"
+    },
+    {
+      "type_id": 29,
+      "type_name": "体育赛事"
+    },
+    {
+      "type_id": 30,
+      "type_name": "短剧"
+    },
+    {
+      "type_id": 31,
+      "type_name": "预告片"
+    },
+    {
+      "type_id": 32,
+      "type_name": "足球"
+    },
+    {
+      "type_id": 33,
+      "type_name": "篮球"
+    },
+    {
+      "type_id": 34,
+      "type_name": "台球"
+    },
+    {
+      "type_id": 35,
+      "type_name": "其他赛事"
+    },
+    {
+      "type_id": 36,
+      "type_name": "中国动漫"
+    },
+    {
+      "type_id": 37,
+      "type_name": "日本动漫"
+    },
+    {
+      "type_id": 38,
+      "type_name": "欧美动漫"
+    },
+    {
+      "type_id": 39,
+      "type_name": "大陆综艺"
+    },
+    {
+      "type_id": 40,
+      "type_name": "日韩综艺"
+    },
+    {
+      "type_id": 41,
+      "type_name": "港台综艺"
+    },
+    {
+      "type_id": 42,
+      "type_name": "欧美综艺"
+    },
+    {
+      "type_id": 43,
+      "type_name": "古装仙侠"
+    },
+    {
+      "type_id": 44,
+      "type_name": "现代都市"
+    },
+    {
+      "type_id": 45,
+      "type_name": "穿越年代"
+    },
+    {
+      "type_id": 46,
+      "type_name": "言情总裁"
+    },
+    {
+      "type_id": 47,
+      "type_name": "重生民国"
+    },
+    {
+      "type_id": 48,
+      "type_name": "反转爽剧"
+    },
+    {
+      "type_id": 49,
+      "type_name": "脑洞悬疑"
+    },
+    {
+      "type_id": 50,
+      "type_name": "擦边短剧"
+    },
+    {
+      "type_id": 51,
+      "type_name": "AI漫剧"
+    }
+  ]
+}

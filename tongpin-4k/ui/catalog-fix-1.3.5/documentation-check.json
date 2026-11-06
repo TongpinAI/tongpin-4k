@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "verdict": "clear: four current documentation files match reviewed source scope and evidence boundaries",
+  "source_version": "1.3.5",
+  "source_version_code": 1350,
+  "documentation_sha256": {
+    "PRODUCT.md": "0578e747e471edaf4492b3186dfb35b01930df6b783f1adfbc2e8a91b5bf38aa",
+    "DESIGN.md": "0f21479ab30b99e7ac6e18debf22389980de2666667b6c834229080f6d1342fb",
+    ".impeccable/design.json": "f8ec1a2b8f3c822a1faa6d7084b21aed2bb9e753eec02c06cf44c5bb876ba59f",
+    ".impeccable/surfaces/android.md": "79037112d853c275ed9228bc8636c6fdddae22e67fa5fa464dab3ea598ac1365"
+  },
+  "facts_checked": [
+    "Current source135/1350 and inherited Android Views identity match",
+    "Selected-line unique-numbered summary replaces stale upstream header; extras and unknowns remain separate/selectable",
+    "Empty score badges reset per bind; valid scores restore; current placeholder/failure state is branded and visible",
+    "Poster URI change trims only whitespace/empty; upstream image availability or image reconstruction is not claimed",
+    "No verified source watermark flag, automatic watermark detection or watermark-free source guarantee is claimed",
+    "Current scope correctly acknowledges TV summary synchronization and no new runtime dependency",
+    "3-second quality, ordering, queue, decoder and progress behavior remain described; no new device/render/playback acceptance claimed"
+  ],
+  "reported_episode_policy_assertions": 33,
+  "native_device_validation": false,
+  "production_freeze_unchanged": true,
+  "reported_poster_host_smali_interpreter_cases": 22
+}

@@ -1,0 +1,22 @@
+{
+  "verification/1.3.0/Android23-Unsafe-source.json": "c54e5356f8071ff2e27fa99ed7f5338ca0f7e81a95dd799a4b8e1b0edb097504",
+  "verification/1.3.0/api23-speed-guard.json": "173e93fa1332dbe44c371f753017780472197f4c6ecf08a934be9d917c7c4e27",
+  "verification/1.3.0/api26-seek-guard.json": "a28aa3f0d26ba5692783d7fd58a58b7687f453cf43baa3dcee631e2950692efa",
+  "verification/1.3.0/class-definitions.json": "5ce3c141ce87cc5ffc0a3557f66b48cbbdbda2aacba2cf24c45e327bb2a8270a",
+  "verification/1.3.0/frozen-inputs.json": "0b0b842ac01da9988d36b1f3f99f12eeef77311e54feca027203c68b99a9e7cc",
+  "verification/1.3.0/input-hashes.json": "957a936b303d7fe81ef277c7e34a01bfa2824364e65b35d0933d3da6bdb7e0fb",
+  "verification/1.3.0/license-verification.json": "604fb64cabd699b0438f7bc91eb79c7d24d8175f10a26c2f8c1dc62a3f73cf87",
+  "verification/1.3.0/media3-backend-guard.json": "b85d4291011d82eb32bc2df0e85324b74a44940dfa5002bf347958be7db56654",
+  "verification/1.3.0/min-api-audit-raw.json": "2d6fac7ee910507573cc52f09d9d43bddf9667a8e1f40e9b7f6bceb3771fbba4",
+  "verification/1.3.0/min-api-audit.json": "1e5bbe528552ae39b8e10561faefce295efbead06fee851a07ff4c05b519e404",
+  "verification/1.3.0/post-build-check.json": "b99dc7e13d123351ee123f77ca18f3d6dc1e995cf79a5f5973d8eef560cf3ad2",
+  "verification/1.3.0/prior-evidence-sha256.json": "391908d439dd3ffa11e0e50ccb7cd50165d8a62ea86162789c38bc1179f167e1",
+  "verification/1.3.0/proof-self-check.json": "0ec6c4a2b41d671c594c70e3df1c1c45f3e9cf3d5b3958f46fb7fbeb13803741",
+  "verification/1.3.0/provider-asset-provenance.json": "4a9e2d404cfb74b7f99a478f028eec90d936cb6bce4899d9053ca80e43655f8c",
+  "verification/1.3.0/resource-continuity.json": "0e44af574b7055bf6ce42c34a84966cf59512d43e9dcb417b713bc59a6bc5b0d",
+  "verification/1.3.0/result.json": "1de557dcfc2aa6b21cbe35ae8521bf986975fc6d06dd98f3d978799555998835",
+  "verification/1.3.0/root-post-build-check.json": "6559c00dc289eaacf34cf603572f46be261d03a6aa04cdfe915d87341aed5a43",
+  "verification/1.3.0/runtime-abi.json": "cc8836a243f2cbe2cb9560e2f6994700738c8a3d1dc1c35e1dc85b75aa85f114",
+  "verification/1.3.0/type-references.json": "23583ba5ba8c90706f7660b1debea3c328007a787d237bd16d04f75009606f30",
+  "verification/1.3.0/version-preparation.json": "f23da01658b1040962cf0a31783fa9a1cc8a54d23e55fa9e9c98346ff4f8600d"
+}

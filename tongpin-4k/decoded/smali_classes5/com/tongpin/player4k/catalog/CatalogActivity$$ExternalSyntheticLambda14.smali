@@ -3,7 +3,7 @@
 .source "D8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
+.implements Landroid/widget/TextView$OnEditorActionListener;
 
 
 # instance fields
@@ -24,13 +24,15 @@
 
 
 # virtual methods
-.method public final onClick(Landroid/view/View;)V
+.method public final onEditorAction(Landroid/widget/TextView;ILandroid/view/KeyEvent;)Z
     .locals 1
 
     .line 0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda14;->f$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
-    invoke-virtual {v0, p1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->lambda$buildScreen$2$com-tongpin-player4k-catalog-CatalogActivity(Landroid/view/View;)V
+    invoke-virtual {v0, p1, p2, p3}, Lcom/tongpin/player4k/catalog/CatalogActivity;->lambda$buildScreen$3$com-tongpin-player4k-catalog-CatalogActivity(Landroid/widget/TextView;ILandroid/view/KeyEvent;)Z
 
-    return-void
+    move-result p1
+
+    return p1
 .end method

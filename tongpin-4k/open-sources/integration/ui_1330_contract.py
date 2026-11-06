@@ -112,7 +112,7 @@ def verify(live_overrides=None, excluded_sources=()):
             assert sha(before_path.read_bytes()) == baseline["source_sha256"][name]
             overrides[relative] = before_path
     assert changed == OWN_CHANGED
-    assert sha((ROOT / "decoded/assets/tongpin_open_sources.json").read_bytes()) == baseline["provider_asset_sha256"]
+    assert sha(live("decoded/assets/tongpin_open_sources.json").read_bytes()) == baseline["provider_asset_sha256"]
     assert (ROOT / "decoded/res/values/public.xml").read_bytes() == (ROOT / "ui/player-layout-1.3.2/before/decoded/res/values/public.xml").read_bytes()
     result = {"passed":True,"baseline":"immutable1.3.2 APK, integration and source preimages","files":records,
               "new_resources":{},"new_own_sources":sorted(OWN_NEW),"modified_own_sources":sorted(OWN_CHANGED),

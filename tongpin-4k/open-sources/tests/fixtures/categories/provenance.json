@@ -1,0 +1,116 @@
+{
+  "retrieved": "2026-11-06",
+  "public_http_read_only": true,
+  "remote_code_executed": false,
+  "not_included": "No movie details, URLs, remote JARs or scripts are included in these category-only fixtures.",
+  "fixtures": [
+    {
+      "source_id": "huya",
+      "raw_http_response_sha256": "089335a565695e517a81bfdb7f350426718e4836b6599df953d17c5acdbe7d61",
+      "fixture": "class-huya.json",
+      "fixture_sha256": "deb4ac35f2403e7ff3e39371d257394cf96eca5c9406f8d0548a9a53af17f50b",
+      "retained_fields": [
+        "code",
+        "class"
+      ],
+      "pid_declarations": 44,
+      "class_count": 44
+    },
+    {
+      "source_id": "bfzy",
+      "raw_http_response_sha256": "7b0b5eda3e3aa727f5c49076251b24b1ee9fc20494c30f586eac0cd3ff8d465e",
+      "fixture": "class-bfzy.json",
+      "fixture_sha256": "681195572e322b0909cde989aa4f8437681bed2dd056bedcfd0b2de71508215e",
+      "retained_fields": [
+        "code",
+        "class"
+      ],
+      "pid_declarations": 49,
+      "class_count": 49
+    },
+    {
+      "source_id": "qiyi",
+      "raw_http_response_sha256": "298f0dfa2ef4cdae7be6e99f1432bb876a0b0dd40ec337b5b4db4af5f48eeb0c",
+      "fixture": "class-qiyi.json",
+      "fixture_sha256": "1fe71b5ec723fa808b213470a5f539280c10faae22028a4fd97a76cb583f313a",
+      "retained_fields": [
+        "code",
+        "class"
+      ],
+      "pid_declarations": 43,
+      "class_count": 43
+    },
+    {
+      "source_id": "mdzy",
+      "raw_http_response_sha256": "5e570842344d4cf7ff4678f37579259e1478c3f155fc1682a5fd078dc3b1e9ed",
+      "fixture": "class-mdzy.json",
+      "fixture_sha256": "64eaca5914bc01389d43c6ca83ed68c08cad52fea4727d8e0f25e88b22eb49f4",
+      "retained_fields": [
+        "code",
+        "class"
+      ],
+      "pid_declarations": 42,
+      "class_count": 42
+    },
+    {
+      "source_id": "360zy",
+      "raw_http_response_sha256": "56c5c208b153a200ebafc0f65528b9ba6773833ed425a641497ae690925a9d4c",
+      "fixture": "class-360zy.json",
+      "fixture_sha256": "620309b06e0a86a29c5b739c34cc31f589d1b075a4124b7c1d595c3e5d4b6ced",
+      "retained_fields": [
+        "code",
+        "class"
+      ],
+      "pid_declarations": 51,
+      "class_count": 51
+    },
+    {
+      "source_id": "ikun",
+      "raw_http_response_sha256": "975ef56c829c23f309963bf82604ecbca6823b2dab1a115998bbfd71ce262a9e",
+      "fixture": "class-ikun.json",
+      "fixture_sha256": "f06e2ff905d2b8a79511180d0f0b397238004e9960b975c9248eea7b6f4fc53d",
+      "retained_fields": [
+        "code",
+        "class"
+      ],
+      "pid_declarations": 53,
+      "class_count": 53
+    },
+    {
+      "source_id": "guangsu",
+      "raw_http_response_sha256": "2f5a89b525b2e22bd35265d9039e9ba0ec2918544b705186db052592ccbff2c9",
+      "fixture": "class-guangsu.json",
+      "fixture_sha256": "010f2e557a41b741adc061cdfb0fe8c91a8811affc14454b3013d5ec040be1c3",
+      "retained_fields": [
+        "code",
+        "class"
+      ],
+      "pid_declarations": 44,
+      "class_count": 44
+    },
+    {
+      "source_id": "hongniu",
+      "raw_http_response_sha256": "480ac94afb6f2ee145d3ab6026ede20d66f7eb315514a56cf343569e35d15956",
+      "fixture": "class-hongniu.json",
+      "fixture_sha256": "457f68547221edbd1cebcc40cd3164f2486c5eb97ffc65e1438bc96810154316",
+      "retained_fields": [
+        "code",
+        "class"
+      ],
+      "pid_declarations": 0,
+      "class_count": 44
+    },
+    {
+      "source_id": "jinying",
+      "raw_http_response_sha256": "40cfb05c412616dd4f99f87145e9a42c4acc6d8b28dfd77b6dc27cd25729a2e7",
+      "fixture": "class-jinying.json",
+      "fixture_sha256": "cf6fc9ec25a24ff9745dce56419fae14a71556294c3798f0da3bc7c3a499fb1a",
+      "retained_fields": [
+        "code",
+        "class"
+      ],
+      "pid_declarations": 44,
+      "class_count": 44
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "frozen": true,
+  "owner": "poster_badge_fix",
+  "source_sha256": {
+    "src/com/tongpin/player4k/tv/TvPlaybackEngine.java": "ada8455654a5f5018f3f5e51b9ba8931552e4a2c0cdb713ca9a449680ca564f9",
+    "src/com/tongpin/player4k/tv/TvPlayerActivity.java": "a2ddd331abd43f5a756afde09991c7a7f18cb2cf2f505dc4b7e48ce8129d748f",
+    "src/com/tongpin/player4k/tv/SubtitlePolicy.java": "b19103dd785a337b2179f5cd9175fd2c0a808a545706993f8e17203f683ed5bf",
+    "src/com/tongpin/player4k/tv/TvHoldSpeedState.java": "b59ae62ea967af00a290037506db099af17992c61b1c87bafc2c62a687734422"
+  },
+  "new_files": [
+    "src/com/tongpin/player4k/tv/SubtitlePolicy.java",
+    "src/com/tongpin/player4k/tv/TvHoldSpeedState.java"
+  ],
+  "tests_assertions": 333,
+  "consumer_dex_guard_proof": "consumer-abi-proof.json",
+  "device_tested": false
+}

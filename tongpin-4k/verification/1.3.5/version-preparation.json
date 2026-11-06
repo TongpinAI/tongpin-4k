@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "version": "1.3.5",
+  "version_code": 1350,
+  "previous": "1.3.4",
+  "files": {
+    "build_tongpin.py": {
+      "before_sha256": "ccac52e364fcdd8f16dc87cbb99831515f50390094f3d8a7dac7cd186ee9a6d6",
+      "after_sha256": "4cd43ff8bf34814ca61d54008befd12082e986f70cca664aaedf8cc49b6041aa"
+    },
+    "decoded/AndroidManifest.xml": {
+      "before_sha256": "b59d54a02a825f0e91567aeca2bf031d80e3f0ba1b6d5cf7611e5ec17678d51a",
+      "after_sha256": "2ee32012323a9f1d345c3e3aa15b922e58999d41581f9886d63a91706ccd3479"
+    },
+    "decoded/apktool.yml": {
+      "before_sha256": "f9737392dd5811b27d5280edcc3a52a018e8dd7e1371b4d2bd0a52a9bf7c53d1",
+      "after_sha256": "3cae0921de15c16496c1ac77e024a16e9e39b0705356050fd501f1db2c05e955"
+    },
+    "decoded/res/values/strings.xml": {
+      "before_sha256": "2f3da96ee956679639d71c672cd1fca4a48bb0082e6ededae6422ebcc9bc1ee5",
+      "after_sha256": "a25fa3b277404a3d83d801087e0604296b15807b8353fc3bfa86874b4e473360"
+    }
+  },
+  "runtime_tested": false
+}

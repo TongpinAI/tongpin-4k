@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "verdict": "clear: independently reviewed category/source scope, no blocking issue found",
+  "reviewer": "watermark_source_review (player/builder owner, not category implementation owner)",
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogApi.java": "bb26fbdcff341cc8b8676addf5a2320799f9283d5011bd2a907833ff2eef9864",
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogCategories.java": "3c368a9e8ebbfbcf15e8426b1cdacfd0e3289efdfeb1f887569840528425f03b",
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogActivity.java": "3e6497f49a2f84800f951114f5fe957fe5ac77f15254b0e5768282522ea3751b",
+    "decoded/assets/tongpin_open_sources.json": "7e6a9616a36c68788500c68b313265bda50e28efe7af695cc9b368f89078aa1d"
+  },
+  "owner_freeze_sha256": "9754f630bb86e984d09d9eddfda47cfe8e1016f04a6ac869e96fa1084d947f72",
+  "independent_host_assertions": {
+    "phone_categories": 144,
+    "phone_historical_parser_http": 78,
+    "tv_categories": 144,
+    "tv_historical_parser_http": 112
+  },
+  "exact_eight_provider_preimage_recovered": true,
+  "review_notes": [
+    "Per-provider real category IDs and declared parent relations; no fixed IDs or title-keyword genre inference.",
+    "Selection is immutable and tied to provider ID; t is removed for unfiltered requests; actual returned memberships checked if upstream ignores t.",
+    "Unknown/conflicting/cyclic categories stay explicit or unavailable; raw pagination preserved after filtering.",
+    "Phone page tickets and TV generation prevent stale response application; source switch resets selection; TV picker checks both source and category snapshot.",
+    "Exact old eight-provider bytes recovered by deleting one append span. Three appended public HTTPS JSON providers have bounded existing-parser and HLS evidence; no decoded 4K guarantee.",
+    "Playback URL selection, newest-episode and 4K policies outside the classification additions remain unchanged. No remote JAR/Python/JavaScript is executed."
+  ],
+  "device_tested": false,
+  "network_scope": "Independent host loopback HTTP fixtures; upstream availability supported by pinned owner public audit, not re-probed here."
+}

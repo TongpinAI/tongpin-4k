@@ -5,4 +5,5 @@ public interface GSYVideoViewBridge {
     int getVideoWidth();
     int getVideoHeight();
     m6.a listener();
+    boolean isPlaying();
 }

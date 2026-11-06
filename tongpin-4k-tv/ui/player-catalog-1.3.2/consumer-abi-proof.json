@@ -1,0 +1,156 @@
+{
+  "passed": true,
+  "min_sdk": 21,
+  "library_min_sdk": 23,
+  "higher_api_references": [
+    {
+      "kind": "class",
+      "owner": "android/media/PlaybackParams",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaPlayer;",
+      "member": "seekTo(JI)V",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaPlayer;",
+      "member": "setPlaybackParams(Landroid/media/PlaybackParams;)V",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/PlaybackParams;",
+      "member": "<init>()V",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/PlaybackParams;",
+      "member": "setPitch(F)Landroid/media/PlaybackParams;",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/PlaybackParams;",
+      "member": "setSpeed(F)Landroid/media/PlaybackParams;",
+      "since": 23
+    }
+  ],
+  "guarded_api23_speed": {
+    "passed": true,
+    "sdk_branch_checks": {
+      "21": {
+        "guarded_call_reachable": false,
+        "legacy_call_reachable": false
+      },
+      "22": {
+        "guarded_call_reachable": false,
+        "legacy_call_reachable": false
+      },
+      "23": {
+        "guarded_call_reachable": true,
+        "legacy_call_reachable": false
+      },
+      "25": {
+        "guarded_call_reachable": true,
+        "legacy_call_reachable": false
+      },
+      "26": {
+        "guarded_call_reachable": true,
+        "legacy_call_reachable": false
+      },
+      "35": {
+        "guarded_call_reachable": true,
+        "legacy_call_reachable": false
+      }
+    }
+  },
+  "guarded_api26_seek": {
+    "passed": true,
+    "sdk_branch_checks": {
+      "21": {
+        "guarded_call_reachable": false,
+        "legacy_call_reachable": true
+      },
+      "22": {
+        "guarded_call_reachable": false,
+        "legacy_call_reachable": true
+      },
+      "23": {
+        "guarded_call_reachable": false,
+        "legacy_call_reachable": true
+      },
+      "25": {
+        "guarded_call_reachable": false,
+        "legacy_call_reachable": true
+      },
+      "26": {
+        "guarded_call_reachable": true,
+        "legacy_call_reachable": false
+      },
+      "35": {
+        "guarded_call_reachable": true,
+        "legacy_call_reachable": false
+      }
+    },
+    "seek_mode": 3
+  },
+  "guarded_media3_backend": {
+    "passed": true,
+    "factory": [
+      "Lcom/tongpin/player4k/tv/TvPlaybackEngine$-CC;",
+      "create(Landroid/content/Context;I)Lcom/tongpin/player4k/tv/TvPlaybackEngine;"
+    ],
+    "sdk_branch_checks": {
+      "21": {
+        "guarded_call_reachable": false,
+        "legacy_call_reachable": false
+      },
+      "22": {
+        "guarded_call_reachable": false,
+        "legacy_call_reachable": false
+      },
+      "23": {
+        "guarded_call_reachable": true,
+        "legacy_call_reachable": false
+      },
+      "25": {
+        "guarded_call_reachable": true,
+        "legacy_call_reachable": false
+      },
+      "26": {
+        "guarded_call_reachable": true,
+        "legacy_call_reachable": false
+      },
+      "35": {
+        "guarded_call_reachable": true,
+        "legacy_call_reachable": false
+      }
+    },
+    "all_media3_references_isolated": true,
+    "software_selector_verified": true
+  },
+  "source_sha256": {
+    "src/com/tongpin/player4k/tv/CatalogApi.java": "6b670a6b4df2b200037a9f69f61fe7005021370c0307c69215034459dca8dd73",
+    "src/com/tongpin/player4k/tv/CatalogCategories.java": "94ad50088414706688648027634e6acd76fc52214bac47dcf29d1d2e9e86ae8a",
+    "src/com/tongpin/player4k/tv/EpisodeSummary.java": "dcd277c899d816954ab60262030326bd59e65106c91085fa3d69bee057f1198a",
+    "src/com/tongpin/player4k/tv/SubtitlePolicy.java": "b19103dd785a337b2179f5cd9175fd2c0a808a545706993f8e17203f683ed5bf",
+    "src/com/tongpin/player4k/tv/TvHoldSpeedState.java": "b59ae62ea967af00a290037506db099af17992c61b1c87bafc2c62a687734422",
+    "src/com/tongpin/player4k/tv/TvHomeActivity.java": "f7d6324973f34f76966ab2535dcdccec23bbca2cef54f64fd6a379ca828ba6b9",
+    "src/com/tongpin/player4k/tv/TvLibraryStore.java": "a72e6295c542703f45321ba3d2b296392f19f3632727a64fd26a68dbb8a9b385",
+    "src/com/tongpin/player4k/tv/TvPlaybackEngine.java": "ada8455654a5f5018f3f5e51b9ba8931552e4a2c0cdb713ca9a449680ca564f9",
+    "src/com/tongpin/player4k/tv/TvPlayerActivity.java": "a2ddd331abd43f5a756afde09991c7a7f18cb2cf2f505dc4b7e48ce8129d748f",
+    "src/com/tongpin/player4k/tv/TvPlayQueue.java": "a1d630ec5f52f53b725fc0e251871c7fc2de7934d8bca9ba0355dccab1ae35d7",
+    "src/com/tongpin/player4k/tv/TvSeekState.java": "9fe01ce88f12e525cca5a6f8be29bc0e3873f1005daefbdd9cfad7248ddc11b4",
+    "src/com/tongpin/player4k/tv/TvUi.java": "3715754d451e64df7b104960f50d446530b1eb6ad141a7b92f932edbf1aac0b5"
+  },
+  "scope": "Own consumer DEX only; official pinned dependency implementation guards are outside this proof",
+  "runtime_tested": false,
+  "consumer_dex_sha256": "1b05bce627196cff94bd11e982286a0fae02fffc4a0d34927984da2f7aec1233",
+  "device_tested": false,
+  "production_runtime_libraries_packaged": false,
+  "scope_note": "Own production consumer code emitted by D8 with compile-only pinned Media3 classpath. Full final APK library ABI closure is independently checked by release builder."
+}

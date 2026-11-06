@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "verdict": "clear: four current documentation files match reviewed source scope and evidence boundaries",
+  "source_version": "1.3.1",
+  "source_version_code": 1301,
+  "documentation_sha256": {
+    "PRODUCT.md": "c39dac707b36c643abb43485647b652e6084e43a96c043f6ebae225784641553",
+    "DESIGN.md": "4574bcee081ac78b15a381d53b21d812a71b6d8db6d62c310527a4ec1b863500",
+    ".impeccable/surfaces/android-tv.md": "78c451adc8958686a6375a9860b06b5840f7dc859548d3339b5be1f0a168664f",
+    "使用说明.md": "90bac0da2363aceb40d7eea779390ee2707957cc3a5d2124fb4f65dc812cd9e4"
+  },
+  "facts_checked": [
+    "Current source131/1301 matches TV source preparation",
+    "Current-line summary is used for line controls, selected status and episode header; stale upstream subtitle is omitted from detail status",
+    "Duplicates/parts/extras/unknown entries are described conservatively without max-number completion inference",
+    "Previous system/compatible decoding,4K priority, ordering, seek, pause/speed/queue/history behaviors remain preserved",
+    "Watermark availability remains a source boundary; no verified watermark-free source or new device acceptance claim"
+  ],
+  "reported_episode_policy_assertions": 33,
+  "native_device_validation": false,
+  "production_freeze_unchanged": true
+}

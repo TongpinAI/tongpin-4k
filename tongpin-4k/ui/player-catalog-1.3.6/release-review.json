@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "verdict": "clear: all player, subtitle and catalog/source production scopes independently reviewed",
+  "source_sha256": {
+    "decoded/assets/tongpin_open_sources.json": "7e6a9616a36c68788500c68b313265bda50e28efe7af695cc9b368f89078aa1d",
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/EmptyControlVideoView.smali": "4b7bbd774456542361e451c7f1f44be4e857fa2ede2a2fbcfd1cf98abc978e0f",
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity$e.smali": "f661fd333565c9a763c9819e7747b45908396e555f0318693ce810320eb4f6e8",
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity.smali": "00ac1c43dc76a4d539d9985ab05abdd897b7ebc5e19b01c07f12c31d582ae9ff",
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogActivity.java": "3e6497f49a2f84800f951114f5fe957fe5ac77f15254b0e5768282522ea3751b",
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogApi.java": "bb26fbdcff341cc8b8676addf5a2320799f9283d5011bd2a907833ff2eef9864",
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogCategories.java": "3c368a9e8ebbfbcf15e8426b1cdacfd0e3289efdfeb1f887569840528425f03b",
+    "open-sources/src/com/tongpin/player4k/catalog/HoldSpeedControls.java": "60355936fc925597d77e6ca497afda7eb363325de72ea3a0019c76687073a1bb",
+    "open-sources/src/com/tongpin/player4k/catalog/HoldSpeedState.java": "bfa09d212a5539adee07dd997df347bef8ccf67ce1dd315ede4b0d101c11e279",
+    "open-sources/src/com/tongpin/player4k/catalog/LegacyPlayerControls.java": "a349186d28fd04ffdf72e6006443b9e2570255ab1903f08d8f4c661fa35e4ec3",
+    "open-sources/src/com/tongpin/player4k/catalog/OpenPlayerActivity.java": "685375d966147b8609584c8e0557a0d4d7469f8bb0bc6822d245b294ded86cce",
+    "open-sources/src/com/tongpin/player4k/catalog/PlayerOptionsSheet.java": "5eeb12dc1214e08389967db7505dbf041ee0cddcba71fcddfaad19c7553628cf",
+    "open-sources/src/com/tongpin/player4k/catalog/SubtitleControls.java": "d0b1a24d7fd658e2683d322c106f217f4d95c900c8415002bad1970e0f275784",
+    "open-sources/src/com/tongpin/player4k/catalog/SubtitlePolicy.java": "a891f56a8d81221aa98e88a909692ee18b427c984f9f0074f60f1a19f625c552"
+  },
+  "independent_reports_sha256": {
+    "ui/player-catalog-1.3.6/player-review.json": "bc13012b343b598fd368d539647376cdd4debf183731827a43a407c4ced8b4fb",
+    "ui/player-catalog-1.3.6/subtitle-independent-review.json": "8c664aa93e9904166c79edcda20f2e4a24ae5c741b31c9f5dfbf8c7b058237bc",
+    "ui/player-catalog-1.3.6/category-independent-review.json": "db3911a708698eed6f339943416b71f7365f2443f0531a0b08644f6d93cc387b"
+  },
+  "device_tested": false
+}

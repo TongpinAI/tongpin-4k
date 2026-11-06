@@ -1975,6 +1975,7 @@
 
 .method private final I1()V
     .locals 11
+    invoke-direct {p0}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->legacyPlayerTransition()V
     const/4 v0, 0x0
     iput-boolean v0, p0, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->tpDecoderPending:Z
     invoke-direct {p0}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->seekReset()V
@@ -5148,6 +5149,7 @@
 
 .method private final S2(II)V
     .locals 3
+    invoke-direct {p0}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->legacyPlayerTransition()V
 
     .line 1
     iget-object v0, p0, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->G:Lh6/v0;
@@ -5283,6 +5285,7 @@
 
 .method private static final T1(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;Lcom/shenma/tvlauncher/domain/Json;)Lm7/f0;
     .locals 5
+    invoke-direct {p0}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->legacyPlayerTransition()V
     invoke-direct {p0}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->seekReset()V
 
     .line 1
@@ -13899,6 +13902,7 @@
 
 .method private final t1(I)V
     .locals 6
+    invoke-direct {p0}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->legacyPlayerTransition()V
     const/4 v0, 0x2
     const/4 v1, 0x0
     if-ne p1, v0, :viewport_state
@@ -14260,6 +14264,7 @@
     .line 52
     .line 53
     :cond_1
+    invoke-virtual {p0}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->refreshEpisodeOrder()V
     return-void
 .end method
 
@@ -16286,12 +16291,14 @@
 
 .method public onConfigurationChanged(Landroid/content/res/Configuration;)V
     .locals 1
+    invoke-direct {p0}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->legacyPlayerTransition()V
     const-string v0, "newConfig"
     invoke-static {p1, v0}, Lkotlin/jvm/internal/y;->f(Ljava/lang/Object;Ljava/lang/String;)V
     invoke-super {p0, p1}, Landroidx/appcompat/app/AppCompatActivity;->onConfigurationChanged(Landroid/content/res/Configuration;)V
     iget v0, p1, Landroid/content/res/Configuration;->orientation:I
     invoke-direct {p0, v0}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->t1(I)V
     invoke-direct {p0}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->configureEpisodeGrid()V
+    invoke-direct {p0}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->legacyAttachSubtitles()V
     return-void
 .end method
 
@@ -16407,6 +16414,8 @@
 
 .method protected onDestroy()V
     .locals 3
+    invoke-static {p0}, Lcom/tongpin/player4k/catalog/HoldSpeedControls;->release(Landroid/app/Activity;)V
+    invoke-static {p0}, Lcom/tongpin/player4k/catalog/SubtitleControls;->release(Landroid/app/Activity;)V
 
     const/4 v0, 0x0
     invoke-static {v0}, Lcom/shuyu/gsyvideoplayer/utils/GSYVideoType;->setShowType(I)V
@@ -16504,6 +16513,8 @@
 
 .method protected onPause()V
     .locals 1
+    invoke-static {p0}, Lcom/tongpin/player4k/catalog/HoldSpeedControls;->reset(Landroid/app/Activity;)V
+    invoke-static {p0}, Lcom/tongpin/player4k/catalog/SubtitleControls;->pause(Landroid/app/Activity;)V
     invoke-direct {p0}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->seekReset()V
 
     const/4 v0, 0x0
@@ -16844,6 +16855,7 @@
     .line 124
     .line 125
     :cond_2
+    invoke-direct {p0}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->legacyResumeSubtitles()V
     return-void
 .end method
 
@@ -17788,6 +17800,7 @@
     if-ltz v0, :seek_commit_done
     invoke-direct {p0}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->seekPlayer()Lcom/shenma/tvlauncher/phone/EmptyControlVideoView;
     move-result-object v0
+    invoke-static {v0}, Lcom/tongpin/player4k/catalog/SubtitleControls;->clear(Landroid/view/View;)V
     invoke-virtual {v0, p1, p2}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->seekTo(J)V
     :seek_commit_done
     return-void
@@ -17881,6 +17894,12 @@
     const/4 v0, 0x0
     return v0
     :seek_dispatch_event
+    invoke-direct {p0, p1}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->legacyTouch(Landroid/view/MotionEvent;)Z
+    move-result v0
+    if-eqz v0, :hold_dispatch_pass
+    const/4 v0, 0x1
+    return v0
+    :hold_dispatch_pass
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
     move-result v0
     const/4 v1, 0x3
@@ -17968,5 +17987,53 @@
     iget-boolean v5, p0, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->tpDecoderExo:Z
     invoke-static {p0, v5}, Lcom/tongpin/player4k/catalog/DecoderPolicy;->select(Landroid/content/Context;Z)V
     invoke-virtual {v0}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->startPlayLogic()V
+    return-void
+.end method
+
+.method private final legacyTouch(Landroid/view/MotionEvent;)Z
+    .locals 2
+    invoke-direct {p0}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->seekPlayer()Lcom/shenma/tvlauncher/phone/EmptyControlVideoView;
+    move-result-object v0
+    invoke-virtual {p0}, Lcom/shenma/tvlauncher/phone/base/BaseDbActivity;->getMDataBind()Landroidx/databinding/ViewDataBinding;
+    move-result-object v1
+    check-cast v1, Lc6/w;
+    iget-object v1, v1, Lc6/w;->n:Landroid/widget/ImageView;
+    invoke-virtual {v1}, Landroid/view/View;->isSelected()Z
+    move-result v1
+    invoke-static {p0, p1, v0, v1}, Lcom/tongpin/player4k/catalog/HoldSpeedControls;->touch(Landroid/app/Activity;Landroid/view/MotionEvent;Landroid/view/View;Z)Z
+    move-result v0
+    return v0
+.end method
+
+.method private final legacyPlayerTransition()V
+    .locals 1
+    invoke-static {p0}, Lcom/tongpin/player4k/catalog/HoldSpeedControls;->reset(Landroid/app/Activity;)V
+    invoke-direct {p0}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->seekPlayer()Lcom/shenma/tvlauncher/phone/EmptyControlVideoView;
+    move-result-object v0
+    invoke-static {v0}, Lcom/tongpin/player4k/catalog/SubtitleControls;->clear(Landroid/view/View;)V
+    return-void
+.end method
+
+.method private final legacyAttachSubtitles()V
+    .locals 3
+    invoke-direct {p0}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->seekPlayer()Lcom/shenma/tvlauncher/phone/EmptyControlVideoView;
+    move-result-object v0
+    invoke-virtual {v0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->getCurrentState()I
+    move-result v1
+    const/4 v2, 0x2
+    if-eq v1, v2, :subtitle_attach
+    const/4 v2, 0x5
+    if-ne v1, v2, :subtitle_attach_done
+    :subtitle_attach
+    invoke-static {v0}, Lcom/tongpin/player4k/catalog/SubtitleControls;->attach(Landroid/view/View;)V
+    :subtitle_attach_done
+    return-void
+.end method
+
+.method private final legacyResumeSubtitles()V
+    .locals 1
+    invoke-direct {p0}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->seekPlayer()Lcom/shenma/tvlauncher/phone/EmptyControlVideoView;
+    move-result-object v0
+    invoke-static {p0, v0}, Lcom/tongpin/player4k/catalog/SubtitleControls;->resume(Landroid/app/Activity;Landroid/view/View;)V
     return-void
 .end method

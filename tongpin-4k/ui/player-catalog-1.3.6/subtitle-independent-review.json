@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "verdict": "clear after lifecycle and subtitle snapshot corrections",
+  "reviewer": "root",
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/SubtitleControls.java": "d0b1a24d7fd658e2683d322c106f217f4d95c900c8415002bad1970e0f275784",
+    "open-sources/src/com/tongpin/player4k/catalog/SubtitlePolicy.java": "a891f56a8d81221aa98e88a909692ee18b427c984f9f0074f60f1a19f625c552"
+  },
+  "reports_sha256": {
+    "subtitle-source-freeze.json": "0bb3ee17b1ea04d6f4e9bcab407796402c87ec2402299694b46b7c6ada39d3e4",
+    "subtitle-tests.json": "fb3930a4ca02d3176ca5fbb523e4beb42d5ccbb6b10705b40049d448288873fd",
+    "reflection-member-proof.json": "fbaf3d2160a2871d88b7db54cecae73de8f55c382fed8a5ec99f417248b89a62"
+  },
+  "checks": [
+    "Actual bundled reflected members are proven, including obfuscated Guava-returning methods; no replacement library added.",
+    "Actual Exo application Looper owns track query/selection and listener cleanup; main thread owns overlay/menu.",
+    "Background marker works before a session exists; paused state5 never reactivates a background session.",
+    "User pause retains its cue; foreground resume/fullscreen rebind snapshots current Exo cue and preserves IJK effective cue.",
+    "Generation, identity and queued-cue serial reject detached, seek-cleared and closed session callbacks.",
+    "Default Chinese matching rejects negative labels and unsupported image tracks; manual choice/off remains sticky.",
+    "Existing IJK listener is chained and restored only if still owned; Exo listener is additive.",
+    "No track polling loop, network translation, external file permission, pause/reprepare or playback restart introduced."
+  ],
+  "device_tested": false,
+  "limitations": [
+    "Actual Android player/native caption execution and device layout remain untested.",
+    "Selectable text tracks only; burned-in subtitles cannot be switched."
+  ]
+}

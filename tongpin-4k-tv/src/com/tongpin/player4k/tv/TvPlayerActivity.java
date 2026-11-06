@@ -22,6 +22,7 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
@@ -34,6 +35,8 @@ import java.net.URI;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Locale;
+import java.util.ArrayList;
+import java.util.Collections;
 
 /** Platform-only TV playback. Home owns persistent history through the Activity result. */
 public final class TvPlayerActivity extends Activity implements SurfaceHolder.Callback {
@@ -46,9 +49,13 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
     private SurfaceView surface;
     private FrameLayout viewport;
     private LinearLayout header, controls;
-    private TextView actual, status, clock, declaredQuality, heading;
+    private TextView actual, status, clock, declaredQuality, heading, subtitle, holdHint;
     private Button playButton, qualityButton, retryButton, previousButton, nextButton, episodesButton, speedButton, autoButton, decoderButton;
     private AlertDialog qualityDialog;
+    private boolean subtitlePicker, subtitleChoosing;
+    private List<TvPlaybackEngine.SubtitleTrack> subtitleTracks = Collections.emptyList();
+    private String subtitleApplied = "", subtitleError = "";
+    private CharSequence currentSubtitle = "";
     private String[] urls, labels;
     private int[] widths, heights;
     private String title, videoJson, episodeName, author, licence, queueToken;
@@ -64,6 +71,8 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
     private int episodeIndex, playbackGeneration, knownDuration;
     private boolean advancing, progressErrorShown;
     private float speed = 1f, appliedSpeed = 1f;
+    private final TvHoldSpeedState holdSpeed = new TvHoldSpeedState();
+    private final Runnable beginHoldSpeed = this::beginHoldSpeed;
     private long badgeUntil;
     private final Runnable hideResolution = () -> { if (actual != null) actual.setVisibility(View.GONE); };
 
@@ -168,6 +177,15 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
         viewport.addView(surface, new FrameLayout.LayoutParams(-1, -1, Gravity.CENTER));
         viewport.addOnLayoutChangeListener((view, l, t, r, b, ol, ot, or, ob) -> fitSurface());
 
+        subtitle = TvUi.text(this, "", 23f, Color.WHITE);
+        subtitle.setGravity(Gravity.CENTER); subtitle.setIncludeFontPadding(false);
+        subtitle.setPadding(dp(14), dp(5), dp(14), dp(5)); subtitle.setBackgroundColor(0x99000000);
+        subtitle.setShadowLayer(2f, 1f, 1f, Color.BLACK);
+        subtitle.setFocusable(false); subtitle.setClickable(false); subtitle.setVisibility(View.GONE);
+        FrameLayout.LayoutParams subtitleParams = new FrameLayout.LayoutParams(-1, -2, Gravity.BOTTOM);
+        subtitleParams.setMargins(dp(60), 0, dp(60), dp(44));
+        root.addView(subtitle, subtitleParams);
+
         header = new LinearLayout(this);
         header.setOrientation(LinearLayout.VERTICAL);
         header.setPadding(dp(48), dp(76), dp(48), dp(12));
@@ -254,6 +272,7 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
         qualityButton = addButton(row, "画质", this::chooseQuality);
         speedButton = addButton(row, "倍速", this::chooseSpeed);
         speedButton.setEnabled(Build.VERSION.SDK_INT >= 23);
+        addButton(row, "字幕", this::chooseSubtitles);
         decoderButton = addButton(row, decoderButtonLabel(Build.VERSION.SDK_INT, decoderMode), this::chooseDecoder);
         decoderButton.setEnabled(Build.VERSION.SDK_INT >= 23);
         autoButton = addButton(row, "连播", () -> {
@@ -270,6 +289,13 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
         actions.addView(row);
         controls.addView(actions, new LinearLayout.LayoutParams(-1, -2));
         root.addView(controls, new FrameLayout.LayoutParams(-1, -2, Gravity.BOTTOM));
+        controls.addOnLayoutChangeListener((view,l,t,r,b,ol,ot,or,ob) -> renderSubtitle());
+
+        holdHint = TvUi.text(this, "2×播放 · 松开恢复", 18f, Color.WHITE);
+        holdHint.setPadding(dp(16), dp(8), dp(16), dp(8));
+        holdHint.setBackgroundColor(0xcc172c42); holdHint.setVisibility(View.GONE);
+        FrameLayout.LayoutParams holdParams = new FrameLayout.LayoutParams(-2, -2, Gravity.TOP | Gravity.CENTER_HORIZONTAL);
+        holdParams.topMargin = dp(28); root.addView(holdHint, holdParams);
 
         actual = TvUi.text(this, resolutionText(0, 0), 16f, Color.WHITE);
         actual.setVisibility(View.GONE);
@@ -418,6 +444,128 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
         qualityDialog.show();
     }
 
+    private String subtitleMode() {
+        String mode = getSharedPreferences("tongpin_tv_preferences", MODE_PRIVATE).getString("subtitle_mode", "auto");
+        return "off".equals(mode) || "track".equals(mode) ? mode : "auto";
+    }
+
+    private String subtitleSignature(List<TvPlaybackEngine.SubtitleTrack> tracks) {
+        android.content.SharedPreferences prefs = getSharedPreferences("tongpin_tv_preferences", MODE_PRIVATE);
+        StringBuilder value = new StringBuilder(subtitleMode()).append(':').append(prefs.getString("subtitle_language", ""))
+                .append(':').append(prefs.getString("subtitle_label", ""));
+        for (TvPlaybackEngine.SubtitleTrack track : tracks) value.append('|').append(track.key());
+        return value.toString();
+    }
+
+    private int preferredSubtitle(List<TvPlaybackEngine.SubtitleTrack> tracks, String mode) {
+        String[] languages = new String[tracks.size()], labels = new String[tracks.size()];
+        boolean[] supported = new boolean[tracks.size()]; int selected = -1;
+        for (int i=0; i<tracks.size(); i++) {
+            TvPlaybackEngine.SubtitleTrack track = tracks.get(i);
+            languages[i]=track.language; labels[i]=track.label; supported[i]=track.supported;
+            if (track.selected) selected=i;
+        }
+        android.content.SharedPreferences prefs = getSharedPreferences("tongpin_tv_preferences", MODE_PRIVATE);
+        return SubtitlePolicy.choose(languages,labels,supported,mode,prefs.getString("subtitle_language", ""),prefs.getString("subtitle_label", ""),selected);
+    }
+
+    private void receiveSubtitleTracks(TvPlaybackEngine owner, List<TvPlaybackEngine.SubtitleTrack> tracks) {
+        if (owner != player || destroyed || !foreground) return;
+        subtitleTracks = tracks;
+        String signature = subtitleSignature(tracks);
+        if (subtitleChoosing || tracks.isEmpty() || signature.equals(subtitleApplied)) return;
+        subtitleApplied = signature;
+        try {
+            int preferred = preferredSubtitle(tracks,subtitleMode());
+            owner.selectSubtitle(preferred<0 ? null : tracks.get(preferred));
+        } catch (RuntimeException unavailable) {
+            subtitleApplied = ""; subtitleError = "当前核心未能切换字幕，可重新选择字幕或兼容解码。";
+            updateSubtitle("");
+        }
+    }
+
+    private void updateSubtitle(CharSequence text) {
+        currentSubtitle = "off".equals(subtitleMode()) || text == null ? "" : text;
+        renderSubtitle();
+    }
+
+    private void renderSubtitle() {
+        if (subtitle == null) return;
+        subtitle.setText(currentSubtitle);
+        boolean visible = foreground && prepared && !seeking && !seekState.active()
+                && !"off".equals(subtitleMode()) && currentSubtitle.length()>0;
+        subtitle.setVisibility(visible ? View.VISIBLE : View.GONE);
+        FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) subtitle.getLayoutParams();
+        int bottom = controls != null && controls.getVisibility()==View.VISIBLE ? controls.getHeight()+dp(16) : dp(44);
+        if (params.bottomMargin != bottom) { params.bottomMargin=bottom; subtitle.setLayoutParams(params); }
+    }
+
+    private void chooseSubtitles() {
+        if (!valid || qualityDialog != null) return;
+        endHoldSpeed(true); main.removeCallbacks(hideControls);
+        final TvPlaybackEngine owner=player; final int generation=playbackGeneration;
+        final List<TvPlaybackEngine.SubtitleTrack> displayed=subtitleTracks;
+        ArrayList<String> labels=new ArrayList<>(); labels.add("自动（优先中文字幕）"); labels.add("关闭字幕");
+        int checked="off".equals(subtitleMode()) ? 1 : "auto".equals(subtitleMode()) ? 0 : -1;
+        for (int i=0;i<displayed.size();i++) {
+            TvPlaybackEngine.SubtitleTrack track=displayed.get(i);
+            labels.add(SubtitlePolicy.name(track.language,track.label,i)+(track.supported ? "" : "（当前核心或显示层不支持）"));
+            if (checked<0 && track.selected) checked=i+2;
+        }
+        ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_single_choice,labels) {
+            @Override public boolean isEnabled(int position) { return position<2 || displayed.get(position-2).supported; }
+            @Override public boolean areAllItemsEnabled() { return false; }
+        };
+        String hint=!subtitleError.isEmpty() ? subtitleError : !prepared ? "视频准备完成后显示实际字幕轨。"
+                : displayed.isEmpty() ? "当前片源未提供可切换文字字幕；画面内已压入的字幕不能在此关闭。"
+                : "仅选择视频提供的实际文字字幕；优先中文，不自动翻译。系统核心不支持的轨可尝试兼容解码（安卓6及以上）。";
+        LinearLayout title=new LinearLayout(this); title.setOrientation(LinearLayout.VERTICAL); title.setPadding(dp(24),dp(18),dp(24),dp(8));
+        title.addView(TvUi.text(this,"字幕选择",24f,TvUi.TEXT));
+        TextView explanation=TvUi.text(this,hint,16f,TvUi.SECONDARY); explanation.setPadding(0,dp(8),0,0); title.addView(explanation);
+        subtitlePicker=true;
+        qualityDialog=new AlertDialog.Builder(this).setCustomTitle(title).setSingleChoiceItems(adapter,checked,(dialog,which)-> {
+            dialog.dismiss();
+            if (destroyed || !foreground || generation!=playbackGeneration || owner!=player) {
+                Toast.makeText(this,"播放内容已变化，请重新选择字幕。",Toast.LENGTH_SHORT).show(); return;
+            }
+            String mode=which==0 ? "auto" : which==1 ? "off" : "track";
+            TvPlaybackEngine.SubtitleTrack chosen=null;
+            if (which>=2) {
+                String key=displayed.get(which-2).key();
+                for (TvPlaybackEngine.SubtitleTrack track:subtitleTracks) if (track.supported && track.key().equals(key)) { chosen=track; break; }
+                if (chosen==null) { Toast.makeText(this,"字幕轨已变化，请重新打开列表。",Toast.LENGTH_SHORT).show(); return; }
+            } else if (which==0) { int preferred=preferredSubtitle(subtitleTracks,"auto"); if (preferred>=0) chosen=subtitleTracks.get(preferred); }
+            try {
+                subtitleChoosing=true;
+                if (owner!=null && prepared) owner.selectSubtitle(chosen);
+                android.content.SharedPreferences.Editor prefs=getSharedPreferences("tongpin_tv_preferences",MODE_PRIVATE).edit().putString("subtitle_mode",mode);
+                if (chosen!=null && which>=2) prefs.putString("subtitle_language",chosen.language).putString("subtitle_label",chosen.label);
+                prefs.apply(); subtitleApplied=subtitleSignature(subtitleTracks); subtitleError=""; updateSubtitle("");
+            } catch (RuntimeException unavailable) {
+                subtitleApplied=""; subtitleError="字幕切换失败，请重新选择字幕或兼容解码。";
+                Toast.makeText(this,subtitleError,Toast.LENGTH_SHORT).show();
+            } finally { subtitleChoosing=false; }
+        }).setNegativeButton("取消",null).create();
+        qualityDialog.setOnDismissListener(dialog->{ qualityDialog=null; subtitlePicker=false; scheduleHide(); }); qualityDialog.show();
+    }
+
+    private void beginHoldSpeed() {
+        if (!holdSpeed.ready(playbackGeneration,foreground && !destroyed && playing && prepared
+                && player!=null && qualityDialog==null && !seekState.active() && Build.VERSION.SDK_INT>=23)) return;
+        try { player.setSpeed(2f); appliedSpeed=2f; holdSpeed.activate(); holdHint.setVisibility(View.VISIBLE); }
+        catch (RuntimeException unavailable) { Toast.makeText(this,"当前格式不支持临时倍速。",Toast.LENGTH_SHORT).show(); }
+    }
+
+    private void endHoldSpeed(boolean restore) {
+        main.removeCallbacks(beginHoldSpeed);
+        float restoreSpeed=holdSpeed.finish();
+        if (holdHint!=null) holdHint.setVisibility(View.GONE);
+        if (restore && !Float.isNaN(restoreSpeed) && player!=null && prepared) {
+            try { player.setSpeed(restoreSpeed); appliedSpeed=restoreSpeed; }
+            catch (RuntimeException unavailable) { fail("临时倍速无法恢复，已停止播放，请重试。",false); }
+        }
+    }
+
     private void applySpeed() {
         if (Build.VERSION.SDK_INT >= 23 && player != null && prepared && speed != appliedSpeed) {
             try { player.setSpeed(speed); appliedSpeed = speed; }
@@ -477,6 +625,11 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
         try {
             candidate.setAudioStreamType(AudioManager.STREAM_MUSIC);
             candidate.setDisplay(surface.getHolder());
+            candidate.setSubtitleListener(new TvPlaybackEngine.Subtitles() {
+                public void tracks(TvPlaybackEngine mp,List<TvPlaybackEngine.SubtitleTrack> tracks) { receiveSubtitleTracks(mp,tracks); }
+                public void cue(TvPlaybackEngine mp,CharSequence text) { if (mp==player && !destroyed) updateSubtitle(text); }
+                public void unavailable(TvPlaybackEngine mp,String reason) { if (mp==player && !destroyed) { subtitleError=reason; updateSubtitle(""); } }
+            });
             candidate.setOnVideoSizeChangedListener((mp, w, h) -> {
                 if (mp != player) return;
                 updateResolution(w, h);
@@ -508,6 +661,7 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
             candidate.setOnCompletionListener(mp -> {
                 if (mp != player || seeking || seekState.dragging()
                         || seekState.active() && seekState.target() < duration() - 1000L) return;
+                endHoldSpeed(false); updateSubtitle("");
                 seekState.reset(); main.removeCallbacks(commitSeek);
                 completed = true; position = 0L; playWhenReady = false; playing = false;
                 saveProgress(); resetResolution();
@@ -583,6 +737,7 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
     }
 
     private void pausePlayback() {
+        endHoldSpeed(true);
         rememberPosition();
         if (player != null && prepared && playing) {
             try { player.pause(); } catch (RuntimeException ignored) { }
@@ -620,6 +775,8 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
         if (!prepared || player == null || !foreground || failed || requested < 0) return;
         int length = duration();
         if (debounce && length <= 0) return;
+        endHoldSpeed(true); updateSubtitle("");
+        if (!prepared || player == null || failed) return;
         long target = length > 0 ? TvSeekState.clamp(requested, length) : Math.min(Integer.MAX_VALUE, requested);
         seekState.request(target); position = target; completed = false;
         main.removeCallbacks(hideControls);
@@ -791,6 +948,9 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
     }
 
     private void releasePlayer() {
+        endHoldSpeed(false);
+        if (subtitlePicker && qualityDialog!=null) qualityDialog.dismiss();
+        subtitleTracks=Collections.emptyList(); subtitleApplied=""; subtitleError=""; subtitleChoosing=false; updateSubtitle("");
         main.removeCallbacks(timeout);
         ++playbackGeneration;
         advancing = false;
@@ -804,6 +964,7 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
         if (old != null) {
             old.setOnPreparedListener(null); old.setOnCompletionListener(null); old.setOnErrorListener(null);
             old.setOnSeekCompleteListener(null); old.setOnVideoSizeChangedListener(null);
+            old.setSubtitleListener(null);
             try { old.setDisplay(null); } catch (RuntimeException ignored) { }
             try { old.release(); } catch (RuntimeException ignored) { }
         }
@@ -842,6 +1003,7 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
     private void showControls(boolean focus) {
         if (controls == null || destroyed) return;
         header.setVisibility(View.VISIBLE); controls.setVisibility(View.VISIBLE);
+        renderSubtitle();
         if (focus) (failed ? retryButton : playButton).requestFocus();
         updateClock();
         scheduleHide();
@@ -855,6 +1017,7 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
     private void hideControls() {
         if (controls == null) return;
         controls.setVisibility(View.GONE);
+        renderSubtitle();
         if (!failed) header.setVisibility(View.GONE);
         surface.requestFocus();
         main.removeCallbacks(hideControls);
@@ -898,13 +1061,31 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
                 break;
             case KeyEvent.KEYCODE_DPAD_CENTER:
             case KeyEvent.KEYCODE_ENTER:
-                if (!controlsFocused()) { if (event.getRepeatCount() == 0) showControls(true); return true; }
+                if (!controlsFocused()) {
+                    if (event.getRepeatCount()==0 && holdSpeed.arm(playbackGeneration,appliedSpeed)) { main.removeCallbacks(beginHoldSpeed); main.postDelayed(beginHoldSpeed,500L); }
+                    return true;
+                }
                 break;
         }
         return super.onKeyDown(keyCode, event);
     }
 
+    @Override public boolean onKeyUp(int keyCode,KeyEvent event) {
+        if ((keyCode==KeyEvent.KEYCODE_DPAD_CENTER || keyCode==KeyEvent.KEYCODE_ENTER) && holdSpeed.armed()) {
+            boolean held=holdSpeed.active(); endHoldSpeed(true);
+            if (!held && !event.isCanceled()) showControls(true);
+            return true;
+        }
+        return super.onKeyUp(keyCode,event);
+    }
+
+    @Override public void onWindowFocusChanged(boolean focused) {
+        super.onWindowFocusChanged(focused);
+        if (!focused) endHoldSpeed(true);
+    }
+
     @Override public void onBackPressed() {
+        endHoldSpeed(true);
         if (controls != null && controls.getVisibility() == View.VISIBLE) hideControls();
         else finishPlayback();
     }

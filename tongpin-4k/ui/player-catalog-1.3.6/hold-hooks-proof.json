@@ -1,0 +1,53 @@
+{
+  "passed": true,
+  "native_speed_chain": [
+    {
+      "class": "com/shuyu/gsyvideoplayer/video/base/GSYVideoView.smali",
+      "method": "getSpeed()F",
+      "sha256": "c557861c942be72f3867a06f452b343a259dfd6f1d9e46eb76480a8866fc070c"
+    },
+    {
+      "class": "com/shuyu/gsyvideoplayer/video/base/GSYVideoView.smali",
+      "method": "setSpeed(FZ)V",
+      "sha256": "1dbcc3762beddc86caf4fc8740c0c57389d44e64fbfef68ab25a2f6effca8543"
+    },
+    {
+      "class": "com/shuyu/gsyvideoplayer/video/base/GSYVideoView.smali",
+      "method": "setSpeed(FZZ)V",
+      "sha256": "c9c8aa3d925a81e62c851a732ea123533c218244c63a0567d0a1968b8ae99010"
+    },
+    {
+      "class": "com/shuyu/gsyvideoplayer/video/base/GSYVideoView.smali",
+      "method": "setSpeedPlaying(FZ)V",
+      "sha256": "9e0a45896a10d586efac9d5fb0881cb7cbe27cccdbcb31ff78f2750bcdc1b13f"
+    },
+    {
+      "class": "com/shuyu/gsyvideoplayer/player/IjkPlayerManager.smali",
+      "method": "setSpeed(FZ)V",
+      "sha256": "116ed15189623183f6779264f010c2b442755eab0b8b0dc5759b943a52c177f4"
+    },
+    {
+      "class": "com/shuyu/gsyvideoplayer/player/IjkPlayerManager.smali",
+      "method": "setSpeedPlaying(FZ)V",
+      "sha256": "85db34bb6804eab345436424dbfe038d01a69862040ea9885fa7bfb40b64a447"
+    },
+    {
+      "class": "tv/danmaku/ijk/media/exo2/Exo2PlayerManager.smali",
+      "method": "setSpeed(FZ)V",
+      "sha256": "263ba4f7a2e985194c032917955ba009b285d564937401ea3f8a6bd9e8d1575b"
+    },
+    {
+      "class": "tv/danmaku/ijk/media/exo2/IjkExo2MediaPlayer.smali",
+      "method": "setSpeed(FF)V",
+      "sha256": "cef691b53e1f1829eae17662d3f54bd3f537d27877a132e2812b7c9523859a33"
+    }
+  ],
+  "prehold_dispatch_keeps_native_seek_path": true,
+  "activated_hold_cancels_original_and_consumes_remainder": true,
+  "right_drag_threshold_dp": 48,
+  "legacy_previous_longpress_fullscreen_disabled": true,
+  "no_autoplay_in_actual_speed_setters": true,
+  "locked_and_actual_playing_gates": true,
+  "fixed_speed_preferences_unchanged_by_hold": true,
+  "device_test": false
+}

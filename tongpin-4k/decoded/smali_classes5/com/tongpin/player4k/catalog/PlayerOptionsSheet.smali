@@ -32,6 +32,8 @@
 
 .field public static final SPEED:I = 0x2
 
+.field public static final SUBTITLES:I = 0xa
+
 
 # direct methods
 .method private constructor <init>()V
@@ -170,29 +172,32 @@
 .end method
 
 .method static sectionFor(I)I
-    .locals 2
+    .locals 3
 
     .line 158
-    if-ltz p0, :cond_4
+    if-ltz p0, :cond_5
 
-    const/16 v0, 0x9
+    const/16 v0, 0xa
 
-    if-gt p0, v0, :cond_4
+    if-gt p0, v0, :cond_5
 
     .line 159
-    const/4 v1, 0x1
+    const/16 v1, 0x9
+
+    const/4 v2, 0x1
+
+    if-eq p0, v1, :cond_4
 
     if-ne p0, v0, :cond_0
 
-    :goto_0
-    goto :goto_1
+    goto :goto_0
 
     :cond_0
-    if-gt p0, v1, :cond_1
+    if-gt p0, v2, :cond_1
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    goto :goto_1
+    goto :goto_0
 
     :cond_1
     const/4 v0, 0x4
@@ -206,18 +211,19 @@
 
     if-gt p0, v0, :cond_3
 
-    const/4 v1, 0x2
+    const/4 v2, 0x2
 
-    goto :goto_1
+    goto :goto_0
 
     :cond_3
-    const/4 v1, 0x3
+    const/4 v2, 0x3
 
-    :goto_1
-    return v1
+    :cond_4
+    :goto_0
+    return v2
 
     .line 158
-    :cond_4
+    :cond_5
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string v0, "Unknown playback action"

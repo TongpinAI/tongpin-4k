@@ -100,6 +100,7 @@ public final class LegacyPlayerControls {
     }
 
     private static void showMore(Activity activity, Host host) {
+        HoldSpeedControls.reset(activity);
         ArrayList<String> labels = new ArrayList<>();
         ArrayList<Boolean> enabled = new ArrayList<>();
         ArrayList<Integer> actions = new ArrayList<>();
@@ -111,11 +112,13 @@ public final class LegacyPlayerControls {
         }
         labels.add("自动连播：" + (autoNextEnabled(activity) ? "开" : "关")); enabled.add(true); actions.add(8);
         labels.add("解码 · " + DecoderPolicy.label(activity)); enabled.add(true); actions.add(9);
+        labels.add("字幕"); enabled.add(true); actions.add(10);
         boolean[] availability = new boolean[enabled.size()];
         int[] kinds = new int[actions.size()];
         for (int i = 0; i < availability.length; i++) { availability[i] = enabled.get(i); kinds[i] = actions.get(i); }
         PlayerOptionsSheet.show(activity, "播放设置", labels.toArray(new String[0]), availability, kinds, autoNextEnabled(activity), (dialog, index) -> {
             int action = actions.get(index);
+            if (action == 10) { SubtitleControls.show(activity, activity.findViewById(0x7f0a036e)); return; }
             if (action == 9) { DecoderPolicy.choose(activity, host::legacyDecoderChanged); return; }
             if (action == 8) {
                 activity.getSharedPreferences(PREFERENCES, Context.MODE_PRIVATE).edit()

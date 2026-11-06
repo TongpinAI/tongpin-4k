@@ -13,6 +13,8 @@ public abstract class GSYVideoView extends GSYTextureRenderView {
     public long getDuration() { return 0; }
     public void seekTo(long milliseconds) {}
     public void setSpeedPlaying(float speed, boolean soundTouch) {}
+    public float getSpeed() { return 1f; }
+    public void setSpeed(float speed, boolean soundTouch, boolean immediate) {}
     public abstract void startPlayLogic();
     public int getCurrentState() { return 0; }
     public GSYVideoViewBridge getGSYVideoManager() { return null; }

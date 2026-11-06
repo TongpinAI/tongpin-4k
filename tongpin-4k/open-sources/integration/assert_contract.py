@@ -91,7 +91,7 @@ def legacy_113_proofs(baseline_hashes, ui_projections=None):
     call, method = constants["CALL"], constants["METHOD"]
     assert call == "    invoke-static {p0}, Lcom/tongpin/player4k/catalog/PlaybackResolution;->attach(Landroid/view/View;)V\n\n"
     assert method.strip() == ".method protected setStateAndUi(I)V\n    .locals 0\n\n    invoke-super {p0, p1}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->setStateAndUi(I)V\n\n    invoke-static {p0, p1}, Lcom/tongpin/player4k/catalog/PlaybackResolution;->stateChanged(Landroid/view/View;I)V\n\n    return-void\n.end method"
-    current = text(ROOT / relative)
+    current = (ui_projections or {}).get(relative, (ROOT / relative).read_bytes()).decode("utf-8").replace("\r\n", "\n")
     assert current.count(call) == 2 and current.count(method) == 1
     assert current.replace(call, "").replace(method, "").strip() == text(before).strip()
     assert json.loads(text(folder / "legacy-resolution-contract.json"))["passed"]
@@ -102,24 +102,38 @@ def legacy_113_proofs(baseline_hashes, ui_projections=None):
 def check():
     checks = {}
     live_overrides, incremental_projections = {}, {}
-    excluded134 = set()
-    if release_version()[0] == "1.3.4":
+    excluded134, excluded135, excluded136 = set(), set(), set()
+    if release_version()[0] == "1.3.6":
+        from ui_1360_contract import verify as verify_ui_1360, OWN_NEW as OWN_NEW_1360
+        live_overrides, incremental_projections, player_report = verify_ui_1360()
+        checks["player_catalog_1360"] = player_report
+        excluded136 = OWN_NEW_1360
+    if release_version()[0] in {"1.3.5", "1.3.6"}:
+        from ui_1350_contract import verify as verify_ui_1350, OWN_NEW as OWN_NEW_1350
+        old_overrides, old_projections, content_report = verify_ui_1350(live_overrides, excluded136)
+        live_overrides = {**live_overrides, **old_overrides}
+        incremental_projections = {**incremental_projections, **old_projections}
+        checks["content_1350"] = content_report
+        excluded135 = OWN_NEW_1350
+    if release_version()[0] in {"1.3.4", "1.3.5", "1.3.6"}:
         from ui_1340_contract import verify as verify_ui_1340, OWN_NEW as OWN_NEW_1340
-        live_overrides, incremental_projections, decoder_report = verify_ui_1340()
+        old_overrides, old_projections, decoder_report = verify_ui_1340(live_overrides, excluded135 | excluded136)
+        live_overrides = {**live_overrides, **old_overrides}
+        incremental_projections = {**incremental_projections, **old_projections}
         checks["decoder_1340"] = decoder_report
         excluded134 = OWN_NEW_1340
-    if release_version()[0] in {"1.3.3", "1.3.4"}:
+    if release_version()[0] in {"1.3.3", "1.3.4", "1.3.5", "1.3.6"}:
         from ui_1330_contract import verify as verify_ui_1330, OWN_NEW as OWN_NEW_1330
-        old_overrides, old_projections, seek_report = verify_ui_1330(live_overrides, excluded134)
+        old_overrides, old_projections, seek_report = verify_ui_1330(live_overrides, excluded134 | excluded135 | excluded136)
         live_overrides = {**live_overrides, **old_overrides}
         incremental_projections = {**incremental_projections, **old_projections}
         checks["player_seek_1330"] = seek_report
-    if release_version()[0] in {"1.3.2", "1.3.3", "1.3.4"}:
+    if release_version()[0] in {"1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6"}:
         from ui_1320_contract import verify as verify_ui_1320
         from ui_1310_contract import verify as verify_ui_1310, OWN_NEW
         from ui_1300_contract import verify as verify_ui_1300
         from ui_1201_contract import verify as verify_ui_1201
-        excluded = (OWN_NEW_1330 if release_version()[0] in {"1.3.3", "1.3.4"} else set()) | excluded134
+        excluded = (OWN_NEW_1330 if release_version()[0] in {"1.3.3", "1.3.4", "1.3.5", "1.3.6"} else set()) | excluded134 | excluded135 | excluded136
         old_overrides, old_projections, layout_report = verify_ui_1320(live_overrides, excluded)
         live_overrides = {**live_overrides, **old_overrides}
         incremental_projections = {**incremental_projections, **old_projections}
@@ -295,8 +309,13 @@ def check():
                                  "source":"build_tongpin.py", "method":"AST literal_eval only; builder not executed"}
 
     providers = json.loads(text(ROOT / ASSET))
-    assert providers == PROVIDERS
-    assert [x["id"] for x in providers["providers"]] == ["mdzy", "360zy", "blender", "ryzy", "ikun", "guangsu", "hongniu", "jinying"]
+    if version_name == "1.3.6":
+        from ui_1360_contract import validate_registry
+        validate_registry(providers)
+        assert providers["providers"][:len(PROVIDERS["providers"])] == PROVIDERS["providers"]
+    else:
+        assert providers == PROVIDERS
+        assert [x["id"] for x in providers["providers"]] == ["mdzy", "360zy", "blender", "ryzy", "ikun", "guangsu", "hongniu", "jinying"]
     for item in providers["providers"]:
         assert set(item) == {"id", "name", "kind", "api", "homepage"}
         assert item["kind"] in {"maccms", "peertube"}
@@ -304,7 +323,7 @@ def check():
             url = urllib.parse.urlparse(item[key])
             assert url.scheme == "https" and url.hostname and not url.username and not url.password
             assert not url.fragment
-    checks["providers"] = "eight ordered HTTPS public endpoints with exact DTO fields, no credentials; original first three positions preserved"
+    checks["providers"] = {"count":len(providers["providers"]), "public_https_without_credentials":True, "original_eight_positions_preserved":True}
     return {"passed":True, "scope":"static integration contract only; no Android device/render/playback acceptance", "checks":checks}
 
 

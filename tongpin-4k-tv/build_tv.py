@@ -31,11 +31,11 @@ if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
 
 ROOT = Path(__file__).resolve().parent
-VERSION = "1.3.0"
-VERSION_CODE = 1300
-PREVIOUS_VERSION = "1.2.1"
-PROVIDER_SHA256 = "f4d9810b075ca7a67d28b22bcb4aeef18d06a37f655c0fa074c5a7a4cbccd658"
-PROVIDER_IDS = ["mdzy", "360zy", "blender", "ryzy", "ikun", "guangsu", "hongniu", "jinying"]
+VERSION = "1.3.2"
+VERSION_CODE = 1302
+PREVIOUS_VERSION = "1.3.1"
+PROVIDER_SHA256 = "7e6a9616a36c68788500c68b313265bda50e28efe7af695cc9b368f89078aa1d"
+PROVIDER_IDS = ["mdzy", "360zy", "blender", "ryzy", "ikun", "guangsu", "hongniu", "jinying", "huya", "bfzy", "qiyi"]
 PACKAGE = "com.tongpin.player4k.tv"
 LABEL = "同频4K TV"
 MIN_API = 21
@@ -222,7 +222,7 @@ def manifest_contract():
 
 def provider_contract():
     path = ROOT / "assets/tongpin_open_sources.json"
-    assert {p.relative_to(ROOT / "assets").as_posix() for p in (ROOT / "assets").rglob("*") if p.is_file()} == ({"tongpin_open_sources.json", "third_party_licenses/media3_1_10_1.txt"} if VERSION=="1.3.0" else {"tongpin_open_sources.json"})
+    assert {p.relative_to(ROOT / "assets").as_posix() for p in (ROOT / "assets").rglob("*") if p.is_file()} == ({"tongpin_open_sources.json", "third_party_licenses/media3_1_10_1.txt"} if VERSION in {"1.3.0", "1.3.1", "1.3.2"} else {"tongpin_open_sources.json"})
     providers = json.loads(path.read_text(encoding="utf-8"))["providers"]
     assert [p["id"] for p in providers] == PROVIDER_IDS
     for provider in providers:
@@ -233,7 +233,11 @@ def provider_contract():
             assert parts.scheme in ("http", "https") and parts.hostname and not parts.username and not parts.password
             assert urlunsplit(parts) == url
     provenance = json.loads((ROOT / "verification" / VERSION / "provider-asset-provenance.json").read_text(encoding="utf-8"))
-    assert digest(path) == provenance["sha256"] == PROVIDER_SHA256, "Pinned mobile eight-provider asset changed"
+    assert digest(path) == provenance["sha256"] == PROVIDER_SHA256, "Pinned shared provider asset changed"
+    if VERSION == "1.3.2":
+        baseline = ROOT / "ui/player-catalog-1.3.2/before/assets/tongpin_open_sources.json"
+        assert digest(baseline) == "f4d9810b075ca7a67d28b22bcb4aeef18d06a37f655c0fa074c5a7a4cbccd658"
+        assert providers[:8] == json.loads(baseline.read_text(encoding="utf-8"))["providers"]
     return provenance["sha256"]
 
 
@@ -286,6 +290,71 @@ def decoder_release_contract(snapshot):
     assert digest(ROOT/"third-party/media3-1.10.1/runtime-lock.json")==frozen["runtime_lock_sha256"]
 
 
+def catalog_release_contract(snapshot):
+    if VERSION != "1.3.1":
+        return
+    frozen = json.loads((ROOT / "verification/1.3.1/frozen-inputs.json").read_text(encoding="utf-8"))
+    assert frozen["source_ready"] and frozen["final_promotion_authorized"]
+    normalized = {name.replace("\\", "/"): value for name, value in snapshot.items()}
+    assert normalized == frozen["input_sha256"], "Inputs differ from reviewed catalog freeze"
+    for name, expected in frozen["review_reports"].items():
+        path = ROOT / name
+        report = json.loads(path.read_text(encoding="utf-8"))
+        assert digest(path) == expected
+        if name == "ui/catalog-fix-1.3.1/source-freeze.json":
+            assert report["source_ready"] is True
+        else:
+            assert report["passed"] is True
+    review = frozen["independent_review"]
+    path = ROOT / review["path"]
+    report = json.loads(path.read_text(encoding="utf-8"))
+    assert digest(path) == review["sha256"] and report["verdict"].startswith("clear")
+    assert all(digest(ROOT / name) == value for name, value in report["source_sha256"].items())
+    prior = json.loads((ROOT / "verification/1.3.1/prior-evidence-sha256.json").read_text(encoding="utf-8"))
+    assert all(digest(ROOT / name) == value for name, value in prior.items())
+    old = json.loads((ROOT / "verification/1.3.0/input-hashes.json").read_text(encoding="utf-8"))
+    old = {name.replace("\\", "/"): value for name, value in old.items()}
+    assert {name for name in old if normalized.get(name) != old[name]} == {
+        "AndroidManifest.xml", "res/values/strings.xml", "src/com/tongpin/player4k/tv/TvHomeActivity.java"}
+    assert set(normalized) - set(old) == {"src/com/tongpin/player4k/tv/EpisodeSummary.java"}
+    assert not set(old) - set(normalized)
+    assert digest(ROOT / "output/tongpin-4k-tv-1.3.0.apk") == "1110cc47e206a2e129501377a3342cd47620d4819f0c443db3ba6387290fae3f"
+    assert digest(ROOT / "third-party/media3-1.10.1/runtime-lock.json") == frozen["runtime_lock_sha256"]
+
+
+def player_catalog_release_contract(snapshot):
+    if VERSION != "1.3.2":
+        return
+    frozen = json.loads((ROOT / "verification/1.3.2/frozen-inputs.json").read_text(encoding="utf-8"))
+    assert frozen["source_ready"] and frozen["final_promotion_authorized"]
+    normalized = {name.replace("\\", "/"): value for name, value in snapshot.items()}
+    assert normalized == frozen["input_sha256"], "Inputs differ from reviewed player/catalog freeze"
+    for name, expected in frozen["review_reports"].items():
+        path = ROOT / name
+        assert digest(path) == expected, name
+        assert json.loads(path.read_text(encoding="utf-8"))["passed"] is True, name
+    review = frozen["independent_review"]
+    path = ROOT / review["path"]
+    report = json.loads(path.read_text(encoding="utf-8"))
+    assert digest(path) == review["sha256"] and report["verdict"].startswith("clear")
+    assert all(digest(ROOT / name) == value for name, value in report["source_sha256"].items())
+    prior = json.loads((ROOT / "verification/1.3.2/prior-evidence-sha256.json").read_text(encoding="utf-8"))
+    assert all(digest(ROOT / name) == value for name, value in prior.items())
+    old = json.loads((ROOT / "verification/1.3.1/input-hashes.json").read_text(encoding="utf-8"))
+    old = {name.replace("\\", "/"): value for name, value in old.items()}
+    assert {name for name in old if normalized.get(name) != old[name]} == {
+        "AndroidManifest.xml", "res/values/strings.xml", "assets/tongpin_open_sources.json",
+        "src/com/tongpin/player4k/tv/CatalogApi.java", "src/com/tongpin/player4k/tv/TvHomeActivity.java",
+        "src/com/tongpin/player4k/tv/TvPlayerActivity.java", "src/com/tongpin/player4k/tv/TvPlaybackEngine.java"}
+    assert set(normalized) - set(old) == {
+        "src/com/tongpin/player4k/tv/CatalogCategories.java",
+        "src/com/tongpin/player4k/tv/SubtitlePolicy.java",
+        "src/com/tongpin/player4k/tv/TvHoldSpeedState.java"}
+    assert not set(old) - set(normalized)
+    assert digest(ROOT / "output/tongpin-4k-tv-1.3.1.apk") == "cb8bbf4e39ba875a30831cd6cf523b83d6133613a21550d374e381c11872e1f6"
+    assert digest(ROOT / "third-party/media3-1.10.1/runtime-lock.json") == frozen["runtime_lock_sha256"]
+
+
 def main():
     global LOG, VERIFY
     parser = argparse.ArgumentParser()
@@ -327,6 +396,8 @@ def main():
     snapshot["AndroidManifest.xml"] = digest(ROOT / "AndroidManifest.xml")
     seek_release_contract(snapshot)
     decoder_release_contract(snapshot)
+    catalog_release_contract(snapshot)
+    player_catalog_release_contract(snapshot)
     write_json(VERIFY / "input-hashes.json", snapshot)
     build = WORK / "build" / VERSION / "preflight" if args.preflight else WORK / "build" / VERSION
     build.mkdir(parents=True, exist_ok=True)
@@ -338,7 +409,7 @@ def main():
     run([bt / "aapt2.exe", "compile", "--dir", WORK / "res", "-o", build / "resources.zip"])
     runtime_jars=[];runtime_lock=None
     extra=[]
-    if VERSION=="1.3.0":
+    if VERSION in {"1.3.0", "1.3.1", "1.3.2"}:
         runtime_lock,library_archives,library_packages=media3_runtime.resources(ROOT,build,WORK,bt,run)
         runtime_jars=[WORK/artifact["jar"] for artifact in runtime_lock["artifacts"] if artifact["class_count"]]
         for archive in library_archives:extra += ["-R",archive]
@@ -349,7 +420,7 @@ def main():
          build / "resources.zip"]+extra+["-A", WORK / "assets", "--java", build / "generated",
          "--min-sdk-version", MIN_API, "--target-sdk-version", TARGET_API,
          "--version-code", VERSION_CODE, "--version-name", VERSION, "-o", build / "resources.ap_"])
-    if VERSION=="1.3.0":
+    if VERSION in {"1.3.0", "1.3.1", "1.3.2"}:
         parse=lambda path:dict(re.findall(r"([^\s]+) = (0x[0-9a-f]+)",Path(path).read_text()))
         old_ids=parse(ROOT/"verification/1.3.0/stable-resource-ids.txt");new_ids=parse(build/"resource-ids.txt")
         assert all(new_ids.get(name)==value for name,value in old_ids.items())
@@ -382,7 +453,7 @@ def main():
         declared, types = dex_contents(dex.read_bytes())
         definitions += declared
         references.update(types)
-    if VERSION=="1.3.0":
+    if VERSION in {"1.3.0", "1.3.1", "1.3.2"}:
         write_json(VERIFY/"runtime-abi.json",media3_runtime.dependency_abi(ROOT,dexes,definitions))
     else:
         assert all(c.startswith("Lcom/tongpin/") for c in definitions), "Runtime third-party class found"
@@ -398,20 +469,20 @@ def main():
     api_report = ApiDatabase(TOOLS_REAL / "platform-35/data/api-versions.xml").audit(dexes, MIN_API)
     write_json(VERIFY / "min-api-audit-raw.json", api_report)
     if not api_report["passed"]:
-        assert VERSION in {"1.2.0", "1.2.1", "1.3.0"} and MIN_API == 21, "Review version-specific API guard support"
+        assert VERSION in {"1.2.0", "1.2.1", "1.3.0", "1.3.1", "1.3.2"} and MIN_API == 21, "Review version-specific API guard support"
         proof_classes, proof_smali = build / "api-proof-tools", build / "api-proof-smali"
         fresh_directory(proof_classes)
         fresh_directory(proof_smali)
         apktool = TOOLS / "apktool_3.0.3.jar"
         run([JAVA, "-Duser.language=en", "com.sun.tools.javac.Main", "--release", "8", "-Xlint:-options",
              "-classpath", apktool, "-d", proof_classes,
-             WORK / ("verification/toolchain/InspectTvBackend130.java" if VERSION=="1.3.0" else "verification/toolchain/InspectTvSeek121.java" if VERSION == "1.2.1" else "verification/toolchain/InspectTvSpeedGuards.java")])
+             WORK / ("verification/toolchain/InspectTvBackend130.java" if VERSION in {"1.3.0", "1.3.1", "1.3.2"} else "verification/toolchain/InspectTvSeek121.java" if VERSION == "1.2.1" else "verification/toolchain/InspectTvSpeedGuards.java")])
         for dex in dexes:
             run([JAVA, "-cp", str(apktool) + os.pathsep + str(proof_classes),
-                 "InspectTvBackend130" if VERSION=="1.3.0" else "InspectTvSeek121" if VERSION == "1.2.1" else "InspectTvSpeedGuards", dex, proof_smali], capture_name="api23-disassembly.log")
-        api_report = approve_backend(proof_smali,snapshot) if VERSION=="1.3.0" else (approve_seek_apis if VERSION == "1.2.1" else approve_api23_speed)(api_report, proof_smali, snapshot)
-        if VERSION=="1.3.0":write_json(VERIFY/"media3-backend-guard.json",api_report["guarded_media3_backend"])
-        if VERSION in {"1.2.1","1.3.0"}:
+                 "InspectTvBackend130" if VERSION in {"1.3.0", "1.3.1", "1.3.2"} else "InspectTvSeek121" if VERSION == "1.2.1" else "InspectTvSpeedGuards", dex, proof_smali], capture_name="api23-disassembly.log")
+        api_report = approve_backend(proof_smali,snapshot) if VERSION in {"1.3.0", "1.3.1", "1.3.2"} else (approve_seek_apis if VERSION == "1.2.1" else approve_api23_speed)(api_report, proof_smali, snapshot)
+        if VERSION in {"1.3.0", "1.3.1", "1.3.2"}:write_json(VERIFY/"media3-backend-guard.json",api_report["guarded_media3_backend"])
+        if VERSION in {"1.2.1","1.3.0","1.3.1","1.3.2"}:
             write_json(VERIFY / "api26-seek-guard.json", api_report["guarded_api26_seek"])
         write_json(VERIFY / "api23-speed-guard.json", api_report["guarded_api23_speed"])
     write_json(VERIFY / "min-api-audit.json", api_report)
@@ -427,7 +498,7 @@ def main():
     with zipfile.ZipFile(build / "resources.ap_") as source, zipfile.ZipFile(build / "unsigned.apk", "w") as dest:
         for entry in source.infolist():
             dest.writestr(entry, source.read(entry.filename))
-        if VERSION=="1.3.0":
+        if VERSION in {"1.3.0", "1.3.1", "1.3.2"}:
             for name,data in media3_runtime.jar_resources(ROOT):
                 assert name not in dest.namelist(), "Runtime resource collision: "+name
                 dest.writestr(name,data)
@@ -483,7 +554,7 @@ def main():
               "guarded_media3_backend": "guarded_media3_backend" in api_report,
               "provider_count":len(PROVIDER_IDS), "previous_version":PREVIOUS_VERSION,
               "same_previous_package_certificate":True,
-              "source_scope": "Own com.tongpin Java plus pinned official Media3 runtime closure" if VERSION=="1.3.0" else "Only own com.tongpin Java and own resources; Android framework runtime",
+              "source_scope": "Own com.tongpin Java plus pinned official Media3 runtime closure" if VERSION in {"1.3.0", "1.3.1", "1.3.2"} else "Only own com.tongpin Java and own resources; Android framework runtime",
               "runtime_tested": False, "elapsed_seconds": round(time.time() - started, 2)}
     write_json(VERIFY / "result.json", result)
     if not args.no_download_copy:

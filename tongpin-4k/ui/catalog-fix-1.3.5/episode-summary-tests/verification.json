@@ -1,0 +1,37 @@
+{
+  "passed": true,
+  "assertions": {
+    "phone": 33,
+    "tv": 33
+  },
+  "all_production_java_compiled": true,
+  "phone_tv_policy_identical": true,
+  "legacy_real_reflection_signatures_and_central_rebind_verified": true,
+  "source_sha256": {
+    "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\open-sources\\src\\com\\tongpin\\player4k\\catalog\\CatalogActivity.java": "70f1431b3b90ec07ff7da4a20302b725dd1f8638b7a25f6cc4b1ff3629e4766f",
+    "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\open-sources\\src\\com\\tongpin\\player4k\\catalog\\CatalogApi.java": "bde2ffbf12c6008f751db263852125f1fb50dbe8d7b0cf3852c4e4d4d3df5193",
+    "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\open-sources\\src\\com\\tongpin\\player4k\\catalog\\DecoderPolicy.java": "57e1335322d9b99eecc9e360417e389c3b144d08619d42718c6413993c77c24a",
+    "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\open-sources\\src\\com\\tongpin\\player4k\\catalog\\EpisodeSummary.java": "e5cd0398babaf9949bc8713f54b160a4e2c01c5f78c9143e0309583d311798d0",
+    "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\open-sources\\src\\com\\tongpin\\player4k\\catalog\\LegacyEpisodeOrder.java": "41d20250fe12357c43d335033db23a524a40757b46581256ab65d4c5599e8a84",
+    "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\open-sources\\src\\com\\tongpin\\player4k\\catalog\\LegacyPlayerControls.java": "121aec6450d737f31084d5e8f1953e2e0ad3d3f876ec96b9d443020beb0fd97f",
+    "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\open-sources\\src\\com\\tongpin\\player4k\\catalog\\LegacySeekState.java": "b689197479729830ad43c575f3a06de34dbe3310fb129407eba1717c72dfb28a",
+    "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\open-sources\\src\\com\\tongpin\\player4k\\catalog\\OpenPlayerActivity.java": "d4cae6f413bea38ee19c2ceca7760ea110fea74dbe6f29055c24c151d95c79d9",
+    "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\open-sources\\src\\com\\tongpin\\player4k\\catalog\\PhoneUi.java": "8d8e39fea8e3b5c2e7e15301014e54ba55294713a28ee22600056a04e0b9fe8a",
+    "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\open-sources\\src\\com\\tongpin\\player4k\\catalog\\PlaybackResolution.java": "053602bf9af43ba6f503470c72717eee8e367545c9035b3c7ef4716100975f36",
+    "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\open-sources\\src\\com\\tongpin\\player4k\\catalog\\PlayerOptionsSheet.java": "85ef8cfa27771481ee3e257ea6a9f7940a4e7318c8d2ec7c5537880d17e9a3fe",
+    "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\open-sources\\src\\com\\tongpin\\player4k\\catalog\\PlayQueue.java": "4243c5837fe4067e9606085852e7fb168d97775329c3490dd15f618ef82fb241",
+    "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k-tv\\src\\com\\tongpin\\player4k\\tv\\CatalogApi.java": "29a1ddc2be33bcefe508bd234cec93b5227945d9f25373409e9e60ce3d41fb93",
+    "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k-tv\\src\\com\\tongpin\\player4k\\tv\\EpisodeSummary.java": "dcd277c899d816954ab60262030326bd59e65106c91085fa3d69bee057f1198a",
+    "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k-tv\\src\\com\\tongpin\\player4k\\tv\\TvHomeActivity.java": "456349355837414d988c10a46e9bee5c551e47f7ec671b125d441cf6aba76085",
+    "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k-tv\\src\\com\\tongpin\\player4k\\tv\\TvLibraryStore.java": "a72e6295c542703f45321ba3d2b296392f19f3632727a64fd26a68dbb8a9b385",
+    "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k-tv\\src\\com\\tongpin\\player4k\\tv\\TvPlaybackEngine.java": "56430c7adcfb5859fc31b80e56f805f89870c58ac14dbca4853dfa9009e728d2",
+    "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k-tv\\src\\com\\tongpin\\player4k\\tv\\TvPlayerActivity.java": "51077a089f43cb4812b1a40506dde7a0d73c87bb78868f40ba937dbc20014a13",
+    "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k-tv\\src\\com\\tongpin\\player4k\\tv\\TvPlayQueue.java": "a1d630ec5f52f53b725fc0e251871c7fc2de7934d8bca9ba0355dccab1ae35d7",
+    "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k-tv\\src\\com\\tongpin\\player4k\\tv\\TvSeekState.java": "9fe01ce88f12e525cca5a6f8be29bc0e3873f1005daefbdd9cfad7248ddc11b4",
+    "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k-tv\\src\\com\\tongpin\\player4k\\tv\\TvUi.java": "3715754d451e64df7b104960f50d446530b1eb6ad141a7b92f932edbf1aac0b5",
+    "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\open-sources\\tests\\src\\com\\tongpin\\player4k\\catalog\\EpisodeSummaryTest.java": "e30670c78ea90a66a4d2c182b49dbea4151ae6fc44bdbb4a900d741b2cf42880",
+    "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k-tv\\tests\\src\\com\\tongpin\\player4k\\tv\\EpisodeSummaryTest.java": "3e9c1d3030dfeb8db91bb5395fabfc64e5fec5aabdcbd08566c0be51b2292a63"
+  },
+  "android_ui_constructed": false,
+  "device_tested": false
+}

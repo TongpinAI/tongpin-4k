@@ -1,0 +1,3383 @@
+{
+  "min_sdk": 21,
+  "higher_api_references": [
+    {
+      "kind": "class",
+      "owner": "android/app/NotificationChannel",
+      "since": 26
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/AudioDescriptor",
+      "since": 31
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/AudioDeviceCallback",
+      "since": 23
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/AudioDeviceInfo",
+      "since": 23
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/AudioFocusRequest$Builder",
+      "since": 26
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/AudioFocusRequest",
+      "since": 26
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/AudioProfile",
+      "since": 31
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/AudioRouting$OnRoutingChangedListener",
+      "since": 24
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/AudioRouting",
+      "since": 24
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/AudioTrack$Builder",
+      "since": 23
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/AudioTrack$StreamEventCallback",
+      "since": 29
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/DrmInitData$SchemeInitData",
+      "since": 24
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/DrmInitData",
+      "since": 24
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/LoudnessCodecController$OnLoudnessCodecUpdateListener",
+      "since": 35
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/LoudnessCodecController",
+      "since": 35
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/MediaCodec$CryptoInfo$Pattern",
+      "since": 24
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/MediaCodec$OnFrameRenderedListener",
+      "since": 23
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/MediaCodecInfo$VideoCapabilities$PerformancePoint",
+      "since": 29
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/MediaDataSource",
+      "since": 23
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/MediaDrm$KeyStatus",
+      "since": 23
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/MediaDrm$OnExpirationUpdateListener",
+      "since": 23
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/MediaDrm$OnKeyStatusChangeListener",
+      "since": 23
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/MediaDrm$PlaybackComponent",
+      "since": 31
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/MediaDrmResetException",
+      "since": 23
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/MediaParser$InputReader",
+      "since": 30
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/MediaParser$OutputConsumer",
+      "since": 30
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/MediaParser$SeekMap",
+      "since": 30
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/MediaParser$SeekPoint",
+      "since": 30
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/MediaParser$SeekableInputReader",
+      "since": 30
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/MediaParser$TrackData",
+      "since": 30
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/MediaParser",
+      "since": 30
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/MediaRoute2Info",
+      "since": 30
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/MediaRouter2$ControllerCallback",
+      "since": 30
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/MediaRouter2$RouteCallback",
+      "since": 30
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/MediaRouter2$RoutingController",
+      "since": 30
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/MediaRouter2",
+      "since": 30
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/PlaybackParams",
+      "since": 23
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/RouteDiscoveryPreference$Builder",
+      "since": 30
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/RouteDiscoveryPreference",
+      "since": 30
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/RoutingSessionInfo",
+      "since": 30
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/Spatializer$OnSpatializerStateChangedListener",
+      "since": 32
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/Spatializer",
+      "since": 32
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/metrics/LogSessionId",
+      "since": 31
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/metrics/MediaMetricsManager",
+      "since": 31
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/metrics/NetworkEvent$Builder",
+      "since": 31
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/metrics/NetworkEvent",
+      "since": 31
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/metrics/PlaybackErrorEvent$Builder",
+      "since": 31
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/metrics/PlaybackErrorEvent",
+      "since": 31
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/metrics/PlaybackMetrics$Builder",
+      "since": 31
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/metrics/PlaybackMetrics",
+      "since": 31
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/metrics/PlaybackSession",
+      "since": 31
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/metrics/PlaybackStateEvent$Builder",
+      "since": 31
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/metrics/PlaybackStateEvent",
+      "since": 31
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/metrics/TrackChangeEvent$Builder",
+      "since": 31
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/metrics/TrackChangeEvent",
+      "since": 31
+    },
+    {
+      "kind": "class",
+      "owner": "android/net/http/HeaderBlock",
+      "since": 34
+    },
+    {
+      "kind": "class",
+      "owner": "android/net/http/HttpEngine",
+      "since": 34
+    },
+    {
+      "kind": "class",
+      "owner": "android/net/http/HttpException",
+      "since": 34
+    },
+    {
+      "kind": "class",
+      "owner": "android/net/http/NetworkException",
+      "since": 34
+    },
+    {
+      "kind": "class",
+      "owner": "android/net/http/UploadDataProvider",
+      "since": 34
+    },
+    {
+      "kind": "class",
+      "owner": "android/net/http/UploadDataSink",
+      "since": 34
+    },
+    {
+      "kind": "class",
+      "owner": "android/net/http/UrlRequest$Builder",
+      "since": 34
+    },
+    {
+      "kind": "class",
+      "owner": "android/net/http/UrlRequest$Callback",
+      "since": 34
+    },
+    {
+      "kind": "class",
+      "owner": "android/net/http/UrlRequest$StatusListener",
+      "since": 34
+    },
+    {
+      "kind": "class",
+      "owner": "android/net/http/UrlRequest",
+      "since": 34
+    },
+    {
+      "kind": "class",
+      "owner": "android/net/http/UrlResponseInfo",
+      "since": 34
+    },
+    {
+      "kind": "class",
+      "owner": "android/os/LocaleList",
+      "since": 24
+    },
+    {
+      "kind": "class",
+      "owner": "android/os/SharedMemory",
+      "since": 27
+    },
+    {
+      "kind": "class",
+      "owner": "android/security/NetworkSecurityPolicy",
+      "since": 23
+    },
+    {
+      "kind": "class",
+      "owner": "android/telephony/TelephonyCallback$DisplayInfoListener",
+      "since": 31
+    },
+    {
+      "kind": "class",
+      "owner": "android/telephony/TelephonyCallback",
+      "since": 31
+    },
+    {
+      "kind": "class",
+      "owner": "android/telephony/TelephonyDisplayInfo",
+      "since": 30
+    },
+    {
+      "kind": "class",
+      "owner": "android/view/Choreographer$FrameData",
+      "since": 33
+    },
+    {
+      "kind": "class",
+      "owner": "android/view/Choreographer$FrameTimeline",
+      "since": 33
+    },
+    {
+      "kind": "class",
+      "owner": "android/view/Choreographer$VsyncCallback",
+      "since": 33
+    },
+    {
+      "kind": "class",
+      "owner": "android/view/Display$HdrCapabilities",
+      "since": 24
+    },
+    {
+      "kind": "class",
+      "owner": "android/view/Display$Mode",
+      "since": 23
+    },
+    {
+      "kind": "class",
+      "owner": "java/lang/annotation/Repeatable",
+      "since": 24
+    },
+    {
+      "kind": "class",
+      "owner": "java/nio/file/DirectoryStream",
+      "since": 26
+    },
+    {
+      "kind": "class",
+      "owner": "java/nio/file/FileAlreadyExistsException",
+      "since": 26
+    },
+    {
+      "kind": "class",
+      "owner": "java/nio/file/FileStore",
+      "since": 26
+    },
+    {
+      "kind": "class",
+      "owner": "java/nio/file/FileSystem",
+      "since": 26
+    },
+    {
+      "kind": "class",
+      "owner": "java/nio/file/FileSystemException",
+      "since": 26
+    },
+    {
+      "kind": "class",
+      "owner": "java/nio/file/FileSystemLoopException",
+      "since": 26
+    },
+    {
+      "kind": "class",
+      "owner": "java/nio/file/FileSystems",
+      "since": 26
+    },
+    {
+      "kind": "class",
+      "owner": "java/nio/file/FileVisitOption",
+      "since": 26
+    },
+    {
+      "kind": "class",
+      "owner": "java/nio/file/FileVisitResult",
+      "since": 26
+    },
+    {
+      "kind": "class",
+      "owner": "java/nio/file/FileVisitor",
+      "since": 26
+    },
+    {
+      "kind": "class",
+      "owner": "java/nio/file/Files",
+      "since": 26
+    },
+    {
+      "kind": "class",
+      "owner": "java/nio/file/LinkOption",
+      "since": 26
+    },
+    {
+      "kind": "class",
+      "owner": "java/nio/file/NoSuchFileException",
+      "since": 26
+    },
+    {
+      "kind": "class",
+      "owner": "java/nio/file/Path",
+      "since": 26
+    },
+    {
+      "kind": "class",
+      "owner": "java/nio/file/Paths",
+      "since": 26
+    },
+    {
+      "kind": "class",
+      "owner": "java/nio/file/SecureDirectoryStream",
+      "since": 26
+    },
+    {
+      "kind": "class",
+      "owner": "java/nio/file/SimpleFileVisitor",
+      "since": 26
+    },
+    {
+      "kind": "class",
+      "owner": "java/nio/file/StandardCopyOption",
+      "since": 26
+    },
+    {
+      "kind": "class",
+      "owner": "java/nio/file/StandardOpenOption",
+      "since": 26
+    },
+    {
+      "kind": "class",
+      "owner": "java/nio/file/attribute/AclEntry$Builder",
+      "since": 26
+    },
+    {
+      "kind": "class",
+      "owner": "java/nio/file/attribute/AclEntry",
+      "since": 26
+    },
+    {
+      "kind": "class",
+      "owner": "java/nio/file/attribute/AclEntryFlag",
+      "since": 26
+    },
+    {
+      "kind": "class",
+      "owner": "java/nio/file/attribute/AclEntryPermission",
+      "since": 26
+    },
+    {
+      "kind": "class",
+      "owner": "java/nio/file/attribute/AclEntryType",
+      "since": 26
+    },
+    {
+      "kind": "class",
+      "owner": "java/nio/file/attribute/BasicFileAttributeView",
+      "since": 26
+    },
+    {
+      "kind": "class",
+      "owner": "java/nio/file/attribute/BasicFileAttributes",
+      "since": 26
+    },
+    {
+      "kind": "class",
+      "owner": "java/nio/file/attribute/FileAttribute",
+      "since": 26
+    },
+    {
+      "kind": "class",
+      "owner": "java/nio/file/attribute/FileAttributeView",
+      "since": 26
+    },
+    {
+      "kind": "class",
+      "owner": "java/nio/file/attribute/FileTime",
+      "since": 26
+    },
+    {
+      "kind": "class",
+      "owner": "java/nio/file/attribute/PosixFilePermissions",
+      "since": 26
+    },
+    {
+      "kind": "class",
+      "owner": "java/nio/file/attribute/UserPrincipal",
+      "since": 26
+    },
+    {
+      "kind": "class",
+      "owner": "java/nio/file/attribute/UserPrincipalLookupService",
+      "since": 26
+    },
+    {
+      "kind": "class",
+      "owner": "java/time/Duration",
+      "since": 26
+    },
+    {
+      "kind": "class",
+      "owner": "java/util/Locale$Category",
+      "since": 24
+    },
+    {
+      "kind": "class",
+      "owner": "java/util/Optional",
+      "since": 24
+    },
+    {
+      "kind": "class",
+      "owner": "java/util/PrimitiveIterator$OfDouble",
+      "since": 24
+    },
+    {
+      "kind": "class",
+      "owner": "java/util/PrimitiveIterator$OfInt",
+      "since": 24
+    },
+    {
+      "kind": "class",
+      "owner": "java/util/PrimitiveIterator$OfLong",
+      "since": 24
+    },
+    {
+      "kind": "class",
+      "owner": "java/util/Spliterator",
+      "since": 24
+    },
+    {
+      "kind": "class",
+      "owner": "java/util/Spliterators",
+      "since": 24
+    },
+    {
+      "kind": "class",
+      "owner": "java/util/function/BiConsumer",
+      "since": 24
+    },
+    {
+      "kind": "class",
+      "owner": "java/util/function/BiFunction",
+      "since": 24
+    },
+    {
+      "kind": "class",
+      "owner": "java/util/function/BinaryOperator",
+      "since": 24
+    },
+    {
+      "kind": "class",
+      "owner": "java/util/function/Consumer",
+      "since": 24
+    },
+    {
+      "kind": "class",
+      "owner": "java/util/function/Function",
+      "since": 24
+    },
+    {
+      "kind": "class",
+      "owner": "java/util/function/IntConsumer",
+      "since": 24
+    },
+    {
+      "kind": "class",
+      "owner": "java/util/function/Supplier",
+      "since": 24
+    },
+    {
+      "kind": "class",
+      "owner": "java/util/function/ToIntFunction",
+      "since": 24
+    },
+    {
+      "kind": "class",
+      "owner": "java/util/stream/Collector$Characteristics",
+      "since": 24
+    },
+    {
+      "kind": "class",
+      "owner": "java/util/stream/Collector",
+      "since": 24
+    },
+    {
+      "kind": "class",
+      "owner": "java/util/stream/Collectors",
+      "since": 24
+    },
+    {
+      "kind": "class",
+      "owner": "java/util/stream/DoubleStream",
+      "since": 24
+    },
+    {
+      "kind": "class",
+      "owner": "java/util/stream/IntStream",
+      "since": 24
+    },
+    {
+      "kind": "class",
+      "owner": "java/util/stream/LongStream",
+      "since": 24
+    },
+    {
+      "kind": "class",
+      "owner": "java/util/stream/Stream",
+      "since": 24
+    },
+    {
+      "kind": "class",
+      "owner": "java/util/stream/StreamSupport",
+      "since": 24
+    },
+    {
+      "kind": "class",
+      "owner": "android/media/AudioDeviceInfo",
+      "since": 23
+    },
+    {
+      "kind": "class",
+      "owner": "android/view/Choreographer$FrameTimeline",
+      "since": 33
+    },
+    {
+      "kind": "class",
+      "owner": "java/nio/file/CopyOption",
+      "since": 26
+    },
+    {
+      "kind": "class",
+      "owner": "java/nio/file/LinkOption",
+      "since": 26
+    },
+    {
+      "kind": "class",
+      "owner": "java/nio/file/OpenOption",
+      "since": 26
+    },
+    {
+      "kind": "class",
+      "owner": "java/nio/file/attribute/AclEntryFlag",
+      "since": 26
+    },
+    {
+      "kind": "class",
+      "owner": "java/nio/file/attribute/FileAttribute",
+      "since": 26
+    },
+    {
+      "kind": "class",
+      "owner": "java/util/stream/Collector$Characteristics",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/app/Activity;",
+      "member": "checkSelfPermission(Ljava/lang/String;)I",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/app/Activity;",
+      "member": "requestPermissions([Ljava/lang/String;I)V",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/app/Notification$Builder;",
+      "member": "<init>(Landroid/content/Context;Ljava/lang/String;)V",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/app/Notification$Builder;",
+      "member": "setForegroundServiceBehavior(I)Landroid/app/Notification$Builder;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/app/NotificationChannel;",
+      "member": "<init>(Ljava/lang/String;Ljava/lang/CharSequence;I)V",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/app/NotificationChannel;",
+      "member": "setDescription(Ljava/lang/String;)V",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/app/NotificationChannel;",
+      "member": "setShowBadge(Z)V",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/app/NotificationManager;",
+      "member": "createNotificationChannel(Landroid/app/NotificationChannel;)V",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/app/NotificationManager;",
+      "member": "getNotificationChannel(Ljava/lang/String;)Landroid/app/NotificationChannel;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/app/Service;",
+      "member": "startForeground(ILandroid/app/Notification;I)V",
+      "since": 29
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/app/Service;",
+      "member": "stopForeground(I)V",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/app/job/JobInfo$Builder;",
+      "member": "setRequiresStorageNotLow(Z)Landroid/app/job/JobInfo$Builder;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/content/Context;",
+      "member": "checkSelfPermission(Ljava/lang/String;)I",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/content/Context;",
+      "member": "createDeviceContext(I)Landroid/content/Context;",
+      "since": 34
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/content/Context;",
+      "member": "getDeviceId()I",
+      "since": 34
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/content/Context;",
+      "member": "registerDeviceIdChangeListener(Ljava/util/concurrent/Executor;Ljava/util/function/IntConsumer;)V",
+      "since": 34
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/content/Context;",
+      "member": "registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;I)Landroid/content/Intent;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/content/Context;",
+      "member": "startForegroundService(Landroid/content/Intent;)Landroid/content/ComponentName;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/content/Context;",
+      "member": "unregisterDeviceIdChangeListener(Ljava/util/function/IntConsumer;)V",
+      "since": 34
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/content/res/Configuration;",
+      "member": "getLocales()Landroid/os/LocaleList;",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/graphics/Bitmap;",
+      "member": "asShared()Landroid/graphics/Bitmap;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioAttributes$Builder;",
+      "member": "setAllowedCapturePolicy(I)Landroid/media/AudioAttributes$Builder;",
+      "since": 29
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioAttributes$Builder;",
+      "member": "setHapticChannelsMuted(Z)Landroid/media/AudioAttributes$Builder;",
+      "since": 29
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioAttributes$Builder;",
+      "member": "setIsContentSpatialized(Z)Landroid/media/AudioAttributes$Builder;",
+      "since": 32
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioAttributes$Builder;",
+      "member": "setSpatializationBehavior(I)Landroid/media/AudioAttributes$Builder;",
+      "since": 32
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioAttributes;",
+      "member": "areHapticChannelsMuted()Z",
+      "since": 29
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioAttributes;",
+      "member": "getAllowedCapturePolicy()I",
+      "since": 29
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioAttributes;",
+      "member": "getSpatializationBehavior()I",
+      "since": 32
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioAttributes;",
+      "member": "getVolumeControlStream()I",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioAttributes;",
+      "member": "isContentSpatialized()Z",
+      "since": 32
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioDescriptor;",
+      "member": "getDescriptor()[B",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioDescriptor;",
+      "member": "getStandard()I",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioDeviceCallback;",
+      "member": "<init>()V",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioDeviceInfo;",
+      "member": "getAudioDescriptors()Ljava/util/List;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioDeviceInfo;",
+      "member": "getAudioProfiles()Ljava/util/List;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioDeviceInfo;",
+      "member": "getType()I",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioFocusRequest$Builder;",
+      "member": "<init>(I)V",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioFocusRequest$Builder;",
+      "member": "build()Landroid/media/AudioFocusRequest;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioFocusRequest$Builder;",
+      "member": "setAcceptsDelayedFocusGain(Z)Landroid/media/AudioFocusRequest$Builder;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioFocusRequest$Builder;",
+      "member": "setAudioAttributes(Landroid/media/AudioAttributes;)Landroid/media/AudioFocusRequest$Builder;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioFocusRequest$Builder;",
+      "member": "setOnAudioFocusChangeListener(Landroid/media/AudioManager$OnAudioFocusChangeListener;Landroid/os/Handler;)Landroid/media/AudioFocusRequest$Builder;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioFocusRequest$Builder;",
+      "member": "setWillPauseWhenDucked(Z)Landroid/media/AudioFocusRequest$Builder;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioManager;",
+      "member": "abandonAudioFocusRequest(Landroid/media/AudioFocusRequest;)I",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioManager;",
+      "member": "getAudioDevicesForAttributes(Landroid/media/AudioAttributes;)Ljava/util/List;",
+      "since": 33
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioManager;",
+      "member": "getDevices(I)[Landroid/media/AudioDeviceInfo;",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioManager;",
+      "member": "getDirectPlaybackSupport(Landroid/media/AudioFormat;Landroid/media/AudioAttributes;)I",
+      "since": 33
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioManager;",
+      "member": "getDirectProfilesForAttributes(Landroid/media/AudioAttributes;)Ljava/util/List;",
+      "since": 33
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioManager;",
+      "member": "getPlaybackOffloadSupport(Landroid/media/AudioFormat;Landroid/media/AudioAttributes;)I",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioManager;",
+      "member": "getSpatializer()Landroid/media/Spatializer;",
+      "since": 32
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioManager;",
+      "member": "getStreamMinVolume(I)I",
+      "since": 28
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioManager;",
+      "member": "isOffloadedPlaybackSupported(Landroid/media/AudioFormat;Landroid/media/AudioAttributes;)Z",
+      "since": 29
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioManager;",
+      "member": "isStreamMute(I)Z",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioManager;",
+      "member": "registerAudioDeviceCallback(Landroid/media/AudioDeviceCallback;Landroid/os/Handler;)V",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioManager;",
+      "member": "requestAudioFocus(Landroid/media/AudioFocusRequest;)I",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioManager;",
+      "member": "unregisterAudioDeviceCallback(Landroid/media/AudioDeviceCallback;)V",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioProfile;",
+      "member": "getChannelMasks()[I",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioProfile;",
+      "member": "getEncapsulationType()I",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioProfile;",
+      "member": "getFormat()I",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioRouting;",
+      "member": "getRoutedDevice()Landroid/media/AudioDeviceInfo;",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioTrack$Builder;",
+      "member": "<init>()V",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioTrack$Builder;",
+      "member": "build()Landroid/media/AudioTrack;",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioTrack$Builder;",
+      "member": "setAudioAttributes(Landroid/media/AudioAttributes;)Landroid/media/AudioTrack$Builder;",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioTrack$Builder;",
+      "member": "setAudioFormat(Landroid/media/AudioFormat;)Landroid/media/AudioTrack$Builder;",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioTrack$Builder;",
+      "member": "setBufferSizeInBytes(I)Landroid/media/AudioTrack$Builder;",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioTrack$Builder;",
+      "member": "setContext(Landroid/content/Context;)Landroid/media/AudioTrack$Builder;",
+      "since": 34
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioTrack$Builder;",
+      "member": "setOffloadedPlayback(Z)Landroid/media/AudioTrack$Builder;",
+      "since": 29
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioTrack$Builder;",
+      "member": "setSessionId(I)Landroid/media/AudioTrack$Builder;",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioTrack$Builder;",
+      "member": "setTransferMode(I)Landroid/media/AudioTrack$Builder;",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioTrack$StreamEventCallback;",
+      "member": "<init>()V",
+      "since": 29
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioTrack;",
+      "member": "addOnRoutingChangedListener(Landroid/media/AudioRouting$OnRoutingChangedListener;Landroid/os/Handler;)V",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioTrack;",
+      "member": "getBufferSizeInFrames()I",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioTrack;",
+      "member": "getPlaybackParams()Landroid/media/PlaybackParams;",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioTrack;",
+      "member": "getUnderrunCount()I",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioTrack;",
+      "member": "isDirectPlaybackSupported(Landroid/media/AudioFormat;Landroid/media/AudioAttributes;)Z",
+      "since": 29
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioTrack;",
+      "member": "isOffloadedPlayback()Z",
+      "since": 29
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioTrack;",
+      "member": "registerStreamEventCallback(Ljava/util/concurrent/Executor;Landroid/media/AudioTrack$StreamEventCallback;)V",
+      "since": 29
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioTrack;",
+      "member": "removeOnRoutingChangedListener(Landroid/media/AudioRouting$OnRoutingChangedListener;)V",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioTrack;",
+      "member": "setLogSessionId(Landroid/media/metrics/LogSessionId;)V",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioTrack;",
+      "member": "setOffloadDelayPadding(II)V",
+      "since": 29
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioTrack;",
+      "member": "setOffloadEndOfStream()V",
+      "since": 29
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioTrack;",
+      "member": "setPlaybackParams(Landroid/media/PlaybackParams;)V",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioTrack;",
+      "member": "setPreferredDevice(Landroid/media/AudioDeviceInfo;)Z",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioTrack;",
+      "member": "unregisterStreamEventCallback(Landroid/media/AudioTrack$StreamEventCallback;)V",
+      "since": 29
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/AudioTrack;",
+      "member": "write(Ljava/nio/ByteBuffer;IIJ)I",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/DrmInitData;",
+      "member": "getSchemeInitDataAt(I)Landroid/media/DrmInitData$SchemeInitData;",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/DrmInitData;",
+      "member": "getSchemeInitDataCount()I",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/LoudnessCodecController;",
+      "member": "addMediaCodec(Landroid/media/MediaCodec;)Z",
+      "since": 35
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/LoudnessCodecController;",
+      "member": "close()V",
+      "since": 35
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/LoudnessCodecController;",
+      "member": "create(ILjava/util/concurrent/Executor;Landroid/media/LoudnessCodecController$OnLoudnessCodecUpdateListener;)Landroid/media/LoudnessCodecController;",
+      "since": 35
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/LoudnessCodecController;",
+      "member": "removeMediaCodec(Landroid/media/MediaCodec;)V",
+      "since": 35
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaCodec$CodecException;",
+      "member": "getErrorCode()I",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaCodec$CryptoInfo$Pattern;",
+      "member": "<init>(II)V",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaCodec$CryptoInfo$Pattern;",
+      "member": "set(II)V",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaCodec$CryptoInfo;",
+      "member": "setPattern(Landroid/media/MediaCodec$CryptoInfo$Pattern;)V",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaCodec;",
+      "member": "detachOutputSurface()V",
+      "since": 35
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaCodec;",
+      "member": "getMetrics()Landroid/os/PersistableBundle;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaCodec;",
+      "member": "setCallback(Landroid/media/MediaCodec$Callback;Landroid/os/Handler;)V",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaCodec;",
+      "member": "setOnFrameRenderedListener(Landroid/media/MediaCodec$OnFrameRenderedListener;Landroid/os/Handler;)V",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaCodec;",
+      "member": "setOutputSurface(Landroid/view/Surface;)V",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaCodec;",
+      "member": "subscribeToVendorParameters(Ljava/util/List;)V",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaCodec;",
+      "member": "unsubscribeFromVendorParameters(Ljava/util/List;)V",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaCodecInfo$CodecCapabilities;",
+      "member": "getMaxSupportedInstances()I",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaCodecInfo$VideoCapabilities$PerformancePoint;",
+      "member": "<init>(III)V",
+      "since": 29
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaCodecInfo$VideoCapabilities$PerformancePoint;",
+      "member": "covers(Landroid/media/MediaCodecInfo$VideoCapabilities$PerformancePoint;)Z",
+      "since": 29
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaCodecInfo$VideoCapabilities;",
+      "member": "getAchievableFrameRatesFor(II)Landroid/util/Range;",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaCodecInfo$VideoCapabilities;",
+      "member": "getSupportedPerformancePoints()Ljava/util/List;",
+      "since": 29
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaCodecInfo;",
+      "member": "isAlias()Z",
+      "since": 29
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaCodecInfo;",
+      "member": "isHardwareAccelerated()Z",
+      "since": 29
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaCodecInfo;",
+      "member": "isSoftwareOnly()Z",
+      "since": 29
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaCodecInfo;",
+      "member": "isVendor()Z",
+      "since": 29
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaCrypto;",
+      "member": "setMediaDrmSession([B)V",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaDataSource;",
+      "member": "<init>()V",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaDataSource;",
+      "member": "getSize()J",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaDataSource;",
+      "member": "readAt(J[BII)I",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaDrm$KeyRequest;",
+      "member": "getRequestType()I",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaDrm$KeyStatus;",
+      "member": "getKeyId()[B",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaDrm$KeyStatus;",
+      "member": "getStatusCode()I",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaDrm$PlaybackComponent;",
+      "member": "setLogSessionId(Landroid/media/metrics/LogSessionId;)V",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaDrm;",
+      "member": "getMetrics()Landroid/os/PersistableBundle;",
+      "since": 28
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaDrm;",
+      "member": "getOfflineLicenseKeySetIds()Ljava/util/List;",
+      "since": 29
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaDrm;",
+      "member": "getPlaybackComponent([B)Landroid/media/MediaDrm$PlaybackComponent;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaDrm;",
+      "member": "getSecurityLevel([B)I",
+      "since": 28
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaDrm;",
+      "member": "removeOfflineLicense([B)V",
+      "since": 29
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaDrm;",
+      "member": "requiresSecureDecoder(Ljava/lang/String;I)Z",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaDrm;",
+      "member": "setOnExpirationUpdateListener(Landroid/media/MediaDrm$OnExpirationUpdateListener;Landroid/os/Handler;)V",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaDrm;",
+      "member": "setOnKeyStatusChangeListener(Landroid/media/MediaDrm$OnKeyStatusChangeListener;Landroid/os/Handler;)V",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaFormat;",
+      "member": "getFloat(Ljava/lang/String;F)F",
+      "since": 29
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaFormat;",
+      "member": "getInteger(Ljava/lang/String;I)I",
+      "since": 29
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaFormat;",
+      "member": "getLong(Ljava/lang/String;J)J",
+      "since": 29
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaFormat;",
+      "member": "getValueTypeForKey(Ljava/lang/String;)I",
+      "since": 29
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaFormat;",
+      "member": "removeKey(Ljava/lang/String;)V",
+      "since": 29
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaMetadataRetriever;",
+      "member": "setDataSource(Landroid/media/MediaDataSource;)V",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaParser$InputReader;",
+      "member": "getLength()J",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaParser$InputReader;",
+      "member": "read([BII)I",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaParser$SeekMap;",
+      "member": "getDurationMicros()J",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaParser$SeekMap;",
+      "member": "getSeekPoints(J)Landroid/util/Pair;",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaParser$SeekMap;",
+      "member": "isSeekable()Z",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaParser;",
+      "member": "advance(Landroid/media/MediaParser$SeekableInputReader;)Z",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaParser;",
+      "member": "create(Landroid/media/MediaParser$OutputConsumer;[Ljava/lang/String;)Landroid/media/MediaParser;",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaParser;",
+      "member": "createByName(Ljava/lang/String;Landroid/media/MediaParser$OutputConsumer;)Landroid/media/MediaParser;",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaParser;",
+      "member": "getParserName()Ljava/lang/String;",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaParser;",
+      "member": "release()V",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaParser;",
+      "member": "seek(Landroid/media/MediaParser$SeekPoint;)V",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaParser;",
+      "member": "setLogSessionId(Landroid/media/metrics/LogSessionId;)V",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaParser;",
+      "member": "setParameter(Ljava/lang/String;Ljava/lang/Object;)Landroid/media/MediaParser;",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaPlayer;",
+      "member": "seekTo(JI)V",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaPlayer;",
+      "member": "setPlaybackParams(Landroid/media/PlaybackParams;)V",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaRoute2Info;",
+      "member": "getSuitabilityStatus()I",
+      "since": 35
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaRouter2$ControllerCallback;",
+      "member": "<init>()V",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaRouter2$RouteCallback;",
+      "member": "<init>()V",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaRouter2$RoutingController;",
+      "member": "getRoutingSessionInfo()Landroid/media/RoutingSessionInfo;",
+      "since": 34
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaRouter2$RoutingController;",
+      "member": "getSelectedRoutes()Ljava/util/List;",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaRouter2$RoutingController;",
+      "member": "wasTransferInitiatedBySelf()Z",
+      "since": 35
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaRouter2;",
+      "member": "getInstance(Landroid/content/Context;)Landroid/media/MediaRouter2;",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaRouter2;",
+      "member": "getSystemController()Landroid/media/MediaRouter2$RoutingController;",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaRouter2;",
+      "member": "registerControllerCallback(Ljava/util/concurrent/Executor;Landroid/media/MediaRouter2$ControllerCallback;)V",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaRouter2;",
+      "member": "registerRouteCallback(Ljava/util/concurrent/Executor;Landroid/media/MediaRouter2$RouteCallback;Landroid/media/RouteDiscoveryPreference;)V",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaRouter2;",
+      "member": "unregisterControllerCallback(Landroid/media/MediaRouter2$ControllerCallback;)V",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaRouter2;",
+      "member": "unregisterRouteCallback(Landroid/media/MediaRouter2$RouteCallback;)V",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/PlaybackParams;",
+      "member": "<init>()V",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/PlaybackParams;",
+      "member": "allowDefaults()Landroid/media/PlaybackParams;",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/PlaybackParams;",
+      "member": "getPitch()F",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/PlaybackParams;",
+      "member": "getSpeed()F",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/PlaybackParams;",
+      "member": "setAudioFallbackMode(I)Landroid/media/PlaybackParams;",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/PlaybackParams;",
+      "member": "setPitch(F)Landroid/media/PlaybackParams;",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/PlaybackParams;",
+      "member": "setSpeed(F)Landroid/media/PlaybackParams;",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/RouteDiscoveryPreference$Builder;",
+      "member": "<init>(Ljava/util/List;Z)V",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/RouteDiscoveryPreference$Builder;",
+      "member": "build()Landroid/media/RouteDiscoveryPreference;",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/RoutingSessionInfo;",
+      "member": "getTransferReason()I",
+      "since": 35
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/Spatializer;",
+      "member": "addOnSpatializerStateChangedListener(Ljava/util/concurrent/Executor;Landroid/media/Spatializer$OnSpatializerStateChangedListener;)V",
+      "since": 32
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/Spatializer;",
+      "member": "canBeSpatialized(Landroid/media/AudioAttributes;Landroid/media/AudioFormat;)Z",
+      "since": 32
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/Spatializer;",
+      "member": "getImmersiveAudioLevel()I",
+      "since": 32
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/Spatializer;",
+      "member": "isAvailable()Z",
+      "since": 32
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/Spatializer;",
+      "member": "isEnabled()Z",
+      "since": 32
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/Spatializer;",
+      "member": "removeOnSpatializerStateChangedListener(Landroid/media/Spatializer$OnSpatializerStateChangedListener;)V",
+      "since": 32
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/LogSessionId;",
+      "member": "equals(Ljava/lang/Object;)Z",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/LogSessionId;",
+      "member": "getStringId()Ljava/lang/String;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/MediaMetricsManager;",
+      "member": "createPlaybackSession()Landroid/media/metrics/PlaybackSession;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/NetworkEvent$Builder;",
+      "member": "<init>()V",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/NetworkEvent$Builder;",
+      "member": "build()Landroid/media/metrics/NetworkEvent;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/NetworkEvent$Builder;",
+      "member": "setNetworkType(I)Landroid/media/metrics/NetworkEvent$Builder;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/NetworkEvent$Builder;",
+      "member": "setTimeSinceCreatedMillis(J)Landroid/media/metrics/NetworkEvent$Builder;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/PlaybackErrorEvent$Builder;",
+      "member": "<init>()V",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/PlaybackErrorEvent$Builder;",
+      "member": "build()Landroid/media/metrics/PlaybackErrorEvent;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/PlaybackErrorEvent$Builder;",
+      "member": "setErrorCode(I)Landroid/media/metrics/PlaybackErrorEvent$Builder;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/PlaybackErrorEvent$Builder;",
+      "member": "setException(Ljava/lang/Exception;)Landroid/media/metrics/PlaybackErrorEvent$Builder;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/PlaybackErrorEvent$Builder;",
+      "member": "setSubErrorCode(I)Landroid/media/metrics/PlaybackErrorEvent$Builder;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/PlaybackErrorEvent$Builder;",
+      "member": "setTimeSinceCreatedMillis(J)Landroid/media/metrics/PlaybackErrorEvent$Builder;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/PlaybackMetrics$Builder;",
+      "member": "<init>()V",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/PlaybackMetrics$Builder;",
+      "member": "build()Landroid/media/metrics/PlaybackMetrics;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/PlaybackMetrics$Builder;",
+      "member": "setAudioUnderrunCount(I)Landroid/media/metrics/PlaybackMetrics$Builder;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/PlaybackMetrics$Builder;",
+      "member": "setDrmType(I)Landroid/media/metrics/PlaybackMetrics$Builder;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/PlaybackMetrics$Builder;",
+      "member": "setMediaDurationMillis(J)Landroid/media/metrics/PlaybackMetrics$Builder;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/PlaybackMetrics$Builder;",
+      "member": "setNetworkBytesRead(J)Landroid/media/metrics/PlaybackMetrics$Builder;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/PlaybackMetrics$Builder;",
+      "member": "setNetworkTransferDurationMillis(J)Landroid/media/metrics/PlaybackMetrics$Builder;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/PlaybackMetrics$Builder;",
+      "member": "setPlaybackType(I)Landroid/media/metrics/PlaybackMetrics$Builder;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/PlaybackMetrics$Builder;",
+      "member": "setPlayerName(Ljava/lang/String;)Landroid/media/metrics/PlaybackMetrics$Builder;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/PlaybackMetrics$Builder;",
+      "member": "setPlayerVersion(Ljava/lang/String;)Landroid/media/metrics/PlaybackMetrics$Builder;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/PlaybackMetrics$Builder;",
+      "member": "setStreamSource(I)Landroid/media/metrics/PlaybackMetrics$Builder;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/PlaybackMetrics$Builder;",
+      "member": "setStreamType(I)Landroid/media/metrics/PlaybackMetrics$Builder;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/PlaybackMetrics$Builder;",
+      "member": "setVideoFramesDropped(I)Landroid/media/metrics/PlaybackMetrics$Builder;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/PlaybackMetrics$Builder;",
+      "member": "setVideoFramesPlayed(I)Landroid/media/metrics/PlaybackMetrics$Builder;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/PlaybackSession;",
+      "member": "getSessionId()Landroid/media/metrics/LogSessionId;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/PlaybackSession;",
+      "member": "reportNetworkEvent(Landroid/media/metrics/NetworkEvent;)V",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/PlaybackSession;",
+      "member": "reportPlaybackErrorEvent(Landroid/media/metrics/PlaybackErrorEvent;)V",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/PlaybackSession;",
+      "member": "reportPlaybackMetrics(Landroid/media/metrics/PlaybackMetrics;)V",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/PlaybackSession;",
+      "member": "reportPlaybackStateEvent(Landroid/media/metrics/PlaybackStateEvent;)V",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/PlaybackSession;",
+      "member": "reportTrackChangeEvent(Landroid/media/metrics/TrackChangeEvent;)V",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/PlaybackStateEvent$Builder;",
+      "member": "<init>()V",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/PlaybackStateEvent$Builder;",
+      "member": "build()Landroid/media/metrics/PlaybackStateEvent;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/PlaybackStateEvent$Builder;",
+      "member": "setState(I)Landroid/media/metrics/PlaybackStateEvent$Builder;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/PlaybackStateEvent$Builder;",
+      "member": "setTimeSinceCreatedMillis(J)Landroid/media/metrics/PlaybackStateEvent$Builder;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/TrackChangeEvent$Builder;",
+      "member": "<init>(I)V",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/TrackChangeEvent$Builder;",
+      "member": "build()Landroid/media/metrics/TrackChangeEvent;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/TrackChangeEvent$Builder;",
+      "member": "setAudioSampleRate(I)Landroid/media/metrics/TrackChangeEvent$Builder;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/TrackChangeEvent$Builder;",
+      "member": "setBitrate(I)Landroid/media/metrics/TrackChangeEvent$Builder;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/TrackChangeEvent$Builder;",
+      "member": "setChannelCount(I)Landroid/media/metrics/TrackChangeEvent$Builder;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/TrackChangeEvent$Builder;",
+      "member": "setCodecName(Ljava/lang/String;)Landroid/media/metrics/TrackChangeEvent$Builder;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/TrackChangeEvent$Builder;",
+      "member": "setContainerMimeType(Ljava/lang/String;)Landroid/media/metrics/TrackChangeEvent$Builder;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/TrackChangeEvent$Builder;",
+      "member": "setHeight(I)Landroid/media/metrics/TrackChangeEvent$Builder;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/TrackChangeEvent$Builder;",
+      "member": "setLanguage(Ljava/lang/String;)Landroid/media/metrics/TrackChangeEvent$Builder;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/TrackChangeEvent$Builder;",
+      "member": "setLanguageRegion(Ljava/lang/String;)Landroid/media/metrics/TrackChangeEvent$Builder;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/TrackChangeEvent$Builder;",
+      "member": "setSampleMimeType(Ljava/lang/String;)Landroid/media/metrics/TrackChangeEvent$Builder;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/TrackChangeEvent$Builder;",
+      "member": "setTimeSinceCreatedMillis(J)Landroid/media/metrics/TrackChangeEvent$Builder;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/TrackChangeEvent$Builder;",
+      "member": "setTrackChangeReason(I)Landroid/media/metrics/TrackChangeEvent$Builder;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/TrackChangeEvent$Builder;",
+      "member": "setTrackState(I)Landroid/media/metrics/TrackChangeEvent$Builder;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/TrackChangeEvent$Builder;",
+      "member": "setVideoFrameRate(F)Landroid/media/metrics/TrackChangeEvent$Builder;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/metrics/TrackChangeEvent$Builder;",
+      "member": "setWidth(I)Landroid/media/metrics/TrackChangeEvent$Builder;",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/net/ConnectivityManager;",
+      "member": "getActiveNetwork()Landroid/net/Network;",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/net/ConnectivityManager;",
+      "member": "registerDefaultNetworkCallback(Landroid/net/ConnectivityManager$NetworkCallback;)V",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/net/http/HeaderBlock;",
+      "member": "getAsList()Ljava/util/List;",
+      "since": 34
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/net/http/HeaderBlock;",
+      "member": "getAsMap()Ljava/util/Map;",
+      "since": 34
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/net/http/HttpEngine;",
+      "member": "newUrlRequestBuilder(Ljava/lang/String;Ljava/util/concurrent/Executor;Landroid/net/http/UrlRequest$Callback;)Landroid/net/http/UrlRequest$Builder;",
+      "since": 34
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/net/http/NetworkException;",
+      "member": "getErrorCode()I",
+      "since": 34
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/net/http/UploadDataProvider;",
+      "member": "<init>()V",
+      "since": 34
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/net/http/UploadDataSink;",
+      "member": "onReadSucceeded(Z)V",
+      "since": 34
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/net/http/UploadDataSink;",
+      "member": "onRewindSucceeded()V",
+      "since": 34
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/net/http/UrlRequest$Builder;",
+      "member": "addHeader(Ljava/lang/String;Ljava/lang/String;)Landroid/net/http/UrlRequest$Builder;",
+      "since": 34
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/net/http/UrlRequest$Builder;",
+      "member": "build()Landroid/net/http/UrlRequest;",
+      "since": 34
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/net/http/UrlRequest$Builder;",
+      "member": "setDirectExecutorAllowed(Z)Landroid/net/http/UrlRequest$Builder;",
+      "since": 34
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/net/http/UrlRequest$Builder;",
+      "member": "setHttpMethod(Ljava/lang/String;)Landroid/net/http/UrlRequest$Builder;",
+      "since": 34
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/net/http/UrlRequest$Builder;",
+      "member": "setPriority(I)Landroid/net/http/UrlRequest$Builder;",
+      "since": 34
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/net/http/UrlRequest$Builder;",
+      "member": "setUploadDataProvider(Landroid/net/http/UploadDataProvider;Ljava/util/concurrent/Executor;)Landroid/net/http/UrlRequest$Builder;",
+      "since": 34
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/net/http/UrlRequest;",
+      "member": "cancel()V",
+      "since": 34
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/net/http/UrlRequest;",
+      "member": "followRedirect()V",
+      "since": 34
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/net/http/UrlRequest;",
+      "member": "getStatus(Landroid/net/http/UrlRequest$StatusListener;)V",
+      "since": 34
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/net/http/UrlRequest;",
+      "member": "read(Ljava/nio/ByteBuffer;)V",
+      "since": 34
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/net/http/UrlRequest;",
+      "member": "start()V",
+      "since": 34
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/net/http/UrlResponseInfo;",
+      "member": "getHeaders()Landroid/net/http/HeaderBlock;",
+      "since": 34
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/net/http/UrlResponseInfo;",
+      "member": "getHttpStatusCode()I",
+      "since": 34
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/net/http/UrlResponseInfo;",
+      "member": "getHttpStatusText()Ljava/lang/String;",
+      "since": 34
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/net/http/UrlResponseInfo;",
+      "member": "getUrl()Ljava/lang/String;",
+      "since": 34
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/opengl/GLES30;",
+      "member": "glReadPixels(IIIIIII)V",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/os/IBinder;",
+      "member": "getSuggestedMaxIpcSizeBytes()I",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/os/LocaleList;",
+      "member": "toLanguageTags()Ljava/lang/String;",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/os/PowerManager;",
+      "member": "isDeviceIdleMode()Z",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/os/SharedMemory;",
+      "member": "close()V",
+      "since": 27
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/os/SharedMemory;",
+      "member": "create(Ljava/lang/String;I)Landroid/os/SharedMemory;",
+      "since": 27
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/os/SharedMemory;",
+      "member": "getSize()I",
+      "since": 27
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/os/SharedMemory;",
+      "member": "mapReadOnly()Ljava/nio/ByteBuffer;",
+      "since": 27
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/os/SharedMemory;",
+      "member": "mapReadWrite()Ljava/nio/ByteBuffer;",
+      "since": 27
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/os/SharedMemory;",
+      "member": "setProtect(I)Z",
+      "since": 27
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/os/SharedMemory;",
+      "member": "unmap(Ljava/nio/ByteBuffer;)V",
+      "since": 27
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/security/NetworkSecurityPolicy;",
+      "member": "getInstance()Landroid/security/NetworkSecurityPolicy;",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/security/NetworkSecurityPolicy;",
+      "member": "isCleartextTrafficPermitted(Ljava/lang/String;)Z",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/telephony/TelephonyCallback;",
+      "member": "<init>()V",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/telephony/TelephonyDisplayInfo;",
+      "member": "getOverrideNetworkType()I",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/telephony/TelephonyManager;",
+      "member": "registerTelephonyCallback(Ljava/util/concurrent/Executor;Landroid/telephony/TelephonyCallback;)V",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/telephony/TelephonyManager;",
+      "member": "unregisterTelephonyCallback(Landroid/telephony/TelephonyCallback;)V",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/util/SparseArray;",
+      "member": "contentEquals(Landroid/util/SparseArray;)Z",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/util/SparseArray;",
+      "member": "contentHashCode()I",
+      "since": 31
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/view/Choreographer$FrameData;",
+      "member": "getFrameTimeNanos()J",
+      "since": 33
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/view/Choreographer$FrameData;",
+      "member": "getFrameTimelines()[Landroid/view/Choreographer$FrameTimeline;",
+      "since": 33
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/view/Choreographer$FrameTimeline;",
+      "member": "getExpectedPresentationTimeNanos()J",
+      "since": 33
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/view/Choreographer;",
+      "member": "postVsyncCallback(Landroid/view/Choreographer$VsyncCallback;)V",
+      "since": 33
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/view/Choreographer;",
+      "member": "removeVsyncCallback(Landroid/view/Choreographer$VsyncCallback;)V",
+      "since": 33
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/view/Display$HdrCapabilities;",
+      "member": "getSupportedHdrTypes()[I",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/view/Display$Mode;",
+      "member": "getPhysicalHeight()I",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/view/Display$Mode;",
+      "member": "getPhysicalWidth()I",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/view/Display;",
+      "member": "getHdrCapabilities()Landroid/view/Display$HdrCapabilities;",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/view/Display;",
+      "member": "getMode()Landroid/view/Display$Mode;",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/view/Display;",
+      "member": "isHdr()Z",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/view/Surface;",
+      "member": "setFrameRate(FI)V",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/DirectoryStream;",
+      "member": "iterator()Ljava/util/Iterator;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/FileSystem;",
+      "member": "getPath(Ljava/lang/String;[Ljava/lang/String;)Ljava/nio/file/Path;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/FileSystem;",
+      "member": "getSeparator()Ljava/lang/String;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/FileSystem;",
+      "member": "getUserPrincipalLookupService()Ljava/nio/file/attribute/UserPrincipalLookupService;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/FileSystem;",
+      "member": "supportedFileAttributeViews()Ljava/util/Set;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/FileSystemException;",
+      "member": "<init>(Ljava/lang/String;)V",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/FileSystemException;",
+      "member": "<init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/FileSystemException;",
+      "member": "initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/FileSystemLoopException;",
+      "member": "<init>(Ljava/lang/String;)V",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/FileSystems;",
+      "member": "getDefault()Ljava/nio/file/FileSystem;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "copy(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)Ljava/nio/file/Path;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "createDirectories(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "createDirectory(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "createFile(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "createLink(Ljava/nio/file/Path;Ljava/nio/file/Path;)Ljava/nio/file/Path;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "createSymbolicLink(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "createTempDirectory(Ljava/lang/String;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "createTempDirectory(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "createTempFile(Ljava/lang/String;Ljava/lang/String;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "createTempFile(Ljava/nio/file/Path;Ljava/lang/String;Ljava/lang/String;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "delete(Ljava/nio/file/Path;)V",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "deleteIfExists(Ljava/nio/file/Path;)Z",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "exists(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Z",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "getAttribute(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/lang/Object;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "getFileAttributeView(Ljava/nio/file/Path;Ljava/lang/Class;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/FileAttributeView;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "getFileStore(Ljava/nio/file/Path;)Ljava/nio/file/FileStore;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "getLastModifiedTime(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/FileTime;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "getOwner(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/UserPrincipal;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "getPosixFilePermissions(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Ljava/util/Set;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "isDirectory(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Z",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "isExecutable(Ljava/nio/file/Path;)Z",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "isHidden(Ljava/nio/file/Path;)Z",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "isReadable(Ljava/nio/file/Path;)Z",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "isRegularFile(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Z",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "isSameFile(Ljava/nio/file/Path;Ljava/nio/file/Path;)Z",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "isSymbolicLink(Ljava/nio/file/Path;)Z",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "isWritable(Ljava/nio/file/Path;)Z",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "move(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)Ljava/nio/file/Path;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "newBufferedReader(Ljava/nio/file/Path;Ljava/nio/charset/Charset;)Ljava/io/BufferedReader;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "newDirectoryStream(Ljava/nio/file/Path;)Ljava/nio/file/DirectoryStream;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "newDirectoryStream(Ljava/nio/file/Path;Ljava/lang/String;)Ljava/nio/file/DirectoryStream;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "newInputStream(Ljava/nio/file/Path;[Ljava/nio/file/OpenOption;)Ljava/io/InputStream;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "newOutputStream(Ljava/nio/file/Path;[Ljava/nio/file/OpenOption;)Ljava/io/OutputStream;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "notExists(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Z",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "readAllBytes(Ljava/nio/file/Path;)[B",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "readAllLines(Ljava/nio/file/Path;Ljava/nio/charset/Charset;)Ljava/util/List;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "readAttributes(Ljava/nio/file/Path;Ljava/lang/Class;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/BasicFileAttributes;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "readAttributes(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/util/Map;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "readSymbolicLink(Ljava/nio/file/Path;)Ljava/nio/file/Path;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "setAttribute(Ljava/nio/file/Path;Ljava/lang/String;Ljava/lang/Object;[Ljava/nio/file/LinkOption;)Ljava/nio/file/Path;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "setLastModifiedTime(Ljava/nio/file/Path;Ljava/nio/file/attribute/FileTime;)Ljava/nio/file/Path;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "setOwner(Ljava/nio/file/Path;Ljava/nio/file/attribute/UserPrincipal;)Ljava/nio/file/Path;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "setPosixFilePermissions(Ljava/nio/file/Path;Ljava/util/Set;)Ljava/nio/file/Path;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "size(Ljava/nio/file/Path;)J",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "walkFileTree(Ljava/nio/file/Path;Ljava/util/Set;ILjava/nio/file/FileVisitor;)Ljava/nio/file/Path;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "write(Ljava/nio/file/Path;Ljava/lang/Iterable;Ljava/nio/charset/Charset;[Ljava/nio/file/OpenOption;)Ljava/nio/file/Path;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Files;",
+      "member": "write(Ljava/nio/file/Path;[B[Ljava/nio/file/OpenOption;)Ljava/nio/file/Path;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/NoSuchFileException;",
+      "member": "<init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Path;",
+      "member": "getFileName()Ljava/nio/file/Path;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Path;",
+      "member": "getFileSystem()Ljava/nio/file/FileSystem;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Path;",
+      "member": "getName(I)Ljava/nio/file/Path;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Path;",
+      "member": "getNameCount()I",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Path;",
+      "member": "getParent()Ljava/nio/file/Path;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Path;",
+      "member": "normalize()Ljava/nio/file/Path;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Path;",
+      "member": "relativize(Ljava/nio/file/Path;)Ljava/nio/file/Path;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Path;",
+      "member": "resolve(Ljava/lang/String;)Ljava/nio/file/Path;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Path;",
+      "member": "resolve(Ljava/nio/file/Path;)Ljava/nio/file/Path;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Path;",
+      "member": "startsWith(Ljava/nio/file/Path;)Z",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Path;",
+      "member": "toAbsolutePath()Ljava/nio/file/Path;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Path;",
+      "member": "toFile()Ljava/io/File;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Path;",
+      "member": "toRealPath([Ljava/nio/file/LinkOption;)Ljava/nio/file/Path;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Paths;",
+      "member": "get(Ljava/lang/String;[Ljava/lang/String;)Ljava/nio/file/Path;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/Paths;",
+      "member": "get(Ljava/net/URI;)Ljava/nio/file/Path;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/SecureDirectoryStream;",
+      "member": "deleteDirectory(Ljava/lang/Object;)V",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/SecureDirectoryStream;",
+      "member": "deleteFile(Ljava/lang/Object;)V",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/SecureDirectoryStream;",
+      "member": "getFileAttributeView(Ljava/lang/Object;Ljava/lang/Class;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/FileAttributeView;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/SecureDirectoryStream;",
+      "member": "iterator()Ljava/util/Iterator;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/SecureDirectoryStream;",
+      "member": "newDirectoryStream(Ljava/lang/Object;[Ljava/nio/file/LinkOption;)Ljava/nio/file/SecureDirectoryStream;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/SimpleFileVisitor;",
+      "member": "<init>()V",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/SimpleFileVisitor;",
+      "member": "postVisitDirectory(Ljava/lang/Object;Ljava/io/IOException;)Ljava/nio/file/FileVisitResult;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/SimpleFileVisitor;",
+      "member": "preVisitDirectory(Ljava/lang/Object;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/SimpleFileVisitor;",
+      "member": "visitFile(Ljava/lang/Object;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/SimpleFileVisitor;",
+      "member": "visitFileFailed(Ljava/lang/Object;Ljava/io/IOException;)Ljava/nio/file/FileVisitResult;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/attribute/AclEntry$Builder;",
+      "member": "build()Ljava/nio/file/attribute/AclEntry;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/attribute/AclEntry$Builder;",
+      "member": "setFlags([Ljava/nio/file/attribute/AclEntryFlag;)Ljava/nio/file/attribute/AclEntry$Builder;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/attribute/AclEntry$Builder;",
+      "member": "setPermissions(Ljava/util/Set;)Ljava/nio/file/attribute/AclEntry$Builder;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/attribute/AclEntry$Builder;",
+      "member": "setPrincipal(Ljava/nio/file/attribute/UserPrincipal;)Ljava/nio/file/attribute/AclEntry$Builder;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/attribute/AclEntry$Builder;",
+      "member": "setType(Ljava/nio/file/attribute/AclEntryType;)Ljava/nio/file/attribute/AclEntry$Builder;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/attribute/AclEntry;",
+      "member": "newBuilder()Ljava/nio/file/attribute/AclEntry$Builder;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/attribute/BasicFileAttributeView;",
+      "member": "readAttributes()Ljava/nio/file/attribute/BasicFileAttributes;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/attribute/BasicFileAttributes;",
+      "member": "fileKey()Ljava/lang/Object;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/attribute/BasicFileAttributes;",
+      "member": "isDirectory()Z",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/attribute/PosixFilePermissions;",
+      "member": "asFileAttribute(Ljava/util/Set;)Ljava/nio/file/attribute/FileAttribute;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/attribute/PosixFilePermissions;",
+      "member": "fromString(Ljava/lang/String;)Ljava/util/Set;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/nio/file/attribute/UserPrincipalLookupService;",
+      "member": "lookupPrincipalByName(Ljava/lang/String;)Ljava/nio/file/attribute/UserPrincipal;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/time/Duration;",
+      "member": "getNano()I",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/time/Duration;",
+      "member": "getSeconds()J",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/time/Duration;",
+      "member": "isNegative()Z",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/time/Duration;",
+      "member": "isZero()Z",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/time/Duration;",
+      "member": "ofSeconds(JJ)Ljava/time/Duration;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/time/Duration;",
+      "member": "toNanos()J",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/util/Comparator;",
+      "member": "comparing(Ljava/util/function/Function;)Ljava/util/Comparator;",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/util/Comparator;",
+      "member": "reversed()Ljava/util/Comparator;",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/util/EnumMap;",
+      "member": "forEach(Ljava/util/function/BiConsumer;)V",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/util/EnumMap;",
+      "member": "merge(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/util/List;",
+      "member": "sort(Ljava/util/Comparator;)V",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/util/Locale;",
+      "member": "getDefault(Ljava/util/Locale$Category;)Ljava/util/Locale;",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/util/Map;",
+      "member": "getOrDefault(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/util/Map;",
+      "member": "remove(Ljava/lang/Object;Ljava/lang/Object;)Z",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/util/Optional;",
+      "member": "get()Ljava/lang/Object;",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/util/Optional;",
+      "member": "isPresent()Z",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/util/Optional;",
+      "member": "ofNullable(Ljava/lang/Object;)Ljava/util/Optional;",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/util/Optional;",
+      "member": "orElse(Ljava/lang/Object;)Ljava/lang/Object;",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/util/Spliterators;",
+      "member": "spliterator(Ljava/util/Collection;I)Ljava/util/Spliterator;",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/util/Spliterators;",
+      "member": "spliteratorUnknownSize(Ljava/util/Iterator;I)Ljava/util/Spliterator;",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/util/function/BiConsumer;",
+      "member": "accept(Ljava/lang/Object;Ljava/lang/Object;)V",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/util/function/BinaryOperator;",
+      "member": "apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/util/function/Function;",
+      "member": "apply(Ljava/lang/Object;)Ljava/lang/Object;",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/util/function/Function;",
+      "member": "identity()Ljava/util/function/Function;",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/util/function/ToIntFunction;",
+      "member": "applyAsInt(Ljava/lang/Object;)I",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/util/regex/Matcher;",
+      "member": "end(Ljava/lang/String;)I",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/util/regex/Matcher;",
+      "member": "group(Ljava/lang/String;)Ljava/lang/String;",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/util/regex/Matcher;",
+      "member": "start(Ljava/lang/String;)I",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/util/stream/Collector;",
+      "member": "of(Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BinaryOperator;Ljava/util/function/Function;[Ljava/util/stream/Collector$Characteristics;)Ljava/util/stream/Collector;",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/util/stream/Collector;",
+      "member": "of(Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BinaryOperator;[Ljava/util/stream/Collector$Characteristics;)Ljava/util/stream/Collector;",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/util/stream/Collectors;",
+      "member": "collectingAndThen(Ljava/util/stream/Collector;Ljava/util/function/Function;)Ljava/util/stream/Collector;",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/util/stream/Collectors;",
+      "member": "toList()Ljava/util/stream/Collector;",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/util/stream/Collectors;",
+      "member": "toMap(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/BinaryOperator;Ljava/util/function/Supplier;)Ljava/util/stream/Collector;",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/util/stream/DoubleStream;",
+      "member": "iterator()Ljava/util/PrimitiveIterator$OfDouble;",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/util/stream/DoubleStream;",
+      "member": "toArray()[D",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/util/stream/IntStream;",
+      "member": "iterator()Ljava/util/PrimitiveIterator$OfInt;",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/util/stream/IntStream;",
+      "member": "toArray()[I",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/util/stream/LongStream;",
+      "member": "iterator()Ljava/util/PrimitiveIterator$OfLong;",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/util/stream/LongStream;",
+      "member": "toArray()[J",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/util/stream/Stream;",
+      "member": "collect(Ljava/util/stream/Collector;)Ljava/lang/Object;",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/util/stream/Stream;",
+      "member": "forEachOrdered(Ljava/util/function/Consumer;)V",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/util/stream/Stream;",
+      "member": "iterator()Ljava/util/Iterator;",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/util/stream/Stream;",
+      "member": "peek(Ljava/util/function/Consumer;)Ljava/util/stream/Stream;",
+      "since": 24
+    },
+    {
+      "kind": "method",
+      "owner": "Ljava/util/stream/StreamSupport;",
+      "member": "stream(Ljava/util/function/Supplier;IZ)Ljava/util/stream/Stream;",
+      "since": 24
+    },
+    {
+      "kind": "field",
+      "owner": "Landroid/media/DrmInitData$SchemeInitData;",
+      "member": "data",
+      "since": 24
+    },
+    {
+      "kind": "field",
+      "owner": "Landroid/media/DrmInitData$SchemeInitData;",
+      "member": "mimeType",
+      "since": 24
+    },
+    {
+      "kind": "field",
+      "owner": "Landroid/media/DrmInitData$SchemeInitData;",
+      "member": "uuid",
+      "since": 30
+    },
+    {
+      "kind": "field",
+      "owner": "Landroid/media/MediaParser$SeekPoint;",
+      "member": "START",
+      "since": 30
+    },
+    {
+      "kind": "field",
+      "owner": "Landroid/media/MediaParser$SeekPoint;",
+      "member": "position",
+      "since": 30
+    },
+    {
+      "kind": "field",
+      "owner": "Landroid/media/MediaParser$SeekPoint;",
+      "member": "timeMicros",
+      "since": 30
+    },
+    {
+      "kind": "field",
+      "owner": "Landroid/media/MediaParser$TrackData;",
+      "member": "drmInitData",
+      "since": 30
+    },
+    {
+      "kind": "field",
+      "owner": "Landroid/media/MediaParser$TrackData;",
+      "member": "mediaFormat",
+      "since": 30
+    },
+    {
+      "kind": "field",
+      "owner": "Landroid/media/metrics/LogSessionId;",
+      "member": "LOG_SESSION_ID_NONE",
+      "since": 31
+    },
+    {
+      "kind": "field",
+      "owner": "Ljava/lang/annotation/ElementType;",
+      "member": "TYPE_USE",
+      "since": 26
+    },
+    {
+      "kind": "field",
+      "owner": "Ljava/nio/file/FileVisitOption;",
+      "member": "FOLLOW_LINKS",
+      "since": 26
+    },
+    {
+      "kind": "field",
+      "owner": "Ljava/nio/file/FileVisitResult;",
+      "member": "CONTINUE",
+      "since": 26
+    },
+    {
+      "kind": "field",
+      "owner": "Ljava/nio/file/FileVisitResult;",
+      "member": "SKIP_SUBTREE",
+      "since": 26
+    },
+    {
+      "kind": "field",
+      "owner": "Ljava/nio/file/FileVisitResult;",
+      "member": "TERMINATE",
+      "since": 26
+    },
+    {
+      "kind": "field",
+      "owner": "Ljava/nio/file/LinkOption;",
+      "member": "NOFOLLOW_LINKS",
+      "since": 26
+    },
+    {
+      "kind": "field",
+      "owner": "Ljava/nio/file/StandardCopyOption;",
+      "member": "REPLACE_EXISTING",
+      "since": 26
+    },
+    {
+      "kind": "field",
+      "owner": "Ljava/nio/file/StandardOpenOption;",
+      "member": "APPEND",
+      "since": 26
+    },
+    {
+      "kind": "field",
+      "owner": "Ljava/nio/file/attribute/AclEntryFlag;",
+      "member": "DIRECTORY_INHERIT",
+      "since": 26
+    },
+    {
+      "kind": "field",
+      "owner": "Ljava/nio/file/attribute/AclEntryFlag;",
+      "member": "FILE_INHERIT",
+      "since": 26
+    },
+    {
+      "kind": "field",
+      "owner": "Ljava/nio/file/attribute/AclEntryType;",
+      "member": "ALLOW",
+      "since": 26
+    },
+    {
+      "kind": "field",
+      "owner": "Ljava/util/Locale$Category;",
+      "member": "DISPLAY",
+      "since": 24
+    },
+    {
+      "kind": "field",
+      "owner": "Ljava/util/stream/Collector$Characteristics;",
+      "member": "UNORDERED",
+      "since": 24
+    }
+  ],
+  "passed": false,
+  "scope": "DEX class/method/field references, including inherited platform members; SDK_INT guards require manual review",
+  "method_reference_count": 52876,
+  "field_reference_count": 19569
+}

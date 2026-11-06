@@ -4,8 +4,8 @@
     <item>
         <shape android:shape="rectangle">
             <corners android:radius="@dimen/dp_8" />
-            <solid android:color="#00000000" />
+            <solid android:color="@color/tp_pressed" />
         </shape>
     </item>
-    <item android:gravity="center" android:height="@dimen/dp_50" android:width="@dimen/dp_50" android:drawable="@drawable/place_img1" />
+    <item android:gravity="center" android:height="@dimen/dp_50" android:width="@dimen/dp_50" android:drawable="@drawable/tp_mark" />
 </layer-list>

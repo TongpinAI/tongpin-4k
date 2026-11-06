@@ -1,0 +1,7 @@
+version: 3.0.3
+apkFileName: poster-proof.apk
+usesFramework:
+  ids:
+  - 1
+sdkInfo:
+  minSdkVersion: 24

@@ -1,0 +1,1014 @@
+{
+  "passed": true,
+  "date": "2026-11-06",
+  "source_image_sha256": "fd65ffe9fa015ed2de8c472f5ba5b45eea268c28f86f283e02f11f89834de881",
+  "table_rows": 47,
+  "url_rows": 46,
+  "unique_urls": 42,
+  "source_origin": "用户提供的 URL 表格截图；只把正文网址视作审查数据，忽略页脚操作文字和广告。",
+  "probe_contract": {
+    "http_only": true,
+    "public_dns_and_redirect_destinations_checked": true,
+    "timeout_seconds": 15,
+    "max_body_bytes": 2097152,
+    "max_redirects": 5,
+    "remote_code_executed": false,
+    "auth_or_paywall_bypass": false
+  },
+  "classification_counts": {
+    "unreachable": 11,
+    "tvbox-sites-config": 20,
+    "binary-image": 1,
+    "html-page": 7,
+    "tvbox-sites-config-malformed": 1,
+    "text-config-address-list": 2
+  },
+  "type0_type1_raw_candidates": 78,
+  "canonical_candidate_urls": 69,
+  "home_probes": 61,
+  "compatible_json_homes": 26,
+  "detailed_probes": 26,
+  "new_providers": [
+    {
+      "provider_id": "huya",
+      "api": "https://www.huyaapi.com/api.php/provide/vod/from/hym3u8",
+      "table_rows": [
+        20,
+        26,
+        36
+      ],
+      "home_http_status": 200,
+      "home_response_sha256": "089335a565695e517a81bfdb7f350426718e4836b6599df953d17c5acdbe7d61",
+      "reported_total": 116533,
+      "declared_categories": 44,
+      "genre_test": {
+        "selected": {
+          "id": "1",
+          "parent_id": "0",
+          "name": "电视剧"
+        },
+        "returned_type_ids": [
+          "1"
+        ],
+        "all_in_selected_declared_tree": true,
+        "http_status": 200
+      },
+      "search_sample": {
+        "title": "仙逆",
+        "id": "44923",
+        "type_id": "24",
+        "type_name": "中国动漫"
+      },
+      "detail_response_sha256": "a9190075c6da4c337fcbb03c3ba2278d3e816e0876a5a67cc4547df009b98637",
+      "lines": [
+        {
+          "name": "hym3u8",
+          "direct_episode_count": 165,
+          "first_label": "第01集",
+          "last_label": "第165集"
+        }
+      ],
+      "actual_pre136_parser_passed": true,
+      "playlist": {
+        "http_status": 200,
+        "hls_content": true,
+        "body_sha256": "897a6c6836d2a2ab94152670ed992b6e29e807ea0a3d65301f8e340c672ecdc6",
+        "declared_resolutions": []
+      },
+      "quality": "此样本播放列表未声明分辨率，未验证解码 4K。",
+      "official_service_affiliation": false
+    },
+    {
+      "provider_id": "bfzy",
+      "api": "https://bfzyapi.com/api.php/provide/vod",
+      "table_rows": [
+        21,
+        32,
+        33
+      ],
+      "home_http_status": 200,
+      "home_response_sha256": "7b0b5eda3e3aa727f5c49076251b24b1ee9fc20494c30f586eac0cd3ff8d465e",
+      "reported_total": 170948,
+      "declared_categories": 49,
+      "genre_test": {
+        "selected": {
+          "id": "40",
+          "parent_id": "39",
+          "name": "国产动漫"
+        },
+        "returned_type_ids": [
+          "40"
+        ],
+        "all_in_selected_declared_tree": true,
+        "http_status": 200
+      },
+      "search_sample": {
+        "title": "仙逆",
+        "id": "83604",
+        "type_id": "40",
+        "type_name": "国产动漫"
+      },
+      "detail_response_sha256": "ec460b70c2f5f37b2f4d865794bc79e3e1ee6155ef76f0441a252069df5e6f04",
+      "lines": [
+        {
+          "name": "bfzym3u8",
+          "direct_episode_count": 165,
+          "first_label": "第01集",
+          "last_label": "第165集"
+        }
+      ],
+      "actual_pre136_parser_passed": true,
+      "playlist": {
+        "http_status": 200,
+        "hls_content": true,
+        "body_sha256": "e5156587df19eba1ddf51858f6153765ca23882a7f75e1bae242e70172b9151c",
+        "declared_resolutions": []
+      },
+      "quality": "此样本播放列表未声明分辨率，未验证解码 4K。",
+      "official_service_affiliation": false
+    },
+    {
+      "provider_id": "qiyi",
+      "api": "https://www.iqiyizyapi.com/api.php/provide/vod",
+      "table_rows": [
+        32
+      ],
+      "home_http_status": 200,
+      "home_response_sha256": "298f0dfa2ef4cdae7be6e99f1432bb876a0b0dd40ec337b5b4db4af5f48eeb0c",
+      "reported_total": 70423,
+      "declared_categories": 43,
+      "genre_test": {
+        "selected": {
+          "id": "1",
+          "parent_id": "40",
+          "name": "国产动漫"
+        },
+        "returned_type_ids": [
+          "1"
+        ],
+        "all_in_selected_declared_tree": true,
+        "http_status": 200
+      },
+      "search_sample": {
+        "title": "仙逆",
+        "id": "7645",
+        "type_id": "1",
+        "type_name": "国产动漫"
+      },
+      "detail_response_sha256": "3591f3ddf8f9118628a4165de1ad30cbe52eddc3335c0dd2c8120435719e7b6f",
+      "lines": [
+        {
+          "name": "iqym3u8",
+          "direct_episode_count": 165,
+          "first_label": "第01集",
+          "last_label": "第165集"
+        }
+      ],
+      "actual_pre136_parser_passed": true,
+      "playlist": {
+        "http_status": 200,
+        "hls_content": true,
+        "body_sha256": "059c7a27b55e20281b2b14c956d2e03079c8a87d4f05f02d960a5d0027dd1b5b",
+        "declared_resolutions": []
+      },
+      "quality": "此样本播放列表未声明分辨率，未验证解码 4K。",
+      "official_service_affiliation": false
+    }
+  ],
+  "other_detailed_results": [
+    {
+      "api": "https://suoniapi.com/api.php/provide/vod",
+      "home_maccms_json": true,
+      "detail_or_playlist_accepted": false,
+      "reason": "no exact target search result"
+    },
+    {
+      "api": "http://ffzy1.tv/api.php/provide/vod",
+      "home_maccms_json": true,
+      "detail_or_playlist_accepted": false,
+      "reason": "playlist or exact genre filtering not proven"
+    },
+    {
+      "api": "https://hhzyapi.com/api.php/provide/vod",
+      "home_maccms_json": true,
+      "detail_or_playlist_accepted": false,
+      "reason": "playlist or exact genre filtering not proven"
+    },
+    {
+      "api": "https://lzizy1.com/api.php/provide/vod",
+      "home_maccms_json": true,
+      "detail_or_playlist_accepted": false,
+      "reason": "playlist or exact genre filtering not proven"
+    },
+    {
+      "api": "https://app.bfzyapi.com/api.php/provide/vod",
+      "home_maccms_json": true,
+      "detail_or_playlist_accepted": true,
+      "reason": "与已选 bfzyapi.com 的详情响应字节 SHA256、影片 ID、集列表及媒体样本相同，仅保留一个。"
+    },
+    {
+      "api": "https://api.apibdzy.com/api.php/provide/vod",
+      "home_maccms_json": true,
+      "detail_or_playlist_accepted": false,
+      "reason": "playlist or exact genre filtering not proven"
+    },
+    {
+      "api": "https://cj.lziapi.com/api.php/provide/vod",
+      "home_maccms_json": true,
+      "detail_or_playlist_accepted": false,
+      "reason": "playlist or exact genre filtering not proven"
+    },
+    {
+      "api": "http://ffzy5.tv/api.php/provide/vod",
+      "home_maccms_json": true,
+      "detail_or_playlist_accepted": false,
+      "reason": "playlist or exact genre filtering not proven"
+    },
+    {
+      "api": "https://api.niuniuzy.me/api.php/provide/vod",
+      "home_maccms_json": true,
+      "detail_or_playlist_accepted": false,
+      "reason": "no exact target search result"
+    },
+    {
+      "api": "https://jszyapi.com/api.php/provide/vod",
+      "home_maccms_json": true,
+      "detail_or_playlist_accepted": false,
+      "reason": "playlist or exact genre filtering not proven"
+    },
+    {
+      "api": "http://tyyszy.com/api.php/provide/vod",
+      "home_maccms_json": true,
+      "detail_or_playlist_accepted": false,
+      "reason": "no exact target search result"
+    },
+    {
+      "api": "https://caiji.kuaichezy.org/api.php/provide/vod",
+      "home_maccms_json": true,
+      "detail_or_playlist_accepted": false,
+      "reason": "no exact target search result"
+    },
+    {
+      "api": "https://sdzyapi.com/api.php/provide/vod",
+      "home_maccms_json": true,
+      "detail_or_playlist_accepted": false,
+      "reason": "no exact target search result"
+    },
+    {
+      "api": "https://yayazy2.com/api.php/provide/vod",
+      "home_maccms_json": true,
+      "detail_or_playlist_accepted": false,
+      "reason": "no exact target search result"
+    },
+    {
+      "api": "https://tyyszyapi.com/api.php/provide/vod",
+      "home_maccms_json": true,
+      "detail_or_playlist_accepted": false,
+      "reason": "no exact target search result"
+    },
+    {
+      "api": "http://154.219.117.232:9981/jacloudapi.php/provide/vod",
+      "home_maccms_json": true,
+      "detail_or_playlist_accepted": false,
+      "reason": "no exact target search result"
+    },
+    {
+      "api": "https://suoniapi.com/api.php/provide/vod/from/snm3u8",
+      "home_maccms_json": true,
+      "detail_or_playlist_accepted": false,
+      "reason": "no exact target search result"
+    },
+    {
+      "api": "http://cj.ffzyapi.com/api.php/provide/vod",
+      "home_maccms_json": true,
+      "detail_or_playlist_accepted": false,
+      "reason": "playlist or exact genre filtering not proven"
+    },
+    {
+      "api": "https://caiji.moduapi.cc/api.php/provide/vod",
+      "home_maccms_json": true,
+      "detail_or_playlist_accepted": true,
+      "reason": "魔都系接口本次可读；已有魔都 provider，独立片库差异未证明，本轮不新增计数。"
+    },
+    {
+      "api": "http://cj.lziapi.com/api.php/provide/vod",
+      "home_maccms_json": true,
+      "detail_or_playlist_accepted": false,
+      "reason": "playlist or exact genre filtering not proven"
+    },
+    {
+      "api": "http://ffzy.tv/api.php/provide/vod",
+      "home_maccms_json": true,
+      "detail_or_playlist_accepted": false,
+      "reason": "playlist or exact genre filtering not proven"
+    },
+    {
+      "api": "http://caiji.dyttzyapi.com/api.php/provide/vod",
+      "home_maccms_json": true,
+      "detail_or_playlist_accepted": false,
+      "reason": "playlist or exact genre filtering not proven"
+    },
+    {
+      "api": "https://api.1080zyku.com/inc/apijson.php",
+      "home_maccms_json": true,
+      "detail_or_playlist_accepted": false,
+      "reason": "playlist or exact genre filtering not proven"
+    }
+  ],
+  "table": [
+    {
+      "rows": [
+        1
+      ],
+      "name": "欧歌接口",
+      "url": "https://xn--sdds-rp5imh.v.nxog.top/apitv.php?id=3",
+      "http_status": null,
+      "error": "URLError",
+      "classification": "unreachable",
+      "reason": "本次公开 HTTP 探测未成功；可能超时、DNS、TLS 或 HTTP 错误，未加入。",
+      "config_site_count": null,
+      "config_site_type_counts": null,
+      "direct_type0_type1_candidates": 0,
+      "body_sha256": null
+    },
+    {
+      "rows": [
+        2
+      ],
+      "name": "小盒子4K",
+      "url": "http://xhztv.top/4k.json",
+      "http_status": 200,
+      "error": null,
+      "classification": "tvbox-sites-config",
+      "reason": "TVBox 站点配置，不是影片 API；仅被动提取 type0/1 HTTP 接口，其余 Spider/JAR/JS 未执行。",
+      "config_site_count": 53,
+      "config_site_type_counts": {
+        "3": 44,
+        "1": 9
+      },
+      "direct_type0_type1_candidates": 9,
+      "body_sha256": "ff00f27c05a041f2283871c10c1261e7da1291363cdfadc124ba466de40b6814"
+    },
+    {
+      "rows": [
+        3
+      ],
+      "name": "王二小",
+      "url": "https://9280.kstore.vip/newwex.json",
+      "http_status": 200,
+      "error": null,
+      "classification": "tvbox-sites-config",
+      "reason": "TVBox 站点配置，不是影片 API；仅被动提取 type0/1 HTTP 接口，其余 Spider/JAR/JS 未执行。",
+      "config_site_count": 98,
+      "config_site_type_counts": {
+        "3": 98
+      },
+      "direct_type0_type1_candidates": 0,
+      "body_sha256": "390d40beeee4d6dd462faacd04e32a64eeb36996a80fab5f673c438336ee1c65"
+    },
+    {
+      "rows": [
+        4
+      ],
+      "name": "少儿频道",
+      "url": "https://jihulab.com/ymz1231/xymz/-/raw/main/ymshaoer",
+      "http_status": 200,
+      "error": null,
+      "classification": "binary-image",
+      "reason": "实际返回 PNG 图像；不解密、不执行隐藏配置或代码。",
+      "config_site_count": null,
+      "config_site_type_counts": null,
+      "direct_type0_type1_candidates": 0,
+      "body_sha256": "5b3036addf7ece6f78d7f5ba4aeacc464e19da55756e644c266951c9a1f915e6"
+    },
+    {
+      "rows": [
+        5
+      ],
+      "name": "二月红接口",
+      "url": "https://700sjro44343.vicp.fun/eggp/0211/tv.json",
+      "http_status": 200,
+      "error": null,
+      "classification": "tvbox-sites-config",
+      "reason": "TVBox 站点配置，不是影片 API；仅被动提取 type0/1 HTTP 接口，其余 Spider/JAR/JS 未执行。",
+      "config_site_count": 28,
+      "config_site_type_counts": {
+        "3": 27,
+        "1": 1
+      },
+      "direct_type0_type1_candidates": 1,
+      "body_sha256": "6c2f2b538076c4be609c08f00d470caf896031b536e596f07b336585f4e135f1"
+    },
+    {
+      "rows": [
+        6,
+        15
+      ],
+      "name": "影视仓",
+      "url": "http://xn--5mqx81b535a.com/",
+      "http_status": 200,
+      "error": null,
+      "classification": "html-page",
+      "reason": "实际返回 HTML 网页，不能直接作为 MacCMS 影片接口。",
+      "config_site_count": null,
+      "config_site_type_counts": null,
+      "direct_type0_type1_candidates": 0,
+      "body_sha256": "5ce979c1db2934d55ee978a8674bc8b0fd3907edad88d6b3126f6a8a9f5299b5"
+    },
+    {
+      "rows": [
+        7
+      ],
+      "name": "俊哥接口",
+      "url": "http://home.jundie.top:81/top98.json",
+      "http_status": 200,
+      "error": null,
+      "classification": "tvbox-sites-config",
+      "reason": "TVBox 站点配置，不是影片 API；仅被动提取 type0/1 HTTP 接口，其余 Spider/JAR/JS 未执行。",
+      "config_site_count": 24,
+      "config_site_type_counts": {
+        "3": 24
+      },
+      "direct_type0_type1_candidates": 0,
+      "body_sha256": "9e3411a57300a0f80f3c248c48b6e8f0ae8bbaa42c9288908068fe34eb9fa489"
+    },
+    {
+      "rows": [
+        8
+      ],
+      "name": "欧歌免费",
+      "url": "https://tv.nxog.top/m/111.php?ou=%E5%85%AC%E4%BC%97%E5%8F%B7%E6%AC%A7%E6%AD%8Capp&mz=index&jar=index&123&b=tv",
+      "http_status": 200,
+      "error": null,
+      "classification": "tvbox-sites-config-malformed",
+      "reason": "返回内容包含站点配置结构但解析失败，未当作可用影片 API。",
+      "config_site_count": null,
+      "config_site_type_counts": null,
+      "direct_type0_type1_candidates": 0,
+      "body_sha256": "dcf9e12f60f4fa83c94873079a6fde8bcba052a68fc7746179d301dc89d70c41"
+    },
+    {
+      "rows": [
+        9
+      ],
+      "name": "王二小接口",
+      "url": "http://tvbox.xn--4kq62z5rby2qupq9ub.top/",
+      "http_status": 200,
+      "error": null,
+      "classification": "text-config-address-list",
+      "reason": "普通文本配置地址列表，属于配置入口，不是直接影片 API。",
+      "config_site_count": null,
+      "config_site_type_counts": null,
+      "direct_type0_type1_candidates": 0,
+      "body_sha256": "5b4a0427d3fd926dd21a0d3e1440687c8b8d7c479c3c4c6c17585db84eca5b65"
+    },
+    {
+      "rows": [
+        10
+      ],
+      "name": "王二小放牛娃",
+      "url": "http://tv.999888987.xyz/",
+      "http_status": 200,
+      "error": null,
+      "classification": "text-config-address-list",
+      "reason": "普通文本配置地址列表，属于配置入口，不是直接影片 API。",
+      "config_site_count": null,
+      "config_site_type_counts": null,
+      "direct_type0_type1_candidates": 0,
+      "body_sha256": "5b4a0427d3fd926dd21a0d3e1440687c8b8d7c479c3c4c6c17585db84eca5b65"
+    },
+    {
+      "rows": [
+        11
+      ],
+      "name": "饭太硬",
+      "url": "https://qist.wyfc.qzz.io/fty.json",
+      "http_status": 200,
+      "error": null,
+      "classification": "tvbox-sites-config",
+      "reason": "TVBox 站点配置，不是影片 API；仅被动提取 type0/1 HTTP 接口，其余 Spider/JAR/JS 未执行。",
+      "config_site_count": 48,
+      "config_site_type_counts": {
+        "3": 48
+      },
+      "direct_type0_type1_candidates": 0,
+      "body_sha256": "83c3e570849c1debdd8e7f4e9d0c177a7997cd37b5438c2dffb866a433d188ea"
+    },
+    {
+      "rows": [
+        12,
+        27
+      ],
+      "name": "宝盒接口",
+      "url": "http://xn--6orr3pi6g9uu.top/",
+      "http_status": 200,
+      "error": "TimeoutError",
+      "classification": "unreachable",
+      "reason": "本次公开 HTTP 探测未成功；可能超时、DNS、TLS 或 HTTP 错误，未加入。",
+      "config_site_count": null,
+      "config_site_type_counts": null,
+      "direct_type0_type1_candidates": 0,
+      "body_sha256": null
+    },
+    {
+      "rows": [
+        13
+      ],
+      "name": "潇洒",
+      "url": "https://qist.wyfc.qzz.io/xiaosa/api.json",
+      "http_status": 200,
+      "error": null,
+      "classification": "tvbox-sites-config",
+      "reason": "TVBox 站点配置，不是影片 API；仅被动提取 type0/1 HTTP 接口，其余 Spider/JAR/JS 未执行。",
+      "config_site_count": 111,
+      "config_site_type_counts": {
+        "3": 111
+      },
+      "direct_type0_type1_candidates": 0,
+      "body_sha256": "ebdf1c456dce37b20506c213eb2e2269d2bbaa06f47896a5c614dbad20139810"
+    },
+    {
+      "rows": [
+        14
+      ],
+      "name": "牛二",
+      "url": "https://9280.kstore.space/newwex.json",
+      "http_status": 200,
+      "error": null,
+      "classification": "tvbox-sites-config",
+      "reason": "TVBox 站点配置，不是影片 API；仅被动提取 type0/1 HTTP 接口，其余 Spider/JAR/JS 未执行。",
+      "config_site_count": 98,
+      "config_site_type_counts": {
+        "3": 98
+      },
+      "direct_type0_type1_candidates": 0,
+      "body_sha256": "390d40beeee4d6dd462faacd04e32a64eeb36996a80fab5f673c438336ee1c65"
+    },
+    {
+      "rows": [
+        16
+      ],
+      "name": "fmys",
+      "url": "http://fmys.top/fmys.json",
+      "http_status": 404,
+      "error": "HTTPError",
+      "classification": "unreachable",
+      "reason": "本次公开 HTTP 探测未成功；可能超时、DNS、TLS 或 HTTP 错误，未加入。",
+      "config_site_count": null,
+      "config_site_type_counts": null,
+      "direct_type0_type1_candidates": 0,
+      "body_sha256": null
+    },
+    {
+      "rows": [
+        18
+      ],
+      "name": "饭太硬",
+      "url": "http://fty.888484.xyz/tv",
+      "http_status": 200,
+      "error": "TimeoutError",
+      "classification": "unreachable",
+      "reason": "本次公开 HTTP 探测未成功；可能超时、DNS、TLS 或 HTTP 错误，未加入。",
+      "config_site_count": null,
+      "config_site_type_counts": null,
+      "direct_type0_type1_candidates": 0,
+      "body_sha256": null
+    },
+    {
+      "rows": [
+        19
+      ],
+      "name": "新接口",
+      "url": "https://www.iyouhun.com/tv/wex",
+      "http_status": 200,
+      "error": null,
+      "classification": "html-page",
+      "reason": "实际返回 HTML 网页，不能直接作为 MacCMS 影片接口。",
+      "config_site_count": null,
+      "config_site_type_counts": null,
+      "direct_type0_type1_candidates": 0,
+      "body_sha256": "fd9df68f10c92efc421b366a9385a4ed699d2827b81c6804fb1a772036a037e9"
+    },
+    {
+      "rows": [
+        20
+      ],
+      "name": "ok",
+      "url": "https://raw.liucn.cc/box/m.json",
+      "http_status": 200,
+      "error": null,
+      "classification": "tvbox-sites-config",
+      "reason": "TVBox 站点配置，不是影片 API；仅被动提取 type0/1 HTTP 接口，其余 Spider/JAR/JS 未执行。",
+      "config_site_count": 234,
+      "config_site_type_counts": {
+        "3": 219,
+        "1": 15
+      },
+      "direct_type0_type1_candidates": 15,
+      "body_sha256": "784d1e374385be38784ad9c65d3d2194df243323090babee0ae638258862a259"
+    },
+    {
+      "rows": [
+        21
+      ],
+      "name": "荐片",
+      "url": "https://tv.203511.xyz/0821.json",
+      "http_status": 200,
+      "error": null,
+      "classification": "tvbox-sites-config",
+      "reason": "TVBox 站点配置，不是影片 API；仅被动提取 type0/1 HTTP 接口，其余 Spider/JAR/JS 未执行。",
+      "config_site_count": 28,
+      "config_site_type_counts": {
+        "3": 23,
+        "0": 2,
+        "1": 3
+      },
+      "direct_type0_type1_candidates": 5,
+      "body_sha256": "41fb58ae613707c04b7312272e442829d53cc17f42d4b991c5c124693828eb81"
+    },
+    {
+      "rows": [
+        22
+      ],
+      "name": "1",
+      "url": "https://700sjro44343.vicp.fun/vip/vip/tv.json",
+      "http_status": 200,
+      "error": null,
+      "classification": "tvbox-sites-config",
+      "reason": "TVBox 站点配置，不是影片 API；仅被动提取 type0/1 HTTP 接口，其余 Spider/JAR/JS 未执行。",
+      "config_site_count": 28,
+      "config_site_type_counts": {
+        "3": 27,
+        "1": 1
+      },
+      "direct_type0_type1_candidates": 1,
+      "body_sha256": "60c421bd8dfa96fb8c52befbf9e794b439a736df10d64ccaf8221082c7da1254"
+    },
+    {
+      "rows": [
+        23
+      ],
+      "name": "cs",
+      "url": "http://tv.nxog.top/m/",
+      "http_status": 403,
+      "error": "HTTPError",
+      "classification": "unreachable",
+      "reason": "本次公开 HTTP 探测未成功；可能超时、DNS、TLS 或 HTTP 错误，未加入。",
+      "config_site_count": null,
+      "config_site_type_counts": null,
+      "direct_type0_type1_candidates": 0,
+      "body_sha256": null
+    },
+    {
+      "rows": [
+        24
+      ],
+      "name": "软件",
+      "url": "http://47.96.82.41:5188/api.json",
+      "http_status": 200,
+      "error": null,
+      "classification": "tvbox-sites-config",
+      "reason": "TVBox 站点配置，不是影片 API；仅被动提取 type0/1 HTTP 接口，其余 Spider/JAR/JS 未执行。",
+      "config_site_count": 90,
+      "config_site_type_counts": {
+        "3": 90
+      },
+      "direct_type0_type1_candidates": 0,
+      "body_sha256": "5ca4e5c74d8e0161dcce5a91c63432ee1a085c8d5bde327400d66a6cdf4b362d"
+    },
+    {
+      "rows": [
+        25,
+        40
+      ],
+      "name": "ok",
+      "url": "https://gist.githubusercontent.com/ph7368/20ee6c7b64d77d82f8f4162cdd04ad61/raw/gistfile1.txt",
+      "http_status": 200,
+      "error": null,
+      "classification": "tvbox-sites-config",
+      "reason": "TVBox 站点配置，不是影片 API；仅被动提取 type0/1 HTTP 接口，其余 Spider/JAR/JS 未执行。",
+      "config_site_count": 1,
+      "config_site_type_counts": {
+        "3": 1
+      },
+      "direct_type0_type1_candidates": 0,
+      "body_sha256": "c8c29d042cc20719bb697b7922d814a2041688c4f9e59272c11d8837502acfd1"
+    },
+    {
+      "rows": [
+        26
+      ],
+      "name": "11",
+      "url": "https://cdn.jsdelivr.net/gh/liu673cn/box@main/m.json",
+      "http_status": 200,
+      "error": null,
+      "classification": "tvbox-sites-config",
+      "reason": "TVBox 站点配置，不是影片 API；仅被动提取 type0/1 HTTP 接口，其余 Spider/JAR/JS 未执行。",
+      "config_site_count": 234,
+      "config_site_type_counts": {
+        "3": 219,
+        "1": 15
+      },
+      "direct_type0_type1_candidates": 15,
+      "body_sha256": "784d1e374385be38784ad9c65d3d2194df243323090babee0ae638258862a259"
+    },
+    {
+      "rows": [
+        28
+      ],
+      "name": "摸鱼儿",
+      "url": "https://6800.kstore.vip/fish.json",
+      "http_status": 200,
+      "error": null,
+      "classification": "tvbox-sites-config",
+      "reason": "TVBox 站点配置，不是影片 API；仅被动提取 type0/1 HTTP 接口，其余 Spider/JAR/JS 未执行。",
+      "config_site_count": 104,
+      "config_site_type_counts": {
+        "3": 104
+      },
+      "direct_type0_type1_candidates": 0,
+      "body_sha256": "89a4742c85e3de71a5e07625b45ae271f844d461dd1dca973ef5ce3a694cf80e"
+    },
+    {
+      "rows": [
+        29
+      ],
+      "name": "https://700sjro44343.vicp.fun/eggp/0615/tv.php",
+      "url": "https://700sjro44343.vicp.fun/eggp/0615/tv.php",
+      "http_status": 200,
+      "error": null,
+      "classification": "html-page",
+      "reason": "实际返回 HTML 网页，不能直接作为 MacCMS 影片接口。",
+      "config_site_count": null,
+      "config_site_type_counts": null,
+      "direct_type0_type1_candidates": 0,
+      "body_sha256": "5ce979c1db2934d55ee978a8674bc8b0fd3907edad88d6b3126f6a8a9f5299b5"
+    },
+    {
+      "rows": [
+        30
+      ],
+      "name": "http://www.xn--sss604efuw.net/tv",
+      "url": "http://www.xn--sss604efuw.net/tv",
+      "http_status": 200,
+      "error": null,
+      "classification": "html-page",
+      "reason": "实际返回 HTML 网页，不能直接作为 MacCMS 影片接口。",
+      "config_site_count": null,
+      "config_site_type_counts": null,
+      "direct_type0_type1_candidates": 0,
+      "body_sha256": "27e762bc65958b2c7453caaf70975bcee4b4d77b11856ad05ae8993177c225fb"
+    },
+    {
+      "rows": [
+        31,
+        37
+      ],
+      "name": "牛儿",
+      "url": "https://9280.kstore.space/wex.json",
+      "http_status": 200,
+      "error": null,
+      "classification": "tvbox-sites-config",
+      "reason": "TVBox 站点配置，不是影片 API；仅被动提取 type0/1 HTTP 接口，其余 Spider/JAR/JS 未执行。",
+      "config_site_count": 63,
+      "config_site_type_counts": {
+        "3": 63
+      },
+      "direct_type0_type1_candidates": 0,
+      "body_sha256": "6aa59bf4a9799021a34df69e5bcb4c8a75a1f6920b323c4ee5681f5de2d21a20"
+    },
+    {
+      "rows": [
+        32
+      ],
+      "name": "拾光",
+      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/xmbjm/svip/refs/heads/main/svip.json",
+      "http_status": 200,
+      "error": null,
+      "classification": "tvbox-sites-config",
+      "reason": "TVBox 站点配置，不是影片 API；仅被动提取 type0/1 HTTP 接口，其余 Spider/JAR/JS 未执行。",
+      "config_site_count": 246,
+      "config_site_type_counts": {
+        "3": 213,
+        "1": 31,
+        "0": 2
+      },
+      "direct_type0_type1_candidates": 33,
+      "body_sha256": "8832da306e2e575eba1d536d530c7e7fdc1928fe674a25f5fccb593973f0fb2f"
+    },
+    {
+      "rows": [
+        33
+      ],
+      "name": "神秘大佬",
+      "url": "https://g.33445500.xyz/https://raw.githubusercontent.com/qist/tvbox/refs/heads/master/jsm.json",
+      "http_status": 200,
+      "error": null,
+      "classification": "tvbox-sites-config",
+      "reason": "TVBox 站点配置，不是影片 API；仅被动提取 type0/1 HTTP 接口，其余 Spider/JAR/JS 未执行。",
+      "config_site_count": 157,
+      "config_site_type_counts": {
+        "3": 142,
+        "1": 14,
+        "0": 1
+      },
+      "direct_type0_type1_candidates": 15,
+      "body_sha256": "dcb0e59a7d00af7e7b783fcb8667b154652677b7da21348defb6dc6baf5ba74c"
+    },
+    {
+      "rows": [
+        34
+      ],
+      "name": "潇洒",
+      "url": "https://g.33445500.xyz/https://raw.githubusercontent.com/qist/tvbox/refs/heads/master/xiaosa/api.json",
+      "http_status": 200,
+      "error": null,
+      "classification": "tvbox-sites-config",
+      "reason": "TVBox 站点配置，不是影片 API；仅被动提取 type0/1 HTTP 接口，其余 Spider/JAR/JS 未执行。",
+      "config_site_count": 111,
+      "config_site_type_counts": {
+        "3": 111
+      },
+      "direct_type0_type1_candidates": 0,
+      "body_sha256": "ebdf1c456dce37b20506c213eb2e2269d2bbaa06f47896a5c614dbad20139810"
+    },
+    {
+      "rows": [
+        35
+      ],
+      "name": "小苹果线路",
+      "url": "https://bitbucket.org/xduo/duoapi/raw/master/xpg.json",
+      "http_status": 404,
+      "error": "HTTPError",
+      "classification": "unreachable",
+      "reason": "本次公开 HTTP 探测未成功；可能超时、DNS、TLS 或 HTTP 错误，未加入。",
+      "config_site_count": null,
+      "config_site_type_counts": null,
+      "direct_type0_type1_candidates": 0,
+      "body_sha256": null
+    },
+    {
+      "rows": [
+        36
+      ],
+      "name": "金鹰",
+      "url": "http://550.3vcn.work/wdjyys.json",
+      "http_status": 200,
+      "error": null,
+      "classification": "tvbox-sites-config",
+      "reason": "TVBox 站点配置，不是影片 API；仅被动提取 type0/1 HTTP 接口，其余 Spider/JAR/JS 未执行。",
+      "config_site_count": 106,
+      "config_site_type_counts": {
+        "3": 87,
+        "4": 5,
+        "1": 14
+      },
+      "direct_type0_type1_candidates": 14,
+      "body_sha256": "b71483ed76034a215a1a7868c75c1b14c8ea38399f201d29424d05375914bc51"
+    },
+    {
+      "rows": [
+        38
+      ],
+      "name": "天天",
+      "url": "http://tv.nxog.top/",
+      "http_status": 200,
+      "error": null,
+      "classification": "html-page",
+      "reason": "实际返回 HTML 网页，不能直接作为 MacCMS 影片接口。",
+      "config_site_count": null,
+      "config_site_type_counts": null,
+      "direct_type0_type1_candidates": 0,
+      "body_sha256": "2769ba303ce2bc28f31ed9f625d3ee2b21a39a22b7376a8446eafaea114fa086"
+    },
+    {
+      "rows": [
+        39
+      ],
+      "name": "1",
+      "url": "https://gitee.com/th_114/tvbox/raw/master/tvbox.json",
+      "http_status": 403,
+      "error": "HTTPError",
+      "classification": "unreachable",
+      "reason": "本次公开 HTTP 探测未成功；可能超时、DNS、TLS 或 HTTP 错误，未加入。",
+      "config_site_count": null,
+      "config_site_type_counts": null,
+      "direct_type0_type1_candidates": 0,
+      "body_sha256": null
+    },
+    {
+      "rows": [
+        41
+      ],
+      "name": "欧歌备用接口",
+      "url": "https://xn--sdds-rp5imh.v.nxog.top/?mm=25f&ou=%E8%A3%85%F0%9F%85%B1",
+      "http_status": null,
+      "error": "URLError",
+      "classification": "unreachable",
+      "reason": "本次公开 HTTP 探测未成功；可能超时、DNS、TLS 或 HTTP 错误，未加入。",
+      "config_site_count": null,
+      "config_site_type_counts": null,
+      "direct_type0_type1_candidates": 0,
+      "body_sha256": null
+    },
+    {
+      "rows": [
+        42
+      ],
+      "name": "无意云",
+      "url": "https://ym.wya6.cn/",
+      "http_status": null,
+      "error": "gaierror",
+      "classification": "unreachable",
+      "reason": "本次公开 HTTP 探测未成功；可能超时、DNS、TLS 或 HTTP 错误，未加入。",
+      "config_site_count": null,
+      "config_site_type_counts": null,
+      "direct_type0_type1_candidates": 0,
+      "body_sha256": null
+    },
+    {
+      "rows": [
+        43
+      ],
+      "name": "11",
+      "url": "https://xn--3003-mb1gy821b.v.nxog.top/apib?id=1",
+      "http_status": null,
+      "error": "URLError",
+      "classification": "unreachable",
+      "reason": "本次公开 HTTP 探测未成功；可能超时、DNS、TLS 或 HTTP 错误，未加入。",
+      "config_site_count": null,
+      "config_site_type_counts": null,
+      "direct_type0_type1_candidates": 0,
+      "body_sha256": null
+    },
+    {
+      "rows": [
+        44
+      ],
+      "name": "tvbox",
+      "url": "https://tv.nxog.top/apitv.php?id=2",
+      "http_status": 404,
+      "error": "HTTPError",
+      "classification": "unreachable",
+      "reason": "本次公开 HTTP 探测未成功；可能超时、DNS、TLS 或 HTTP 错误，未加入。",
+      "config_site_count": null,
+      "config_site_type_counts": null,
+      "direct_type0_type1_candidates": 0,
+      "body_sha256": null
+    },
+    {
+      "rows": [
+        45
+      ],
+      "name": "wwtest",
+      "url": "https://jinenge.us.kg/app/tvbox/tvbox.json",
+      "http_status": 200,
+      "error": null,
+      "classification": "tvbox-sites-config",
+      "reason": "TVBox 站点配置，不是影片 API；仅被动提取 type0/1 HTTP 接口，其余 Spider/JAR/JS 未执行。",
+      "config_site_count": 42,
+      "config_site_type_counts": {
+        "3": 42
+      },
+      "direct_type0_type1_candidates": 0,
+      "body_sha256": "fb84d7efebb614c766b8a971c2c268802137c4002dde2fdb8ea91443a8e30957"
+    },
+    {
+      "rows": [
+        46
+      ],
+      "name": "影视仓",
+      "url": "https://700sjro44343.vicp.fun/240731/one/",
+      "http_status": 200,
+      "error": null,
+      "classification": "html-page",
+      "reason": "实际返回 HTML 网页，不能直接作为 MacCMS 影片接口。",
+      "config_site_count": null,
+      "config_site_type_counts": null,
+      "direct_type0_type1_candidates": 0,
+      "body_sha256": "5ce979c1db2934d55ee978a8674bc8b0fd3907edad88d6b3126f6a8a9f5299b5"
+    },
+    {
+      "rows": [
+        47
+      ],
+      "name": "接口",
+      "url": "http://boluo.live/",
+      "http_status": 200,
+      "error": null,
+      "classification": "html-page",
+      "reason": "实际返回 HTML 网页，不能直接作为 MacCMS 影片接口。",
+      "config_site_count": null,
+      "config_site_type_counts": null,
+      "direct_type0_type1_candidates": 0,
+      "body_sha256": "6dc9c7fc93bb488bb0520a6c780a8d3c0fb5486a4711aca49b4c53fac7393023"
+    }
+  ],
+  "scope_limits": [
+    "公开 HTTP 元数据和 HLS 播放列表可达，不等于手机或电视持续播放测试。",
+    "未验证新源全部为 4K、没有水印、片库完整、最新剧集最快。",
+    "同主机可有不同片库，仅同站名或相同主机不足以证明重复；暴风两个域名使用实际等价响应去重。",
+    "不运行远程 Spider、JAR、JS、PHP，也不把 HTML 网页或 TVBox 配置地址直接加入影片 API。",
+    "如意本次分类请求403，保留原有接入；红牛分类缺少 pid，界面按真实平类展示。"
+  ]
+}

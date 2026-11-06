@@ -23,7 +23,9 @@ def sha(data): return hashlib.sha256(data).hexdigest()
 def methods(data):
     return {m[0].splitlines()[0].rsplit(b" ",1)[1].decode():m[0] for m in METHOD.finditer(data)}
 
-def verify():
+def verify(live_overrides=None, excluded_sources=()):
+    def live(relative):
+        return Path((live_overrides or {}).get(relative, ROOT / relative))
     freeze = json.loads((VERIFY / "frozen-inputs.json").read_text(encoding="utf-8"))
     assert freeze["source_ready"] is True
     for relative,digest in freeze["review_reports"].items():
@@ -34,7 +36,7 @@ def verify():
     reviewed = json.loads(raw)
     assert sha(raw) == review["sha256"] and reviewed["verdict"].startswith("clear")
     for relative,digest in reviewed["source_sha256"].items():
-        assert sha((ROOT / relative).read_bytes()) == digest,relative
+        assert sha(live(relative).read_bytes()) == digest,relative
     for relative,digest in json.loads((VERIFY / "prior-evidence-sha256.json").read_text(encoding="utf-8")).items():
         assert sha((ROOT / relative).read_bytes()) == digest,"Prior release evidence changed: "+relative
     baseline = json.loads((ROOT / "open-sources/integration/1.3.3.json").read_text(encoding="utf-8"))
@@ -53,7 +55,7 @@ def verify():
         proof = freeze["smali"][relative]
         assert proof["added_fields"] == FIELDS.get(relative,[])
         before_path = HERE / "before" / relative
-        before_raw,current_raw = before_path.read_bytes(),(ROOT / relative).read_bytes()
+        before_raw,current_raw = before_path.read_bytes(),live(relative).read_bytes()
         assert sha(before_raw) == anchors[relative] == proof["before_sha256"]
         assert sha(current_raw) == proof["after_sha256"]
         old,new = methods(before_raw),methods(current_raw)
@@ -73,11 +75,11 @@ def verify():
         records["smali"][relative]={**proof,"exact_preimage_recovered":True}
     expected_sources = set(baseline["source_sha256"]) | OWN_NEW
     assert set(freeze["source_sha256"]) == expected_sources
-    assert {p.relative_to(ROOT / "open-sources/src").as_posix() for p in (ROOT / "open-sources/src").rglob("*.java")}  == expected_sources
+    assert {p.relative_to(ROOT / "open-sources/src").as_posix() for p in (ROOT / "open-sources/src").rglob("*.java")} - set(excluded_sources) == expected_sources
     changed = set()
     for name,digest in freeze["source_sha256"].items():
         relative = "open-sources/src/"+name
-        assert sha((ROOT / relative).read_bytes()) == digest
+        assert sha(live(relative).read_bytes()) == digest
         if name in OWN_NEW:
             assert name not in baseline["source_sha256"]
         elif digest != baseline["source_sha256"][name]:
@@ -86,7 +88,7 @@ def verify():
             assert sha(before_path.read_bytes()) == baseline["source_sha256"][name]
             overrides[relative] = before_path
     assert changed == OWN_CHANGED
-    assert sha((ROOT / "decoded/assets/tongpin_open_sources.json").read_bytes()) == baseline["provider_asset_sha256"]
+    assert sha(live("decoded/assets/tongpin_open_sources.json").read_bytes()) == baseline["provider_asset_sha256"]
     assert (ROOT / "decoded/res/values/public.xml").read_bytes() == (ROOT / "ui/player-layout-1.3.2/before/decoded/res/values/public.xml").read_bytes()
     result = {"passed":True,"baseline":"immutable1.3.3 APK, integration and source preimages","files":records,
               "new_resources":{},"new_own_sources":sorted(OWN_NEW),"modified_own_sources":sorted(OWN_CHANGED),

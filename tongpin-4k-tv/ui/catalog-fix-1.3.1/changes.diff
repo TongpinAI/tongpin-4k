@@ -1,0 +1,48 @@
+--- before/src/com/tongpin/player4k/tv/TvHomeActivity.java
++++ src/com/tongpin/player4k/tv/TvHomeActivity.java
+@@ -365,12 +365,19 @@
+         }));
+     }
+ 
++    private static String episodeSummary(Line line) {
++        ArrayList<String> names = new ArrayList<>();
++        for (Episode episode : line.episodes)
++            if (episode != null && episode.streams != null && !episode.streams.isEmpty()) names.add(episode.name);
++        return EpisodeSummary.describe(names);
++    }
++
+     private void renderLines() {
+         lineRow.removeAllViews();
+         if (detail.lines.isEmpty()) return;
+         for (int i = 0; i < detail.lines.size(); i++) {
+             final int at = i; Line l = detail.lines.get(i);
+-            Button b = TvUi.button(this, (l.name.isEmpty() ? "线路" + (i + 1) : l.name) + " · " + l.episodes.size() + "集");
++            Button b = TvUi.button(this, (l.name.isEmpty() ? "线路" + (i + 1) : l.name) + " · " + episodeSummary(l));
+             b.setSelected(i == selectedLine);
+             action(lineRow, b, v -> { cancelPending(); selectedLine = at; selectedEpisode = -1; renderLines(); renderEpisodes();
+                 if (at < lineRow.getChildCount()) lineRow.getChildAt(at).requestFocus(); });
+@@ -379,12 +386,13 @@
+ 
+     private void renderEpisodes() {
+         episodeArea.removeAllViews();
+-        detailStatus.setText(detailVideo.provider.name + " · " + detailVideo.subtitle
+-                + " · 4K优先，实际画质以播放时显示为准");
++        detailStatus.setText(detailVideo.provider.name + " · 4K优先，实际画质以播放时显示为准");
+         if (detail.lines.isEmpty()) {
+             episodeArea.addView(TvUi.text(this, "该片当前没有可直接播放的线路，请返回其他片库查找。", 20, TvUi.TEXT)); return;
+         }
+         Line line = detail.lines.get(selectedLine);
++        detailStatus.setText(detailVideo.provider.name + " · " + episodeSummary(line)
++                + " · 4K优先，实际画质以播放时显示为准");
+         TvLibraryStore.Resume savedResume = null;
+         try { savedResume = store.getResume(detailVideo); }
+         catch (Exception e) { detailStatus.append(" · 本机记录暂不可用"); }
+@@ -398,7 +406,7 @@
+             action(episodeArea, continueButton, v -> play(ep, resume.positionMs)); gap(episodeArea, 8); break;
+         }
+         LinearLayout episodeHeader = row();
+-        TextView tip = TvUi.text(this, "选择剧集 · " + line.episodes.size() + "集 · "
++        TextView tip = TvUi.text(this, "选择剧集 · " + episodeSummary(line) + " · "
+                 + (episodesDescending ? "倒序" : "正序"), 20, TvUi.TEXT);
+         tip.setTypeface(Typeface.DEFAULT, Typeface.BOLD);
+         episodeHeader.addView(tip, new LinearLayout.LayoutParams(0, -2, 1));

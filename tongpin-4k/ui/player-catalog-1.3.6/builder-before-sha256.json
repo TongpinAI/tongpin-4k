@@ -1,0 +1,17 @@
+{
+  "build_tongpin.py": "4cd43ff8bf34814ca61d54008befd12082e986f70cca664aaedf8cc49b6041aa",
+  "decoded/AndroidManifest.xml": "2ee32012323a9f1d345c3e3aa15b922e58999d41581f9886d63a91706ccd3479",
+  "decoded/apktool.yml": "3cae0921de15c16496c1ac77e024a16e9e39b0705356050fd501f1db2c05e955",
+  "decoded/res/layout/phone_activity_splash.xml": "6fd282140c5d3ccd401f5ba10a34034e64b1e51ab0e270d137cb255c0c484deb",
+  "decoded/assets/tongpin_open_sources.json": "f4d9810b075ca7a67d28b22bcb4aeef18d06a37f655c0fa074c5a7a4cbccd658",
+  "open-sources/integration/assert_contract.py": "274c5c84c279f5c5ad537b352646073ba8d4b7126cfa8baaa5ff37544baab256",
+  "open-sources/integration/ui_1200_contract.py": "82eddfedfdc17100bbc8541c662fe9cd2f55946cd7cf91345bbcabd290e53b4b",
+  "open-sources/integration/ui_1201_contract.py": "4ace0de54d97cd82e4869a6614334519186ea6199c2d4045f9f143e2de46ab6c",
+  "open-sources/integration/ui_1300_contract.py": "aed7e7c294c62481281efe28697168d2a732e7cf1a10326929b0c9c8e2e7c10f",
+  "open-sources/integration/ui_1310_contract.py": "6964dad092fbf8ff42dc46fe56f709a4c401fbb2ff1d73e2eb27d6d6a356ee95",
+  "open-sources/integration/ui_1320_contract.py": "eb6350b4a4c630b91ce82b4ab5ee5c51d0eaba570dc8b05663b73798fce25df1",
+  "open-sources/integration/ui_1330_contract.py": "0a28196cd64f48237c58857d64f7d58e739f87c80231e71a6cada5dc521eaa58",
+  "open-sources/integration/ui_1340_contract.py": "2925f8fb285aff48aec3d42c934c95409b98856618b2b37c288ada5b37930f12",
+  "open-sources/integration/ui_1350_contract.py": "a38143fa377d1c4cbc06736f8cc91be1061c25a30b64f9a1cc7d82b16f8d1b41",
+  "decoded/res/values/strings.xml": "a25fa3b277404a3d83d801087e0604296b15807b8353fc3bfa86874b4e473360"
+}

@@ -1,0 +1,33 @@
+{
+  "passed": true,
+  "verdict": "clear after independent source and actual consumer DEX review",
+  "source_sha256": {
+    "src/com/tongpin/player4k/tv/TvPlaybackEngine.java": "ada8455654a5f5018f3f5e51b9ba8931552e4a2c0cdb713ca9a449680ca564f9",
+    "src/com/tongpin/player4k/tv/TvPlayerActivity.java": "a2ddd331abd43f5a756afde09991c7a7f18cb2cf2f505dc4b7e48ce8129d748f",
+    "src/com/tongpin/player4k/tv/SubtitlePolicy.java": "b19103dd785a337b2179f5cd9175fd2c0a808a545706993f8e17203f683ed5bf",
+    "src/com/tongpin/player4k/tv/TvHoldSpeedState.java": "b59ae62ea967af00a290037506db099af17992c61b1c87bafc2c62a687734422",
+    "src/com/tongpin/player4k/tv/CatalogApi.java": "6b670a6b4df2b200037a9f69f61fe7005021370c0307c69215034459dca8dd73",
+    "src/com/tongpin/player4k/tv/CatalogCategories.java": "94ad50088414706688648027634e6acd76fc52214bac47dcf29d1d2e9e86ae8a",
+    "src/com/tongpin/player4k/tv/TvHomeActivity.java": "f7d6324973f34f76966ab2535dcdccec23bbca2cef54f64fd6a379ca828ba6b9",
+    "assets/tongpin_open_sources.json": "7e6a9616a36c68788500c68b313265bda50e28efe7af695cc9b368f89078aa1d"
+  },
+  "reports_sha256": {
+    "source-freeze.json": "490667fe1bcc4e36dda02c2e437430421cca8352edb6ec2b13fadd74c22ae7ab",
+    "category-source-freeze.json": "073f34a3543e692edd6b0e68aaa9b21be45e6e04b207a6cd35b23dcbe3c4c32f",
+    "player-catalog-tests.json": "dd39fa1d6ff0c8e4ce049ffe23b19c7dbfa7b002fd734458488d47b7afe24961",
+    "consumer-abi-proof.json": "f191012a60145bcb8292a2c72e20d4c5ed2d9051173e34cef382bc2c0cc19ab9"
+  },
+  "checks": [
+    "Native TimedText type3 tracks implemented; unsupported type4 disabled explicitly; Media3 references remain API23-isolated.",
+    "Track metadata is provider/engine scoped; default Chinese, manual/off and existing audio/seek/pause lifecycle preserved.",
+    "Caption callback identity rejects old engines; release clears cues/tracks and unregisters listeners; no polling.",
+    "Remote hold only owns surface OK/Enter, preserves button focus and short OK, restores captured speed on release/cancel/seek/pause.",
+    "Existing actual API21/23/26 isolation guard passes new own consumer DEX.",
+    "Source categories use actual per-provider trees/ids and filtered pagination retains raw page count; source change invalidates old selection.",
+    "Shared eleven-source asset preserves exact original eight entries; no remote script or JAR execution."
+  ],
+  "device_tested": false,
+  "limitations": [
+    "Real Android TV remote/speed/caption playback and native layout require device acceptance."
+  ]
+}

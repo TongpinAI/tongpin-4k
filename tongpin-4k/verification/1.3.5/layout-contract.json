@@ -1,0 +1,123 @@
+{
+  "passed": true,
+  "baseline": "immutable134 APK, integration and exact before bytes",
+  "files": {
+    "resources": {
+      "decoded/res/drawable/place_image_laye.xml": {
+        "before_path": "ui/poster-badge-1.3.5/before/decoded/res/drawable/place_image_laye.xml",
+        "before_sha256": "15c7cd9adf3aee7ba9d1853a0f763261a33fa6bab23aecb443d422c5bbf9a703",
+        "after_sha256": "1ed7e95b44aba6e2c6729132f141d00bdf6bb0623933ee782c7e6bdea1a91966",
+        "bound_ids_types_and_tags_unchanged": true
+      },
+      "decoded/res/layout/mv_type_details_item.xml": {
+        "before_path": "ui/poster-badge-1.3.5/before/decoded/res/layout/mv_type_details_item.xml",
+        "before_sha256": "e7b8fa61778d26b09118418e5a0f234a761e9183a1a8d9f15c7629e6d88c8998",
+        "after_sha256": "90dc024086899f34648f40dff3c718af4988383a07b75a68d78ed4d8de07d681",
+        "bound_ids_types_and_tags_unchanged": true
+      },
+      "decoded/res/layout/item_recommend.xml": {
+        "before_path": "ui/poster-badge-1.3.5/before/decoded/res/layout/item_recommend.xml",
+        "before_sha256": "8c96605afc003a938347e568379a8852136148887bc8e6e61bc3b1a71b1877e4",
+        "after_sha256": "5ac21a765a2e5c9aeafb2afdc8c1917f11a10cb37da79b6d8b164f5380e5bc41",
+        "bound_ids_types_and_tags_unchanged": true
+      }
+    },
+    "smali": {
+      "decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity.smali": {
+        "before_path": "ui/catalog-fix-1.3.5/before/decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity.smali",
+        "before_sha256": "a76c3ef0dbc4c8c0ccc3771c364fda899a68dc26d446aa81763c978139d4c633",
+        "after_sha256": "2774c016bb7a795a53a7e8528eff1755ab31a2e7506ac91ff87d81435f7e544e",
+        "modified_methods": [
+          "v2()V"
+        ],
+        "added_methods": [],
+        "added_fields": [],
+        "required_final_invocations": {
+          "v2()V": [
+            "Lcom/shenma/tvlauncher/entity/PlayerSource;->getList()Ljava/util/List;",
+            "Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->refreshEpisodeOrder()V",
+            "Lf6/g;->g(Ljava/util/List;)V",
+            "Ljava/util/List;->get(I)Ljava/lang/Object;",
+            "Ljava/util/List;->size()I"
+          ]
+        },
+        "exact_preimage_recovered": true
+      },
+      "decoded/smali_classes5/i6/e.smali": {
+        "before_path": "ui/poster-badge-1.3.5/before/decoded/smali_classes5/i6/e.smali",
+        "before_sha256": "00de5d9e90e78c72640d3e7d647badda70c8e66e44b28a5dfa7b5050b15f61c9",
+        "after_sha256": "ae2c3c29ffa1862e3ce5a7f130f4df037185c72149c680a219441733a3d85c99",
+        "modified_methods": [
+          "e(Li6/e$c;I)V"
+        ],
+        "added_methods": [
+          "bindScore(Landroid/widget/TextView;Ljava/lang/String;)V",
+          "posterUri(Ljava/lang/String;)Ljava/lang/String;"
+        ],
+        "added_fields": [],
+        "required_final_invocations": {
+          "bindScore(Landroid/widget/TextView;Ljava/lang/String;)V": [
+            "Landroid/view/View;->setVisibility(I)V",
+            "Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V",
+            "Ljava/lang/String;->matches(Ljava/lang/String;)Z",
+            "Ljava/lang/String;->trim()Ljava/lang/String;"
+          ],
+          "e(Li6/e$c;I)V": [
+            "Landroid/view/View;->setTag(Ljava/lang/Object;)V",
+            "Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V",
+            "Lcom/facebook/drawee/view/SimpleDraweeView;->setImageURI(Ljava/lang/String;)V",
+            "Lcom/shenma/tvlauncher/vod/domain/VodDataInfo;->getPic()Ljava/lang/String;",
+            "Lcom/shenma/tvlauncher/vod/domain/VodDataInfo;->getScore()Ljava/lang/String;",
+            "Lcom/shenma/tvlauncher/vod/domain/VodDataInfo;->getState()Ljava/lang/String;",
+            "Lcom/shenma/tvlauncher/vod/domain/VodDataInfo;->getTitle()Ljava/lang/String;",
+            "Li6/e;->bindScore(Landroid/widget/TextView;Ljava/lang/String;)V",
+            "Li6/e;->posterUri(Ljava/lang/String;)Ljava/lang/String;",
+            "Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;",
+            "Ljava/util/List;->get(I)Ljava/lang/Object;"
+          ],
+          "posterUri(Ljava/lang/String;)Ljava/lang/String;": [
+            "Ljava/lang/String;->length()I",
+            "Ljava/lang/String;->trim()Ljava/lang/String;"
+          ]
+        },
+        "exact_preimage_recovered": true
+      },
+      "decoded/smali_classes5/com/shenma/tvlauncher/phone/SearchActivity$c.smali": {
+        "before_path": "ui/poster-badge-1.3.5/before/decoded/smali_classes5/com/shenma/tvlauncher/phone/SearchActivity$c.smali",
+        "before_sha256": "c4b115fed7d9e3a6b341944bed3e40d9ad7612c3f1e1d9dcca0ce6d72ffadd8d",
+        "after_sha256": "24e4cd9eeb6d8e2bce4596a1452551cb1c985a7458777a4814f147ca135a0020",
+        "modified_methods": [
+          "n(Lme/jingbin/library/adapter/b;Lcom/shenma/tvlauncher/vod/domain/VodDataInfo;I)V"
+        ],
+        "added_methods": [],
+        "added_fields": [],
+        "required_final_invocations": {
+          "n(Lme/jingbin/library/adapter/b;Lcom/shenma/tvlauncher/vod/domain/VodDataInfo;I)V": [
+            "Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V",
+            "Lcom/facebook/drawee/view/SimpleDraweeView;->setImageURI(Ljava/lang/String;)V",
+            "Lcom/shenma/tvlauncher/phone/q;-><init>(Lcom/shenma/tvlauncher/vod/domain/VodDataInfo;Lcom/shenma/tvlauncher/phone/SearchActivity;)V",
+            "Lcom/shenma/tvlauncher/vod/domain/VodDataInfo;->getPic()Ljava/lang/String;",
+            "Lcom/shenma/tvlauncher/vod/domain/VodDataInfo;->getScore()Ljava/lang/String;",
+            "Lcom/shenma/tvlauncher/vod/domain/VodDataInfo;->getState()Ljava/lang/String;",
+            "Lcom/shenma/tvlauncher/vod/domain/VodDataInfo;->getTitle()Ljava/lang/String;",
+            "Li6/e;->bindScore(Landroid/widget/TextView;Ljava/lang/String;)V",
+            "Li6/e;->posterUri(Ljava/lang/String;)Ljava/lang/String;",
+            "Lme/jingbin/library/adapter/b;->a(I)Landroid/view/View;",
+            "Lme/jingbin/library/adapter/b;->e(ILjava/lang/CharSequence;)Lme/jingbin/library/adapter/b;"
+          ]
+        },
+        "exact_preimage_recovered": true
+      }
+    }
+  },
+  "new_resources": {},
+  "new_own_sources": [
+    "com/tongpin/player4k/catalog/EpisodeSummary.java"
+  ],
+  "modified_own_sources": [
+    "com/tongpin/player4k/catalog/CatalogActivity.java",
+    "com/tongpin/player4k/catalog/LegacyEpisodeOrder.java"
+  ],
+  "prior_release_evidence_unchanged": true,
+  "native_runtime_verified": false
+}

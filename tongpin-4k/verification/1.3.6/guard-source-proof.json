@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "phone_ui_whole_source_sha256_unchanged": "8d8e39fea8e3b5c2e7e15301014e54ba55294713a28ee22600056a04e0b9fe8a",
+  "public_high_api_guard_methods_byte_identical_to_135": {
+    "private WindowInsets applyInsets(": "426900d6a6d5bbd7135d0f0463899c6a39a5be47a0ba9ac91db8d67f2bc74cfa",
+    "private void normalSystemBars()": "0e60e018710cf378c2f1703871e3828fa2374a817ff3fd87698807997e1eaefc",
+    "private void hideSystemBars()": "0baab6b2dc8af20aeb37a55a3b9d7df1f186c1719a5726f40576be576dd562c4"
+  },
+  "min_sdk": 24,
+  "device_test": false
+}

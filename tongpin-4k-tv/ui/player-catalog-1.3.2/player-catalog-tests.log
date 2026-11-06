@@ -1,0 +1,12 @@
+warning: [options] source value 8 is obsolete and will be removed in a future release
+warning: [options] target value 8 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+3 warnings
+PASS 39 subtitle policy assertions
+PASS 29 remote hold assertions
+TvPlayer production static contract assertions passed: 147
+TV seek state assertions passed: 75
+TV seek input assertions passed: 12
+TV decoder policy assertions passed: 31

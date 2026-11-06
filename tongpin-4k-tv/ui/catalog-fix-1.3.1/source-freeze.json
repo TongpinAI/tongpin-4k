@@ -1,0 +1,14 @@
+{
+  "source_ready": true,
+  "source_sha256": {
+    "src/com/tongpin/player4k/tv/EpisodeSummary.java": "dcd277c899d816954ab60262030326bd59e65106c91085fa3d69bee057f1198a",
+    "src/com/tongpin/player4k/tv/TvHomeActivity.java": "456349355837414d988c10a46e9bee5c551e47f7ec671b125d441cf6aba76085"
+  },
+  "before_sha256": {
+    "src/com/tongpin/player4k/tv/TvHomeActivity.java": "f841aff76bc432ecbde8c5a0fd9da2d901a595a9c3ec4fb16039cb62a24ede1c"
+  },
+  "native_device_tested": false,
+  "counts_are_selected_line_unique_numbered_episodes": true,
+  "never_infers_completion": true,
+  "playback_indices_and_extra_entries_unchanged": true
+}

@@ -1,0 +1,29 @@
+{
+  "compared_to": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\\u6d4b\u8bd5\\tongpin-4k\\output\\tongpin-4k-1.3.4.apk",
+  "changed_entries": [
+    "AndroidManifest.xml",
+    "META-INF/MANIFEST.MF",
+    "META-INF/TONGPIN4.RSA",
+    "META-INF/TONGPIN4.SF",
+    "classes5.dex",
+    "res/drawable/place_image_laye.xml",
+    "res/layout/item_recommend.xml",
+    "res/layout/mv_type_details_item.xml",
+    "resources.arsc"
+  ],
+  "allowed_changed_entries": [
+    "AndroidManifest.xml",
+    "META-INF/MANIFEST.MF",
+    "META-INF/TONGPIN4.RSA",
+    "META-INF/TONGPIN4.SF",
+    "classes5.dex",
+    "res/drawable/place_image_laye.xml",
+    "res/layout/item_recommend.xml",
+    "res/layout/mv_type_details_item.xml",
+    "res/layout/phone_activity_settings.xml",
+    "res/layout/phone_activity_splash.xml",
+    "resources.arsc"
+  ],
+  "added_entries": [],
+  "removed_entries": []
+}

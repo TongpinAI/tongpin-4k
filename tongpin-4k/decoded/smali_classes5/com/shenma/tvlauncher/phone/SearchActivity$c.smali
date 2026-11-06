@@ -311,7 +311,13 @@
     move-result-object v0
 
     .line 34
-    invoke-virtual {p1, p3, v0}, Lme/jingbin/library/adapter/b;->e(ILjava/lang/CharSequence;)Lme/jingbin/library/adapter/b;
+    invoke-virtual {p1, p3}, Lme/jingbin/library/adapter/b;->a(I)Landroid/view/View;
+
+    move-result-object p3
+
+    check-cast p3, Landroid/widget/TextView;
+
+    invoke-static {p3, v0}, Li6/e;->bindScore(Landroid/widget/TextView;Ljava/lang/String;)V
 
     .line 35
     .line 36
@@ -349,6 +355,10 @@
     move-result-object v0
 
     .line 53
+    invoke-static {v0}, Li6/e;->posterUri(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
     invoke-virtual {p3, v0}, Lcom/facebook/drawee/view/SimpleDraweeView;->setImageURI(Ljava/lang/String;)V
 
     .line 54

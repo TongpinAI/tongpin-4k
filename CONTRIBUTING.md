@@ -15,15 +15,25 @@
 - 保留历史发布证据；源码或构建输入变化时创建新的版本与校验记录，不把旧报告改成“通过”来替代本次检查。
 - 真机测试与主机静态测试分别说明。未在设备上验证时直接注明，不把编译通过写成播放流畅度通过。
 
-环境准备后，可在对应工程目录运行相关主机检查：
+当前手机源码1.3.6、电视源码1.3.2。历史 `run_decoder_tests.py` 会写入旧134／130目录，不能在发布工作树里直接运行；旧报告是增量合同输入。
+
+有独立输出参数的分类检查可从手机目录写入新的工作目录：
 
 ```powershell
-# 手机工程目录
-python open-sources/tests/run_decoder_tests.py
-
-# 电视工程目录
-python tests/run_decoder_tests.py
+python open-sources/tests/run_category_tests.py --output ../tmp/category-check-pr
 ```
+
+当前播放器检查入口如下。它们会更新对应副本中的1.3.6／1.3.2证据文件，请在独立工作副本运行，并按新版本流程保留新的报告，不覆盖发布工作树里的冻结证据：
+
+```powershell
+# 手机工程副本目录
+python open-sources/tests/run_player_catalog_136_tests.py
+
+# 电视工程副本目录
+python ui/player-catalog-1.3.2/tests/verify_player_catalog.py
+```
+
+这些是主机策略、真实源码编译及静态检查；不代替手机触摸、电视遥控、字幕渲染或持续播放验证。
 
 签名私钥、密码、本机配置和原始播放探测记录不要提交。已有第三方代码、资源和依赖保留各自的来源与许可。
 

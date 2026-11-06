@@ -52,12 +52,16 @@ public final class CatalogApi {
         public Provider provider;
         public String id = "", title = "", subtitle = "", poster = "", sourceUrl = "";
         public String description = "", author = "", licence = "";
+        public String categoryId = "", categoryName = "", categoryLabel = "未分类";
+        CatalogCategories categoryCatalog;
         public Video() {}
     }
 
     public static class Page {
         public List<Video> items = new ArrayList<Video>();
         public boolean hasMore;
+        public CatalogCategories categories;
+        public int categoryMismatchCount;
         public Page() {}
     }
 
@@ -107,15 +111,31 @@ public final class CatalogApi {
         return result;
     }
 
-    public static Page fetchPage(Provider provider, String query, int page) throws IOException {
+    public static CatalogCategories fetchCategories(Provider provider) throws IOException {
         requireProvider(provider);
+        if (!"maccms".equals(provider.kind)) return new CatalogCategories(provider.id,
+                new ArrayList<CatalogCategories.Category>(), new HashSet<String>());
+        String api = parameters(provider.api, new String[][]{{"ac", "list"}, {"pg", "1"},
+                {"pagesize", "20"}, {"wd", null}, {"ids", null}, {"t", null}});
+        JSONObject root = object(get(api)); checkMac(root);
+        return categories(provider, root);
+    }
+
+    public static Page fetchPage(Provider provider, String query, int page) throws IOException {
+        return fetchPage(provider, query, page, null);
+    }
+
+    public static Page fetchPage(Provider provider, String query, int page, CatalogCategories.Selection selection) throws IOException {
+        requireProvider(provider);
+        requireCategory(provider, selection);
         query = query(query);
         requirePage(page);
         if ("maccms".equals(provider.kind)) {
             String api = parameters(provider.api, new String[][]{
                     {"ac", "detail"}, {"pg", Integer.toString(page)},
-                    {"pagesize", Integer.toString(PAGE_SIZE)}, {"wd", query}, {"ids", null}});
-            return parsePage(provider, get(api), query, page);
+                    {"pagesize", Integer.toString(PAGE_SIZE)}, {"wd", query}, {"ids", null},
+                    {"t", selection == null || selection.id.isEmpty() ? null : selection.id}});
+            return parsePage(provider, get(api), query, page, selection);
         }
         // Blender's channel is small. Gather bounded channel pages before client-side searching,
         // so a match on the next API page is not lost or presented as an empty search result.
@@ -166,7 +186,12 @@ public final class CatalogApi {
 
     /** Fixture-friendly parsing entry points use exactly the same code as network requests. */
     public static Page parsePage(Provider provider, String json, String query, int page) throws IOException {
+        return parsePage(provider, json, query, page, null);
+    }
+
+    public static Page parsePage(Provider provider, String json, String query, int page, CatalogCategories.Selection selection) throws IOException {
         requireProvider(provider);
+        requireCategory(provider, selection);
         requirePage(page);
         query = query(query);
         JSONObject root = object(json);
@@ -175,11 +200,22 @@ public final class CatalogApi {
         JSONArray data = array(root, "list", MAX_ITEMS);
         Set<String> denied = deniedCategories(root);
         Page result = new Page();
+        result.categories = categories(provider, root);
+        if (selection != null) result.categories = selection.catalog.merge(result.categories);
         for (int i = 0; i < data.length(); i++) {
             JSONObject item = data.optJSONObject(i);
             if (item == null || unsafe(item, denied)) continue;
             Video video = macVideo(provider, item);
-            if (validVideo(video)) result.items.add(video);
+            if (validVideo(video)) {
+                video.categoryCatalog = result.categories;
+                video.categoryLabel = result.categories.label(video.categoryId, video.categoryName);
+                if (result.categories.isDenied(video.categoryId)) continue;
+                if (selection != null && !selection.id.isEmpty()
+                        && (!result.categories.contains(selection.id, video.categoryId) || video.categoryLabel.startsWith("未分类"))) {
+                    result.categoryMismatchCount++; continue;
+                }
+                result.items.add(video);
+            }
         }
         long pages = nonNegative(root, "pagecount", -1);
         long total = nonNegative(root, "total", -1);
@@ -196,11 +232,14 @@ public final class CatalogApi {
         checkMac(root);
         JSONArray items = array(root, "list", MAX_ITEMS);
         Set<String> denied = deniedCategories(root);
+        CatalogCategories catalog = categories(requested.provider, root);
+        if (requested.categoryCatalog != null) catalog = requested.categoryCatalog.merge(catalog);
         for (int i = 0; i < items.length(); i++) {
             JSONObject item = items.optJSONObject(i);
             if (item == null || !requested.id.equals(text(item, "vod_id", 128))) continue;
-            if (unsafe(item, denied)) throw failure("该内容不在公开片库范围内");
+            if (unsafe(item, denied) || catalog.isDenied(text(item, "type_id", 128))) throw failure("该内容不在公开片库范围内");
             Video video = macVideo(requested.provider, item);
+            video.categoryCatalog = catalog; video.categoryLabel = catalog.label(video.categoryId, video.categoryName);
             if (!validVideo(video)) throw failure("影片详情缺少必要信息");
             Detail detail = new Detail();
             detail.video = video;
@@ -365,6 +404,8 @@ public final class CatalogApi {
         video.id = text(item, "vod_id", 128);
         video.title = plain(text(item, "vod_name", 512), 512);
         video.subtitle = plain(text(item, "vod_remarks", 512), 512);
+        video.categoryId = text(item, "type_id", 128);
+        video.categoryName = plain(text(item, "type_name", 512), 512);
         video.poster = relative(provider.api, text(item, "vod_pic", 8192));
         video.description = plain(text(item, "vod_content", 32768), 32768);
         video.author = plain(text(item, "vod_director", 512), 512);
@@ -413,8 +454,53 @@ public final class CatalogApi {
         return denied;
     }
 
+    public static CatalogCategories parseCategories(Provider provider, String json) throws IOException {
+        requireProvider(provider);
+        JSONObject root = object(json); checkMac(root);
+        return categories(provider, root);
+    }
+
+    private static CatalogCategories categories(Provider provider, JSONObject root) throws IOException {
+        JSONArray list = optionalArray(root, "class", MAX_ITEMS);
+        ArrayList<CatalogCategories.Category> declared = new ArrayList<>();
+        for (int i = 0; i < list.length(); i++) {
+            JSONObject item = list.optJSONObject(i);
+            if (item == null) continue;
+            String parentKey = item.has("type_pid") ? "type_pid" : item.has("pid") ? "pid" : "";
+            declared.add(new CatalogCategories.Category(text(item, "type_id", 128),
+                    parentKey.isEmpty() ? "" : text(item, parentKey, 128),
+                    plain(text(item, "type_name", 512), 512), !parentKey.isEmpty() && !item.isNull(parentKey)));
+        }
+        return new CatalogCategories(provider.id, declared, deniedCategories(root));
+    }
+
+    private static void requireCategory(Provider provider, CatalogCategories.Selection selection) throws IOException {
+        if (selection == null) return;
+        if (!provider.id.equals(selection.catalog.providerId) || !"maccms".equals(provider.kind) && !selection.id.isEmpty())
+            throw failure("分类不属于当前片库");
+    }
+
+    public static Page withCategories(Page page, CatalogCategories catalog, CatalogCategories.Selection selection) throws IOException {
+        if (page == null || catalog == null) throw failure("分类数据无效");
+        if (selection != null && !catalog.providerId.equals(selection.catalog.providerId)) throw failure("分类不属于当前片库");
+        if (page.categories != null) catalog = catalog.merge(page.categories);
+        ArrayList<Video> kept = new ArrayList<>();
+        for (Video video : page.items) {
+            if (video.provider == null || !catalog.providerId.equals(video.provider.id)) throw failure("分类不属于当前片库");
+            video.categoryCatalog = catalog; video.categoryLabel = catalog.label(video.categoryId, video.categoryName);
+            if (catalog.isDenied(video.categoryId)) continue;
+            if (selection != null && !selection.id.isEmpty()
+                    && (!catalog.contains(selection.id, video.categoryId) || video.categoryLabel.startsWith("未分类"))) {
+                page.categoryMismatchCount++; continue;
+            }
+            kept.add(video);
+        }
+        page.items = kept; page.categories = catalog;
+        return page;
+    }
+
     private static void requireProvider(Provider p) throws IOException {
-        if (p == null || !supported(p) || http(p.api).isEmpty()) throw failure("片源配置无效");
+        if (p == null || !CatalogCategories.validId(p.id) || !supported(p) || http(p.api).isEmpty()) throw failure("片源配置无效");
     }
 
     private static boolean supported(Provider p) {

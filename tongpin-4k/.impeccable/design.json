@@ -228,8 +228,8 @@
     "breakpoints": [],
     "native": {
       "platform": "Android Views",
-      "sourceVersion": "1.3.4",
-      "sourceVersionCode": 1340,
+      "sourceVersion": "1.3.5",
+      "sourceVersionCode": 1350,
       "buttonMinWidthDp": 48,
       "buttonMinHeightDp": 48,
       "normalPageInsets": "PhoneUi.installInsets; API30+ systemBars/displayCutout/IME, API23-29 fitted/adjustResize",
@@ -347,7 +347,7 @@
   ],
   "narrative": {
     "northStar": "索引片库",
-    "overview": "用户确认浅米底、墨蓝文字、蓝色重点与紧凑密度。界面以找片和观看为目的，品牌表达落在清楚的对齐、稳定的标题层级和少量蓝色操作态上。\n\n本文记录手机端 1.3.4 的 Android Views 资源、共享 PhoneUi 与公开片库／播放页代码，采用原生 dp/sp。沿用既有 framework 控件和播放器，没有引入 Material 3 组件库。上游影片封面保留原色；HTML 草图和面板示意不作为 APK 原生渲染证据。",
+    "overview": "用户确认浅米底、墨蓝文字、蓝色重点与紧凑密度。界面以找片和观看为目的，品牌表达落在清楚的对齐、稳定的标题层级和少量蓝色操作态上。\n\n本文记录手机端 1.3.5 的 Android Views 资源、共享 PhoneUi 与公开片库／播放页代码，采用原生 dp/sp。沿用既有 framework 控件和播放器，没有引入 Material 3 组件库。上游影片封面保留原色；HTML 草图和面板示意不作为 APK 原生渲染证据。",
     "keyCharacteristics": [
       "浅米背景与白色内容区域，墨蓝主文字。",
       "蓝色用于品牌、选中态与明确操作，浅蓝操作面使用墨蓝文字。",
@@ -383,5 +383,6 @@
       "Don't 将来源标签、非空 URL、最大集号或应用名称写成实测 4K、可播性或最快上传保证。",
       "Don't 把沿用原播放核心及接口的 fork 描述为从零重写或同频自有片源服务。"
     ]
-  }
+  },
+  "catalogFix135": "1.3.5：选集摘要按当前线路实际条目统计正片集号，重复集号合并，陪看／彩蛋等附加内容另计，不再直接显示上游过期的“27集全”，也不按最大集号推断完结。分类和搜索海报的空评分角标每次绑定均隐藏，有效评分恢复显示；空白封面地址清理，加载或失败使用有底色的品牌占位，不代表已找回上游海报。播放器、队列、倒序、解码与3秒画质提示继续保留。视频内嵌水印由来源决定，当前数据没有可靠水印标记，未伪造“无水印”优先或图像识别结果。本轮无新增设备验收。"
 }

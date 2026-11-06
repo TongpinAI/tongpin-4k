@@ -1,0 +1,356 @@
+{
+  "passed": true,
+  "evidence": "Actual bundled DEX declarations; every reflective library method, field, listener and constructor is recorded with its visibility and descriptor. Java reflection ignores return descriptors and safely treats obfuscated f0 as List. Public methods on package-private ExoPlayerImpl require setAccessible(true), exercised with a nonpublic implementation in host test.",
+  "not_a_device_test": true,
+  "records": [
+    {
+      "path": "smali_classes5/com/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer.smali",
+      "sha256": "751cf22a1bc89ebfa2be9162f0543f59089f081063884a571bdbcbf29809deaa",
+      "class_declaration": ".class public abstract Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;",
+      "members": [
+        {
+          "line": 1828,
+          "declaration": ".method public getCurrentPlayer()Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;"
+        }
+      ]
+    },
+    {
+      "path": "smali_classes5/com/shuyu/gsyvideoplayer/video/base/GSYVideoPlayer.smali",
+      "sha256": "626060259b92ec643f90919e2a8eada9ef4a0b900befa6bd81fe35ced30b8c64",
+      "class_declaration": ".class public abstract Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoPlayer;",
+      "members": [
+        {
+          "line": 71,
+          "declaration": ".method public getGSYVideoManager()Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoViewBridge;"
+        }
+      ]
+    },
+    {
+      "path": "smali_classes5/com/shuyu/gsyvideoplayer/video/base/GSYVideoView.smali",
+      "sha256": "b53a6775af840e4feb215cf082ff44dc33f104ae3dc8b737e91b5ad64b02175b",
+      "class_declaration": ".class public abstract Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;",
+      "members": [
+        {
+          "line": 1023,
+          "declaration": ".method public getCurrentState()I"
+        }
+      ]
+    },
+    {
+      "path": "smali_classes5/k6/b.smali",
+      "sha256": "5d2d7dc92adc33b5e354e5acdee719f94461bed059fdfad0ec1e113f6adc93d7",
+      "class_declaration": ".class public abstract Lk6/b;",
+      "members": [
+        {
+          "line": 1790,
+          "declaration": ".method public getPlayer()Lcom/shuyu/gsyvideoplayer/player/IPlayerManager;"
+        }
+      ]
+    },
+    {
+      "path": "smali_classes5/com/shuyu/gsyvideoplayer/player/IPlayerManager.smali",
+      "sha256": "449f46a4d766f3b1611aa9b2ee209105d8be194add4d8a3ebe9878564fb97e85",
+      "class_declaration": ".class public interface abstract Lcom/shuyu/gsyvideoplayer/player/IPlayerManager;",
+      "members": [
+        {
+          "line": 16,
+          "declaration": ".method public abstract getMediaPlayer()Ltv/danmaku/ijk/media/player/IMediaPlayer;"
+        }
+      ]
+    },
+    {
+      "path": "smali_classes5/tv/danmaku/ijk/media/exo2/IjkExo2MediaPlayer.smali",
+      "sha256": "be347692476979f6bcf55a2f707da03e722cc16dd6f3e6075bf1b2cd4fac47f0",
+      "class_declaration": ".class public Ltv/danmaku/ijk/media/exo2/IjkExo2MediaPlayer;",
+      "members": [
+        {
+          "line": 56,
+          "declaration": ".field protected mInternalPlayer:Landroidx/media3/exoplayer/ExoPlayer;"
+        }
+      ]
+    },
+    {
+      "path": "smali_classes5/tv/danmaku/ijk/media/player/AbstractMediaPlayer.smali",
+      "sha256": "39da5aa6e5a8aa135d37f7a5a310b08e1a7b37698ac19d19a8ff9e7cbc92c049",
+      "class_declaration": ".class public abstract Ltv/danmaku/ijk/media/player/AbstractMediaPlayer;",
+      "members": [
+        {
+          "line": 22,
+          "declaration": ".field private mOnTimedTextListener:Ltv/danmaku/ijk/media/player/IMediaPlayer$OnTimedTextListener;"
+        },
+        {
+          "line": 381,
+          "declaration": ".method public final setOnTimedTextListener(Ltv/danmaku/ijk/media/player/IMediaPlayer$OnTimedTextListener;)V"
+        }
+      ]
+    },
+    {
+      "path": "smali_classes5/tv/danmaku/ijk/media/player/IjkMediaPlayer.smali",
+      "sha256": "a22f690b4e590541ec5296d0e6b310154e8faadf0199a7ab9783fee042717fce",
+      "class_declaration": ".class public final Ltv/danmaku/ijk/media/player/IjkMediaPlayer;",
+      "members": [
+        {
+          "line": 2043,
+          "declaration": ".method public bridge synthetic getTrackInfo()[Ltv/danmaku/ijk/media/player/misc/ITrackInfo;"
+        },
+        {
+          "line": 2054,
+          "declaration": ".method public getTrackInfo()[Ltv/danmaku/ijk/media/player/misc/IjkTrackInfo;"
+        },
+        {
+          "line": 1911,
+          "declaration": ".method public getSelectedTrack(I)I"
+        },
+        {
+          "line": 2588,
+          "declaration": ".method public selectTrack(I)V"
+        },
+        {
+          "line": 1295,
+          "declaration": ".method public deselectTrack(I)V"
+        }
+      ]
+    },
+    {
+      "path": "smali_classes5/tv/danmaku/ijk/media/player/misc/IjkTrackInfo.smali",
+      "sha256": "473c9459fa14da48bf1b730578d33804ea825531139ca0ddc703fabcd55fa143",
+      "class_declaration": ".class public Ltv/danmaku/ijk/media/player/misc/IjkTrackInfo;",
+      "members": [
+        {
+          "line": 389,
+          "declaration": ".method public getTrackType()I"
+        },
+        {
+          "line": 337,
+          "declaration": ".method public getLanguage()Ljava/lang/String;"
+        }
+      ]
+    },
+    {
+      "path": "smali_classes5/tv/danmaku/ijk/media/player/IMediaPlayer$OnTimedTextListener.smali",
+      "sha256": "c8efab9ea3fe27dd601a4e69123a050e5bc5d6b3699f18fb10606657d289e849",
+      "class_declaration": ".class public interface abstract Ltv/danmaku/ijk/media/player/IMediaPlayer$OnTimedTextListener;",
+      "members": [
+        {
+          "line": 18,
+          "declaration": ".method public abstract onTimedText(Ltv/danmaku/ijk/media/player/IMediaPlayer;Ltv/danmaku/ijk/media/player/IjkTimedText;)V"
+        }
+      ]
+    },
+    {
+      "path": "smali_classes5/tv/danmaku/ijk/media/player/IjkTimedText.smali",
+      "sha256": "f408afeac89bfe16c76db31092226be400ea87b071bb4ad797dffa876d142cce",
+      "class_declaration": ".class public final Ltv/danmaku/ijk/media/player/IjkTimedText;",
+      "members": [
+        {
+          "line": 46,
+          "declaration": ".method public getText()Ljava/lang/String;"
+        }
+      ]
+    },
+    {
+      "path": "smali_classes2/androidx/media3/exoplayer/ExoPlayerImpl.smali",
+      "sha256": "b842fc4287b1c9d21fe2da7898c3bf79a6bf61ffa162b9b2a6de2d41331134ad",
+      "class_declaration": ".class final Landroidx/media3/exoplayer/ExoPlayerImpl;",
+      "members": [
+        {
+          "line": 10711,
+          "declaration": ".method public getApplicationLooper()Landroid/os/Looper;"
+        },
+        {
+          "line": 11495,
+          "declaration": ".method public getCurrentTracks()Landroidx/media3/common/Tracks;"
+        },
+        {
+          "line": 11264,
+          "declaration": ".method public getCurrentCues()Landroidx/media3/common/text/CueGroup;"
+        },
+        {
+          "line": 12123,
+          "declaration": ".method public getTrackSelectionParameters()Landroidx/media3/common/TrackSelectionParameters;"
+        },
+        {
+          "line": 16402,
+          "declaration": ".method public setTrackSelectionParameters(Landroidx/media3/common/TrackSelectionParameters;)V"
+        },
+        {
+          "line": 10067,
+          "declaration": ".method public addListener(Landroidx/media3/common/Player$Listener;)V"
+        },
+        {
+          "line": 13461,
+          "declaration": ".method public removeListener(Landroidx/media3/common/Player$Listener;)V"
+        }
+      ]
+    },
+    {
+      "path": "smali_classes2/androidx/media3/common/Player$Listener.smali",
+      "sha256": "28369149171a684a363bb061569a087bd32e73ae5ccd42bccb5527d2d1db258a",
+      "class_declaration": ".class public interface abstract Landroidx/media3/common/Player$Listener;",
+      "members": [
+        {
+          "line": 41,
+          "declaration": ".method public onCues(Landroidx/media3/common/text/CueGroup;)V"
+        },
+        {
+          "line": 48,
+          "declaration": ".method public onCues(Ljava/util/List;)V"
+        },
+        {
+          "line": 297,
+          "declaration": ".method public onTracksChanged(Landroidx/media3/common/Tracks;)V"
+        }
+      ]
+    },
+    {
+      "path": "smali_classes2/androidx/media3/common/Tracks.smali",
+      "sha256": "d32bfebd72fbda0e7d59b70bfea5f870fd5d1265d579d8c72cae6da2908cc34c",
+      "class_declaration": ".class public final Landroidx/media3/common/Tracks;",
+      "members": [
+        {
+          "line": 322,
+          "declaration": ".method public getGroups()Lcom/google/common/collect/f0;"
+        }
+      ]
+    },
+    {
+      "path": "smali_classes2/androidx/media3/common/Tracks$Group.smali",
+      "sha256": "ccda42839b89cbb7abf93db3594ec9d571dfbf1f0db69c6f75db7f278e412b45",
+      "class_declaration": ".class public final Landroidx/media3/common/Tracks$Group;",
+      "members": [
+        {
+          "line": 30,
+          "declaration": ".field public final length:I"
+        },
+        {
+          "line": 597,
+          "declaration": ".method public getType()I"
+        },
+        {
+          "line": 550,
+          "declaration": ".method public getMediaTrackGroup()Landroidx/media3/common/TrackGroup;"
+        },
+        {
+          "line": 561,
+          "declaration": ".method public getTrackFormat(I)Landroidx/media3/common/Format;"
+        },
+        {
+          "line": 776,
+          "declaration": ".method public isTrackSupported(I)Z"
+        },
+        {
+          "line": 789,
+          "declaration": ".method public isTrackSupported(IZ)Z"
+        },
+        {
+          "line": 761,
+          "declaration": ".method public isTrackSelected(I)Z"
+        }
+      ]
+    },
+    {
+      "path": "smali_classes2/androidx/media3/common/Format.smali",
+      "sha256": "9505f52534fd1aeab97a0c507e6675dd430be34af348bcc2fe37b30be0754b2c",
+      "class_declaration": ".class public final Landroidx/media3/common/Format;",
+      "members": [
+        {
+          "line": 245,
+          "declaration": ".field public final language:Ljava/lang/String;"
+        },
+        {
+          "line": 227,
+          "declaration": ".field public final label:Ljava/lang/String;"
+        },
+        {
+          "line": 305,
+          "declaration": ".field public final sampleMimeType:Ljava/lang/String;"
+        }
+      ]
+    },
+    {
+      "path": "smali_classes2/androidx/media3/common/TrackSelectionParameters.smali",
+      "sha256": "f647faaee638ab26b58aff8fdb1c3986f2e671089bccf8f767a35f65184c6501",
+      "class_declaration": ".class public Landroidx/media3/common/TrackSelectionParameters;",
+      "members": [
+        {
+          "line": 1790,
+          "declaration": ".method public buildUpon()Landroidx/media3/common/TrackSelectionParameters$Builder;"
+        }
+      ]
+    },
+    {
+      "path": "smali_classes2/androidx/media3/common/TrackSelectionParameters$Builder.smali",
+      "sha256": "3aba8883ff24c646c0956400e454fa2ee2061bb73e2617411b88714f09ca4b74",
+      "class_declaration": ".class public Landroidx/media3/common/TrackSelectionParameters$Builder;",
+      "members": [
+        {
+          "line": 2011,
+          "declaration": ".method public clearOverridesOfType(I)Landroidx/media3/common/TrackSelectionParameters$Builder;"
+        },
+        {
+          "line": 2897,
+          "declaration": ".method public setTrackTypeDisabled(IZ)Landroidx/media3/common/TrackSelectionParameters$Builder;"
+        },
+        {
+          "line": 2344,
+          "declaration": ".method public setOverrideForType(Landroidx/media3/common/TrackSelectionOverride;)Landroidx/media3/common/TrackSelectionParameters$Builder;"
+        },
+        {
+          "line": 1963,
+          "declaration": ".method public build()Landroidx/media3/common/TrackSelectionParameters;"
+        }
+      ]
+    },
+    {
+      "path": "smali_classes2/androidx/media3/common/TrackSelectionOverride.smali",
+      "sha256": "2f05a027d9cbad8880d330218bef023635b48254cc26d7cabd7e1b691b853b74",
+      "class_declaration": ".class public final Landroidx/media3/common/TrackSelectionOverride;",
+      "members": [
+        {
+          "line": 62,
+          "declaration": ".method public constructor <init>(Landroidx/media3/common/TrackGroup;I)V"
+        },
+        {
+          "line": 79,
+          "declaration": ".method public constructor <init>(Landroidx/media3/common/TrackGroup;Ljava/util/List;)V"
+        }
+      ]
+    },
+    {
+      "path": "smali_classes2/androidx/media3/common/text/CueGroup.smali",
+      "sha256": "25dbfbc92304e5cc8a1a1a8307bbf6d02f4dbe2cf81aff39ae02f7ad3a4fa868",
+      "class_declaration": ".class public final Landroidx/media3/common/text/CueGroup;",
+      "members": [
+        {
+          "line": 26,
+          "declaration": ".field public final cues:Lcom/google/common/collect/f0;"
+        }
+      ]
+    },
+    {
+      "path": "smali_classes2/androidx/media3/common/text/Cue.smali",
+      "sha256": "40eb2e61f6de7b30e34a2481224f0877e59a565f73b8e815265c39ca9de30083",
+      "class_declaration": ".class public final Landroidx/media3/common/text/Cue;",
+      "members": [
+        {
+          "line": 116,
+          "declaration": ".field public final text:Ljava/lang/CharSequence;"
+        },
+        {
+          "line": 90,
+          "declaration": ".field public final bitmap:Landroid/graphics/Bitmap;"
+        }
+      ]
+    },
+    {
+      "path": "smali_classes5/com/google/common/collect/f0.smali",
+      "sha256": "44a69f59a80e86dc9e744ad89f81705dddd4ca43350e565bc182fce3dff03b77",
+      "class_declaration": ".class public abstract Lcom/google/common/collect/f0;",
+      "members": [
+        ".super Lcom/google/common/collect/d0;",
+        ".implements Ljava/util/List;",
+        ".implements Ljava/util/RandomAccess;"
+      ]
+    }
+  ]
+}

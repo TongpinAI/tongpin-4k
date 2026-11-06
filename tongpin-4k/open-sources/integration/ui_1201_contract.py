@@ -79,7 +79,7 @@ def verify(live_overrides=None):
     for name, digest in old_integration["source_sha256"].items():
         if name not in OWN:
             assert sha(live("open-sources/src/" + name).read_bytes()) == digest
-    assert sha((ROOT / "decoded/assets/tongpin_open_sources.json").read_bytes()) == "f4d9810b075ca7a67d28b22bcb4aeef18d06a37f655c0fa074c5a7a4cbccd658"
+    assert sha(live("decoded/assets/tongpin_open_sources.json").read_bytes()) == "f4d9810b075ca7a67d28b22bcb4aeef18d06a37f655c0fa074c5a7a4cbccd658"
     result = {"passed":True, "baseline":"1.2.0 frozen reports, never rewritten", "files":records,
               "layout_count":4, "native_methods":2, "own_source_changes":2, "new_resources":[], "native_render_verified":False}
     return overrides, projections, result

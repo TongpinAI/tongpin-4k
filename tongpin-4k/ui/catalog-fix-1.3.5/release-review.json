@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "verdict": "clear: independent count and poster reviews plus root source/integration review; exact nine-file production scope",
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/EpisodeSummary.java": "e5cd0398babaf9949bc8713f54b160a4e2c01c5f78c9143e0309583d311798d0",
+    "open-sources/src/com/tongpin/player4k/catalog/LegacyEpisodeOrder.java": "41d20250fe12357c43d335033db23a524a40757b46581256ab65d4c5599e8a84",
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogActivity.java": "70f1431b3b90ec07ff7da4a20302b725dd1f8638b7a25f6cc4b1ff3629e4766f",
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity.smali": "2774c016bb7a795a53a7e8528eff1755ab31a2e7506ac91ff87d81435f7e544e",
+    "decoded/smali_classes5/i6/e.smali": "ae2c3c29ffa1862e3ce5a7f130f4df037185c72149c680a219441733a3d85c99",
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/SearchActivity$c.smali": "24e4cd9eeb6d8e2bce4596a1452551cb1c985a7458777a4814f147ca135a0020",
+    "decoded/res/layout/mv_type_details_item.xml": "90dc024086899f34648f40dff3c718af4988383a07b75a68d78ed4d8de07d681",
+    "decoded/res/layout/item_recommend.xml": "5ac21a765a2e5c9aeafb2afdc8c1917f11a10cb37da79b6d8b164f5380e5bc41",
+    "decoded/res/drawable/place_image_laye.xml": "1ed7e95b44aba6e2c6729132f141d00bdf6bb0623933ee782c7e6bdea1a91966"
+  },
+  "independent_scope_reviews": {
+    "ui/catalog-fix-1.3.5/review.json": "e0228037b9293ffe4b12e05f53f6517b8261eba8c9f4532dbc92096d49f9f45c",
+    "ui/poster-badge-1.3.5/review.json": "49b1b8363b4822a30e31d78fd26223ff7d4388518b0c1d922775894dc3682055"
+  },
+  "native_device_tested": false,
+  "watermark_detection_added": false,
+  "cover_network_retry_added": false
+}

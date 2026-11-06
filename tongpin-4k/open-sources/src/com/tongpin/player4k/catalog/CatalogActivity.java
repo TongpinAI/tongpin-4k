@@ -79,6 +79,11 @@ public final class CatalogActivity extends Activity {
     private ProgressBar progress;
     private Button previous, next, retry;
     private VideoAdapter adapter;
+    private CatalogCategories categoryCatalog;
+    private String categoryId = "", pendingCategoryId = "";
+    private Spinner categoryPicker;
+    private final ArrayList<String> categoryOptions = new ArrayList<>();
+    private boolean bindingCategories;
 
     public static void bindEntry(View root) {
         View entry = root.findViewWithTag("tp_public_catalog");
@@ -112,6 +117,8 @@ public final class CatalogActivity extends Activity {
             providerIndex = Math.max(0, Math.min(saved.getInt("provider"), providers.size() - 1));
             page = Math.max(1, saved.getInt("page", 1));
             keyword = saved.getString("keyword", "");
+            if (providers.get(providerIndex).id.equals(saved.getString("categoryProvider", "")))
+                pendingCategoryId = saved.getString("category", "");
         }
         buildScreen();
         loadPage(page);
@@ -162,6 +169,23 @@ public final class CatalogActivity extends Activity {
         caption.setMaxLines(2);
         caption.setPadding(dp(20), dp(4), dp(20), dp(8));
         catalogScreen.addView(caption);
+        LinearLayout categoryRow = row();
+        categoryRow.setPadding(dp(16), 0, dp(16), dp(4));
+        categoryRow.addView(label("分类", 14, TEXT), new LinearLayout.LayoutParams(dp(48), dp(48)));
+        categoryPicker = new Spinner(this);
+        categoryPicker.setContentDescription("按当前片库的来源分类浏览");
+        categoryRow.addView(categoryPicker, new LinearLayout.LayoutParams(0, dp(48), 1));
+        catalogScreen.addView(categoryRow);
+        renderCategories();
+        categoryPicker.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override public void onNothingSelected(AdapterView<?> parent) { }
+            @Override public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (bindingCategories || position != categoryPicker.getSelectedItemPosition()
+                        || position < 0 || position >= categoryOptions.size()) return;
+                String selected = categoryOptions.get(position);
+                if (!categoryId.equals(selected)) { categoryId = selected; pendingCategoryId = ""; loadPage(1); }
+            }
+        });
         LinearLayout searchRow = row();
         searchRow.setPadding(dp(16), 0, dp(16), 0);
         search = new EditText(this);
@@ -229,9 +253,29 @@ public final class CatalogActivity extends Activity {
         picker.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override public void onNothingSelected(AdapterView<?> parent) { }
             @Override public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (providerIndex != position) { providerIndex = position; loadPage(1); }
+                if (providerIndex != position) {
+                    providerIndex = position; categoryCatalog = null; categoryId = ""; pendingCategoryId = "";
+                    renderCategories(); loadPage(1);
+                }
             }
         });
+    }
+
+    private void renderCategories() {
+        if (categoryPicker == null) return;
+        bindingCategories = true;
+        categoryOptions.clear();
+        categoryOptions.add("");
+        ArrayList<String> labels = new ArrayList<>();
+        labels.add(categoryCatalog == null ? "正在读取来源分类…" : categoryCatalog.isEmpty() ? "来源未提供分类" : "全部分类");
+        if (categoryCatalog != null) for (CatalogCategories.Category category : categoryCatalog.categories()) {
+            categoryOptions.add(category.id); labels.add(categoryCatalog.display(category));
+        }
+        int selected = categoryOptions.indexOf(categoryId);
+        categoryPicker.setAdapter(pickerAdapter(labels));
+        categoryPicker.setSelection(Math.max(0, selected), false);
+        categoryPicker.setEnabled(categoryOptions.size() > 1);
+        bindingCategories = false;
     }
 
     private void submitSearch() {
@@ -254,6 +298,7 @@ public final class CatalogActivity extends Activity {
         videos.clear();
         adapter.notifyDataSetChanged();
         Provider provider = providers.get(providerIndex);
+        final CatalogCategories.Selection category = categoryCatalog == null ? null : categoryCatalog.select(categoryId);
         caption.setText("peertube".equals(provider.kind)
             ? "Blender 开放电影 · 部分影片提供 4K 版本"
             : "电影与剧集 · 播放时显示实际分辨率");
@@ -264,14 +309,34 @@ public final class CatalogActivity extends Activity {
         final String query = keyword;
         pageRequest = requests.submit(() -> {
             try {
-                Page result = CatalogApi.fetchPage(provider, query, requestedPage);
+                Page result = CatalogApi.fetchPage(provider, query, requestedPage, category);
+                if ("maccms".equals(provider.kind) && (result.categories == null || result.categories.isEmpty())) {
+                    try { result = CatalogApi.withCategories(result, CatalogApi.fetchCategories(provider), category); }
+                    catch (Exception unavailableCategory) { /* Catalog entries remain explicitly unclassified. */ }
+                }
+                final Page received = result;
                 main.post(() -> {
                     if (!alive() || ticket != pageTicket) return;
-                    videos.addAll(result.items);
-                    hasMore = result.hasMore;
+                    categoryCatalog = received.categories;
+                    if (categoryCatalog == null) categoryCatalog = new CatalogCategories(provider.id,
+                            new ArrayList<CatalogCategories.Category>(), new java.util.HashSet<String>());
+                    if (!pendingCategoryId.isEmpty()) {
+                        String restored = pendingCategoryId; pendingCategoryId = "";
+                        try { categoryCatalog.select(restored); categoryId = restored; renderCategories(); loadPage(page); return; }
+                        catch (IllegalArgumentException changedCategory) { categoryId = ""; }
+                    }
+                    if (!categoryId.isEmpty()) {
+                        try { categoryCatalog.select(categoryId); }
+                        catch (IllegalArgumentException changedCategory) { categoryId = ""; renderCategories(); loadPage(1); return; }
+                    }
+                    renderCategories();
+                    videos.addAll(received.items);
+                    hasMore = received.hasMore;
                     loading = false;
                     progress.setVisibility(View.GONE);
                     status.setText(videos.isEmpty() ? "没有匹配影片，请换个关键词或片库" : "本页 " + videos.size() + " 部 · 选择影片查看选集");
+                    if (received.categoryMismatchCount > 0)
+                        status.append(" · " + received.categoryMismatchCount + "条来源分类不匹配，已隐藏");
                     adapter.notifyDataSetChanged();
                     updatePager();
                 });
@@ -281,6 +346,10 @@ public final class CatalogActivity extends Activity {
                     loading = false;
                     progress.setVisibility(View.GONE);
                     status.setText("片库暂时无法连接，请重试或切换片库");
+                    if (categoryCatalog == null) {
+                        categoryPicker.setAdapter(pickerAdapter(Collections.singletonList("分类读取失败，请重试")));
+                        categoryPicker.setEnabled(false);
+                    }
                     retry.setVisibility(View.VISIBLE);
                     updatePager();
                 });
@@ -323,6 +392,13 @@ public final class CatalogActivity extends Activity {
         });
     }
 
+    private static String episodeSummary(Line line) {
+        ArrayList<String> names = new ArrayList<>();
+        for (Episode episode : line.episodes)
+            if (episode != null && episode.streams != null && !episode.streams.isEmpty()) names.add(episode.name);
+        return EpisodeSummary.describe(names);
+    }
+
     private void showDetail(Detail value) {
         detail = value;
         selectedEpisode = null;
@@ -348,7 +424,7 @@ public final class CatalogActivity extends Activity {
         title.setMaxLines(2);
         title.setEllipsize(TextUtils.TruncateAt.END);
         words.addView(title);
-        TextView sourceName = label(value.video.provider.name + " · 优先高画质", 14, SECONDARY);
+        TextView sourceName = label(value.video.provider.name + " · " + value.video.categoryLabel + " · 优先高画质", 14, SECONDARY);
         sourceName.setPadding(0, dp(6), 0, 0);
         words.addView(sourceName);
         summary.addView(words, new LinearLayout.LayoutParams(0, -2, 1));
@@ -362,7 +438,7 @@ public final class CatalogActivity extends Activity {
         }
         Spinner lines = new Spinner(this);
         ArrayList<String> names = new ArrayList<>();
-        for (Line line : value.lines) names.add(line.name + " · " + line.episodes.size() + " 集/段");
+        for (Line line : value.lines) names.add(line.name + " · " + episodeSummary(line));
         lines.setAdapter(pickerAdapter(names));
         lines.setContentDescription("选择播放线路");
         LinearLayout lineControls = row();
@@ -387,6 +463,7 @@ public final class CatalogActivity extends Activity {
         Runnable renderEpisodes = () -> {
             int selected = lines.getSelectedItemPosition();
             if (selected < 0 || selected >= value.lines.size()) return;
+            episodeHint.setText(episodeSummary(value.lines.get(selected)) + " · 实际画质以播放时显示为准");
             List<Episode> displayed = displayEpisodes(value.lines.get(selected).episodes, episodesDescending);
             ArrayList<String> labels = new ArrayList<>();
             for (Episode episode : displayed) {
@@ -528,6 +605,10 @@ public final class CatalogActivity extends Activity {
         saved.putInt("provider", providerIndex);
         saved.putInt("page", page);
         saved.putString("keyword", keyword);
+        if (providers != null && !providers.isEmpty()) {
+            saved.putString("categoryProvider", providers.get(providerIndex).id);
+            saved.putString("category", pendingCategoryId.isEmpty() ? categoryId : pendingCategoryId);
+        }
     }
 
     @Override protected void onDestroy() {
@@ -600,7 +681,7 @@ public final class CatalogActivity extends Activity {
             } else holder = (Holder) convert.getTag();
             Video video = getItem(position);
             holder.title.setText(video.title);
-            holder.subtitle.setText(video.subtitle.isEmpty() ? video.provider.name : video.subtitle);
+            holder.subtitle.setText(video.categoryLabel + " · " + (video.subtitle.isEmpty() ? video.provider.name : video.subtitle));
             loadPoster(video.poster, holder.image, video.title);
             return convert;
         }

@@ -17,7 +17,7 @@
 .method private constructor <init>()V
     .locals 0
 
-    .line 14
+    .line 16
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -26,7 +26,7 @@
 .method private static activity(Landroid/content/Context;)Landroid/app/Activity;
     .locals 3
 
-    .line 77
+    .line 99
     const/4 v0, 0x0
 
     :goto_0
@@ -38,7 +38,7 @@
 
     if-eqz p0, :cond_3
 
-    .line 78
+    .line 100
     instance-of v1, p0, Landroid/app/Activity;
 
     if-eqz v1, :cond_0
@@ -47,7 +47,7 @@
 
     return-object p0
 
-    .line 79
+    .line 101
     :cond_0
     instance-of v1, p0, Landroid/content/ContextWrapper;
 
@@ -55,7 +55,7 @@
 
     return-object v2
 
-    .line 80
+    .line 102
     :cond_1
     move-object v1, p0
 
@@ -65,23 +65,23 @@
 
     move-result-object v1
 
-    .line 81
+    .line 103
     if-ne v1, p0, :cond_2
 
     return-object v2
 
-    .line 82
+    .line 104
     :cond_2
     nop
 
-    .line 77
+    .line 99
     add-int/lit8 v0, v0, 0x1
 
     move-object p0, v1
 
     goto :goto_0
 
-    .line 84
+    .line 106
     :cond_3
     return-object v2
 .end method
@@ -89,12 +89,12 @@
 .method private static apply(Ljava/lang/Object;Z)V
     .locals 3
 
-    .line 71
+    .line 93
     if-nez p0, :cond_0
 
     return-void
 
-    .line 72
+    .line 94
     :cond_0
     :try_start_0
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -125,13 +125,13 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 73
+    .line 95
     nop
 
-    .line 74
+    .line 96
     return-void
 
-    .line 73
+    .line 95
     :catch_0
     move-exception p0
 
@@ -145,60 +145,71 @@
 .end method
 
 .method public static bind(Landroid/app/Activity;Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 1
+    .locals 2
 
-    .line 36
+    .line 38
     invoke-static {p0}, Lcom/tongpin/player4k/catalog/LegacyEpisodeOrder;->isDescending(Landroid/content/Context;)Z
 
     move-result v0
 
-    .line 37
+    .line 39
     invoke-static {p1, v0}, Lcom/tongpin/player4k/catalog/LegacyEpisodeOrder;->apply(Ljava/lang/Object;Z)V
 
-    .line 38
+    .line 40
     invoke-static {p2, v0}, Lcom/tongpin/player4k/catalog/LegacyEpisodeOrder;->apply(Ljava/lang/Object;Z)V
 
-    .line 39
-    const p1, 0x7f0a0b02
-
-    invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
-
-    move-result-object p1
-
-    const/4 p2, 0x0
-
-    invoke-static {p1, p0, p2}, Lcom/tongpin/player4k/catalog/LegacyEpisodeOrder;->bindButton(Landroid/view/View;Landroid/content/Context;Z)V
-
-    .line 40
-    const p1, 0x7f0a0a82
-
-    invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
-
-    move-result-object p1
-
-    const/4 p2, 0x1
-
-    invoke-static {p1, p0, p2}, Lcom/tongpin/player4k/catalog/LegacyEpisodeOrder;->bindButton(Landroid/view/View;Landroid/content/Context;Z)V
-
     .line 41
+    const v0, 0x7f0a0b02
+
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, p0, v1}, Lcom/tongpin/player4k/catalog/LegacyEpisodeOrder;->bindButton(Landroid/view/View;Landroid/content/Context;Z)V
+
+    .line 42
+    const v0, 0x7f0a0a82
+
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    const/4 v1, 0x1
+
+    invoke-static {v0, p0, v1}, Lcom/tongpin/player4k/catalog/LegacyEpisodeOrder;->bindButton(Landroid/view/View;Landroid/content/Context;Z)V
+
+    .line 43
+    if-eqz p1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    move-object p1, p2
+
+    :goto_0
+    invoke-static {p0, p1}, Lcom/tongpin/player4k/catalog/LegacyEpisodeOrder;->bindSummary(Landroid/app/Activity;Ljava/lang/Object;)V
+
+    .line 44
     return-void
 .end method
 
 .method private static bindButton(Landroid/view/View;Landroid/content/Context;Z)V
     .locals 2
 
-    .line 44
+    .line 66
     instance-of v0, p0, Landroid/widget/TextView;
 
     if-nez v0, :cond_0
 
     return-void
 
-    .line 45
+    .line 67
     :cond_0
     check-cast p0, Landroid/widget/TextView;
 
-    .line 46
+    .line 68
     invoke-static {p1}, Lcom/tongpin/player4k/catalog/LegacyEpisodeOrder;->isDescending(Landroid/content/Context;)Z
 
     move-result v0
@@ -212,7 +223,7 @@
     :cond_1
     const-string v0, "\u6b63\u5e8f"
 
-    .line 47
+    .line 69
     :goto_0
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -242,7 +253,7 @@
 
     invoke-virtual {p0, p2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 48
+    .line 70
     new-instance p2, Ljava/lang/StringBuilder;
 
     invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
@@ -269,60 +280,270 @@
 
     invoke-virtual {p0, p2}, Landroid/widget/TextView;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    .line 49
+    .line 71
     new-instance p2, Lcom/tongpin/player4k/catalog/LegacyEpisodeOrder$$ExternalSyntheticLambda1;
 
     invoke-direct {p2, p1}, Lcom/tongpin/player4k/catalog/LegacyEpisodeOrder$$ExternalSyntheticLambda1;-><init>(Landroid/content/Context;)V
 
     invoke-virtual {p0, p2}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 50
+    .line 72
     return-void
 .end method
 
 .method public static bindDialog(Landroid/content/Context;Landroid/view/View;Ljava/lang/Object;)V
     .locals 1
 
-    .line 53
+    .line 75
     instance-of v0, p1, Landroid/widget/TextView;
 
     if-nez v0, :cond_0
 
     return-void
 
-    .line 54
+    .line 76
     :cond_0
     check-cast p1, Landroid/widget/TextView;
 
-    .line 55
+    .line 77
     invoke-static {p0}, Lcom/tongpin/player4k/catalog/LegacyEpisodeOrder;->isDescending(Landroid/content/Context;)Z
 
     move-result v0
 
     invoke-static {p2, v0}, Lcom/tongpin/player4k/catalog/LegacyEpisodeOrder;->apply(Ljava/lang/Object;Z)V
 
-    .line 56
+    .line 78
     invoke-static {p0}, Lcom/tongpin/player4k/catalog/LegacyEpisodeOrder;->isDescending(Landroid/content/Context;)Z
 
     move-result v0
 
     invoke-static {p1, v0}, Lcom/tongpin/player4k/catalog/LegacyEpisodeOrder;->dialogLabel(Landroid/widget/TextView;Z)V
 
-    .line 57
+    .line 79
     new-instance v0, Lcom/tongpin/player4k/catalog/LegacyEpisodeOrder$$ExternalSyntheticLambda0;
 
     invoke-direct {v0, p0, p2, p1}, Lcom/tongpin/player4k/catalog/LegacyEpisodeOrder$$ExternalSyntheticLambda0;-><init>(Landroid/content/Context;Ljava/lang/Object;Landroid/widget/TextView;)V
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
+    .line 85
+    return-void
+.end method
+
+.method private static bindSummary(Landroid/app/Activity;Ljava/lang/Object;)V
+    .locals 6
+
+    .line 47
+    const v0, 0x7f0a0b3d
+
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+
+    move-result-object p0
+
+    .line 48
+    instance-of v0, p0, Landroid/widget/TextView;
+
+    if-eqz v0, :cond_6
+
+    if-nez p1, :cond_0
+
+    goto/16 :goto_2
+
+    .line 49
+    :cond_0
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    .line 51
+    :try_start_0
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v1
+
+    const-string v2, "b"
+
+    const/4 v3, 0x0
+
+    new-array v4, v3, [Ljava/lang/Class;
+
+    invoke-virtual {v1, v2, v4}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+
+    move-result-object v1
+
+    new-array v2, v3, [Ljava/lang/Object;
+
+    invoke-virtual {v1, p1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Ljava/util/List;
+
+    .line 52
+    if-eqz p1, :cond_5
+
+    invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object p1
+
+    :cond_1
+    :goto_0
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_5
+
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    .line 53
+    if-nez v1, :cond_2
+
+    goto :goto_0
+
+    .line 54
+    :cond_2
+    invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v2
+
+    const-string v4, "getUrl"
+
+    new-array v5, v3, [Ljava/lang/Class;
+
+    invoke-virtual {v2, v4, v5}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+
+    move-result-object v2
+
+    new-array v4, v3, [Ljava/lang/Object;
+
+    invoke-virtual {v2, v1, v4}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    .line 55
+    instance-of v4, v2, Ljava/lang/String;
+
+    if-eqz v4, :cond_1
+
+    check-cast v2, Ljava/lang/String;
+
+    invoke-virtual {v2}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    goto :goto_0
+
+    .line 56
+    :cond_3
+    invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v2
+
+    const-string v4, "getTitle"
+
+    new-array v5, v3, [Ljava/lang/Class;
+
+    invoke-virtual {v2, v4, v5}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+
+    move-result-object v2
+
+    new-array v4, v3, [Ljava/lang/Object;
+
+    invoke-virtual {v2, v1, v4}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    .line 57
+    instance-of v2, v1, Ljava/lang/String;
+
+    if-eqz v2, :cond_4
+
+    check-cast v1, Ljava/lang/String;
+
+    goto :goto_1
+
+    :cond_4
+    const-string v1, ""
+
+    :goto_1
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 58
+    goto :goto_0
+
+    .line 59
+    :cond_5
+    nop
+
+    .line 60
+    invoke-static {v0}, Lcom/tongpin/player4k/catalog/EpisodeSummary;->describe(Ljava/lang/Iterable;)Ljava/lang/String;
+
+    move-result-object p1
+
+    .line 61
+    move-object v0, p0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 62
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "\u5f53\u524d\u7ebf\u8def\uff1a"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
+
     .line 63
+    return-void
+
+    .line 59
+    :catch_0
+    move-exception p0
+
+    new-instance p1, Ljava/lang/IllegalStateException;
+
+    const-string v0, "\u65e0\u6cd5\u66f4\u65b0\u9009\u96c6\u6570\u91cf"
+
+    invoke-direct {p1, v0, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    throw p1
+
+    .line 48
+    :cond_6
+    :goto_2
     return-void
 .end method
 
 .method private static dialogLabel(Landroid/widget/TextView;Z)V
     .locals 4
 
-    .line 66
+    .line 88
     const-string v0, "\u5012\u5e8f"
 
     const-string v1, "\u6b63\u5e8f"
@@ -339,7 +560,7 @@
     :goto_0
     invoke-virtual {p0, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 67
+    .line 89
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -374,14 +595,14 @@
 
     invoke-virtual {p0, p1}, Landroid/widget/TextView;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    .line 68
+    .line 90
     return-void
 .end method
 
 .method public static index(IIZ)I
     .locals 0
 
-    .line 18
+    .line 20
     if-eqz p2, :cond_0
 
     if-ltz p0, :cond_0
@@ -399,7 +620,7 @@
 .method public static isDescending(Landroid/content/Context;)Z
     .locals 2
 
-    .line 22
+    .line 24
     const-string v0, "tongpin_ui"
 
     const/4 v1, 0x0
@@ -420,7 +641,7 @@
 .method static synthetic lambda$bindButton$0(Landroid/content/Context;Landroid/view/View;)V
     .locals 0
 
-    .line 49
+    .line 71
     invoke-static {p0}, Lcom/tongpin/player4k/catalog/LegacyEpisodeOrder;->isDescending(Landroid/content/Context;)Z
 
     move-result p1
@@ -435,30 +656,30 @@
 .method static synthetic lambda$bindDialog$0(Landroid/content/Context;Ljava/lang/Object;Landroid/widget/TextView;Landroid/view/View;)V
     .locals 0
 
-    .line 58
+    .line 80
     invoke-static {p0}, Lcom/tongpin/player4k/catalog/LegacyEpisodeOrder;->isDescending(Landroid/content/Context;)Z
 
     move-result p3
 
-    .line 59
+    .line 81
     xor-int/lit8 p3, p3, 0x1
 
     invoke-static {p0, p3}, Lcom/tongpin/player4k/catalog/LegacyEpisodeOrder;->setDescending(Landroid/content/Context;Z)V
 
-    .line 60
+    .line 82
     invoke-static {p1, p3}, Lcom/tongpin/player4k/catalog/LegacyEpisodeOrder;->apply(Ljava/lang/Object;Z)V
 
-    .line 61
+    .line 83
     invoke-static {p2, p3}, Lcom/tongpin/player4k/catalog/LegacyEpisodeOrder;->dialogLabel(Landroid/widget/TextView;Z)V
 
-    .line 62
+    .line 84
     return-void
 .end method
 
 .method public static setDescending(Landroid/content/Context;Z)V
     .locals 3
 
-    .line 26
+    .line 28
     const-string v0, "tongpin_ui"
 
     const/4 v1, 0x0
@@ -479,15 +700,15 @@
 
     invoke-interface {p1}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    .line 27
+    .line 29
     invoke-static {p0}, Lcom/tongpin/player4k/catalog/LegacyEpisodeOrder;->activity(Landroid/content/Context;)Landroid/app/Activity;
 
     move-result-object p0
 
-    .line 28
+    .line 30
     if-eqz p0, :cond_0
 
-    .line 29
+    .line 31
     :try_start_0
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -510,7 +731,7 @@
 
     goto :goto_0
 
-    .line 31
+    .line 33
     :catch_0
     move-exception p0
 
@@ -522,15 +743,15 @@
 
     throw p1
 
-    .line 30
+    .line 32
     :catch_1
     move-exception p0
 
-    .line 31
+    .line 33
     :goto_0
     nop
 
-    .line 33
+    .line 35
     :cond_0
     return-void
 .end method
