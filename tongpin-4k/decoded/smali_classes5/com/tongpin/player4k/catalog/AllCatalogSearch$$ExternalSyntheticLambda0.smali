@@ -22,7 +22,7 @@
     .locals 0
 
     .line 0
-    invoke-static {p1, p2, p3}, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->lambda$new$1(Lcom/tongpin/player4k/catalog/CatalogApi$Provider;Ljava/lang/String;I)Lcom/tongpin/player4k/catalog/CatalogApi$Page;
+    invoke-static {p1, p2, p3}, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->lambda$new$2(Lcom/tongpin/player4k/catalog/CatalogApi$Provider;Ljava/lang/String;I)Lcom/tongpin/player4k/catalog/CatalogApi$Page;
 
     move-result-object p1
 

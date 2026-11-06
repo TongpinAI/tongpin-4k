@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "verdict": "clear: bounded metadata-only private preview codec and background storage wrapper",
+  "workspace_sources": true,
+  "source_sha256": {
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/CatalogPreviewCache.java": "8e9e4c8d5cb777be2804045665f5340140ff7ccabe3216a16d32131b2bd193b0",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/CatalogPreviewCache.java": "d88233373946b37e178e2dc4f1c0344eb330c333bbaac31f68cdfe25b93d6c2b"
+  },
+  "reports_sha256": {
+    "tongpin-4k/ui/performance-1.4.5/cache-tests/verification.json": "51c2200d74e7a5b3c5435e86cc6d13817f26d1153963966277fb5998ea28efec"
+  },
+  "reviewed_behaviors": [
+    "Only metadata and declared category ancestry are encoded; streams, episodes, playback cursor and account state are absent. Cache rows require the current registry fingerprint and bind to the actual current Provider objects.",
+    "Strict work-key and declared-family regeneration prevents a cache row from changing grouping or leaking across fixed tabs. Duplicate source identity and duplicate group key are rejected; incomplete or malformed payloads are ignored by the optional load path.",
+    "24-hour age/future/schema checks,512KiB UTF8 cap,64 nesting depth,36 groups,120 complete candidate models and32 category ancestors bound parsing/storage. An empty refresh cannot replace a last-good file.",
+    "All I/O and policy projection run on a dedicated single worker with bounded queue2. Delivery is asynchronous, checked against close, and carries only immutable groups. Stock platform AtomicFile owns commit/failWrite recovery.",
+    "Canonical app-cache directory and enum-derived filename are checked against their resolved parent; no executable code, remote configuration or media payload is restored.",
+    "Candidate metadata fields remain source declarations; detail and playable endpoints must be fetched fresh by callers. The cache does not restore network cursors or promise source availability."
+  ],
+  "observed_tests": {
+    "phone_codec": 30,
+    "tv_codec": 30,
+    "actual_production_models": true,
+    "android_stub_methods_executed": false,
+    "atomicfile_runtime_executed": false
+  },
+  "device_tested": false,
+  "network_tested": false,
+  "review_source_modified": false,
+  "limitations": "Read-only independent semantic review plus verification of the existing30/app codec test artifacts and source bindings. Android private disk I/O,AtomicFile crash recovery and UI startup timing were not executed on a device."
+}

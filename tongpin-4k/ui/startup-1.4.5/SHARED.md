@@ -1,0 +1,15 @@
+# 启动加载共享改动
+
+本轮仅修改两端同体的UnifiedCatalogBrowse与AllCatalogSearch。Policy、API、来源清单、超时和播放器不变。
+
+两种Snapshot的items/groups都是已就绪的不可变缓存列表。Handle.snapshot及main投递只读取缓存与轻量进度，不运行归组或排序。独立的单个投影worker在锁外处理原始条目副本，计算结束检查handle和条目版本，过时结果丢弃并合并到最新版本；只进度变化时复用列表引用。AllSearch同时提供原始来源的自然排序items和已分组groups，两端界面无需再做归组或第二次自然排序。
+
+loading包含网络任务或待投影状态；pending、batchTotal和batchReturned只反映来源metadata/page任务，投影不会伪装成另一个来源请求。projecting单独说明整理中。projectionFailed保留上一次有效结果且允许retryProjection(handle)，避免意外异常显示永久加载。cancelRound只暂停网络轮次，已经接受的条目仍可完成后台整理；cancel新查询/close令旧投影失效，close同时关闭两个线程池。
+
+分类元数据和就绪内容页交替调度，内容页又按来源轮询。某个库就绪后可以先显示第一页，拥有大量目录的库不会独占后续请求。网络并发上限仍是3；投影使用另外一个CPU worker，不持状态锁做归组。
+
+分类缓存仅存在于Browse实例内，最多128项，15分钟失效，键含provider ID、API与kind。各固定分类的请求计划在网络worker锁外预先生成，所以命中缓存的切换分类不会在UI线程重新分析类树。invalidateCategories()与invalidateCategories(provider)供明确刷新使用，不改变当前已创建游标；新handle读取新metadata。缓存epoch防止失效前的迟到响应重新填入缓存，close会清空缓存。
+
+原始分页归属、失败时不推进、重复页、2000条显式窗口和选中作品锚点规则保留。新增61项/端测试与保留79项/端回归，使用两端真实模型和API源码，无Android stubs、网络或真机执行。测试把投影worker阻塞后直接读取snapshot和执行delivery，验证整理工作不会偷偷回到delivery线程；包含版本合并、旧查询丢弃、分类首卡优先、公平150目录、缓存复用/失效/容量及不可变引用。
+
+此改动改善调度和UI线程工作。Future.cancel仍不能保证平台HTTP马上中止，网络超时未修改，因此未承诺所有慢源都能立即取消。缓存命中与类目首卡可优先显示，未完成库仍继续公平尝试。

@@ -1,13 +1,13 @@
 # 手机端构建输入与恢复说明
 
-当前源码为 **1.4.4 / versionCode1440**，包名 `com.tongpin.player4k`。它是在现有APK/原生播放库基础上维护的fork，含自有Java、继承资源与smali，不描述为完整Gradle或clean-room重写项目。
+当前源码为 **1.4.5 / versionCode1450**，包名 `com.tongpin.player4k`。它是在现有APK/原生播放库基础上维护的fork，含自有Java、继承资源与smali，不描述为完整Gradle或clean-room重写项目。
 
 ## 当前输入与检查范围
 
-- `open-sources/src`有37份自有Java，本轮重新编译到`open-sources/staging-1.4.4-r2`，自有类数量以当前compile-report和最终DEX核对为准；编译桩和host JSON实现不打进安装包。
+- `open-sources/src`有40份自有Java，本轮重新编译到`open-sources/staging-1.4.5-r1`，自有类数量以当前compile-report和最终DEX核对为准；编译桩和host JSON实现不打进安装包。
 - `decoded`包含实际构建资源、五组smali及42个原生库。前四DEX继续核对`kanke-noads/decoded`的对应输入；原生第五码仅旧历史点击桥接的一个方法改动，其余继承代码保持合同范围。
 - 统一首页、实际来源换源、旧记录转入新确认流程以及本地历史/收藏见`ui/unified-sources-1.3.9`。XML/M3U/无code JSON不增加运行库依赖，使用平台API和既有播放器。
-- `verification/1.4.4/proof-tools`中的全部真实检查器`.class`及嵌套类是最终DEX审计输入，对应源码位于`open-sources/integration`。134–143的历史证明类继续保留；普通测试编译产物不提交。
+- `verification/1.4.5/proof-tools`中的全部真实检查器`.class`及嵌套类是最终DEX审计输入，对应源码位于`open-sources/integration`。134–144的历史证明类继续保留；普通测试编译产物不提交。
 - 旧冻结报告、before快照、stage与实际R夹具按原字节保留，不把历史报告改成当前验证结果。
 
 ## 历史140自动选源构建输入
@@ -33,9 +33,9 @@
 | `tongpin-4k/output/tongpin-4k-1.3.7.apk` | 77021749 | `6356604f250e93446f282769196ee9cad570af5789250b02d37618f5da875705` |
 | `tongpin-4k/output/tongpin-4k-1.3.8.apk` | 77021749 | `532c6f3810df6c284f273e4f4ba32bb2e6fab67054f80828e003f922debf8475` |
 
-在仓库根执行`python scripts/restore_artifacts.py --download-dir <资产下载目录> --check-only`可先校验全部输入；去掉`--check-only`只补齐缺少且哈希一致的目标。脚本拒绝覆盖不同内容，不写签名密钥。根清单是完整恢复目标的依据，当前144手机成品及138电视成品属于交付物，不是重建自身的输入。
+在仓库根执行`python scripts/restore_artifacts.py --download-dir <资产下载目录> --check-only`可先校验全部输入；去掉`--check-only`只补齐缺少且哈希一致的目标。脚本拒绝覆盖不同内容，不写签名密钥。根清单是完整恢复目标的依据，当前145手机成品及139电视成品属于交付物，不是重建自身的输入。
 
-`build_tongpin.py`当前直接核对手机143基线；完整合同继续读取137及更早APK、源码和证明类。对应旧附件应保留，不能为通过检查删除旧合同或改写历史证据。
+`build_tongpin.py`当前直接核对手机144基线；完整合同继续读取137及更早APK、源码和证明类。对应旧附件应保留，不能为通过检查删除旧合同或改写历史证据。
 
 ## 历史139阶段DEX固定构建输入
 
@@ -80,3 +80,8 @@
 当前37份自有Java；规范输入`open-sources/staging-1.4.4-r2/own-classes.dex`的SHA256为`404817d8d9eea800df952d3fa7977c4e446cd6f143d9321a24a24d4204fb538b`，随`v1.4.4`构建输入ZIP恢复。旧30项资产全部保留，本轮增加手机APK、TV APK与规范DEX压缩包。144交付APK不是其自身重建输入。
 
 最终源码冻结、类别映射、保守去重、优选与分页／取消检查见`ui/unified-library-1.4.4/`；自然名称排序子阶段保存在`ui/search-order-1.4.4/`。最终APK、实际DEX、ABI、SDK门控、资源及签名检查见`verification/1.4.4/`。新列表逻辑不修改播放引擎或源表；主机验证不代替设备布局、输入法与触摸操作验收。
+
+
+## 145加载优化构建输入
+
+当前40份自有Java，规范输入`open-sources/staging-1.4.5-r1/own-classes.dex`的SHA256为`2b8ee64821edcc97c25142053ec646ee41a71825cef23ae020f298cecd2f2fbc`，随`v1.4.5`构建输入ZIP恢复。旧33项资产全部保留，本轮增加两端APK和规范DEX压缩包，恢复清单共36项资产、44个目标。145成品不是重建自身的输入。性能调用者、队列与缓存证据见`ui/performance-1.4.5/`，共享调度见`ui/startup-1.4.5/`，最终APK见`verification/1.4.5/`。未做设备加载计时或播放验收。

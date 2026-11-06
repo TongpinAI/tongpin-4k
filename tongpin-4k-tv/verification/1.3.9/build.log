@@ -1,0 +1,212 @@
+$ D:\DevTools\tmp\tongpin-shared-android-tools\build-tools-35.0.1\aapt2.exe compile --dir D:\DevTools\tmp\tongpin4k-tv-build\res -o D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\resources.zip
+$ D:\DevTools\tmp\tongpin-shared-android-tools\build-tools-35.0.1\aapt2.exe compile --dir D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\library-resources\androidx.media3-media3-exoplayer-1.10.1\res -o D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\library-resources\androidx.media3-media3-exoplayer-1.10.1\compiled.zip
+$ D:\DevTools\tmp\tongpin-shared-android-tools\build-tools-35.0.1\aapt2.exe link -I D:\DevTools\tmp\tongpin-shared-android-tools\platform-35\android.jar --manifest D:\DevTools\tmp\tongpin4k-tv-build\AndroidManifest.xml D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\resources.zip -R D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\library-resources\androidx.media3-media3-exoplayer-1.10.1\compiled.zip --auto-add-overlay --extra-packages androidx.media3.exoplayer --stable-ids D:\DevTools\tmp\tongpin4k-tv-build\verification\1.3.0\stable-resource-ids.txt --emit-ids D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\resource-ids.txt -A D:\DevTools\tmp\tongpin4k-tv-build\assets --java D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\generated --min-sdk-version 21 --target-sdk-version 33 --version-code 1309 --version-name 1.3.9 -o D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\resources.ap_
+$ "D:\PyCharm\PyCharm 2024.3.1.1\jbr\bin\java.exe" -Duser.language=en -Duser.country=US com.sun.tools.javac.Main @D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\javac.args
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+$ "D:\PyCharm\PyCharm 2024.3.1.1\jbr\bin\java.exe" -cp D:\DevTools\tmp\tongpin-shared-android-tools\build-tools-35.0.1\lib\d8.jar com.android.tools.r8.D8 --release --min-api 21 --lib D:\DevTools\tmp\tongpin-shared-android-tools\platform-35\android.jar --output D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\dex D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\androidx\media3\exoplayer\R$color.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\androidx\media3\exoplayer\R$drawable.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\androidx\media3\exoplayer\R$string.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\androidx\media3\exoplayer\R$style.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\androidx\media3\exoplayer\R.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\AllCatalogSearch$1.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\AllCatalogSearch$Backend.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\AllCatalogSearch$Cursor.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\AllCatalogSearch$Handle.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\AllCatalogSearch$Listener.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\AllCatalogSearch$Snapshot.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\AllCatalogSearch.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\AutoSourcePolicy$Coverage.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\AutoSourcePolicy$Score.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\AutoSourcePolicy.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\AutoSourceSelector$1.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\AutoSourceSelector$Backend.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\AutoSourceSelector$Batch.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\AutoSourceSelector$Budget.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\AutoSourceSelector$Candidate.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\AutoSourceSelector$Fetch.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\AutoSourceSelector$Handle.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\AutoSourceSelector$HttpFetch.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\AutoSourceSelector$Limits.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\AutoSourceSelector$LineChoice.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\AutoSourceSelector$Listener.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\AutoSourceSelector$Probe.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\AutoSourceSelector$Recommendation.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\AutoSourceSelector$Request.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\AutoSourceSelector$Response.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\AutoSourceSelector$Variant.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\AutoSourceSelector.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\CatalogApi$CatalogException.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\CatalogApi$Detail.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\CatalogApi$Episode.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\CatalogApi$Line.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\CatalogApi$Page.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\CatalogApi$Provider.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\CatalogApi$Stream.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\CatalogApi$Video.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\CatalogApi.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\CatalogCategories$1.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\CatalogCategories$Category.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\CatalogCategories$Selection.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\CatalogCategories.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\CatalogPosters$1.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\CatalogPosters$Binding.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\CatalogPosters.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\CatalogPreviewCache$Listener.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\CatalogPreviewCache.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\CatalogTitleOrder$Entry.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\CatalogTitleOrder.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\CrossSourcePolicy.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\EpisodeSummary.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\M3uCatalog$1.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\M3uCatalog$Channel.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\M3uCatalog$Parsed.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\M3uCatalog.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\MacCmsXml$Reader.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\MacCmsXml.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\PosterQueue$1.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\PosterQueue$Callback.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\PosterQueue$Job.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\PosterQueue$Loader.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\PosterQueue$Ticket.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\PosterQueue.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\R$color.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\R$drawable.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\R$string.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\R$style.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\R.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\SubtitlePolicy.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\TvAutoSourceQueue$Job.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\TvAutoSourceQueue$Listener.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\TvAutoSourceQueue.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\TvAutoSourceState.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\TvBoxJson.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\TvHoldSpeedState.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\TvHomeActivity$1.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\TvHomeActivity$2.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\TvHomeActivity$3.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\TvHomeActivity$CardAdapter.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\TvHomeActivity$CardBinding.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\TvHomeActivity$SearchAnchor.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\TvHomeActivity$SearchPress.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\TvHomeActivity.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\TvLibraryStore$Resume.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\TvLibraryStore.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\TvPlaybackClock.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\TvPlaybackEngine$Api23$CompatibleEngine.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\TvPlaybackEngine$Api23.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\TvPlaybackEngine$Api26.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\TvPlaybackEngine$Completion.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\TvPlaybackEngine$Error.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\TvPlaybackEngine$Prepared.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\TvPlaybackEngine$Seek.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\TvPlaybackEngine$Size.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\TvPlaybackEngine$Subtitles.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\TvPlaybackEngine$SubtitleTrack.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\TvPlaybackEngine$SystemEngine.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\TvPlaybackEngine.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\TvPlayerActivity$1.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\TvPlayerActivity$2.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\TvPlayerActivity$3.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\TvPlayerActivity$4.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\TvPlayerActivity$5.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\TvPlayerActivity.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\TvPlayQueue.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\TvSeekReceipt.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\TvSeekState.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\TvSourcePicker$Host.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\TvSourcePicker$Result.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\TvSourcePicker.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\TvSourceState.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\TvUi.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\UnifiedCatalogBrowse$1.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\UnifiedCatalogBrowse$Backend.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\UnifiedCatalogBrowse$CategoryCache.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\UnifiedCatalogBrowse$Cursor.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\UnifiedCatalogBrowse$Handle.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\UnifiedCatalogBrowse$Listener.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\UnifiedCatalogBrowse$Snapshot.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\UnifiedCatalogBrowse$Source.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\UnifiedCatalogBrowse$Work.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\UnifiedCatalogBrowse.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\UnifiedCatalogPolicy$1.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\UnifiedCatalogPolicy$Group.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\UnifiedCatalogPolicy$Tab.class D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\classes\com\tongpin\player4k\tv\UnifiedCatalogPolicy.class D:\DevTools\tmp\tongpin4k-tv-build\third-party\media3-1.10.1\jars\media3-common-1.10.1.jar D:\DevTools\tmp\tongpin4k-tv-build\third-party\media3-1.10.1\jars\media3-container-1.10.1.jar D:\DevTools\tmp\tongpin4k-tv-build\third-party\media3-1.10.1\jars\media3-datasource-1.10.1.jar D:\DevTools\tmp\tongpin4k-tv-build\third-party\media3-1.10.1\jars\media3-decoder-1.10.1.jar D:\DevTools\tmp\tongpin4k-tv-build\third-party\media3-1.10.1\jars\media3-extractor-1.10.1.jar D:\DevTools\tmp\tongpin4k-tv-build\third-party\media3-1.10.1\jars\media3-database-1.10.1.jar D:\DevTools\tmp\tongpin4k-tv-build\third-party\media3-1.10.1\jars\media3-exoplayer-1.10.1.jar D:\DevTools\tmp\tongpin4k-tv-build\third-party\media3-1.10.1\jars\media3-exoplayer-hls-1.10.1.jar D:\DevTools\tmp\tongpin4k-tv-build\third-party\media3-1.10.1\jars\media3-exoplayer-dash-1.10.1.jar D:\DevTools\tmp\tongpin4k-tv-build\third-party\media3-1.10.1\jars\annotation-jvm-1.6.0.jar D:\DevTools\tmp\tongpin4k-tv-build\third-party\media3-1.10.1\jars\annotation-experimental-1.3.1.jar D:\DevTools\tmp\tongpin4k-tv-build\third-party\media3-1.10.1\jars\exifinterface-1.3.6.jar D:\DevTools\tmp\tongpin4k-tv-build\third-party\media3-1.10.1\jars\guava-33.3.1-android.jar D:\DevTools\tmp\tongpin4k-tv-build\third-party\media3-1.10.1\jars\failureaccess-1.0.2.jar D:\DevTools\tmp\tongpin4k-tv-build\third-party\media3-1.10.1\jars\kotlin-stdlib-2.0.20.jar D:\DevTools\tmp\tongpin4k-tv-build\third-party\media3-1.10.1\jars\annotations-13.0.jar D:\DevTools\tmp\tongpin4k-tv-build\third-party\media3-1.10.1\jars\kotlin-annotations-jvm-2.0.20.jar
+$ "D:\PyCharm\PyCharm 2024.3.1.1\jbr\bin\java.exe" -Duser.language=en com.sun.tools.javac.Main --release 8 -Xlint:-options -classpath D:\DevTools\tmp\tongpin-shared-android-tools\apktool_3.0.3.jar -d D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\api-proof-tools D:\DevTools\tmp\tongpin4k-tv-build\verification\toolchain\InspectTvBackend130.java
+$ "D:\PyCharm\PyCharm 2024.3.1.1\jbr\bin\java.exe" -cp D:\DevTools\tmp\tongpin-shared-android-tools\apktool_3.0.3.jar;D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\api-proof-tools InspectTvBackend130 D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\dex\classes.dex D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\api-proof-smali
+Read 305 own player classes as DEX data
+$ D:\DevTools\tmp\tongpin-shared-android-tools\build-tools-35.0.1\zipalign.exe -f -P 16 4 D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\unsigned.apk D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\aligned.apk
+$ "D:\PyCharm\PyCharm 2024.3.1.1\jbr\bin\java.exe" -jar D:\DevTools\tmp\tongpin-shared-android-tools\build-tools-35.0.1\lib\apksigner.jar sign --ks D:\DevTools\tmp\tongpin4k-tv-build\signing\tongpin4k-tv.p12 --ks-key-alias tongpin4k-tv --ks-pass env:TP_TV_SIGN_PASS --key-pass env:TP_TV_SIGN_PASS --min-sdk-version 21 --v1-signing-enabled true --v2-signing-enabled true --v3-signing-enabled true --out D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\signed.apk D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\aligned.apk
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::loadLibrary has been called by org.conscrypt.NativeLibraryUtil in an unnamed module (file:/C:/Users/Administrator.DESKTOP-R9V7M9S/Documents/ChatGPT/%e6%b5%8b%e8%af%95/kanke-noads/tools/build-tools-35.0.1/lib/apksigner.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+$ "D:\PyCharm\PyCharm 2024.3.1.1\jbr\bin\java.exe" -jar D:\DevTools\tmp\tongpin-shared-android-tools\build-tools-35.0.1\lib\apksigner.jar verify --verbose --print-certs D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\signed.apk
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::loadLibrary has been called by org.conscrypt.NativeLibraryUtil in an unnamed module (file:/C:/Users/Administrator.DESKTOP-R9V7M9S/Documents/ChatGPT/%e6%b5%8b%e8%af%95/kanke-noads/tools/build-tools-35.0.1/lib/apksigner.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+Verifies
+Verified using v1 scheme (JAR signing): true
+Verified using v2 scheme (APK Signature Scheme v2): true
+Verified using v3 scheme (APK Signature Scheme v3): true
+Verified using v3.1 scheme (APK Signature Scheme v3.1): false
+Verified using v4 scheme (APK Signature Scheme v4): false
+Verified for SourceStamp: false
+Number of signers: 1
+Signer #1 certificate DN: CN=Tongpin4K TV, OU=Local Development, O=Tongpin, C=CN
+Signer #1 certificate SHA-256 digest: c6977a378251b81f1dc7f9564d5c7817f4620f54f2f2ec3befe7bfdf13fffe89
+Signer #1 certificate SHA-1 digest: 0848b58e2643d76de404b343d3249a08db17917f
+Signer #1 certificate MD5 digest: ca3893d40a23f1f3d3c652764841c92f
+Signer #1 key algorithm: RSA
+Signer #1 key size (bits): 3072
+Signer #1 public key SHA-256 digest: e90bca818b84fa6209da7d08cdec67ea3ca494ad5f066408596f65167bd0a54b
+Signer #1 public key SHA-1 digest: 4b07f58c59d4dd28afb24774570d866632b51f6f
+Signer #1 public key MD5 digest: 4a8999cb738f399f6a9463a320c0494a
+WARNING: META-INF/annotation.kotlin_module not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.annotation_annotation-experimental.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/annotation-experimental_release.kotlin_module not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.exifinterface_exifinterface.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/maven/com.google.guava/guava/pom.properties not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/maven/com.google.guava/guava/pom.xml not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/maven/com.google.guava/failureaccess/pom.properties not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/maven/com.google.guava/failureaccess/pom.xml not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/kotlin-stdlib.kotlin_module not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/kotlin-stdlib-jdk7.kotlin_module not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/kotlin-stdlib-jdk8.kotlin_module not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/maven/org.jetbrains/annotations/pom.xml not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/maven/org.jetbrains/annotations/pom.properties not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+$ D:\DevTools\tmp\tongpin-shared-android-tools\build-tools-35.0.1\zipalign.exe -c -P 16 4 D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\signed.apk
+$ D:\DevTools\tmp\tongpin-shared-android-tools\build-tools-35.0.1\aapt2.exe dump badging D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\signed.apk
+package: name='com.tongpin.player4k.tv' versionCode='1309' versionName='1.3.9' platformBuildVersionName='15' platformBuildVersionCode='35' compileSdkVersion='35' compileSdkVersionCodename='15'
+minSdkVersion:'21'
+targetSdkVersion:'33'
+uses-permission: name='android.permission.INTERNET'
+uses-permission: name='android.permission.ACCESS_NETWORK_STATE'
+application-label:'同频4K TV'
+application-label-af:'同频4K TV'
+application-label-am:'同频4K TV'
+application-label-ar:'同频4K TV'
+application-label-as:'同频4K TV'
+application-label-az:'同频4K TV'
+application-label-be:'同频4K TV'
+application-label-bg:'同频4K TV'
+application-label-bn:'同频4K TV'
+application-label-bs:'同频4K TV'
+application-label-ca:'同频4K TV'
+application-label-cs:'同频4K TV'
+application-label-da:'同频4K TV'
+application-label-de:'同频4K TV'
+application-label-el:'同频4K TV'
+application-label-en-AU:'同频4K TV'
+application-label-en-GB:'同频4K TV'
+application-label-en-IN:'同频4K TV'
+application-label-es:'同频4K TV'
+application-label-es-US:'同频4K TV'
+application-label-et:'同频4K TV'
+application-label-eu:'同频4K TV'
+application-label-fa:'同频4K TV'
+application-label-fi:'同频4K TV'
+application-label-fr:'同频4K TV'
+application-label-fr-CA:'同频4K TV'
+application-label-gl:'同频4K TV'
+application-label-gu:'同频4K TV'
+application-label-hi:'同频4K TV'
+application-label-hr:'同频4K TV'
+application-label-hu:'同频4K TV'
+application-label-hy:'同频4K TV'
+application-label-in:'同频4K TV'
+application-label-is:'同频4K TV'
+application-label-it:'同频4K TV'
+application-label-iw:'同频4K TV'
+application-label-ja:'同频4K TV'
+application-label-ka:'同频4K TV'
+application-label-kk:'同频4K TV'
+application-label-km:'同频4K TV'
+application-label-kn:'同频4K TV'
+application-label-ko:'同频4K TV'
+application-label-ky:'同频4K TV'
+application-label-lo:'同频4K TV'
+application-label-lt:'同频4K TV'
+application-label-lv:'同频4K TV'
+application-label-mk:'同频4K TV'
+application-label-ml:'同频4K TV'
+application-label-mn:'同频4K TV'
+application-label-mr:'同频4K TV'
+application-label-ms:'同频4K TV'
+application-label-my:'同频4K TV'
+application-label-nb:'同频4K TV'
+application-label-ne:'同频4K TV'
+application-label-nl:'同频4K TV'
+application-label-or:'同频4K TV'
+application-label-pa:'同频4K TV'
+application-label-pl:'同频4K TV'
+application-label-pt:'同频4K TV'
+application-label-pt-PT:'同频4K TV'
+application-label-ro:'同频4K TV'
+application-label-ru:'同频4K TV'
+application-label-si:'同频4K TV'
+application-label-sk:'同频4K TV'
+application-label-sl:'同频4K TV'
+application-label-sq:'同频4K TV'
+application-label-sr:'同频4K TV'
+application-label-sr-Latn:'同频4K TV'
+application-label-sv:'同频4K TV'
+application-label-sw:'同频4K TV'
+application-label-ta:'同频4K TV'
+application-label-te:'同频4K TV'
+application-label-th:'同频4K TV'
+application-label-tl:'同频4K TV'
+application-label-tr:'同频4K TV'
+application-label-uk:'同频4K TV'
+application-label-ur:'同频4K TV'
+application-label-uz:'同频4K TV'
+application-label-vi:'同频4K TV'
+application-label-zh-CN:'同频4K TV'
+application-label-zh-HK:'同频4K TV'
+application-label-zh-TW:'同频4K TV'
+application-label-zu:'同频4K TV'
+application-icon-160:'res/drawable-nodpi-v4/tp_icon.png'
+application-icon-65535:'res/drawable-nodpi-v4/tp_icon.png'
+application: label='同频4K TV' icon='res/drawable-nodpi-v4/tp_icon.png' banner='res/drawable-nodpi-v4/tp_banner.png'
+launchable-activity: name='com.tongpin.player4k.tv.TvHomeActivity'  label='' icon=''
+leanback-launchable-activity: name='com.tongpin.player4k.tv.TvHomeActivity'  label='' icon='' banner=''
+feature-group: label=''
+  uses-feature-not-required: name='android.hardware.touchscreen'
+  uses-feature-not-required: name='android.software.leanback'
+  uses-feature: name='android.hardware.screen.landscape'
+  uses-implied-feature: name='android.hardware.screen.landscape' reason='one or more activities have specified a landscape orientation'
+main
+other-activities
+supports-screens: 'small' 'normal' 'large' 'xlarge'
+supports-any-density: 'true'
+locales: '--_--' 'af' 'am' 'ar' 'as' 'az' 'be' 'bg' 'bn' 'bs' 'ca' 'cs' 'da' 'de' 'el' 'en-AU' 'en-GB' 'en-IN' 'es' 'es-US' 'et' 'eu' 'fa' 'fi' 'fr' 'fr-CA' 'gl' 'gu' 'hi' 'hr' 'hu' 'hy' 'in' 'is' 'it' 'iw' 'ja' 'ka' 'kk' 'km' 'kn' 'ko' 'ky' 'lo' 'lt' 'lv' 'mk' 'ml' 'mn' 'mr' 'ms' 'my' 'nb' 'ne' 'nl' 'or' 'pa' 'pl' 'pt' 'pt-PT' 'ro' 'ru' 'si' 'sk' 'sl' 'sq' 'sr' 'sr-Latn' 'sv' 'sw' 'ta' 'te' 'th' 'tl' 'tr' 'uk' 'ur' 'uz' 'vi' 'zh-CN' 'zh-HK' 'zh-TW' 'zu'
+densities: '160' '65535'
+$ D:\DevTools\tmp\tongpin-shared-android-tools\build-tools-35.0.1\aapt2.exe dump xmltree D:\DevTools\tmp\tongpin4k-tv-build\build\1.3.9\signed.apk --file AndroidManifest.xml
+N: android=http://schemas.android.com/apk/res/android (line=2)
+  E: manifest (line=2)
+    A: http://schemas.android.com/apk/res/android:versionCode(0x0101021b)=1309
+    A: http://schemas.android.com/apk/res/android:versionName(0x0101021c)="1.3.9" (Raw: "1.3.9")
+    A: http://schemas.android.com/apk/res/android:compileSdkVersion(0x01010572)=35
+    A: http://schemas.android.com/apk/res/android:compileSdkVersionCodename(0x01010573)="15" (Raw: "15")
+    A: package="com.tongpin.player4k.tv" (Raw: "com.tongpin.player4k.tv")
+    A: platformBuildVersionCode=35
+    A: platformBuildVersionName=15
+      E: uses-sdk (line=3)
+        A: http://schemas.android.com/apk/res/android:minSdkVersion(0x0101020c)=21
+        A: http://schemas.android.com/apk/res/android:targetSdkVersion(0x01010270)=33
+      E: uses-permission (line=4)
+        A: http://schemas.android.com/apk/res/android:name(0x01010003)="android.permission.INTERNET" (Raw: "android.permission.INTERNET")
+      E: uses-permission (line=5)
+        A: http://schemas.android.com/apk/res/android:name(0x01010003)="android.permission.ACCESS_NETWORK_STATE" (Raw: "android.permission.ACCESS_NETWORK_STATE")
+      E: uses-feature (line=6)
+        A: http://schemas.android.com/apk/res/android:name(0x01010003)="android.hardware.touchscreen" (Raw: "android.hardware.touchscreen")
+        A: http://schemas.android.com/apk/res/android:required(0x0101028e)=false
+      E: uses-feature (line=7)
+        A: http://schemas.android.com/apk/res/android:name(0x01010003)="android.software.leanback" (Raw: "android.software.leanback")
+        A: http://schemas.android.com/apk/res/android:required(0x0101028e)=false
+      E: application (line=8)
+        A: http://schemas.android.com/apk/res/android:theme(0x01010000)=@0x7f040000
+        A: http://schemas.android.com/apk/res/android:label(0x01010001)=@0x7f030000
+        A: http://schemas.android.com/apk/res/android:icon(0x01010002)=@0x7f020001
+        A: http://schemas.android.com/apk/res/android:debuggable(0x0101000f)=false
+        A: http://schemas.android.com/apk/res/android:allowBackup(0x01010280)=false
+        A: http://schemas.android.com/apk/res/android:hardwareAccelerated(0x010102d3)=true
+        A: http://schemas.android.com/apk/res/android:supportsRtl(0x010103af)=true
+        A: http://schemas.android.com/apk/res/android:banner(0x010103f2)=@0x7f020000
+        A: http://schemas.android.com/apk/res/android:usesCleartextTraffic(0x010104ec)=true
+          E: activity (line=9)
+            A: http://schemas.android.com/apk/res/android:name(0x01010003)=".TvHomeActivity" (Raw: ".TvHomeActivity")
+            A: http://schemas.android.com/apk/res/android:exported(0x01010010)=true
+            A: http://schemas.android.com/apk/res/android:screenOrientation(0x0101001e)=0
+            A: http://schemas.android.com/apk/res/android:configChanges(0x0101001f)=0x000004a0
+              E: intent-filter (line=10)
+                  E: action (line=11)
+                    A: http://schemas.android.com/apk/res/android:name(0x01010003)="android.intent.action.MAIN" (Raw: "android.intent.action.MAIN")
+                  E: category (line=12)
+                    A: http://schemas.android.com/apk/res/android:name(0x01010003)="android.intent.category.LAUNCHER" (Raw: "android.intent.category.LAUNCHER")
+              E: intent-filter (line=14)
+                  E: action (line=15)
+                    A: http://schemas.android.com/apk/res/android:name(0x01010003)="android.intent.action.MAIN" (Raw: "android.intent.action.MAIN")
+                  E: category (line=16)
+                    A: http://schemas.android.com/apk/res/android:name(0x01010003)="android.intent.category.LEANBACK_LAUNCHER" (Raw: "android.intent.category.LEANBACK_LAUNCHER")
+          E: activity (line=19)
+            A: http://schemas.android.com/apk/res/android:name(0x01010003)=".TvPlayerActivity" (Raw: ".TvPlayerActivity")
+            A: http://schemas.android.com/apk/res/android:exported(0x01010010)=false
+            A: http://schemas.android.com/apk/res/android:screenOrientation(0x0101001e)=0
+            A: http://schemas.android.com/apk/res/android:configChanges(0x0101001f)=0x000004a0
+SUCCESS {"passed": true, "package": "com.tongpin.player4k.tv", "version": "1.3.9", "version_code": 1309, "min_sdk": 21, "target_sdk": 33, "output": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k-tv\\output\\tongpin-4k-tv-1.3.9.apk", "bytes": 7805760, "sha256": "dfe16f703ea4ed254f1a1d8ffb00dc13f48d746e25636530a586be7815090f8c", "certificate_sha256": "c6977a378251b81f1dc7f9564d5c7817f4620f54f2f2ec3befe7bfdf13fffe89", "class_count": 6379, "native_library_count": 0, "provider_asset_sha256": "9793756bfa35672f9c2645cd981dce4e23431be664ebceb71e6f2b05966b3e05", "min_api_reference_audit": "passed", "guarded_api23_speed": true, "guarded_api26_seek": true, "guarded_media3_backend": true, "provider_count": 28, "previous_version": "1.3.8", "same_previous_package_certificate": true, "source_scope": "Own com.tongpin Java plus pinned official Media3 runtime closure", "runtime_tested": false, "elapsed_seconds": 24.4, "downloads_copy": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Downloads\\tongpin-4k-tv-1.3.9.apk"}

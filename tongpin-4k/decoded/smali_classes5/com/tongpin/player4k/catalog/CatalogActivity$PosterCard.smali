@@ -30,7 +30,7 @@
         }
     .end annotation
 
-    .line 1395
+    .line 1440
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$PosterCard;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
     invoke-direct {p0, p1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
@@ -47,12 +47,12 @@
 .method public performAccessibilityAction(ILandroid/os/Bundle;)Z
     .locals 1
 
-    .line 1397
+    .line 1442
     const/16 v0, 0x10
 
     if-ne p1, v0, :cond_2
 
-    .line 1398
+    .line 1443
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$PosterCard;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
     invoke-static {v0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$300(Lcom/tongpin/player4k/catalog/CatalogActivity;)Z
@@ -71,7 +71,7 @@
 
     goto :goto_0
 
-    .line 1399
+    .line 1444
     :cond_0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$PosterCard;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
@@ -83,14 +83,14 @@
 
     goto :goto_1
 
-    .line 1398
+    .line 1443
     :cond_1
     :goto_0
     const/4 p1, 0x0
 
     return p1
 
-    .line 1401
+    .line 1446
     :cond_2
     :goto_1
     invoke-super {p0, p1, p2}, Landroid/widget/LinearLayout;->performAccessibilityAction(ILandroid/os/Bundle;)Z

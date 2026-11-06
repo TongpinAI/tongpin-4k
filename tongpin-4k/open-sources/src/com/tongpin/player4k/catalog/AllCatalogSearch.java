@@ -3,6 +3,7 @@ package com.tongpin.player4k.catalog;
 import com.tongpin.player4k.catalog.CatalogApi.Page;
 import com.tongpin.player4k.catalog.CatalogApi.Provider;
 import com.tongpin.player4k.catalog.CatalogApi.Video;
+import com.tongpin.player4k.catalog.UnifiedCatalogPolicy.Group;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
@@ -14,7 +15,7 @@ import java.util.concurrent.FutureTask;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-/** Bounded all-VOD title search. No category is shared between providers and no works are merged. */
+/** Bounded all-VOD title search. Raw provider rows stay separate; grouped snapshots are prepared off delivery. */
 public final class AllCatalogSearch implements AutoCloseable {
     public static final int MAX_RESULTS = 2000;
     private static final int MAX_PROVIDERS = 128, MAX_PAGE_ITEMS = 1000, MAX_PAGE = 10000;
@@ -24,11 +25,14 @@ public final class AllCatalogSearch implements AutoCloseable {
     public static final class Snapshot {
         public final String query;
         public final List<Video> items;
-        public final boolean loading, hasMore, canResume, limited;
+        public final List<Group> groups;
+        public final boolean loading, hasMore, canResume, limited, projecting, projectionFailed;
         public final int totalSources, skippedBrowseOnly, skippedLive, successfulSources, failedSources,
                 repeatStoppedSources, pending, batchTotal, batchReturned;
         private Snapshot(Handle h) {
-            query = h.query; items = h.orderedItems();
+            query = h.query; items = h.sortedItems; groups = h.groupedItems;
+            projectionFailed = h.projectionFailed;
+            projecting = !projectionFailed && (h.projectionScheduled || h.revision != h.readyRevision);
             totalSources = h.cursors.size(); skippedBrowseOnly = h.skippedBrowseOnly; skippedLive = h.skippedLive;
             int success = 0, failed = 0, repeated = 0, working = 0;
             boolean remaining = false, suspended = false;
@@ -41,7 +45,7 @@ public final class AllCatalogSearch implements AutoCloseable {
                 if (!c.done && !c.failed) remaining = true;
             }
             successfulSources = success; failedSources = failed; repeatStoppedSources = repeated;
-            pending = working; loading = working > 0; canResume = suspended;
+            pending = working; loading = working > 0 || projecting; canResume = suspended;
             limited = h.limited; hasMore = suspended || !limited && remaining;
             batchTotal = h.batchTotal; batchReturned = h.batchReturned;
         }
@@ -52,17 +56,16 @@ public final class AllCatalogSearch implements AutoCloseable {
         private final ArrayList<Cursor> cursors = new ArrayList<Cursor>();
         private final ArrayList<Video> items = new ArrayList<Video>();
         private List<Video> sortedItems = Collections.emptyList();
-        private boolean sortedDirty;
+        private List<Group> groupedItems = Collections.emptyList();
+        private long revision, readyRevision;
+        private boolean projectionScheduled, projectionFailed;
+        private FutureTask<Void> projectionTask;
         private final Set<String> seen = new HashSet<String>();
         private final ArrayList<FutureTask<Void>> jobs = new ArrayList<FutureTask<Void>>();
         private Listener listener;
         private int skippedBrowseOnly, skippedLive, round, batchTotal, batchReturned;
         private boolean canceled, limited, deliveryQueued;
         private Handle(String query, Listener listener) { this.query = query; this.listener = listener; }
-        private List<Video> orderedItems() {
-            if (sortedDirty) { sortedItems = CatalogTitleOrder.sortedCopy(items); sortedDirty = false; }
-            return sortedItems;
-        }
         public void cancel() { AllCatalogSearch.this.cancel(this); }
         public boolean isCurrent() { synchronized (lock) { return current(this); } }
         public Snapshot snapshot() { synchronized (lock) { return new Snapshot(this); } }
@@ -82,6 +85,10 @@ public final class AllCatalogSearch implements AutoCloseable {
     private final ThreadPoolExecutor workers = new ThreadPoolExecutor(3, 3, 30L, TimeUnit.SECONDS,
             new ArrayBlockingQueue<Runnable>(128), task -> {
                 Thread thread = new Thread(task, "tp-title-search"); thread.setDaemon(true); return thread;
+            }, new ThreadPoolExecutor.AbortPolicy());
+    private final ThreadPoolExecutor projectionWorker = new ThreadPoolExecutor(1, 1, 30L, TimeUnit.SECONDS,
+            new ArrayBlockingQueue<Runnable>(1), task -> {
+                Thread thread = new Thread(task, "tp-search-project"); thread.setDaemon(true); return thread;
             }, new ThreadPoolExecutor.AbortPolicy());
     private Handle active;
     private boolean closed;
@@ -169,6 +176,7 @@ public final class AllCatalogSearch implements AutoCloseable {
             cursor.inFlight = false; cursor.suspended = false; h.batchReturned++;
             if (result == null) cursor.failed = true;
             else accept(h, cursor, result, page);
+            scheduleProjectionLocked(h);
         }
         publish(h);
     }
@@ -180,7 +188,7 @@ public final class AllCatalogSearch implements AutoCloseable {
             String key = cursor.identity + '\0' + video.id;
             if (h.seen.contains(key)) continue;
             if (h.items.size() >= MAX_RESULTS) { h.limited = true; continue; }
-            h.seen.add(key); h.items.add(video); h.sortedDirty = true;
+            h.seen.add(key); h.items.add(video); h.revision++;
         }
         Collections.sort(ids);
         String fingerprint = ids.toString();
@@ -191,6 +199,48 @@ public final class AllCatalogSearch implements AutoCloseable {
         cursor.repeatStopped |= repeated;
         cursor.nextPage = requestedPage + 1;
         cursor.done = !page.hasMore || repeated || requestedPage >= MAX_PAGE;
+    }
+    private void scheduleProjectionLocked(Handle h) {
+        if (!current(h) || h.projectionScheduled || h.revision == h.readyRevision && !h.projectionFailed) return;
+        h.projectionFailed = false; h.projectionScheduled = true;
+        projectionWorker.purge();
+        h.projectionTask = new FutureTask<Void>(() -> { project(h); return null; });
+        try { projectionWorker.execute(h.projectionTask); }
+        catch (RuntimeException rejected) { h.projectionTask = null; h.projectionScheduled = false; h.projectionFailed = true; }
+    }
+    public boolean retryProjection(Handle h) {
+        synchronized (lock) {
+            if (!current(h) || !h.projectionFailed) return false;
+            scheduleProjectionLocked(h);
+        }
+        publish(h); return true;
+    }
+    private void project(Handle h) {
+        try {
+            for (;;) {
+                List<Video> raw; long revision;
+                synchronized (lock) {
+                    if (!current(h)) return;
+                    revision = h.revision; raw = new ArrayList<Video>(h.items);
+                }
+                // Both expensive operations run off delivery and outside the state lock.
+                List<Video> ordered = CatalogTitleOrder.sortedCopy(raw);
+                List<Group> grouped = UnifiedCatalogPolicy.project(ordered, true);
+                synchronized (lock) {
+                    if (!current(h)) return;
+                    if (revision != h.revision) continue; // Coalesce to the newest accepted ledger.
+                    h.sortedItems = ordered; h.groupedItems = grouped; h.readyRevision = revision;
+                    h.projectionTask = null; h.projectionScheduled = false; h.projectionFailed = false;
+                }
+                publish(h); return;
+            }
+        } catch (RuntimeException failed) {
+            synchronized (lock) {
+                if (!current(h)) return;
+                h.projectionTask = null; h.projectionScheduled = false; h.projectionFailed = true;
+            }
+            publish(h);
+        }
     }
     private static boolean belongs(Cursor c, Video v) {
         return v != null && v.id != null && !v.id.isEmpty() && v.title != null && !v.title.trim().isEmpty()
@@ -214,6 +264,8 @@ public final class AllCatalogSearch implements AutoCloseable {
     private void cancelLocked(Handle h) {
         if (h == null || h.canceled) return;
         h.canceled = true; ++h.round; h.listener = null;
+        if (h.projectionTask != null) h.projectionTask.cancel(true);
+        h.projectionTask = null; h.projectionScheduled = false; projectionWorker.purge();
         for (Cursor c : h.cursors) c.inFlight = false;
         for (FutureTask<Void> job : h.jobs) job.cancel(true);
         h.jobs.clear();
@@ -222,7 +274,7 @@ public final class AllCatalogSearch implements AutoCloseable {
         synchronized (lock) {
             if (closed) return;
             if (active != null) cancelLocked(active);
-            active = null; closed = true; workers.shutdownNow();
+            active = null; closed = true; workers.shutdownNow(); projectionWorker.shutdownNow();
         }
     }
 }

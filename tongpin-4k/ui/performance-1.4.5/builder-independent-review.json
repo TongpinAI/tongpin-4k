@@ -1,0 +1,57 @@
+{
+  "passed": true,
+  "verdict": "clear: bounded145 performance scope, immutable144 native/resources and freshly audited stage/tooling",
+  "source_sha256": {
+    "open-sources/integration/DisassembleOwn1450.java": "11653932da6538b79b341f23436b24a1c9b59f0360fbaa311c153c1f364915c1",
+    "open-sources/integration/audit_final_ui_api_1450.py": "6fba1038c32d03e03771da58ea719c71a041541fe5a4d8ab0630107411751b89",
+    "open-sources/integration/assert_contract.py": "88091f5f72e4950155cbcc95f8ad9f67960e07b746317a2d9fa766cfa461f723",
+    "open-sources/integration/check_native_bindings_1410.py": "9a69cd89a30993ac4ca4beaa7a8d1d7d0e1b981edbb2f2f62740f955c6a9d93c",
+    "build_tongpin.py": "baa744d959cb4eedd8c1102b66f930d877e7ee94010ae2fff8493e290b960c7e",
+    "open-sources/toolchain/compile_java_to_smali.py": "b1b855f38294ecb7d392980b917f8fa17eaae77496c3bd1fcd961e557574cc9c",
+    "open-sources/integration/check_timer_dex_1450.py": "f06d2357904fec018227bddee18e10884f94c055f57912aa0769cccdea281bdf",
+    "verification/1.4.5/proof-tools/DisassembleOwn1450.class": "bc165bd37aac00855cce18c6fcaa611c7751e6bb11bff0b8651d7c3e78f7e599",
+    "open-sources/integration/integrate_1_4_5.py": "aeef9110ee3c7b9964b159a3a1b12e16571f320ac9487338fcd927b291539a80",
+    "open-sources/integration/ui_1450_contract.py": "7cdb09f73439767275a238c27babdaa5d4bb8da6df2448e31ddb3ce5e340ce4e",
+    "open-sources/toolchain/check_framework_api.py": "91209f30753abd8ea244655bd98762d4e0590c173dae2e842367d82559a61905"
+  },
+  "reviewed_frozen_input_sha256": "70ae7b386a111962e3b09ffa9274badddf58609a8f3c4eb5256eeefe6aaa5d4d",
+  "gate_tests": {
+    "path": "ui/performance-1.4.5/builder-gate-review-tests.json",
+    "sha256": "3695eab0bc235a46ab24e3e7612691b6ca5242db6efe70afed3fbd347b4a039f",
+    "assertions": 15,
+    "positive": 1,
+    "rejections": 14,
+    "production_or_frozen_files_modified": false
+  },
+  "reviewed_scope": {
+    "modified_own_sources": [
+      "CatalogActivity.java",
+      "AllCatalogSearch.java",
+      "UnifiedCatalogBrowse.java"
+    ],
+    "new_own_sources": [
+      "CatalogPosters.java",
+      "PosterQueue.java",
+      "CatalogPreviewCache.java"
+    ],
+    "actual_current_sources": 40,
+    "fresh_stage_own_classes": 352,
+    "canonical_stage_dex_sha256": "2b8ee64821edcc97c25142053ec646ee41a71825cef23ae020f298cecd2f2fbc",
+    "native_smali_changes": 0,
+    "resource_ui_changes": 0,
+    "provider_registry_changes": 0
+  },
+  "findings": [],
+  "checks": [
+    "Actual ui_1450_contract.verify(False) executed with40 source,18 unchanged stubs,25 evidence pins, all native/resource/asset inventory and144 preimages.",
+    "Fifteen independent fixtures: actual positive plus14 in-memory rejections cover promotion,source readiness,missing tool/evidence/source/owner pins,unsupported source scope,wrong canonicalDEX/stageSMALI,preimage/native index,and failed-but-clear review with coherent updated pin.",
+    "Reviewed build dispatch and integration deltas: published144 APK identity is fixed, only exact previous own namespace is replaced with reviewed352 fresh classes; all unrelated native/res/assets remain fixed.",
+    "Native binding1410 checker,Java compiler and official frameworkAPI scanner are byte-identical to reviewed144 tooling; final145 ABI and highAPI reference readers preserve17 native class coverage.",
+    "Read every final method comparator/timer/native hook path: opcodes,register references,branch destinations and literal values remain compared against frozen stage,without broad normalization.",
+    "Independently recompiled DisassembleOwn1450.java with actual JDK --release8; class bytes exactly match the pinned145 proof class bc165bd37aac00855cce18c6fcaa611c7751e6bb11bff0b8651d7c3e78f7e599.",
+    "Reviewed finalSDK metadata and fullstage pins: source/stub hashes,canonical ownDEX,full352-class smali inventory and stage compile report are all checked; no highAPI/runtime guard relaxation."
+  ],
+  "device_tested": false,
+  "apk_signed_or_application_executed_during_review": false,
+  "limitations": "Independent code review and desktop contract fixtures; native Android rendering,filesystem crash recovery,network latency and playback were not executed."
+}

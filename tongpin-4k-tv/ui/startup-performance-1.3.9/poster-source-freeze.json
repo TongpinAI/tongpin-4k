@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "workspace_sources": true,
+  "source_sha256": {
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/PosterQueue.java": "572b30e5c871acc26330fd2f93b3f03a0594c40fe0c59cc4cf7c84e2dac06e0c",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/CatalogPosters.java": "856fdafe95682ffd23c38f6a6093f3f6da9b947e4d1b43fb23f1d116334c8eeb",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/PosterQueue.java": "7e419c7983b1e2892102225a1a8fc13441254d116838c4cc9a9bc28b44b5e336",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/CatalogPosters.java": "6381982d266292fecde2eee8b379e800eefded834a92b5e51cebc23c2851f43a"
+  },
+  "test_report": "tongpin-4k/ui/performance-1.4.5/poster-tests/verification.json",
+  "test_report_sha256": "b7fb891d470afbac76f1c6b2bfe006d4d94afd78e40d51771d1dd1ad97bb8e9b",
+  "assertions_per_app": 93,
+  "workers": 2,
+  "queue_capacity": 32,
+  "bitmap_cache_bytes": 8388608,
+  "external_network_tested": false,
+  "device_tested": false,
+  "android_view_bitmap_and_http_test_doubles_used": true
+}

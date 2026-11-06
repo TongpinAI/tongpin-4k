@@ -1,0 +1,29 @@
+{
+  "source_ready": true,
+  "workspace_sources": true,
+  "source_sha256": {
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogBrowse.java": "2ab605e7a828d794019e03e5eddf9479dad780af8eef5ee29d20219e51b44ba3",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/AllCatalogSearch.java": "746f5a2ce5f0c6916d6b0f4b583b620303cf06b8dc04361f0526a123013291c7",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/UnifiedCatalogBrowse.java": "04241abaa1664f7ec2141ce738fb53296b6d3abac73bcb6231c34ad659b58caf",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/AllCatalogSearch.java": "5857a906f787ee95e3efee3361d7246457d05a335dc363f42971c361b804caf4"
+  },
+  "reports": {
+    "tongpin-4k/ui/startup-1.4.5/shared-tests/verification.json": "1c61abbdf15b7479a48fe2abecb38c45d8660754d86dc40a328fa279477c3725"
+  },
+  "test_source_sha256": {
+    "tongpin-4k/ui/startup-1.4.5/shared-tests/run.py": "0cb0e5f48cb0fd33fa422896c6e95e493b82711fbe5ae179c90c9460139eab44",
+    "tongpin-4k/ui/startup-1.4.5/shared-tests/StartupSharedTest.java": "ddae2ed804b953f3829da93feb6a7b3d3e1d3205a0576f164b71125b8ffe722a",
+    "tongpin-4k/ui/startup-1.4.5/shared-tests/UnifiedCatalogTest.java": "eaa870132916702081a89810ceb98de6be2950f588ee21a39a6de4838ed4ccde",
+    "tongpin-4k/ui/startup-1.4.5/SHARED.md": "a2fc2717ee7c885b6292501ee9e8d0ba37e436c6f9b42c278388e36a6ea7b693"
+  },
+  "host_assertions_per_app": {
+    "startup": 61,
+    "retained_catalogue": 79,
+    "total": 140
+  },
+  "package_only_equal": true,
+  "all_search_network_cursor_inverse_verified": true,
+  "production_scope": "Only mirrored UnifiedCatalogBrowse/AllCatalogSearch; Policy/API/title comparator/providers/timeouts/player unchanged. Separate serial projection worker outside state lock, ready snapshot groups, first-page fairness and instance metadata cache.",
+  "device_tested": false,
+  "network_tested": false
+}

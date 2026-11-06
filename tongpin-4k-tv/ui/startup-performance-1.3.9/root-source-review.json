@@ -1,0 +1,47 @@
+{
+  "passed": true,
+  "verdict": "clear: bounded background catalogue loading and guarded callers",
+  "baseline_head": "530f9d287bda7048dad9e282242782ffda3beb12",
+  "workspace_sources": true,
+  "source_sha256": {
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/AllCatalogSearch.java": "5857a906f787ee95e3efee3361d7246457d05a335dc363f42971c361b804caf4",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/CatalogPosters.java": "6381982d266292fecde2eee8b379e800eefded834a92b5e51cebc23c2851f43a",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/CatalogPreviewCache.java": "d88233373946b37e178e2dc4f1c0344eb330c333bbaac31f68cdfe25b93d6c2b",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/PosterQueue.java": "7e419c7983b1e2892102225a1a8fc13441254d116838c4cc9a9bc28b44b5e336",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/TvHomeActivity.java": "dc11e03cb58b2d82815562ffa658b17e93fac6791a0a014020116599e6c50204",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/UnifiedCatalogBrowse.java": "04241abaa1664f7ec2141ce738fb53296b6d3abac73bcb6231c34ad659b58caf",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/AllCatalogSearch.java": "746f5a2ce5f0c6916d6b0f4b583b620303cf06b8dc04361f0526a123013291c7",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/CatalogActivity.java": "f8526272455fad6fd1c582fc4406595a8858aae8148d7fe032d556e846bbc80e",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/CatalogPosters.java": "856fdafe95682ffd23c38f6a6093f3f6da9b947e4d1b43fb23f1d116334c8eeb",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/CatalogPreviewCache.java": "8e9e4c8d5cb777be2804045665f5340140ff7ccabe3216a16d32131b2bd193b0",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/PosterQueue.java": "572b30e5c871acc26330fd2f93b3f03a0594c40fe0c59cc4cf7c84e2dac06e0c",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogBrowse.java": "2ab605e7a828d794019e03e5eddf9479dad780af8eef5ee29d20219e51b44ba3"
+  },
+  "owner_freezes": {
+    "tongpin-4k/ui/startup-1.4.5/shared-source-freeze.json": "f641ac9e67abae639633e95c2ad6ed2f1779c09292e05e5ee5c65b2d9b349890",
+    "tongpin-4k/ui/performance-1.4.5/preview-source-freeze.json": "3c507b967217575b13a0af7988eb0c024532efaf4b16f62a24744a3504be4f96",
+    "tongpin-4k/ui/performance-1.4.5/poster-source-freeze.json": "6e21bb781dbb7c5c7f5467bc86a5ccf80ef707d5784ec68264b74f631b7db23f",
+    "tongpin-4k/ui/performance-1.4.5/phone-source-freeze.json": "fb7f851ea18998aa032ea4acc17923f8c104b3733737fa09a6a16acadcdd428d",
+    "tongpin-4k-tv/ui/startup-performance-1.3.9/source-freeze.json": "d96561ddae53a5dcfae42956c5745726b3870ae09d06ab5f78a5f2ef887cb9ad"
+  },
+  "production_java_changed": [
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/AllCatalogSearch.java",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/CatalogPosters.java",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/CatalogPreviewCache.java",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/PosterQueue.java",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/TvHomeActivity.java",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/UnifiedCatalogBrowse.java",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/AllCatalogSearch.java",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/CatalogActivity.java",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/CatalogPosters.java",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/CatalogPreviewCache.java",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/PosterQueue.java",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogBrowse.java"
+  ],
+  "other_production_java_preserved": true,
+  "package_only_shared_helpers": true,
+  "review": "Main delivery consumes ready lists; CPU projection outside lock, handle/revision invalidation; fair bounded catalogue scheduling and category cache epoch; source-bound metadata preview with stale/fresh/input guards; poster URL deduplication, lifecycle pause and rejection cleanup. Actual playback and network API files remain baseline bytes.",
+  "cache_independent_review": "tongpin-4k/ui/performance-1.4.5/cache-independent-review.json",
+  "cache_independent_review_sha256": "03e321518fe089fc7027ee0138569dcb7db3dd1fa55ca86d9c135a9b43d5ea26",
+  "device_or_internet_latency_measured": false
+}

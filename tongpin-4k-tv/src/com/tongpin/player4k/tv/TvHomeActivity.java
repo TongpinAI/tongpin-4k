@@ -3,15 +3,12 @@ package com.tongpin.player4k.tv;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.Html;
 import android.text.TextUtils;
-import android.util.LruCache;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
@@ -32,19 +29,14 @@ import android.widget.TextView;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
-import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
 
 import com.tongpin.player4k.tv.CatalogApi.*;
 import com.tongpin.player4k.tv.UnifiedCatalogPolicy.Group;
@@ -56,7 +48,12 @@ public final class TvHomeActivity extends Activity {
     private final ExecutorService network = Executors.newFixedThreadPool(3);
     private final List<Future<?>> pending = new ArrayList<Future<?>>();
     private final List<Video> videos = new ArrayList<Video>();
-    private final PosterLoader posters = new PosterLoader();
+    private final CatalogPosters posters = new CatalogPosters(command -> main.post(command), 0xffe4e9eb, 0f);
+    private CatalogPreviewCache previewCache;
+    private UnifiedCatalogBrowse.Handle previewHandle;
+    private List<Group> previewGroups = Collections.emptyList(), lastSavedBrowseGroups;
+    private int previewGeneration;
+    private boolean previewRequested;
     private List<Provider> providers;
     private TvLibraryStore store;
     private LinearLayout root;
@@ -111,6 +108,7 @@ public final class TvHomeActivity extends Activity {
             providers = CatalogApi.parseProviders(readAsset("tongpin_open_sources.json"));
             if (providers.isEmpty()) throw new IOException("尚未配置片库");
             store = new TvLibraryStore(this, providers);
+            previewCache = new CatalogPreviewCache(this, command -> main.post(command));
             episodesDescending = getSharedPreferences("tongpin_tv_preferences", MODE_PRIVATE)
                     .getBoolean("episodes_descending", false);
             if (saved != null) {
@@ -175,7 +173,9 @@ public final class TvHomeActivity extends Activity {
 
     private void showHome() {
         clearSearchInteraction();
+        posters.clear();
         inDetail = false; detail = null; detailVideo = null; detailGroup = null;
+        if (foreground) posters.resume();
         root = column(); root.setPadding(d(48), d(27), d(48), d(27));
         LinearLayout header = row();
         ImageView logo = new ImageView(this); logo.setImageResource(R.drawable.tp_icon);
@@ -277,6 +277,7 @@ public final class TvHomeActivity extends Activity {
                     if (browseHandle.snapshot().limited) {
                         if (unifiedBrowse.continueWindow(browseHandle)) {
                             clearSearchInteraction(); focusVideoId = ""; resetUnifiedWindow = true;
+                            clearBrowsePreview(); posters.clear();
                             videos.clear(); groups.clear(); latestGroups = Collections.emptyList(); renderedGroupItems = null;
                             adapter.notifyDataSetChanged(); grid.setSelection(0);
                         }
@@ -289,14 +290,16 @@ public final class TvHomeActivity extends Activity {
             if (unifiedHome()) {
                 if (browseHandle == null) { loadPage(); return; }
                 UnifiedCatalogBrowse.Snapshot snapshot = browseHandle.snapshot();
-                if (snapshot.canResume) unifiedBrowse.resume(browseHandle);
+                if (snapshot.projectionFailed) unifiedBrowse.retryProjection(browseHandle);
+                else if (snapshot.canResume) unifiedBrowse.resume(browseHandle);
                 else if (snapshot.failedSources > 0) unifiedBrowse.retryFailed(browseHandle);
-                else { restartUnifiedBrowse = true; loadPage(); return; }
+                else { unifiedBrowse.invalidateCategories(); restartUnifiedBrowse = true; loadPage(); return; }
                 renderUnifiedBrowse(browseHandle); return;
             }
             if (!allCatalogSearch(mode, query) || searchHandle == null) { loadPage(); return; }
             AllCatalogSearch.Snapshot snapshot = searchHandle.snapshot();
-            if (snapshot.canResume) allSearch.resume(searchHandle);
+            if (snapshot.projectionFailed) allSearch.retryProjection(searchHandle);
+            else if (snapshot.canResume) allSearch.resume(searchHandle);
             else if (snapshot.failedSources > 0) allSearch.retryFailed(searchHandle);
             else { restartGlobalSearch = true; loadPage(); return; }
             renderSearch(searchHandle);
@@ -444,7 +447,7 @@ public final class TvHomeActivity extends Activity {
     }
 
     private void cancelPending() {
-        clearSearchInteraction(); closeHomeDialog();
+        clearSearchInteraction(); closeHomeDialog(); ++previewGeneration; previewRequested = false;
         allSearch.cancelRound(searchHandle); unifiedBrowse.cancelRound(browseHandle);
         generation++;
         preparingPlayback = false;
@@ -465,7 +468,7 @@ public final class TvHomeActivity extends Activity {
         final String requestQuery = liveBrowseProvider() == null ? "" : channelQuery; final int requestPage = page;
         final CatalogCategories.Selection category = categoryProvider() == null || categoryCatalog == null
                 ? null : categoryCatalog.select(categoryId);
-        videos.clear(); adapter.notifyDataSetChanged(); hasMore = false;
+        posters.clear(); videos.clear(); adapter.notifyDataSetChanged(); hasMore = false;
         status.setText(local ? "正在读取本机记录…" : "正在查询片库…");
         updatePager(true);
         if (local) {
@@ -564,6 +567,7 @@ public final class TvHomeActivity extends Activity {
                 || !query.equals(searchHandle.snapshot().query)) {
             restartGlobalSearch = false; resetUnifiedWindow = false;
             if (searchHandle != null) searchHandle.cancel();
+            posters.clear();
             videos.clear(); groups.clear(); latestGroups = Collections.emptyList(); renderedGroupItems = null;
             adapter.notifyDataSetChanged(); renderedSearchItems = null; projectedSearchGroups = Collections.emptyList();
             searchHandle = allSearch.start(providers, query, (handle, ignored) -> renderSearch(handle));
@@ -580,13 +584,15 @@ public final class TvHomeActivity extends Activity {
         AllCatalogSearch.Snapshot snapshot = handle.snapshot();
         if (!query.equals(snapshot.query)) return;
         if (snapshot.items != renderedSearchItems) {
-            renderedSearchItems = snapshot.items; projectedSearchGroups = UnifiedCatalogPolicy.project(snapshot.items, true);
+            renderedSearchItems = snapshot.items; projectedSearchGroups = snapshot.groups;
         }
         renderGroupRows(projectedSearchGroups); hasMore = snapshot.hasMore;
         String label = globalStatus(snapshot.totalSources, snapshot.successfulSources, snapshot.pending,
                 snapshot.failedSources, snapshot.skippedBrowseOnly, snapshot.skippedLive, snapshot.canResume, snapshot.limited);
         if (!snapshot.loading && videos.isEmpty() && !snapshot.canResume)
             label += snapshot.failedSources > 0 ? " · 可重试失败片库" : " · 未找到匹配，试试完整片名";
+        if (snapshot.projecting) label += " · 正在整理影片";
+        if (snapshot.projectionFailed) label += " · 影片整理失败，可重试";
         if (snapshot.repeatStoppedSources > 0) label += " · 重复页已停止";
         status.setText(label); status.setContentDescription(label); updatePager(snapshot.loading);
     }
@@ -595,10 +601,13 @@ public final class TvHomeActivity extends Activity {
         if (restartUnifiedBrowse || browseHandle == null || !browseHandle.isCurrent() || browseHandle.snapshot().tab != selectedTab) {
             restartUnifiedBrowse = false; resetUnifiedWindow = false;
             if (browseHandle != null) browseHandle.cancel();
+            posters.clear();
             videos.clear(); groups.clear(); latestGroups = Collections.emptyList(); renderedGroupItems = null;
             adapter.notifyDataSetChanged();
             browseHandle = unifiedBrowse.start(providers, selectedTab, (handle, ignored) -> renderUnifiedBrowse(handle));
+            clearBrowsePreview(); previewHandle = browseHandle;
         }
+        loadBrowsePreview(browseHandle);
         renderUnifiedBrowse(browseHandle);
         if (foreground && browseHandle.snapshot().canResume) { unifiedBrowse.resume(browseHandle); renderUnifiedBrowse(browseHandle); }
     }
@@ -606,14 +615,50 @@ public final class TvHomeActivity extends Activity {
     private void renderUnifiedBrowse(UnifiedCatalogBrowse.Handle handle) {
         if (destroyed || !foreground || inDetail || !unifiedHome() || handle == null || handle != browseHandle || !handle.isCurrent()) return;
         UnifiedCatalogBrowse.Snapshot snapshot = handle.snapshot(); if (snapshot.tab != selectedTab) return;
-        renderGroupRows(snapshot.groups); hasMore = snapshot.hasMore;
+        List<Group> shown = visibleBrowseGroups(snapshot.groups, previewHandle == handle ? previewGroups : Collections.emptyList());
+        renderGroupRows(shown); hasMore = snapshot.hasMore;
+        if (!snapshot.groups.isEmpty() && (lastSavedBrowseGroups == null
+                || !snapshot.loading && snapshot.groups != lastSavedBrowseGroups)) {
+            lastSavedBrowseGroups = snapshot.groups; previewCache.save(providers, snapshot.tab, snapshot.groups);
+        }
         String text = selectedTab.label + " · " + snapshot.totalSources + "个影视库 · 本批返回" + snapshot.batchReturned + "/" + snapshot.batchTotal
                 + " · 当前待回" + snapshot.pending + (snapshot.failedSources > 0 ? " · " + snapshot.failedSources + "源待重试" : "");
+        if (snapshot.groups.isEmpty() && !shown.isEmpty()) text = "上次片库 · " + text + (snapshot.loading ? " · 后台更新中" : " · 可刷新更新");
+        if (snapshot.projecting) text += " · 正在整理影片";
+        if (snapshot.projectionFailed) text += " · 影片整理失败，可重试";
         if (snapshot.unmatchedSources > 0) text += " · " + snapshot.unmatchedSources + "源未声明此类";
         if (snapshot.canResume) text += " · 未完成可继续";
         if (snapshot.limited) text += " · 当前窗口已满，可继续浏览";
-        if (!snapshot.loading && snapshot.groups.isEmpty() && !snapshot.canResume && snapshot.failedSources == 0) text += " · 暂无匹配影片";
+        if (!snapshot.loading && shown.isEmpty() && !snapshot.canResume && snapshot.failedSources == 0) text += " · 暂无匹配影片";
         status.setText(text); status.setContentDescription(text); updatePager(snapshot.loading);
+    }
+
+    private void clearBrowsePreview() {
+        ++previewGeneration; previewRequested = false; previewGroups = Collections.emptyList();
+        lastSavedBrowseGroups = null; previewHandle = null;
+    }
+
+    private void loadBrowsePreview(UnifiedCatalogBrowse.Handle handle) {
+        if (previewCache == null || previewRequested || !previewGroups.isEmpty() || destroyed || !foreground || inDetail || !unifiedHome()
+                || handle == null || handle != browseHandle || handle != previewHandle || !handle.isCurrent()
+                || !handle.snapshot().groups.isEmpty()) return;
+        previewRequested = true;
+        final int ticket = ++previewGeneration; final Tab tab = selectedTab;
+        previewCache.load(providers, tab, cached -> {
+            if (!previewAllowed(foreground, inDetail, destroyed, ticket == previewGeneration,
+                    unifiedHome() && handle == browseHandle && handle == previewHandle && handle.isCurrent(),
+                    tab == selectedTab, handle.snapshot().groups.isEmpty()) || cached.isEmpty()) return;
+            previewGroups = cached; renderUnifiedBrowse(handle);
+        });
+    }
+
+    static boolean previewAllowed(boolean foreground, boolean detail, boolean destroyed, boolean ticket,
+            boolean current, boolean sameTab, boolean freshEmpty) {
+        return foreground && !detail && !destroyed && ticket && current && sameTab && freshEmpty;
+    }
+
+    static List<Group> visibleBrowseGroups(List<Group> fresh, List<Group> cached) {
+        return fresh.isEmpty() ? cached : fresh;
     }
 
     private void renderCurrentCatalog() {
@@ -844,7 +889,7 @@ public final class TvHomeActivity extends Activity {
         for (Group group : latestGroups) if (group.contains(video)) { nextGroup = group; break; }
         if (nextGroup == null && detailGroup != null && (detailGroup.contains(video) || AutoSourcePolicy.sameWork(detailGroup.primary, video))) nextGroup = detailGroup;
         if (!inDetail) focusVideoId = nextGroup == null ? videoKey(video) : nextGroup.key;
-        cancelPending(); detailGroup = nextGroup;
+        cancelPending(); posters.pause(); detailGroup = nextGroup;
         inDetail = true; detailVideo = video; detail = null;
         root = column(); root.setPadding(d(48), d(27), d(48), d(27));
         LinearLayout top = row(); Button back = TvUi.button(this, "返回片库");
@@ -874,10 +919,11 @@ public final class TvHomeActivity extends Activity {
         if (allCatalogSearch(mode, query) && searchHandle != null && searchHandle.isCurrent()) {
             AllCatalogSearch.Snapshot snapshot = searchHandle.snapshot();
             if (snapshot.items != renderedSearchItems) {
-                renderedSearchItems = snapshot.items; projectedSearchGroups = UnifiedCatalogPolicy.project(snapshot.items, true);
+                renderedSearchItems = snapshot.items; projectedSearchGroups = snapshot.groups;
             }
             latestGroups = projectedSearchGroups;
-        } else if (unifiedHome() && browseHandle != null && browseHandle.isCurrent()) latestGroups = browseHandle.snapshot().groups;
+        } else if (unifiedHome() && browseHandle != null && browseHandle.isCurrent())
+            latestGroups = visibleBrowseGroups(browseHandle.snapshot().groups, previewHandle == browseHandle ? previewGroups : Collections.emptyList());
     }
 
     static List<Video> knownDetailCandidates(Group group, Video current) {
@@ -1131,14 +1177,16 @@ public final class TvHomeActivity extends Activity {
     }
     @Override protected void onResume() {
         super.onResume(); foreground = true;
+        if (!inDetail) posters.resume();
         if (!inDetail && allCatalogSearch(mode, query) && searchHandle != null && searchHandle.isCurrent()) {
             allSearch.resume(searchHandle); renderSearch(searchHandle);
         } else if (!inDetail && unifiedHome() && browseHandle != null && browseHandle.isCurrent()) {
-            unifiedBrowse.resume(browseHandle); renderUnifiedBrowse(browseHandle);
+            loadBrowsePreview(browseHandle); unifiedBrowse.resume(browseHandle); renderUnifiedBrowse(browseHandle);
         }
     }
     @Override protected void onPause() {
-        foreground = false; clearSearchInteraction(); closeHomeDialog(); allSearch.cancelRound(searchHandle); unifiedBrowse.cancelRound(browseHandle); super.onPause();
+        foreground = false; ++previewGeneration; previewRequested = false; posters.pause();
+        clearSearchInteraction(); closeHomeDialog(); allSearch.cancelRound(searchHandle); unifiedBrowse.cancelRound(browseHandle); super.onPause();
     }
     @Override protected void onSaveInstanceState(Bundle out) {
         out.putString("categoryProvider", providerId);
@@ -1149,7 +1197,9 @@ public final class TvHomeActivity extends Activity {
         super.onSaveInstanceState(out);
     }
     @Override protected void onDestroy() {
-        destroyed = true; cancelPending(); allSearch.close(); unifiedBrowse.close(); network.shutdownNow(); posters.close();
+        destroyed = true; ++previewGeneration; cancelPending(); allSearch.close(); unifiedBrowse.close();
+        if (previewCache != null) previewCache.close();
+        network.shutdownNow(); posters.close();
         main.removeCallbacksAndMessages(null); if (store != null) store.close(); super.onDestroy();
     }
 
@@ -1185,66 +1235,6 @@ public final class TvHomeActivity extends Activity {
         }
     }
 
-    private final class PosterLoader {
-        private final LruCache<String, Bitmap> cache = new LruCache<String, Bitmap>(8 * 1024 * 1024) {
-            @Override protected int sizeOf(String key, Bitmap bitmap) { return bitmap.getByteCount(); }
-        };
-        private final ThreadPoolExecutor pool = new ThreadPoolExecutor(2, 2, 0, TimeUnit.SECONDS,
-                new ArrayBlockingQueue<Runnable>(32), new ThreadPoolExecutor.DiscardPolicy());
-
-        void load(ImageView view, String address) {
-            view.setTag(address); view.setImageDrawable(null); view.setBackgroundColor(0xffe4e9eb);
-            Bitmap found = cache.get(address); if (found != null) { view.setImageBitmap(found); return; }
-            if (!http(address)) return;
-            pool.execute(() -> {
-                try {
-                    byte[] bytes = image(address);
-                    BitmapFactory.Options size = new BitmapFactory.Options(); size.inJustDecodeBounds = true;
-                    BitmapFactory.decodeByteArray(bytes, 0, bytes.length, size);
-                    if (size.outWidth <= 0 || size.outHeight <= 0 || size.outWidth > 20000 || size.outHeight > 20000) return;
-                    BitmapFactory.Options options = new BitmapFactory.Options(); options.inSampleSize = 1;
-                    while (size.outWidth / options.inSampleSize > 512 || size.outHeight / options.inSampleSize > 512) options.inSampleSize *= 2;
-                    options.inPreferredConfig = Bitmap.Config.RGB_565;
-                    final Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length, options);
-                    if (bitmap == null || destroyed) return; cache.put(address, bitmap);
-                    main.post(() -> { if (!destroyed && address.equals(view.getTag())) view.setImageBitmap(bitmap); });
-                } catch (Exception ignored) { /* A failed poster must not hide a playable title. */ }
-            });
-        }
-        void close() { pool.shutdownNow(); cache.evictAll(); }
-    }
-
-    private static boolean http(String value) {
-        try { URL u = new URL(value); return (u.getProtocol().equals("https") || u.getProtocol().equals("http"))
-                && !u.getHost().isEmpty() && u.getUserInfo() == null; } catch (Exception e) { return false; }
-    }
-    private static byte[] image(String address) throws IOException {
-        String originalScheme = new URL(address).getProtocol();
-        for (int redirects = 0; redirects < 5; redirects++) {
-            if (Thread.currentThread().isInterrupted()) throw new IOException("已取消");
-            if (!http(address)) throw new IOException("封面地址无效");
-            URL url = new URL(address);
-            if (originalScheme.equals("https") && !url.getProtocol().equals("https")) throw new IOException("封面重定向不安全");
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setConnectTimeout(5000); connection.setReadTimeout(6000); connection.setInstanceFollowRedirects(false);
-            connection.setRequestProperty("User-Agent", "Tongpin4KTV/1.0.0");
-            try {
-                int code = connection.getResponseCode();
-                if (code >= 300 && code < 400) {
-                    String location = connection.getHeaderField("Location");
-                    if (location == null) throw new IOException("封面跳转无效"); address = new URL(url, location).toString(); continue;
-                }
-                if (code != 200 || connection.getContentLength() > 2 * 1024 * 1024) throw new IOException("封面不可用");
-                try (InputStream input = connection.getInputStream(); ByteArrayOutputStream output = new ByteArrayOutputStream()) {
-                    byte[] block = new byte[8192]; int n;
-                    while ((n = input.read(block)) != -1) {
-                        if (Thread.currentThread().isInterrupted() || output.size() + n > 2 * 1024 * 1024) throw new IOException("封面过大或已取消");
-                        output.write(block, 0, n);
-                    } return output.toByteArray();
-                }
-            } finally { connection.disconnect(); }
-        } throw new IOException("封面跳转过多");
-    }
     private String readAsset(String name) throws IOException {
         try (InputStream input = getAssets().open(name); ByteArrayOutputStream output = new ByteArrayOutputStream()) {
             byte[] bytes = new byte[4096]; int n;

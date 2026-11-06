@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "version": "1.3.9",
+  "source_or_theme_changed": false,
+  "old_document_bytes_retained_as_suffix": true,
+  "files": {
+    "BUILDING.md": {
+      "before_sha256": "8c38da8fbbf1f6233c9bb7c4f5b4c1228bd036f0dc2f41a3074a191182ba3268",
+      "after_sha256": "681c68abe11c7d7ae4cbb4ca98fd7214819272844d113bdd79441fd22bfae360",
+      "previous_bytes": 10587,
+      "prefix_bytes": 1998
+    },
+    "使用说明.md": {
+      "before_sha256": "b7dace05796ba45c5d6571e9e81e1a6632ae493c99b8ac1e08b0001edee44d76",
+      "after_sha256": "caee55c23082283ae1a28b9c5b970de63b0e9a632b58190ee6cab6dc10394a32",
+      "previous_bytes": 10731,
+      "prefix_bytes": 1161
+    }
+  }
+}

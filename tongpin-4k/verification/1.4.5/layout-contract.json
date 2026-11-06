@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "scope": "145 catalogue loading performance; retained144 appearance, playback, native and registry",
+  "files": {
+    "resources": {},
+    "smali": {}
+  },
+  "new_resources": {},
+  "java_source_count": 40,
+  "provider_count": 28,
+  "checks": {
+    "native144_unchanged": true,
+    "version_only_resources": true,
+    "unified_categories_group_candidates_and_viewport_native_bindings": true,
+    "source_stubs_tests_and_reviews": true,
+    "published144_evidence_unchanged": true,
+    "canonical_stage_dex": true
+  },
+  "device_tested": false
+}

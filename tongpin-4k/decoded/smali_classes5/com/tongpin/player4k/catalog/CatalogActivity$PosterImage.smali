@@ -18,7 +18,7 @@
 .method constructor <init>(Landroid/content/Context;)V
     .locals 0
 
-    .line 1387
+    .line 1432
     invoke-direct {p0, p1}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
 
     return-void
@@ -29,18 +29,18 @@
 .method protected onMeasure(II)V
     .locals 0
 
-    .line 1389
+    .line 1434
     invoke-static {p1}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
     move-result p1
 
-    .line 1390
+    .line 1435
     invoke-static {p1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->posterHeight(I)I
 
     move-result p2
 
     invoke-virtual {p0, p1, p2}, Lcom/tongpin/player4k/catalog/CatalogActivity$PosterImage;->setMeasuredDimension(II)V
 
-    .line 1391
+    .line 1436
     return-void
 .end method

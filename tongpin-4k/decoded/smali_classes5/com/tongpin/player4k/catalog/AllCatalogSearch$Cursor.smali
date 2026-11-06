@@ -40,20 +40,20 @@
 .method constructor <init>(Lcom/tongpin/player4k/catalog/CatalogApi$Provider;)V
     .locals 2
 
-    .line 77
+    .line 80
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 74
+    .line 77
     const/4 v0, 0x1
 
     iput v0, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Cursor;->nextPage:I
 
-    .line 76
+    .line 79
     const-string v0, ""
 
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Cursor;->previousPage:Ljava/lang/String;
 
-    .line 77
+    .line 80
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Cursor;->provider:Lcom/tongpin/player4k/catalog/CatalogApi$Provider;
 
     new-instance v0, Ljava/lang/StringBuilder;

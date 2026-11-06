@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "workspace_sources": true,
+  "source_sha256": {
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/CatalogPreviewCache.java": "8e9e4c8d5cb777be2804045665f5340140ff7ccabe3216a16d32131b2bd193b0",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/CatalogPreviewCache.java": "d88233373946b37e178e2dc4f1c0344eb330c333bbaac31f68cdfe25b93d6c2b"
+  },
+  "test_report": "tongpin-4k/ui/performance-1.4.5/cache-tests/verification.json",
+  "test_report_sha256": "51c2200d74e7a5b3c5435e86cc6d13817f26d1153963966277fb5998ea28efec",
+  "assertions_per_app": 30,
+  "atomic_file_device_io_tested": false,
+  "network_or_device_latency_measured": false
+}

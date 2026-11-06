@@ -5,8 +5,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
@@ -16,7 +14,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.Html;
 import android.text.TextUtils;
-import android.util.LruCache;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,9 +42,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
-import java.net.HttpURLConnection;
 import java.net.URI;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -58,9 +53,6 @@ import com.tongpin.player4k.catalog.UnifiedCatalogPolicy.Tab;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
 import com.tongpin.player4k.catalog.CatalogApi.*;
 
 /** Unified home: every configured source is browsed here and selectable in the player. */
@@ -69,11 +61,12 @@ public final class CatalogActivity extends Activity {
     private static final int SECONDARY = 0xff5d6d78, BLUE = 0xff226cc7, OUTLINE = 0xffd5ddd9;
     private final Handler main = new Handler(Looper.getMainLooper());
     private final ExecutorService requests = Executors.newFixedThreadPool(2);
-    private final ThreadPoolExecutor images = new ThreadPoolExecutor(2, 2, 0,
-        TimeUnit.MILLISECONDS, new ArrayBlockingQueue<Runnable>(32), new ThreadPoolExecutor.DiscardOldestPolicy());
-    private final LruCache<String, Bitmap> posters = new LruCache<String, Bitmap>(8 * 1024 * 1024) {
-        @Override protected int sizeOf(String key, Bitmap bitmap) { return bitmap.getAllocationByteCount(); }
-    };
+    private final CatalogPosters posters = new CatalogPosters(main::post, 0xffe4eaf0, 12f);
+    private CatalogPreviewCache previewCache;
+    private int previewTicket;
+    private boolean showingPreview, freshBrowseRows, previewFirstSaved;
+    private List<Group> previewSavedGroups, pendingPreviewGroups;
+    private UnifiedCatalogBrowse.Handle pendingPreviewHandle;
     private final ArrayList<Video> videos = new ArrayList<>();
     private List<Provider> providers;
     private int providerIndex, page = 1, pageTicket, detailTicket;
@@ -103,7 +96,7 @@ public final class CatalogActivity extends Activity {
     private Button categoryFilter;
     private Button channelSearch;
     private GridView posterGrid;
-    private List<Video> renderedSearchItems;
+    private List<Group> renderedSearchGroups;
     private AllCatalogSearch.Handle pendingSortedHandle;
     private AllCatalogSearch.Snapshot pendingSortedSnapshot;
     private SearchAnchor savedSearchAnchor;
@@ -118,8 +111,6 @@ public final class CatalogActivity extends Activity {
     private boolean liveMode;
     private Button liveEntry;
     private List<Group> visibleGroups = Collections.emptyList(), renderedBrowseGroups;
-    private List<Video> projectedSearchItems;
-    private List<Group> projectedSearchGroups = Collections.emptyList();
     private final Map<String, Group> candidateGroups = new HashMap<>();
     private Group detailGroup;
     private boolean resetAggregateViewport;
@@ -181,6 +172,7 @@ public final class CatalogActivity extends Activity {
             for (int i = 0; i < providers.size(); i++) if (providers.get(i).id.equals(preferred)) providerIndex = i;
         }
         allSearch = new AllCatalogSearch(main::post); unifiedBrowse = new UnifiedCatalogBrowse(main::post);
+        previewCache = new CatalogPreviewCache(this, main::post);
         buildScreen();
         if (getIntent().getBooleanExtra("source_switch", false)) {
             getIntent().removeExtra("source_switch");
@@ -269,9 +261,13 @@ public final class CatalogActivity extends Activity {
         state.addView(status, new LinearLayout.LayoutParams(0, -2, 1));
         retry = button("重试", false);
         retry.setOnClickListener(view -> {
-            if (!keyword.isEmpty() && searchHandle != null) allSearch.retryFailed(searchHandle);
-            else if (!liveMode && browseHandle != null) unifiedBrowse.retryFailed(browseHandle);
-            else loadPage(page);
+            if (!keyword.isEmpty() && searchHandle != null) {
+                if (searchHandle.snapshot().projectionFailed) allSearch.retryProjection(searchHandle);
+                else allSearch.retryFailed(searchHandle);
+            } else if (!liveMode && browseHandle != null) {
+                if (browseHandle.snapshot().projectionFailed) unifiedBrowse.retryProjection(browseHandle);
+                else unifiedBrowse.retryFailed(browseHandle);
+            } else loadPage(page);
         });
         state.addView(retry, new LinearLayout.LayoutParams(dp(96), dp(48)));
         catalogScreen.addView(state, new LinearLayout.LayoutParams(-1, -2));
@@ -355,11 +351,12 @@ public final class CatalogActivity extends Activity {
                 UnifiedCatalogBrowse.Snapshot snapshot = browseHandle.snapshot();
                 if (snapshot.limited) {
                     if (unifiedBrowse.continueWindow(browseHandle)) {
+                        invalidatePreviewDelivery(); showingPreview = false; freshBrowseRows = true;
                         searchTouch.windowLost(); savedSearchAnchor = null; resetAggregateViewport = true;
                         pendingBrowseHandle = null; pendingBrowseSnapshot = null;
                         gridTouchActive = false; gridClickSettling = false;
                         if (sortedDrain != null) posterGrid.removeCallbacks(sortedDrain); sortedDrain = null;
-                        clearGroups(); videos.clear(); adapter.notifyDataSetChanged(); posterGrid.setSelection(0);
+                        posters.clear(); clearGroups(); videos.clear(); adapter.notifyDataSetChanged(); posterGrid.setSelection(0);
                     }
                 } else unifiedBrowse.loadMore(browseHandle);
             } else loadPage(page + 1);
@@ -494,10 +491,10 @@ public final class CatalogActivity extends Activity {
     }
 
     private void cancelGlobalSearch() {
+        invalidatePreviewDelivery(); showingPreview = false;
         if (searchHandle != null) searchHandle.cancel();
         searchHandle = null;
-        pendingSortedHandle = null; pendingSortedSnapshot = null; renderedSearchItems = null; savedSearchAnchor = null;
-        projectedSearchItems = null; projectedSearchGroups = Collections.emptyList();
+        pendingSortedHandle = null; pendingSortedSnapshot = null; renderedSearchGroups = null; savedSearchAnchor = null;
         searchTouch.windowLost(); gridTouchActive = false; gridClickSettling = false;
         if (posterGrid != null && sortedDrain != null) posterGrid.removeCallbacks(sortedDrain);
         sortedDrain = null;
@@ -505,12 +502,14 @@ public final class CatalogActivity extends Activity {
     }
 
     private void pauseCatalogue() {
+        invalidatePreviewDelivery(); posters.pause();
         if (allSearch != null && searchHandle != null) allSearch.cancelRound(searchHandle);
         if (unifiedBrowse != null && browseHandle != null) unifiedBrowse.cancelRound(browseHandle);
         if (pageRequest != null) pageRequest.cancel(true);
     }
 
     private void clearGroups() {
+        showingPreview = false;
         visibleGroups = Collections.emptyList(); candidateGroups.clear(); renderedBrowseGroups = null; detailGroup = null;
     }
 
@@ -533,20 +532,15 @@ public final class CatalogActivity extends Activity {
         return group != null ? group.contains(video) : videos.contains(video);
     }
 
-    private List<Group> projectSearch(List<Video> raw) {
-        if (projectedSearchItems != raw) {
-            projectedSearchGroups = UnifiedCatalogPolicy.project(raw, true); projectedSearchItems = raw;
-        }
-        return projectedSearchGroups;
-    }
-
     private Group latestGroupFor(Video video) {
         List<Group> groups = visibleGroups;
         if (!CatalogApi.liveProvider(video.provider)) {
-            if (!keyword.isEmpty() && searchHandle != null && searchHandle.isCurrent()) groups = projectSearch(searchHandle.snapshot().items);
+            if (!keyword.isEmpty() && searchHandle != null && searchHandle.isCurrent()) groups = searchHandle.snapshot().groups;
             else if (!liveMode && browseHandle != null && browseHandle.isCurrent()) groups = browseHandle.snapshot().groups;
         }
         for (Group group : groups) if (group.contains(video)) return group;
+        // A preview card remains a valid source group while the first fresh snapshot is still empty.
+        if (groups != visibleGroups) for (Group group : visibleGroups) if (group.contains(video)) return group;
         return null;
     }
 
@@ -563,7 +557,8 @@ public final class CatalogActivity extends Activity {
         if (pageRequest != null) pageRequest.cancel(true);
         if (detailRequest != null) detailRequest.cancel(true);
         liveMode = false; loading = true; hasMore = false;
-        images.getQueue().clear(); clearGroups(); videos.clear(); adapter.notifyDataSetChanged();
+        showingPreview = false; freshBrowseRows = false; previewFirstSaved = false; previewSavedGroups = null;
+        posters.clear(); clearGroups(); videos.clear(); adapter.notifyDataSetChanged();
         resetAggregateViewport = true;
         updateSearchSupport(); renderCategories();
         status.setText("正在汇集" + homeTab.label + "…"); progress.setVisibility(View.VISIBLE); retry.setVisibility(View.GONE);
@@ -571,17 +566,53 @@ public final class CatalogActivity extends Activity {
             if (!alive() || !handle.isCurrent()) return;
             applyUnifiedSnapshot(handle, snapshot);
         });
+        if (foreground) posters.resume();
+        loadBrowsePreview();
         updatePager();
+    }
+
+    private void invalidatePreviewDelivery() {
+        ++previewTicket; pendingPreviewGroups = null; pendingPreviewHandle = null;
+    }
+
+    private void loadBrowsePreview() {
+        if (previewCache == null || !foreground || liveMode || !keyword.isEmpty() || freshBrowseRows || showingPreview
+                || readingDetail || detail != null || browseHandle == null || !browseHandle.isCurrent()) return;
+        final int ticket = ++previewTicket; final UnifiedCatalogBrowse.Handle handle = browseHandle; final Tab tab = homeTab;
+        previewCache.load(providers, tab, groups -> {
+            if (!alive() || !foreground || ticket != previewTicket || browseHandle != handle || !handle.isCurrent()
+                    || homeTab != tab || liveMode || !keyword.isEmpty() || readingDetail || detail != null || freshBrowseRows || groups.isEmpty()) return;
+            pendingPreviewGroups = groups; pendingPreviewHandle = handle; applyBrowsePreview();
+        });
+    }
+
+    private void applyBrowsePreview() {
+        if (pendingPreviewGroups == null || pendingPreviewHandle != browseHandle || !foreground || !windowFocused || !alive()
+                || liveMode || !keyword.isEmpty() || readingDetail || detail != null || freshBrowseRows
+                || gridTouchActive || gridClickSettling || gridScrollState != 0) return;
+        List<Group> groups = pendingPreviewGroups; pendingPreviewGroups = null; pendingPreviewHandle = null;
+        if (browseHandle == null || !browseHandle.isCurrent()) return;
+        showingPreview = true; presentGroups(groups); renderedBrowseGroups = null;
+        if (resetAggregateViewport) { posterGrid.setSelection(0); resetAggregateViewport = false; }
+        posters.resume(); status.setText(previewStatus(browseHandle.snapshot())); updatePager();
     }
 
     private void applyUnifiedSnapshot(UnifiedCatalogBrowse.Handle handle, UnifiedCatalogBrowse.Snapshot snapshot) {
         if (handle != browseHandle || !handle.isCurrent() || liveMode || !keyword.isEmpty() || snapshot.tab != homeTab) return;
         loading = snapshot.loading; hasMore = snapshot.hasMore;
+        if (!snapshot.groups.isEmpty()) {
+            freshBrowseRows = true; invalidatePreviewDelivery();
+            if (!previewFirstSaved || !snapshot.loading && previewSavedGroups != snapshot.groups) {
+                previewFirstSaved = true; previewSavedGroups = snapshot.groups;
+                if (previewCache != null) previewCache.save(providers, homeTab, snapshot.groups);
+            }
+        }
         if (!foreground || !windowFocused || readingDetail || detail != null || gridTouchActive || gridClickSettling || gridScrollState != 0) {
             pendingBrowseHandle = handle; pendingBrowseSnapshot = snapshot; return;
         }
         pendingBrowseHandle = null; pendingBrowseSnapshot = null;
-        if (renderedBrowseGroups != snapshot.groups) {
+        if ((!showingPreview || !snapshot.groups.isEmpty()) && renderedBrowseGroups != snapshot.groups) {
+            if (!snapshot.groups.isEmpty()) showingPreview = false;
             SearchAnchor anchor = resetAggregateViewport ? null : savedSearchAnchor != null ? savedSearchAnchor : captureSearchAnchor();
             presentGroups(snapshot.groups); renderedBrowseGroups = snapshot.groups;
             if (resetAggregateViewport) {
@@ -590,14 +621,22 @@ public final class CatalogActivity extends Activity {
         } else if (savedSearchAnchor != null) restoreSearchAnchor(savedSearchAnchor);
         savedSearchAnchor = null;
         caption.setText(homeTab.label + " · " + snapshot.totalSources + "个影视片库");
-        status.setText(browseStatus(snapshot)); progress.setVisibility(snapshot.loading ? View.VISIBLE : View.GONE);
-        retry.setText("重试失败"); retry.setEnabled(!snapshot.loading);
-        retry.setVisibility(snapshot.failedSources > 0 && !snapshot.limited ? View.VISIBLE : View.GONE);
+        status.setText(showingPreview ? previewStatus(snapshot) : browseStatus(snapshot));
+        progress.setVisibility(snapshot.loading ? View.VISIBLE : View.GONE);
+        retry.setText(snapshot.projectionFailed ? "重试" : "重试失败"); retry.setEnabled(!snapshot.loading);
+        retry.setVisibility(snapshot.projectionFailed || snapshot.failedSources > 0 && !snapshot.limited ? View.VISIBLE : View.GONE);
         updatePager();
     }
 
+    static String previewStatus(UnifiedCatalogBrowse.Snapshot snapshot) {
+        return snapshot.loading ? "正在更新 · 显示上次片库" : "显示上次片库"
+                + (snapshot.failedSources > 0 || snapshot.projectionFailed ? " · 部分来源暂不可用" : " · 本次暂无新片目");
+    }
+
     static String browseStatus(UnifiedCatalogBrowse.Snapshot snapshot) {
-        String text = snapshot.limited ? "本批候选较多，可继续浏览下一批"
+        String text = snapshot.projectionFailed ? "片目暂时无法整理，可重试"
+                : snapshot.projecting && snapshot.pending == 0 ? "正在整理片目"
+                : snapshot.limited ? "本批候选较多，可继续浏览下一批"
                 : snapshot.loading ? "正在汇集 · 已完成 " + snapshot.batchReturned + "/" + snapshot.batchTotal + " 项请求"
                 : snapshot.canResume ? "已暂停，可继续未完成来源"
                 : snapshot.groups.isEmpty() ? "暂未收到匹配影片，可继续载入或换个分类" : "";
@@ -607,7 +646,9 @@ public final class CatalogActivity extends Activity {
     }
 
     static String projectedSearchStatus(AllCatalogSearch.Snapshot snapshot, int cards) {
-        String text = snapshot.limited ? "来源候选较多，请细化片名"
+        String text = snapshot.projectionFailed ? "片目暂时无法整理，可重试"
+                : snapshot.projecting && snapshot.pending == 0 ? "正在整理片目"
+                : snapshot.limited ? "来源候选较多，请细化片名"
                 : snapshot.loading ? "正在搜索 · 本批已完成 " + snapshot.batchReturned + "/" + snapshot.batchTotal + "个库"
                 : snapshot.canResume ? "已暂停，可继续未完成来源"
                 : cards == 0 ? snapshot.successfulSources == 0 && snapshot.failedSources > 0
@@ -625,9 +666,10 @@ public final class CatalogActivity extends Activity {
         if (detailRequest != null) detailRequest.cancel(true);
         cancelGlobalSearch();
         loading = true; hasMore = false;
-        images.getQueue().clear(); clearGroups(); videos.clear(); adapter.notifyDataSetChanged();
+        posters.clear(); clearGroups(); videos.clear(); adapter.notifyDataSetChanged();
         resetAggregateViewport = true;
         updateSearchSupport();
+        if (foreground) posters.resume();
         caption.setText("搜索结果 · 全部可搜索影视片库");
         status.setText("正在搜索，各来源结果将陆续显示…");
         progress.setVisibility(View.VISIBLE); retry.setVisibility(View.GONE);
@@ -647,20 +689,20 @@ public final class CatalogActivity extends Activity {
             pendingSortedHandle = handle; pendingSortedSnapshot = snapshot; return;
         }
         pendingSortedHandle = null; pendingSortedSnapshot = null;
-        if (renderedSearchItems != snapshot.items) {
+        if (renderedSearchGroups != snapshot.groups) {
             SearchAnchor anchor = resetAggregateViewport ? null : savedSearchAnchor != null ? savedSearchAnchor : captureSearchAnchor();
-            presentGroups(projectSearch(snapshot.items)); renderedSearchItems = snapshot.items;
+            presentGroups(snapshot.groups); renderedSearchGroups = snapshot.groups;
             if (resetAggregateViewport) {
                 posterGrid.setSelection(0); if (!visibleGroups.isEmpty()) resetAggregateViewport = false;
             } else restoreSearchAnchor(anchor);
         } else if (savedSearchAnchor != null) restoreSearchAnchor(savedSearchAnchor);
         savedSearchAnchor = null;
         caption.setText("搜索结果 · " + videos.size() + "部 · " + snapshot.totalSources + "个可搜影视库");
-        status.setText(snapshot.loading || snapshot.canResume || snapshot.failedSources > 0 || snapshot.repeatStoppedSources > 0
+        status.setText(snapshot.loading || snapshot.projectionFailed || snapshot.canResume || snapshot.failedSources > 0 || snapshot.repeatStoppedSources > 0
                 || snapshot.limited || snapshot.items.isEmpty() ? projectedSearchStatus(snapshot, videos.size()) : "");
         progress.setVisibility(snapshot.loading ? View.VISIBLE : View.GONE);
-        retry.setText("重试失败"); retry.setEnabled(!snapshot.loading);
-        retry.setVisibility(snapshot.failedSources > 0 && !snapshot.limited ? View.VISIBLE : View.GONE);
+        retry.setText(snapshot.projectionFailed ? "重试" : "重试失败"); retry.setEnabled(!snapshot.loading);
+        retry.setVisibility(snapshot.projectionFailed || snapshot.failedSources > 0 && !snapshot.limited ? View.VISIBLE : View.GONE);
         updatePager();
     }
 
@@ -693,6 +735,7 @@ public final class CatalogActivity extends Activity {
         if (handle != null && snapshot != null) applyGlobalSnapshot(handle, snapshot);
         UnifiedCatalogBrowse.Handle browse = pendingBrowseHandle; UnifiedCatalogBrowse.Snapshot received = pendingBrowseSnapshot;
         if (browse != null && received != null) applyUnifiedSnapshot(browse, received);
+        applyBrowsePreview();
     }
 
     private static final class SearchAnchor {
@@ -723,6 +766,7 @@ public final class CatalogActivity extends Activity {
     }
 
     private void restoreGlobalSearch() {
+        if (foreground && detail == null && !readingDetail) { posters.resume(); loadBrowsePreview(); }
         if (keyword.isEmpty()) {
             if (!liveMode && foreground && detail == null && !readingDetail && browseHandle != null && browseHandle.isCurrent()) {
                 applyUnifiedSnapshot(browseHandle, browseHandle.snapshot()); unifiedBrowse.resume(browseHandle);
@@ -792,12 +836,13 @@ public final class CatalogActivity extends Activity {
         page = requestedPage;
         loading = true;
         hasMore = false;
-        images.getQueue().clear();
+        posters.clear();
         videos.clear();
         adapter.notifyDataSetChanged();
         Provider provider = providers.get(providerIndex);
         final CatalogCategories.Selection category = categoryCatalog == null ? null : categoryCatalog.select(categoryId);
         renderCategories();
+        if (foreground) posters.resume();
         status.setText("正在载入 " + provider.name + "…");
         progress.setVisibility(View.VISIBLE);
         retry.setVisibility(View.GONE);
@@ -1209,8 +1254,8 @@ public final class CatalogActivity extends Activity {
         ++detailTicket;
         main.removeCallbacksAndMessages(null);
         requests.shutdownNow();
-        images.shutdownNow();
-        posters.evictAll();
+        posters.close();
+        if (previewCache != null) previewCache.close();
         super.onDestroy();
     }
 
@@ -1447,39 +1492,8 @@ public final class CatalogActivity extends Activity {
     private static final class Holder { ImageView image; TextView title, subtitle; Video video; String cardKey; }
 
     private void loadPoster(String url, ImageView view, String title) {
-        view.setTag(url);
         view.setContentDescription(title + " 封面");
-        android.graphics.drawable.GradientDrawable placeholder = new android.graphics.drawable.GradientDrawable();
-        placeholder.setColor(0xffe4eaf0); placeholder.setCornerRadius(dp(12));
-        view.setImageDrawable(placeholder);
-        if (!httpUrl(url)) return;
-        Bitmap cached = posters.get(url);
-        if (cached != null) { view.setImageBitmap(cached); return; }
-        images.execute(() -> {
-            HttpURLConnection connection = null;
-            try {
-                connection = (HttpURLConnection) new URL(url).openConnection();
-                connection.setConnectTimeout(6000);
-                connection.setReadTimeout(8000);
-                connection.setRequestProperty("User-Agent", "Tongpin4K/1.1.0");
-                if (connection.getResponseCode() != 200) return;
-                byte[] data;
-                try (InputStream input = connection.getInputStream()) { data = read(input, 2 * 1024 * 1024); }
-                BitmapFactory.Options options = new BitmapFactory.Options();
-                options.inJustDecodeBounds = true;
-                BitmapFactory.decodeByteArray(data, 0, data.length, options);
-                if (options.outWidth <= 0 || options.outHeight <= 0 || options.outWidth > 10000 || options.outHeight > 10000
-                        || (long) options.outWidth * options.outHeight > 8000000L) return;
-                options.inSampleSize = 1;
-                while (options.outWidth / options.inSampleSize > 512 || options.outHeight / options.inSampleSize > 512) options.inSampleSize *= 2;
-                options.inJustDecodeBounds = false;
-                Bitmap bitmap = BitmapFactory.decodeByteArray(data, 0, data.length, options);
-                if (bitmap == null) return;
-                posters.put(url, bitmap);
-                main.post(() -> { if (alive() && url.equals(view.getTag())) view.setImageBitmap(bitmap); });
-            } catch (Exception ignored) { }
-            finally { if (connection != null) connection.disconnect(); }
-        });
+        posters.load(view, url);
     }
 
     private static boolean httpUrl(String value) {

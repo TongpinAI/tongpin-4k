@@ -34,7 +34,7 @@
 .method constructor <init>()V
     .locals 0
 
-    .line 703
+    .line 746
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -45,7 +45,7 @@
 .method accessibilityActivation()V
     .locals 0
 
-    .line 715
+    .line 758
     invoke-virtual {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity$SearchTouch;->keyboard()V
 
     return-void
@@ -54,7 +54,7 @@
 .method cancel()V
     .locals 1
 
-    .line 712
+    .line 755
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$SearchTouch;->video:Lcom/tongpin/player4k/catalog/CatalogApi$Video;
@@ -71,7 +71,7 @@
 .method consume(Lcom/tongpin/player4k/catalog/CatalogApi$Video;IZ)Lcom/tongpin/player4k/catalog/CatalogApi$Video;
     .locals 2
 
-    .line 717
+    .line 760
     iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$SearchTouch;->windowCanceled:Z
 
     const/4 v1, 0x0
@@ -80,7 +80,7 @@
 
     return-object v1
 
-    .line 718
+    .line 761
     :cond_0
     if-nez p3, :cond_1
 
@@ -94,7 +94,7 @@
 
     return-object p1
 
-    .line 719
+    .line 762
     :cond_1
     iget-boolean p3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$SearchTouch;->captured:Z
 
@@ -102,7 +102,7 @@
 
     return-object p1
 
-    .line 720
+    .line 763
     :cond_2
     iget-boolean p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$SearchTouch;->canceled:Z
 
@@ -114,7 +114,7 @@
 
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$SearchTouch;->video:Lcom/tongpin/player4k/catalog/CatalogApi$Video;
 
-    .line 721
+    .line 764
     :cond_3
     invoke-virtual {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity$SearchTouch;->cancel()V
 
@@ -124,7 +124,7 @@
 .method down(Lcom/tongpin/player4k/catalog/CatalogApi$Video;FFI)V
     .locals 0
 
-    .line 709
+    .line 752
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$SearchTouch;->video:Lcom/tongpin/player4k/catalog/CatalogApi$Video;
 
     iput p2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$SearchTouch;->x:F
@@ -143,14 +143,14 @@
 
     iput-boolean p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$SearchTouch;->windowCanceled:Z
 
-    .line 710
+    .line 753
     return-void
 .end method
 
 .method keyboard()V
     .locals 1
 
-    .line 714
+    .line 757
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$SearchTouch;->video:Lcom/tongpin/player4k/catalog/CatalogApi$Video;
@@ -169,7 +169,7 @@
 .method move(FFI)V
     .locals 1
 
-    .line 711
+    .line 754
     iget v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$SearchTouch;->x:F
 
     sub-float/2addr p1, v0
@@ -206,7 +206,7 @@
 .method windowLost()V
     .locals 1
 
-    .line 713
+    .line 756
     invoke-virtual {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity$SearchTouch;->cancel()V
 
     const/4 v0, 0x1

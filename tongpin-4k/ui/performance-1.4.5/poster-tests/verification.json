@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "external_network_tested": false,
+  "http_transport_test_double_used": true,
+  "device_tested": false,
+  "android_view_and_bitmap_test_doubles_used": true,
+  "assertions": {
+    "phone": {
+      "PosterQueueTest": 58,
+      "PosterBindingTest": 35
+    },
+    "tv": {
+      "PosterQueueTest": 58,
+      "PosterBindingTest": 35
+    }
+  },
+  "source_sha256": {
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/PosterQueue.java": "572b30e5c871acc26330fd2f93b3f03a0594c40fe0c59cc4cf7c84e2dac06e0c",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/CatalogPosters.java": "856fdafe95682ffd23c38f6a6093f3f6da9b947e4d1b43fb23f1d116334c8eeb",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/PosterQueue.java": "7e419c7983b1e2892102225a1a8fc13441254d116838c4cc9a9bc28b44b5e336",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/CatalogPosters.java": "6381982d266292fecde2eee8b379e800eefded834a92b5e51cebc23c2851f43a"
+  },
+  "runner_sha256": "ce1277046718e87dabeb76860e698e05b130df4ab7348a6b7c3e66c1c71fd09b",
+  "test_source_sha256": {
+    "PosterBindingTest.java": "45755ef89b808c1d7ce173aac213b8d4afcd2b4d55aeeeb5c2c22a9e984de932",
+    "PosterQueueTest.java": "7b95ab3cb3ad3982aec30e7446c7f013f446c25a305b22bdd9b60c0e8f22f013"
+  }
+}

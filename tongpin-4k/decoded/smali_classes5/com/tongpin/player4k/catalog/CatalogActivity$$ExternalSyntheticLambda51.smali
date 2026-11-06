@@ -3,15 +3,17 @@
 .source "D8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/view/View$OnClickListener;
 
 
 # instance fields
 .field public final synthetic f$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
+.field public final synthetic f$1:Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;
+
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/tongpin/player4k/catalog/CatalogActivity;)V
+.method public synthetic constructor <init>(Lcom/tongpin/player4k/catalog/CatalogActivity;Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;)V
     .locals 0
 
     .line 0
@@ -19,18 +21,22 @@
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda51;->f$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
+    iput-object p2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda51;->f$1:Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;
+
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
-    .locals 1
+.method public final onClick(Landroid/view/View;)V
+    .locals 2
 
     .line 0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda51;->f$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
-    invoke-virtual {v0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->lambda$scheduleSortedDrain$0$com-tongpin-player4k-catalog-CatalogActivity()V
+    iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda51;->f$1:Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;
+
+    invoke-virtual {v0, v1, p1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->lambda$renderCategories$0$com-tongpin-player4k-catalog-CatalogActivity(Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;Landroid/view/View;)V
 
     return-void
 .end method

@@ -1,0 +1,16 @@
+{
+  "verification/1.3.8/frozen-inputs.json": "eec0001cbe5eb1e7eb72e0674a2acc32f9b5c42a38238deac4905620d59adbb9",
+  "verification/1.3.8/result.json": "0b67fe1e45b9430448d010244cc9ff2f72326cf1b53ef4e5ad335860c6c40169",
+  "verification/1.3.8/provider-asset-provenance.json": "3fcadbf1ab2d9dabda7d4702a000b89c00abd0fd196868fa61553a3d6e6d84b4",
+  "verification/1.3.8/root-post-build-check.json": "5cb73bb5890b6b35d9664921204eb779fac16408d787bdf7e35f75371ad494d4",
+  "build/1.3.8/resource-ids.txt": "700d9b1d79d502ae3d8f67ce3a4b9f0982176229874c2bac7f364182a4cbbeb2",
+  "ui/unified-library-1.3.8/verification.json": "26c88a3d22bf9d97db74293068caffc966a517a3b0a22084d2070cb1a154f673",
+  "ui/unified-library-1.3.8/shared-source-freeze.json": "bbe6ad19cbc4df75532f634587666de58b6770271c86cbbd653e17c2ef36a5d9",
+  "ui/unified-library-1.3.8/shared-test-report-0.json": "1a2662d592dd74c693975c435143129d3d20586293f128958d7163afa027a6f5",
+  "ui/unified-library-1.3.8/shared-test-report-1.json": "890441b0808059fb50f1acb451f77d88fb96a21442f3e7bcfbb066db2ecee3e8",
+  "verification/1.3.8/preflight/result.json": "4ae6af3cc6b8808da0f35c146b1fc0b19038c971f09d5b827b1348592abb9731",
+  "ui/unified-library-1.3.8/source-freeze.json": "5ab2b2de539848f7213032ef1c5f152cb94fca14f3471dc3a6a0d669afcf48b7",
+  "ui/unified-library-1.3.8/shared-source-independent-review.json": "1f3f8d2807ca58273283f951a8f85d223ee8cd883710ff7d35a05287df852ec8",
+  "ui/unified-library-1.3.8/source-independent-review.json": "79c31dbd8001b385e3669b01c987583222a3eb76d2df309525a0475709bfa1a0",
+  "ui/unified-library-1.3.8/builder-independent-review.json": "9d3b06407a96303542ce96bdc1039631909af5dc470462b7c6bc7298ce7c3bff"
+}

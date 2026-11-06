@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "source_ready": true,
+  "source_sha256": {
+    "src/com/tongpin/player4k/tv/TvHomeActivity.java": "dc11e03cb58b2d82815562ffa658b17e93fac6791a0a014020116599e6c50204"
+  },
+  "before_sha256": {
+    "src/com/tongpin/player4k/tv/TvHomeActivity.java": "3008715121f9a73613a5c18ac17bf94fc3595076be90d155eb1548618b0f2174"
+  },
+  "tests_report": "ui/startup-performance-1.3.9/verification.json",
+  "tests_report_sha256": "144d473e5a08819a3baee29f7570f9ba71303342ee7d142049874d2074b5b3ff",
+  "owned_scope": "TVHome caller only: ready search groups, guarded last-good metadata preview, fresh-only first/complete cache writes, shared poster lifecycle, explicit metadata refresh and projection-only retry. No media, layout, theme, API or provider registry changes.",
+  "device_tested": false
+}

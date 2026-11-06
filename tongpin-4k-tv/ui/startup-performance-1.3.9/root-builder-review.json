@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "verdict": "clear:139 performance gate retains historical builder semantics and signed runtime boundary",
+  "source_sha256": {
+    "build_tv.py": "25f7de8ee90091ba4a594fc539399626c40b452617a54a1c725647929b756160"
+  },
+  "reviewed_freeze_sha256": "ebca250196782ea0b96690de5a072a871da72bd4177dbbb1cd0ae7285349bbbf",
+  "historical_builder_ast_inverse_equal": true,
+  "production_inputs": 43,
+  "review": "Only version admission and the narrow startup performance gate are added. Formal promotion requires exact43 production inputs,4 owner freezes, fresh preflight, source and builder independent coverage; old138 preimages/evidence, unchanged registry/runtime/resource IDs and original signature are verified. Preflight uses the same production inputs and preserves old APK output.",
+  "device_tested": false
+}

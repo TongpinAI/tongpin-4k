@@ -3,7 +3,7 @@
 .source "D8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/tongpin/player4k/catalog/PhoneSourcePicker$Selection;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
@@ -24,13 +24,13 @@
 
 
 # virtual methods
-.method public final selected(Lcom/tongpin/player4k/catalog/CatalogApi$Detail;Lcom/tongpin/player4k/catalog/CatalogApi$Line;IZ)V
+.method public final run()V
     .locals 1
 
     .line 0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda50;->f$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
-    invoke-virtual {v0, p1, p2, p3, p4}, Lcom/tongpin/player4k/catalog/CatalogActivity;->lambda$searchOtherSources$0$com-tongpin-player4k-catalog-CatalogActivity(Lcom/tongpin/player4k/catalog/CatalogApi$Detail;Lcom/tongpin/player4k/catalog/CatalogApi$Line;IZ)V
+    invoke-virtual {v0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->lambda$scheduleSortedDrain$0$com-tongpin-player4k-catalog-CatalogActivity()V
 
     return-void
 .end method

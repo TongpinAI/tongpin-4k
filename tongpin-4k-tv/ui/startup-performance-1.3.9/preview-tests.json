@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "assertions": {
+    "phone": 30,
+    "tv": 30
+  },
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogPreviewCache.java": "8e9e4c8d5cb777be2804045665f5340140ff7ccabe3216a16d32131b2bd193b0",
+    "open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogPolicy.java": "3e51355d6dc1530e2a63fa40ac89b2d91c25e9532141a442569db64d008cf9aa",
+    "open-sources/src/com/tongpin/player4k/catalog/AutoSourcePolicy.java": "ce4fd68b0e2f3f0ed9eed19bd15868bc71e3e9c3dfb3394c384e0e4aa2bc1e87",
+    "open-sources/src/com/tongpin/player4k/catalog/CrossSourcePolicy.java": "f443a406641ec8e8ed8d891642afb7da8a046bb5213faddf40e37158afab195c",
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogTitleOrder.java": "bae3398167b1214955888afb17d483e84e9903f59d369ce9f406807be5b56df6",
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogApi.java": "9e99cf63272fc2b42aa75d8de6094f2ab9b356270dd3f13254c7601826f9e959",
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogCategories.java": "3c368a9e8ebbfbcf15e8426b1cdacfd0e3289efdfeb1f887569840528425f03b",
+    "open-sources/src/com/tongpin/player4k/catalog/MacCmsXml.java": "5ca12bf836e1c8e10c8efd06d0054e0ce25c8c63c707f7513e77eddccf5b8f68",
+    "open-sources/src/com/tongpin/player4k/catalog/TvBoxJson.java": "4fe2bf0bdaf94a431a5ddc6514eb51a37d668006b608659a1cf16fd558faab24",
+    "open-sources/src/com/tongpin/player4k/catalog/M3uCatalog.java": "710daeaabe91bab03e078106de0b4cdd5d1b852cbdb4c7992ed0b2e3626ead51"
+  },
+  "tv_cache_sha256": "d88233373946b37e178e2dc4f1c0344eb330c333bbaac31f68cdfe25b93d6c2b",
+  "test_sha256": "25c7cffe22e15c5d995217b23cfd9dcf7654aa2c8b3ae88d3c09a52923769ae0",
+  "runner_sha256": "14a91f61371891c9fbffef493394f213e73e14ec5a58cc80e80ddb523844707b",
+  "actual_api_and_models_compiled": true,
+  "codec_executed": true,
+  "android_stub_methods_executed": false,
+  "atomicfile_runtime_executed": false,
+  "network_tested": false,
+  "device_tested": false,
+  "scope": "Metadata-only preview codec, source registry rebinding, original category ancestry and work key, TTL, immutable alternatives, malformed data and count/byte bounds. AtomicFile is the platform implementation; no device I/O claim."
+}

@@ -15,6 +15,8 @@
 
 
 # instance fields
+.field final cacheEpoch:J
+
 .field final cursor:Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Cursor;
 
 .field future:Ljava/util/concurrent/FutureTask;
@@ -35,10 +37,10 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Source;Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Cursor;I)V
+.method constructor <init>(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Source;Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Cursor;IJ)V
     .locals 0
 
-    .line 111
+    .line 115
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Work;->source:Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Source;
@@ -46,6 +48,8 @@
     iput-object p2, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Work;->cursor:Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Cursor;
 
     iput p3, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Work;->round:I
+
+    iput-wide p4, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Work;->cacheEpoch:J
 
     if-nez p2, :cond_0
 
