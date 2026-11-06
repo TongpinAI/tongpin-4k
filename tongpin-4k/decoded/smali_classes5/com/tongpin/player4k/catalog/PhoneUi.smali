@@ -20,6 +20,20 @@
 
 .field public static final OUTLINED:I = 0x3
 
+.field public static final PLAYER_BG:I = -0xebebeb
+
+.field public static final PLAYER_MUTED:I = -0x7a7a75
+
+.field public static final PLAYER_RAISED:I = -0xdcdcdb
+
+.field public static final PLAYER_SECONDARY:I = -0x5e5e5a
+
+.field public static final PLAYER_SURFACE:I = -0xe6e6e5
+
+.field public static final PLAYER_TEXT:I = -0x121213
+
+.field public static final PLAYER_VALUE:I = -0x643a01
+
 .field public static final PRIMARY:I = -0xdd9339
 
 .field public static final SURFACE:I = -0x1
@@ -37,7 +51,7 @@
 .method private constructor <init>()V
     .locals 0
 
-    .line 28
+    .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -46,12 +60,12 @@
 .method public static background(Landroid/content/Context;II)Landroid/graphics/drawable/GradientDrawable;
     .locals 1
 
-    .line 60
+    .line 68
     new-instance v0, Landroid/graphics/drawable/GradientDrawable;
 
     invoke-direct {v0}, Landroid/graphics/drawable/GradientDrawable;-><init>()V
 
-    .line 61
+    .line 69
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/GradientDrawable;->setColor(I)V
 
     invoke-static {p0, p2}, Lcom/tongpin/player4k/catalog/PhoneUi;->dp(Landroid/content/Context;I)I
@@ -62,19 +76,19 @@
 
     invoke-virtual {v0, p0}, Landroid/graphics/drawable/GradientDrawable;->setCornerRadius(F)V
 
-    .line 62
+    .line 70
     return-object v0
 .end method
 
 .method public static button(Landroid/content/Context;Ljava/lang/String;I)Landroid/widget/Button;
     .locals 1
 
-    .line 66
+    .line 74
     new-instance v0, Landroid/widget/Button;
 
     invoke-direct {v0, p0}, Landroid/widget/Button;-><init>(Landroid/content/Context;)V
 
-    .line 67
+    .line 75
     invoke-virtual {v0, p1}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
 
     invoke-static {v0, p2}, Lcom/tongpin/player4k/catalog/PhoneUi;->styleButton(Landroid/widget/Button;I)V
@@ -85,7 +99,7 @@
 .method static buttonRippleColor(I)I
     .locals 1
 
-    .line 44
+    .line 52
     if-nez p0, :cond_0
 
     const p0, 0xfffffff
@@ -111,7 +125,7 @@
 .method public static dp(Landroid/content/Context;I)I
     .locals 0
 
-    .line 48
+    .line 56
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object p0
@@ -136,7 +150,7 @@
 .method public static episodeColumns(IF)I
     .locals 1
 
-    .line 171
+    .line 208
     int-to-float p0, p0
 
     const/high16 v0, 0x3f800000    # 1.0f
@@ -175,7 +189,7 @@
 .method public static episodeLabel(Ljava/lang/String;)Ljava/lang/String;
     .locals 3
 
-    .line 33
+    .line 41
     if-eqz p0, :cond_1
 
     const/4 v0, 0x0
@@ -187,12 +201,12 @@
 
     if-ge v0, v1, :cond_1
 
-    .line 34
+    .line 42
     invoke-virtual {p0, v0}, Ljava/lang/String;->charAt(I)C
 
     move-result v1
 
-    .line 35
+    .line 43
     invoke-static {v1}, Ljava/lang/Character;->isWhitespace(C)Z
 
     move-result v2
@@ -213,16 +227,16 @@
 
     if-eq v1, v2, :cond_0
 
-    .line 36
+    .line 44
     return-object p0
 
-    .line 33
+    .line 41
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 38
+    .line 46
     :cond_1
     const-string p0, "\u64ad\u653e"
 
@@ -232,12 +246,12 @@
 .method public static hotTerm(Landroid/widget/TextView;)V
     .locals 7
 
-    .line 111
+    .line 148
     invoke-virtual {p0}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    .line 112
+    .line 149
     const/high16 v1, 0x41600000    # 14.0f
 
     invoke-virtual {p0, v1}, Landroid/widget/TextView;->setTextSize(F)V
@@ -250,7 +264,7 @@
 
     invoke-virtual {p0, v1}, Landroid/widget/TextView;->setGravity(I)V
 
-    .line 113
+    .line 150
     const/16 v1, 0x30
 
     invoke-static {v0, v1}, Lcom/tongpin/player4k/catalog/PhoneUi;->dp(Landroid/content/Context;I)I
@@ -265,7 +279,7 @@
 
     invoke-virtual {p0, v2}, Landroid/widget/TextView;->setMinWidth(I)V
 
-    .line 114
+    .line 151
     const/4 v2, 0x2
 
     invoke-virtual {p0, v2}, Landroid/widget/TextView;->setMaxLines(I)V
@@ -274,7 +288,7 @@
 
     invoke-virtual {p0, v2}, Landroid/widget/TextView;->setEllipsize(Landroid/text/TextUtils$TruncateAt;)V
 
-    .line 115
+    .line 152
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
@@ -299,7 +313,7 @@
 
     invoke-virtual {p0, v1}, Landroid/widget/TextView;->setMaxWidth(I)V
 
-    .line 116
+    .line 153
     const/16 v1, 0xe
 
     invoke-static {v0, v1}, Lcom/tongpin/player4k/catalog/PhoneUi;->dp(Landroid/content/Context;I)I
@@ -322,7 +336,7 @@
 
     invoke-virtual {p0, v2, v4, v1, v5}, Landroid/widget/TextView;->setPadding(IIII)V
 
-    .line 117
+    .line 154
     new-instance v1, Landroid/graphics/drawable/RippleDrawable;
 
     const v2, 0x29226cc7
@@ -331,7 +345,7 @@
 
     move-result-object v2
 
-    .line 118
+    .line 155
     const v4, -0x191209
 
     const/16 v5, 0x10
@@ -348,20 +362,20 @@
 
     invoke-direct {v1, v2, v4, v5}, Landroid/graphics/drawable/RippleDrawable;-><init>(Landroid/content/res/ColorStateList;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
 
-    .line 117
+    .line 154
     invoke-virtual {p0, v1}, Landroid/widget/TextView;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 119
+    .line 156
     invoke-virtual {p0}, Landroid/widget/TextView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object p0
 
-    .line 120
+    .line 157
     instance-of v1, p0, Landroid/view/ViewGroup$MarginLayoutParams;
 
     if-eqz v1, :cond_0
 
-    .line 121
+    .line 158
     check-cast p0, Landroid/view/ViewGroup$MarginLayoutParams;
 
     invoke-static {v0, v3}, Lcom/tongpin/player4k/catalog/PhoneUi;->dp(Landroid/content/Context;I)I
@@ -376,7 +390,7 @@
 
     invoke-virtual {p0, v2, v2, v1, v0}, Landroid/view/ViewGroup$MarginLayoutParams;->setMargins(IIII)V
 
-    .line 122
+    .line 159
     :cond_0
     return-void
 .end method
@@ -384,7 +398,7 @@
 .method static insetPadding([IIIIII)[I
     .locals 2
 
-    .line 166
+    .line 203
     const/4 v0, 0x0
 
     aget v1, p0, v0
@@ -409,7 +423,7 @@
 
     aget p2, p0, p2
 
-    .line 167
+    .line 204
     invoke-static {v0, p3}, Ljava/lang/Math;->max(II)I
 
     move-result p3
@@ -434,35 +448,35 @@
 
     move-result-object p0
 
-    .line 166
+    .line 203
     return-object p0
 .end method
 
 .method public static installInsets(Landroid/app/Activity;Landroid/view/View;)V
     .locals 3
 
-    .line 132
+    .line 169
     if-nez p1, :cond_0
 
     return-void
 
-    .line 133
+    .line 170
     :cond_0
     invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
 
     move-result-object p0
 
-    .line 134
+    .line 171
     const v0, 0xc000400
 
     invoke-virtual {p0, v0}, Landroid/view/Window;->clearFlags(I)V
 
-    .line 136
+    .line 173
     const/16 v0, 0x10
 
     invoke-virtual {p0, v0}, Landroid/view/Window;->setSoftInputMode(I)V
 
-    .line 137
+    .line 174
     const v0, -0xa0d17
 
     invoke-virtual {p0, v0}, Landroid/view/Window;->setStatusBarColor(I)V
@@ -475,7 +489,7 @@
 
     invoke-virtual {p0, v0}, Landroid/view/Window;->setNavigationBarColor(I)V
 
-    .line 138
+    .line 175
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1d
@@ -486,11 +500,11 @@
 
     invoke-virtual {p0, v2}, Landroid/view/Window;->setNavigationBarContrastEnforced(Z)V
 
-    .line 139
+    .line 176
     :cond_1
     nop
 
-    .line 140
+    .line 177
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1a
@@ -504,7 +518,7 @@
     :cond_2
     const/16 v0, 0x2000
 
-    .line 141
+    .line 178
     :goto_0
     invoke-virtual {p0}, Landroid/view/Window;->getDecorView()Landroid/view/View;
 
@@ -512,45 +526,45 @@
 
     invoke-virtual {v1, v0}, Landroid/view/View;->setSystemUiVisibility(I)V
 
-    .line 142
+    .line 179
     invoke-virtual {p1, v2}, Landroid/view/View;->setFitsSystemWindows(Z)V
 
-    .line 143
+    .line 180
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1e
 
     if-lt v0, v1, :cond_4
 
-    .line 144
+    .line 181
     invoke-virtual {p0, v2}, Landroid/view/Window;->setDecorFitsSystemWindows(Z)V
 
-    .line 145
+    .line 182
     invoke-virtual {p0}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
 
     move-result-object v0
 
-    .line 146
+    .line 183
     const/4 v1, 0x1
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->layoutInDisplayCutoutMode:I
 
-    .line 147
+    .line 184
     invoke-virtual {p0, v0}, Landroid/view/Window;->setAttributes(Landroid/view/WindowManager$LayoutParams;)V
 
-    .line 148
+    .line 185
     invoke-virtual {p0}, Landroid/view/Window;->getInsetsController()Landroid/view/WindowInsetsController;
 
     move-result-object p0
 
-    .line 149
+    .line 186
     if-eqz p0, :cond_3
 
     const/16 v0, 0x18
 
     invoke-interface {p0, v0, v0}, Landroid/view/WindowInsetsController;->setSystemBarsAppearance(II)V
 
-    .line 152
+    .line 189
     :cond_3
     invoke-virtual {p1}, Landroid/view/View;->getPaddingLeft()I
 
@@ -572,17 +586,17 @@
 
     move-result-object p0
 
-    .line 153
+    .line 190
     new-instance v0, Lcom/tongpin/player4k/catalog/PhoneUi$$ExternalSyntheticLambda0;
 
     invoke-direct {v0, p0}, Lcom/tongpin/player4k/catalog/PhoneUi$$ExternalSyntheticLambda0;-><init>([I)V
 
     invoke-virtual {p1, v0}, Landroid/view/View;->setOnApplyWindowInsetsListener(Landroid/view/View$OnApplyWindowInsetsListener;)V
 
-    .line 160
+    .line 197
     invoke-virtual {p1}, Landroid/view/View;->requestApplyInsets()V
 
-    .line 163
+    .line 200
     :cond_4
     return-void
 .end method
@@ -590,14 +604,14 @@
 .method public static installLegacy(Landroid/app/Activity;)V
     .locals 2
 
-    .line 125
+    .line 162
     const v0, 0x1020002
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    .line 126
+    .line 163
     instance-of v1, v0, Landroid/view/ViewGroup;
 
     if-eqz v1, :cond_0
@@ -610,7 +624,7 @@
 
     if-lez v1, :cond_0
 
-    .line 127
+    .line 164
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
@@ -619,7 +633,7 @@
 
     invoke-static {p0, v0}, Lcom/tongpin/player4k/catalog/PhoneUi;->installInsets(Landroid/app/Activity;Landroid/view/View;)V
 
-    .line 128
+    .line 165
     :cond_0
     return-void
 .end method
@@ -627,7 +641,7 @@
 .method static synthetic lambda$installInsets$0([ILandroid/view/View;Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
     .locals 8
 
-    .line 154
+    .line 191
     invoke-static {}, Landroid/view/WindowInsets$Type;->systemBars()I
 
     move-result v0
@@ -642,7 +656,7 @@
 
     move-result-object v0
 
-    .line 155
+    .line 192
     invoke-static {}, Landroid/view/WindowInsets$Type;->ime()I
 
     move-result v1
@@ -651,7 +665,7 @@
 
     move-result-object v1
 
-    .line 156
+    .line 193
     iget v3, v0, Landroid/graphics/Insets;->left:I
 
     iget v4, v0, Landroid/graphics/Insets;->top:I
@@ -668,7 +682,7 @@
 
     move-result-object p0
 
-    .line 157
+    .line 194
     const/4 v0, 0x0
 
     aget v0, p0, v0
@@ -687,14 +701,14 @@
 
     invoke-virtual {p1, v0, v1, v2, p0}, Landroid/view/View;->setPadding(IIII)V
 
-    .line 158
+    .line 195
     return-object p2
 .end method
 
 .method static navigationColor(I)I
     .locals 1
 
-    .line 41
+    .line 49
     const/16 v0, 0x1a
 
     if-lt p0, v0, :cond_0
@@ -710,10 +724,120 @@
     return p0
 .end method
 
+.method public static playerControlBackground(Landroid/content/Context;Z)Landroid/graphics/drawable/RippleDrawable;
+    .locals 6
+
+    .line 117
+    const v0, -0xdcdcdb
+
+    const/16 v1, 0x8
+
+    invoke-static {p0, v0, v1}, Lcom/tongpin/player4k/catalog/PhoneUi;->background(Landroid/content/Context;II)Landroid/graphics/drawable/GradientDrawable;
+
+    move-result-object v2
+
+    const/4 v3, 0x1
+
+    invoke-static {p0, v3}, Lcom/tongpin/player4k/catalog/PhoneUi;->dp(Landroid/content/Context;I)I
+
+    move-result v4
+
+    const v5, -0xdd9339
+
+    invoke-virtual {v2, v4, v5}, Landroid/graphics/drawable/GradientDrawable;->setStroke(II)V
+
+    .line 118
+    const/4 v4, 0x0
+
+    if-eqz p1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    move v0, v4
+
+    :goto_0
+    invoke-static {p0, v0, v1}, Lcom/tongpin/player4k/catalog/PhoneUi;->background(Landroid/content/Context;II)Landroid/graphics/drawable/GradientDrawable;
+
+    move-result-object v0
+
+    .line 119
+    if-eqz p1, :cond_1
+
+    invoke-static {p0, v3}, Lcom/tongpin/player4k/catalog/PhoneUi;->dp(Landroid/content/Context;I)I
+
+    move-result p1
+
+    const v3, 0x26ededed
+
+    invoke-virtual {v0, p1, v3}, Landroid/graphics/drawable/GradientDrawable;->setStroke(II)V
+
+    .line 120
+    :cond_1
+    new-instance p1, Landroid/graphics/drawable/StateListDrawable;
+
+    invoke-direct {p1}, Landroid/graphics/drawable/StateListDrawable;-><init>()V
+
+    .line 121
+    const v3, -0x101009e
+
+    filled-new-array {v3}, [I
+
+    move-result-object v3
+
+    invoke-static {p0, v4, v1}, Lcom/tongpin/player4k/catalog/PhoneUi;->background(Landroid/content/Context;II)Landroid/graphics/drawable/GradientDrawable;
+
+    move-result-object v5
+
+    invoke-virtual {p1, v3, v5}, Landroid/graphics/drawable/StateListDrawable;->addState([ILandroid/graphics/drawable/Drawable;)V
+
+    .line 122
+    const v3, 0x101009c
+
+    filled-new-array {v3}, [I
+
+    move-result-object v3
+
+    invoke-virtual {p1, v3, v2}, Landroid/graphics/drawable/StateListDrawable;->addState([ILandroid/graphics/drawable/Drawable;)V
+
+    .line 123
+    const v3, 0x10100a1
+
+    filled-new-array {v3}, [I
+
+    move-result-object v3
+
+    invoke-virtual {p1, v3, v2}, Landroid/graphics/drawable/StateListDrawable;->addState([ILandroid/graphics/drawable/Drawable;)V
+
+    .line 124
+    new-array v2, v4, [I
+
+    invoke-virtual {p1, v2, v0}, Landroid/graphics/drawable/StateListDrawable;->addState([ILandroid/graphics/drawable/Drawable;)V
+
+    .line 125
+    new-instance v0, Landroid/graphics/drawable/RippleDrawable;
+
+    const v2, 0x24ffffff
+
+    invoke-static {v2}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
+
+    move-result-object v2
+
+    const/4 v3, -0x1
+
+    invoke-static {p0, v3, v1}, Lcom/tongpin/player4k/catalog/PhoneUi;->background(Landroid/content/Context;II)Landroid/graphics/drawable/GradientDrawable;
+
+    move-result-object p0
+
+    invoke-direct {v0, v2, p1, p0}, Landroid/graphics/drawable/RippleDrawable;-><init>(Landroid/content/res/ColorStateList;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
+
+    return-object v0
+.end method
+
 .method public static selectionColor(I)I
     .locals 0
 
-    .line 30
+    .line 38
     if-nez p0, :cond_0
 
     const p0, -0xdd9339
@@ -730,12 +854,12 @@
 .method public static styleButton(Landroid/widget/Button;I)V
     .locals 14
 
-    .line 71
+    .line 79
     invoke-virtual {p0}, Landroid/widget/Button;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    .line 72
+    .line 80
     const/4 v1, 0x0
 
     invoke-virtual {p0, v1}, Landroid/widget/Button;->setAllCaps(Z)V
@@ -744,7 +868,7 @@
 
     invoke-virtual {p0, v2}, Landroid/widget/Button;->setTextSize(F)V
 
-    .line 73
+    .line 81
     const-string v2, "sans-serif-medium"
 
     invoke-static {v2, v1}, Landroid/graphics/Typeface;->create(Ljava/lang/String;I)Landroid/graphics/Typeface;
@@ -753,7 +877,7 @@
 
     invoke-virtual {p0, v2}, Landroid/widget/Button;->setTypeface(Landroid/graphics/Typeface;)V
 
-    .line 74
+    .line 82
     const/16 v2, 0x30
 
     invoke-static {v0, v2}, Lcom/tongpin/player4k/catalog/PhoneUi;->dp(Landroid/content/Context;I)I
@@ -768,7 +892,7 @@
 
     invoke-virtual {p0, v3}, Landroid/widget/Button;->setMinimumWidth(I)V
 
-    .line 75
+    .line 83
     invoke-static {v0, v2}, Lcom/tongpin/player4k/catalog/PhoneUi;->dp(Landroid/content/Context;I)I
 
     move-result v3
@@ -781,7 +905,7 @@
 
     invoke-virtual {p0, v2}, Landroid/widget/Button;->setMinimumHeight(I)V
 
-    .line 76
+    .line 84
     const/4 v2, 0x2
 
     if-ne p1, v2, :cond_0
@@ -793,7 +917,7 @@
     :cond_0
     const/16 v2, 0x10
 
-    .line 77
+    .line 85
     :goto_0
     invoke-static {v0, v2}, Lcom/tongpin/player4k/catalog/PhoneUi;->dp(Landroid/content/Context;I)I
 
@@ -815,12 +939,12 @@
 
     invoke-virtual {p0, v3, v5, v2, v4}, Landroid/widget/Button;->setPadding(IIII)V
 
-    .line 78
+    .line 86
     const/4 v2, 0x0
 
     invoke-virtual {p0, v2}, Landroid/widget/Button;->setStateListAnimator(Landroid/animation/StateListAnimator;)V
 
-    .line 79
+    .line 87
     const/4 v2, 0x3
 
     const/4 v3, 0x4
@@ -844,7 +968,7 @@
 
     goto :goto_1
 
-    .line 80
+    .line 88
     :cond_2
     if-ne p1, v3, :cond_3
 
@@ -862,7 +986,7 @@
     :cond_4
     move v7, v1
 
-    .line 81
+    .line 89
     :goto_1
     const/16 v8, 0x18
 
@@ -870,7 +994,7 @@
 
     move-result-object v7
 
-    .line 82
+    .line 90
     const v9, -0xa29288
 
     if-ne p1, v2, :cond_5
@@ -881,13 +1005,13 @@
 
     invoke-virtual {v7, v2, v9}, Landroid/graphics/drawable/GradientDrawable;->setStroke(II)V
 
-    .line 83
+    .line 91
     :cond_5
     new-instance v2, Landroid/graphics/drawable/StateListDrawable;
 
     invoke-direct {v2}, Landroid/graphics/drawable/StateListDrawable;-><init>()V
 
-    .line 84
+    .line 92
     const v10, -0x101009e
 
     filled-new-array {v10}, [I
@@ -902,7 +1026,7 @@
 
     invoke-virtual {v2, v11, v12}, Landroid/graphics/drawable/StateListDrawable;->addState([ILandroid/graphics/drawable/Drawable;)V
 
-    .line 85
+    .line 93
     const v11, 0x10100a1
 
     filled-new-array {v11}, [I
@@ -915,12 +1039,12 @@
 
     invoke-virtual {v2, v12, v13}, Landroid/graphics/drawable/StateListDrawable;->addState([ILandroid/graphics/drawable/Drawable;)V
 
-    .line 86
+    .line 94
     new-array v12, v1, [I
 
     invoke-virtual {v2, v12, v7}, Landroid/graphics/drawable/StateListDrawable;->addState([ILandroid/graphics/drawable/Drawable;)V
 
-    .line 87
+    .line 95
     new-instance v7, Landroid/graphics/drawable/RippleDrawable;
 
     invoke-static {p1}, Lcom/tongpin/player4k/catalog/PhoneUi;->buttonRippleColor(I)I
@@ -931,17 +1055,17 @@
 
     move-result-object v12
 
-    .line 88
+    .line 96
     invoke-static {v0, v6, v8}, Lcom/tongpin/player4k/catalog/PhoneUi;->background(Landroid/content/Context;II)Landroid/graphics/drawable/GradientDrawable;
 
     move-result-object v0
 
     invoke-direct {v7, v12, v2, v0}, Landroid/graphics/drawable/RippleDrawable;-><init>(Landroid/content/res/ColorStateList;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
 
-    .line 87
+    .line 95
     invoke-virtual {p0, v7}, Landroid/widget/Button;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 89
+    .line 97
     new-instance v0, Landroid/content/res/ColorStateList;
 
     filled-new-array {v10}, [I
@@ -958,7 +1082,7 @@
 
     move-result-object v1
 
-    .line 91
+    .line 99
     if-eqz p1, :cond_7
 
     if-ne p1, v3, :cond_6
@@ -984,175 +1108,282 @@
 
     invoke-direct {v0, v1, p1}, Landroid/content/res/ColorStateList;-><init>([[I[I)V
 
-    .line 89
+    .line 97
     invoke-virtual {p0, v0}, Landroid/widget/Button;->setTextColor(Landroid/content/res/ColorStateList;)V
 
-    .line 92
+    .line 100
     return-void
 .end method
 
 .method public static styleEpisodeBackground(Landroid/widget/TextView;I)V
-    .locals 9
+    .locals 8
 
-    .line 95
+    .line 129
     invoke-virtual {p0}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    .line 96
-    const/4 v1, 0x0
+    .line 130
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
 
     if-eqz p1, :cond_0
 
-    const/4 v2, 0x1
+    move v3, v1
 
     goto :goto_0
 
     :cond_0
-    move v2, v1
+    move v3, v2
 
-    .line 97
+    .line 131
     :goto_0
-    if-eqz v2, :cond_1
+    if-eqz v3, :cond_1
 
-    const v3, -0xe8d3be
+    const v4, -0xe6e6e5
 
     goto :goto_1
 
     :cond_1
-    const/4 v3, -0x1
+    const/4 v4, -0x1
 
-    .line 98
+    .line 132
     :goto_1
-    const/16 v4, 0xc
+    if-eqz v3, :cond_2
 
-    invoke-static {v0, v3, v4}, Lcom/tongpin/player4k/catalog/PhoneUi;->background(Landroid/content/Context;II)Landroid/graphics/drawable/GradientDrawable;
+    const v3, -0xdcdcdb
 
-    move-result-object v5
+    goto :goto_2
 
-    .line 99
-    const/4 v6, 0x2
+    :cond_2
+    const v3, -0x110c07
 
-    invoke-static {v0, v6}, Lcom/tongpin/player4k/catalog/PhoneUi;->dp(Landroid/content/Context;I)I
+    .line 133
+    :goto_2
+    const/16 v5, 0x8
 
-    move-result v6
+    invoke-static {v0, v4, v5}, Lcom/tongpin/player4k/catalog/PhoneUi;->background(Landroid/content/Context;II)Landroid/graphics/drawable/GradientDrawable;
+
+    move-result-object v6
+
+    .line 134
+    const/4 v7, 0x2
+
+    invoke-static {v0, v7}, Lcom/tongpin/player4k/catalog/PhoneUi;->dp(Landroid/content/Context;I)I
+
+    move-result v7
 
     invoke-static {p1}, Lcom/tongpin/player4k/catalog/PhoneUi;->selectionColor(I)I
 
     move-result p1
 
-    invoke-virtual {v5, v6, p1}, Landroid/graphics/drawable/GradientDrawable;->setStroke(II)V
+    invoke-virtual {v6, v7, p1}, Landroid/graphics/drawable/GradientDrawable;->setStroke(II)V
 
-    .line 100
-    new-instance p1, Landroid/graphics/drawable/StateListDrawable;
+    .line 135
+    invoke-static {v0, v3, v5}, Lcom/tongpin/player4k/catalog/PhoneUi;->background(Landroid/content/Context;II)Landroid/graphics/drawable/GradientDrawable;
 
-    invoke-direct {p1}, Landroid/graphics/drawable/StateListDrawable;-><init>()V
+    move-result-object p1
 
-    .line 101
-    const v6, 0x101009c
+    .line 136
+    invoke-static {v0, v1}, Lcom/tongpin/player4k/catalog/PhoneUi;->dp(Landroid/content/Context;I)I
+
+    move-result v1
+
+    const v7, -0xdd9339
+
+    invoke-virtual {p1, v1, v7}, Landroid/graphics/drawable/GradientDrawable;->setStroke(II)V
+
+    .line 137
+    new-instance v1, Landroid/graphics/drawable/StateListDrawable;
+
+    invoke-direct {v1}, Landroid/graphics/drawable/StateListDrawable;-><init>()V
+
+    .line 138
+    const v7, 0x101009c
+
+    filled-new-array {v7}, [I
+
+    move-result-object v7
+
+    invoke-virtual {v1, v7, v6}, Landroid/graphics/drawable/StateListDrawable;->addState([ILandroid/graphics/drawable/Drawable;)V
+
+    .line 139
+    const v6, 0x10100a7
 
     filled-new-array {v6}, [I
 
     move-result-object v6
 
-    invoke-virtual {p1, v6, v5}, Landroid/graphics/drawable/StateListDrawable;->addState([ILandroid/graphics/drawable/Drawable;)V
+    invoke-static {v0, v3, v5}, Lcom/tongpin/player4k/catalog/PhoneUi;->background(Landroid/content/Context;II)Landroid/graphics/drawable/GradientDrawable;
 
-    .line 102
-    const v5, 0x10100a7
+    move-result-object v3
 
-    filled-new-array {v5}, [I
+    invoke-virtual {v1, v6, v3}, Landroid/graphics/drawable/StateListDrawable;->addState([ILandroid/graphics/drawable/Drawable;)V
 
-    move-result-object v5
+    .line 140
+    const v3, 0x10100a1
 
-    const v6, -0xdac1a7
+    filled-new-array {v3}, [I
 
-    const v7, -0xc0904
+    move-result-object v3
 
-    if-eqz v2, :cond_2
+    invoke-virtual {v1, v3, p1}, Landroid/graphics/drawable/StateListDrawable;->addState([ILandroid/graphics/drawable/Drawable;)V
 
-    move v8, v6
+    .line 141
+    const v3, 0x10102fe
 
-    goto :goto_2
+    filled-new-array {v3}, [I
 
-    :cond_2
-    move v8, v7
+    move-result-object v3
 
-    :goto_2
-    invoke-static {v0, v8, v4}, Lcom/tongpin/player4k/catalog/PhoneUi;->background(Landroid/content/Context;II)Landroid/graphics/drawable/GradientDrawable;
+    invoke-virtual {v1, v3, p1}, Landroid/graphics/drawable/StateListDrawable;->addState([ILandroid/graphics/drawable/Drawable;)V
 
-    move-result-object v8
+    .line 142
+    new-array p1, v2, [I
 
-    invoke-virtual {p1, v5, v8}, Landroid/graphics/drawable/StateListDrawable;->addState([ILandroid/graphics/drawable/Drawable;)V
-
-    .line 103
-    const v5, 0x10100a1
-
-    filled-new-array {v5}, [I
-
-    move-result-object v5
-
-    if-eqz v2, :cond_3
-
-    move v8, v6
-
-    goto :goto_3
-
-    :cond_3
-    move v8, v7
-
-    :goto_3
-    invoke-static {v0, v8, v4}, Lcom/tongpin/player4k/catalog/PhoneUi;->background(Landroid/content/Context;II)Landroid/graphics/drawable/GradientDrawable;
-
-    move-result-object v8
-
-    invoke-virtual {p1, v5, v8}, Landroid/graphics/drawable/StateListDrawable;->addState([ILandroid/graphics/drawable/Drawable;)V
-
-    .line 104
-    const v5, 0x10102fe
-
-    filled-new-array {v5}, [I
-
-    move-result-object v5
-
-    if-eqz v2, :cond_4
-
-    goto :goto_4
-
-    :cond_4
-    move v6, v7
-
-    :goto_4
-    invoke-static {v0, v6, v4}, Lcom/tongpin/player4k/catalog/PhoneUi;->background(Landroid/content/Context;II)Landroid/graphics/drawable/GradientDrawable;
-
-    move-result-object v2
-
-    invoke-virtual {p1, v5, v2}, Landroid/graphics/drawable/StateListDrawable;->addState([ILandroid/graphics/drawable/Drawable;)V
-
-    .line 105
-    new-array v1, v1, [I
-
-    invoke-static {v0, v3, v4}, Lcom/tongpin/player4k/catalog/PhoneUi;->background(Landroid/content/Context;II)Landroid/graphics/drawable/GradientDrawable;
+    invoke-static {v0, v4, v5}, Lcom/tongpin/player4k/catalog/PhoneUi;->background(Landroid/content/Context;II)Landroid/graphics/drawable/GradientDrawable;
 
     move-result-object v0
 
-    invoke-virtual {p1, v1, v0}, Landroid/graphics/drawable/StateListDrawable;->addState([ILandroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v1, p1, v0}, Landroid/graphics/drawable/StateListDrawable;->addState([ILandroid/graphics/drawable/Drawable;)V
+
+    .line 143
+    invoke-virtual {p0, v1}, Landroid/widget/TextView;->setBackground(Landroid/graphics/drawable/Drawable;)V
+
+    .line 144
+    return-void
+.end method
+
+.method public static stylePlayerButton(Landroid/widget/Button;)V
+    .locals 6
+
+    .line 104
+    invoke-virtual {p0}, Landroid/widget/Button;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    .line 105
+    const/4 v1, 0x0
+
+    invoke-virtual {p0, v1}, Landroid/widget/Button;->setAllCaps(Z)V
+
+    const/high16 v2, 0x41500000    # 13.0f
+
+    invoke-virtual {p0, v2}, Landroid/widget/Button;->setTextSize(F)V
 
     .line 106
-    invoke-virtual {p0, p1}, Landroid/widget/TextView;->setBackground(Landroid/graphics/drawable/Drawable;)V
+    const-string v2, "sans-serif-medium"
+
+    invoke-static {v2, v1}, Landroid/graphics/Typeface;->create(Ljava/lang/String;I)Landroid/graphics/Typeface;
+
+    move-result-object v2
+
+    invoke-virtual {p0, v2}, Landroid/widget/Button;->setTypeface(Landroid/graphics/Typeface;)V
 
     .line 107
+    const/16 v2, 0x30
+
+    invoke-static {v0, v2}, Lcom/tongpin/player4k/catalog/PhoneUi;->dp(Landroid/content/Context;I)I
+
+    move-result v3
+
+    invoke-virtual {p0, v3}, Landroid/widget/Button;->setMinWidth(I)V
+
+    invoke-static {v0, v2}, Lcom/tongpin/player4k/catalog/PhoneUi;->dp(Landroid/content/Context;I)I
+
+    move-result v3
+
+    invoke-virtual {p0, v3}, Landroid/widget/Button;->setMinimumWidth(I)V
+
+    .line 108
+    invoke-static {v0, v2}, Lcom/tongpin/player4k/catalog/PhoneUi;->dp(Landroid/content/Context;I)I
+
+    move-result v3
+
+    invoke-virtual {p0, v3}, Landroid/widget/Button;->setMinHeight(I)V
+
+    invoke-static {v0, v2}, Lcom/tongpin/player4k/catalog/PhoneUi;->dp(Landroid/content/Context;I)I
+
+    move-result v2
+
+    invoke-virtual {p0, v2}, Landroid/widget/Button;->setMinimumHeight(I)V
+
+    .line 109
+    const/16 v2, 0x8
+
+    invoke-static {v0, v2}, Lcom/tongpin/player4k/catalog/PhoneUi;->dp(Landroid/content/Context;I)I
+
+    move-result v3
+
+    const/4 v4, 0x4
+
+    invoke-static {v0, v4}, Lcom/tongpin/player4k/catalog/PhoneUi;->dp(Landroid/content/Context;I)I
+
+    move-result v5
+
+    invoke-static {v0, v2}, Lcom/tongpin/player4k/catalog/PhoneUi;->dp(Landroid/content/Context;I)I
+
+    move-result v2
+
+    invoke-static {v0, v4}, Lcom/tongpin/player4k/catalog/PhoneUi;->dp(Landroid/content/Context;I)I
+
+    move-result v4
+
+    invoke-virtual {p0, v3, v5, v2, v4}, Landroid/widget/Button;->setPadding(IIII)V
+
+    .line 110
+    const/4 v2, 0x0
+
+    invoke-virtual {p0, v2}, Landroid/widget/Button;->setStateListAnimator(Landroid/animation/StateListAnimator;)V
+
+    .line 111
+    invoke-static {v0, v1}, Lcom/tongpin/player4k/catalog/PhoneUi;->playerControlBackground(Landroid/content/Context;Z)Landroid/graphics/drawable/RippleDrawable;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Landroid/widget/Button;->setBackground(Landroid/graphics/drawable/Drawable;)V
+
+    .line 112
+    new-instance v0, Landroid/content/res/ColorStateList;
+
+    const v2, -0x101009e
+
+    filled-new-array {v2}, [I
+
+    move-result-object v2
+
+    new-array v1, v1, [I
+
+    filled-new-array {v2, v1}, [[I
+
+    move-result-object v1
+
+    const v2, -0x7a7a75
+
+    const v3, -0x121213
+
+    filled-new-array {v2, v3}, [I
+
+    move-result-object v2
+
+    invoke-direct {v0, v1, v2}, Landroid/content/res/ColorStateList;-><init>([[I[I)V
+
+    invoke-virtual {p0, v0}, Landroid/widget/Button;->setTextColor(Landroid/content/res/ColorStateList;)V
+
+    .line 114
     return-void
 .end method
 
 .method public static text(Landroid/content/Context;Ljava/lang/String;II)Landroid/widget/TextView;
     .locals 1
 
-    .line 52
+    .line 60
     new-instance v0, Landroid/widget/TextView;
 
     invoke-direct {v0, p0}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
-    .line 53
+    .line 61
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     int-to-float p1, p2
@@ -1161,12 +1392,12 @@
 
     invoke-virtual {v0, p3}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 54
+    .line 62
     const/16 p1, 0x10
 
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setGravity(I)V
 
-    .line 55
+    .line 63
     const/4 p1, 0x2
 
     invoke-static {p0, p1}, Lcom/tongpin/player4k/catalog/PhoneUi;->dp(Landroid/content/Context;I)I
@@ -1179,6 +1410,35 @@
 
     invoke-virtual {v0, p0, p1}, Landroid/widget/TextView;->setLineSpacing(FF)V
 
-    .line 56
+    .line 64
     return-object v0
+.end method
+
+.method public static themeId(Landroid/content/Context;)I
+    .locals 3
+
+    .line 34
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const-string v1, "style"
+
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object p0
+
+    const-string v2, "TongpinPlayerTheme"
+
+    invoke-virtual {v0, v2, v1, p0}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result p0
+
+    .line 35
+    if-nez p0, :cond_0
+
+    const p0, 0x103022e
+
+    :cond_0
+    return p0
 .end method

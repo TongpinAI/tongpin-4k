@@ -22,7 +22,7 @@
 .method constructor <init>(Landroid/content/Context;I)V
     .locals 0
 
-    .line 172
+    .line 208
     invoke-direct {p0, p1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
     iput p2, p0, Lcom/tongpin/player4k/catalog/PlayerOptionsSheet$Panel;->maximum:I
@@ -35,14 +35,14 @@
 .method protected onMeasure(II)V
     .locals 1
 
-    .line 174
+    .line 210
     invoke-static {p2}, Landroid/view/View$MeasureSpec;->getMode(I)I
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 175
+    .line 211
     iget p2, p0, Lcom/tongpin/player4k/catalog/PlayerOptionsSheet$Panel;->maximum:I
 
     goto :goto_0
@@ -58,7 +58,7 @@
 
     move-result p2
 
-    .line 176
+    .line 212
     :goto_0
     const/high16 v0, -0x80000000
 
@@ -68,6 +68,6 @@
 
     invoke-super {p0, p1, p2}, Landroid/widget/LinearLayout;->onMeasure(II)V
 
-    .line 177
+    .line 213
     return-void
 .end method

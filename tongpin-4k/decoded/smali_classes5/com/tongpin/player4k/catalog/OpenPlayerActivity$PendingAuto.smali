@@ -38,10 +38,10 @@
 .method constructor <init>(Lcom/tongpin/player4k/catalog/AutoSourceSelector$Recommendation;Lcom/tongpin/player4k/catalog/PlayQueue;Ljava/lang/String;Lcom/tongpin/player4k/catalog/PlayQueue;IIJJZ)V
     .locals 0
 
-    .line 1078
+    .line 1065
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1079
+    .line 1066
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PendingAuto;->result:Lcom/tongpin/player4k/catalog/AutoSourceSelector$Recommendation;
 
     iput-object p2, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PendingAuto;->queue:Lcom/tongpin/player4k/catalog/PlayQueue;
@@ -50,7 +50,7 @@
 
     iput-object p4, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PendingAuto;->origin:Lcom/tongpin/player4k/catalog/PlayQueue;
 
-    .line 1080
+    .line 1067
     iput p5, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PendingAuto;->episode:I
 
     iput p6, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PendingAuto;->playback:I
@@ -59,9 +59,9 @@
 
     iput-wide p9, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PendingAuto;->expiry:J
 
-    .line 1081
+    .line 1068
     iput-boolean p11, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PendingAuto;->recovery:Z
 
-    .line 1082
+    .line 1069
     return-void
 .end method

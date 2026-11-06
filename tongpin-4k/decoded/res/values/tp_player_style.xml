@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TongpinPlayerTheme" parent="@android:style/Theme.Material.NoActionBar">
+        <item name="android:colorAccent">#226CC7</item>
+        <item name="android:alertDialogTheme">@style/TongpinPlayerDialogTheme</item>
+    </style>
+    <style name="TongpinPlayerDialogTheme" parent="@android:style/Theme.Material.Dialog.Alert">
+        <item name="android:colorAccent">#226CC7</item>
+        <item name="android:windowBackground">#19191B</item>
+        <item name="android:textColorPrimary">#EDEDED</item>
+    </style>
+</resources>

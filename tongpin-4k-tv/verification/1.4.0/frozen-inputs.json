@@ -1,0 +1,79 @@
+{
+  "release_scope": "unslop-ui",
+  "source_ready": true,
+  "final_promotion_authorized": true,
+  "input_sha256": {
+    "src/com/tongpin/player4k/tv/AllCatalogSearch.java": "5857a906f787ee95e3efee3361d7246457d05a335dc363f42971c361b804caf4",
+    "src/com/tongpin/player4k/tv/AutoSourcePolicy.java": "ca0f1a207816bbc010a5ef7df7545d62acf9ce51d27cafbf9edc7a8df4cefeb5",
+    "src/com/tongpin/player4k/tv/AutoSourceSelector.java": "7cd6094b0a72d0282364f875a3af06ebe2f293bd167a3a88fd56d34756aa49ba",
+    "src/com/tongpin/player4k/tv/CatalogApi.java": "33410bf75cae6a3d903c85e6e3e9deda2adad6f2cfb6ec2f55fa5c2ce6c39f04",
+    "src/com/tongpin/player4k/tv/CatalogCategories.java": "94ad50088414706688648027634e6acd76fc52214bac47dcf29d1d2e9e86ae8a",
+    "src/com/tongpin/player4k/tv/CatalogPosters.java": "6381982d266292fecde2eee8b379e800eefded834a92b5e51cebc23c2851f43a",
+    "src/com/tongpin/player4k/tv/CatalogPreviewCache.java": "d88233373946b37e178e2dc4f1c0344eb330c333bbaac31f68cdfe25b93d6c2b",
+    "src/com/tongpin/player4k/tv/CatalogTitleOrder.java": "b9056c7cfd2cd6ec1a6573e67fb9a25a31051b126d88d6ff830702176a63885f",
+    "src/com/tongpin/player4k/tv/CrossSourcePolicy.java": "10f4440f3970a3f3bd233548496ea98680dfbd0ed8eb8d7018d3df1e96108bc3",
+    "src/com/tongpin/player4k/tv/EpisodeSummary.java": "71b18f30cd7befa81d46219829ad53c864f2fe3a2d4a5bc9b44fc312460e2b1d",
+    "src/com/tongpin/player4k/tv/M3uCatalog.java": "82ef4af6c0046df839aca596ede569b4ba9585b6b1aeb7a1d3851bf784eed281",
+    "src/com/tongpin/player4k/tv/MacCmsXml.java": "74ccc2ea09021a677a39e11e38017ebfa31a79a35cfda90793da425e364d41be",
+    "src/com/tongpin/player4k/tv/PosterQueue.java": "7e419c7983b1e2892102225a1a8fc13441254d116838c4cc9a9bc28b44b5e336",
+    "src/com/tongpin/player4k/tv/SubtitlePolicy.java": "b19103dd785a337b2179f5cd9175fd2c0a808a545706993f8e17203f683ed5bf",
+    "src/com/tongpin/player4k/tv/TvAutoSourceQueue.java": "21a92f558ca9b1abd56fda89465635460a459d46b50b943b88284505cb375471",
+    "src/com/tongpin/player4k/tv/TvAutoSourceState.java": "84cd6c730565d1d57aff63e5ab74bff87347b28cb70101ef976781ec6e39182a",
+    "src/com/tongpin/player4k/tv/TvBoxJson.java": "5299156e9e08c5a1633a7fd4666682d2a801c1435e35cc1a663303f5e811817a",
+    "src/com/tongpin/player4k/tv/TvHoldSpeedState.java": "b59ae62ea967af00a290037506db099af17992c61b1c87bafc2c62a687734422",
+    "src/com/tongpin/player4k/tv/TvHomeActivity.java": "a3bc0018018d48806eb49e04d11887c8578bb3b405bd96a2d45c5c8182aff09e",
+    "src/com/tongpin/player4k/tv/TvLibraryStore.java": "a72e6295c542703f45321ba3d2b296392f19f3632727a64fd26a68dbb8a9b385",
+    "src/com/tongpin/player4k/tv/TvPlaybackClock.java": "9eb707090d0094782a5fbff7da90eb488fdef75ef77687437b1044302f97b813",
+    "src/com/tongpin/player4k/tv/TvPlaybackEngine.java": "d2db4899b70e31d70c9484913cf8c8bf93fd577af61ce1135e2782cc5b4f62bb",
+    "src/com/tongpin/player4k/tv/TvPlayerActivity.java": "8ba37775d4f9cad22d699468a532cfc9dbca48df6ad282501883a9d82eb144ce",
+    "src/com/tongpin/player4k/tv/TvPlayQueue.java": "a1d630ec5f52f53b725fc0e251871c7fc2de7934d8bca9ba0355dccab1ae35d7",
+    "src/com/tongpin/player4k/tv/TvSeekReceipt.java": "129e155b4f5097d4031950dec42e0516ffe3c4635af11ca44ff49761a283e2c5",
+    "src/com/tongpin/player4k/tv/TvSeekState.java": "9fe01ce88f12e525cca5a6f8be29bc0e3873f1005daefbdd9cfad7248ddc11b4",
+    "src/com/tongpin/player4k/tv/TvSourcePicker.java": "ddd12050595300d4739e507b8705515b16bf98af55c23553f20e0ddf11c4f79a",
+    "src/com/tongpin/player4k/tv/TvSourceState.java": "355c7a23f34b1986e5427bbc9c64efbd664072a807f04035bcb89adb4f14549a",
+    "src/com/tongpin/player4k/tv/TvUi.java": "c3d9d9d24e2fbd861e2de73efc40bb97d5faa92baae8d41e2d5b81903ed0a76e",
+    "src/com/tongpin/player4k/tv/UnifiedCatalogBrowse.java": "04241abaa1664f7ec2141ce738fb53296b6d3abac73bcb6231c34ad659b58caf",
+    "src/com/tongpin/player4k/tv/UnifiedCatalogPolicy.java": "35f3ceaf09155951eefe8f64fa064bf215833fd484124347c638f01e45af45a6",
+    "res/drawable/tv_focus_background.xml": "bdc9f279ec4327488c22299f5adec74728e29b50bafb6f17b699ab4933710bd8",
+    "res/drawable/tv_focus_dark.xml": "ef6ecfb6b95fa4d9d4ffb6b498741b310e47e6b57b77d12e9451c88a3cd0778f",
+    "res/drawable/tv_grid_selector.xml": "5844d7c168efcc46bdef5efd42c9087eed43f88fb8d0dbdbb4842d75691bce7d",
+    "res/drawable/tv_search_background.xml": "76d1fa0b330781d5cf15d1a170668d53cc715f29a4d564e61837e92588c8bab6",
+    "res/drawable-nodpi/tp_banner.png": "5321ee7198ed556943833b2601fdbdf06c721ed8e215ded75554246769413e88",
+    "res/drawable-nodpi/tp_icon.png": "5dd31702b54c9c1a064ae8201e59491e9d9d14a70bb9eaa1a4083e7b8b73e946",
+    "res/values/colors.xml": "1efd0e4e0470cfc22467895ccc12d776a8adb61003a2ab43c550f8e62468c0c0",
+    "res/values/strings.xml": "abfd5aceac4ad98e420cf3477d02ba443ec18cb4efd5e46808a36bd6a0e3d156",
+    "res/values/styles.xml": "afcf3a481f96419592cd5cbfe6bcec6756780fa6d7f636cc9bb71ecf73966054",
+    "assets/third_party_licenses/media3_1_10_1.txt": "6d7755b5107932b011843f15b0c76474aaacd5e30887452437dd0dc5e29acbae",
+    "assets/tongpin_open_sources.json": "9793756bfa35672f9c2645cd981dce4e23431be664ebceb71e6f2b05966b3e05",
+    "AndroidManifest.xml": "e9584e32bfc6a86960adfe904e569a1f0c252de0adc0984e2f06ba5f32eddb5b"
+  },
+  "owner_freeze_reports": {
+    "ui/unslop-1.4.0/source-freeze.json": "fadc46dbfc31ab30716df95333502914a0a07c82f6d2916c22386e2602e53ffa"
+  },
+  "review_reports": {
+    "ui/unslop-1.4.0/verification.json": "a1f2420c21dd6e43d68f1aaf5fdeef602b4e4e6b5fa353233b8bf91eb213485b",
+    "ui/unslop-1.4.0/ui-wiring-verification.json": "325aa6daa9210c77a3be5aad72b5ca3cef3c47813c17af242654062fa06f20b9",
+    "ui/unslop-1.4.0/layout-model-matrix.json": "f6e517c9c2104239a3bd7ec2a9397f4980afaf57fbc09f447163934dd6f6a909",
+    "ui/unslop-1.4.0/resource-generation.json": "8782ca5294f5184fa1987eb781191eb58bf43cf12358e36427cd2249692e0b83",
+    "verification/1.4.0/provider-asset-provenance.json": "3086e39aa8eb78a92640c41dc052866208e8501dbc34b69cb1270d5ff17aed45",
+    "verification/1.4.0/preflight/result.json": "93a0af436344413e78f20c37a91bc18ccc0de582ad5c7bbb37c42ee1a649603c"
+  },
+  "independent_reviews": {
+    "ui/unslop-1.4.0/source-independent-review.json": "5f0567612900ceb906c9269c93930c1b5fd6db4bf8f54a8e8cb92ac3bcf73667",
+    "ui/unslop-1.4.0/builder-independent-review.json": "3e051770f1c5327e90a5cce839ae0fa31539e1aade2c2951065c9249d91b61a5"
+  },
+  "test_file_sha256": {
+    "ui/unslop-1.4.0/tests/verify_sources.py": "19314ba378a51e5d11bfbed7bbb687b2013ccfba014144d0a9deb731a6dc1b0f",
+    "ui/unslop-1.4.0/tests/verify_ui_wiring.py": "620b926799aa3fe9fcfafbbc0c5c9b366bf483f65a09ba058bb34a7430432ac5",
+    "ui/unslop-1.4.0/tests/prepare_resources.py": "e6e0009fd716e5672ea27271d995a12f07631f9332df0575a7a774857186b428",
+    "ui/unslop-1.4.0/tests/TvUnslopUiTest.java": "079ef5c70b34c3e1644a2fe406794573ce2b18a6d3ee908774e233639f19864d"
+  },
+  "snapshot_indexes": {
+    "before-snapshot.json": "307e1dc7d58138cd90bcfcc108e4d218187ba236df7cc33f6d6065a9dbdbd28f",
+    "prior-evidence-sha256.json": "8390fac509f894767e5ff29baa41d4016038db82a11310fea2efe8ea10a5f61e"
+  },
+  "runtime_lock_sha256": "ac815aa6acc4315422af245f7aabd7a47449e493cbf8806886755c3d44f6684e",
+  "previous_resource_ids_sha256": "700d9b1d79d502ae3d8f67ce3a4b9f0982176229874c2bac7f364182a4cbbeb2",
+  "device_tested": false,
+  "preflight_input_sha256": "05d06ef73ebe567175ff9ea57a612e7fa53663d15c66f1dd12877d1fa4c82f4f"
+}

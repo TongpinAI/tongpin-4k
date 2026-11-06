@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "native_device_screenshot": false,
+  "scope": "Visual review of static component composition, neutral palette, five aligned actions, grouped values, episode selection and attribution. Android native layout, touch, remote and playback were not rendered.",
+  "visible_attribution": true,
+  "caption_distinguishes_illustration_from_device": true,
+  "render_count_in_design_run": 3,
+  "further_renders_planned": false,
+  "html_sha256": "5feb5a8455fdfffa59b5e036179784df1992f517a8d4d1c97bbe308ffa554215",
+  "image_sha256": "75d942600e87daaa559172be54f413266e121b00cb94531083638fefcda92a6d",
+  "settings_overflow": "Illustration shows bounded first viewport; real app has ScrollView and retained seek actions."
+}

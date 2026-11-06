@@ -30,7 +30,7 @@
         }
     .end annotation
 
-    .line 1151
+    .line 1138
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$AspectBox;->this$0:Lcom/tongpin/player4k/catalog/OpenPlayerActivity;
 
     invoke-direct {p0, p1}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
@@ -43,12 +43,12 @@
 .method protected onMeasure(II)V
     .locals 1
 
-    .line 1153
+    .line 1140
     invoke-static {p1}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
     move-result p2
 
-    .line 1154
+    .line 1141
     int-to-float p2, p2
 
     const/high16 v0, 0x41100000    # 9.0f
@@ -71,6 +71,6 @@
 
     invoke-super {p0, p1, p2}, Landroid/widget/FrameLayout;->onMeasure(II)V
 
-    .line 1155
+    .line 1142
     return-void
 .end method

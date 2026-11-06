@@ -12,4 +12,26 @@
         <item name="android:statusBarColor">@color/tp_bg</item>
         <item name="android:windowNoTitle">true</item>
     </style>
+    <style name="TongpinPlayerTheme" parent="android:style/Theme.Material.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:windowBackground">#141415</item>
+        <item name="android:colorBackground">#141415</item>
+        <item name="android:colorAccent">@color/tp_primary</item>
+        <item name="android:textColorPrimary">#EDEDED</item>
+        <item name="android:textColorSecondary">#A1A1A6</item>
+        <item name="android:alertDialogTheme">@style/TongpinPlayerDialogTheme</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:navigationBarColor">#000000</item>
+        <item name="android:statusBarColor">#000000</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+    <style name="TongpinPlayerDialogTheme" parent="android:style/Theme.Material.Dialog.Alert">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:windowBackground">#19191B</item>
+        <item name="android:colorBackground">#19191B</item>
+        <item name="android:colorAccent">@color/tp_primary</item>
+        <item name="android:textColorPrimary">#EDEDED</item>
+        <item name="android:textColorSecondary">#A1A1A6</item>
+    </style>
 </resources>

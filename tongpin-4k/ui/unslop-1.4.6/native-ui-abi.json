@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "native_path": "decoded/smali_classes5/com/shuyu/gsyvideoplayer/video/base/GSYVideoControlView.smali",
+  "native_sha256": "35d5bbf1226201cc9955764ad61bf50bdb8bec57660e307915d0f2f71e064f59",
+  "method": "public getStartButton()Landroid/view/View;",
+  "method_body_sha256": "8311e42689129c4614015f99a36f03556774e95540d29153b769f62b798822ec",
+  "native_start_line": 1372,
+  "stub_path": "open-sources/toolchain/stubs/com/shuyu/gsyvideoplayer/video/base/GSYVideoControlView.java",
+  "stub_sha256": "18adb6a40604a6be2205c13220a3147be7fdddad3110fb8d2308a9f69d775899",
+  "stub_before_sha256": "b7e1f059067e484fa710492424cc4e14fd98253ca88bb404ab8cf0de1de11f56",
+  "exact_single_stub_method_addition": true,
+  "compile_stub_packaged": false,
+  "native_code_changed": false
+}

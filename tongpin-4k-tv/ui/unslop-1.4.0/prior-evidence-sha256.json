@@ -1,0 +1,21 @@
+{
+  "verification/1.3.9/frozen-inputs.json": "1640c9b52297553fc31f1781a9307be87cac8d4675226b6a8ee8ccd20397afe0",
+  "verification/1.3.9/input-hashes.json": "c70b7a37d9712e2d0f95c9ef1527ae34a6963ae17ca9b99526d88fe99a592c07",
+  "verification/1.3.9/result.json": "878754493adcae148efa0d69aff38c37aca151cba0708f9a16e3e9a9bfd41ee0",
+  "verification/1.3.9/post-build-check.json": "0f4439dc03510e5490fd2540429da13f293ea88ada74d2bd3eb18bd062e5c908",
+  "verification/1.3.9/root-post-build-check.json": "1602b32acaa3a1e04262daca64ddfc5d364e7ac193c9b68b964d529113cad49b",
+  "build/1.3.9/resource-ids.txt": "700d9b1d79d502ae3d8f67ce3a4b9f0982176229874c2bac7f364182a4cbbeb2",
+  "ui/startup-performance-1.3.9/source-freeze.json": "d96561ddae53a5dcfae42956c5745726b3870ae09d06ab5f78a5f2ef887cb9ad",
+  "ui/startup-performance-1.3.9/shared-source-freeze.json": "f641ac9e67abae639633e95c2ad6ed2f1779c09292e05e5ee5c65b2d9b349890",
+  "ui/startup-performance-1.3.9/poster-source-freeze.json": "6e21bb781dbb7c5c7f5467bc86a5ccf80ef707d5784ec68264b74f631b7db23f",
+  "ui/startup-performance-1.3.9/preview-source-freeze.json": "3c507b967217575b13a0af7988eb0c024532efaf4b16f62a24744a3504be4f96",
+  "ui/startup-performance-1.3.9/verification.json": "144d473e5a08819a3baee29f7570f9ba71303342ee7d142049874d2074b5b3ff",
+  "ui/startup-performance-1.3.9/shared-tests.json": "1c61abbdf15b7479a48fe2abecb38c45d8660754d86dc40a328fa279477c3725",
+  "ui/startup-performance-1.3.9/poster-tests.json": "b7fb891d470afbac76f1c6b2bfe006d4d94afd78e40d51771d1dd1ad97bb8e9b",
+  "ui/startup-performance-1.3.9/preview-tests.json": "51c2200d74e7a5b3c5435e86cc6d13817f26d1153963966277fb5998ea28efec",
+  "verification/1.3.9/provider-asset-provenance.json": "afff650d5842c0baf6a55f28bf93407508eeeca9a9914a352382894b7d2a6a50",
+  "verification/1.3.9/preflight/result.json": "2c5059508f1ec2e761d1e60ac771f2b34ebc33d929d3f62b3e48f7eb95991dff",
+  "ui/startup-performance-1.3.9/cache-independent-review.json": "03e321518fe089fc7027ee0138569dcb7db3dd1fa55ca86d9c135a9b43d5ea26",
+  "ui/startup-performance-1.3.9/root-source-review.json": "a80b2e430a1d806223f87056a2a77e680eaea959ad137aba0bdd57487180048f",
+  "ui/startup-performance-1.3.9/root-builder-review.json": "6131e533bcb85ba612cbc9eae9dbc38a2d2f0e5d6a61e91449062395cf70fbf3"
+}

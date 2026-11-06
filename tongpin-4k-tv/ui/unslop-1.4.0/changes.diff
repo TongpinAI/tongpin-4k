@@ -1,0 +1,766 @@
+--- 139/src/com/tongpin/player4k/tv/TvHomeActivity.java
++++ 140/src/com/tongpin/player4k/tv/TvHomeActivity.java
+@@ -24,6 +24,7 @@
+ import android.widget.HorizontalScrollView;
+ import android.widget.ImageView;
+ import android.widget.LinearLayout;
++import android.widget.ScrollView;
+ import android.widget.TextView;
+ 
+ import java.io.ByteArrayOutputStream;
+@@ -161,14 +162,14 @@
+         l.setGravity(Gravity.CENTER_VERTICAL); return l;
+     }
+     private void action(LinearLayout row, Button button, View.OnClickListener click) {
+-        LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(-2, d(48));
++        LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(-2, -2);
+         p.setMargins(0, 0, d(8), 0); row.addView(button, p); button.setOnClickListener(click);
+     }
+     private void gap(LinearLayout l, int value) { l.addView(new View(this), new LinearLayout.LayoutParams(1, d(value))); }
+     private void scrollRow(LinearLayout parent, LinearLayout contents) {
+         HorizontalScrollView scroller = new HorizontalScrollView(this);
+         scroller.setHorizontalScrollBarEnabled(false); scroller.setFillViewport(false);
+-        scroller.addView(contents); parent.addView(scroller, new LinearLayout.LayoutParams(-1, d(50)));
++        scroller.addView(contents); parent.addView(scroller, new LinearLayout.LayoutParams(-1, -2));
+     }
+ 
+     private void showHome() {
+@@ -176,43 +177,51 @@
+         posters.clear();
+         inDetail = false; detail = null; detailVideo = null; detailGroup = null;
+         if (foreground) posters.resume();
+-        root = column(); root.setPadding(d(48), d(27), d(48), d(27));
+-        LinearLayout header = row();
++        HomeColumn home = new HomeColumn(); root = home; root.setPadding(d(48), d(24), d(48), d(24));
++        HomeChrome chromeScroll = new HomeChrome(); home.chrome = chromeScroll;
++        LinearLayout chrome = column(); chromeScroll.addView(chrome, new ScrollView.LayoutParams(-1, -2));
++        root.addView(chromeScroll, new LinearLayout.LayoutParams(-1, -2));
++        LinearLayout controls = row(); controls.setMinimumHeight(d(56));
+         ImageView logo = new ImageView(this); logo.setImageResource(R.drawable.tp_icon);
+-        header.addView(logo, new LinearLayout.LayoutParams(d(34), d(34)));
+-        TextView title = TvUi.text(this, "同频4K TV", 26, TvUi.TEXT);
+-        title.setPadding(d(12), 0, d(12), 0);
+-        title.setTypeface(Typeface.DEFAULT, Typeface.BOLD);
+-        title.setSingleLine(true); title.setEllipsize(TextUtils.TruncateAt.END);
+-        header.addView(title, new LinearLayout.LayoutParams(0, -2, 1));
+-        TextView policy = TvUi.text(this, "4K优先 · 实时画质", 16, TvUi.SECONDARY);
+-        header.addView(policy); root.addView(header); gap(root, 8);
+-
+-        LinearLayout controls = row();
++        LinearLayout.LayoutParams logoParams = new LinearLayout.LayoutParams(d(32), d(32));
++        logoParams.rightMargin = d(8); controls.addView(logo, logoParams);
++        LinearLayout brand = column();
++        TextView title = TvUi.text(this, "同频4K TV", 20, TvUi.TEXT);
++        title.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
++        title.setSingleLine(true); title.setEllipsize(TextUtils.TruncateAt.END); brand.addView(title);
++        TextView policy = TvUi.text(this, "4K优先 · 实时画质", 12, TvUi.SECONDARY);
++        policy.setSingleLine(true); policy.setEllipsize(TextUtils.TruncateAt.END); brand.addView(policy);
++        LinearLayout.LayoutParams brandParams = new LinearLayout.LayoutParams(d(128), -2);
++        brandParams.rightMargin = d(12); controls.addView(brand, brandParams);
+         search = new EditText(this); search.setSingleLine(true);
+         search.setText(query); search.setTextSize(18); search.setTextColor(TvUi.TEXT);
+         search.setHintTextColor(TvUi.SECONDARY); search.setHint("搜索全部影视片库 · 电影、剧集");
+         search.setEnabled(true);
+         search.setBackgroundResource(R.drawable.tv_search_background);
+-        search.setPadding(d(14), d(6), d(14), d(6));
++        search.setPadding(d(16), d(8), d(16), d(8));
+         search.setImeOptions(android.view.inputmethod.EditorInfo.IME_ACTION_SEARCH);
+-        LinearLayout.LayoutParams inputParams = new LinearLayout.LayoutParams(0, d(48), 1);
++        LinearLayout.LayoutParams inputParams = new LinearLayout.LayoutParams(0, -2, 1);
++        search.setMinimumHeight(d(48));
+         inputParams.setMargins(0, 0, d(8), 0); controls.addView(search, inputParams);
+-        Button find = TvUi.button(this, "搜索全库");
++        Button find = TvUi.button(this, "搜索"); find.setContentDescription("搜索全部影视片库");
+         action(controls, find, v -> submitSearch());
++        boolean splitActions = TvUi.splitHomeActions(getResources().getConfiguration().screenWidthDp - 96, getResources().getConfiguration().fontScale);
++        LinearLayout utilities = splitActions ? row() : controls;
+         Button live = TvUi.button(this, "直播"); live.setSelected(mode.equals("catalog") && liveMode && query.isEmpty());
+-        action(controls, live, v -> showLiveProviders());
+-        Button history = TvUi.button(this, "观看历史"); history.setSelected(mode.equals("history"));
+-        action(controls, history, v -> switchLocal("history"));
++        action(utilities, live, v -> showLiveProviders());
++        Button history = TvUi.button(this, "历史"); history.setContentDescription("观看历史"); history.setSelected(mode.equals("history"));
++        action(utilities, history, v -> switchLocal("history"));
+         Button favorites = TvUi.button(this, "收藏"); favorites.setSelected(mode.equals("favorites"));
+-        action(controls, favorites, v -> switchLocal("favorites"));
++        action(utilities, favorites, v -> switchLocal("favorites"));
+         search.setOnEditorActionListener((v, actionId, event) -> {
+             if (actionId == android.view.inputmethod.EditorInfo.IME_ACTION_SEARCH
+                     || (event != null && event.getKeyCode() == KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_UP)) {
+                 submitSearch(); return true;
+             } return false;
+         });
+-        root.addView(controls); gap(root, 6);
++        chrome.addView(controls);
++        if (splitActions) chrome.addView(utilities);
++        gap(chrome, 6);
+ 
+         LinearLayout tabs = row();
+         Button activeSource = find;
+@@ -222,7 +231,7 @@
+             if (button.isSelected()) activeSource = button;
+             action(tabs, button, v -> switchTab(tab));
+         }
+-        scrollRow(root, tabs);
++        scrollRow(chrome, tabs);
+         categoryPicker = null;
+         if (liveMode && mode.equals("catalog") && !allCatalogSearch(mode, query)) {
+             LinearLayout categoryRow = row();
+@@ -230,18 +239,22 @@
+             if (liveBrowseProvider() != null)
+                 action(categoryRow, TvUi.button(this, channelQuery.isEmpty() ? "搜索频道" : "频道：" + channelQuery), v -> searchChannels());
+             TextView note = TvUi.text(this, "直播频道单独浏览", 15, TvUi.SECONDARY);
+-            categoryRow.addView(note, new LinearLayout.LayoutParams(0, -2, 1)); root.addView(categoryRow);
++            categoryRow.addView(note, new LinearLayout.LayoutParams(0, -2, 1)); chrome.addView(categoryRow);
+             renderCategoryPicker();
+         }
+         status = TvUi.text(this, "", 16, TvUi.SECONDARY);
+-        status.setMaxLines(2); status.setMinHeight(d(38));
+-        root.addView(status, new LinearLayout.LayoutParams(-1, -2));
+-
+-        grid = new GridView(this); grid.setId(View.generateViewId());
+-        grid.setNumColumns(columns()); grid.setHorizontalSpacing(d(10)); grid.setVerticalSpacing(d(10));
++        status.setMaxLines(2); status.setMinHeight(d(24));
++        status.setFocusable(true); status.setBackgroundResource(R.drawable.tv_grid_selector);
++        home.summary = status;
++        chrome.addView(status, new LinearLayout.LayoutParams(-1, -2));
++
++        grid = new PosterGrid(); grid.setId(View.generateViewId());
++        grid.setNumColumns(TvUi.posterColumns(getResources().getConfiguration().screenWidthDp - 96));
++        grid.setHorizontalSpacing(d(12)); grid.setVerticalSpacing(d(12));
+         grid.setStretchMode(GridView.STRETCH_COLUMN_WIDTH); grid.setClipToPadding(false);
+         grid.setSelector(R.drawable.tv_grid_selector); grid.setDrawSelectorOnTop(true);
+         grid.setPadding(d(2), d(2), d(2), d(2));
++
+         grid.setDescendantFocusability(ViewGroup.FOCUS_BLOCK_DESCENDANTS);
+         adapter = new CardAdapter(); grid.setAdapter(adapter);
+         grid.setOnItemClickListener((p, v, position, id) -> {
+@@ -268,6 +281,7 @@
+             else if (page > 1) { page--; loadPage(); }
+         });
+         pageLabel = TvUi.text(this, "", 18, TvUi.TEXT); pageLabel.setGravity(Gravity.CENTER);
++        pageLabel.setSingleLine(true); pageLabel.setEllipsize(TextUtils.TruncateAt.END);
+         pager.addView(pageLabel, new LinearLayout.LayoutParams(0, -2, 1));
+         next = TvUi.button(this, "下一页"); action(pager, next, v -> {
+             if (allCatalogSearch(mode, query)) {
+@@ -304,7 +318,7 @@
+             else { restartGlobalSearch = true; loadPage(); return; }
+             renderSearch(searchHandle);
+         });
+-        root.addView(pager); setContentView(root);
++        home.footer = pager; root.addView(pager); setContentView(root);
+         (mode.equals("history") ? history : mode.equals("favorites") ? favorites : allCatalogSearch(mode, query) ? find : activeSource).requestFocus();
+         updatePager(false);
+     }
+@@ -991,7 +1005,8 @@
+         if (detail.lines.isEmpty()) return;
+         for (int i = 0; i < detail.lines.size(); i++) {
+             final int at = i; Line l = detail.lines.get(i);
+-            Button b = TvUi.button(this, (l.name.isEmpty() ? "线路" + (i + 1) : l.name) + " · " + episodeSummary(l));
++            Button b = TvUi.button(this, l.name.isEmpty() ? "线路" + (i + 1) : l.name);
++            b.setContentDescription(b.getText() + "，" + episodeSummary(l));
+             b.setSelected(i == selectedLine);
+             action(lineRow, b, v -> { cancelPending(); selectedLine = at; selectedEpisode = -1; renderLines(); renderEpisodes();
+                 if (at < lineRow.getChildCount()) lineRow.getChildAt(at).requestFocus(); });
+@@ -1005,7 +1020,7 @@
+             episodeArea.addView(TvUi.text(this, "该片当前没有可直接播放的线路，请返回其他片库查找。", 20, TvUi.TEXT)); return;
+         }
+         Line line = detail.lines.get(selectedLine);
+-        detailStatus.setText(detailVideo.provider.name + " · " + episodeSummary(line)
++        detailStatus.setText(detailVideo.provider.name + " · " + detailVideo.categoryLabel
+                 + " · 4K优先，实际画质以播放时显示为准");
+         TvLibraryStore.Resume savedResume = null;
+         try { savedResume = store.getResume(detailVideo); }
+@@ -1203,6 +1218,67 @@
+         main.removeCallbacksAndMessages(null); if (store != null) store.close(); super.onDestroy();
+     }
+ 
++    private final class HomeColumn extends LinearLayout {
++        HomeChrome chrome; View footer; TextView summary;
++        HomeColumn() { super(TvHomeActivity.this); setOrientation(LinearLayout.VERTICAL); setBackgroundColor(TvUi.BG); }
++        @Override protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
++            if (chrome != null && View.MeasureSpec.getMode(heightMeasureSpec) != View.MeasureSpec.UNSPECIFIED) {
++                int height = View.MeasureSpec.getSize(heightMeasureSpec);
++                int windowDp = Math.round(height / getResources().getDisplayMetrics().density);
++                int footerHeight = d(48);
++                if (footer != null) {
++                    footer.measure(ViewGroup.getChildMeasureSpec(widthMeasureSpec, getPaddingLeft() + getPaddingRight(), -1),
++                            View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
++                    footerHeight = footer.getMeasuredHeight();
++                }
++                chrome.limit = TvUi.chromeLimit(height - getPaddingTop() - getPaddingBottom(),
++                        d(TvUi.minimumGridHeight(windowDp, getResources().getConfiguration().fontScale)), footerHeight + d(6),
++                        Math.max(d(48), summary == null ? 0 : summary.getLineHeight() * 2 + summary.getPaddingTop() + summary.getPaddingBottom()));
++            }
++            super.onMeasure(widthMeasureSpec, heightMeasureSpec);
++        }
++    }
++    private final class HomeChrome extends ScrollView {
++        int limit = Integer.MAX_VALUE;
++        HomeChrome() { super(TvHomeActivity.this); setFillViewport(false); setSmoothScrollingEnabled(false); }
++        @Override protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
++            int size = View.MeasureSpec.getMode(heightMeasureSpec) == View.MeasureSpec.UNSPECIFIED ? limit
++                    : Math.min(limit, View.MeasureSpec.getSize(heightMeasureSpec));
++            super.onMeasure(widthMeasureSpec, View.MeasureSpec.makeMeasureSpec(Math.max(1, size), View.MeasureSpec.AT_MOST));
++        }
++    }
++    private void sizePosterText(View card, int viewport) {
++        if (!(card instanceof LinearLayout) || ((LinearLayout) card).getChildCount() < 3) return;
++        TextView title = (TextView) ((LinearLayout) card).getChildAt(1);
++        int lines = TvUi.posterTitleLines(Math.round(viewport / getResources().getDisplayMetrics().density));
++        if (title.getMaxLines() != lines) { title.setMinLines(lines); title.setMaxLines(lines); }
++    }
++
++    private final class PosterGrid extends GridView {
++        int posterViewport;
++        PosterGrid() { super(TvHomeActivity.this); }
++        @Override protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
++            posterViewport = View.MeasureSpec.getMode(heightMeasureSpec) == View.MeasureSpec.UNSPECIFIED ? 0
++                    : Math.max(0, View.MeasureSpec.getSize(heightMeasureSpec) - getPaddingTop() - getPaddingBottom());
++            for (int i = 0; i < getChildCount(); i++) sizePosterText(getChildAt(i), posterViewport);
++            super.onMeasure(widthMeasureSpec, heightMeasureSpec);
++        }
++    }
++
++    private final class PosterImage extends ImageView {
++        TextView title, meta;
++        PosterImage() { super(TvHomeActivity.this); }
++        @Override protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
++            int width = View.MeasureSpec.getSize(widthMeasureSpec);
++            int reserved = title == null || meta == null ? d(88)
++                    : title.getLineHeight() * title.getMaxLines() + title.getPaddingTop() + title.getPaddingBottom()
++                    + meta.getLineHeight() + meta.getPaddingTop() + meta.getPaddingBottom() + d(24);
++            int available = grid instanceof PosterGrid ? ((PosterGrid) grid).posterViewport : 0;
++            int height = TvUi.posterHeight(width, available, reserved);
++            super.onMeasure(widthMeasureSpec, View.MeasureSpec.makeMeasureSpec(height, View.MeasureSpec.EXACTLY));
++        }
++    }
++
+     private final class CardAdapter extends BaseAdapter {
+         public int getCount() { return videos.size(); }
+         public Object getItem(int p) { return videos.get(p); }
+@@ -1214,16 +1290,20 @@
+                 card = column(); card.setBackgroundResource(R.drawable.tv_focus_background);
+                 card.setPadding(d(8), d(8), d(8), d(8)); card.setFocusable(false); card.setClickable(false);
+                 card.setDuplicateParentStateEnabled(false);
+-                ImageView poster = new ImageView(TvHomeActivity.this); poster.setScaleType(ImageView.ScaleType.CENTER_CROP);
++                PosterImage poster = new PosterImage(); poster.setScaleType(ImageView.ScaleType.FIT_CENTER);
+                 poster.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+-                card.addView(poster, new LinearLayout.LayoutParams(-1, d(82)));
++                card.addView(poster, new LinearLayout.LayoutParams(-1, -2));
+                 TextView title = TvUi.text(TvHomeActivity.this, "", 18, TvUi.TEXT);
+                 title.setTextColor(TvUi.foreground(false)); title.setDuplicateParentStateEnabled(true);
+-                title.setSingleLine(true); title.setEllipsize(TextUtils.TruncateAt.END); card.addView(title);
++                title.setMinLines(2); title.setMaxLines(2); title.setPadding(0, d(8), 0, 0);
++                title.setEllipsize(TextUtils.TruncateAt.END); card.addView(title);
+                 TextView source = TvUi.text(TvHomeActivity.this, "", 16, TvUi.SECONDARY);
+                 source.setTextColor(TvUi.foreground(false)); source.setDuplicateParentStateEnabled(true);
+-                source.setSingleLine(true); source.setEllipsize(TextUtils.TruncateAt.END); card.addView(source);
++                source.setSingleLine(true); source.setPadding(0, d(4), 0, 0);
++                source.setEllipsize(TextUtils.TruncateAt.END); card.addView(source);
++                poster.title = title; poster.meta = source;
+             }
++            sizePosterText(card, grid instanceof PosterGrid ? ((PosterGrid) grid).posterViewport : 0);
+             Video video = videos.get(position);
+             ((TextView) card.getChildAt(1)).setText(video.title);
+             String subtitle = video.provider.name + " · " + video.categoryLabel + (video.subtitle.isEmpty() ? "" : " · " + video.subtitle);
+--- 139/src/com/tongpin/player4k/tv/TvPlayerActivity.java
++++ 140/src/com/tongpin/player4k/tv/TvPlayerActivity.java
+@@ -20,11 +20,12 @@
+ import android.view.SurfaceHolder;
+ import android.view.SurfaceView;
+ import android.view.View;
++import android.view.ViewGroup;
+ import android.view.WindowManager;
+ import android.widget.Button;
+ import android.widget.ArrayAdapter;
+ import android.widget.FrameLayout;
+-import android.widget.HorizontalScrollView;
++import android.widget.ScrollView;
+ import android.widget.LinearLayout;
+ import android.widget.SeekBar;
+ import android.widget.TextView;
+@@ -52,7 +53,10 @@
+     private TextView actual, status, clock, declaredQuality, heading, subtitle, holdHint;
+     private Button playButton, qualityButton, retryButton, previousButton, nextButton, episodesButton, speedButton, autoButton, decoderButton;
+     private Button seekBackButton, seekForwardButton;
+-    private AlertDialog qualityDialog;
++    private AlertDialog qualityDialog, settingsDialog;
++    private ScrollView settingsPanel;
++    private Button settingsButton, settingsSourceButton, reloadSettingButton;
++    private boolean settingsHandoff;
+     private boolean subtitlePicker, subtitleChoosing;
+     private List<TvPlaybackEngine.SubtitleTrack> subtitleTracks = Collections.emptyList();
+     private String subtitleApplied = "", subtitleError = "";
+@@ -122,6 +126,7 @@
+     };
+ 
+     @Override public void onCreate(Bundle saved) {
++        setTheme(R.style.TongpinPlayerTheme);
+         super.onCreate(saved);
+         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+         getWindow().setNavigationBarColor(Color.BLACK);
+@@ -220,24 +225,17 @@
+ 
+         header = new LinearLayout(this);
+         header.setOrientation(LinearLayout.VERTICAL);
+-        header.setPadding(dp(48), dp(76), dp(48), dp(12));
+-        header.setBackgroundColor(TvUi.TEXT);
+-        heading = TvUi.text(this, title.isEmpty() ? "同频4K TV" : title, 24f, Color.WHITE);
+-        heading.setTypeface(Typeface.DEFAULT, Typeface.BOLD);
++        header.setPadding(dp(48), dp(24), dp(48), dp(12));
++        header.setBackgroundColor(0xe6141415);
++        heading = TvUi.text(this, title.isEmpty() ? "同频4K TV" : title, 22f, TvUi.ON_NIGHT);
++        heading.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
+         heading.setSingleLine(true);
+         heading.setEllipsize(TextUtils.TruncateAt.END);
+         header.addView(heading);
+-        declaredQuality = TvUi.text(this, "", 16f, 0xffd1dfed);
++        declaredQuality = TvUi.text(this, "", 16f, TvUi.NIGHT_SECONDARY);
+         declaredQuality.setSingleLine(true);
+         declaredQuality.setEllipsize(TextUtils.TruncateAt.END);
+         header.addView(declaredQuality);
+-        if (!author.isEmpty() || !licence.isEmpty()) {
+-            TextView credit = TvUi.text(this, "作者：" + (author.isEmpty() ? "未标注" : author)
+-                    + "  许可：" + (licence.isEmpty() ? "未标注" : licence), 14f, 0xffd1dfed);
+-            credit.setSingleLine(true);
+-            credit.setEllipsize(TextUtils.TruncateAt.END);
+-            header.addView(credit);
+-        }
+         status = TvUi.text(this, "正在准备播放", 16f, Color.WHITE);
+         status.setPadding(0, dp(6), 0, 0);
+         status.setMaxLines(2);
+@@ -247,18 +245,23 @@
+ 
+         controls = new LinearLayout(this);
+         controls.setOrientation(LinearLayout.VERTICAL);
+-        controls.setPadding(dp(48), dp(12), dp(48), dp(27));
+-        controls.setBackgroundColor(TvUi.TEXT);
+-        clock = TvUi.text(this, "00:00 / --:--", 16f, Color.WHITE);
+-        controls.addView(clock);
++        controls.setPadding(dp(48), dp(8), dp(48), dp(24));
++        controls.setBackgroundColor(0xee141415);
++        LinearLayout timeline = new LinearLayout(this); timeline.setGravity(Gravity.CENTER_VERTICAL);
++        clock = TvUi.text(this, "00:00 / --:--", 16f, TvUi.ON_NIGHT);
++        clock.setSingleLine(true); clock.setEllipsize(TextUtils.TruncateAt.END);
++        clock.setPadding(0, 0, dp(8), 0);
++        clock.setMaxWidth(getResources().getDisplayMetrics().widthPixels - dp(216));
++        timeline.addView(clock, new LinearLayout.LayoutParams(-2, dp(48)));
++        clock.setGravity(Gravity.CENTER_VERTICAL);
+         progress = new SeekBar(this);
+         progress.setId(View.generateViewId());
+         progress.setContentDescription("播放进度，左右键每次调整10秒");
+         progress.setFocusable(true);
+         progress.setMinimumHeight(dp(48));
+         progress.setThumbTintList(ColorStateList.valueOf(Color.WHITE));
+-        progress.setProgressTintList(ColorStateList.valueOf(Color.WHITE));
+-        progress.setProgressBackgroundTintList(ColorStateList.valueOf(TvUi.SECONDARY));
++        progress.setProgressTintList(ColorStateList.valueOf(TvUi.PRIMARY));
++        progress.setProgressBackgroundTintList(ColorStateList.valueOf(TvUi.NIGHT_MUTED));
+         progress.setBackgroundResource(R.drawable.tv_focus_dark);
+         progress.setPadding(dp(12), 0, dp(12), 0);
+         progress.setEnabled(false);
+@@ -292,42 +295,25 @@
+                 seekBy(key == KeyEvent.KEYCODE_DPAD_LEFT ? -10000L : 10000L);
+             return true;
+         });
+-        controls.addView(progress, new LinearLayout.LayoutParams(-1, dp(48)));
+-        LinearLayout row = new LinearLayout(this);
+-        row.setOrientation(LinearLayout.HORIZONTAL);
+-        previousButton = addButton(row, "上一集", () -> moveEpisode(-1));
++        timeline.addView(progress, new LinearLayout.LayoutParams(0, dp(48), 1));
++        controls.addView(timeline, new LinearLayout.LayoutParams(-1, dp(48)));
++        LinearLayout row = new LinearLayout(this); row.setOrientation(LinearLayout.HORIZONTAL);
++        previousButton = addButton(row, compactTransport() ? "上集" : "上一集", () -> moveEpisode(-1));
++        previousButton.setContentDescription("上一集");
+         playButton = addButton(row, "暂停", this::togglePlayback);
+-        nextButton = addButton(row, "下一集", () -> moveEpisode(1));
++        nextButton = addButton(row, compactTransport() ? "下集" : "下一集", () -> moveEpisode(1));
++        nextButton.setContentDescription("下一集");
+         episodesButton = addButton(row, "选集", this::chooseEpisodes);
+-        seekBackButton = addButton(row, "后退10秒", () -> seekBy(-10000L));
+-        seekForwardButton = addButton(row, "前进10秒", () -> seekBy(10000L));
+-        qualityButton = addButton(row, "画质", this::chooseQuality);
+-        Button sources = addButton(row, "换源", this::chooseSources);
+-        sources.setEnabled(queue != null);
+-        speedButton = addButton(row, "倍速", this::chooseSpeed);
+-        speedButton.setEnabled(Build.VERSION.SDK_INT >= 23);
+-        addButton(row, "字幕", this::chooseSubtitles);
+-        decoderButton = addButton(row, decoderButtonLabel(Build.VERSION.SDK_INT, decoderMode), this::chooseDecoder);
+-        decoderButton.setEnabled(Build.VERSION.SDK_INT >= 23);
+-        autoButton = addButton(row, "连播", () -> {
+-            getSharedPreferences("tongpin_tv_preferences", MODE_PRIVATE).edit().putBoolean("auto_next", !autoNext()).apply();
+-            updateNavigation();
+-        });
+-        retryButton = addButton(row, "重试", this::retry);
+-        retryButton.setVisibility(View.GONE);
+-        addButton(row, "退出", this::finishPlayback);
+-        HorizontalScrollView actions = new HorizontalScrollView(this);
+-        actions.setHorizontalScrollBarEnabled(false);
+-        actions.setFillViewport(false);
+-        actions.setFocusable(false);
+-        actions.addView(row);
+-        controls.addView(actions, new LinearLayout.LayoutParams(-1, -2));
++        settingsButton = addButton(row, "设置", this::showPlayerSettings);
++        retryButton = addButton(row, "重试", this::retry); retryButton.setVisibility(View.GONE);
++        controls.addView(row, new LinearLayout.LayoutParams(-1, dp(56)));
++        buildPlayerSettings();
+         root.addView(controls, new FrameLayout.LayoutParams(-1, -2, Gravity.BOTTOM));
+         controls.addOnLayoutChangeListener((view,l,t,r,b,ol,ot,or,ob) -> renderSubtitle());
+ 
+         holdHint = TvUi.text(this, "2×播放 · 松开恢复", 18f, Color.WHITE);
+         holdHint.setPadding(dp(16), dp(8), dp(16), dp(8));
+-        holdHint.setBackgroundColor(0xcc172c42); holdHint.setVisibility(View.GONE);
++        holdHint.setBackgroundColor(0xe619191b); holdHint.setVisibility(View.GONE);
+         FrameLayout.LayoutParams holdParams = new FrameLayout.LayoutParams(-2, -2, Gravity.TOP | Gravity.CENTER_HORIZONTAL);
+         holdParams.topMargin = dp(28); root.addView(holdHint, holdParams);
+ 
+@@ -338,12 +324,13 @@
+         actual.setMaxWidth(getResources().getDisplayMetrics().widthPixels - dp(96));
+         actual.setPadding(dp(14), dp(8), dp(14), dp(8));
+         GradientDrawable badge = new GradientDrawable();
+-        badge.setColor(TvUi.TEXT);
++        badge.setColor(TvUi.NIGHT_SURFACE);
+         badge.setCornerRadius(dp(12));
+         actual.setBackground(badge);
+         FrameLayout.LayoutParams badgeParams = new FrameLayout.LayoutParams(-2, -2, Gravity.TOP | Gravity.RIGHT);
+-        badgeParams.setMargins(dp(48), dp(27), dp(48), 0);
++        badgeParams.setMargins(dp(48), dp(112), dp(48), 0);
+         root.addView(actual, badgeParams);
++        header.addOnLayoutChangeListener((v,l,t,r,b,ol,ot,or,ob) -> positionResolutionBadge());
+         setContentView(root);
+         surface.requestFocus();
+         updateQualityButton();
+@@ -353,13 +340,119 @@
+     private Button addButton(LinearLayout row, String text, Runnable action) {
+         Button button = TvUi.button(this, text, true);
+         button.setOnClickListener(view -> action.run());
+-        button.setMinWidth(dp(112));
+-        button.setMinimumWidth(dp(112));
++        button.setMinWidth(dp(48));
++        button.setMinimumWidth(dp(48));
++        button.setPadding(dp(8), dp(4), dp(8), dp(4));
+         button.setSingleLine(true);
+-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(-2, dp(56));
+-        params.setMargins(dp(4), dp(6), dp(4), 0);
++        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(0, dp(56), 1);
++        params.setMargins(dp(4), 0, dp(4), 0);
+         row.addView(button, params);
+         return button;
++    }
++
++    private boolean compactTransport() { return TvUi.shortTransportLabels(getResources().getConfiguration().screenWidthDp - 96, getResources().getConfiguration().fontScale); }
++
++    private void buildPlayerSettings() {
++        LinearLayout panel = new LinearLayout(this); panel.setOrientation(LinearLayout.VERTICAL);
++        panel.setPadding(dp(12), dp(8), dp(12), dp(16)); panel.setBackgroundColor(TvUi.NIGHT_SURFACE);
++        LinearLayout heading = new LinearLayout(this); heading.setGravity(Gravity.CENTER_VERTICAL);
++        TextView title = TvUi.text(this, "播放设置", 22, TvUi.ON_NIGHT);
++        heading.addView(title, new LinearLayout.LayoutParams(0, -2, 1));
++        Button close = TvUi.button(this, "关闭", true); close.setOnClickListener(v -> { if (settingsDialog != null) settingsDialog.dismiss(); });
++        heading.addView(close, new LinearLayout.LayoutParams(-2, -2)); panel.addView(heading);
++        settingsSection(panel, "来源与画质");
++        settingsSourceButton = setting(panel, "播放来源", () -> settingsAction(this::chooseSources));
++        settingsSourceButton.setEnabled(queue != null);
++        qualityButton = setting(panel, "画质", () -> settingsAction(this::chooseQuality));
++        settingsSection(panel, "观看");
++        speedButton = setting(panel, "倍速", () -> settingsAction(this::chooseSpeed));
++        speedButton.setEnabled(Build.VERSION.SDK_INT >= 23);
++        setting(panel, "字幕", () -> settingsAction(this::chooseSubtitles));
++        autoButton = setting(panel, "自动连播", () -> {
++            getSharedPreferences("tongpin_tv_preferences", MODE_PRIVATE).edit().putBoolean("auto_next", !autoNext()).apply();
++            updateNavigation();
++        });
++        settingsSection(panel, "更多控制");
++        LinearLayout seekRow = new LinearLayout(this); seekRow.setOrientation(LinearLayout.HORIZONTAL);
++        seekBackButton = addButton(seekRow, "后退10秒", () -> { if (ownsSettings()) seekBy(-10000L); });
++        seekForwardButton = addButton(seekRow, "前进10秒", () -> { if (ownsSettings()) seekBy(10000L); });
++        panel.addView(seekRow, new LinearLayout.LayoutParams(-1, dp(56)));
++        decoderButton = setting(panel, decoderButtonLabel(Build.VERSION.SDK_INT, decoderMode), () -> settingsAction(this::chooseDecoder));
++        decoderButton.setEnabled(Build.VERSION.SDK_INT >= 23);
++        reloadSettingButton = setting(panel, "重新加载", () -> settingsAction(this::retry));
++        setting(panel, "退出播放", () -> settingsAction(this::finishPlayback));
++        if (!author.isEmpty() || !licence.isEmpty()) {
++            TextView credits = TvUi.text(this, "作者：" + (author.isEmpty() ? "未标注" : author)
++                    + "  许可：" + (licence.isEmpty() ? "未标注" : licence), 14, TvUi.NIGHT_SECONDARY);
++            credits.setPadding(0, dp(12), 0, 0); panel.addView(credits);
++        }
++        settingsPanel = new ScrollView(this); settingsPanel.setFillViewport(false);
++        settingsPanel.addView(panel, new ScrollView.LayoutParams(-1, -2));
++    }
++
++    private void settingsSection(LinearLayout panel, String value) {
++        TextView label = TvUi.text(this, value, 16, TvUi.NIGHT_SECONDARY);
++        label.setPadding(dp(4), dp(16), dp(4), dp(8)); panel.addView(label);
++    }
++
++    private Button setting(LinearLayout panel, String label, Runnable action) {
++        Button button = TvUi.button(this, label, true); button.setGravity(Gravity.LEFT | Gravity.CENTER_VERTICAL);
++        button.setMaxLines(2); button.setEllipsize(TextUtils.TruncateAt.END);
++        button.setOnClickListener(v -> { if (ownsSettings()) action.run(); });
++        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(-1, -2);
++        params.setMargins(0, 0, 0, dp(4)); panel.addView(button, params); return button;
++    }
++
++    private void showPlayerSettings() {
++        if (!settingsMayOpen(valid, foreground && hasWindowFocus(), destroyed, qualityDialog != null)) return;
++        endHoldSpeed(true); showControls(false); main.removeCallbacks(hideControls); updateNavigation();
++        qualityButton.setText("画质 · " + qualityLabel(selected));
++        settingsSourceButton.setText(queue == null ? "播放来源 · 独立地址" : "播放来源 · " + queue.video.provider.name + " · " + queue.lineName);
++        if (settingsPanel.getParent() instanceof ViewGroup) ((ViewGroup) settingsPanel.getParent()).removeView(settingsPanel);
++        final AlertDialog dialog = new AlertDialog.Builder(this).setView(settingsPanel).create();
++        settingsDialog = dialog; qualityDialog = dialog; settingsHandoff = false;
++        dialog.setOnDismissListener(ignored -> {
++            boolean owned = settingsDialog == dialog, handedOff = settingsHandoff;
++            if (settingsDialog == dialog) settingsDialog = null;
++            if (qualityDialog == dialog) qualityDialog = null;
++            scheduleHide();
++            main.post(() -> { if (settingsMayRestore(owned, handedOff, foreground, destroyed,
++                    qualityDialog != null, controls.getVisibility() == View.VISIBLE)) settingsButton.requestFocus(); });
++        });
++        dialog.show();
++        if (dialog.getWindow() != null) {
++            dialog.getWindow().setLayout(dp(TvUi.settingsWidth(getResources().getConfiguration().screenWidthDp)),
++                    dp(TvUi.settingsHeight(getResources().getConfiguration().screenHeightDp)));
++            dialog.getWindow().setGravity(Gravity.RIGHT | Gravity.CENTER_VERTICAL);
++            WindowManager.LayoutParams attributes = dialog.getWindow().getAttributes();
++            attributes.x = dp(24); dialog.getWindow().setAttributes(attributes);
++        }
++        (settingsSourceButton.isEnabled() ? settingsSourceButton : qualityButton).requestFocus();
++    }
++
++    static boolean settingsMayOpen(boolean valid, boolean foreground, boolean destroyed, boolean hasDialog) {
++        return valid && foreground && !destroyed && !hasDialog;
++    }
++    static boolean settingsMayRestore(boolean owner, boolean handoff, boolean foreground, boolean destroyed,
++            boolean hasDialog, boolean controlsVisible) {
++        return owner && !handoff && foreground && !destroyed && !hasDialog && controlsVisible;
++    }
++    private void positionResolutionBadge() {
++        if (actual == null || header == null) return;
++        FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) actual.getLayoutParams();
++        int top = header.getVisibility() == View.VISIBLE ? Math.max(dp(24), header.getBottom() + dp(8)) : dp(24);
++        if (params.topMargin != top) { params.topMargin = top; actual.setLayoutParams(params); }
++    }
++
++    private boolean ownsSettings() { return valid && foreground && !destroyed && settingsDialog != null && qualityDialog == settingsDialog; }
++
++    private void settingsAction(Runnable action) {
++        if (!ownsSettings()) return;
++        settingsHandoff = true;
++        AlertDialog old = settingsDialog; settingsDialog = null;
++        if (qualityDialog == old) qualityDialog = null;
++        if (old != null) old.dismiss();
++        action.run();
+     }
+ 
+     private String providerAsset() throws Exception {
+@@ -550,6 +643,7 @@
+         autoButton.setText("连播 · " + (autoNext() ? "开" : "关"));
+         autoButton.setEnabled(!live());
+         retryButton.setEnabled(!busy());
++        if (reloadSettingButton != null) reloadSettingButton.setEnabled(!busy());
+         seekBackButton.setEnabled(!live()); seekForwardButton.setEnabled(!live());
+     }
+ 
+@@ -663,9 +757,9 @@
+         String hint=!subtitleError.isEmpty() ? subtitleError : !prepared ? "视频准备完成后显示实际字幕轨。"
+                 : displayed.isEmpty() ? "当前片源未提供可切换文字字幕；画面内已压入的字幕不能在此关闭。"
+                 : "仅选择视频提供的实际文字字幕；优先中文，不自动翻译。系统核心不支持的轨可尝试兼容解码（安卓6及以上）。";
+-        LinearLayout title=new LinearLayout(this); title.setOrientation(LinearLayout.VERTICAL); title.setPadding(dp(24),dp(18),dp(24),dp(8));
+-        title.addView(TvUi.text(this,"字幕选择",24f,TvUi.TEXT));
+-        TextView explanation=TvUi.text(this,hint,16f,TvUi.SECONDARY); explanation.setPadding(0,dp(8),0,0); title.addView(explanation);
++        LinearLayout title=new LinearLayout(this); title.setOrientation(LinearLayout.VERTICAL); title.setPadding(dp(24),dp(16),dp(24),dp(8));
++        title.addView(TvUi.text(this,"字幕选择",24f,TvUi.ON_NIGHT));
++        TextView explanation=TvUi.text(this,hint,16f,TvUi.NIGHT_SECONDARY); explanation.setPadding(0,dp(8),0,0); title.addView(explanation);
+         subtitlePicker=true;
+         qualityDialog=new AlertDialog.Builder(this).setCustomTitle(title).setSingleChoiceItems(adapter,checked,(dialog,which)-> {
+             dialog.dismiss();
+@@ -787,7 +881,7 @@
+                     updateResolution(mp.getVideoWidth(), mp.getVideoHeight());
+                 } catch (RuntimeException unavailable) { fail("无法读取视频信息，请重试或选择其他画质。", false); return; }
+                 playButton.setEnabled(true);
+-                retryButton.setText("重新加载"); retryButton.setVisibility(View.VISIBLE);
++                retryButton.setText("重试"); retryButton.setVisibility(View.GONE);
+                 int preparedDuration = 0;
+                 try { preparedDuration = mp.getDuration(); } catch (RuntimeException unavailable) { }
+                 knownDuration = TvPlaybackClock.duration(knownDuration, preparedDuration);
+@@ -1070,7 +1164,8 @@
+         actual.setText("实际画质：暂不可用");
+         actual.setVisibility(View.GONE);
+         status.setText(reason + (urls.length == 1 ? " 当前没有其他可选画质。" : " 可选择其他画质或返回片库。"));
+-        retryButton.setText(retryFromStart ? "从头重试" : "重试");
++        retryButton.setContentDescription(retryFromStart ? "从头重试" : "重试");
++        retryButton.setText(retryFromStart && !compactTransport() ? "从头重试" : "重试");
+         retryButton.setVisibility(View.VISIBLE);
+         playButton.setEnabled(false);
+         updateNavigation();
+@@ -1115,7 +1210,7 @@
+     }
+ 
+     private void updatePlayButton() {
+-        if (playButton != null) playButton.setText(completed ? "重新播放" : playing || (!prepared && playWhenReady && !failed) ? "暂停" : "播放");
++        if (playButton != null) playButton.setText(completed ? compactTransport() ? "重播" : "重新播放" : playing || (!prepared && playWhenReady && !failed) ? "暂停" : "播放");
+     }
+ 
+     private void releasePlayer() {
+@@ -1173,7 +1268,7 @@
+ 
+     private void showControls(boolean focus) {
+         if (controls == null || destroyed) return;
+-        header.setVisibility(View.VISIBLE); controls.setVisibility(View.VISIBLE);
++        header.setVisibility(View.VISIBLE); controls.setVisibility(View.VISIBLE); positionResolutionBadge();
+         renderSubtitle();
+         if (focus) (failed ? retryButton : playButton).requestFocus();
+         updateClock();
+@@ -1190,6 +1285,7 @@
+         controls.setVisibility(View.GONE);
+         renderSubtitle();
+         if (!failed) header.setVisibility(View.GONE);
++        positionResolutionBadge();
+         surface.requestFocus();
+         main.removeCallbacks(hideControls);
+     }
+@@ -1284,6 +1380,10 @@
+ 
+     @Override protected void onPause() {
+         foreground = false;
++        if (settingsDialog != null) {
++            settingsHandoff = true; AlertDialog old = settingsDialog; settingsDialog = null;
++            if (qualityDialog == old) qualityDialog = null; old.dismiss();
++        }
+         cancelAutomaticSource();
+         if (sourcePicker != null) sourcePicker.cancel();
+         rememberPosition(); saveProgress(); updateResult(); releasePlayer();
+--- 139/src/com/tongpin/player4k/tv/TvUi.java
++++ 140/src/com/tongpin/player4k/tv/TvUi.java
+@@ -10,7 +10,30 @@
+     public static final int BG = 0xfff5f2e9, SURFACE = 0xffffffff, TEXT = 0xff172c42;
+     public static final int SECONDARY = 0xff5d6d78, PRIMARY = 0xff226cc7;
+     public static final int TONAL = 0xffe6edf7, OUTLINE = 0xffd5ddd9;
++    public static final int NIGHT = 0xff141415, NIGHT_SURFACE = 0xff19191b, NIGHT_RAISED = 0xff232325;
++    public static final int ON_NIGHT = 0xffededed, NIGHT_SECONDARY = 0xffa1a1a6, NIGHT_MUTED = 0xff85858b;
+     private TvUi() {}
++
++    static boolean splitHomeActions(int widthDp, float fontScale) {
++        int button = Math.max(48, (int) Math.ceil(36f * fontScale) + 32);
++        return widthDp < 180 + 4 * button + 40 + 128;
++    }
++    static boolean shortTransportLabels(int widthDp, float fontScale) { return widthDp < 720 && fontScale >= 1.5f; }
++    static int minimumGridHeight(int windowDp, float fontScale) {
++        return windowDp < 480 ? (fontScale >= 1.5f ? 220 : 200) : (fontScale >= 1.5f ? 300 : 280);
++    }
++    static int posterTitleLines(int viewportDp) { return viewportDp > 0 && viewportDp < 240 ? 1 : 2; }
++    static int chromeLimit(int available, int minimumGrid, int footerAndGap, int minimumChrome) {
++        return Math.max(minimumChrome, available - minimumGrid - footerAndGap);
++    }
++    static int posterColumns(int contentWidthDp) { return contentWidthDp < 720 ? 5 : 6; }
++    static int posterHeight(int width, int viewport, int textAndPadding) {
++        int portrait = Math.max(1, Math.round(width * 1.5f));
++        return viewport > 0 ? Math.min(portrait, Math.max(1, viewport - Math.max(0, textAndPadding))) : portrait;
++    }
++    static int settingsWidth(int screenDp) { return Math.max(240, Math.min(440, screenDp - 48)); }
++    static int settingsHeight(int screenDp) { return Math.max(160, screenDp - 48); }
++
+ 
+     public static int dp(Context c, int value) {
+         return Math.round(c.getResources().getDisplayMetrics().density * value);
+@@ -31,9 +54,9 @@
+                 {-android.R.attr.state_enabled}, {android.R.attr.state_pressed},
+                 {android.R.attr.state_focused}, {android.R.attr.state_selected},
+                 {android.R.attr.state_activated}, {}},
+-                new int[] {SECONDARY, 0xffffffff, 0xffffffff,
+-                        dark ? 0xffffffff : TEXT, dark ? 0xffffffff : TEXT,
+-                        dark ? 0xffffffff : TEXT});
++                new int[] {dark ? NIGHT_MUTED : SECONDARY, 0xffffffff, 0xffffffff,
++                        dark ? 0xff9bc5ff : TEXT, dark ? 0xff9bc5ff : TEXT,
++                        dark ? ON_NIGHT : TEXT});
+     }
+ 
+     public static Button button(Context c, String value) { return button(c, value, false); }
+@@ -52,6 +75,7 @@
+         b.setPadding(dp(c, 16), dp(c, 6), dp(c, 16), dp(c, 6));
+         b.setTextColor(foreground(dark));
+         b.setBackgroundResource(dark ? R.drawable.tv_focus_dark : R.drawable.tv_focus_background);
++        b.setPadding(dp(c, 16), dp(c, 8), dp(c, 16), dp(c, 8));
+         b.setStateListAnimator(null);
+         b.setFocusable(true);
+         return b;
+--- 139/res/values/styles.xml
++++ 140/res/values/styles.xml
+@@ -12,4 +12,26 @@
+         <item name="android:statusBarColor">@color/tp_bg</item>
+         <item name="android:windowNoTitle">true</item>
+     </style>
++    <style name="TongpinPlayerTheme" parent="android:style/Theme.Material.NoActionBar">
++        <item name="android:fontFamily">sans</item>
++        <item name="android:windowBackground">#141415</item>
++        <item name="android:colorBackground">#141415</item>
++        <item name="android:colorAccent">@color/tp_primary</item>
++        <item name="android:textColorPrimary">#EDEDED</item>
++        <item name="android:textColorSecondary">#A1A1A6</item>
++        <item name="android:alertDialogTheme">@style/TongpinPlayerDialogTheme</item>
++        <item name="android:windowFullscreen">true</item>
++        <item name="android:windowActionModeOverlay">true</item>
++        <item name="android:navigationBarColor">#000000</item>
++        <item name="android:statusBarColor">#000000</item>
++        <item name="android:windowNoTitle">true</item>
++    </style>
++    <style name="TongpinPlayerDialogTheme" parent="android:style/Theme.Material.Dialog.Alert">
++        <item name="android:fontFamily">sans</item>
++        <item name="android:windowBackground">#19191B</item>
++        <item name="android:colorBackground">#19191B</item>
++        <item name="android:colorAccent">@color/tp_primary</item>
++        <item name="android:textColorPrimary">#EDEDED</item>
++        <item name="android:textColorSecondary">#A1A1A6</item>
++    </style>
+ </resources>
+--- 139/res/drawable/tv_focus_dark.xml
++++ 140/res/drawable/tv_focus_dark.xml
+@@ -2,37 +2,37 @@
+ <selector xmlns:android="http://schemas.android.com/apk/res/android">
+     <item android:state_enabled="false">
+         <shape android:shape="rectangle">
+-            <solid android:color="@color/tp_player_overlay" />
++            <solid android:color="#19191B" />
+             <corners android:radius="12dp" />
+         </shape>
+     </item>
+     <item android:state_pressed="true">
+         <shape android:shape="rectangle">
+-            <solid android:color="@color/tp_pressed" />
+-            <stroke android:width="3dp" android:color="#FFFFFF" />
++            <solid android:color="#232325" />
++            <stroke android:width="3dp" android:color="@color/tp_primary" />
+             <corners android:radius="12dp" />
+         </shape>
+     </item>
+     <item android:state_focused="true">
+         <shape android:shape="rectangle">
+-            <solid android:color="@color/tp_primary" />
+-            <stroke android:width="3dp" android:color="#FFFFFF" />
++            <solid android:color="#232325" />
++            <stroke android:width="3dp" android:color="@color/tp_primary" />
+             <corners android:radius="12dp" />
+             <padding android:left="12dp" android:top="8dp" android:right="12dp" android:bottom="8dp" />
+         </shape>
+     </item>
+     <item android:state_selected="true">
+         <shape android:shape="rectangle">
+-            <solid android:color="@color/tp_player_overlay" />
+-            <stroke android:width="2dp" android:color="#BDD8FF" />
++            <solid android:color="#19191B" />
++            <stroke android:width="2dp" android:color="#226CC7" />
+             <corners android:radius="12dp" />
+             <padding android:left="12dp" android:top="8dp" android:right="12dp" android:bottom="8dp" />
+         </shape>
+     </item>
+     <item>
+         <shape android:shape="rectangle">
+-            <solid android:color="@color/tp_player_overlay" />
+-            <stroke android:width="1dp" android:color="#60748A" />
++            <solid android:color="#19191B" />
++            <stroke android:width="1dp" android:color="#3C3C41" />
+             <corners android:radius="12dp" />
+             <padding android:left="12dp" android:top="8dp" android:right="12dp" android:bottom="8dp" />
+         </shape>

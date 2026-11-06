@@ -1,0 +1,39 @@
+"""Verify the signed 140 TV output against its final freeze and immutable 139 baseline."""
+from pathlib import Path
+import importlib.util,json,hashlib,re,zipfile,sys
+ROOT=Path(__file__).resolve().parents[2]
+sys.path.insert(0,str(ROOT))
+spec=importlib.util.spec_from_file_location("tv140_builder",ROOT/"build_tv.py")
+b=importlib.util.module_from_spec(spec);spec.loader.exec_module(b)
+sha=b.digest
+v=ROOT/"verification/1.4.0";frozen=v/"frozen-inputs.json";sealed=sha(frozen)
+inputs={p.relative_to(ROOT).as_posix():sha(p) for folder in ["src","res","assets"] for p in sorted((ROOT/folder).rglob("*")) if p.is_file()}
+inputs["AndroidManifest.xml"]=sha(ROOT/"AndroidManifest.xml")
+b.manifest_contract();b.provider_contract();b.unslop_release_contract(inputs)
+result=json.loads((v/"result.json").read_text("utf-8"));assert result["passed"]
+apk=ROOT/"output/tongpin-4k-tv-1.4.0.apk";old=ROOT/"output/tongpin-4k-tv-1.3.9.apk"
+download=Path.home()/"Downloads"/apk.name
+assert sha(apk)==result["sha256"]==sha(download)
+assert result["version_code"]==1400 and result["version"]=="1.4.0"
+assert result["certificate_sha256"]=="c6977a378251b81f1dc7f9564d5c7817f4620f54f2f2ec3befe7bfdf13fffe89"
+parse_ids=lambda p:dict(re.findall(r"([^\s]+) = (0x[0-9a-f]+)",p.read_text()))
+previous_ids=parse_ids(ROOT/"build/1.3.9/resource-ids.txt");current_ids=parse_ids(ROOT/"build/1.4.0/resource-ids.txt")
+assert len(previous_ids)==30 and len(current_ids)==32 and all(current_ids.get(n)==v for n,v in previous_ids.items())
+assert {n:v for n,v in current_ids.items() if n not in previous_ids}=={b.PACKAGE+":style/TongpinPlayerDialogTheme":"0x7f040001",b.PACKAGE+":style/TongpinPlayerTheme":"0x7f040002"}
+with zipfile.ZipFile(apk) as current,zipfile.ZipFile(old) as prior:
+ assert current.testzip() is None
+ assert set(current.namelist())==set(prior.namelist())
+ changed=sorted(n for n in current.namelist() if current.read(n)!=prior.read(n))
+ assert set(changed)=={"AndroidManifest.xml","resources.arsc","classes.dex","META-INF/MANIFEST.MF","META-INF/TONGPIN4.SF","META-INF/TONGPIN4.RSA","res/drawable/tv_focus_dark.xml"},changed
+ dexnames=sorted(n for n in current.namelist() if re.fullmatch(r"classes[0-9]*\.dex",n))
+ assert dexnames==["classes.dex"]
+ for n in dexnames:assert current.read(n)==(ROOT/"build/1.4.0/dex"/n).read_bytes()
+ assert current.read("assets/tongpin_open_sources.json")==prior.read("assets/tongpin_open_sources.json")
+ assert hashlib.sha256(current.read("assets/tongpin_open_sources.json")).hexdigest()==b.PROVIDER_SHA256
+ assert not any(n.startswith("lib/") for n in current.namelist())
+ classes=[name for n in dexnames for name in b.dex_classes(current.read(n))]
+ assert len(classes)==result["class_count"]
+assert sha(frozen)==sealed
+report={"passed":True,"version":"1.4.0","version_code":1400,"bytes":apk.stat().st_size,"sha256":sha(apk),"downloads_sha256":sha(download),"certificate_sha256":result["certificate_sha256"],"same_previous_package_certificate":True,"frozen_inputs_sha256":sealed,"source_owner_review_tooling_pins_unchanged":True,"source_input_count":len(inputs),"published139_evidence_unchanged":True,"resource_id_count":32,"all_previous_resource_ids_unchanged":True,"provider_count":28,"provider_asset_sha256":b.PROVIDER_SHA256,"provider_asset_bytes_unchanged_from139":True,"zip_entry_names_unchanged":True,"changed_zip_entries":changed,"final_dex_names":dexnames,"final_class_count":len(classes),"final_dex_equals_api_audited_bytes":True,"min21_runtime_abi_api23_speed_api26_seek_media3_guards_passed":True,"no_native_libraries":True,"device_tested":False,"runtime_playback_tested":False}
+(v/"post-build-check.json").write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+print(json.dumps(report))

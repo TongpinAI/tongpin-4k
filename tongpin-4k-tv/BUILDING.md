@@ -1,3 +1,19 @@
+# 同频4K TV 1.4.0
+
+当前版本 **1.4.0 / versionCode1400** 为已确认的 Unslop 界面增量：浅米片库、竖版海报、深中性播放器与设置、蓝色焦点和选中标记。包名、最低API21、Media3运行闭包、28来源和139加载优化继续保留；没有修改片源API、播放核心、选集身份、进度、字幕、自动选源或长按状态机。
+
+正式产物 `output/tongpin-4k-tv-1.4.0.apk`，7,822,144字节，SHA256 `374ccc8741cd9cbb405b4818d3351c12943eff5c965a03f79b8b407aed71a3ae`，Downloads相同。43项生产输入中，只修改3项UI Java、2项现有XML和版本字段；旧30个资源ID全部保留，追加 `style/TongpinPlayerDialogTheme=0x7f040001`、`style/TongpinPlayerTheme=0x7f040002`。最终6396个DEX类、SDK/D8/API守卫、签名与7项预期ZIP差异检查通过。
+
+本轮冻结与审查在 `ui/unslop-1.4.0/`、成品证据在 `verification/1.4.0/`。31项生产Java完整编译，763条调用者与既有策略断言通过；另核对62个139领域方法原文、全部SeekBar监听器及字幕/失败面板只涉及视觉的变换。字号/窗口矩阵是明确的主机模型，不是Android字体或真机渲染实测；当前没有电视视觉、遥控和网络播放验收。
+
+可运行 `python ui/unslop-1.4.0/tests/verify_sources.py` 与 `python ui/unslop-1.4.0/tests/verify_ui_wiring.py`。前者先用实际AAPT与锁定Media3资源生成当前140的R，不使用旧R或手工常量；其生成结果与正式预检查R逐字节相同。再运行 `python build_tv.py --preflight` 只编译审计；完整作者/独立审查与同输入预检查门禁齐全后，`python build_tv.py` 才签名。重建保留139 APK、`build/1.3.9/resource-ids.txt`及固定工具/运行时，旧139证据不改。
+
+设计方法适配自 [Unslop by Damir Sokolovsky](https://github.com/heydamir/unslop)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。没有新增装饰图片、动画或远程依赖。
+
+---
+
+# 历史1.3.9及以前记录（以下原文保留）
+
 # 同频4K TV 1.3.9
 
 当前版本为 **1.3.9 / versionCode1309**，最低API21，包名与更新签名延续1.3.8。首页性能增量包括：分类目录在本次运行中复用，目录与首屏影片交错调度，分组与自然排序在专用后台线程整理；共用海报队列合并同URL请求，详情或播放期间暂停无关封面任务。26点播首页、24库搜索、2直播、固定分类、同作品候选与播放器实现保持既有规则。

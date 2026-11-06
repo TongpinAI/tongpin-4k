@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "assertions": 7,
+  "source_sha256": {
+    "build_tongpin.py": "c078b20f91bde9b6d4f6e2bdcca4f71bf61105309453dd87ec93af19aeee0dee"
+  },
+  "runner_sha256": "9a542c515b701c9e91bc60168d1c268c3590e0e6738618fe23405423b52e30ce",
+  "actual_previous145_resource_count": 11471,
+  "new_ids_are_test_values_only": true,
+  "device_tested": false,
+  "apk_packaging_executed": false,
+  "scope": "Execute actual builder resource-delta function against retained145 names/IDs and exact2styles; seven positive/negative cases"
+}

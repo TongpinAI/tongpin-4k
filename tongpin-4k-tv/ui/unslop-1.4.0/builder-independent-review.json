@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "verdict": "clear",
+  "source_sha256": {
+    "build_tv.py": "0ae1901ae43cfa063037c1601fb97d1d9d62d7f571d3d4b35c654d357bb7890b"
+  },
+  "reviewed_freeze_sha256": "da48215496a437508baa98bb6b4dd393950df38a9e31f3ee629b18df24bf0e6c",
+  "actual_43_input_preflight_contract_passed": true,
+  "complete_139_builder_ast_inverse_passed": true,
+  "negative_checks": {
+    "formal_promotion_without_authorization": true,
+    "unreviewed_data_api_input": true,
+    "missing_snapshot_index_pin": true,
+    "stale_before_snapshot_pin": true,
+    "missing_owner_scope": true,
+    "missing_current_test_file_pin": true,
+    "stale_actual_preflight_input_pin": true
+  },
+  "old_contract_functions_unchanged": true,
+  "new_resource_ids_exact_two_old_30_preserved": true,
+  "media3_runtime_and_min21_api_guard_paths_retained": true,
+  "runner_sha256": "d5bb1d2ef2df54ccd6e11d94acb30bc7bf8f3e6a987e0b716d94e6c693da880f",
+  "mutation_scope": "Only this independent JSON report; gate failures use in-memory frozen-input copies. No build, signing, network or source/index mutation.",
+  "formal_positive_requires_owner_promotion": true
+}

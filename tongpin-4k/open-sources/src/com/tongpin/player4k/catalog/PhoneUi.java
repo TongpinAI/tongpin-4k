@@ -25,7 +25,15 @@ public final class PhoneUi {
     public static final int MUTED = 0xff5d6d78, PRIMARY = 0xff226cc7, OUTLINE = 0xffd5ddd9;
     public static final int TONAL = 0xffe6edf7, ON_PRIMARY = 0xffffffff, DARK = 0xff172c42;
     public static final int FILLED = 0, TONAL_BUTTON = 1, TEXT_BUTTON = 2, OUTLINED = 3, DARK_BUTTON = 4;
+    public static final int PLAYER_BG = 0xff141415, PLAYER_SURFACE = 0xff19191b, PLAYER_RAISED = 0xff232325;
+    public static final int PLAYER_TEXT = 0xffededed, PLAYER_SECONDARY = 0xffa1a1a6, PLAYER_MUTED = 0xff85858b;
+    public static final int PLAYER_VALUE = 0xff9bc5ff;
     private PhoneUi() {}
+
+    public static int themeId(Context context) {
+        int id = context.getResources().getIdentifier("TongpinPlayerTheme", "style", context.getPackageName());
+        return id == 0 ? android.R.style.Theme_Material_NoActionBar : id;
+    }
 
     public static int selectionColor(int mode) { return mode == 0 ? PRIMARY : 0xffbdd8ff; }
 
@@ -91,18 +99,47 @@ public final class PhoneUi {
                 style == FILLED || style == DARK_BUTTON ? ON_PRIMARY : style == TONAL_BUTTON ? TEXT : PRIMARY}));
     }
 
+    /** Player-only treatment; the catalogue's established button styling stays unchanged. */
+    public static void stylePlayerButton(Button button) {
+        Context context = button.getContext();
+        button.setAllCaps(false); button.setTextSize(13);
+        button.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
+        button.setMinWidth(dp(context, 48)); button.setMinimumWidth(dp(context, 48));
+        button.setMinHeight(dp(context, 48)); button.setMinimumHeight(dp(context, 48));
+        button.setPadding(dp(context, 8), dp(context, 4), dp(context, 8), dp(context, 4));
+        button.setStateListAnimator(null);
+        button.setBackground(playerControlBackground(context, false));
+        button.setTextColor(new ColorStateList(new int[][]{{-android.R.attr.state_enabled}, {}},
+                new int[]{PLAYER_MUTED, PLAYER_TEXT}));
+    }
+
+    public static RippleDrawable playerControlBackground(Context context, boolean raised) {
+        GradientDrawable focus = background(context, PLAYER_RAISED, 8); focus.setStroke(dp(context, 1), PRIMARY);
+        GradientDrawable normal = background(context, raised ? PLAYER_RAISED : 0x00000000, 8);
+        if (raised) normal.setStroke(dp(context, 1), 0x26ededed);
+        StateListDrawable states = new StateListDrawable();
+        states.addState(new int[]{-android.R.attr.state_enabled}, background(context, 0x00000000, 8));
+        states.addState(new int[]{android.R.attr.state_focused}, focus);
+        states.addState(new int[]{android.R.attr.state_selected}, focus);
+        states.addState(new int[]{}, normal);
+        return new RippleDrawable(ColorStateList.valueOf(0x24ffffff), states, background(context, ON_PRIMARY, 8));
+    }
+
     public static void styleEpisodeBackground(TextView view, int mode) {
         Context context = view.getContext();
         boolean dark = mode != 0;
-        int base = dark ? DARK : SURFACE;
-        GradientDrawable focused = background(context, base, 12);
+        int base = dark ? PLAYER_SURFACE : SURFACE;
+        int raised = dark ? PLAYER_RAISED : 0xffeef3f9;
+        GradientDrawable focused = background(context, base, 8);
         focused.setStroke(dp(context, 2), selectionColor(mode));
+        GradientDrawable selected = background(context, raised, 8);
+        selected.setStroke(dp(context, 1), PRIMARY);
         StateListDrawable states = new StateListDrawable();
         states.addState(new int[]{android.R.attr.state_focused}, focused);
-        states.addState(new int[]{android.R.attr.state_pressed}, background(context, dark ? 0xff253e59 : 0xfff3f6fc, 12));
-        states.addState(new int[]{android.R.attr.state_selected}, background(context, dark ? 0xff253e59 : 0xfff3f6fc, 12));
-        states.addState(new int[]{android.R.attr.state_activated}, background(context, dark ? 0xff253e59 : 0xfff3f6fc, 12));
-        states.addState(new int[]{}, background(context, base, 12));
+        states.addState(new int[]{android.R.attr.state_pressed}, background(context, raised, 8));
+        states.addState(new int[]{android.R.attr.state_selected}, selected);
+        states.addState(new int[]{android.R.attr.state_activated}, selected);
+        states.addState(new int[]{}, background(context, base, 8));
         view.setBackground(states);
     }
 

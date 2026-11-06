@@ -1,0 +1,38 @@
+{
+  "passed": true,
+  "version": "1.4.0",
+  "version_code": 1400,
+  "bytes": 7822144,
+  "sha256": "374ccc8741cd9cbb405b4818d3351c12943eff5c965a03f79b8b407aed71a3ae",
+  "downloads_sha256": "374ccc8741cd9cbb405b4818d3351c12943eff5c965a03f79b8b407aed71a3ae",
+  "certificate_sha256": "c6977a378251b81f1dc7f9564d5c7817f4620f54f2f2ec3befe7bfdf13fffe89",
+  "same_previous_package_certificate": true,
+  "frozen_inputs_sha256": "acc309888da3ab02e3d1adb0fb37cc63470a19e379196467c9309d6e6489b6de",
+  "source_owner_review_tooling_pins_unchanged": true,
+  "source_input_count": 43,
+  "published139_evidence_unchanged": true,
+  "resource_id_count": 32,
+  "all_previous_resource_ids_unchanged": true,
+  "provider_count": 28,
+  "provider_asset_sha256": "9793756bfa35672f9c2645cd981dce4e23431be664ebceb71e6f2b05966b3e05",
+  "provider_asset_bytes_unchanged_from139": true,
+  "zip_entry_names_unchanged": true,
+  "changed_zip_entries": [
+    "AndroidManifest.xml",
+    "META-INF/MANIFEST.MF",
+    "META-INF/TONGPIN4.RSA",
+    "META-INF/TONGPIN4.SF",
+    "classes.dex",
+    "res/drawable/tv_focus_dark.xml",
+    "resources.arsc"
+  ],
+  "final_dex_names": [
+    "classes.dex"
+  ],
+  "final_class_count": 6396,
+  "final_dex_equals_api_audited_bytes": true,
+  "min21_runtime_abi_api23_speed_api26_seek_media3_guards_passed": true,
+  "no_native_libraries": true,
+  "device_tested": false,
+  "runtime_playback_tested": false
+}

@@ -51,7 +51,7 @@
         }
     .end annotation
 
-    .line 287
+    .line 290
     iput-object p2, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$1;->val$owner:Lcom/tongpin/player4k/catalog/OwnSessionPlayer;
 
     iput p3, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$1;->val$generation:I
@@ -70,7 +70,7 @@
 .method synthetic lambda$restart$0$com-tongpin-player4k-catalog-OpenPlayerActivity$1(Lcom/tongpin/player4k/catalog/OwnSessionPlayer;Lcom/tongpin/player4k/catalog/OwnSessionPlayer;ILjava/lang/String;)V
     .locals 1
 
-    .line 297
+    .line 300
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$1;->this$0:Lcom/tongpin/player4k/catalog/OpenPlayerActivity;
 
     invoke-static {v0, p1, p2, p3, p4}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->access$000(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;Lcom/tongpin/player4k/catalog/OwnSessionPlayer;Lcom/tongpin/player4k/catalog/OwnSessionPlayer;ILjava/lang/String;)Z
@@ -91,7 +91,7 @@
 
     invoke-static {p1, p2, p3}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->access$400(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;IZ)V
 
-    .line 298
+    .line 301
     :cond_0
     return-void
 .end method
@@ -99,7 +99,7 @@
 .method synthetic lambda$state$0$com-tongpin-player4k-catalog-OpenPlayerActivity$1(Lcom/tongpin/player4k/catalog/OwnSessionPlayer;Lcom/tongpin/player4k/catalog/OwnSessionPlayer;ILjava/lang/String;I)V
     .locals 1
 
-    .line 290
+    .line 293
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$1;->this$0:Lcom/tongpin/player4k/catalog/OpenPlayerActivity;
 
     invoke-static {v0, p1, p2, p3, p4}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->access$000(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;Lcom/tongpin/player4k/catalog/OwnSessionPlayer;Lcom/tongpin/player4k/catalog/OwnSessionPlayer;ILjava/lang/String;)Z
@@ -110,7 +110,7 @@
 
     return-void
 
-    .line 291
+    .line 294
     :cond_0
     const/4 p1, 0x2
 
@@ -122,7 +122,7 @@
 
     goto :goto_0
 
-    .line 292
+    .line 295
     :cond_1
     const/4 p1, 0x7
 
@@ -134,14 +134,14 @@
 
     goto :goto_1
 
-    .line 291
+    .line 294
     :cond_2
     :goto_0
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$1;->this$0:Lcom/tongpin/player4k/catalog/OpenPlayerActivity;
 
     invoke-static {p1, p3, p4}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->access$100(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;ILjava/lang/String;)V
 
-    .line 293
+    .line 296
     :cond_3
     :goto_1
     return-void
@@ -150,7 +150,7 @@
 .method public restart(Lcom/tongpin/player4k/catalog/OwnSessionPlayer;)V
     .locals 8
 
-    .line 296
+    .line 299
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$1;->val$owner:Lcom/tongpin/player4k/catalog/OwnSessionPlayer;
 
     iget-object v3, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$1;->val$owner:Lcom/tongpin/player4k/catalog/OwnSessionPlayer;
@@ -171,14 +171,14 @@
 
     invoke-virtual {v0, v7}, Lcom/tongpin/player4k/catalog/OwnSessionPlayer;->post(Ljava/lang/Runnable;)Z
 
-    .line 299
+    .line 302
     return-void
 .end method
 
 .method public state(Lcom/tongpin/player4k/catalog/OwnSessionPlayer;I)V
     .locals 9
 
-    .line 289
+    .line 292
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$1;->val$owner:Lcom/tongpin/player4k/catalog/OwnSessionPlayer;
 
     iget-object v3, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$1;->val$owner:Lcom/tongpin/player4k/catalog/OwnSessionPlayer;
@@ -201,6 +201,6 @@
 
     invoke-virtual {v0, v8}, Lcom/tongpin/player4k/catalog/OwnSessionPlayer;->post(Ljava/lang/Runnable;)Z
 
-    .line 294
+    .line 297
     return-void
 .end method

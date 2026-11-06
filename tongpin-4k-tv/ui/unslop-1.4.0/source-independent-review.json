@@ -1,0 +1,50 @@
+{
+  "passed": true,
+  "verdict": "clear",
+  "source_sha256": {
+    "src/com/tongpin/player4k/tv/TvHomeActivity.java": "a3bc0018018d48806eb49e04d11887c8578bb3b405bd96a2d45c5c8182aff09e",
+    "src/com/tongpin/player4k/tv/TvPlayerActivity.java": "8ba37775d4f9cad22d699468a532cfc9dbca48df6ad282501883a9d82eb144ce",
+    "src/com/tongpin/player4k/tv/TvUi.java": "c3d9d9d24e2fbd861e2de73efc40bb97d5faa92baae8d41e2d5b81903ed0a76e"
+  },
+  "resource_sha256": {
+    "res/values/styles.xml": "afcf3a481f96419592cd5cbfe6bcec6756780fa6d7f636cc9bb71ecf73966054",
+    "res/drawable/tv_focus_dark.xml": "ef6ecfb6b95fa4d9d4ffb6b498741b310e47e6b57b77d12e9451c88a3cd0778f"
+  },
+  "owner_freeze": {
+    "path": "ui/unslop-1.4.0/source-freeze.json",
+    "sha256": "fadc46dbfc31ab30716df95333502914a0a07c82f6d2916c22386e2602e53ffa"
+  },
+  "evidence_sha256": {
+    "ui/unslop-1.4.0/verification.json": "a1f2420c21dd6e43d68f1aaf5fdeef602b4e4e6b5fa353233b8bf91eb213485b",
+    "ui/unslop-1.4.0/ui-wiring-verification.json": "325aa6daa9210c77a3be5aad72b5ca3cef3c47813c17af242654062fa06f20b9",
+    "ui/unslop-1.4.0/layout-model-matrix.json": "f6e517c9c2104239a3bd7ec2a9397f4980afaf57fbc09f447163934dd6f6a909",
+    "ui/unslop-1.4.0/resource-generation.json": "8782ca5294f5184fa1987eb781191eb58bf43cf12358e36427cd2249692e0b83"
+  },
+  "independent_checks": {
+    "raw_crlf_core_methods_identical": 62,
+    "raw_seek_callbacks_identical": true,
+    "subtitle_chooser_visual_inverse_exact": true,
+    "other_java_unchanged": 28,
+    "settings_handoff_ownership_cleared_before_dismiss": true,
+    "modal_focus_restore_and_pause_cleanup_guarded": true,
+    "five_primary_and_one_conditional_retry": true,
+    "actual_textview_metrics_used_for_poster_reservation": true,
+    "grid_height_spec_captured_before_first_child_measure": true,
+    "bounded_native_scroll_preserves_chrome_access": true,
+    "old_theme_definition_and_30_resource_ids_preserved": true,
+    "exact_two_style_additions": true,
+    "settings_close_wraps_content_and_retains_48dp_minimum": true,
+    "single_line_layout_delta_inverse_exact": true
+  },
+  "owner_actual_graph_test_assertions": 763,
+  "layout_model_minima": {
+    "poster_height_dp": 72,
+    "search_width_dp": 132,
+    "viewport_dp": 196
+  },
+  "limitations": [
+    "Layout matrix is a modeled font envelope, not native font/render execution.",
+    "Production measures actual TextView line metrics; no TV rendering, DPAD or sustained playback was reproduced.",
+    "No network/media or production/build mutation during review."
+  ]
+}

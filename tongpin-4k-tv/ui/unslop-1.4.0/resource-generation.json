@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "old_retained": 30,
+  "new": {
+    "com.tongpin.player4k.tv:style/TongpinPlayerDialogTheme": "0x7f040001",
+    "com.tongpin.player4k.tv:style/TongpinPlayerTheme": "0x7f040002"
+  },
+  "generated_r": "build/1.4.0/ui-resource/generated/com/tongpin/player4k/tv/R.java",
+  "generated_r_sha256": "5f9de98272324b4681c1a2f664334a68d3b49ff297ed2b3d8d51426261ced56b",
+  "previous_resource_ids_sha256": "700d9b1d79d502ae3d8f67ce3a4b9f0982176229874c2bac7f364182a4cbbeb2",
+  "real_aapt_and_locked_media3_resources": true,
+  "manual_r_stubs_used": false,
+  "runner_sha256": "e6e0009fd716e5672ea27271d995a12f07631f9332df0575a7a774857186b428"
+}

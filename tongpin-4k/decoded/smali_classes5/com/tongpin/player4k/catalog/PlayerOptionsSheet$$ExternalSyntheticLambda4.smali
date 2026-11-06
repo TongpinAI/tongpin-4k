@@ -3,46 +3,54 @@
 .source "D8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnDismissListener;
+.implements Landroid/view/View$OnLayoutChangeListener;
 
 
 # instance fields
-.field public final synthetic f$0:Landroid/view/View;
-
-.field public final synthetic f$1:Landroid/view/View$OnAttachStateChangeListener;
-
-.field public final synthetic f$2:Landroid/view/View$OnLayoutChangeListener;
+.field public final synthetic f$0:Landroid/app/Dialog;
 
 
 # direct methods
-.method public synthetic constructor <init>(Landroid/view/View;Landroid/view/View$OnAttachStateChangeListener;Landroid/view/View$OnLayoutChangeListener;)V
+.method public synthetic constructor <init>(Landroid/app/Dialog;)V
     .locals 0
 
     .line 0
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/tongpin/player4k/catalog/PlayerOptionsSheet$$ExternalSyntheticLambda4;->f$0:Landroid/view/View;
-
-    iput-object p2, p0, Lcom/tongpin/player4k/catalog/PlayerOptionsSheet$$ExternalSyntheticLambda4;->f$1:Landroid/view/View$OnAttachStateChangeListener;
-
-    iput-object p3, p0, Lcom/tongpin/player4k/catalog/PlayerOptionsSheet$$ExternalSyntheticLambda4;->f$2:Landroid/view/View$OnLayoutChangeListener;
+    iput-object p1, p0, Lcom/tongpin/player4k/catalog/PlayerOptionsSheet$$ExternalSyntheticLambda4;->f$0:Landroid/app/Dialog;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onDismiss(Landroid/content/DialogInterface;)V
-    .locals 3
+.method public final onLayoutChange(Landroid/view/View;IIIIIIII)V
+    .locals 11
 
     .line 0
-    iget-object v0, p0, Lcom/tongpin/player4k/catalog/PlayerOptionsSheet$$ExternalSyntheticLambda4;->f$0:Landroid/view/View;
+    move-object v0, p0
 
-    iget-object v1, p0, Lcom/tongpin/player4k/catalog/PlayerOptionsSheet$$ExternalSyntheticLambda4;->f$1:Landroid/view/View$OnAttachStateChangeListener;
+    iget-object v1, v0, Lcom/tongpin/player4k/catalog/PlayerOptionsSheet$$ExternalSyntheticLambda4;->f$0:Landroid/app/Dialog;
 
-    iget-object v2, p0, Lcom/tongpin/player4k/catalog/PlayerOptionsSheet$$ExternalSyntheticLambda4;->f$2:Landroid/view/View$OnLayoutChangeListener;
+    move-object v2, p1
 
-    invoke-static {v0, v1, v2, p1}, Lcom/tongpin/player4k/catalog/PlayerOptionsSheet;->lambda$show$4(Landroid/view/View;Landroid/view/View$OnAttachStateChangeListener;Landroid/view/View$OnLayoutChangeListener;Landroid/content/DialogInterface;)V
+    move v3, p2
+
+    move v4, p3
+
+    move v5, p4
+
+    move/from16 v6, p5
+
+    move/from16 v7, p6
+
+    move/from16 v8, p7
+
+    move/from16 v9, p8
+
+    move/from16 v10, p9
+
+    invoke-static/range {v1 .. v10}, Lcom/tongpin/player4k/catalog/PlayerOptionsSheet;->lambda$show$4(Landroid/app/Dialog;Landroid/view/View;IIIIIIII)V
 
     return-void
 .end method

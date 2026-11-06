@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "version": "1.4.0",
+  "old_document_bytes_retained_as_suffix": true,
+  "files": {
+    "BUILDING.md": {
+      "before_sha256": "681c68abe11c7d7ae4cbb4ca98fd7214819272844d113bdd79441fd22bfae360",
+      "after_sha256": "8afeb39d468f2885949efb5ea85fe9bb624468d6fa6c9c57566b0081ff19523a",
+      "previous_bytes": 12585
+    },
+    "使用说明.md": {
+      "before_sha256": "caee55c23082283ae1a28b9c5b970de63b0e9a632b58190ee6cab6dc10394a32",
+      "after_sha256": "4d57256bd5b45a0d38248538a4830f6ead7f4f812bdc1f5e417d55744f01654d",
+      "previous_bytes": 11892
+    }
+  }
+}

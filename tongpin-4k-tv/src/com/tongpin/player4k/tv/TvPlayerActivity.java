@@ -20,11 +20,12 @@ import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
-import android.widget.HorizontalScrollView;
+import android.widget.ScrollView;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -52,7 +53,10 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
     private TextView actual, status, clock, declaredQuality, heading, subtitle, holdHint;
     private Button playButton, qualityButton, retryButton, previousButton, nextButton, episodesButton, speedButton, autoButton, decoderButton;
     private Button seekBackButton, seekForwardButton;
-    private AlertDialog qualityDialog;
+    private AlertDialog qualityDialog, settingsDialog;
+    private ScrollView settingsPanel;
+    private Button settingsButton, settingsSourceButton, reloadSettingButton;
+    private boolean settingsHandoff;
     private boolean subtitlePicker, subtitleChoosing;
     private List<TvPlaybackEngine.SubtitleTrack> subtitleTracks = Collections.emptyList();
     private String subtitleApplied = "", subtitleError = "";
@@ -122,6 +126,7 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
     };
 
     @Override public void onCreate(Bundle saved) {
+        setTheme(R.style.TongpinPlayerTheme);
         super.onCreate(saved);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getWindow().setNavigationBarColor(Color.BLACK);
@@ -220,24 +225,17 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
 
         header = new LinearLayout(this);
         header.setOrientation(LinearLayout.VERTICAL);
-        header.setPadding(dp(48), dp(76), dp(48), dp(12));
-        header.setBackgroundColor(TvUi.TEXT);
-        heading = TvUi.text(this, title.isEmpty() ? "同频4K TV" : title, 24f, Color.WHITE);
-        heading.setTypeface(Typeface.DEFAULT, Typeface.BOLD);
+        header.setPadding(dp(48), dp(24), dp(48), dp(12));
+        header.setBackgroundColor(0xe6141415);
+        heading = TvUi.text(this, title.isEmpty() ? "同频4K TV" : title, 22f, TvUi.ON_NIGHT);
+        heading.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
         heading.setSingleLine(true);
         heading.setEllipsize(TextUtils.TruncateAt.END);
         header.addView(heading);
-        declaredQuality = TvUi.text(this, "", 16f, 0xffd1dfed);
+        declaredQuality = TvUi.text(this, "", 16f, TvUi.NIGHT_SECONDARY);
         declaredQuality.setSingleLine(true);
         declaredQuality.setEllipsize(TextUtils.TruncateAt.END);
         header.addView(declaredQuality);
-        if (!author.isEmpty() || !licence.isEmpty()) {
-            TextView credit = TvUi.text(this, "作者：" + (author.isEmpty() ? "未标注" : author)
-                    + "  许可：" + (licence.isEmpty() ? "未标注" : licence), 14f, 0xffd1dfed);
-            credit.setSingleLine(true);
-            credit.setEllipsize(TextUtils.TruncateAt.END);
-            header.addView(credit);
-        }
         status = TvUi.text(this, "正在准备播放", 16f, Color.WHITE);
         status.setPadding(0, dp(6), 0, 0);
         status.setMaxLines(2);
@@ -247,18 +245,23 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
 
         controls = new LinearLayout(this);
         controls.setOrientation(LinearLayout.VERTICAL);
-        controls.setPadding(dp(48), dp(12), dp(48), dp(27));
-        controls.setBackgroundColor(TvUi.TEXT);
-        clock = TvUi.text(this, "00:00 / --:--", 16f, Color.WHITE);
-        controls.addView(clock);
+        controls.setPadding(dp(48), dp(8), dp(48), dp(24));
+        controls.setBackgroundColor(0xee141415);
+        LinearLayout timeline = new LinearLayout(this); timeline.setGravity(Gravity.CENTER_VERTICAL);
+        clock = TvUi.text(this, "00:00 / --:--", 16f, TvUi.ON_NIGHT);
+        clock.setSingleLine(true); clock.setEllipsize(TextUtils.TruncateAt.END);
+        clock.setPadding(0, 0, dp(8), 0);
+        clock.setMaxWidth(getResources().getDisplayMetrics().widthPixels - dp(216));
+        timeline.addView(clock, new LinearLayout.LayoutParams(-2, dp(48)));
+        clock.setGravity(Gravity.CENTER_VERTICAL);
         progress = new SeekBar(this);
         progress.setId(View.generateViewId());
         progress.setContentDescription("播放进度，左右键每次调整10秒");
         progress.setFocusable(true);
         progress.setMinimumHeight(dp(48));
         progress.setThumbTintList(ColorStateList.valueOf(Color.WHITE));
-        progress.setProgressTintList(ColorStateList.valueOf(Color.WHITE));
-        progress.setProgressBackgroundTintList(ColorStateList.valueOf(TvUi.SECONDARY));
+        progress.setProgressTintList(ColorStateList.valueOf(TvUi.PRIMARY));
+        progress.setProgressBackgroundTintList(ColorStateList.valueOf(TvUi.NIGHT_MUTED));
         progress.setBackgroundResource(R.drawable.tv_focus_dark);
         progress.setPadding(dp(12), 0, dp(12), 0);
         progress.setEnabled(false);
@@ -292,42 +295,25 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
                 seekBy(key == KeyEvent.KEYCODE_DPAD_LEFT ? -10000L : 10000L);
             return true;
         });
-        controls.addView(progress, new LinearLayout.LayoutParams(-1, dp(48)));
-        LinearLayout row = new LinearLayout(this);
-        row.setOrientation(LinearLayout.HORIZONTAL);
-        previousButton = addButton(row, "上一集", () -> moveEpisode(-1));
+        timeline.addView(progress, new LinearLayout.LayoutParams(0, dp(48), 1));
+        controls.addView(timeline, new LinearLayout.LayoutParams(-1, dp(48)));
+        LinearLayout row = new LinearLayout(this); row.setOrientation(LinearLayout.HORIZONTAL);
+        previousButton = addButton(row, compactTransport() ? "上集" : "上一集", () -> moveEpisode(-1));
+        previousButton.setContentDescription("上一集");
         playButton = addButton(row, "暂停", this::togglePlayback);
-        nextButton = addButton(row, "下一集", () -> moveEpisode(1));
+        nextButton = addButton(row, compactTransport() ? "下集" : "下一集", () -> moveEpisode(1));
+        nextButton.setContentDescription("下一集");
         episodesButton = addButton(row, "选集", this::chooseEpisodes);
-        seekBackButton = addButton(row, "后退10秒", () -> seekBy(-10000L));
-        seekForwardButton = addButton(row, "前进10秒", () -> seekBy(10000L));
-        qualityButton = addButton(row, "画质", this::chooseQuality);
-        Button sources = addButton(row, "换源", this::chooseSources);
-        sources.setEnabled(queue != null);
-        speedButton = addButton(row, "倍速", this::chooseSpeed);
-        speedButton.setEnabled(Build.VERSION.SDK_INT >= 23);
-        addButton(row, "字幕", this::chooseSubtitles);
-        decoderButton = addButton(row, decoderButtonLabel(Build.VERSION.SDK_INT, decoderMode), this::chooseDecoder);
-        decoderButton.setEnabled(Build.VERSION.SDK_INT >= 23);
-        autoButton = addButton(row, "连播", () -> {
-            getSharedPreferences("tongpin_tv_preferences", MODE_PRIVATE).edit().putBoolean("auto_next", !autoNext()).apply();
-            updateNavigation();
-        });
-        retryButton = addButton(row, "重试", this::retry);
-        retryButton.setVisibility(View.GONE);
-        addButton(row, "退出", this::finishPlayback);
-        HorizontalScrollView actions = new HorizontalScrollView(this);
-        actions.setHorizontalScrollBarEnabled(false);
-        actions.setFillViewport(false);
-        actions.setFocusable(false);
-        actions.addView(row);
-        controls.addView(actions, new LinearLayout.LayoutParams(-1, -2));
+        settingsButton = addButton(row, "设置", this::showPlayerSettings);
+        retryButton = addButton(row, "重试", this::retry); retryButton.setVisibility(View.GONE);
+        controls.addView(row, new LinearLayout.LayoutParams(-1, dp(56)));
+        buildPlayerSettings();
         root.addView(controls, new FrameLayout.LayoutParams(-1, -2, Gravity.BOTTOM));
         controls.addOnLayoutChangeListener((view,l,t,r,b,ol,ot,or,ob) -> renderSubtitle());
 
         holdHint = TvUi.text(this, "2×播放 · 松开恢复", 18f, Color.WHITE);
         holdHint.setPadding(dp(16), dp(8), dp(16), dp(8));
-        holdHint.setBackgroundColor(0xcc172c42); holdHint.setVisibility(View.GONE);
+        holdHint.setBackgroundColor(0xe619191b); holdHint.setVisibility(View.GONE);
         FrameLayout.LayoutParams holdParams = new FrameLayout.LayoutParams(-2, -2, Gravity.TOP | Gravity.CENTER_HORIZONTAL);
         holdParams.topMargin = dp(28); root.addView(holdHint, holdParams);
 
@@ -338,12 +324,13 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
         actual.setMaxWidth(getResources().getDisplayMetrics().widthPixels - dp(96));
         actual.setPadding(dp(14), dp(8), dp(14), dp(8));
         GradientDrawable badge = new GradientDrawable();
-        badge.setColor(TvUi.TEXT);
+        badge.setColor(TvUi.NIGHT_SURFACE);
         badge.setCornerRadius(dp(12));
         actual.setBackground(badge);
         FrameLayout.LayoutParams badgeParams = new FrameLayout.LayoutParams(-2, -2, Gravity.TOP | Gravity.RIGHT);
-        badgeParams.setMargins(dp(48), dp(27), dp(48), 0);
+        badgeParams.setMargins(dp(48), dp(112), dp(48), 0);
         root.addView(actual, badgeParams);
+        header.addOnLayoutChangeListener((v,l,t,r,b,ol,ot,or,ob) -> positionResolutionBadge());
         setContentView(root);
         surface.requestFocus();
         updateQualityButton();
@@ -353,13 +340,119 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
     private Button addButton(LinearLayout row, String text, Runnable action) {
         Button button = TvUi.button(this, text, true);
         button.setOnClickListener(view -> action.run());
-        button.setMinWidth(dp(112));
-        button.setMinimumWidth(dp(112));
+        button.setMinWidth(dp(48));
+        button.setMinimumWidth(dp(48));
+        button.setPadding(dp(8), dp(4), dp(8), dp(4));
         button.setSingleLine(true);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(-2, dp(56));
-        params.setMargins(dp(4), dp(6), dp(4), 0);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(0, dp(56), 1);
+        params.setMargins(dp(4), 0, dp(4), 0);
         row.addView(button, params);
         return button;
+    }
+
+    private boolean compactTransport() { return TvUi.shortTransportLabels(getResources().getConfiguration().screenWidthDp - 96, getResources().getConfiguration().fontScale); }
+
+    private void buildPlayerSettings() {
+        LinearLayout panel = new LinearLayout(this); panel.setOrientation(LinearLayout.VERTICAL);
+        panel.setPadding(dp(12), dp(8), dp(12), dp(16)); panel.setBackgroundColor(TvUi.NIGHT_SURFACE);
+        LinearLayout heading = new LinearLayout(this); heading.setGravity(Gravity.CENTER_VERTICAL);
+        TextView title = TvUi.text(this, "播放设置", 22, TvUi.ON_NIGHT);
+        heading.addView(title, new LinearLayout.LayoutParams(0, -2, 1));
+        Button close = TvUi.button(this, "关闭", true); close.setOnClickListener(v -> { if (settingsDialog != null) settingsDialog.dismiss(); });
+        heading.addView(close, new LinearLayout.LayoutParams(-2, -2)); panel.addView(heading);
+        settingsSection(panel, "来源与画质");
+        settingsSourceButton = setting(panel, "播放来源", () -> settingsAction(this::chooseSources));
+        settingsSourceButton.setEnabled(queue != null);
+        qualityButton = setting(panel, "画质", () -> settingsAction(this::chooseQuality));
+        settingsSection(panel, "观看");
+        speedButton = setting(panel, "倍速", () -> settingsAction(this::chooseSpeed));
+        speedButton.setEnabled(Build.VERSION.SDK_INT >= 23);
+        setting(panel, "字幕", () -> settingsAction(this::chooseSubtitles));
+        autoButton = setting(panel, "自动连播", () -> {
+            getSharedPreferences("tongpin_tv_preferences", MODE_PRIVATE).edit().putBoolean("auto_next", !autoNext()).apply();
+            updateNavigation();
+        });
+        settingsSection(panel, "更多控制");
+        LinearLayout seekRow = new LinearLayout(this); seekRow.setOrientation(LinearLayout.HORIZONTAL);
+        seekBackButton = addButton(seekRow, "后退10秒", () -> { if (ownsSettings()) seekBy(-10000L); });
+        seekForwardButton = addButton(seekRow, "前进10秒", () -> { if (ownsSettings()) seekBy(10000L); });
+        panel.addView(seekRow, new LinearLayout.LayoutParams(-1, dp(56)));
+        decoderButton = setting(panel, decoderButtonLabel(Build.VERSION.SDK_INT, decoderMode), () -> settingsAction(this::chooseDecoder));
+        decoderButton.setEnabled(Build.VERSION.SDK_INT >= 23);
+        reloadSettingButton = setting(panel, "重新加载", () -> settingsAction(this::retry));
+        setting(panel, "退出播放", () -> settingsAction(this::finishPlayback));
+        if (!author.isEmpty() || !licence.isEmpty()) {
+            TextView credits = TvUi.text(this, "作者：" + (author.isEmpty() ? "未标注" : author)
+                    + "  许可：" + (licence.isEmpty() ? "未标注" : licence), 14, TvUi.NIGHT_SECONDARY);
+            credits.setPadding(0, dp(12), 0, 0); panel.addView(credits);
+        }
+        settingsPanel = new ScrollView(this); settingsPanel.setFillViewport(false);
+        settingsPanel.addView(panel, new ScrollView.LayoutParams(-1, -2));
+    }
+
+    private void settingsSection(LinearLayout panel, String value) {
+        TextView label = TvUi.text(this, value, 16, TvUi.NIGHT_SECONDARY);
+        label.setPadding(dp(4), dp(16), dp(4), dp(8)); panel.addView(label);
+    }
+
+    private Button setting(LinearLayout panel, String label, Runnable action) {
+        Button button = TvUi.button(this, label, true); button.setGravity(Gravity.LEFT | Gravity.CENTER_VERTICAL);
+        button.setMaxLines(2); button.setEllipsize(TextUtils.TruncateAt.END);
+        button.setOnClickListener(v -> { if (ownsSettings()) action.run(); });
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(-1, -2);
+        params.setMargins(0, 0, 0, dp(4)); panel.addView(button, params); return button;
+    }
+
+    private void showPlayerSettings() {
+        if (!settingsMayOpen(valid, foreground && hasWindowFocus(), destroyed, qualityDialog != null)) return;
+        endHoldSpeed(true); showControls(false); main.removeCallbacks(hideControls); updateNavigation();
+        qualityButton.setText("画质 · " + qualityLabel(selected));
+        settingsSourceButton.setText(queue == null ? "播放来源 · 独立地址" : "播放来源 · " + queue.video.provider.name + " · " + queue.lineName);
+        if (settingsPanel.getParent() instanceof ViewGroup) ((ViewGroup) settingsPanel.getParent()).removeView(settingsPanel);
+        final AlertDialog dialog = new AlertDialog.Builder(this).setView(settingsPanel).create();
+        settingsDialog = dialog; qualityDialog = dialog; settingsHandoff = false;
+        dialog.setOnDismissListener(ignored -> {
+            boolean owned = settingsDialog == dialog, handedOff = settingsHandoff;
+            if (settingsDialog == dialog) settingsDialog = null;
+            if (qualityDialog == dialog) qualityDialog = null;
+            scheduleHide();
+            main.post(() -> { if (settingsMayRestore(owned, handedOff, foreground, destroyed,
+                    qualityDialog != null, controls.getVisibility() == View.VISIBLE)) settingsButton.requestFocus(); });
+        });
+        dialog.show();
+        if (dialog.getWindow() != null) {
+            dialog.getWindow().setLayout(dp(TvUi.settingsWidth(getResources().getConfiguration().screenWidthDp)),
+                    dp(TvUi.settingsHeight(getResources().getConfiguration().screenHeightDp)));
+            dialog.getWindow().setGravity(Gravity.RIGHT | Gravity.CENTER_VERTICAL);
+            WindowManager.LayoutParams attributes = dialog.getWindow().getAttributes();
+            attributes.x = dp(24); dialog.getWindow().setAttributes(attributes);
+        }
+        (settingsSourceButton.isEnabled() ? settingsSourceButton : qualityButton).requestFocus();
+    }
+
+    static boolean settingsMayOpen(boolean valid, boolean foreground, boolean destroyed, boolean hasDialog) {
+        return valid && foreground && !destroyed && !hasDialog;
+    }
+    static boolean settingsMayRestore(boolean owner, boolean handoff, boolean foreground, boolean destroyed,
+            boolean hasDialog, boolean controlsVisible) {
+        return owner && !handoff && foreground && !destroyed && !hasDialog && controlsVisible;
+    }
+    private void positionResolutionBadge() {
+        if (actual == null || header == null) return;
+        FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) actual.getLayoutParams();
+        int top = header.getVisibility() == View.VISIBLE ? Math.max(dp(24), header.getBottom() + dp(8)) : dp(24);
+        if (params.topMargin != top) { params.topMargin = top; actual.setLayoutParams(params); }
+    }
+
+    private boolean ownsSettings() { return valid && foreground && !destroyed && settingsDialog != null && qualityDialog == settingsDialog; }
+
+    private void settingsAction(Runnable action) {
+        if (!ownsSettings()) return;
+        settingsHandoff = true;
+        AlertDialog old = settingsDialog; settingsDialog = null;
+        if (qualityDialog == old) qualityDialog = null;
+        if (old != null) old.dismiss();
+        action.run();
     }
 
     private String providerAsset() throws Exception {
@@ -550,6 +643,7 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
         autoButton.setText("连播 · " + (autoNext() ? "开" : "关"));
         autoButton.setEnabled(!live());
         retryButton.setEnabled(!busy());
+        if (reloadSettingButton != null) reloadSettingButton.setEnabled(!busy());
         seekBackButton.setEnabled(!live()); seekForwardButton.setEnabled(!live());
     }
 
@@ -663,9 +757,9 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
         String hint=!subtitleError.isEmpty() ? subtitleError : !prepared ? "视频准备完成后显示实际字幕轨。"
                 : displayed.isEmpty() ? "当前片源未提供可切换文字字幕；画面内已压入的字幕不能在此关闭。"
                 : "仅选择视频提供的实际文字字幕；优先中文，不自动翻译。系统核心不支持的轨可尝试兼容解码（安卓6及以上）。";
-        LinearLayout title=new LinearLayout(this); title.setOrientation(LinearLayout.VERTICAL); title.setPadding(dp(24),dp(18),dp(24),dp(8));
-        title.addView(TvUi.text(this,"字幕选择",24f,TvUi.TEXT));
-        TextView explanation=TvUi.text(this,hint,16f,TvUi.SECONDARY); explanation.setPadding(0,dp(8),0,0); title.addView(explanation);
+        LinearLayout title=new LinearLayout(this); title.setOrientation(LinearLayout.VERTICAL); title.setPadding(dp(24),dp(16),dp(24),dp(8));
+        title.addView(TvUi.text(this,"字幕选择",24f,TvUi.ON_NIGHT));
+        TextView explanation=TvUi.text(this,hint,16f,TvUi.NIGHT_SECONDARY); explanation.setPadding(0,dp(8),0,0); title.addView(explanation);
         subtitlePicker=true;
         qualityDialog=new AlertDialog.Builder(this).setCustomTitle(title).setSingleChoiceItems(adapter,checked,(dialog,which)-> {
             dialog.dismiss();
@@ -787,7 +881,7 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
                     updateResolution(mp.getVideoWidth(), mp.getVideoHeight());
                 } catch (RuntimeException unavailable) { fail("无法读取视频信息，请重试或选择其他画质。", false); return; }
                 playButton.setEnabled(true);
-                retryButton.setText("重新加载"); retryButton.setVisibility(View.VISIBLE);
+                retryButton.setText("重试"); retryButton.setVisibility(View.GONE);
                 int preparedDuration = 0;
                 try { preparedDuration = mp.getDuration(); } catch (RuntimeException unavailable) { }
                 knownDuration = TvPlaybackClock.duration(knownDuration, preparedDuration);
@@ -1070,7 +1164,8 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
         actual.setText("实际画质：暂不可用");
         actual.setVisibility(View.GONE);
         status.setText(reason + (urls.length == 1 ? " 当前没有其他可选画质。" : " 可选择其他画质或返回片库。"));
-        retryButton.setText(retryFromStart ? "从头重试" : "重试");
+        retryButton.setContentDescription(retryFromStart ? "从头重试" : "重试");
+        retryButton.setText(retryFromStart && !compactTransport() ? "从头重试" : "重试");
         retryButton.setVisibility(View.VISIBLE);
         playButton.setEnabled(false);
         updateNavigation();
@@ -1115,7 +1210,7 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
     }
 
     private void updatePlayButton() {
-        if (playButton != null) playButton.setText(completed ? "重新播放" : playing || (!prepared && playWhenReady && !failed) ? "暂停" : "播放");
+        if (playButton != null) playButton.setText(completed ? compactTransport() ? "重播" : "重新播放" : playing || (!prepared && playWhenReady && !failed) ? "暂停" : "播放");
     }
 
     private void releasePlayer() {
@@ -1173,7 +1268,7 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
 
     private void showControls(boolean focus) {
         if (controls == null || destroyed) return;
-        header.setVisibility(View.VISIBLE); controls.setVisibility(View.VISIBLE);
+        header.setVisibility(View.VISIBLE); controls.setVisibility(View.VISIBLE); positionResolutionBadge();
         renderSubtitle();
         if (focus) (failed ? retryButton : playButton).requestFocus();
         updateClock();
@@ -1190,6 +1285,7 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
         controls.setVisibility(View.GONE);
         renderSubtitle();
         if (!failed) header.setVisibility(View.GONE);
+        positionResolutionBadge();
         surface.requestFocus();
         main.removeCallbacks(hideControls);
     }
@@ -1284,6 +1380,10 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
 
     @Override protected void onPause() {
         foreground = false;
+        if (settingsDialog != null) {
+            settingsHandoff = true; AlertDialog old = settingsDialog; settingsDialog = null;
+            if (qualityDialog == old) qualityDialog = null; old.dismiss();
+        }
         cancelAutomaticSource();
         if (sourcePicker != null) sourcePicker.cancel();
         rememberPosition(); saveProgress(); updateResult(); releasePlayer();

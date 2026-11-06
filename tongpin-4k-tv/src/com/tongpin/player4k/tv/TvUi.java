@@ -10,7 +10,30 @@ public final class TvUi {
     public static final int BG = 0xfff5f2e9, SURFACE = 0xffffffff, TEXT = 0xff172c42;
     public static final int SECONDARY = 0xff5d6d78, PRIMARY = 0xff226cc7;
     public static final int TONAL = 0xffe6edf7, OUTLINE = 0xffd5ddd9;
+    public static final int NIGHT = 0xff141415, NIGHT_SURFACE = 0xff19191b, NIGHT_RAISED = 0xff232325;
+    public static final int ON_NIGHT = 0xffededed, NIGHT_SECONDARY = 0xffa1a1a6, NIGHT_MUTED = 0xff85858b;
     private TvUi() {}
+
+    static boolean splitHomeActions(int widthDp, float fontScale) {
+        int button = Math.max(48, (int) Math.ceil(36f * fontScale) + 32);
+        return widthDp < 180 + 4 * button + 40 + 128;
+    }
+    static boolean shortTransportLabels(int widthDp, float fontScale) { return widthDp < 720 && fontScale >= 1.5f; }
+    static int minimumGridHeight(int windowDp, float fontScale) {
+        return windowDp < 480 ? (fontScale >= 1.5f ? 220 : 200) : (fontScale >= 1.5f ? 300 : 280);
+    }
+    static int posterTitleLines(int viewportDp) { return viewportDp > 0 && viewportDp < 240 ? 1 : 2; }
+    static int chromeLimit(int available, int minimumGrid, int footerAndGap, int minimumChrome) {
+        return Math.max(minimumChrome, available - minimumGrid - footerAndGap);
+    }
+    static int posterColumns(int contentWidthDp) { return contentWidthDp < 720 ? 5 : 6; }
+    static int posterHeight(int width, int viewport, int textAndPadding) {
+        int portrait = Math.max(1, Math.round(width * 1.5f));
+        return viewport > 0 ? Math.min(portrait, Math.max(1, viewport - Math.max(0, textAndPadding))) : portrait;
+    }
+    static int settingsWidth(int screenDp) { return Math.max(240, Math.min(440, screenDp - 48)); }
+    static int settingsHeight(int screenDp) { return Math.max(160, screenDp - 48); }
+
 
     public static int dp(Context c, int value) {
         return Math.round(c.getResources().getDisplayMetrics().density * value);
@@ -31,9 +54,9 @@ public final class TvUi {
                 {-android.R.attr.state_enabled}, {android.R.attr.state_pressed},
                 {android.R.attr.state_focused}, {android.R.attr.state_selected},
                 {android.R.attr.state_activated}, {}},
-                new int[] {SECONDARY, 0xffffffff, 0xffffffff,
-                        dark ? 0xffffffff : TEXT, dark ? 0xffffffff : TEXT,
-                        dark ? 0xffffffff : TEXT});
+                new int[] {dark ? NIGHT_MUTED : SECONDARY, 0xffffffff, 0xffffffff,
+                        dark ? 0xff9bc5ff : TEXT, dark ? 0xff9bc5ff : TEXT,
+                        dark ? ON_NIGHT : TEXT});
     }
 
     public static Button button(Context c, String value) { return button(c, value, false); }
@@ -52,6 +75,7 @@ public final class TvUi {
         b.setPadding(dp(c, 16), dp(c, 6), dp(c, 16), dp(c, 6));
         b.setTextColor(foreground(dark));
         b.setBackgroundResource(dark ? R.drawable.tv_focus_dark : R.drawable.tv_focus_background);
+        b.setPadding(dp(c, 16), dp(c, 8), dp(c, 16), dp(c, 8));
         b.setStateListAnimator(null);
         b.setFocusable(true);
         return b;

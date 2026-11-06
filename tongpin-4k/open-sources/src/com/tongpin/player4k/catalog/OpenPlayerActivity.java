@@ -89,6 +89,7 @@ public final class OpenPlayerActivity extends Activity {
     private boolean restoreFullscreen;
 
     @Override protected void onCreate(Bundle state) {
+        setTheme(PhoneUi.themeId(this));
         super.onCreate(state);
         String invalid = null;
         String author = "", licence = "";
@@ -161,6 +162,7 @@ public final class OpenPlayerActivity extends Activity {
         LinearLayout.LayoutParams titleParams = new LinearLayout.LayoutParams(0, -2, 1);
         titleParams.leftMargin = dp(8);
         toolbar.addView(heading, titleParams);
+        PlayerChrome.styleHeader(toolbar, heading, back);
         screen.addView(toolbar, new LinearLayout.LayoutParams(-1, -2));
         ScrollView scroll = new ScrollView(this);
         scroll.setFillViewport(true);
@@ -232,6 +234,7 @@ public final class OpenPlayerActivity extends Activity {
         LinearLayout.LayoutParams sourceParams = new LinearLayout.LayoutParams(dp(80), -2);
         sourceParams.leftMargin = dp(8);
         controls.addView(source, sourceParams);
+        PlayerChrome.styleContextActions(quality, source);
         body.addView(controls, new LinearLayout.LayoutParams(-1, -2));
         LinearLayout information = new LinearLayout(this);
         information.setOrientation(LinearLayout.VERTICAL);
@@ -462,32 +465,13 @@ public final class OpenPlayerActivity extends Activity {
     }
 
     private void installNavigation(GSYBaseVideoPlayer host) {
-        if (host.findViewWithTag(NAV_TAG) != null) { updateNavigation(); return; }
-        LinearLayout row = new LinearLayout(this);
-        row.setTag(NAV_TAG); row.setGravity(Gravity.CENTER_VERTICAL);
-        row.setPadding(dp(8), 0, dp(8), 0); row.setBackgroundColor(0x99000000);
-        String[] names = {"上一集", "选集", "下一集", "更多"};
-        for (int i = 0; i < names.length; i++) {
-            final int action = i;
-            Button button = PhoneUi.button(this, names[i], PhoneUi.TEXT_BUTTON);
-            button.setTextColor(new ColorStateList(new int[][]{{-android.R.attr.state_enabled}, {}},
-                    new int[]{PhoneUi.MUTED, 0xffffffff}));
-            button.setTextSize(13); button.setSingleLine(true);
-            button.setPadding(dp(6), 0, dp(6), 0);
-            button.setOnClickListener(view -> {
-                if (action == 1) chooseEpisodes();
-                else if (action == 3) moreControls();
-                else if (queue != null) changeEpisode(PlayQueue.step(episodeIndex, queue.episodes.size(), action == 0 ? -1 : 1));
-            });
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(0, dp(48), 1);
-            params.setMargins(dp(2), 0, dp(2), 0); row.addView(button, params);
-        }
-        View bottom = (View) host.getFullscreenButton().getParent();
-        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(-1, dp(48), Gravity.BOTTOM);
-        params.bottomMargin = dp(48); host.addView(row, params);
-        row.setVisibility(bottom.getVisibility() == View.VISIBLE ? View.VISIBLE : View.GONE);
-        host.getViewTreeObserver().addOnGlobalLayoutListener(() ->
-                row.setVisibility(bottom.getVisibility() == View.VISIBLE ? View.VISIBLE : View.GONE));
+        PlayerChrome.install(this, host, NAV_TAG, host == player, action -> {
+            if (!foreground || destroying || player == null || host != player.getCurrentPlayer()) return;
+            if (action == PlayerChrome.PLAY) host.getStartButton().performClick();
+            else if (action == PlayerChrome.EPISODES) chooseEpisodes();
+            else if (action == PlayerChrome.SETTINGS) moreControls();
+            else if (queue != null) changeEpisode(PlayQueue.step(episodeIndex, queue.episodes.size(), action == PlayerChrome.PREVIOUS ? -1 : 1));
+        });
         updateNavigation();
     }
 
@@ -500,21 +484,24 @@ public final class OpenPlayerActivity extends Activity {
 
     private void updateNavigation(GSYBaseVideoPlayer host) {
         if (host == null) return;
-        View found = host.findViewWithTag(NAV_TAG);
-        if (!(found instanceof LinearLayout)) return;
-        LinearLayout row = (LinearLayout) found;
         int count = queue == null ? 0 : queue.episodes.size();
-        row.getChildAt(0).setEnabled(!transitioning && PlayQueue.step(episodeIndex, count, -1) >= 0);
-        row.getChildAt(1).setEnabled(!transitioning && count > 1);
-        row.getChildAt(2).setEnabled(!transitioning && PlayQueue.step(episodeIndex, count, 1) >= 0);
+        PlayerChrome.update(host, NAV_TAG,
+                !transitioning && PlayQueue.step(episodeIndex, count, -1) >= 0,
+                !transitioning && count > 1,
+                !transitioning && PlayQueue.step(episodeIndex, count, 1) >= 0, transitioning);
     }
 
     private void moreControls() {
         if (player == null || destroying) return;
         HoldSpeedControls.reset(this);
-        String[] items = {hasQualityChoices(urls) ? "切换画质 · " + qualityLabel(selected) : "画质 · 单一播放线路",
-                live() ? "倍速 · 直播实时" : "倍速 · " + speed + "×", "后退 10 秒", "前进 10 秒",
-                "画面比例 · " + (aspect == 0 ? "原比例" : "填充屏幕"), "自动连播 · " + (autoNext() ? "开" : "关"), "解码 · " + DecoderPolicy.label(this), "字幕", "换源 · 全部片源与线路"};
+        String subtitleMode = getSharedPreferences("tongpin_ui", MODE_PRIVATE).getString("subtitle_mode", "auto");
+        String subtitleValue = "off".equals(subtitleMode) ? "关闭" : "auto".equals(subtitleMode) ? "自动选择" : "当前轨道";
+        String sourceValue = queue != null && queue.video != null && queue.video.provider != null
+                ? queue.video.provider.name + (queue.lineName.isEmpty() ? "" : " · " + queue.lineName) : "全部片源与线路";
+        String[] items = {hasQualityChoices(urls) ? "画质选项 · " + qualityLabel(selected) : "画质选项 · 单一播放线路",
+                live() ? "播放速度 · 直播实时" : "播放速度 · " + speed + "×", "后退10秒", "前进10秒",
+                "画面比例 · " + (aspect == 0 ? "适应画面" : "填充屏幕"), "自动连播 · " + (autoNext() ? "开" : "关"),
+                "解码方式 · " + DecoderPolicy.label(this), "字幕 · " + subtitleValue, "播放来源 · " + sourceValue};
         int[] kinds = {PlayerOptionsSheet.SOURCE, PlayerOptionsSheet.SPEED, PlayerOptionsSheet.SEEK_BACK,
                 PlayerOptionsSheet.SEEK_FORWARD, PlayerOptionsSheet.ASPECT, PlayerOptionsSheet.AUTO_NEXT, PlayerOptionsSheet.DECODER, PlayerOptionsSheet.SUBTITLES, PlayerOptionsSheet.SOURCE};
         PlayerOptionsSheet.show(this, "播放设置", items, new boolean[]{true, !live(), !live(), !live(), true, true, true, true, !providers.isEmpty()}, kinds, autoNext(), (dialog, action) -> {
@@ -1106,15 +1093,15 @@ public final class OpenPlayerActivity extends Activity {
 
     private void normalSystemBars() {
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        getWindow().setStatusBarColor(BG);
-        getWindow().setNavigationBarColor(Build.VERSION.SDK_INT >= 26 ? BG : PhoneUi.DARK);
+        getWindow().setStatusBarColor(PhoneUi.PLAYER_BG);
+        getWindow().setNavigationBarColor(Build.VERSION.SDK_INT >= 26 ? BG : PhoneUi.PLAYER_BG);
         if (Build.VERSION.SDK_INT >= 28) {
             WindowManager.LayoutParams attributes = getWindow().getAttributes();
             attributes.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_NEVER;
             getWindow().setAttributes(attributes);
         }
         int flags = View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION;
         if (Build.VERSION.SDK_INT >= 26) flags |= View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR;
         getWindow().getDecorView().setSystemUiVisibility(flags);
         if (Build.VERSION.SDK_INT >= 30) {

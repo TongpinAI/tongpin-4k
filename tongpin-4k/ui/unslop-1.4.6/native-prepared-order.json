@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "native_path": "decoded/smali_classes5/com/shuyu/gsyvideoplayer/video/base/GSYVideoView.smali",
+  "native_sha256": "b53a6775af840e4feb215cf082ff44dc33f104ae3dc8b737e91b5ad64b02175b",
+  "caller_sha256": "f2d5b52a34e64c08df0c833d2cc29d7f828aab4d80f69d6feb8a703822bbab9e",
+  "previous_caller_sha256": "96a7d15de1c11dd9d0e78ec58226dce0ebb307e2f5a6c0653e7d75051dce4003",
+  "retained145_callback_and_ready_methods_exact": true,
+  "method_body_sha256": {
+    "private void automaticAfterPrepared(": "71cd7adcd084fd973e66b09825fd423af56199caacd5cbfa0efde566d6b58acd",
+    "private void readyPlayback(": "39798c8162b2a874072f5de1445bfe72eb598fdacadb2a747dddbcd1faab015d",
+    "private void cancelAutomatic()": "54fa602a25dd2f02915c086737322238c0d5338ac6a00ad29ff3325d466c2666",
+    "private final class PlayerCallbacks": "bee7f9173edd01140ba4a24b64dadb363e3dd1428defa1bdf43a1432e5f43ce4"
+  },
+  "native_callback_runs_while_state1_before_native_start": true,
+  "device_tested": false,
+  "scope": "Retained actual native callback order plus exact unchanged145 playback callbacks and deferred prepared/ready/cancel methods; UI-only source changed"
+}

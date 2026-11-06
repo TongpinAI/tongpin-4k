@@ -1,0 +1,70 @@
+{
+  "passed": true,
+  "verdict": "clear: exact146 UI/resource/stub boundary, retained145 native and actual previous resource IDs, final11 tools",
+  "source_sha256": {
+    "open-sources/integration/DisassembleOwn1460.java": "a1a65aa4fff5a69eba53dc2d1416d37aa37e4d65ece7ffda872c62587457728b",
+    "open-sources/integration/audit_final_ui_api_1460.py": "bab40c3bbeb91e4de6e2215540d5de8b53df21262d30d09a304615397d24a059",
+    "open-sources/integration/assert_contract.py": "7ebec08bf5f5ac249006a970ab1d5fcc73874b31a1727c24178b035267294708",
+    "open-sources/integration/integrate_1_4_6.py": "4ff7ec13fa425ad57e37682349bc624483b1cf0c2fdd4a590cc7be4adefdb265",
+    "build_tongpin.py": "c078b20f91bde9b6d4f6e2bdcca4f71bf61105309453dd87ec93af19aeee0dee",
+    "open-sources/toolchain/compile_java_to_smali.py": "b1b855f38294ecb7d392980b917f8fa17eaae77496c3bd1fcd961e557574cc9c",
+    "open-sources/toolchain/check_framework_api.py": "91209f30753abd8ea244655bd98762d4e0590c173dae2e842367d82559a61905",
+    "open-sources/integration/ui_1460_contract.py": "578085da771cbee37d2fb36a6c3279b382c06a6f5e5246d055725172102452eb",
+    "verification/1.4.6/proof-tools/DisassembleOwn1460.class": "004c503b33f5e0e470f458cf1c2a594abac7a7247410495348bf4c087e83e879",
+    "open-sources/integration/check_timer_dex_1460.py": "8b3dc0b9d7bf100c97d429d394d9a1b87588ca9d78ff0d0f10791823ab9434fa",
+    "open-sources/integration/check_native_bindings_1410.py": "9a69cd89a30993ac4ca4beaa7a8d1d7d0e1b981edbb2f2f62740f955c6a9d93c"
+  },
+  "reviewed_frozen_input_sha256": "49a785cf3d69a8125cb5a2a5eeed0e3518799ba075cf99ebc8b7c86c70d5c943",
+  "gate_tests": {
+    "path": "ui/unslop-1.4.6/builder-gate-review-tests.json",
+    "sha256": "80681caa558378de4d55332161c16d44394de4e2a1d335cbd1681ea2db7ca172",
+    "cases": 23,
+    "full_actual_gate_positive": 1,
+    "in_memory_gate_rejections": 14,
+    "actual_resource_guard_cases": 8,
+    "production_or_frozen_files_modified": false
+  },
+  "reviewed_scope": {
+    "modified_own_sources": [
+      "com/tongpin/player4k/catalog/OpenPlayerActivity.java",
+      "com/tongpin/player4k/catalog/PhoneUi.java",
+      "com/tongpin/player4k/catalog/PlayerOptionsSheet.java"
+    ],
+    "new_own_sources": [
+      "com/tongpin/player4k/catalog/PlayerChrome.java"
+    ],
+    "actual_current_sources": 41,
+    "fresh_stage_own_classes": 359,
+    "canonical_stage_dex_sha256": "c7fd33e2dc6742df2d88a6b1624dbe323c464ab497c46242e800c0bb6fbefe48",
+    "native_smali_changes": 0,
+    "old_resources_changed": "version_name only",
+    "new_xml": "decoded/res/values/tp_player_style.xml",
+    "new_styles": [
+      "style/TongpinPlayerTheme",
+      "style/TongpinPlayerDialogTheme"
+    ],
+    "old_resource_ids_retained": 11471,
+    "changed_stub": "one exact getStartButton() View declaration, not packaged",
+    "provider_registry_changes": 0
+  },
+  "resolved_findings": [
+    {
+      "scope": "gate metadata only",
+      "problem": "Getter test field contains complete native class SHA; first gate compared it to the method-body SHA.",
+      "resolution": "Final gate independently validates the actual class SHA and exact native descriptor, then extracts the actual getter method and hashes its body. Canonical native/stub/source/stage bytes did not change."
+    }
+  ],
+  "checks": [
+    "Actual ui_1460_contract.verify(False) passed against41 currentJava sources,18 stubs, full145 native/resources/assets inventory, owner/source/UI tests and current canonical359-class stage.",
+    "14 coherent in-memory malformed fixtures rejected: missing tools/evidence/source/owner/native inventory or stage bounds, incorrect resource whitelist and failed-but-clear independent review with a matching changed pin.",
+    "Actual previous_resource_delta and aapt resource parser executed independently with all11471 prior names/IDs: exact2style success, moved/removed oldID,missing/extra style,wrong whitelist,empty baseline and duplicate aaptID rejection.",
+    "Reviewed the new actual aapt previous-APK dump comparison: all original and added145 IDs are checked against the published APK proof before exact2style growth is accepted.",
+    "New resource XML inventory is exact; both theme parents, explicit blue accent and PlayerTheme dialogTheme link are checked. No unrelated new resource or native member is admitted.",
+    "One changed compile stub is checked by exact inverse to its145 bytes; native public getStartButton() View ABI and complete native class/method body are independently anchored.",
+    "Native binding1410 checker,Java compiler and frameworkAPI scanner are unchanged from145. FinalABI/timer/method/reference proof readers retain17 native classes and the complete fresh own stage.",
+    "DisassembleOwn1460.java independently compiled with the actual JDK --release8; resulting bytes exactly match pinned class004c503b33f5e0e470f458cf1c2a594abac7a7247410495348bf4c087e83e879."
+  ],
+  "device_tested": false,
+  "apk_signed_or_application_executed_during_review": false,
+  "limitations": "Desktop code review and contract/resource fixtures. Native rendering,gesture timing,caption layout and playback require device validation."
+}

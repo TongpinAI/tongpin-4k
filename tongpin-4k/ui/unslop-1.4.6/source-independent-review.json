@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "verdict": "clear: first-direction player UI with retained native controls and playback contracts",
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/OpenPlayerActivity.java": "f2d5b52a34e64c08df0c833d2cc29d7f828aab4d80f69d6feb8a703822bbab9e",
+    "open-sources/src/com/tongpin/player4k/catalog/PlayerOptionsSheet.java": "a1163d14aabe52490b3677a8f38c7165ee34e7077a4201c0f53658b644378bf3",
+    "open-sources/src/com/tongpin/player4k/catalog/PhoneUi.java": "c8fef3ac6bf9ddc149a8534d51e3d485d374c97b75e1899c199e689f2eb5bb79",
+    "open-sources/src/com/tongpin/player4k/catalog/PlayerChrome.java": "61bafcaf4bc791bfb23d7f1b3b83feb9caa7b5111bc7cbbf28d19fc5e2c99ae4",
+    "decoded/res/values/tp_player_style.xml": "848d7f1802d9c35a2b059400a94cce4aef4dcfb569198fc51eeace8fe0514c59",
+    "open-sources/toolchain/stubs/com/shuyu/gsyvideoplayer/video/base/GSYVideoControlView.java": "18adb6a40604a6be2205c13220a3147be7fdddad3110fb8d2308a9f69d775899"
+  },
+  "owner_freeze_sha256": "9e90239206aafd72730f50852f5ee94cc1382fb2c309fb79800cdd734f5e55b2",
+  "tests_sha256": "b08bd9806d5d05fc543b00f2382ae65c3c2b45ace04d52e341e64c2426689cc3",
+  "production_java_count": 41,
+  "changed_java": 3,
+  "added_java": 1,
+  "unchanged_java": 37,
+  "host_assertions": 494,
+  "review": "Original seek/current/total/fullscreen instances and listeners are retained; native play proxy is bound to current host/foreground. One bottom container owns the transport; start visibility is only suppressed in active states, preserving normal/error/completion and lock/auto-hide. Observer registration waits for attachment and detaches. Subtitle movement changes only the known overlay margin. Settings callbacks and action indexes are retained. Only two player themes are added; global catalogue styling and all loading/network/session/decoder helpers keep baseline bytes.",
+  "native_abi_descriptor_verified": true,
+  "scope_note": "Semantic source and existing host-artifact review, not Android execution. Full resource IDs, fresh DEX and package signature remain builder checks.",
+  "device_tested": false,
+  "network_tested": false,
+  "android_views_constructed": false
+}

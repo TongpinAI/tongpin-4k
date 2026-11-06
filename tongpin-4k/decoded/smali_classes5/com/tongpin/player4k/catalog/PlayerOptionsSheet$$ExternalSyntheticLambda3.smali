@@ -3,15 +3,19 @@
 .source "D8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/view/View$OnLayoutChangeListener;
+.implements Landroid/view/View$OnClickListener;
 
 
 # instance fields
 .field public final synthetic f$0:Landroid/app/Dialog;
 
+.field public final synthetic f$1:Landroid/content/DialogInterface$OnClickListener;
+
+.field public final synthetic f$2:I
+
 
 # direct methods
-.method public synthetic constructor <init>(Landroid/app/Dialog;)V
+.method public synthetic constructor <init>(Landroid/app/Dialog;Landroid/content/DialogInterface$OnClickListener;I)V
     .locals 0
 
     .line 0
@@ -19,38 +23,26 @@
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/PlayerOptionsSheet$$ExternalSyntheticLambda3;->f$0:Landroid/app/Dialog;
 
+    iput-object p2, p0, Lcom/tongpin/player4k/catalog/PlayerOptionsSheet$$ExternalSyntheticLambda3;->f$1:Landroid/content/DialogInterface$OnClickListener;
+
+    iput p3, p0, Lcom/tongpin/player4k/catalog/PlayerOptionsSheet$$ExternalSyntheticLambda3;->f$2:I
+
     return-void
 .end method
 
 
 # virtual methods
-.method public final onLayoutChange(Landroid/view/View;IIIIIIII)V
-    .locals 11
+.method public final onClick(Landroid/view/View;)V
+    .locals 3
 
     .line 0
-    move-object v0, p0
+    iget-object v0, p0, Lcom/tongpin/player4k/catalog/PlayerOptionsSheet$$ExternalSyntheticLambda3;->f$0:Landroid/app/Dialog;
 
-    iget-object v1, v0, Lcom/tongpin/player4k/catalog/PlayerOptionsSheet$$ExternalSyntheticLambda3;->f$0:Landroid/app/Dialog;
+    iget-object v1, p0, Lcom/tongpin/player4k/catalog/PlayerOptionsSheet$$ExternalSyntheticLambda3;->f$1:Landroid/content/DialogInterface$OnClickListener;
 
-    move-object v2, p1
+    iget v2, p0, Lcom/tongpin/player4k/catalog/PlayerOptionsSheet$$ExternalSyntheticLambda3;->f$2:I
 
-    move v3, p2
-
-    move v4, p3
-
-    move v5, p4
-
-    move/from16 v6, p5
-
-    move/from16 v7, p6
-
-    move/from16 v8, p7
-
-    move/from16 v9, p8
-
-    move/from16 v10, p9
-
-    invoke-static/range {v1 .. v10}, Lcom/tongpin/player4k/catalog/PlayerOptionsSheet;->lambda$show$3(Landroid/app/Dialog;Landroid/view/View;IIIIIIII)V
+    invoke-static {v0, v1, v2, p1}, Lcom/tongpin/player4k/catalog/PlayerOptionsSheet;->lambda$show$3(Landroid/app/Dialog;Landroid/content/DialogInterface$OnClickListener;ILandroid/view/View;)V
 
     return-void
 .end method

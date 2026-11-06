@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "source_ready": true,
+  "source_sha256": {
+    "src/com/tongpin/player4k/tv/TvHomeActivity.java": "a3bc0018018d48806eb49e04d11887c8578bb3b405bd96a2d45c5c8182aff09e",
+    "src/com/tongpin/player4k/tv/TvPlayerActivity.java": "8ba37775d4f9cad22d699468a532cfc9dbca48df6ad282501883a9d82eb144ce",
+    "src/com/tongpin/player4k/tv/TvUi.java": "c3d9d9d24e2fbd861e2de73efc40bb97d5faa92baae8d41e2d5b81903ed0a76e"
+  },
+  "resource_sha256": {
+    "res/values/styles.xml": "afcf3a481f96419592cd5cbfe6bcec6756780fa6d7f636cc9bb71ecf73966054",
+    "res/drawable/tv_focus_dark.xml": "ef6ecfb6b95fa4d9d4ffb6b498741b310e47e6b57b77d12e9451c88a3cd0778f"
+  },
+  "test_reports": {
+    "ui/unslop-1.4.0/verification.json": "a1f2420c21dd6e43d68f1aaf5fdeef602b4e4e6b5fa353233b8bf91eb213485b",
+    "ui/unslop-1.4.0/ui-wiring-verification.json": "325aa6daa9210c77a3be5aad72b5ca3cef3c47813c17af242654062fa06f20b9",
+    "ui/unslop-1.4.0/layout-model-matrix.json": "f6e517c9c2104239a3bd7ec2a9397f4980afaf57fbc09f447163934dd6f6a909",
+    "ui/unslop-1.4.0/resource-generation.json": "8782ca5294f5184fa1987eb781191eb58bf43cf12358e36427cd2249692e0b83"
+  },
+  "new_resource_names": [
+    "style/TongpinPlayerDialogTheme",
+    "style/TongpinPlayerTheme"
+  ],
+  "new_resource_ids": {
+    "style/TongpinPlayerDialogTheme": "0x7f040001",
+    "style/TongpinPlayerTheme": "0x7f040002"
+  },
+  "old_resource_ids_retained": 30,
+  "device_tested": false,
+  "native_render_tested": false,
+  "scope": "Only3 UI Java files and2 approved XMLs; retained139 API,providers,allcatalogue/cache/paging/workidentity,seek/session/auto-source/subtitle/hold data methods. Height/font-aware poster and home chrome; five primary actions plus conditional recovery; grouped dark settings and two theme resources."
+}

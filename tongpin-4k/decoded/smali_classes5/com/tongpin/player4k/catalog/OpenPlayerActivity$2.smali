@@ -47,7 +47,7 @@
         }
     .end annotation
 
-    .line 956
+    .line 943
     iput p2, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$2;->val$generation:I
 
     iput-object p3, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$2;->val$url:Ljava/lang/String;
@@ -64,7 +64,7 @@
 .method public run()V
     .locals 4
 
-    .line 958
+    .line 945
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$2;->this$0:Lcom/tongpin/player4k/catalog/OpenPlayerActivity;
 
     invoke-static {v0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->access$500(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;)Ljava/lang/Runnable;
@@ -75,7 +75,7 @@
 
     return-void
 
-    .line 959
+    .line 946
     :cond_0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$2;->this$0:Lcom/tongpin/player4k/catalog/OpenPlayerActivity;
 
@@ -123,7 +123,7 @@
 
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$2;->this$0:Lcom/tongpin/player4k/catalog/OpenPlayerActivity;
 
-    .line 960
+    .line 947
     invoke-static {v0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->access$300(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;)I
 
     move-result v0
@@ -162,7 +162,7 @@
 
     goto :goto_1
 
-    .line 961
+    .line 948
     :cond_1
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$2;->this$0:Lcom/tongpin/player4k/catalog/OpenPlayerActivity;
 
@@ -178,12 +178,12 @@
 
     move-result v0
 
-    .line 962
+    .line 949
     iget-object v2, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$2;->this$0:Lcom/tongpin/player4k/catalog/OpenPlayerActivity;
 
     invoke-static {v2, v1}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->access$502(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;Ljava/lang/Runnable;)Ljava/lang/Runnable;
 
-    .line 963
+    .line 950
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$2;->this$0:Lcom/tongpin/player4k/catalog/OpenPlayerActivity;
 
     invoke-static {v1}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->access$1100(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;)I
@@ -211,7 +211,7 @@
 
     invoke-static {v1, v2, v3}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->access$1200(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;ILjava/lang/String;)V
 
-    .line 964
+    .line 951
     :cond_3
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$2;->this$0:Lcom/tongpin/player4k/catalog/OpenPlayerActivity;
 
@@ -243,11 +243,11 @@
 
     invoke-static {v0, v3}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->access$1300(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;Z)V
 
-    .line 965
+    .line 952
     :cond_5
     return-void
 
-    .line 960
+    .line 947
     :cond_6
     :goto_1
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$2;->this$0:Lcom/tongpin/player4k/catalog/OpenPlayerActivity;

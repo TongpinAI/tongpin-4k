@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "scope": "146 player UI; retained145 catalogue/loading/playback/native and all prior IDs, exact2newstyles",
+  "files": {
+    "resources": {
+      "decoded/res/values/tp_player_style.xml": "848d7f1802d9c35a2b059400a94cce4aef4dcfb569198fc51eeace8fe0514c59"
+    },
+    "smali": {}
+  },
+  "new_resources": {
+    "style/TongpinPlayerTheme": null,
+    "style/TongpinPlayerDialogTheme": null
+  },
+  "java_source_count": 41,
+  "provider_count": 28,
+  "checks": {
+    "native145_unchanged": true,
+    "version_plus_exact2player_styles": true,
+    "unified_categories_group_candidates_and_viewport_native_bindings": true,
+    "source_stubs_tests_and_reviews": true,
+    "published145_evidence_unchanged": true,
+    "canonical_stage_dex": true
+  },
+  "device_tested": false
+}

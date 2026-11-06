@@ -1,0 +1,132 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "name": "actual_current_full_preflight",
+      "passed": true,
+      "seconds": 6.938
+    },
+    {
+      "name": "formal_without_promotion",
+      "passed": true,
+      "rejected": "Formal integration requires completed review promotion"
+    },
+    {
+      "name": "missing_tool_pin",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "required_test_template_pin_missing",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "unexpected_source_scope",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "missing_source_expectation",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "wrong_canonical_dex_stage",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "changed_stage_smali_pin",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "missing_source_owner_coverage",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "failed_review_with_clear_text_and_matching_pin",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "missing_native_inventory_entry_with_matching_index_pin",
+      "passed": true,
+      "rejected": "Native/resource/asset inventory changed"
+    },
+    {
+      "name": "promotion_without_independent_tool_coverage",
+      "passed": true,
+      "rejected": "Missing independent source/tool review coverage"
+    },
+    {
+      "name": "missing_new_style_xml_pin",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "missing_one_approved_style",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "unapproved_extra_style_name",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "actual_resource_guard_all11471_retained_plus2styles",
+      "passed": true
+    },
+    {
+      "name": "resource_old_id_moved",
+      "passed": true
+    },
+    {
+      "name": "resource_old_name_missing",
+      "passed": true
+    },
+    {
+      "name": "resource_one_new_style_missing",
+      "passed": true
+    },
+    {
+      "name": "resource_unapproved_extra_style",
+      "passed": true
+    },
+    {
+      "name": "resource_wrong_allowed_style",
+      "passed": true
+    },
+    {
+      "name": "resource_empty_baseline",
+      "passed": true
+    },
+    {
+      "name": "actual_aapt_parser_duplicate_ids",
+      "passed": true
+    }
+  ],
+  "assertions": 23,
+  "frozen_input_sha256": "49a785cf3d69a8125cb5a2a5eeed0e3518799ba075cf99ebc8b7c86c70d5c943",
+  "source_sha256": {
+    "open-sources/integration/DisassembleOwn1460.java": "a1a65aa4fff5a69eba53dc2d1416d37aa37e4d65ece7ffda872c62587457728b",
+    "open-sources/integration/audit_final_ui_api_1460.py": "bab40c3bbeb91e4de6e2215540d5de8b53df21262d30d09a304615397d24a059",
+    "open-sources/integration/assert_contract.py": "7ebec08bf5f5ac249006a970ab1d5fcc73874b31a1727c24178b035267294708",
+    "open-sources/integration/integrate_1_4_6.py": "4ff7ec13fa425ad57e37682349bc624483b1cf0c2fdd4a590cc7be4adefdb265",
+    "build_tongpin.py": "c078b20f91bde9b6d4f6e2bdcca4f71bf61105309453dd87ec93af19aeee0dee",
+    "open-sources/toolchain/compile_java_to_smali.py": "b1b855f38294ecb7d392980b917f8fa17eaae77496c3bd1fcd961e557574cc9c",
+    "open-sources/toolchain/check_framework_api.py": "91209f30753abd8ea244655bd98762d4e0590c173dae2e842367d82559a61905",
+    "open-sources/integration/ui_1460_contract.py": "578085da771cbee37d2fb36a6c3279b382c06a6f5e5246d055725172102452eb",
+    "verification/1.4.6/proof-tools/DisassembleOwn1460.class": "004c503b33f5e0e470f458cf1c2a594abac7a7247410495348bf4c087e83e879",
+    "open-sources/integration/check_timer_dex_1460.py": "8b3dc0b9d7bf100c97d429d394d9a1b87588ca9d78ff0d0f10791823ab9434fa",
+    "open-sources/integration/check_native_bindings_1410.py": "9a69cd89a30993ac4ca4beaa7a8d1d7d0e1b981edbb2f2f62740f955c6a9d93c"
+  },
+  "actual_full_preflight_executed": true,
+  "negative_fixtures_in_memory_only": true,
+  "production_or_frozen_files_modified": false,
+  "device_tested": false,
+  "runner_sha256": "d472192d42cd34ed49b811208f8643c1d2c2c80fb264977af123a2b9a74ae7ed"
+}

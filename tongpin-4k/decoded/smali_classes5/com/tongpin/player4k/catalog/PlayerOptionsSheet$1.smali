@@ -30,7 +30,7 @@
         }
     .end annotation
 
-    .line 132
+    .line 147
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/PlayerOptionsSheet$1;->val$dialog:Landroid/app/Dialog;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,14 +43,14 @@
 .method public onViewAttachedToWindow(Landroid/view/View;)V
     .locals 0
 
-    .line 133
+    .line 148
     return-void
 .end method
 
 .method public onViewDetachedFromWindow(Landroid/view/View;)V
     .locals 0
 
-    .line 134
+    .line 149
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/PlayerOptionsSheet$1;->val$dialog:Landroid/app/Dialog;
 
     invoke-virtual {p1}, Landroid/app/Dialog;->dismiss()V

@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "scope": "Approved opaque design-token text pairs; not a native screenshot, alpha/video composite or disabled-state audit.",
+  "text_pairs": {
+    "172C42/F5F2E9": 12.7154,
+    "226CC7/F5F2E9": 4.6462,
+    "EDEDED/141415": 15.7259,
+    "A1A1A6/19191B": 6.8249,
+    "85858B/141415": 5.0193,
+    "9BC5FF/19191B": 9.8847,
+    "FFFFFF/226CC7": 5.2009
+  }
+}

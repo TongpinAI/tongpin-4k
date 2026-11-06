@@ -19,9 +19,9 @@ SDK = TOOLS / "build-tools-35.0.1"
 JDK = Path(r"D:\PyCharm\PyCharm 2024.3.1.1\jbr\bin")
 SOURCE = UPSTREAM / "output/kanke-4k-latest-noads.apk"
 DECODED = ROOT / "decoded"
-VERSION_NAME = "1.4.5"
-VERSION_CODE = 1450
-PREVIOUS_VERSION = "1.4.4"
+VERSION_NAME = "1.4.6"
+VERSION_CODE = 1460
+PREVIOUS_VERSION = "1.4.5"
 RELEASE_KIND = "code-and-ui"
 VERIFY_ROOT = ROOT / "verification"
 VERIFY = VERIFY_ROOT / VERSION_NAME
@@ -61,6 +61,16 @@ def run(args, env=None, evidence=None):
             text = "".join(lines)
         assert result.returncode == 0, f"Command failed ({result.returncode}); see {VERIFY / 'build.log'}"
         return text
+
+
+
+def previous_resource_delta(previous, actual, allowed):
+    assert previous and all(actual.get(name) == value for name, value in previous.items()), "A published145 resource ID moved or disappeared"
+    added = {name: value for name, value in actual.items() if name not in previous}
+    assert set(allowed) == {"style/TongpinPlayerTheme", "style/TongpinPlayerDialogTheme"}
+    assert set(added) == set(allowed), "Unexpected resource additions since published145"
+    return {"passed": True, "previous_count": len(previous), "current_count": len(actual), "added": added,
+            "all_previous_ids_retained": True}
 
 
 def resources(text):
@@ -258,22 +268,22 @@ def check_own_code(candidate, integration):
 def check_final_ui_dex(candidate):
     if RELEASE_KIND != "code-and-ui":
         return None
-    assert VERSION_NAME == "1.4.5", "Prepare the version-specific final UI DEX proof reader"
+    assert VERSION_NAME == "1.4.6", "Prepare the version-specific final UI DEX proof reader"
     dex = VERIFY / "final-classes5.dex"
     with zipfile.ZipFile(candidate) as archive:
         dex.write_bytes(archive.read("classes5.dex"))
     proof_classes = VERIFY / "proof-tools"
-    assert (proof_classes / "DisassembleOwn1450.class").is_file()
+    assert (proof_classes / "DisassembleOwn1460.class").is_file()
     cp = os.pathsep.join([str(TOOLS / "apktool_3.0.3.jar"), str(proof_classes)])
-    integration = json.loads((ROOT / "open-sources/integration/1.4.5.json").read_text(encoding="utf-8"))
+    integration = json.loads((ROOT / "open-sources/integration/1.4.6.json").read_text(encoding="utf-8"))
     final_smali = VERIFY / "final-smali"
-    run([JDK / "java.exe", "-cp", cp, "DisassembleOwn1450", dex, final_smali, str(integration["own_class_count"])], evidence="final-disassembly.log")
-    run([sys.executable, ROOT / "open-sources/integration/integrate_1_4_5.py", "--check-final-smali", final_smali], evidence="final-abi.log")
-    run([sys.executable, ROOT / "open-sources/integration/audit_final_ui_api_1450.py", final_smali,
+    run([JDK / "java.exe", "-cp", cp, "DisassembleOwn1460", dex, final_smali, str(integration["own_class_count"])], evidence="final-disassembly.log")
+    run([sys.executable, ROOT / "open-sources/integration/integrate_1_4_6.py", "--check-final-smali", final_smali], evidence="final-abi.log")
+    run([sys.executable, ROOT / "open-sources/integration/audit_final_ui_api_1460.py", final_smali,
          VERIFY / "reviewed-framework-api.json"], evidence="final-framework-api.log")
     abi = json.loads((VERIFY / "final-own-abi-check.json").read_text(encoding="utf-8"))
     api = json.loads((VERIFY / "final-framework-api-review.json").read_text(encoding="utf-8"))
-    run([sys.executable, ROOT / "open-sources/integration/check_timer_dex_1450.py", final_smali], evidence="final-timer.log")
+    run([sys.executable, ROOT / "open-sources/integration/check_timer_dex_1460.py", final_smali], evidence="final-timer.log")
     timer = json.loads((VERIFY / "final-timer-proof.json").read_text(encoding="utf-8"))
     native = json.loads((VERIFY / "final-native-binding.json").read_text(encoding="utf-8"))
     assert abi["passed"] and api["passed"] and timer["passed"] and native["passed"]
@@ -349,6 +359,13 @@ def main():
     assert all(actual.get(name) == value for name, value in integration.get("expected_added_resource_ids", {}).items()), "New resource ID differs from the exact release contract"
     extra_resources = set(actual) - set(baseline["resources"]) - set(brand_ids)
     assert extra_resources == set(integration.get("additional_resource_names", [])), "New resource IDs differ from exact release whitelist"
+    previous_apk = OUTPUT / f"tongpin-4k-{PREVIOUS_VERSION}.apk"
+    previous_dump = run([SDK / "aapt2.exe", "dump", "resources", previous_apk], evidence="previous-release-resources.txt")
+    previous_all = resources(previous_dump)
+    expected_previous = dict(baseline["resources"]); expected_previous.update(prior_ids)
+    assert previous_all == expected_previous, "Published145 actual resources differ from its frozen resource proof"
+    previous_check = previous_resource_delta(previous_all, actual, integration["new_resource_names_since_previous"])
+    (VERIFY / "resource-id-previous-check.json").write_text(json.dumps(previous_check, indent=2) + "\n", encoding="utf-8")
     print(f"PASS: all {baseline['resource_count']} original resource IDs retained", flush=True)
     run([SDK / "zipalign.exe", "-f", "-P", "16", "4", unsigned, aligned])
     key = signing_key()

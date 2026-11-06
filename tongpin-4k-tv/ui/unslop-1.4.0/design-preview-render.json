@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "render_number_in_design_run": 3,
+  "reason": "Increase canvas to include the attribution/footer; implementation HTML unchanged",
+  "html_sha256": "5feb5a8455fdfffa59b5e036179784df1992f517a8d4d1c97bbe308ffa554215",
+  "image_sha256": "75d942600e87daaa559172be54f413266e121b00cb94531083638fefcda92a6d",
+  "native_device_screenshot": false,
+  "media_included": false,
+  "width": 1600,
+  "height": 1280
+}
