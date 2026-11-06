@@ -1,0 +1,42 @@
+{
+  "passed": true,
+  "verdict": "clear: frozen144 natural title-order scope is limited to CatalogActivity/AllCatalogSearch plus CatalogTitleOrder with preserved143 playback/native/registry boundary and exact11tool final DEX proofs",
+  "source_sha256": {
+    "open-sources/toolchain/check_framework_api.py": "91209f30753abd8ea244655bd98762d4e0590c173dae2e842367d82559a61905",
+    "open-sources/integration/integrate_1_4_4.py": "a54c9a23226f80163eadcaeb476c3063618a5a12df5745ea591a69d437b73db5",
+    "open-sources/integration/DisassembleOwn1440.java": "a46560bddf2e662f9cad3192a66d7d91e60f9921dcebede581e33bd4600433ed",
+    "verification/1.4.4/proof-tools/DisassembleOwn1440.class": "dac92bd6c5f75b32662f88b5c968a6568e7a2b9ac0fd2e80fdc3179a09ecab41",
+    "open-sources/integration/check_native_bindings_1410.py": "9a69cd89a30993ac4ca4beaa7a8d1d7d0e1b981edbb2f2f62740f955c6a9d93c",
+    "open-sources/integration/ui_1440_contract.py": "a54dfa8e9455ae9764ecc37679aa903995077db4dc057ca2632033695a269725",
+    "build_tongpin.py": "0b93896c0de300d88730112d6985b96eb05ff8e7f939d3a7fd38e5ae3cee3df7",
+    "open-sources/toolchain/compile_java_to_smali.py": "b1b855f38294ecb7d392980b917f8fa17eaae77496c3bd1fcd961e557574cc9c",
+    "open-sources/integration/audit_final_ui_api_1440.py": "73ae77ca7ef855a3132fb148f863098b212a297e1387ec690152ad67b8097fec",
+    "open-sources/integration/check_timer_dex_1440.py": "1f704a21a9399992fe02c9431d5fdfdb5063b9aa51ce29f794d3923cef6659ea",
+    "open-sources/integration/assert_contract.py": "15d5933786a58126cf8043a75b5da18a4aa6011bc37c346630954f8d257ce41a"
+  },
+  "reviewed_main_freeze_sha256": "d71323063c4a19abaa46db020bb080e57d73eed1fbd02d8831834e71bf56a1f6",
+  "gate_test_report": "ui/search-order-1.4.4/builder-gate-review-tests.json",
+  "gate_test_report_sha256": "a7ff907109bb35c3b62bd458548f5710a5fc36fd4fb547502bd9aaebabdc3b99",
+  "checks": [
+    "Actual complete verify(promotion=False) passes for35sources/308fresh ownDEX classes; only CatalogActivity/AllCatalogSearch differ and CatalogTitleOrder is the sole newsource.",
+    "Twelve in-memory negatives reject unauthorized promotion, absent independent tool coverage, missing tests/native/shared evidence, missing/wrong native checker pin, missing preimage hash, absent/wrong canonicalDEX pin, partial stage map and previous143 stage.",
+    "Published143 APK identity is hard-pinned; source preimages, all original stubs, native/resource/asset inventory and rawbytes are unchanged except exact version values. Other32 Java retain143 bytes, including players/API/registry consumers.",
+    "Fresh canonical ownDEX descriptors independently parsed as data:308unique own classes match the complete frozen smali map; no compile stubs packaged.",
+    "Final reader still covers all own classes and17legacy classes; full instruction/register/method equivalence, timer/native helper proof, actualAPK ABI, native field/access/receiver checks and official SDK API guards remain active.",
+    "Native-binding checker retains independent141-reviewed byte hash; actual308-class r1 native binding independently rerun. It is a symbolic/access/linear receiver checker, not a completeDalvik verifier.",
+    "Required evidence pins actual current35-source compile graph, cached snapshot/scheduler inverse assertions, standalone shared comparator/cache proof and model/provider identity checks; source review is separately owned.",
+    "Top-level assert_contract dispatches directly to144; old143 verification evidence, framework resources,28provider registry and runtime dependency boundary are retained."
+  ],
+  "negative_case_count": 12,
+  "fresh_java_source_count": 35,
+  "fresh_own_dex_class_count": 308,
+  "canonical_dex_sha256": "9150be66abf549b0b0234e7cf97f98d292d31294c5595b205f602ab6968e4022",
+  "prior_native_checker_review": "ui/playback-fix-1.4.1/builder-independent-review.json",
+  "prior_native_checker_review_sha256": "ffaeb106c16d3b2e8ed6f330aa93c88d157627b371a07f74094b31a2943bc01c",
+  "frozen_sorting_scope_only": true,
+  "release_hold": "New unified-home aggregation/classification/dedup requirement arrived after this snapshot. Do not promote/package this frozen sorting-only scope; expanded production/tooling requires fresh scope/review.",
+  "production_or_freeze_mutated": false,
+  "device_tested": false,
+  "runtime_playback_tested": false,
+  "native_render_verified": false
+}

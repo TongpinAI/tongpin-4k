@@ -20,10 +20,15 @@ import android.util.LruCache;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.MotionEvent;
+import android.view.KeyEvent;
+import android.view.ViewConfiguration;
+import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
+import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
@@ -46,6 +51,10 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+import com.tongpin.player4k.catalog.UnifiedCatalogPolicy.Group;
+import com.tongpin.player4k.catalog.UnifiedCatalogPolicy.Tab;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -93,6 +102,28 @@ public final class CatalogActivity extends Activity {
     private LinearLayout categoryTabs;
     private Button categoryFilter;
     private Button channelSearch;
+    private GridView posterGrid;
+    private List<Video> renderedSearchItems;
+    private AllCatalogSearch.Handle pendingSortedHandle;
+    private AllCatalogSearch.Snapshot pendingSortedSnapshot;
+    private SearchAnchor savedSearchAnchor;
+    private final SearchTouch searchTouch = new SearchTouch();
+    private boolean gridTouchActive, gridClickSettling, windowFocused = true;
+    private int gridScrollState;
+    private Runnable sortedDrain;
+    private UnifiedCatalogBrowse unifiedBrowse;
+    private UnifiedCatalogBrowse.Handle browseHandle, pendingBrowseHandle;
+    private UnifiedCatalogBrowse.Snapshot pendingBrowseSnapshot;
+    private Tab homeTab = Tab.RECOMMEND;
+    private boolean liveMode;
+    private Button liveEntry;
+    private List<Group> visibleGroups = Collections.emptyList(), renderedBrowseGroups;
+    private List<Video> projectedSearchItems;
+    private List<Group> projectedSearchGroups = Collections.emptyList();
+    private final Map<String, Group> candidateGroups = new HashMap<>();
+    private Group detailGroup;
+    private boolean resetAggregateViewport;
+
 
     public static void openSourceSwitch(Activity host, String title, String episodeLabel, String year,
                                         String category, String description, long position, float speed, boolean playing) {
@@ -141,19 +172,20 @@ public final class CatalogActivity extends Activity {
             page = Math.max(1, saved.getInt("page", 1));
             keyword = saved.getString("keyword", "");
             channelQuery = saved.getString("channelQuery", "");
+            liveMode = saved.getBoolean("liveMode", false) && CatalogApi.liveProvider(providers.get(providerIndex));
+            try { homeTab = Tab.valueOf(saved.getString("homeTab", "RECOMMEND")); } catch (IllegalArgumentException changedTab) { homeTab = Tab.RECOMMEND; }
             if (providers.get(providerIndex).id.equals(saved.getString("categoryProvider", "")))
                 pendingCategoryId = saved.getString("category", "");
         } else {
             String preferred = getSharedPreferences("tongpin_ui", MODE_PRIVATE).getString("home_provider", "");
             for (int i = 0; i < providers.size(); i++) if (providers.get(i).id.equals(preferred)) providerIndex = i;
         }
-        allSearch = new AllCatalogSearch(main::post);
+        allSearch = new AllCatalogSearch(main::post); unifiedBrowse = new UnifiedCatalogBrowse(main::post);
         buildScreen();
-        loadPage(page);
         if (getIntent().getBooleanExtra("source_switch", false)) {
             getIntent().removeExtra("source_switch");
             bridgePending = true;
-        }
+        } else loadPage(page);
     }
 
     private void buildScreen() {
@@ -166,10 +198,14 @@ public final class CatalogActivity extends Activity {
         heading.setSingleLine(true); heading.setEllipsize(TextUtils.TruncateAt.END);
         heading.setPadding(dp(8), 0, 0, 0);
         toolbar.addView(heading, new LinearLayout.LayoutParams(0, dp(48), 1));
-        Button source = button("片库", false);
-        source.setContentDescription("切换浏览片库，或查看当前影片来源");
-        source.setOnClickListener(view -> { if (detail == null) showProviderPicker(); else showSource(); });
-        toolbar.addView(source, new LinearLayout.LayoutParams(-2, dp(48)));
+        liveEntry = button("直播", false);
+        liveEntry.setContentDescription("直播频道独立入口；影视首页已聚合全部点播来源");
+        liveEntry.setOnClickListener(view -> {
+            if (detail != null) showSource();
+            else if (liveMode) returnToUnifiedHome();
+            else showProviderPicker();
+        });
+        toolbar.addView(liveEntry, new LinearLayout.LayoutParams(-2, dp(48)));
         Button mine = button("我的", false);
         mine.setContentDescription("观看历史与收藏"); mine.setOnClickListener(view -> showLibraryMenu());
         toolbar.addView(mine, new LinearLayout.LayoutParams(-2, dp(48)));
@@ -234,11 +270,12 @@ public final class CatalogActivity extends Activity {
         retry = button("重试", false);
         retry.setOnClickListener(view -> {
             if (!keyword.isEmpty() && searchHandle != null) allSearch.retryFailed(searchHandle);
+            else if (!liveMode && browseHandle != null) unifiedBrowse.retryFailed(browseHandle);
             else loadPage(page);
         });
         state.addView(retry, new LinearLayout.LayoutParams(dp(96), dp(48)));
         catalogScreen.addView(state, new LinearLayout.LayoutParams(-1, -2));
-        GridView list = new PosterGrid(this);
+        GridView list = new PosterGrid(this); posterGrid = list;
         list.setBackgroundColor(BG); list.setNumColumns(posterColumns(getResources().getConfiguration().screenWidthDp,
                 getResources().getConfiguration().fontScale));
         list.setHorizontalSpacing(dp(10)); list.setVerticalSpacing(dp(16));
@@ -246,13 +283,65 @@ public final class CatalogActivity extends Activity {
         list.setPadding(dp(16), dp(8), dp(16), dp(12)); list.setClipToPadding(false);
         list.setContentDescription("影片海报片库");
         adapter = new VideoAdapter(); list.setAdapter(adapter);
-        list.setOnItemClickListener((parent, view, position, id) -> loadDetail(adapter.getItem(position)));
+        list.setOnItemClickListener((parent, view, position, id) -> {
+            if (!foreground || !windowFocused) return;
+            Holder holder = view.getTag() instanceof Holder ? (Holder) view.getTag() : null;
+            Video clicked = searchTouch.consume(holder == null ? null : holder.video, pageTicket,
+                    list.isInTouchMode() && !view.isAccessibilityFocused());
+            if (clicked != null && acceptsVisibleCandidate(clicked)) loadDetail(clicked);
+        });
+        list.setOnTouchListener((view, event) -> {
+            if (!foreground || !windowFocused) { searchTouch.windowLost(); return false; }
+            switch (event.getActionMasked()) {
+                case MotionEvent.ACTION_DOWN:
+                    savedSearchAnchor = null;
+                    if (!videos.isEmpty()) resetAggregateViewport = false;
+                    gridTouchActive = true; gridClickSettling = false;
+                    if (sortedDrain != null) list.removeCallbacks(sortedDrain);
+                    int position = list.pointToPosition((int) event.getX(), (int) event.getY());
+                    View child = list.getChildAt(position - list.getFirstVisiblePosition());
+                    Holder holder = child != null && child.getTag() instanceof Holder ? (Holder) child.getTag() : null;
+                    searchTouch.down(holder == null ? null : holder.video, event.getX(), event.getY(), pageTicket);
+                    break;
+                case MotionEvent.ACTION_MOVE:
+                    searchTouch.move(event.getX(), event.getY(), ViewConfiguration.get(this).getScaledTouchSlop()); break;
+                case MotionEvent.ACTION_POINTER_DOWN:
+                case MotionEvent.ACTION_CANCEL:
+                    searchTouch.cancel(); gridTouchActive = false; scheduleSortedDrain(); break;
+                case MotionEvent.ACTION_UP:
+                    gridTouchActive = false; scheduleSortedDrain(); break;
+            }
+            return false;
+        });
+        list.setOnKeyListener((view, code, event) -> {
+            if (event.getAction() == KeyEvent.ACTION_DOWN && foreground && windowFocused) {
+                savedSearchAnchor = null; if (!videos.isEmpty()) resetAggregateViewport = false; searchTouch.keyboard();
+            }
+            return false;
+        });
+        list.setOnScrollListener(new AbsListView.OnScrollListener() {
+            @Override public void onScroll(AbsListView view, int first, int visible, int total) { }
+            @Override public void onScrollStateChanged(AbsListView view, int state) {
+                gridScrollState = state;
+                if (state != SCROLL_STATE_IDLE) {
+                    searchTouch.cancel();
+                    if (foreground && windowFocused && detail == null && !readingDetail) {
+                        savedSearchAnchor = null; if (!videos.isEmpty()) resetAggregateViewport = false;
+                    }
+                }
+                else if (!gridTouchActive && !gridClickSettling) drainSortedSnapshot();
+            }
+        });
         catalogScreen.addView(list, new LinearLayout.LayoutParams(-1, 0, 1));
         LinearLayout pager = row();
         pager.setPadding(dp(16), dp(4), dp(16), dp(4));
         previous = button("上一页", false);
         PhoneUi.styleButton(previous, PhoneUi.TONAL_BUTTON);
-        previous.setOnClickListener(view -> { if (!keyword.isEmpty()) returnToBrowse(); else loadPage(page - 1); });
+        previous.setOnClickListener(view -> {
+            if (!keyword.isEmpty()) returnToBrowse();
+            else if (!liveMode) { savedSearchAnchor = null; searchTouch.windowLost(); resetAggregateViewport = true; posterGrid.setSelection(0); }
+            else loadPage(page - 1);
+        });
         previous.setMinWidth(dp(96));
         pager.addView(previous, new LinearLayout.LayoutParams(-2, dp(48)));
         pageNumber = label("", 14, SECONDARY);
@@ -262,7 +351,18 @@ public final class CatalogActivity extends Activity {
         PhoneUi.styleButton(next, PhoneUi.TONAL_BUTTON);
         next.setOnClickListener(view -> {
             if (!keyword.isEmpty() && searchHandle != null) allSearch.loadMore(searchHandle);
-            else loadPage(page + 1);
+            else if (!liveMode && browseHandle != null) {
+                UnifiedCatalogBrowse.Snapshot snapshot = browseHandle.snapshot();
+                if (snapshot.limited) {
+                    if (unifiedBrowse.continueWindow(browseHandle)) {
+                        searchTouch.windowLost(); savedSearchAnchor = null; resetAggregateViewport = true;
+                        pendingBrowseHandle = null; pendingBrowseSnapshot = null;
+                        gridTouchActive = false; gridClickSettling = false;
+                        if (sortedDrain != null) posterGrid.removeCallbacks(sortedDrain); sortedDrain = null;
+                        clearGroups(); videos.clear(); adapter.notifyDataSetChanged(); posterGrid.setSelection(0);
+                    }
+                } else unifiedBrowse.loadMore(browseHandle);
+            } else loadPage(page + 1);
         });
         next.setMinWidth(dp(96));
         pager.addView(next, new LinearLayout.LayoutParams(-2, dp(48)));
@@ -278,27 +378,56 @@ public final class CatalogActivity extends Activity {
         boolean browsing = keyword.isEmpty();
         search.setEnabled(true); searchSubmit.setEnabled(true); search.setHint("搜索全部影视片库");
         if (browseCategoryRow != null) browseCategoryRow.setVisibility(browsing ? View.VISIBLE : View.GONE);
-        if (channelSearch != null) channelSearch.setVisibility(browsing && CatalogApi.liveProvider(providers.get(providerIndex)) ? View.VISIBLE : View.GONE);
+        if (channelSearch != null) channelSearch.setVisibility(browsing && liveMode ? View.VISIBLE : View.GONE);
+        if (categoryFilter != null) categoryFilter.setVisibility(browsing && liveMode ? View.VISIBLE : View.GONE);
+        if (liveEntry != null) liveEntry.setText(detail != null ? "来源" : liveMode ? "影视" : "直播");
     }
 
     private void browseProvider(int index) {
-        cancelGlobalSearch(); keyword = ""; search.setText(""); channelQuery = "";
+        if (index < 0 || index >= providers.size() || !CatalogApi.liveProvider(providers.get(index))) return;
+        pauseCatalogue(); cancelGlobalSearch(); keyword = ""; search.setText(""); channelQuery = ""; liveMode = true;
         providerIndex = index; categoryCatalog = null; categoryId = ""; pendingCategoryId = "";
-        getSharedPreferences("tongpin_ui", MODE_PRIVATE).edit().putString("home_provider", providers.get(index).id).apply();
+        updateSearchSupport(); renderCategories(); loadPage(1);
+    }
+
+    private void returnToUnifiedHome() {
+        pauseCatalogue(); cancelGlobalSearch(); keyword = ""; search.setText(""); liveMode = false;
+        ++pageTicket; if (pageRequest != null) pageRequest.cancel(true);
+        invalidateDetailRequest();
+        resetAggregateViewport = true;
         updateSearchSupport(); renderCategories(); loadPage(1);
     }
 
     private void showProviderPicker() {
-        String[] labels = new String[providers.size()];
-        for (int i = 0; i < labels.length; i++) labels[i] = providers.get(i).name;
-        new AlertDialog.Builder(this).setTitle("选择浏览片库").setSingleChoiceItems(labels, providerIndex, (dialog, index) -> {
-            dialog.dismiss(); browseProvider(index);
-        }).setNegativeButton("关闭", null).show();
+        ArrayList<Integer> indices = new ArrayList<>(); ArrayList<String> labels = new ArrayList<>();
+        for (int i = 0; i < providers.size(); i++) if (CatalogApi.liveProvider(providers.get(i))) {
+            indices.add(i); labels.add(providers.get(i).name);
+        }
+        if (indices.isEmpty()) { Toast.makeText(this, "没有配置直播来源", Toast.LENGTH_SHORT).show(); return; }
+        new AlertDialog.Builder(this).setTitle("直播频道").setItems(labels.toArray(new String[0]), (dialog, index) -> browseProvider(indices.get(index)))
+                .setNegativeButton("关闭", null).show();
     }
 
     private void renderCategories() {
         if (categoryTabs == null) return;
         categoryTabs.removeAllViews(); categoryOptions.clear(); categoryOptions.add("");
+        if (!liveMode) {
+            for (Tab tab : Tab.values()) {
+                Button choice = button(tab.label, false); choice.setSingleLine(true);
+                choice.setTextColor(tab == homeTab ? BLUE : SECONDARY);
+                choice.setTypeface(Typeface.DEFAULT, tab == homeTab ? Typeface.BOLD : Typeface.NORMAL);
+                choice.setContentDescription(tab.label + (tab == homeTab ? "，已选中" : "，聚合全部影视来源"));
+                choice.setOnClickListener(view -> {
+                    if (homeTab != tab || !keyword.isEmpty()) {
+                        pauseCatalogue(); cancelGlobalSearch(); keyword = ""; search.setText(""); homeTab = tab;
+                        startUnifiedBrowse();
+                    }
+                });
+                categoryTabs.addView(choice, new LinearLayout.LayoutParams(-2, dp(48)));
+            }
+            if (keyword.isEmpty() && caption != null) caption.setText(homeTab.label + " · 全部影视片库");
+            return;
+        }
         ArrayList<CatalogCategories.Category> declared = new ArrayList<>();
         if (categoryCatalog != null) declared.addAll(categoryCatalog.categories());
         for (CatalogCategories.Category category : declared) categoryOptions.add(category.id);
@@ -338,14 +467,14 @@ public final class CatalogActivity extends Activity {
     }
 
     private void selectCategory(String id) {
-        if (!keyword.isEmpty() || categoryCatalog == null) return;
+        if (!liveMode || !keyword.isEmpty() || categoryCatalog == null) return;
         try { categoryCatalog.select(id); }
         catch (IllegalArgumentException changed) { return; }
         if (!categoryId.equals(id)) { categoryId = id; pendingCategoryId = ""; renderCategories(); loadPage(1); }
     }
 
     private void showCategoryPicker() {
-        if (!keyword.isEmpty() || categoryCatalog == null || categoryCatalog.isEmpty()) return;
+        if (!liveMode || !keyword.isEmpty() || categoryCatalog == null || categoryCatalog.isEmpty()) return;
         ArrayList<String> labels = new ArrayList<>(); labels.add("全部分类");
         for (CatalogCategories.Category category : categoryCatalog.categories()) labels.add(categoryCatalog.display(category));
         final ArrayList<String> ids = new ArrayList<>(categoryOptions);
@@ -361,22 +490,143 @@ public final class CatalogActivity extends Activity {
         keyword = query;
         InputMethodManager keyboard = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
         if (keyboard != null) keyboard.hideSoftInputFromWindow(search.getWindowToken(), 0);
-        if (keyword.isEmpty()) returnToBrowse(); else startGlobalSearch();
+        if (keyword.isEmpty()) returnToBrowse(); else { liveMode = false; startGlobalSearch(); }
     }
 
     private void cancelGlobalSearch() {
         if (searchHandle != null) searchHandle.cancel();
         searchHandle = null;
+        pendingSortedHandle = null; pendingSortedSnapshot = null; renderedSearchItems = null; savedSearchAnchor = null;
+        projectedSearchItems = null; projectedSearchGroups = Collections.emptyList();
+        searchTouch.windowLost(); gridTouchActive = false; gridClickSettling = false;
+        if (posterGrid != null && sortedDrain != null) posterGrid.removeCallbacks(sortedDrain);
+        sortedDrain = null;
+        resetAggregateViewport = false;
+    }
+
+    private void pauseCatalogue() {
+        if (allSearch != null && searchHandle != null) allSearch.cancelRound(searchHandle);
+        if (unifiedBrowse != null && browseHandle != null) unifiedBrowse.cancelRound(browseHandle);
+        if (pageRequest != null) pageRequest.cancel(true);
+    }
+
+    private void clearGroups() {
+        visibleGroups = Collections.emptyList(); candidateGroups.clear(); renderedBrowseGroups = null; detailGroup = null;
+    }
+
+    private void presentGroups(List<Group> groups) {
+        visibleGroups = groups; candidateGroups.clear(); videos.clear();
+        for (Group group : groups) {
+            videos.add(group.primary);
+            for (Video candidate : group.alternatives) candidateGroups.put(CatalogTitleOrder.identity(candidate), group);
+        }
+        adapter.notifyDataSetChanged();
+    }
+
+    private String cardKey(Video video) {
+        Group group = candidateGroups.get(CatalogTitleOrder.identity(video));
+        return group != null && group.contains(video) ? group.key : CatalogTitleOrder.identity(video);
+    }
+
+    private boolean acceptsVisibleCandidate(Video video) {
+        Group group = candidateGroups.get(CatalogTitleOrder.identity(video));
+        return group != null ? group.contains(video) : videos.contains(video);
+    }
+
+    private List<Group> projectSearch(List<Video> raw) {
+        if (projectedSearchItems != raw) {
+            projectedSearchGroups = UnifiedCatalogPolicy.project(raw, true); projectedSearchItems = raw;
+        }
+        return projectedSearchGroups;
+    }
+
+    private Group latestGroupFor(Video video) {
+        List<Group> groups = visibleGroups;
+        if (!CatalogApi.liveProvider(video.provider)) {
+            if (!keyword.isEmpty() && searchHandle != null && searchHandle.isCurrent()) groups = projectSearch(searchHandle.snapshot().items);
+            else if (!liveMode && browseHandle != null && browseHandle.isCurrent()) groups = browseHandle.snapshot().groups;
+        }
+        for (Group group : groups) if (group.contains(video)) return group;
+        return null;
+    }
+
+    private void invalidateDetailRequest() {
+        ++detailTicket; readingDetail = false;
+        if (detailRequest != null) detailRequest.cancel(true);
+    }
+
+    private void startUnifiedBrowse() {
+        pauseCatalogue(); cancelGlobalSearch();
+        if (browseHandle != null) browseHandle.cancel();
+        pendingBrowseHandle = null; pendingBrowseSnapshot = null; renderedBrowseGroups = null;
+        ++pageTicket; ++detailTicket; readingDetail = false;
+        if (pageRequest != null) pageRequest.cancel(true);
+        if (detailRequest != null) detailRequest.cancel(true);
+        liveMode = false; loading = true; hasMore = false;
+        images.getQueue().clear(); clearGroups(); videos.clear(); adapter.notifyDataSetChanged();
+        resetAggregateViewport = true;
+        updateSearchSupport(); renderCategories();
+        status.setText("正在汇集" + homeTab.label + "…"); progress.setVisibility(View.VISIBLE); retry.setVisibility(View.GONE);
+        browseHandle = unifiedBrowse.start(providers, homeTab, (handle, snapshot) -> {
+            if (!alive() || !handle.isCurrent()) return;
+            applyUnifiedSnapshot(handle, snapshot);
+        });
+        updatePager();
+    }
+
+    private void applyUnifiedSnapshot(UnifiedCatalogBrowse.Handle handle, UnifiedCatalogBrowse.Snapshot snapshot) {
+        if (handle != browseHandle || !handle.isCurrent() || liveMode || !keyword.isEmpty() || snapshot.tab != homeTab) return;
+        loading = snapshot.loading; hasMore = snapshot.hasMore;
+        if (!foreground || !windowFocused || readingDetail || detail != null || gridTouchActive || gridClickSettling || gridScrollState != 0) {
+            pendingBrowseHandle = handle; pendingBrowseSnapshot = snapshot; return;
+        }
+        pendingBrowseHandle = null; pendingBrowseSnapshot = null;
+        if (renderedBrowseGroups != snapshot.groups) {
+            SearchAnchor anchor = resetAggregateViewport ? null : savedSearchAnchor != null ? savedSearchAnchor : captureSearchAnchor();
+            presentGroups(snapshot.groups); renderedBrowseGroups = snapshot.groups;
+            if (resetAggregateViewport) {
+                posterGrid.setSelection(0); if (!snapshot.groups.isEmpty()) resetAggregateViewport = false;
+            } else restoreSearchAnchor(anchor);
+        } else if (savedSearchAnchor != null) restoreSearchAnchor(savedSearchAnchor);
+        savedSearchAnchor = null;
+        caption.setText(homeTab.label + " · " + snapshot.totalSources + "个影视片库");
+        status.setText(browseStatus(snapshot)); progress.setVisibility(snapshot.loading ? View.VISIBLE : View.GONE);
+        retry.setText("重试失败"); retry.setEnabled(!snapshot.loading);
+        retry.setVisibility(snapshot.failedSources > 0 && !snapshot.limited ? View.VISIBLE : View.GONE);
+        updatePager();
+    }
+
+    static String browseStatus(UnifiedCatalogBrowse.Snapshot snapshot) {
+        String text = snapshot.limited ? "本批候选较多，可继续浏览下一批"
+                : snapshot.loading ? "正在汇集 · 已完成 " + snapshot.batchReturned + "/" + snapshot.batchTotal + " 项请求"
+                : snapshot.canResume ? "已暂停，可继续未完成来源"
+                : snapshot.groups.isEmpty() ? "暂未收到匹配影片，可继续载入或换个分类" : "";
+        if (snapshot.failedSources > 0) text += (text.isEmpty() ? "" : " · ") + snapshot.failedSources + "个来源暂未返回";
+        if (snapshot.repeatStoppedSources > 0) text += (text.isEmpty() ? "" : " · ") + snapshot.repeatStoppedSources + "个来源分页重复，已停止追加";
+        return text;
+    }
+
+    static String projectedSearchStatus(AllCatalogSearch.Snapshot snapshot, int cards) {
+        String text = snapshot.limited ? "来源候选较多，请细化片名"
+                : snapshot.loading ? "正在搜索 · 本批已完成 " + snapshot.batchReturned + "/" + snapshot.batchTotal + "个库"
+                : snapshot.canResume ? "已暂停，可继续未完成来源"
+                : cards == 0 ? snapshot.successfulSources == 0 && snapshot.failedSources > 0
+                    ? "暂未收到可用响应，请重试失败来源" : "本批暂无匹配，可继续搜索" : "";
+        if (snapshot.failedSources > 0) text += (text.isEmpty() ? "" : " · ") + snapshot.failedSources + "个库暂未返回";
+        if (snapshot.repeatStoppedSources > 0) text += (text.isEmpty() ? "" : " · ") + snapshot.repeatStoppedSources + "个库分页重复，已停止追加";
+        return text;
     }
 
     private void startGlobalSearch() {
+        pauseCatalogue();
         final int ticket = ++pageTicket;
         ++detailTicket; readingDetail = false;
         if (pageRequest != null) pageRequest.cancel(true);
         if (detailRequest != null) detailRequest.cancel(true);
         cancelGlobalSearch();
         loading = true; hasMore = false;
-        images.getQueue().clear(); videos.clear(); adapter.notifyDataSetChanged();
+        images.getQueue().clear(); clearGroups(); videos.clear(); adapter.notifyDataSetChanged();
+        resetAggregateViewport = true;
         updateSearchSupport();
         caption.setText("搜索结果 · 全部可搜索影视片库");
         status.setText("正在搜索，各来源结果将陆续显示…");
@@ -391,28 +641,104 @@ public final class CatalogActivity extends Activity {
 
     private void applyGlobalSnapshot(AllCatalogSearch.Handle handle, AllCatalogSearch.Snapshot snapshot) {
         if (handle != searchHandle || !handle.isCurrent()) return;
-        videos.clear(); videos.addAll(snapshot.items); adapter.notifyDataSetChanged();
         loading = snapshot.loading; hasMore = snapshot.hasMore;
-        // Returning search packets cannot dismiss a detail or replace its loading/error state.
-        if (!foreground || readingDetail || detail != null) return;
-        caption.setText("搜索结果 · " + snapshot.totalSources + "个影视片库");
+        // A deferred native click must continue to refer to its original card, and hidden grids retain their viewport.
+        if (!foreground || !windowFocused || readingDetail || detail != null || gridTouchActive || gridClickSettling || gridScrollState != 0) {
+            pendingSortedHandle = handle; pendingSortedSnapshot = snapshot; return;
+        }
+        pendingSortedHandle = null; pendingSortedSnapshot = null;
+        if (renderedSearchItems != snapshot.items) {
+            SearchAnchor anchor = resetAggregateViewport ? null : savedSearchAnchor != null ? savedSearchAnchor : captureSearchAnchor();
+            presentGroups(projectSearch(snapshot.items)); renderedSearchItems = snapshot.items;
+            if (resetAggregateViewport) {
+                posterGrid.setSelection(0); if (!visibleGroups.isEmpty()) resetAggregateViewport = false;
+            } else restoreSearchAnchor(anchor);
+        } else if (savedSearchAnchor != null) restoreSearchAnchor(savedSearchAnchor);
+        savedSearchAnchor = null;
+        caption.setText("搜索结果 · " + videos.size() + "部 · " + snapshot.totalSources + "个可搜影视库");
         status.setText(snapshot.loading || snapshot.canResume || snapshot.failedSources > 0 || snapshot.repeatStoppedSources > 0
-                || snapshot.limited || snapshot.items.isEmpty() ? globalStatus(snapshot) : "");
+                || snapshot.limited || snapshot.items.isEmpty() ? projectedSearchStatus(snapshot, videos.size()) : "");
         progress.setVisibility(snapshot.loading ? View.VISIBLE : View.GONE);
         retry.setText("重试失败"); retry.setEnabled(!snapshot.loading);
         retry.setVisibility(snapshot.failedSources > 0 && !snapshot.limited ? View.VISIBLE : View.GONE);
         updatePager();
     }
 
+    private SearchAnchor captureSearchAnchor() {
+        if (posterGrid == null || posterGrid.getChildCount() == 0) return null;
+        View child = posterGrid.getChildAt(0);
+        if (!posterGrid.isInTouchMode() && posterGrid.hasFocus()) {
+            View selected = posterGrid.getSelectedView(); if (selected != null) child = selected;
+        }
+        if (!(child.getTag() instanceof Holder)) return null;
+        return new SearchAnchor(((Holder) child.getTag()).cardKey, child.getTop() - posterGrid.getListPaddingTop());
+    }
+
+    private void restoreSearchAnchor(SearchAnchor anchor) {
+        if (anchor == null) return;
+        int index = visibleGroups.isEmpty() ? CatalogTitleOrder.indexOf(videos, anchor.key) : UnifiedCatalogPolicy.indexOf(visibleGroups, anchor.key);
+        if (index >= 0) posterGrid.setSelectionFromTop(index, anchor.offset);
+    }
+
+    private void scheduleSortedDrain() {
+        gridClickSettling = true;
+        if (sortedDrain != null) posterGrid.removeCallbacks(sortedDrain);
+        sortedDrain = () -> { sortedDrain = null; gridClickSettling = false; if (!gridTouchActive && gridScrollState == 0) drainSortedSnapshot(); };
+        // Native AbsListView may post PerformClick after ACTION_UP; the captured model also guards any later click.
+        posterGrid.postDelayed(sortedDrain, ViewConfiguration.getPressedStateDuration() + 1L);
+    }
+
+    private void drainSortedSnapshot() {
+        AllCatalogSearch.Handle handle = pendingSortedHandle; AllCatalogSearch.Snapshot snapshot = pendingSortedSnapshot;
+        if (handle != null && snapshot != null) applyGlobalSnapshot(handle, snapshot);
+        UnifiedCatalogBrowse.Handle browse = pendingBrowseHandle; UnifiedCatalogBrowse.Snapshot received = pendingBrowseSnapshot;
+        if (browse != null && received != null) applyUnifiedSnapshot(browse, received);
+    }
+
+    private static final class SearchAnchor {
+        final String key; final int offset;
+        SearchAnchor(String key, int offset) { this.key = key; this.offset = offset; }
+    }
+
+    static final class SearchTouch {
+        private Video video;
+        private float x, y;
+        private int ticket;
+        private boolean captured, canceled, windowCanceled;
+        void down(Video target, float x, float y, int ticket) {
+            video = target; this.x = x; this.y = y; this.ticket = ticket; captured = true; canceled = false; windowCanceled = false;
+        }
+        void move(float x, float y, int slop) { if (Math.abs(x - this.x) > slop || Math.abs(y - this.y) > slop) cancel(); }
+        void cancel() { video = null; captured = true; canceled = true; }
+        void windowLost() { cancel(); windowCanceled = true; }
+        void keyboard() { video = null; captured = false; canceled = false; windowCanceled = false; }
+        void accessibilityActivation() { keyboard(); }
+        Video consume(Video bound, int currentTicket, boolean fromTouch) {
+            if (windowCanceled) return null;
+            if (!fromTouch) { video = null; captured = false; canceled = false; return bound; }
+            if (!captured) return bound;
+            Video clicked = !canceled && ticket == currentTicket ? video : null;
+            cancel(); return clicked;
+        }
+    }
+
     private void restoreGlobalSearch() {
-        if (!foreground || detail != null || readingDetail || keyword.isEmpty() || searchHandle == null || !searchHandle.isCurrent()) return;
+        if (keyword.isEmpty()) {
+            if (!liveMode && foreground && detail == null && !readingDetail && browseHandle != null && browseHandle.isCurrent()) {
+                applyUnifiedSnapshot(browseHandle, browseHandle.snapshot()); unifiedBrowse.resume(browseHandle);
+            }
+            return;
+        }
+        if (!foreground || detail != null || readingDetail || searchHandle == null || !searchHandle.isCurrent()) return;
         applyGlobalSnapshot(searchHandle, searchHandle.snapshot());
         allSearch.resume(searchHandle);
     }
 
     private void returnToBrowse() {
         cancelGlobalSearch(); keyword = ""; search.setText("");
-        updateSearchSupport(); loadPage(page);
+        invalidateDetailRequest();
+        resetAggregateViewport = true;
+        liveMode = false; updateSearchSupport(); renderCategories(); loadPage(1);
     }
 
     static String globalStatus(AllCatalogSearch.Snapshot snapshot) {
@@ -438,7 +764,7 @@ public final class CatalogActivity extends Activity {
 
     private void searchChannels() {
         Provider provider = providers.get(providerIndex);
-        if (!keyword.isEmpty() || !CatalogApi.liveProvider(provider)) return;
+        if (!liveMode || !keyword.isEmpty() || !CatalogApi.liveProvider(provider)) return;
         EditText input = new EditText(this); input.setSingleLine(true); input.setText(channelQuery);
         input.setHint("搜索当前直播频道");
         new AlertDialog.Builder(this).setTitle("搜索频道 · " + provider.name).setView(input)
@@ -453,7 +779,12 @@ public final class CatalogActivity extends Activity {
     private void loadPage(int requestedPage) {
         if (requestedPage < 1 || providers == null) return;
         if (!keyword.isEmpty()) { startGlobalSearch(); return; }
-        cancelGlobalSearch(); updateSearchSupport();
+        if (!liveMode) {
+            if (browseHandle != null && browseHandle.isCurrent() && browseHandle.tab == homeTab) restoreGlobalSearch();
+            else startUnifiedBrowse();
+            return;
+        }
+        pauseCatalogue(); cancelGlobalSearch(); clearGroups(); updateSearchSupport();
         final int ticket = ++pageTicket;
         ++detailTicket;
         if (pageRequest != null) pageRequest.cancel(true);
@@ -481,7 +812,7 @@ public final class CatalogActivity extends Activity {
                 }
                 final Page received = result;
                 main.post(() -> {
-                    if (!alive() || ticket != pageTicket) return;
+                    if (!alive() || ticket != pageTicket || !liveMode || !keyword.isEmpty()) return;
                     categoryCatalog = received.categories;
                     if (categoryCatalog == null) categoryCatalog = new CatalogCategories(provider.id,
                             new ArrayList<CatalogCategories.Category>(), new java.util.HashSet<String>());
@@ -507,7 +838,7 @@ public final class CatalogActivity extends Activity {
                 });
             } catch (Exception error) {
                 main.post(() -> {
-                    if (!alive() || ticket != pageTicket) return;
+                    if (!alive() || ticket != pageTicket || !liveMode || !keyword.isEmpty()) return;
                     loading = false;
                     progress.setVisibility(View.GONE);
                     status.setText("片库暂时无法连接，请重试或切换片库");
@@ -527,7 +858,14 @@ public final class CatalogActivity extends Activity {
             previous.setText("返回浏览"); previous.setEnabled(true);
             next.setText(snapshot.canResume ? "继续搜索" : "加载更多");
             next.setEnabled(!snapshot.loading && (snapshot.canResume || !snapshot.limited && snapshot.hasMore));
-            pageNumber.setText("已显示 " + snapshot.items.size() + " 条");
+            pageNumber.setText("已显示 " + videos.size() + " 部");
+            return;
+        }
+        if (!liveMode && browseHandle != null && browseHandle.isCurrent()) {
+            UnifiedCatalogBrowse.Snapshot snapshot = browseHandle.snapshot();
+            previous.setText("回到顶部"); previous.setEnabled(!videos.isEmpty());
+            next.setText(snapshot.limited ? "继续浏览" : snapshot.canResume ? "继续载入" : "加载更多");
+            next.setEnabled(!snapshot.loading && snapshot.hasMore); pageNumber.setText("已显示 " + videos.size() + " 部");
             return;
         }
         previous.setText("上一页"); next.setText("下一页"); retry.setText("重试");
@@ -537,8 +875,11 @@ public final class CatalogActivity extends Activity {
     }
 
     private void loadDetail(Video video) {
-        if (searchHandle != null) allSearch.cancelRound(searchHandle);
-        readingDetail = true;
+        if (!liveMode) savedSearchAnchor = captureSearchAnchor();
+        readingDetail = true; pauseCatalogue();
+        Group known = latestGroupFor(video);
+        if (known == null) known = candidateGroups.get(CatalogTitleOrder.identity(video));
+        detailGroup = known != null ? known : detailGroup != null && detailGroup.contains(video) ? detailGroup : null;
         stateRow.setVisibility(View.VISIBLE);
         final int ticket = ++detailTicket;
         if (detailRequest != null) detailRequest.cancel(true);
@@ -554,9 +895,7 @@ public final class CatalogActivity extends Activity {
                     status.setText("");
                     if (result.lines.isEmpty()) {
                         restoreGlobalSearch();
-                        new AlertDialog.Builder(this).setTitle("暂时没有可用选集")
-                            .setMessage("来源没有返回可直接播放的线路。请换一部影片或切换片库。")
-                            .setPositiveButton("知道了", null).show();
+                        showUnavailableSources(video, true);
                     } else showDetail(result);
                 });
             } catch (Exception error) {
@@ -564,7 +903,8 @@ public final class CatalogActivity extends Activity {
                     if (!alive() || ticket != detailTicket) return;
                     readingDetail = false; progress.setVisibility(View.GONE);
                     restoreGlobalSearch();
-                    status.setText("选集读取失败，点影片可重试，也可以切换片库");
+                    status.setText("选集读取失败，可选择本片其他来源");
+                    showUnavailableSources(video, false);
                 });
             }
         });
@@ -577,10 +917,58 @@ public final class CatalogActivity extends Activity {
         return EpisodeSummary.describe(names);
     }
 
+    private void showUnavailableSources(Video requested, boolean noEpisodes) {
+        final int ticket = detailTicket; final Group expected = detailGroup;
+        new AlertDialog.Builder(this).setTitle(noEpisodes ? "暂时没有可用选集" : "该来源暂不可用")
+                .setMessage("可以选择本片其他来源，读取它的实际线路与选集。")
+                .setPositiveButton("其他来源", (dialog, which) -> {
+                    if (alive() && foreground && ticket == detailTicket && detailGroup == expected) showCandidateChoices(requested, expected);
+                })
+                .setNegativeButton("取消", null).show();
+    }
+
+    private void showKnownSources(Detail value) { showCandidateChoices(value.video, detailGroup); }
+
+    private void showCandidateChoices(Video current, Group group) {
+        if (!alive() || !foreground) return;
+        Group latest = latestGroupFor(current); if (latest != null) group = latest;
+        if (group == null || group.alternatives.size() < 2) { searchOtherSources(current); return; }
+        final Group chosenGroup = group; final int ticket = detailTicket; detailGroup = group;
+        ArrayList<Video> candidates = new ArrayList<>(group.alternatives);
+        String[] labels = new String[candidates.size() + 1];
+        for (int i = 0; i < candidates.size(); i++) {
+            Video candidate = candidates.get(i);
+            labels[i] = candidate.provider.name + " · " + candidate.title
+                    + (candidate.year.isEmpty() ? "" : " · " + candidate.year)
+                    + (candidate.subtitle.isEmpty() ? "" : "\n" + candidate.subtitle);
+        }
+        labels[candidates.size()] = "搜索其他片源";
+        new AlertDialog.Builder(this).setTitle("本片已知来源").setItems(labels, (dialog, index) -> {
+            if (!alive() || !foreground || ticket != detailTicket || detailGroup != chosenGroup) return;
+            if (index == candidates.size()) searchOtherSources(current);
+            else {
+                Toast.makeText(this, "正在读取 " + candidates.get(index).provider.name, Toast.LENGTH_SHORT).show();
+                loadDetail(candidates.get(index));
+            }
+        }).setNegativeButton("关闭", null).show();
+    }
+
+    private void searchOtherSources(Video current) {
+        if (!alive() || !foreground) return;
+        pauseCatalogue();
+        if (sourcePicker != null) sourcePicker.close();
+        sourcePicker = new PhoneSourcePicker(this, providers, current, "", (selected, line, index, matched) -> {
+            if (detailGroup != null && !detailGroup.contains(selected.video)
+                    && !detailGroup.key.equals(UnifiedCatalogPolicy.keyFor(selected.video))) detailGroup = null;
+            showDetail(selected); play(selected, line.episodes.get(index));
+        }); sourcePicker.show();
+    }
+
     private void showDetail(Detail value) {
+        if (detail == null && !liveMode) savedSearchAnchor = captureSearchAnchor();
         detail = value;
         selectedEpisode = null;
-        heading.setText(CatalogApi.liveProvider(value.video.provider) ? "直播频道" : "选集播放");
+        heading.setText(CatalogApi.liveProvider(value.video.provider) ? "直播频道" : "选集播放"); updateSearchSupport();
         catalogScreen.setVisibility(View.GONE);
         if (detailScreen != null) content.removeView(detailScreen);
         detailScreen = column();
@@ -613,12 +1001,7 @@ public final class CatalogActivity extends Activity {
         favorite.setOnClickListener(v -> favorite.setText(LibraryStore.toggle(this, value.video) ? "已收藏" : "收藏"));
         library.addView(favorite, new LinearLayout.LayoutParams(0, dp(48), 1));
         Button change = button("其他片源", false);
-        change.setOnClickListener(v -> {
-            if (sourcePicker != null) sourcePicker.close();
-            sourcePicker = new PhoneSourcePicker(this, providers, value.video, "", (selected, line, index, matched) -> {
-                showDetail(selected); play(selected, line.episodes.get(index));
-            }); sourcePicker.show();
-        });
+        change.setOnClickListener(v -> showKnownSources(value));
         library.addView(change, new LinearLayout.LayoutParams(0, dp(48), 1)); detailScreen.addView(library);
         if (!value.video.description.isEmpty()) {
             TextView description = label(Html.fromHtml(value.video.description, Html.FROM_HTML_MODE_LEGACY).toString().trim(), 14, SECONDARY);
@@ -715,7 +1098,7 @@ public final class CatalogActivity extends Activity {
     }
 
     private void play(Detail value, Episode episode) {
-        if (searchHandle != null) allSearch.cancelRound(searchHandle);
+        pauseCatalogue();
         int best = CatalogApi.bestStream(episode.streams);
         if (best < 0) { Toast.makeText(this, "此选集没有可用播放地址", Toast.LENGTH_LONG).show(); return; }
         if (preparingPlayback) return;
@@ -791,7 +1174,7 @@ public final class CatalogActivity extends Activity {
             content.removeView(detailScreen);
             detailScreen = null;
             catalogScreen.setVisibility(View.VISIBLE);
-            heading.setText("同频4K");
+            heading.setText("同频4K"); updateSearchSupport();
             restoreGlobalSearch();
         } else if (readingDetail) {
             ++detailTicket;
@@ -810,6 +1193,7 @@ public final class CatalogActivity extends Activity {
         saved.putInt("page", page);
         saved.putString("keyword", keyword);
         saved.putString("channelQuery", channelQuery);
+        saved.putBoolean("liveMode", liveMode); saved.putString("homeTab", homeTab.name());
         if (providers != null && !providers.isEmpty()) {
             saved.putString("categoryProvider", providers.get(providerIndex).id);
             saved.putString("category", pendingCategoryId.isEmpty() ? categoryId : pendingCategoryId);
@@ -817,7 +1201,9 @@ public final class CatalogActivity extends Activity {
     }
 
     @Override protected void onDestroy() {
+        if (posterGrid != null && sortedDrain != null) posterGrid.removeCallbacks(sortedDrain);
         if (allSearch != null) allSearch.close();
+        if (unifiedBrowse != null) unifiedBrowse.close();
         if (sourcePicker != null) sourcePicker.close();
         ++pageTicket;
         ++detailTicket;
@@ -829,14 +1215,31 @@ public final class CatalogActivity extends Activity {
     }
 
     @Override protected void onPause() {
+        if (detail == null && !liveMode) savedSearchAnchor = captureSearchAnchor();
+        searchTouch.windowLost(); gridTouchActive = false; gridClickSettling = false;
+        if (posterGrid != null && sortedDrain != null) posterGrid.removeCallbacks(sortedDrain);
+        sortedDrain = null;
         foreground = false;
-        if (allSearch != null && searchHandle != null) allSearch.cancelRound(searchHandle);
+        pauseCatalogue();
         readingDetail = false;
         ++detailTicket;
         if (detailRequest != null) detailRequest.cancel(true);
         if (sourcePicker != null) sourcePicker.close();
         if (!loading && progress != null) progress.setVisibility(View.GONE);
         super.onPause();
+    }
+
+    @Override public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus); windowFocused = hasFocus;
+        if (!hasFocus) {
+            if (detail == null && !liveMode) savedSearchAnchor = captureSearchAnchor();
+            searchTouch.windowLost(); gridTouchActive = false; gridClickSettling = false; gridScrollState = 0;
+            if (posterGrid != null && sortedDrain != null) posterGrid.removeCallbacks(sortedDrain);
+            sortedDrain = null;
+        } else if (foreground && detail == null && !readingDetail) {
+            drainSortedSnapshot();
+            if (pendingSortedSnapshot == null && pendingBrowseSnapshot == null) savedSearchAnchor = null;
+        }
     }
 
     @Override protected void onResume() {
@@ -869,8 +1272,8 @@ public final class CatalogActivity extends Activity {
     }
 
     private void loadHistory(LibraryStore.Entry entry) {
-        if (searchHandle != null) allSearch.cancelRound(searchHandle);
-        readingDetail = true;
+        if (!liveMode) savedSearchAnchor = captureSearchAnchor();
+        readingDetail = true; pauseCatalogue(); detailGroup = latestGroupFor(entry.video);
         stateRow.setVisibility(View.VISIBLE);
         final int ticket = ++detailTicket;
         if (detailRequest != null) detailRequest.cancel(true);
@@ -988,6 +1391,17 @@ public final class CatalogActivity extends Activity {
         }
     }
 
+    private final class PosterCard extends LinearLayout {
+        PosterCard() { super(CatalogActivity.this); setOrientation(LinearLayout.VERTICAL); }
+        @Override public boolean performAccessibilityAction(int action, Bundle arguments) {
+            if (action == AccessibilityNodeInfo.ACTION_CLICK) {
+                if (!foreground || !windowFocused) return false;
+                searchTouch.accessibilityActivation();
+            }
+            return super.performAccessibilityAction(action, arguments);
+        }
+    }
+
     private final class VideoAdapter extends BaseAdapter {
         @Override public int getCount() { return videos.size(); }
         @Override public Video getItem(int position) { return videos.get(position); }
@@ -995,7 +1409,7 @@ public final class CatalogActivity extends Activity {
         @Override public View getView(int position, View convert, ViewGroup parent) {
             Holder holder;
             if (convert == null) {
-                LinearLayout card = column(); holder = new Holder();
+                LinearLayout card = new PosterCard(); holder = new Holder();
                 holder.image = new PosterImage(CatalogActivity.this);
                 holder.image.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 holder.image.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
@@ -1011,9 +1425,11 @@ public final class CatalogActivity extends Activity {
                 card.setTag(holder); convert = card;
             } else holder = (Holder) convert.getTag();
             Video video = getItem(position); holder.title.setText(video.title);
-            String subtitle = keyword.isEmpty() ? video.subtitle : resultSubtitle(video);
+            holder.video = video; holder.cardKey = cardKey(video);
+            String subtitle = liveMode && keyword.isEmpty() ? video.subtitle
+                    : unifiedSubtitle(video, candidateGroups.get(CatalogTitleOrder.identity(video)));
             holder.subtitle.setText(subtitle); holder.subtitle.setVisibility(subtitle.isEmpty() ? View.GONE : View.VISIBLE);
-            convert.setContentDescription(video.title + "，" + resultSubtitle(video));
+            convert.setContentDescription(video.title + "，" + subtitle);
             loadPoster(video.poster, holder.image, video.title);
             return convert;
         }
@@ -1023,7 +1439,12 @@ public final class CatalogActivity extends Activity {
         return video.provider.name + " · " + video.categoryLabel + (video.subtitle.isEmpty() ? "" : " · " + video.subtitle);
     }
 
-    private static final class Holder { ImageView image; TextView title, subtitle; }
+    static String unifiedSubtitle(Video video, Group group) {
+        return video.provider.name + (group != null && group.alternatives.size() > 1 ? " · " + group.alternatives.size() + "源" : "")
+                + (video.subtitle.isEmpty() ? "" : "\n" + (UnifiedCatalogPolicy.quality(video) > 0 ? "片源标注 " : "") + video.subtitle);
+    }
+
+    private static final class Holder { ImageView image; TextView title, subtitle; Video video; String cardKey; }
 
     private void loadPoster(String url, ImageView view, String title) {
         view.setTag(url);

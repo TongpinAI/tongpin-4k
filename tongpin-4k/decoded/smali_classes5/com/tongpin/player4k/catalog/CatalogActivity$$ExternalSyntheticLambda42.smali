@@ -9,11 +9,13 @@
 # instance fields
 .field public final synthetic f$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
-.field public final synthetic f$1:I
+.field public final synthetic f$1:Ljava/lang/String;
+
+.field public final synthetic f$2:Landroid/widget/ImageView;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/tongpin/player4k/catalog/CatalogActivity;I)V
+.method public synthetic constructor <init>(Lcom/tongpin/player4k/catalog/CatalogActivity;Ljava/lang/String;Landroid/widget/ImageView;)V
     .locals 0
 
     .line 0
@@ -21,7 +23,9 @@
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda42;->f$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
-    iput p2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda42;->f$1:I
+    iput-object p2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda42;->f$1:Ljava/lang/String;
+
+    iput-object p3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda42;->f$2:Landroid/widget/ImageView;
 
     return-void
 .end method
@@ -29,14 +33,16 @@
 
 # virtual methods
 .method public final run()V
-    .locals 2
+    .locals 3
 
     .line 0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda42;->f$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
-    iget v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda42;->f$1:I
+    iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda42;->f$1:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->lambda$loadPage$2$com-tongpin-player4k-catalog-CatalogActivity(I)V
+    iget-object v2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda42;->f$2:Landroid/widget/ImageView;
+
+    invoke-virtual {v0, v1, v2}, Lcom/tongpin/player4k/catalog/CatalogActivity;->lambda$loadPoster$0$com-tongpin-player4k-catalog-CatalogActivity(Ljava/lang/String;Landroid/widget/ImageView;)V
 
     return-void
 .end method

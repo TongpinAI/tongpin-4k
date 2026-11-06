@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "verdict": "clear: unified-category home and grouped natural search retain selected records, alternatives and work-key viewport anchors",
+  "source_sha256": {
+    "src/com/tongpin/player4k/tv/TvHomeActivity.java": "3008715121f9a73613a5c18ac17bf94fc3595076be90d155eb1548618b0f2174",
+    "src/com/tongpin/player4k/tv/AllCatalogSearch.java": "311b91cde088b9a3ba4c8ba79be40fb6d6c0026d17c64189085dda8baef9260a",
+    "src/com/tongpin/player4k/tv/CatalogTitleOrder.java": "b9056c7cfd2cd6ec1a6573e67fb9a25a31051b126d88d6ff830702176a63885f",
+    "src/com/tongpin/player4k/tv/UnifiedCatalogPolicy.java": "35f3ceaf09155951eefe8f64fa064bf215833fd484124347c638f01e45af45a6",
+    "src/com/tongpin/player4k/tv/UnifiedCatalogBrowse.java": "255548172145d1bf8be1d894e7dadec39af21e332df742f5e6d57fce472d111e"
+  },
+  "tests_sha256": "26c88a3d22bf9d97db74293068caffc966a517a3b0a22084d2070cb1a154f673",
+  "independent_ui_assertions": 56,
+  "all28_production_source_hashes_verified": true,
+  "shared_helpers_package_only_equal": true,
+  "reviewed_paths": [
+    "all-source default browse with fixed traditional tabs and live-only source controls",
+    "failed-primary detail can choose known candidates before fetch completes",
+    "grouped search with natural names and retained alternate Videos",
+    "immutable cached natural-title snapshot",
+    "selected and first-visible stable work-key anchors with pixel offset",
+    "View-bound click/selection and retained ordinary duplicate-ID browsing",
+    "center DOWN/UP captured-model dispatch and canceled/old-query guards",
+    "preDraw transition cleanup, window focus loss, background and destruction"
+  ],
+  "notes": [
+    "Text/numeric comparison keys do not mutate titles, source identity or paging state; changed snapshots alone rebind cards.",
+    "Press handling captures the actual bound Video and dispatches the native click chain for that object; old adapter positions are not used to select a new title.",
+    "Window-focus loss cancels pressed state and releases deferred snapshots even when no Activity pause occurs.",
+    "Unified/search anchors use stable group keys; ordinary local/live browsing retains actual-object click membership, and late preferred sources keep old candidates reachable.",
+    "SetSelectionFromTop is available since API21 per the installed official SDK API table; physical D-pad/pixel-offset behavior remains untested."
+  ],
+  "device_tested": false,
+  "activity_constructed": false,
+  "media_requested": false
+}

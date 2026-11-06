@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "scope": "138current build/use introduction prepended; all older134-and-earlier text preserved raw bytes; PRODUCT owned byroot and untouched.",
+  "files": {
+    "BUILDING.md": {
+      "before_sha256": "e887a4d6912ead644e9a4b20a92f6dee815846f145cc42170eaff50a6dac25d5",
+      "after_sha256": "8c38da8fbbf1f6233c9bb7c4f5b4c1228bd036f0dc2f41a3074a191182ba3268",
+      "historical_raw_suffix_unchanged": true
+    },
+    "使用说明.md": {
+      "before_sha256": "b2b50a77f9d65cee56f92bb7aa2ac1a9635eebdaff95242c6891376febd0eb2a",
+      "after_sha256": "b7dace05796ba45c5d6571e9e81e1a6632ae493c99b8ac1e08b0001edee44d76",
+      "historical_raw_suffix_unchanged": true
+    }
+  }
+}

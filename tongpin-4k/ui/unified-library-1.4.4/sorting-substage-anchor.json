@@ -1,0 +1,10 @@
+{
+  "published": false,
+  "promotion_ready": false,
+  "frozen_inputs_sha256": "d71323063c4a19abaa46db020bb080e57d73eed1fbd02d8831834e71bf56a1f6",
+  "source_review_sha256": "0602ec23270829564c8136063f5fd1a6ed0855490664ed2be6be4e1bffe740d5",
+  "builder_review_sha256": "a155b61e6edf024d918b2d33f3ad30f12ea2a4222fbc337473f68360d225a367",
+  "stage_compile_sha256": "f0e86395e4600794c59f9d26839644cb4452852ce1c89a9d4ec3e31d7b1c55ac",
+  "stage_dex_sha256": "9150be66abf549b0b0234e7cf97f98d292d31294c5595b205f602ab6968e4022",
+  "snapshot_index_sha256": "4ce1d870bbfb819744426a2ed39554c3a727eeb54dc17356a99c1a794e0fbf54"
+}

@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "verdict": "clear: phone unified homepage caller, conservative grouped search projection and retained input/lifecycle safety",
+  "workspace_sources": true,
+  "source_sha256": {
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/CatalogActivity.java": "28e66a662936c5108941076fd81bd7c17d48c982bca06cbe13225ef843a86e03"
+  },
+  "reports_sha256": {
+    "tongpin-4k/ui/unified-library-1.4.4/tests/verification.json": "e9daafa8053a7afe03af6fdfc2831d3b349c7c2ab642c76c82489b6c89b33e48",
+    "tongpin-4k/ui/search-order-1.4.4/source-independent-review.json": "0602ec23270829564c8136063f5fd1a6ed0855490664ed2be6be4e1bffe740d5"
+  },
+  "reviewed_behaviors": [
+    "Default empty-query home uses all-VOD UnifiedCatalogBrowse; fixed family tabs route real metadata selections, while raw search still searches every eligible VOD without a browse category. Live/channel search and local history/favorites remain explicit entries.",
+    "Immutable snapshot-reference cache avoids repeated projection; grouped row anchors use stable work key rather than mutable primary source identity. Ordinary additions retain first/focused card key and offset; an explicit next window clears the previous viewport/pending snapshot.",
+    "Touch DOWN retains the actual bound original Video through deferred callbacks; canceled/slop/window/foreground guards remain, and previous representatives remain selectable only as known current-group alternatives.",
+    "Detail begins by pausing both catalogues, then reads the latest accepted group without rendering a hidden/touched grid. It preserves the clicked original source model while retaining newly accepted alternatives.",
+    "Known-source choices fetch the actual selected provider/id detail, preserve all alternatives, and validate foreground, detail ticket and chosen group before applying a delayed dialog selection.",
+    "Source/category/keyword/live transitions cancel or invalidate the corresponding prior page/detail request; paused, hidden or scrolling grids defer rendering; resume uses current handle and current tab.",
+    "Source declaration labels are distinguished from measured playback; existing player, API, registry, source picker and natural-order network/cursor/cancel helpers are byte-preserved outside the approved prior sorting substage."
+  ],
+  "tests_observed": {
+    "actual_all_java_compile": true,
+    "owner_host_assertions": 657,
+    "caller_wiring_checks": 32
+  },
+  "device_tested": false,
+  "network_tested": false,
+  "scope_note": "Independent review of CatalogActivity only. UnifiedCatalogPolicy/Browse were authored by this reviewer and are independently reviewed by root; their source paths intentionally do not appear in this approval."
+}

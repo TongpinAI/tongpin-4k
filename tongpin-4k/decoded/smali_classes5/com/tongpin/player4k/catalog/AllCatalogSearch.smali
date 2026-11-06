@@ -46,7 +46,7 @@
 .method public constructor <init>(Ljava/util/concurrent/Executor;)V
     .locals 1
 
-    .line 83
+    .line 89
     new-instance v0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$$ExternalSyntheticLambda0;
 
     invoke-direct {v0}, Lcom/tongpin/player4k/catalog/AllCatalogSearch$$ExternalSyntheticLambda0;-><init>()V
@@ -59,17 +59,17 @@
 .method public constructor <init>(Ljava/util/concurrent/Executor;Lcom/tongpin/player4k/catalog/AllCatalogSearch$Backend;)V
     .locals 10
 
-    .line 84
+    .line 90
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 73
+    .line 79
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->lock:Ljava/lang/Object;
 
-    .line 76
+    .line 82
     new-instance v0, Ljava/util/concurrent/ThreadPoolExecutor;
 
     sget-object v6, Ljava/util/concurrent/TimeUnit;->SECONDS:Ljava/util/concurrent/TimeUnit;
@@ -100,20 +100,20 @@
 
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->workers:Ljava/util/concurrent/ThreadPoolExecutor;
 
-    .line 85
+    .line 91
     if-eqz p1, :cond_0
 
     if-eqz p2, :cond_0
 
-    .line 86
+    .line 92
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->delivery:Ljava/util/concurrent/Executor;
 
     iput-object p2, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->backend:Lcom/tongpin/player4k/catalog/AllCatalogSearch$Backend;
 
-    .line 87
+    .line 93
     return-void
 
-    .line 85
+    .line 91
     :cond_0
     new-instance p1, Ljava/lang/IllegalArgumentException;
 
@@ -127,12 +127,12 @@
 .method private accept(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;Lcom/tongpin/player4k/catalog/AllCatalogSearch$Cursor;Lcom/tongpin/player4k/catalog/CatalogApi$Page;I)V
     .locals 7
 
-    .line 170
+    .line 176
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    .line 171
+    .line 177
     iget-object v1, p3, Lcom/tongpin/player4k/catalog/CatalogApi$Page;->items:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
@@ -156,7 +156,7 @@
 
     check-cast v2, Lcom/tongpin/player4k/catalog/CatalogApi$Video;
 
-    .line 172
+    .line 178
     invoke-static {p2, v2}, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->belongs(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Cursor;Lcom/tongpin/player4k/catalog/CatalogApi$Video;)Z
 
     move-result v5
@@ -165,13 +165,13 @@
 
     goto :goto_0
 
-    .line 173
+    .line 179
     :cond_0
     iget-object v5, v2, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->id:Ljava/lang/String;
 
     invoke-virtual {v0, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 174
+    .line 180
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -196,7 +196,7 @@
 
     move-result-object v3
 
-    .line 175
+    .line 181
     invoke-static {p1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->access$1600(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)Ljava/util/Set;
 
     move-result-object v5
@@ -209,9 +209,9 @@
 
     goto :goto_0
 
-    .line 176
+    .line 182
     :cond_1
-    invoke-static {p1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->access$100(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)Ljava/util/ArrayList;
+    invoke-static {p1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->access$1700(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)Ljava/util/ArrayList;
 
     move-result-object v5
 
@@ -227,33 +227,35 @@
 
     goto :goto_0
 
-    .line 177
+    .line 183
     :cond_2
     invoke-static {p1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->access$1600(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)Ljava/util/Set;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-interface {v4, v3}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-interface {v5, v3}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    invoke-static {p1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->access$100(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)Ljava/util/ArrayList;
+    invoke-static {p1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->access$1700(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)Ljava/util/ArrayList;
 
     move-result-object v3
 
     invoke-virtual {v3, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 178
+    invoke-static {p1, v4}, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->access$1802(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;Z)Z
+
+    .line 184
     goto :goto_0
 
-    .line 179
+    .line 185
     :cond_3
     invoke-static {v0}, Ljava/util/Collections;->sort(Ljava/util/List;)V
 
-    .line 180
+    .line 186
     invoke-virtual {v0}, Ljava/util/ArrayList;->toString()Ljava/lang/String;
 
     move-result-object p1
 
-    .line 181
+    .line 187
     iput-boolean v3, p2, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Cursor;->failed:Z
 
     iget v1, p2, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Cursor;->successes:I
@@ -262,7 +264,7 @@
 
     iput v1, p2, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Cursor;->successes:I
 
-    .line 183
+    .line 189
     invoke-virtual {v0}, Ljava/util/ArrayList;->isEmpty()Z
 
     move-result v1
@@ -284,7 +286,7 @@
     :cond_4
     move v1, v3
 
-    .line 184
+    .line 190
     :goto_1
     invoke-virtual {v0}, Ljava/util/ArrayList;->isEmpty()Z
 
@@ -297,19 +299,19 @@
     :cond_5
     iput-object p1, p2, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Cursor;->previousPage:Ljava/lang/String;
 
-    .line 185
+    .line 191
     iget-boolean p1, p2, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Cursor;->repeatStopped:Z
 
     or-int/2addr p1, v1
 
     iput-boolean p1, p2, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Cursor;->repeatStopped:Z
 
-    .line 186
+    .line 192
     add-int/lit8 p1, p4, 0x1
 
     iput p1, p2, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Cursor;->nextPage:I
 
-    .line 187
+    .line 193
     iget-boolean p1, p3, Lcom/tongpin/player4k/catalog/CatalogApi$Page;->hasMore:Z
 
     if-eqz p1, :cond_6
@@ -326,7 +328,7 @@
     :cond_7
     iput-boolean v3, p2, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Cursor;->done:Z
 
-    .line 188
+    .line 194
     return-void
 .end method
 
@@ -362,7 +364,7 @@
 .method private static belongs(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Cursor;Lcom/tongpin/player4k/catalog/CatalogApi$Video;)Z
     .locals 2
 
-    .line 190
+    .line 196
     if-eqz p1, :cond_0
 
     iget-object v0, p1, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->id:Ljava/lang/String;
@@ -405,7 +407,7 @@
 
     iget-object v1, v1, Lcom/tongpin/player4k/catalog/CatalogApi$Provider;->id:Ljava/lang/String;
 
-    .line 191
+    .line 197
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -433,7 +435,7 @@
     :cond_0
     const/4 p0, 0x0
 
-    .line 190
+    .line 196
     :goto_0
     return p0
 .end method
@@ -441,7 +443,7 @@
 .method private busy(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)Z
     .locals 1
 
-    .line 140
+    .line 146
     invoke-static {p1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->access$200(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)Ljava/util/ArrayList;
 
     move-result-object p1
@@ -480,7 +482,7 @@
 .method private cancel(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)V
     .locals 1
 
-    .line 207
+    .line 213
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->lock:Ljava/lang/Object;
 
     monitor-enter v0
@@ -509,7 +511,7 @@
 .method private cancelLocked(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)V
     .locals 4
 
-    .line 209
+    .line 215
     if-eqz p1, :cond_3
 
     invoke-static {p1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->access$1500(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)Z
@@ -520,7 +522,7 @@
 
     goto :goto_2
 
-    .line 210
+    .line 216
     :cond_0
     const/4 v0, 0x1
 
@@ -530,9 +532,9 @@
 
     const/4 v1, 0x0
 
-    invoke-static {p1, v1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->access$1802(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;Lcom/tongpin/player4k/catalog/AllCatalogSearch$Listener;)Lcom/tongpin/player4k/catalog/AllCatalogSearch$Listener;
+    invoke-static {p1, v1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->access$2002(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;Lcom/tongpin/player4k/catalog/AllCatalogSearch$Listener;)Lcom/tongpin/player4k/catalog/AllCatalogSearch$Listener;
 
-    .line 211
+    .line 217
     invoke-static {p1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->access$200(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)Ljava/util/ArrayList;
 
     move-result-object v1
@@ -560,7 +562,7 @@
 
     goto :goto_0
 
-    .line 212
+    .line 218
     :cond_1
     invoke-static {p1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->access$1400(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)Ljava/util/ArrayList;
 
@@ -587,7 +589,7 @@
 
     goto :goto_1
 
-    .line 213
+    .line 219
     :cond_2
     invoke-static {p1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->access$1400(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)Ljava/util/ArrayList;
 
@@ -595,10 +597,10 @@
 
     invoke-virtual {p1}, Ljava/util/ArrayList;->clear()V
 
-    .line 214
+    .line 220
     return-void
 
-    .line 209
+    .line 215
     :cond_3
     :goto_2
     return-void
@@ -607,7 +609,7 @@
 .method private current(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)Z
     .locals 1
 
-    .line 139
+    .line 145
     iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->closed:Z
 
     if-nez v0, :cond_0
@@ -647,7 +649,7 @@
         }
     .end annotation
 
-    .line 142
+    .line 148
     invoke-static {p1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->access$1400(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)Ljava/util/ArrayList;
 
     move-result-object v0
@@ -664,12 +666,12 @@
 
     invoke-static {p1, v0}, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->access$702(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;I)I
 
-    .line 143
+    .line 149
     invoke-static {p1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->access$1304(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)I
 
     move-result v7
 
-    .line 144
+    .line 150
     invoke-interface {p2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object p2
@@ -689,17 +691,17 @@
 
     check-cast v8, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Cursor;
 
-    .line 145
+    .line 151
     const/4 v9, 0x1
 
     iput-boolean v9, v8, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Cursor;->inFlight:Z
 
     iput-boolean v0, v8, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Cursor;->suspended:Z
 
-    .line 146
+    .line 152
     iget v5, v8, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Cursor;->nextPage:I
 
-    .line 147
+    .line 153
     new-instance v10, Ljava/util/concurrent/FutureTask;
 
     new-instance v11, Lcom/tongpin/player4k/catalog/AllCatalogSearch$$ExternalSyntheticLambda2;
@@ -718,14 +720,14 @@
 
     invoke-direct {v10, v11}, Ljava/util/concurrent/FutureTask;-><init>(Ljava/util/concurrent/Callable;)V
 
-    .line 148
+    .line 154
     invoke-static {p1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->access$1400(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)Ljava/util/ArrayList;
 
     move-result-object v1
 
     invoke-virtual {v1, v10}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 149
+    .line 155
     :try_start_0
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->workers:Ljava/util/concurrent/ThreadPoolExecutor;
 
@@ -733,25 +735,25 @@
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 152
+    .line 158
     goto :goto_1
 
-    .line 150
+    .line 156
     :catch_0
     move-exception v1
 
-    .line 151
+    .line 157
     invoke-virtual {v10, v9}, Ljava/util/concurrent/FutureTask;->cancel(Z)Z
 
     iput-boolean v0, v8, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Cursor;->inFlight:Z
 
     iput-boolean v9, v8, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Cursor;->suspended:Z
 
-    .line 153
+    .line 159
     :goto_1
     goto :goto_0
 
-    .line 154
+    .line 160
     :cond_0
     return-void
 .end method
@@ -759,10 +761,10 @@
 .method private fetch(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;Lcom/tongpin/player4k/catalog/AllCatalogSearch$Cursor;II)V
     .locals 3
 
-    .line 156
+    .line 162
     nop
 
-    .line 158
+    .line 164
     :try_start_0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->backend:Lcom/tongpin/player4k/catalog/AllCatalogSearch$Backend;
 
@@ -776,7 +778,7 @@
 
     move-result-object v0
 
-    .line 159
+    .line 165
     if-eqz v0, :cond_0
 
     iget-object v1, v0, Lcom/tongpin/player4k/catalog/CatalogApi$Page;->items:Ljava/util/List;
@@ -793,10 +795,10 @@
 
     if-gt v1, v2, :cond_0
 
-    .line 160
+    .line 166
     goto :goto_0
 
-    .line 159
+    .line 165
     :cond_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
@@ -808,19 +810,19 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 160
+    .line 166
     :catch_0
     move-exception v0
 
     const/4 v0, 0x0
 
-    .line 161
+    .line 167
     :goto_0
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->lock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 162
+    .line 168
     :try_start_1
     invoke-direct {p0, p1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->current(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)Z
 
@@ -840,7 +842,7 @@
 
     goto :goto_2
 
-    .line 163
+    .line 169
     :cond_1
     const/4 p4, 0x0
 
@@ -850,7 +852,7 @@
 
     invoke-static {p1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->access$708(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)I
 
-    .line 164
+    .line 170
     if-nez v0, :cond_2
 
     const/4 p3, 0x1
@@ -859,23 +861,23 @@
 
     goto :goto_1
 
-    .line 165
+    .line 171
     :cond_2
     invoke-direct {p0, p1, p2, v0, p3}, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->accept(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;Lcom/tongpin/player4k/catalog/AllCatalogSearch$Cursor;Lcom/tongpin/player4k/catalog/CatalogApi$Page;I)V
 
-    .line 166
+    .line 172
     :goto_1
     monitor-exit v1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 167
+    .line 173
     invoke-direct {p0, p1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->publish(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)V
 
-    .line 168
+    .line 174
     return-void
 
-    .line 162
+    .line 168
     :cond_3
     :goto_2
     :try_start_2
@@ -883,7 +885,7 @@
 
     return-void
 
-    .line 166
+    .line 172
     :catchall_0
     move-exception p1
 
@@ -897,7 +899,7 @@
 .method static synthetic lambda$new$0(Ljava/lang/Runnable;)Ljava/lang/Thread;
     .locals 2
 
-    .line 78
+    .line 84
     new-instance v0, Ljava/lang/Thread;
 
     const-string v1, "tp-title-search"
@@ -919,7 +921,7 @@
         }
     .end annotation
 
-    .line 83
+    .line 89
     const/4 v0, 0x0
 
     invoke-static {p0, p1, p2, v0}, Lcom/tongpin/player4k/catalog/CatalogApi;->fetchPage(Lcom/tongpin/player4k/catalog/CatalogApi$Provider;Ljava/lang/String;ILcom/tongpin/player4k/catalog/CatalogCategories$Selection;)Lcom/tongpin/player4k/catalog/CatalogApi$Page;
@@ -932,7 +934,7 @@
 .method private publish(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)V
     .locals 2
 
-    .line 194
+    .line 200
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->lock:Ljava/lang/Object;
 
     monitor-enter v0
@@ -944,7 +946,7 @@
 
     if-eqz v1, :cond_1
 
-    invoke-static {p1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->access$1700(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)Z
+    invoke-static {p1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->access$1900(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)Z
 
     move-result v1
 
@@ -955,13 +957,13 @@
     :cond_0
     const/4 v1, 0x1
 
-    invoke-static {p1, v1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->access$1702(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;Z)Z
+    invoke-static {p1, v1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->access$1902(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;Z)Z
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    .line 196
+    .line 202
     :try_start_1
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->delivery:Ljava/util/concurrent/Executor;
 
@@ -973,7 +975,7 @@
     :try_end_1
     .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 205
+    .line 211
     :goto_0
     goto :goto_1
 
@@ -987,17 +989,17 @@
     const/4 v0, 0x0
 
     :try_start_2
-    invoke-static {p1, v0}, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->access$1702(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;Z)Z
+    invoke-static {p1, v0}, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->access$1902(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;Z)Z
 
     monitor-exit v1
 
     goto :goto_0
 
-    .line 206
+    .line 212
     :goto_1
     return-void
 
-    .line 205
+    .line 211
     :catchall_0
     move-exception p1
 
@@ -1007,7 +1009,7 @@
 
     throw p1
 
-    .line 194
+    .line 200
     :cond_1
     :goto_2
     :try_start_3
@@ -1028,12 +1030,12 @@
 .method private request(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;I)Z
     .locals 8
 
-    .line 114
+    .line 120
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->lock:Ljava/lang/Object;
 
     monitor-enter v0
 
-    .line 115
+    .line 121
     :try_start_0
     invoke-direct {p0, p1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->current(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)Z
 
@@ -1051,11 +1053,11 @@
 
     goto/16 :goto_6
 
-    .line 116
+    .line 122
     :cond_0
     nop
 
-    .line 117
+    .line 123
     invoke-static {p1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->access$200(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)Ljava/util/ArrayList;
 
     move-result-object v1
@@ -1090,13 +1092,13 @@
 
     goto :goto_0
 
-    .line 118
+    .line 124
     :cond_2
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    .line 119
+    .line 125
     invoke-static {p1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->access$200(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)Ljava/util/ArrayList;
 
     move-result-object v4
@@ -1118,7 +1120,7 @@
 
     check-cast v6, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Cursor;
 
-    .line 120
+    .line 126
     const/4 v7, 0x2
 
     if-eq p2, v7, :cond_5
@@ -1129,7 +1131,7 @@
 
     goto :goto_4
 
-    .line 121
+    .line 127
     :cond_3
     invoke-static {p1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->access$500(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)Z
 
@@ -1162,7 +1164,7 @@
 
     goto :goto_5
 
-    .line 120
+    .line 126
     :cond_5
     :goto_4
     iget-boolean v7, v6, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Cursor;->suspended:Z
@@ -1171,12 +1173,12 @@
 
     invoke-virtual {v1, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 122
+    .line 128
     :cond_6
     :goto_5
     goto :goto_1
 
-    .line 123
+    .line 129
     :cond_7
     invoke-virtual {v1}, Ljava/util/ArrayList;->isEmpty()Z
 
@@ -1188,21 +1190,21 @@
 
     return v2
 
-    .line 124
+    .line 130
     :cond_8
     invoke-direct {p0, p1, v1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->dispatchLocked(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;Ljava/util/List;)V
 
-    .line 125
+    .line 131
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 126
+    .line 132
     invoke-direct {p0, p1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->publish(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)V
 
     return v5
 
-    .line 115
+    .line 121
     :cond_9
     :goto_6
     :try_start_1
@@ -1210,7 +1212,7 @@
 
     return v2
 
-    .line 125
+    .line 131
     :catchall_0
     move-exception p1
 
@@ -1226,12 +1228,12 @@
 .method public cancelRound(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)V
     .locals 5
 
-    .line 130
+    .line 136
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->lock:Ljava/lang/Object;
 
     monitor-enter v0
 
-    .line 131
+    .line 137
     :try_start_0
     invoke-direct {p0, p1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->current(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)Z
 
@@ -1243,11 +1245,11 @@
 
     return-void
 
-    .line 132
+    .line 138
     :cond_0
     invoke-static {p1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->access$1304(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)I
 
-    .line 133
+    .line 139
     invoke-static {p1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->access$200(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)Ljava/util/ArrayList;
 
     move-result-object v1
@@ -1284,7 +1286,7 @@
 
     goto :goto_0
 
-    .line 134
+    .line 140
     :cond_2
     invoke-static {p1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->access$1400(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)Ljava/util/ArrayList;
 
@@ -1311,7 +1313,7 @@
 
     goto :goto_1
 
-    .line 135
+    .line 141
     :cond_3
     invoke-static {p1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->access$1400(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)Ljava/util/ArrayList;
 
@@ -1323,18 +1325,18 @@
 
     invoke-virtual {v1}, Ljava/util/concurrent/ThreadPoolExecutor;->purge()V
 
-    .line 136
+    .line 142
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 137
+    .line 143
     invoke-direct {p0, p1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->publish(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)V
 
-    .line 138
+    .line 144
     return-void
 
-    .line 136
+    .line 142
     :catchall_0
     move-exception p1
 
@@ -1349,12 +1351,12 @@
 .method public close()V
     .locals 2
 
-    .line 216
+    .line 222
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->lock:Ljava/lang/Object;
 
     monitor-enter v0
 
-    .line 217
+    .line 223
     :try_start_0
     iget-boolean v1, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->closed:Z
 
@@ -1364,7 +1366,7 @@
 
     return-void
 
-    .line 218
+    .line 224
     :cond_0
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->active:Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;
 
@@ -1374,7 +1376,7 @@
 
     invoke-direct {p0, v1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->cancelLocked(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)V
 
-    .line 219
+    .line 225
     :cond_1
     const/4 v1, 0x0
 
@@ -1388,13 +1390,13 @@
 
     invoke-virtual {v1}, Ljava/util/concurrent/ThreadPoolExecutor;->shutdownNow()Ljava/util/List;
 
-    .line 220
+    .line 226
     monitor-exit v0
 
-    .line 221
+    .line 227
     return-void
 
-    .line 220
+    .line 226
     :catchall_0
     move-exception v1
 
@@ -1413,7 +1415,7 @@
         }
     .end annotation
 
-    .line 147
+    .line 153
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->fetch(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;Lcom/tongpin/player4k/catalog/AllCatalogSearch$Cursor;II)V
 
     const/4 p1, 0x0
@@ -1424,18 +1426,18 @@
 .method synthetic lambda$publish$0$com-tongpin-player4k-catalog-AllCatalogSearch(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)V
     .locals 4
 
-    .line 198
+    .line 204
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->lock:Ljava/lang/Object;
 
     monitor-enter v0
 
-    .line 199
+    .line 205
     const/4 v1, 0x0
 
     :try_start_0
-    invoke-static {p1, v1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->access$1702(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;Z)Z
+    invoke-static {p1, v1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->access$1902(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;Z)Z
 
-    .line 200
+    .line 206
     invoke-direct {p0, p1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->current(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)Z
 
     move-result v1
@@ -1446,9 +1448,9 @@
 
     return-void
 
-    .line 201
+    .line 207
     :cond_0
-    invoke-static {p1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->access$1800(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)Lcom/tongpin/player4k/catalog/AllCatalogSearch$Listener;
+    invoke-static {p1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->access$2000(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)Lcom/tongpin/player4k/catalog/AllCatalogSearch$Listener;
 
     move-result-object v1
 
@@ -1458,12 +1460,12 @@
 
     invoke-direct {v2, p1, v3}, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Snapshot;-><init>(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;Lcom/tongpin/player4k/catalog/AllCatalogSearch$1;)V
 
-    .line 202
+    .line 208
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 203
+    .line 209
     if-eqz v1, :cond_1
 
     invoke-virtual {p1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->isCurrent()Z
@@ -1474,11 +1476,11 @@
 
     invoke-interface {v1, p1, v2}, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Listener;->onUpdate(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;Lcom/tongpin/player4k/catalog/AllCatalogSearch$Snapshot;)V
 
-    .line 204
+    .line 210
     :cond_1
     return-void
 
-    .line 202
+    .line 208
     :catchall_0
     move-exception p1
 
@@ -1493,7 +1495,7 @@
 .method public loadMore(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)Z
     .locals 1
 
-    .line 110
+    .line 116
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->request(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;I)Z
@@ -1506,7 +1508,7 @@
 .method public resume(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)Z
     .locals 1
 
-    .line 112
+    .line 118
     const/4 v0, 0x2
 
     invoke-direct {p0, p1, v0}, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->request(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;I)Z
@@ -1519,7 +1521,7 @@
 .method public retryFailed(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)Z
     .locals 1
 
-    .line 111
+    .line 117
     const/4 v0, 0x1
 
     invoke-direct {p0, p1, v0}, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->request(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;I)Z
@@ -1544,7 +1546,7 @@
         }
     .end annotation
 
-    .line 89
+    .line 95
     if-nez p2, :cond_0
 
     const-string p2, ""
@@ -1556,7 +1558,7 @@
 
     move-result-object p2
 
-    .line 90
+    .line 96
     :goto_0
     invoke-virtual {p2}, Ljava/lang/String;->isEmpty()Z
 
@@ -1584,18 +1586,18 @@
 
     if-eqz p3, :cond_8
 
-    .line 93
+    .line 99
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->lock:Ljava/lang/Object;
 
     monitor-enter v0
 
-    .line 94
+    .line 100
     :try_start_0
     iget-boolean v1, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->closed:Z
 
     if-nez v1, :cond_7
 
-    .line 95
+    .line 101
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->active:Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;
 
     if-eqz v1, :cond_1
@@ -1604,13 +1606,13 @@
 
     invoke-direct {p0, v1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->cancelLocked(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)V
 
-    .line 96
+    .line 102
     :cond_1
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->workers:Ljava/util/concurrent/ThreadPoolExecutor;
 
     invoke-virtual {v1}, Ljava/util/concurrent/ThreadPoolExecutor;->purge()V
 
-    .line 97
+    .line 103
     new-instance v1, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;
 
     const/4 v2, 0x0
@@ -1619,12 +1621,12 @@
 
     iput-object v1, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->active:Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;
 
-    .line 98
+    .line 104
     new-instance p2, Ljava/util/HashSet;
 
     invoke-direct {p2}, Ljava/util/HashSet;-><init>()V
 
-    .line 99
+    .line 105
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object p1
@@ -1642,12 +1644,12 @@
 
     check-cast p3, Lcom/tongpin/player4k/catalog/CatalogApi$Provider;
 
-    .line 100
+    .line 106
     if-nez p3, :cond_2
 
     goto :goto_1
 
-    .line 101
+    .line 107
     :cond_2
     invoke-static {p3}, Lcom/tongpin/player4k/catalog/CatalogApi;->liveProvider(Lcom/tongpin/player4k/catalog/CatalogApi$Provider;)Z
 
@@ -1659,7 +1661,7 @@
 
     goto :goto_1
 
-    .line 102
+    .line 108
     :cond_3
     iget-boolean v2, p3, Lcom/tongpin/player4k/catalog/CatalogApi$Provider;->supportsSearch:Z
 
@@ -1669,7 +1671,7 @@
 
     goto :goto_1
 
-    .line 103
+    .line 109
     :cond_4
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -1697,7 +1699,7 @@
 
     move-result-object v2
 
-    .line 104
+    .line 110
     invoke-interface {p2, v2}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     move-result v2
@@ -1714,11 +1716,11 @@
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 105
+    .line 111
     :cond_5
     goto :goto_1
 
-    .line 106
+    .line 112
     :cond_6
     new-instance p1, Ljava/util/ArrayList;
 
@@ -1730,17 +1732,17 @@
 
     invoke-direct {p0, v1, p1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->dispatchLocked(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;Ljava/util/List;)V
 
-    .line 107
+    .line 113
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 108
+    .line 114
     invoke-direct {p0, v1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->publish(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)V
 
     return-object v1
 
-    .line 94
+    .line 100
     :cond_7
     :try_start_1
     new-instance p1, Ljava/lang/IllegalStateException;
@@ -1751,7 +1753,7 @@
 
     throw p1
 
-    .line 107
+    .line 113
     :catchall_0
     move-exception p1
 
@@ -1761,7 +1763,7 @@
 
     throw p1
 
-    .line 91
+    .line 97
     :cond_8
     new-instance p1, Ljava/lang/IllegalArgumentException;
 

@@ -1,0 +1,479 @@
+--- published143/CatalogActivity.java
++++ 144/CatalogActivity.java
+@@ -20,10 +20,15 @@
+ import android.view.Gravity;
+ import android.view.View;
+ import android.view.ViewGroup;
++import android.view.MotionEvent;
++import android.view.KeyEvent;
++import android.view.ViewConfiguration;
++import android.view.accessibility.AccessibilityNodeInfo;
+ import android.view.WindowManager;
+ import android.view.inputmethod.EditorInfo;
+ import android.view.inputmethod.InputMethodManager;
+ import android.widget.AdapterView;
++import android.widget.AbsListView;
+ import android.widget.ArrayAdapter;
+ import android.widget.BaseAdapter;
+ import android.widget.Button;
+@@ -93,6 +98,15 @@
+     private LinearLayout categoryTabs;
+     private Button categoryFilter;
+     private Button channelSearch;
++    private GridView posterGrid;
++    private List<Video> renderedSearchItems;
++    private AllCatalogSearch.Handle pendingSortedHandle;
++    private AllCatalogSearch.Snapshot pendingSortedSnapshot;
++    private SearchAnchor savedSearchAnchor;
++    private final SearchTouch searchTouch = new SearchTouch();
++    private boolean gridTouchActive, gridClickSettling, windowFocused = true;
++    private int gridScrollState;
++    private Runnable sortedDrain;
+ 
+     public static void openSourceSwitch(Activity host, String title, String episodeLabel, String year,
+                                         String category, String description, long position, float speed, boolean playing) {
+@@ -238,7 +252,7 @@
+         });
+         state.addView(retry, new LinearLayout.LayoutParams(dp(96), dp(48)));
+         catalogScreen.addView(state, new LinearLayout.LayoutParams(-1, -2));
+-        GridView list = new PosterGrid(this);
++        GridView list = new PosterGrid(this); posterGrid = list;
+         list.setBackgroundColor(BG); list.setNumColumns(posterColumns(getResources().getConfiguration().screenWidthDp,
+                 getResources().getConfiguration().fontScale));
+         list.setHorizontalSpacing(dp(10)); list.setVerticalSpacing(dp(16));
+@@ -246,7 +260,50 @@
+         list.setPadding(dp(16), dp(8), dp(16), dp(12)); list.setClipToPadding(false);
+         list.setContentDescription("影片海报片库");
+         adapter = new VideoAdapter(); list.setAdapter(adapter);
+-        list.setOnItemClickListener((parent, view, position, id) -> loadDetail(adapter.getItem(position)));
++        list.setOnItemClickListener((parent, view, position, id) -> {
++            if (!foreground || !windowFocused) return;
++            Holder holder = view.getTag() instanceof Holder ? (Holder) view.getTag() : null;
++            Video clicked = searchTouch.consume(holder == null ? null : holder.video, pageTicket,
++                    list.isInTouchMode() && !view.isAccessibilityFocused());
++            if (clicked != null && videos.contains(clicked)) loadDetail(clicked);
++        });
++        list.setOnTouchListener((view, event) -> {
++            if (!foreground || !windowFocused) { searchTouch.windowLost(); return false; }
++            switch (event.getActionMasked()) {
++                case MotionEvent.ACTION_DOWN:
++                    savedSearchAnchor = null;
++                    gridTouchActive = true; gridClickSettling = false;
++                    if (sortedDrain != null) list.removeCallbacks(sortedDrain);
++                    int position = list.pointToPosition((int) event.getX(), (int) event.getY());
++                    View child = list.getChildAt(position - list.getFirstVisiblePosition());
++                    Holder holder = child != null && child.getTag() instanceof Holder ? (Holder) child.getTag() : null;
++                    searchTouch.down(holder == null ? null : holder.video, event.getX(), event.getY(), pageTicket);
++                    break;
++                case MotionEvent.ACTION_MOVE:
++                    searchTouch.move(event.getX(), event.getY(), ViewConfiguration.get(this).getScaledTouchSlop()); break;
++                case MotionEvent.ACTION_POINTER_DOWN:
++                case MotionEvent.ACTION_CANCEL:
++                    searchTouch.cancel(); gridTouchActive = false; scheduleSortedDrain(); break;
++                case MotionEvent.ACTION_UP:
++                    gridTouchActive = false; scheduleSortedDrain(); break;
++            }
++            return false;
++        });
++        list.setOnKeyListener((view, code, event) -> {
++            if (event.getAction() == KeyEvent.ACTION_DOWN && foreground && windowFocused) { savedSearchAnchor = null; searchTouch.keyboard(); }
++            return false;
++        });
++        list.setOnScrollListener(new AbsListView.OnScrollListener() {
++            @Override public void onScroll(AbsListView view, int first, int visible, int total) { }
++            @Override public void onScrollStateChanged(AbsListView view, int state) {
++                gridScrollState = state;
++                if (state != SCROLL_STATE_IDLE) {
++                    searchTouch.cancel();
++                    if (foreground && windowFocused && detail == null && !readingDetail) savedSearchAnchor = null;
++                }
++                else if (!gridTouchActive && !gridClickSettling) drainSortedSnapshot();
++            }
++        });
+         catalogScreen.addView(list, new LinearLayout.LayoutParams(-1, 0, 1));
+         LinearLayout pager = row();
+         pager.setPadding(dp(16), dp(4), dp(16), dp(4));
+@@ -367,6 +424,10 @@
+     private void cancelGlobalSearch() {
+         if (searchHandle != null) searchHandle.cancel();
+         searchHandle = null;
++        pendingSortedHandle = null; pendingSortedSnapshot = null; renderedSearchItems = null; savedSearchAnchor = null;
++        searchTouch.windowLost(); gridTouchActive = false; gridClickSettling = false;
++        if (posterGrid != null && sortedDrain != null) posterGrid.removeCallbacks(sortedDrain);
++        sortedDrain = null;
+     }
+ 
+     private void startGlobalSearch() {
+@@ -391,10 +452,18 @@
+ 
+     private void applyGlobalSnapshot(AllCatalogSearch.Handle handle, AllCatalogSearch.Snapshot snapshot) {
+         if (handle != searchHandle || !handle.isCurrent()) return;
+-        videos.clear(); videos.addAll(snapshot.items); adapter.notifyDataSetChanged();
+         loading = snapshot.loading; hasMore = snapshot.hasMore;
+-        // Returning search packets cannot dismiss a detail or replace its loading/error state.
+-        if (!foreground || readingDetail || detail != null) return;
++        // A deferred native click must continue to refer to its original card, and hidden grids retain their viewport.
++        if (!foreground || !windowFocused || readingDetail || detail != null || gridTouchActive || gridClickSettling || gridScrollState != 0) {
++            pendingSortedHandle = handle; pendingSortedSnapshot = snapshot; return;
++        }
++        pendingSortedHandle = null; pendingSortedSnapshot = null;
++        if (renderedSearchItems != snapshot.items) {
++            SearchAnchor anchor = savedSearchAnchor != null ? savedSearchAnchor : captureSearchAnchor();
++            videos.clear(); videos.addAll(snapshot.items); adapter.notifyDataSetChanged(); renderedSearchItems = snapshot.items;
++            restoreSearchAnchor(anchor);
++        } else if (savedSearchAnchor != null) restoreSearchAnchor(savedSearchAnchor);
++        savedSearchAnchor = null;
+         caption.setText("搜索结果 · " + snapshot.totalSources + "个影视片库");
+         status.setText(snapshot.loading || snapshot.canResume || snapshot.failedSources > 0 || snapshot.repeatStoppedSources > 0
+                 || snapshot.limited || snapshot.items.isEmpty() ? globalStatus(snapshot) : "");
+@@ -402,6 +471,62 @@
+         retry.setText("重试失败"); retry.setEnabled(!snapshot.loading);
+         retry.setVisibility(snapshot.failedSources > 0 && !snapshot.limited ? View.VISIBLE : View.GONE);
+         updatePager();
++    }
++
++    private SearchAnchor captureSearchAnchor() {
++        if (posterGrid == null || posterGrid.getChildCount() == 0) return null;
++        View child = posterGrid.getChildAt(0);
++        if (!posterGrid.isInTouchMode() && posterGrid.hasFocus()) {
++            View selected = posterGrid.getSelectedView(); if (selected != null) child = selected;
++        }
++        if (!(child.getTag() instanceof Holder)) return null;
++        return new SearchAnchor(CatalogTitleOrder.identity(((Holder) child.getTag()).video), child.getTop() - posterGrid.getListPaddingTop());
++    }
++
++    private void restoreSearchAnchor(SearchAnchor anchor) {
++        if (anchor == null) return;
++        int index = CatalogTitleOrder.indexOf(videos, anchor.key);
++        if (index >= 0) posterGrid.setSelectionFromTop(index, anchor.offset);
++    }
++
++    private void scheduleSortedDrain() {
++        gridClickSettling = true;
++        if (sortedDrain != null) posterGrid.removeCallbacks(sortedDrain);
++        sortedDrain = () -> { sortedDrain = null; gridClickSettling = false; if (!gridTouchActive && gridScrollState == 0) drainSortedSnapshot(); };
++        // Native AbsListView may post PerformClick after ACTION_UP; the captured model also guards any later click.
++        posterGrid.postDelayed(sortedDrain, ViewConfiguration.getPressedStateDuration() + 1L);
++    }
++
++    private void drainSortedSnapshot() {
++        AllCatalogSearch.Handle handle = pendingSortedHandle; AllCatalogSearch.Snapshot snapshot = pendingSortedSnapshot;
++        if (handle != null && snapshot != null) applyGlobalSnapshot(handle, snapshot);
++    }
++
++    private static final class SearchAnchor {
++        final String key; final int offset;
++        SearchAnchor(String key, int offset) { this.key = key; this.offset = offset; }
++    }
++
++    static final class SearchTouch {
++        private Video video;
++        private float x, y;
++        private int ticket;
++        private boolean captured, canceled, windowCanceled;
++        void down(Video target, float x, float y, int ticket) {
++            video = target; this.x = x; this.y = y; this.ticket = ticket; captured = true; canceled = false; windowCanceled = false;
++        }
++        void move(float x, float y, int slop) { if (Math.abs(x - this.x) > slop || Math.abs(y - this.y) > slop) cancel(); }
++        void cancel() { video = null; captured = true; canceled = true; }
++        void windowLost() { cancel(); windowCanceled = true; }
++        void keyboard() { video = null; captured = false; canceled = false; windowCanceled = false; }
++        void accessibilityActivation() { keyboard(); }
++        Video consume(Video bound, int currentTicket, boolean fromTouch) {
++            if (windowCanceled) return null;
++            if (!fromTouch) { video = null; captured = false; canceled = false; return bound; }
++            if (!captured) return bound;
++            Video clicked = !canceled && ticket == currentTicket ? video : null;
++            cancel(); return clicked;
++        }
+     }
+ 
+     private void restoreGlobalSearch() {
+@@ -537,6 +662,7 @@
+     }
+ 
+     private void loadDetail(Video video) {
++        if (!keyword.isEmpty()) savedSearchAnchor = captureSearchAnchor();
+         if (searchHandle != null) allSearch.cancelRound(searchHandle);
+         readingDetail = true;
+         stateRow.setVisibility(View.VISIBLE);
+@@ -578,6 +704,7 @@
+     }
+ 
+     private void showDetail(Detail value) {
++        if (detail == null && !keyword.isEmpty()) savedSearchAnchor = captureSearchAnchor();
+         detail = value;
+         selectedEpisode = null;
+         heading.setText(CatalogApi.liveProvider(value.video.provider) ? "直播频道" : "选集播放");
+@@ -817,6 +944,7 @@
+     }
+ 
+     @Override protected void onDestroy() {
++        if (posterGrid != null && sortedDrain != null) posterGrid.removeCallbacks(sortedDrain);
+         if (allSearch != null) allSearch.close();
+         if (sourcePicker != null) sourcePicker.close();
+         ++pageTicket;
+@@ -829,6 +957,10 @@
+     }
+ 
+     @Override protected void onPause() {
++        if (detail == null && !keyword.isEmpty()) savedSearchAnchor = captureSearchAnchor();
++        searchTouch.windowLost(); gridTouchActive = false; gridClickSettling = false;
++        if (posterGrid != null && sortedDrain != null) posterGrid.removeCallbacks(sortedDrain);
++        sortedDrain = null;
+         foreground = false;
+         if (allSearch != null && searchHandle != null) allSearch.cancelRound(searchHandle);
+         readingDetail = false;
+@@ -837,6 +969,19 @@
+         if (sourcePicker != null) sourcePicker.close();
+         if (!loading && progress != null) progress.setVisibility(View.GONE);
+         super.onPause();
++    }
++
++    @Override public void onWindowFocusChanged(boolean hasFocus) {
++        super.onWindowFocusChanged(hasFocus); windowFocused = hasFocus;
++        if (!hasFocus) {
++            if (detail == null && !keyword.isEmpty()) savedSearchAnchor = captureSearchAnchor();
++            searchTouch.windowLost(); gridTouchActive = false; gridClickSettling = false; gridScrollState = 0;
++            if (posterGrid != null && sortedDrain != null) posterGrid.removeCallbacks(sortedDrain);
++            sortedDrain = null;
++        } else if (foreground && detail == null && !readingDetail) {
++            drainSortedSnapshot();
++            if (pendingSortedSnapshot == null) savedSearchAnchor = null;
++        }
+     }
+ 
+     @Override protected void onResume() {
+@@ -988,6 +1133,17 @@
+         }
+     }
+ 
++    private final class PosterCard extends LinearLayout {
++        PosterCard() { super(CatalogActivity.this); setOrientation(LinearLayout.VERTICAL); }
++        @Override public boolean performAccessibilityAction(int action, Bundle arguments) {
++            if (action == AccessibilityNodeInfo.ACTION_CLICK) {
++                if (!foreground || !windowFocused) return false;
++                searchTouch.accessibilityActivation();
++            }
++            return super.performAccessibilityAction(action, arguments);
++        }
++    }
++
+     private final class VideoAdapter extends BaseAdapter {
+         @Override public int getCount() { return videos.size(); }
+         @Override public Video getItem(int position) { return videos.get(position); }
+@@ -995,7 +1151,7 @@
+         @Override public View getView(int position, View convert, ViewGroup parent) {
+             Holder holder;
+             if (convert == null) {
+-                LinearLayout card = column(); holder = new Holder();
++                LinearLayout card = new PosterCard(); holder = new Holder();
+                 holder.image = new PosterImage(CatalogActivity.this);
+                 holder.image.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                 holder.image.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+@@ -1011,6 +1167,7 @@
+                 card.setTag(holder); convert = card;
+             } else holder = (Holder) convert.getTag();
+             Video video = getItem(position); holder.title.setText(video.title);
++            holder.video = video;
+             String subtitle = keyword.isEmpty() ? video.subtitle : resultSubtitle(video);
+             holder.subtitle.setText(subtitle); holder.subtitle.setVisibility(subtitle.isEmpty() ? View.GONE : View.VISIBLE);
+             convert.setContentDescription(video.title + "，" + resultSubtitle(video));
+@@ -1023,7 +1180,7 @@
+         return video.provider.name + " · " + video.categoryLabel + (video.subtitle.isEmpty() ? "" : " · " + video.subtitle);
+     }
+ 
+-    private static final class Holder { ImageView image; TextView title, subtitle; }
++    private static final class Holder { ImageView image; TextView title, subtitle; Video video; }
+ 
+     private void loadPoster(String url, ImageView view, String title) {
+         view.setTag(url);
+--- published143/AllCatalogSearch.java
++++ 144/AllCatalogSearch.java
+@@ -28,7 +28,7 @@
+         public final int totalSources, skippedBrowseOnly, skippedLive, successfulSources, failedSources,
+                 repeatStoppedSources, pending, batchTotal, batchReturned;
+         private Snapshot(Handle h) {
+-            query = h.query; items = Collections.unmodifiableList(new ArrayList<Video>(h.items));
++            query = h.query; items = h.orderedItems();
+             totalSources = h.cursors.size(); skippedBrowseOnly = h.skippedBrowseOnly; skippedLive = h.skippedLive;
+             int success = 0, failed = 0, repeated = 0, working = 0;
+             boolean remaining = false, suspended = false;
+@@ -51,12 +51,18 @@
+         private final String query;
+         private final ArrayList<Cursor> cursors = new ArrayList<Cursor>();
+         private final ArrayList<Video> items = new ArrayList<Video>();
++        private List<Video> sortedItems = Collections.emptyList();
++        private boolean sortedDirty;
+         private final Set<String> seen = new HashSet<String>();
+         private final ArrayList<FutureTask<Void>> jobs = new ArrayList<FutureTask<Void>>();
+         private Listener listener;
+         private int skippedBrowseOnly, skippedLive, round, batchTotal, batchReturned;
+         private boolean canceled, limited, deliveryQueued;
+         private Handle(String query, Listener listener) { this.query = query; this.listener = listener; }
++        private List<Video> orderedItems() {
++            if (sortedDirty) { sortedItems = CatalogTitleOrder.sortedCopy(items); sortedDirty = false; }
++            return sortedItems;
++        }
+         public void cancel() { AllCatalogSearch.this.cancel(this); }
+         public boolean isCurrent() { synchronized (lock) { return current(this); } }
+         public Snapshot snapshot() { synchronized (lock) { return new Snapshot(this); } }
+@@ -174,7 +180,7 @@
+             String key = cursor.identity + '\0' + video.id;
+             if (h.seen.contains(key)) continue;
+             if (h.items.size() >= MAX_RESULTS) { h.limited = true; continue; }
+-            h.seen.add(key); h.items.add(video);
++            h.seen.add(key); h.items.add(video); h.sortedDirty = true;
+         }
+         Collections.sort(ids);
+         String fingerprint = ids.toString();
+--- published143/CatalogTitleOrder.java
++++ 144/CatalogTitleOrder.java
+@@ -0,0 +1,147 @@
++package com.tongpin.player4k.catalog;
++
++import com.tongpin.player4k.catalog.CatalogApi.Provider;
++import com.tongpin.player4k.catalog.CatalogApi.Video;
++import java.text.Normalizer;
++import java.util.ArrayList;
++import java.util.Collections;
++import java.util.List;
++import java.util.Locale;
++import java.util.regex.Matcher;
++import java.util.regex.Pattern;
++
++/** Deterministic natural title order. Comparison keys never replace a source's actual title/model. */
++public final class CatalogTitleOrder {
++    private static final Pattern ORDINAL = Pattern.compile("第([零〇一二两兩三四五六七八九十百千万]{1,32})([季部集])");
++    private CatalogTitleOrder() { }
++
++    public static String identity(Video video) {
++        if (video == null) return "";
++        Provider provider = video.provider;
++        return text(provider == null ? null : provider.id) + '\0' + text(provider == null ? null : provider.api)
++                + '\0' + text(video.id);
++    }
++
++    public static int indexOf(List<Video> videos, String identity) {
++        if (videos == null || identity == null || identity.isEmpty()) return -1;
++        int found = -1;
++        for (int i = 0; i < videos.size(); i++) if (identity.equals(identity(videos.get(i)))) {
++            if (found >= 0) return -1;
++            found = i;
++        }
++        return found;
++    }
++
++    private static final class Entry {
++        final Video video;
++        final String key, identity, original;
++        Entry(Video video) {
++            this.video = video; original = text(video == null ? null : video.title);
++            key = key(original); identity = identity(video);
++        }
++    }
++
++    public static List<Video> sortedCopy(List<Video> source) {
++        ArrayList<Entry> entries = new ArrayList<>();
++        for (Video video : source) entries.add(new Entry(video));
++        Collections.sort(entries, CatalogTitleOrder::compareEntries);
++        ArrayList<Video> result = new ArrayList<>();
++        for (Entry entry : entries) result.add(entry.video);
++        return Collections.unmodifiableList(result);
++    }
++
++    public static int compare(Video left, Video right) { return compareEntries(new Entry(left), new Entry(right)); }
++
++    private static int compareEntries(Entry left, Entry right) {
++        int compared = natural(left.key, right.key);
++        if (compared == 0) compared = left.identity.compareTo(right.identity);
++        if (compared == 0) compared = left.original.compareTo(right.original);
++        return compared;
++    }
++
++    private static String text(String value) { return value == null ? "" : value; }
++
++    static String key(String title) {
++        String normalized = Normalizer.normalize(text(title), Normalizer.Form.NFKC).toLowerCase(Locale.ROOT);
++        StringBuilder compact = new StringBuilder();
++        for (int i = 0; i < normalized.length(); i++) {
++            char c = normalized.charAt(i);
++            if (!Character.isWhitespace(c) && !Character.isSpaceChar(c)) compact.append(c);
++        }
++        Matcher matcher = ORDINAL.matcher(compact);
++        StringBuffer result = new StringBuffer();
++        while (matcher.find()) {
++            String digits = ordinal(matcher.group(1));
++            matcher.appendReplacement(result, Matcher.quoteReplacement(digits == null ? matcher.group() : "第" + digits + matcher.group(2)));
++        }
++        matcher.appendTail(result);
++        return result.toString();
++    }
++
++    private static int digit(char c) {
++        switch (c) {
++            case '零': case '〇': return 0;
++            case '一': return 1;
++            case '二': case '两': case '兩': return 2;
++            case '三': return 3;
++            case '四': return 4;
++            case '五': return 5;
++            case '六': return 6;
++            case '七': return 7;
++            case '八': return 8;
++            case '九': return 9;
++            default: return -1;
++        }
++    }
++
++    private static String ordinal(String value) {
++        boolean units = value.indexOf('十') >= 0 || value.indexOf('百') >= 0 || value.indexOf('千') >= 0 || value.indexOf('万') >= 0;
++        if (!units) {
++            StringBuilder digits = new StringBuilder();
++            for (int i = 0; i < value.length(); i++) { int d = digit(value.charAt(i)); if (d < 0) return null; digits.append(d); }
++            return digits.toString();
++        }
++        int total = 0, section = 0, number = -1, previousUnit = 10000;
++        boolean usedWan = false;
++        for (int i = 0; i < value.length(); i++) {
++            char c = value.charAt(i); int d = digit(c);
++            if (d >= 0) {
++                if (number > 0) return null;
++                number = d; continue;
++            }
++            if (c == '万') {
++                if (usedWan) return null;
++                section += Math.max(0, number);
++                total = (section == 0 ? 1 : section) * 10000;
++                usedWan = true; section = 0; number = -1; previousUnit = 10000;
++                continue;
++            }
++            int unit = c == '十' ? 10 : c == '百' ? 100 : c == '千' ? 1000 : -1;
++            if (unit <= 0 || unit >= previousUnit) return null;
++            section += (number < 0 ? 1 : number) * unit; number = -1; previousUnit = unit;
++        }
++        return Integer.toString(total + section + Math.max(0, number));
++    }
++
++    static int natural(String left, String right) {
++        int a = 0, b = 0;
++        while (a < left.length() && b < right.length()) {
++            char x = left.charAt(a), y = right.charAt(b);
++            if (x >= '0' && x <= '9' && y >= '0' && y <= '9') {
++                int aEnd = a, bEnd = b;
++                while (aEnd < left.length() && left.charAt(aEnd) >= '0' && left.charAt(aEnd) <= '9') aEnd++;
++                while (bEnd < right.length() && right.charAt(bEnd) >= '0' && right.charAt(bEnd) <= '9') bEnd++;
++                while (a < aEnd && left.charAt(a) == '0') a++;
++                while (b < bEnd && right.charAt(b) == '0') b++;
++                int compared = Integer.compare(aEnd - a, bEnd - b);
++                if (compared == 0) for (int i = 0; i < aEnd - a && compared == 0; i++) compared = left.charAt(a + i) - right.charAt(b + i);
++                if (compared != 0) return compared;
++                a = aEnd; b = bEnd;
++            } else {
++                if (x != y) return x - y;
++                a++; b++;
++            }
++        }
++        return Integer.compare(left.length() - a, right.length() - b);
++    }
++}

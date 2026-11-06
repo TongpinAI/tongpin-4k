@@ -1,0 +1,447 @@
+--- 137/src/com/tongpin/player4k/tv/TvHomeActivity.java
++++ 138/src/com/tongpin/player4k/tv/TvHomeActivity.java
+@@ -16,6 +16,7 @@
+ import android.view.KeyEvent;
+ import android.view.View;
+ import android.view.ViewGroup;
++import android.view.ViewTreeObserver;
+ import android.view.WindowManager;
+ import android.view.inputmethod.InputMethodManager;
+ import android.widget.AdapterView;
+@@ -65,6 +66,14 @@
+     private AllCatalogSearch.Handle searchHandle;
+     private boolean restartGlobalSearch, foreground;
+     private String channelQuery = "";
++    private List<Video> renderedSearchItems;
++    private SearchAnchor pendingSearchAnchor;
++    private ViewTreeObserver.OnPreDrawListener searchLayoutListener;
++    private GridView searchLayoutGrid;
++    private boolean restoringSearchPosition;
++    private final SearchPress searchPress = new SearchPress();
++    private View pressedSearchView;
++    private int capturedSearchKey;
+     private CardAdapter adapter;
+     private String providerId = "", query = "", mode = "catalog";
+     private int page = 1, browsePage = 1, generation;
+@@ -118,7 +127,9 @@
+     }
+ 
+     @Override public void onWindowFocusChanged(boolean focused) {
+-        super.onWindowFocusChanged(focused); if (focused) immersive();
++        super.onWindowFocusChanged(focused);
++        if (focused) immersive();
++        else { clearSearchPress(); main.post(() -> renderSearch(searchHandle)); }
+     }
+ 
+     private void immersive() {
+@@ -147,6 +158,7 @@
+     }
+ 
+     private void showHome() {
++        clearSearchInteraction();
+         inDetail = false; detail = null; detailVideo = null;
+         root = column(); root.setPadding(d(48), d(27), d(48), d(27));
+         LinearLayout header = row();
+@@ -215,11 +227,18 @@
+         grid.setPadding(d(2), d(2), d(2), d(2));
+         grid.setDescendantFocusability(ViewGroup.FOCUS_BLOCK_DESCENDANTS);
+         adapter = new CardAdapter(); grid.setAdapter(adapter);
+-        grid.setOnItemClickListener((p, v, position, id) -> { if (position < videos.size()) openDetail(videos.get(position)); });
++        grid.setOnItemClickListener((p, v, position, id) -> {
++            Video video = boundVideo(v);
++            if (!restoringSearchPosition && video != null && videos.contains(video))
++                openDetail(video);
++        });
++        grid.setOnKeyListener((v, code, event) -> searchSelectionKey(code, event));
+         grid.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+             public void onNothingSelected(AdapterView<?> p) {}
+             public void onItemSelected(AdapterView<?> p, View v, int at, long id) {
+-                if (at < videos.size()) focusVideoId = videoKey(videos.get(at));
++                Video video = boundVideo(v);
++                if (!restoringSearchPosition && video != null && videos.contains(video))
++                    focusVideoId = videoKey(video);
+             }
+         });
+         root.addView(grid, new LinearLayout.LayoutParams(-1, 0, 1)); gap(root, 6);
+@@ -357,6 +376,7 @@
+     }
+ 
+     private void cancelPending() {
++        clearSearchInteraction();
+         allSearch.cancelRound(searchHandle);
+         generation++;
+         preparingPlayback = false;
+@@ -474,7 +494,7 @@
+                 || !query.equals(searchHandle.snapshot().query)) {
+             restartGlobalSearch = false;
+             if (searchHandle != null) searchHandle.cancel();
+-            videos.clear(); adapter.notifyDataSetChanged();
++            videos.clear(); adapter.notifyDataSetChanged(); renderedSearchItems = null;
+             searchHandle = allSearch.start(providers, query, (handle, ignored) -> renderSearch(handle));
+         }
+         renderSearch(searchHandle);
+@@ -488,19 +508,142 @@
+                 || !handle.isCurrent() || !allCatalogSearch(mode, query)) return;
+         AllCatalogSearch.Snapshot snapshot = handle.snapshot();
+         if (!query.equals(snapshot.query)) return;
+-        String focusKey = focusVideoId;
+-        videos.clear(); videos.addAll(snapshot.items); hasMore = snapshot.hasMore;
+-        adapter.notifyDataSetChanged();
++        boolean changed = snapshot.items != renderedSearchItems;
++        if (searchPress.active() && changed) return;
++        SearchAnchor anchor = changed || restoreGridFocus
++                ? pendingSearchAnchor == null ? captureSearchAnchor() : pendingSearchAnchor : null;
++        if (changed) {
++            videos.clear(); videos.addAll(snapshot.items); renderedSearchItems = snapshot.items;
++            adapter.notifyDataSetChanged();
++        }
++        hasMore = snapshot.hasMore;
+         String label = globalStatus(snapshot.totalSources, snapshot.successfulSources, snapshot.pending,
+                 snapshot.failedSources, snapshot.skippedBrowseOnly, snapshot.skippedLive, snapshot.canResume, snapshot.limited);
+         if (!snapshot.loading && videos.isEmpty() && !snapshot.canResume)
+             label += snapshot.failedSources > 0 ? " · 可重试失败片库" : " · 未找到匹配，试试完整片名";
+         if (snapshot.repeatStoppedSources > 0) label += " · 重复页已停止";
+         status.setText(label); status.setContentDescription(label); updatePager(snapshot.loading);
+-        if (restoreGridFocus) {
+-            int selected = searchResultIndex(videos, focusKey);
+-            if (!videos.isEmpty()) { grid.setSelection(selected); grid.requestFocus(); restoreGridFocus = false; }
+-        }
++        if (anchor != null) restoreSearchAnchor(anchor);
++    }
++
++    private static Video boundVideo(View view) {
++        return view != null && view.getTag() instanceof Video ? (Video) view.getTag() : null;
++    }
++
++    static final class SearchAnchor {
++        final String selectedKey, visibleKey;
++        final int selectedTop, visibleTop;
++        final boolean requestFocus;
++        SearchAnchor(String selectedKey, int selectedTop, String visibleKey, int visibleTop, boolean requestFocus) {
++            this.selectedKey = selectedKey; this.selectedTop = selectedTop;
++            this.visibleKey = visibleKey; this.visibleTop = visibleTop; this.requestFocus = requestFocus;
++        }
++        int[] position(List<Video> after) {
++            int index = CatalogTitleOrder.indexOf(after, selectedKey);
++            if (index >= 0) return new int[]{index, selectedTop};
++            index = CatalogTitleOrder.indexOf(after, visibleKey);
++            if (index >= 0) return new int[]{index, visibleTop};
++            return new int[]{requestFocus && !after.isEmpty() ? 0 : -1, 0};
++        }
++    }
++
++    static final class SearchPress {
++        private Video target;
++        private Object session;
++        private String query;
++        boolean down(Video video, Object session, String query) {
++            if (target != null) return true;
++            if (video == null || session == null || query == null || query.isEmpty()) return false;
++            target = video; this.session = session; this.query = query; return true;
++        }
++        boolean active() { return target != null; }
++        Video up(Object session, String query, boolean allowed) {
++            Video saved = target;
++            boolean valid = saved != null && this.session == session && this.query.equals(query) && allowed;
++            cancel(); return valid ? saved : null;
++        }
++        void cancel() { target = null; session = null; query = null; }
++    }
++
++    private SearchAnchor captureSearchAnchor() {
++        View selected = grid.getSelectedView(), first = grid.getChildAt(0);
++        Video chosen = boundVideo(selected), visible = boundVideo(first);
++        String selectedKey = restoreGridFocus ? focusVideoId : chosen == null ? "" : videoKey(chosen);
++        int selectedTop = restoreGridFocus || selected == null ? 0 : selected.getTop() - grid.getPaddingTop();
++        return new SearchAnchor(selectedKey, selectedTop, visible == null ? "" : videoKey(visible),
++                first == null ? 0 : first.getTop() - grid.getPaddingTop(), restoreGridFocus);
++    }
++
++    private void restoreSearchAnchor(SearchAnchor anchor) {
++        int[] position = anchor.position(videos);
++        clearSearchLayout();
++        if (position[0] < 0) return;
++        final GridView target = grid;
++        pendingSearchAnchor = anchor; restoringSearchPosition = true; searchLayoutGrid = target;
++        searchLayoutListener = new ViewTreeObserver.OnPreDrawListener() {
++            public boolean onPreDraw() {
++                if (target.getViewTreeObserver().isAlive()) target.getViewTreeObserver().removeOnPreDrawListener(this);
++                if (searchLayoutListener == this) {
++                    searchLayoutListener = null; searchLayoutGrid = null;
++                    pendingSearchAnchor = null; restoringSearchPosition = false;
++                }
++                return true;
++            }
++        };
++        target.getViewTreeObserver().addOnPreDrawListener(searchLayoutListener);
++        if (anchor.requestFocus) { target.requestFocus(); restoreGridFocus = false; }
++        target.setSelectionFromTop(position[0], position[1]);
++        if (CatalogTitleOrder.indexOf(videos, anchor.selectedKey) >= 0) focusVideoId = anchor.selectedKey;
++    }
++
++    private void clearSearchLayout() {
++        if (searchLayoutListener != null && searchLayoutGrid != null && searchLayoutGrid.getViewTreeObserver().isAlive())
++            searchLayoutGrid.getViewTreeObserver().removeOnPreDrawListener(searchLayoutListener);
++        searchLayoutListener = null; searchLayoutGrid = null; pendingSearchAnchor = null; restoringSearchPosition = false;
++    }
++
++    private void clearSearchPress() {
++        searchPress.cancel();
++        if (pressedSearchView != null) pressedSearchView.setPressed(false);
++        pressedSearchView = null;
++    }
++
++    private void clearSearchInteraction() { clearSearchLayout(); clearSearchPress(); }
++
++    private boolean searchSelectionKey(int code, KeyEvent event) {
++        boolean center = code == KeyEvent.KEYCODE_DPAD_CENTER || code == KeyEvent.KEYCODE_ENTER;
++        if (!center) {
++            if (event.getAction() == KeyEvent.ACTION_DOWN && searchPress.active()) {
++                clearSearchPress(); main.post(() -> renderSearch(searchHandle));
++            }
++            return false;
++        }
++        if (event.getAction() == KeyEvent.ACTION_UP && capturedSearchKey == code) {
++            capturedSearchKey = 0;
++            Video chosen = searchPress.up(searchHandle, query, foreground && hasWindowFocus() && !inDetail && !destroyed
++                    && allCatalogSearch(mode, query) && !event.isCanceled());
++            View selectedView = pressedSearchView;
++            if (selectedView != null) selectedView.setPressed(false);
++            pressedSearchView = null;
++            int index = chosen == null ? -1 : CatalogTitleOrder.indexOf(videos, videoKey(chosen));
++            if (index >= 0 && boundVideo(selectedView) == chosen)
++                grid.performItemClick(selectedView, index, adapter.getItemId(index));
++            else main.post(() -> renderSearch(searchHandle));
++            return true;
++        }
++        if (event.getAction() == KeyEvent.ACTION_DOWN && allCatalogSearch(mode, query) && foreground && !inDetail) {
++            if (capturedSearchKey == code && searchPress.active()) return true;
++            if (event.getRepeatCount() != 0) return capturedSearchKey == code;
++            capturedSearchKey = code;
++            if (!restoringSearchPosition) {
++                View selected = grid.getSelectedView();
++                if (searchPress.down(boundVideo(selected), searchHandle, query)) {
++                    pressedSearchView = selected; selected.setPressed(true);
++                }
++            }
++            return true;
++        }
++        return false;
+     }
+ 
+     static String globalStatus(int total, int successful, int pending, int failed,
+@@ -800,7 +943,7 @@
+         }
+     }
+     @Override protected void onPause() {
+-        foreground = false; allSearch.cancelRound(searchHandle); super.onPause();
++        foreground = false; clearSearchInteraction(); allSearch.cancelRound(searchHandle); super.onPause();
+     }
+     @Override protected void onSaveInstanceState(Bundle out) {
+         out.putString("categoryProvider", providerId);
+@@ -838,6 +981,7 @@
+             Video video = videos.get(position);
+             ((TextView) card.getChildAt(1)).setText(video.title);
+             ((TextView) card.getChildAt(2)).setText(video.provider.name + " · " + video.categoryLabel + (video.subtitle.isEmpty() ? "" : " · " + video.subtitle));
++            card.setTag(video);
+             card.setContentDescription(video.title + "，" + video.categoryLabel + "，" + video.provider.name + "，" + video.subtitle);
+             posters.load((ImageView) card.getChildAt(0), video.poster); return card;
+         }
+@@ -910,7 +1054,7 @@
+             return new String(output.toByteArray(), StandardCharsets.UTF_8);
+         }
+     }
+-    private static String videoKey(Video video) { return video.provider.id + ":" + video.id; }
++    private static String videoKey(Video video) { return CatalogTitleOrder.identity(video); }
+     private static String message(Exception e) {
+         String s = e.getMessage(); if (s == null || s.trim().isEmpty()) return "网络暂不可用";
+         return s.length() > 120 ? s.substring(0, 120) : s;
+--- 137/src/com/tongpin/player4k/tv/AllCatalogSearch.java
++++ 138/src/com/tongpin/player4k/tv/AllCatalogSearch.java
+@@ -28,7 +28,7 @@
+         public final int totalSources, skippedBrowseOnly, skippedLive, successfulSources, failedSources,
+                 repeatStoppedSources, pending, batchTotal, batchReturned;
+         private Snapshot(Handle h) {
+-            query = h.query; items = Collections.unmodifiableList(new ArrayList<Video>(h.items));
++            query = h.query; items = h.orderedItems();
+             totalSources = h.cursors.size(); skippedBrowseOnly = h.skippedBrowseOnly; skippedLive = h.skippedLive;
+             int success = 0, failed = 0, repeated = 0, working = 0;
+             boolean remaining = false, suspended = false;
+@@ -51,12 +51,18 @@
+         private final String query;
+         private final ArrayList<Cursor> cursors = new ArrayList<Cursor>();
+         private final ArrayList<Video> items = new ArrayList<Video>();
++        private List<Video> sortedItems = Collections.emptyList();
++        private boolean sortedDirty;
+         private final Set<String> seen = new HashSet<String>();
+         private final ArrayList<FutureTask<Void>> jobs = new ArrayList<FutureTask<Void>>();
+         private Listener listener;
+         private int skippedBrowseOnly, skippedLive, round, batchTotal, batchReturned;
+         private boolean canceled, limited, deliveryQueued;
+         private Handle(String query, Listener listener) { this.query = query; this.listener = listener; }
++        private List<Video> orderedItems() {
++            if (sortedDirty) { sortedItems = CatalogTitleOrder.sortedCopy(items); sortedDirty = false; }
++            return sortedItems;
++        }
+         public void cancel() { AllCatalogSearch.this.cancel(this); }
+         public boolean isCurrent() { synchronized (lock) { return current(this); } }
+         public Snapshot snapshot() { synchronized (lock) { return new Snapshot(this); } }
+@@ -174,7 +180,7 @@
+             String key = cursor.identity + '\0' + video.id;
+             if (h.seen.contains(key)) continue;
+             if (h.items.size() >= MAX_RESULTS) { h.limited = true; continue; }
+-            h.seen.add(key); h.items.add(video);
++            h.seen.add(key); h.items.add(video); h.sortedDirty = true;
+         }
+         Collections.sort(ids);
+         String fingerprint = ids.toString();
+--- 137/src/com/tongpin/player4k/tv/CatalogTitleOrder.java
++++ 138/src/com/tongpin/player4k/tv/CatalogTitleOrder.java
+@@ -0,0 +1,147 @@
++package com.tongpin.player4k.tv;
++
++import com.tongpin.player4k.tv.CatalogApi.Provider;
++import com.tongpin.player4k.tv.CatalogApi.Video;
++import java.text.Normalizer;
++import java.util.ArrayList;
++import java.util.Collections;
++import java.util.List;
++import java.util.Locale;
++import java.util.regex.Matcher;
++import java.util.regex.Pattern;
++
++/** Deterministic natural title order. Comparison keys never replace a source's actual title/model. */
++public final class CatalogTitleOrder {
++    private static final Pattern ORDINAL = Pattern.compile("第([零〇一二两兩三四五六七八九十百千万]{1,32})([季部集])");
++    private CatalogTitleOrder() { }
++
++    public static String identity(Video video) {
++        if (video == null) return "";
++        Provider provider = video.provider;
++        return text(provider == null ? null : provider.id) + '\0' + text(provider == null ? null : provider.api)
++                + '\0' + text(video.id);
++    }
++
++    public static int indexOf(List<Video> videos, String identity) {
++        if (videos == null || identity == null || identity.isEmpty()) return -1;
++        int found = -1;
++        for (int i = 0; i < videos.size(); i++) if (identity.equals(identity(videos.get(i)))) {
++            if (found >= 0) return -1;
++            found = i;
++        }
++        return found;
++    }
++
++    private static final class Entry {
++        final Video video;
++        final String key, identity, original;
++        Entry(Video video) {
++            this.video = video; original = text(video == null ? null : video.title);
++            key = key(original); identity = identity(video);
++        }
++    }
++
++    public static List<Video> sortedCopy(List<Video> source) {
++        ArrayList<Entry> entries = new ArrayList<>();
++        for (Video video : source) entries.add(new Entry(video));
++        Collections.sort(entries, CatalogTitleOrder::compareEntries);
++        ArrayList<Video> result = new ArrayList<>();
++        for (Entry entry : entries) result.add(entry.video);
++        return Collections.unmodifiableList(result);
++    }
++
++    public static int compare(Video left, Video right) { return compareEntries(new Entry(left), new Entry(right)); }
++
++    private static int compareEntries(Entry left, Entry right) {
++        int compared = natural(left.key, right.key);
++        if (compared == 0) compared = left.identity.compareTo(right.identity);
++        if (compared == 0) compared = left.original.compareTo(right.original);
++        return compared;
++    }
++
++    private static String text(String value) { return value == null ? "" : value; }
++
++    static String key(String title) {
++        String normalized = Normalizer.normalize(text(title), Normalizer.Form.NFKC).toLowerCase(Locale.ROOT);
++        StringBuilder compact = new StringBuilder();
++        for (int i = 0; i < normalized.length(); i++) {
++            char c = normalized.charAt(i);
++            if (!Character.isWhitespace(c) && !Character.isSpaceChar(c)) compact.append(c);
++        }
++        Matcher matcher = ORDINAL.matcher(compact);
++        StringBuffer result = new StringBuffer();
++        while (matcher.find()) {
++            String digits = ordinal(matcher.group(1));
++            matcher.appendReplacement(result, Matcher.quoteReplacement(digits == null ? matcher.group() : "第" + digits + matcher.group(2)));
++        }
++        matcher.appendTail(result);
++        return result.toString();
++    }
++
++    private static int digit(char c) {
++        switch (c) {
++            case '零': case '〇': return 0;
++            case '一': return 1;
++            case '二': case '两': case '兩': return 2;
++            case '三': return 3;
++            case '四': return 4;
++            case '五': return 5;
++            case '六': return 6;
++            case '七': return 7;
++            case '八': return 8;
++            case '九': return 9;
++            default: return -1;
++        }
++    }
++
++    private static String ordinal(String value) {
++        boolean units = value.indexOf('十') >= 0 || value.indexOf('百') >= 0 || value.indexOf('千') >= 0 || value.indexOf('万') >= 0;
++        if (!units) {
++            StringBuilder digits = new StringBuilder();
++            for (int i = 0; i < value.length(); i++) { int d = digit(value.charAt(i)); if (d < 0) return null; digits.append(d); }
++            return digits.toString();
++        }
++        int total = 0, section = 0, number = -1, previousUnit = 10000;
++        boolean usedWan = false;
++        for (int i = 0; i < value.length(); i++) {
++            char c = value.charAt(i); int d = digit(c);
++            if (d >= 0) {
++                if (number > 0) return null;
++                number = d; continue;
++            }
++            if (c == '万') {
++                if (usedWan) return null;
++                section += Math.max(0, number);
++                total = (section == 0 ? 1 : section) * 10000;
++                usedWan = true; section = 0; number = -1; previousUnit = 10000;
++                continue;
++            }
++            int unit = c == '十' ? 10 : c == '百' ? 100 : c == '千' ? 1000 : -1;
++            if (unit <= 0 || unit >= previousUnit) return null;
++            section += (number < 0 ? 1 : number) * unit; number = -1; previousUnit = unit;
++        }
++        return Integer.toString(total + section + Math.max(0, number));
++    }
++
++    static int natural(String left, String right) {
++        int a = 0, b = 0;
++        while (a < left.length() && b < right.length()) {
++            char x = left.charAt(a), y = right.charAt(b);
++            if (x >= '0' && x <= '9' && y >= '0' && y <= '9') {
++                int aEnd = a, bEnd = b;
++                while (aEnd < left.length() && left.charAt(aEnd) >= '0' && left.charAt(aEnd) <= '9') aEnd++;
++                while (bEnd < right.length() && right.charAt(bEnd) >= '0' && right.charAt(bEnd) <= '9') bEnd++;
++                while (a < aEnd && left.charAt(a) == '0') a++;
++                while (b < bEnd && right.charAt(b) == '0') b++;
++                int compared = Integer.compare(aEnd - a, bEnd - b);
++                if (compared == 0) for (int i = 0; i < aEnd - a && compared == 0; i++) compared = left.charAt(a + i) - right.charAt(b + i);
++                if (compared != 0) return compared;
++                a = aEnd; b = bEnd;
++            } else {
++                if (x != y) return x - y;
++                a++; b++;
++            }
++        }
++        return Integer.compare(left.length() - a, right.length() - b);
++    }
++}

@@ -11,11 +11,17 @@
 
 .field public final synthetic f$1:I
 
-.field public final synthetic f$2:Lcom/tongpin/player4k/catalog/CatalogApi$Detail;
+.field public final synthetic f$2:Ljava/lang/String;
+
+.field public final synthetic f$3:I
+
+.field public final synthetic f$4:Landroid/content/Intent;
+
+.field public final synthetic f$5:Z
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/tongpin/player4k/catalog/CatalogActivity;ILcom/tongpin/player4k/catalog/CatalogApi$Detail;)V
+.method public synthetic constructor <init>(Lcom/tongpin/player4k/catalog/CatalogActivity;ILjava/lang/String;ILandroid/content/Intent;Z)V
     .locals 0
 
     .line 0
@@ -25,7 +31,13 @@
 
     iput p2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda39;->f$1:I
 
-    iput-object p3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda39;->f$2:Lcom/tongpin/player4k/catalog/CatalogApi$Detail;
+    iput-object p3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda39;->f$2:Ljava/lang/String;
+
+    iput p4, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda39;->f$3:I
+
+    iput-object p5, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda39;->f$4:Landroid/content/Intent;
+
+    iput-boolean p6, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda39;->f$5:Z
 
     return-void
 .end method
@@ -33,16 +45,22 @@
 
 # virtual methods
 .method public final run()V
-    .locals 3
+    .locals 6
 
     .line 0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda39;->f$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
     iget v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda39;->f$1:I
 
-    iget-object v2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda39;->f$2:Lcom/tongpin/player4k/catalog/CatalogApi$Detail;
+    iget-object v2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda39;->f$2:Ljava/lang/String;
 
-    invoke-virtual {v0, v1, v2}, Lcom/tongpin/player4k/catalog/CatalogActivity;->lambda$loadDetail$1$com-tongpin-player4k-catalog-CatalogActivity(ILcom/tongpin/player4k/catalog/CatalogApi$Detail;)V
+    iget v3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda39;->f$3:I
+
+    iget-object v4, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda39;->f$4:Landroid/content/Intent;
+
+    iget-boolean v5, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda39;->f$5:Z
+
+    invoke-virtual/range {v0 .. v5}, Lcom/tongpin/player4k/catalog/CatalogActivity;->lambda$bridgeSourceSwitch$2$com-tongpin-player4k-catalog-CatalogActivity(ILjava/lang/String;ILandroid/content/Intent;Z)V
 
     return-void
 .end method

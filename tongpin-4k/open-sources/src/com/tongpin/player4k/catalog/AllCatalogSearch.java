@@ -28,7 +28,7 @@ public final class AllCatalogSearch implements AutoCloseable {
         public final int totalSources, skippedBrowseOnly, skippedLive, successfulSources, failedSources,
                 repeatStoppedSources, pending, batchTotal, batchReturned;
         private Snapshot(Handle h) {
-            query = h.query; items = Collections.unmodifiableList(new ArrayList<Video>(h.items));
+            query = h.query; items = h.orderedItems();
             totalSources = h.cursors.size(); skippedBrowseOnly = h.skippedBrowseOnly; skippedLive = h.skippedLive;
             int success = 0, failed = 0, repeated = 0, working = 0;
             boolean remaining = false, suspended = false;
@@ -51,12 +51,18 @@ public final class AllCatalogSearch implements AutoCloseable {
         private final String query;
         private final ArrayList<Cursor> cursors = new ArrayList<Cursor>();
         private final ArrayList<Video> items = new ArrayList<Video>();
+        private List<Video> sortedItems = Collections.emptyList();
+        private boolean sortedDirty;
         private final Set<String> seen = new HashSet<String>();
         private final ArrayList<FutureTask<Void>> jobs = new ArrayList<FutureTask<Void>>();
         private Listener listener;
         private int skippedBrowseOnly, skippedLive, round, batchTotal, batchReturned;
         private boolean canceled, limited, deliveryQueued;
         private Handle(String query, Listener listener) { this.query = query; this.listener = listener; }
+        private List<Video> orderedItems() {
+            if (sortedDirty) { sortedItems = CatalogTitleOrder.sortedCopy(items); sortedDirty = false; }
+            return sortedItems;
+        }
         public void cancel() { AllCatalogSearch.this.cancel(this); }
         public boolean isCurrent() { synchronized (lock) { return current(this); } }
         public Snapshot snapshot() { synchronized (lock) { return new Snapshot(this); } }
@@ -174,7 +180,7 @@ public final class AllCatalogSearch implements AutoCloseable {
             String key = cursor.identity + '\0' + video.id;
             if (h.seen.contains(key)) continue;
             if (h.items.size() >= MAX_RESULTS) { h.limited = true; continue; }
-            h.seen.add(key); h.items.add(video);
+            h.seen.add(key); h.items.add(video); h.sortedDirty = true;
         }
         Collections.sort(ids);
         String fingerprint = ids.toString();

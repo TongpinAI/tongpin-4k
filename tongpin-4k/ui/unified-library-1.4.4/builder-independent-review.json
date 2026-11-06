@@ -1,0 +1,118 @@
+{
+  "passed": true,
+  "verdict": "clear: expanded144 phone build gates, exact143 boundary, canonical r2 source/DEX and independent evidence pins",
+  "source_sha256": {
+    "open-sources/toolchain/check_framework_api.py": "91209f30753abd8ea244655bd98762d4e0590c173dae2e842367d82559a61905",
+    "open-sources/integration/check_timer_dex_1440.py": "d1147c74e2bcb33d33d6e0b88654281f9ccb3f4900c169eb3ca425ec9787d320",
+    "open-sources/integration/integrate_1_4_4.py": "7aee882a3eb9ccfa1108653e2762a4e4fa5e3a6f2f815ddb0b6b53fa96c50f04",
+    "build_tongpin.py": "0b93896c0de300d88730112d6985b96eb05ff8e7f939d3a7fd38e5ae3cee3df7",
+    "open-sources/integration/ui_1440_contract.py": "792c11885f0983b9e5d34199fb12753e32a48fa9f29610b70950ed0e31525d3d",
+    "open-sources/toolchain/compile_java_to_smali.py": "b1b855f38294ecb7d392980b917f8fa17eaae77496c3bd1fcd961e557574cc9c",
+    "open-sources/integration/DisassembleOwn1440.java": "a46560bddf2e662f9cad3192a66d7d91e60f9921dcebede581e33bd4600433ed",
+    "verification/1.4.4/proof-tools/DisassembleOwn1440.class": "dac92bd6c5f75b32662f88b5c968a6568e7a2b9ac0fd2e80fdc3179a09ecab41",
+    "open-sources/integration/check_native_bindings_1410.py": "9a69cd89a30993ac4ca4beaa7a8d1d7d0e1b981edbb2f2f62740f955c6a9d93c",
+    "open-sources/integration/assert_contract.py": "15d5933786a58126cf8043a75b5da18a4aa6011bc37c346630954f8d257ce41a",
+    "open-sources/integration/audit_final_ui_api_1440.py": "73ae77ca7ef855a3132fb148f863098b212a297e1387ec690152ad67b8097fec"
+  },
+  "reviewed_scope": "11 precise ui_1440 TOOLS paths; review author did not author these build tools. Shared production helpers were authored separately and approved by root.",
+  "input_main_freeze_sha256": "e880631650c8cb6b855311f8f0ffbbd4ceebac99c9f06587420c5dab25da2f2a",
+  "checks": [
+    {
+      "case": "actual current expanded r2 preflight",
+      "passed": true
+    },
+    {
+      "case": "formal promotion denied while pending review",
+      "rejected": true,
+      "exception": "AssertionError",
+      "contract_line": 41,
+      "message": "Formal integration requires completed review promotion"
+    },
+    {
+      "case": "new shared source omitted from frozen source inventory",
+      "rejected": true,
+      "exception": "AssertionError",
+      "contract_line": 75,
+      "message": ""
+    },
+    {
+      "case": "required proof class tooling pin removed",
+      "rejected": true,
+      "exception": "AssertionError",
+      "contract_line": 84,
+      "message": ""
+    },
+    {
+      "case": "required shared freeze evidence pin removed",
+      "rejected": true,
+      "exception": "AssertionError",
+      "contract_line": 86,
+      "message": ""
+    },
+    {
+      "case": "unexpected actual native method bytes",
+      "rejected": true,
+      "exception": "AssertionError",
+      "contract_line": 59,
+      "message": "Changed143 native/resource/asset: decoded/smali_classes5/a5/a.smali"
+    },
+    {
+      "case": "canonical r2 own DEX payload changed",
+      "rejected": true,
+      "exception": "AssertionError",
+      "contract_line": 144,
+      "message": ""
+    },
+    {
+      "case": "actual category fixture no longer matches independent run",
+      "rejected": true,
+      "exception": "AssertionError",
+      "contract_line": 104,
+      "message": "Stale actual category fixture: open-sources/tests/fixtures/categories/class-360zy.json"
+    },
+    {
+      "case": "owner report omitted",
+      "rejected": true,
+      "exception": "AssertionError",
+      "contract_line": 125,
+      "message": ""
+    },
+    {
+      "case": "promotion with no independent coverage",
+      "rejected": true,
+      "exception": "AssertionError",
+      "contract_line": 137,
+      "message": "Missing independent source/tool review coverage"
+    }
+  ],
+  "positive_gate": {
+    "passed": true,
+    "scope": "144 unified default library and natural search order; retained143 poster style/playback/native/registry",
+    "files": {
+      "resources": {},
+      "smali": {}
+    },
+    "new_resources": {},
+    "java_source_count": 37,
+    "provider_count": 28,
+    "checks": {
+      "native143_unchanged": true,
+      "version_only_resources": true,
+      "unified_categories_group_candidates_and_viewport_native_bindings": true,
+      "source_stubs_tests_and_reviews": true,
+      "published143_evidence_unchanged": true,
+      "canonical_stage_dex": true
+    },
+    "device_tested": false
+  },
+  "proof_reader_fresh_javac_byte_exact": true,
+  "proof_reader_class_sha256": "dac92bd6c5f75b32662f88b5c968a6568e7a2b9ac0fd2e80fdc3179a09ecab41",
+  "unique_files_hashed_once": 13297,
+  "cached_directory_inventories": 7,
+  "review_runner_sha256": "d4174d814300b391af9ea753637180ca75698fed1dc63a6c162d29cb83fc4f03",
+  "read_only_cases": true,
+  "production_or_main_evidence_mutated": false,
+  "device_tested": false,
+  "network_tested": false,
+  "limitations": "Host build-contract validation and trusted proof-reader compilation only. Positive verify(False) output write was intercepted in memory; formal integration, APK verification and device operation remain separate release steps."
+}

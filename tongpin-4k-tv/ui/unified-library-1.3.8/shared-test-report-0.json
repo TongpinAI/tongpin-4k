@@ -1,0 +1,37 @@
+{
+  "passed": true,
+  "assertions": {
+    "phone": 79,
+    "tv": 79
+  },
+  "workspace_sources": true,
+  "source_sha256": {
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogPolicy.java": "3e51355d6dc1530e2a63fa40ac89b2d91c25e9532141a442569db64d008cf9aa",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogBrowse.java": "8ccfe3a301feb6dde9efb4b9f61e382d76dbdc623f9bb3f66ec5184b3beeb475",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/AutoSourcePolicy.java": "ce4fd68b0e2f3f0ed9eed19bd15868bc71e3e9c3dfb3394c384e0e4aa2bc1e87",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/CrossSourcePolicy.java": "f443a406641ec8e8ed8d891642afb7da8a046bb5213faddf40e37158afab195c",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/CatalogTitleOrder.java": "bae3398167b1214955888afb17d483e84e9903f59d369ce9f406807be5b56df6",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/CatalogApi.java": "9e99cf63272fc2b42aa75d8de6094f2ab9b356270dd3f13254c7601826f9e959",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/CatalogCategories.java": "3c368a9e8ebbfbcf15e8426b1cdacfd0e3289efdfeb1f887569840528425f03b",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/MacCmsXml.java": "5ca12bf836e1c8e10c8efd06d0054e0ce25c8c63c707f7513e77eddccf5b8f68",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/TvBoxJson.java": "4fe2bf0bdaf94a431a5ddc6514eb51a37d668006b608659a1cf16fd558faab24",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/M3uCatalog.java": "710daeaabe91bab03e078106de0b4cdd5d1b852cbdb4c7992ed0b2e3626ead51",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/UnifiedCatalogPolicy.java": "35f3ceaf09155951eefe8f64fa064bf215833fd484124347c638f01e45af45a6",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/UnifiedCatalogBrowse.java": "255548172145d1bf8be1d894e7dadec39af21e332df742f5e6d57fce472d111e",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/AutoSourcePolicy.java": "ca0f1a207816bbc010a5ef7df7545d62acf9ce51d27cafbf9edc7a8df4cefeb5",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/CrossSourcePolicy.java": "10f4440f3970a3f3bd233548496ea98680dfbd0ed8eb8d7018d3df1e96108bc3",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/CatalogTitleOrder.java": "b9056c7cfd2cd6ec1a6573e67fb9a25a31051b126d88d6ff830702176a63885f",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/CatalogApi.java": "33410bf75cae6a3d903c85e6e3e9deda2adad6f2cfb6ec2f55fa5c2ce6c39f04",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/CatalogCategories.java": "94ad50088414706688648027634e6acd76fc52214bac47dcf29d1d2e9e86ae8a",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/MacCmsXml.java": "74ccc2ea09021a677a39e11e38017ebfa31a79a35cfda90793da425e364d41be",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/TvBoxJson.java": "5299156e9e08c5a1633a7fd4666682d2a801c1435e35cc1a663303f5e811817a",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/M3uCatalog.java": "82ef4af6c0046df839aca596ede569b4ba9585b6b1aeb7a1d3851bf784eed281"
+  },
+  "test_sha256": "eaa870132916702081a89810ceb98de6be2950f588ee21a39a6de4838ed4ccde",
+  "runner_sha256": "86bab5f5985b6e64bed681e63b324cbae9066ebeda6da4c74ec0a5fcc4a02858",
+  "actual_production_models_compiled": true,
+  "stubs_used": false,
+  "network_tested": false,
+  "device_tested": false,
+  "scope": "Metadata grouping and declarations, empty-query browse-only support, real provider/category cursors, filtered-empty raw pagination, failure retry, stale canceled response rejection, fair 150-category scheduling with three workers, explicit bounded windows with buffered page offsets, and oversized class-merge failure recovery."
+}

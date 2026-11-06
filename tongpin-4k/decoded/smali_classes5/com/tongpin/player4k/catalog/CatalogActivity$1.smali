@@ -41,7 +41,7 @@
         }
     .end annotation
 
-    .line 65
+    .line 74
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$1;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
     invoke-direct {p0, p2}, Landroid/util/LruCache;-><init>(I)V
@@ -64,7 +64,7 @@
         }
     .end annotation
 
-    .line 65
+    .line 74
     check-cast p1, Ljava/lang/String;
 
     check-cast p2, Landroid/graphics/Bitmap;
@@ -79,7 +79,7 @@
 .method protected sizeOf(Ljava/lang/String;Landroid/graphics/Bitmap;)I
     .locals 0
 
-    .line 66
+    .line 75
     invoke-virtual {p2}, Landroid/graphics/Bitmap;->getAllocationByteCount()I
 
     move-result p1

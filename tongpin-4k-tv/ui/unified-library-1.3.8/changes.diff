@@ -1,0 +1,1395 @@
+--- 137/src/com/tongpin/player4k/tv/TvHomeActivity.java
++++ 138/src/com/tongpin/player4k/tv/TvHomeActivity.java
+@@ -16,6 +16,7 @@
+ import android.view.KeyEvent;
+ import android.view.View;
+ import android.view.ViewGroup;
++import android.view.ViewTreeObserver;
+ import android.view.WindowManager;
+ import android.view.inputmethod.InputMethodManager;
+ import android.widget.AdapterView;
+@@ -46,6 +47,8 @@
+ import java.util.concurrent.TimeUnit;
+ 
+ import com.tongpin.player4k.tv.CatalogApi.*;
++import com.tongpin.player4k.tv.UnifiedCatalogPolicy.Group;
++import com.tongpin.player4k.tv.UnifiedCatalogPolicy.Tab;
+ 
+ /** A complete paginated view of the configured public catalogs, independent of the old APK. */
+ public final class TvHomeActivity extends Activity {
+@@ -62,9 +65,26 @@
+     private GridView grid;
+     private Button previous, next, refresh;
+     private final AllCatalogSearch allSearch = new AllCatalogSearch(command -> main.post(command));
++    private final UnifiedCatalogBrowse unifiedBrowse = new UnifiedCatalogBrowse(command -> main.post(command));
++    private UnifiedCatalogBrowse.Handle browseHandle;
++    private Tab selectedTab = Tab.RECOMMEND;
++    private boolean liveMode, restartUnifiedBrowse, resetUnifiedWindow;
++    private final List<Group> groups = new ArrayList<Group>();
++    private List<Group> latestGroups = Collections.emptyList(), renderedGroupItems;
++    private List<Group> projectedSearchGroups = Collections.emptyList();
++    private Group detailGroup;
++    private AlertDialog homeDialog;
+     private AllCatalogSearch.Handle searchHandle;
+     private boolean restartGlobalSearch, foreground;
+     private String channelQuery = "";
++    private List<Video> renderedSearchItems;
++    private SearchAnchor pendingSearchAnchor;
++    private ViewTreeObserver.OnPreDrawListener searchLayoutListener;
++    private GridView searchLayoutGrid;
++    private boolean restoringSearchPosition;
++    private final SearchPress searchPress = new SearchPress();
++    private View pressedSearchView;
++    private int capturedSearchKey;
+     private CardAdapter adapter;
+     private String providerId = "", query = "", mode = "catalog";
+     private int page = 1, browsePage = 1, generation;
+@@ -97,6 +117,9 @@
+                 providerId = saved.getString("provider", "");
+                 query = saved.getString("query", "");
+                 channelQuery = saved.getString("channelQuery", "");
++                liveMode = saved.getBoolean("liveMode", false);
++                try { selectedTab = Tab.valueOf(saved.getString("tab", Tab.RECOMMEND.name())); }
++                catch (IllegalArgumentException invalidTab) { selectedTab = Tab.RECOMMEND; }
+                 mode = saved.getString("mode", "catalog");
+                 if (!mode.equals("catalog") && !mode.equals("history") && !mode.equals("favorites")) mode = "catalog";
+                 page = Math.max(1, saved.getInt("page", 1));
+@@ -104,6 +127,8 @@
+                 if (!providerId.isEmpty() && providerId.equals(saved.getString("categoryProvider", "")))
+                     pendingCategoryId = saved.getString("category", "");
+             }
++            if (liveMode && liveProvider(providerId) == null) liveMode = false;
++            if (!liveMode) providerId = "";
+             if (query.length() > 200) query = "";
+             if (channelQuery.length() > 200 || liveBrowseProvider() == null) channelQuery = "";
+             showHome();
+@@ -118,7 +143,9 @@
+     }
+ 
+     @Override public void onWindowFocusChanged(boolean focused) {
+-        super.onWindowFocusChanged(focused); if (focused) immersive();
++        super.onWindowFocusChanged(focused);
++        if (focused) immersive();
++        else { clearSearchPress(); main.post(this::renderCurrentCatalog); }
+     }
+ 
+     private void immersive() {
+@@ -147,7 +174,8 @@
+     }
+ 
+     private void showHome() {
+-        inDetail = false; detail = null; detailVideo = null;
++        clearSearchInteraction();
++        inDetail = false; detail = null; detailVideo = null; detailGroup = null;
+         root = column(); root.setPadding(d(48), d(27), d(48), d(27));
+         LinearLayout header = row();
+         ImageView logo = new ImageView(this); logo.setImageResource(R.drawable.tp_icon);
+@@ -172,6 +200,8 @@
+         inputParams.setMargins(0, 0, d(8), 0); controls.addView(search, inputParams);
+         Button find = TvUi.button(this, "搜索全库");
+         action(controls, find, v -> submitSearch());
++        Button live = TvUi.button(this, "直播"); live.setSelected(mode.equals("catalog") && liveMode && query.isEmpty());
++        action(controls, live, v -> showLiveProviders());
+         Button history = TvUi.button(this, "观看历史"); history.setSelected(mode.equals("history"));
+         action(controls, history, v -> switchLocal("history"));
+         Button favorites = TvUi.button(this, "收藏"); favorites.setSelected(mode.equals("favorites"));
+@@ -185,25 +215,24 @@
+         root.addView(controls); gap(root, 6);
+ 
+         LinearLayout tabs = row();
+-        Button all = TvUi.button(this, "浏览全部片库 · " + providers.size() + "组"); all.setSelected(mode.equals("catalog") && providerId.isEmpty());
+-        Button activeSource = all;
+-        action(tabs, all, v -> switchProvider(""));
+-        for (Provider p : providers) {
+-            Button b = TvUi.button(this, p.name); b.setSelected(mode.equals("catalog") && p.id.equals(providerId));
+-            if (b.isSelected()) activeSource = b;
+-            action(tabs, b, v -> switchProvider(p.id));
++        Button activeSource = find;
++        for (Tab tab : Tab.values()) {
++            Button button = TvUi.button(this, tab.label);
++            button.setSelected(mode.equals("catalog") && !liveMode && query.isEmpty() && selectedTab == tab);
++            if (button.isSelected()) activeSource = button;
++            action(tabs, button, v -> switchTab(tab));
+         }
+         scrollRow(root, tabs);
+-        LinearLayout categoryRow = row();
+-        categoryPicker = TvUi.button(this, "来源分类");
+-        action(categoryRow, categoryPicker, v -> showCategories());
+-        if (liveBrowseProvider() != null && !allCatalogSearch(mode, query)) {
+-            action(categoryRow, TvUi.button(this, channelQuery.isEmpty() ? "搜索频道" : "频道：" + channelQuery), v -> searchChannels());
+-        }
+-        TextView categoryNote = TvUi.text(this, allCatalogSearch(mode, query) ? "搜索全部可检索影视片库，来源分类保留用于浏览" : "按当前来源实际分类浏览", 15, TvUi.SECONDARY);
+-        categoryNote.setSingleLine(true); categoryNote.setEllipsize(TextUtils.TruncateAt.END);
+-        categoryRow.addView(categoryNote, new LinearLayout.LayoutParams(0, -2, 1)); root.addView(categoryRow);
+-        renderCategoryPicker();
++        categoryPicker = null;
++        if (liveMode && mode.equals("catalog") && !allCatalogSearch(mode, query)) {
++            LinearLayout categoryRow = row();
++            categoryPicker = TvUi.button(this, "频道分组"); action(categoryRow, categoryPicker, v -> showCategories());
++            if (liveBrowseProvider() != null)
++                action(categoryRow, TvUi.button(this, channelQuery.isEmpty() ? "搜索频道" : "频道：" + channelQuery), v -> searchChannels());
++            TextView note = TvUi.text(this, "直播频道单独浏览", 15, TvUi.SECONDARY);
++            categoryRow.addView(note, new LinearLayout.LayoutParams(0, -2, 1)); root.addView(categoryRow);
++            renderCategoryPicker();
++        }
+         status = TvUi.text(this, "", 16, TvUi.SECONDARY);
+         status.setMaxLines(2); status.setMinHeight(d(38));
+         root.addView(status, new LinearLayout.LayoutParams(-1, -2));
+@@ -215,17 +244,27 @@
+         grid.setPadding(d(2), d(2), d(2), d(2));
+         grid.setDescendantFocusability(ViewGroup.FOCUS_BLOCK_DESCENDANTS);
+         adapter = new CardAdapter(); grid.setAdapter(adapter);
+-        grid.setOnItemClickListener((p, v, position, id) -> { if (position < videos.size()) openDetail(videos.get(position)); });
++        grid.setOnItemClickListener((p, v, position, id) -> {
++            Video video = boundVideo(v);
++            if (homeEventAllowed(foreground, hasWindowFocus(), destroyed, inDetail, restoringSearchPosition)
++                    && video != null && currentCandidate(videos, latestGroups, video))
++                openDetail(video);
++        });
++        grid.setOnKeyListener((v, code, event) -> searchSelectionKey(code, event));
+         grid.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+             public void onNothingSelected(AdapterView<?> p) {}
+             public void onItemSelected(AdapterView<?> p, View v, int at, long id) {
+-                if (at < videos.size()) focusVideoId = videoKey(videos.get(at));
++                Video video = boundVideo(v);
++                if (homeEventAllowed(foreground, hasWindowFocus(), destroyed, inDetail, restoringSearchPosition)
++                    && video != null && currentCandidate(videos, latestGroups, video))
++                    focusVideoId = boundKey(v);
+             }
+         });
+         root.addView(grid, new LinearLayout.LayoutParams(-1, 0, 1)); gap(root, 6);
+         LinearLayout pager = row(); previous = TvUi.button(this, "上一页");
+         action(pager, previous, v -> {
+             if (allCatalogSearch(mode, query)) returnToBrowse();
++            else if (unifiedHome()) { if (!videos.isEmpty()) grid.setSelection(0); }
+             else if (page > 1) { page--; loadPage(); }
+         });
+         pageLabel = TvUi.text(this, "", 18, TvUi.TEXT); pageLabel.setGravity(Gravity.CENTER);
+@@ -233,9 +272,28 @@
+         next = TvUi.button(this, "下一页"); action(pager, next, v -> {
+             if (allCatalogSearch(mode, query)) {
+                 if (searchHandle != null) { allSearch.loadMore(searchHandle); renderSearch(searchHandle); }
++            } else if (unifiedHome()) {
++                if (browseHandle != null) {
++                    if (browseHandle.snapshot().limited) {
++                        if (unifiedBrowse.continueWindow(browseHandle)) {
++                            clearSearchInteraction(); focusVideoId = ""; resetUnifiedWindow = true;
++                            videos.clear(); groups.clear(); latestGroups = Collections.emptyList(); renderedGroupItems = null;
++                            adapter.notifyDataSetChanged(); grid.setSelection(0);
++                        }
++                    } else unifiedBrowse.loadMore(browseHandle);
++                    renderUnifiedBrowse(browseHandle);
++                }
+             } else if (hasMore) { page++; loadPage(); }
+         });
+         refresh = TvUi.button(this, "刷新 / 重试"); action(pager, refresh, v -> {
++            if (unifiedHome()) {
++                if (browseHandle == null) { loadPage(); return; }
++                UnifiedCatalogBrowse.Snapshot snapshot = browseHandle.snapshot();
++                if (snapshot.canResume) unifiedBrowse.resume(browseHandle);
++                else if (snapshot.failedSources > 0) unifiedBrowse.retryFailed(browseHandle);
++                else { restartUnifiedBrowse = true; loadPage(); return; }
++                renderUnifiedBrowse(browseHandle); return;
++            }
+             if (!allCatalogSearch(mode, query) || searchHandle == null) { loadPage(); return; }
+             AllCatalogSearch.Snapshot snapshot = searchHandle.snapshot();
+             if (snapshot.canResume) allSearch.resume(searchHandle);
+@@ -268,18 +326,47 @@
+         showHome(); loadPage();
+     }
+ 
+-    private void switchProvider(String id) {
+-        if (!providerId.equals(id)) { categoryCatalog = null; categoryId = ""; pendingCategoryId = ""; browsePage = 1; channelQuery = ""; }
+-        providerId = id; mode = "catalog"; query = ""; page = browsePage;
++    private boolean unifiedHome() { return mode.equals("catalog") && !liveMode && query.isEmpty(); }
++    private boolean orderedCatalog() { return allCatalogSearch(mode, query) || unifiedHome(); }
++    private Object catalogSession() { return allCatalogSearch(mode, query) ? searchHandle : browseHandle; }
++    private String catalogContext() { return allCatalogSearch(mode, query) ? "query:" + query : "tab:" + selectedTab.name(); }
++
++    private void switchTab(Tab tab) {
++        if (liveMode && query.isEmpty()) browsePage = page;
++        selectedTab = tab; resetUnifiedWindow = false; liveMode = false; providerId = ""; mode = "catalog"; query = ""; page = 1;
+         showHome(); loadPage();
+     }
++
++    private Provider liveProvider(String id) {
++        if (providers != null) for (Provider provider : providers)
++            if (provider.id.equals(id) && CatalogApi.liveProvider(provider)) return provider;
++        return null;
++    }
++
++    private void showLiveProviders() {
++        ArrayList<Provider> choices = new ArrayList<>(); ArrayList<String> labels = new ArrayList<>();
++        for (Provider provider : providers) if (CatalogApi.liveProvider(provider)) { choices.add(provider); labels.add(provider.name); }
++        if (choices.isEmpty()) { status.setText("当前没有配置直播频道"); return; }
++        closeHomeDialog();
++        final AlertDialog dialog = new AlertDialog.Builder(this).setTitle("直播频道")
++                .setItems(labels.toArray(new String[0]), (ignored, index) -> {
++                    if (!foreground || destroyed || index < 0 || index >= choices.size()) return;
++                    Provider provider = choices.get(index);
++                    if (!provider.id.equals(providerId)) { categoryCatalog = null; categoryId = ""; pendingCategoryId = ""; channelQuery = ""; browsePage = 1; }
++                    liveMode = true; providerId = provider.id; mode = "catalog"; query = ""; page = browsePage;
++                    showHome(); loadPage();
++                }).setNegativeButton("返回", null).create();
++        homeDialog = dialog; dialog.setOnDismissListener(ignored -> { if (homeDialog == dialog) homeDialog = null; }); dialog.show();
++    }
++
++    private void closeHomeDialog() { if (homeDialog != null) { AlertDialog dialog = homeDialog; homeDialog = null; dialog.dismiss(); } }
+ 
+     private void returnToBrowse() {
+         query = ""; mode = "catalog"; page = browsePage; showHome(); loadPage();
+     }
+ 
+     private Provider liveBrowseProvider() {
+-        if (!mode.equals("catalog") || providerId.isEmpty()) return null;
++        if (!mode.equals("catalog") || !liveMode || providerId.isEmpty()) return null;
+         for (Provider provider : providers)
+             if (providerId.equals(provider.id) && CatalogApi.liveProvider(provider)) return provider;
+         return null;
+@@ -311,7 +398,7 @@
+     }
+ 
+     private Provider categoryProvider() {
+-        if (!mode.equals("catalog") || allCatalogSearch(mode, query) || providerId.isEmpty()) return null;
++        if (!mode.equals("catalog") || !liveMode || allCatalogSearch(mode, query) || providerId.isEmpty()) return null;
+         for (Provider provider : providers) if (providerId.equals(provider.id)) return provider;
+         return null;
+     }
+@@ -357,7 +444,8 @@
+     }
+ 
+     private void cancelPending() {
+-        allSearch.cancelRound(searchHandle);
++        clearSearchInteraction(); closeHomeDialog();
++        allSearch.cancelRound(searchHandle); unifiedBrowse.cancelRound(browseHandle);
+         generation++;
+         preparingPlayback = false;
+         for (Future<?> f : pending) f.cancel(true);
+@@ -369,6 +457,8 @@
+         cancelPending();
+         if (allCatalogSearch(mode, query)) { showGlobalSearch(); return; }
+         if (searchHandle != null) { searchHandle.cancel(); searchHandle = null; }
++        if (unifiedHome()) { showUnifiedBrowse(); return; }
++        groups.clear(); latestGroups = Collections.emptyList(); renderedGroupItems = null;
+         final int ticket = generation;
+         final boolean local = !mode.equals("catalog");
+         final boolean favorites = mode.equals("favorites");
+@@ -472,9 +562,10 @@
+     private void showGlobalSearch() {
+         if (restartGlobalSearch || searchHandle == null || !searchHandle.isCurrent()
+                 || !query.equals(searchHandle.snapshot().query)) {
+-            restartGlobalSearch = false;
++            restartGlobalSearch = false; resetUnifiedWindow = false;
+             if (searchHandle != null) searchHandle.cancel();
+-            videos.clear(); adapter.notifyDataSetChanged();
++            videos.clear(); groups.clear(); latestGroups = Collections.emptyList(); renderedGroupItems = null;
++            adapter.notifyDataSetChanged(); renderedSearchItems = null; projectedSearchGroups = Collections.emptyList();
+             searchHandle = allSearch.start(providers, query, (handle, ignored) -> renderSearch(handle));
+         }
+         renderSearch(searchHandle);
+@@ -488,19 +579,211 @@
+                 || !handle.isCurrent() || !allCatalogSearch(mode, query)) return;
+         AllCatalogSearch.Snapshot snapshot = handle.snapshot();
+         if (!query.equals(snapshot.query)) return;
+-        String focusKey = focusVideoId;
+-        videos.clear(); videos.addAll(snapshot.items); hasMore = snapshot.hasMore;
+-        adapter.notifyDataSetChanged();
++        if (snapshot.items != renderedSearchItems) {
++            renderedSearchItems = snapshot.items; projectedSearchGroups = UnifiedCatalogPolicy.project(snapshot.items, true);
++        }
++        renderGroupRows(projectedSearchGroups); hasMore = snapshot.hasMore;
+         String label = globalStatus(snapshot.totalSources, snapshot.successfulSources, snapshot.pending,
+                 snapshot.failedSources, snapshot.skippedBrowseOnly, snapshot.skippedLive, snapshot.canResume, snapshot.limited);
+         if (!snapshot.loading && videos.isEmpty() && !snapshot.canResume)
+             label += snapshot.failedSources > 0 ? " · 可重试失败片库" : " · 未找到匹配，试试完整片名";
+         if (snapshot.repeatStoppedSources > 0) label += " · 重复页已停止";
+         status.setText(label); status.setContentDescription(label); updatePager(snapshot.loading);
+-        if (restoreGridFocus) {
+-            int selected = searchResultIndex(videos, focusKey);
+-            if (!videos.isEmpty()) { grid.setSelection(selected); grid.requestFocus(); restoreGridFocus = false; }
+-        }
++    }
++
++    private void showUnifiedBrowse() {
++        if (restartUnifiedBrowse || browseHandle == null || !browseHandle.isCurrent() || browseHandle.snapshot().tab != selectedTab) {
++            restartUnifiedBrowse = false; resetUnifiedWindow = false;
++            if (browseHandle != null) browseHandle.cancel();
++            videos.clear(); groups.clear(); latestGroups = Collections.emptyList(); renderedGroupItems = null;
++            adapter.notifyDataSetChanged();
++            browseHandle = unifiedBrowse.start(providers, selectedTab, (handle, ignored) -> renderUnifiedBrowse(handle));
++        }
++        renderUnifiedBrowse(browseHandle);
++        if (foreground && browseHandle.snapshot().canResume) { unifiedBrowse.resume(browseHandle); renderUnifiedBrowse(browseHandle); }
++    }
++
++    private void renderUnifiedBrowse(UnifiedCatalogBrowse.Handle handle) {
++        if (destroyed || !foreground || inDetail || !unifiedHome() || handle == null || handle != browseHandle || !handle.isCurrent()) return;
++        UnifiedCatalogBrowse.Snapshot snapshot = handle.snapshot(); if (snapshot.tab != selectedTab) return;
++        renderGroupRows(snapshot.groups); hasMore = snapshot.hasMore;
++        String text = selectedTab.label + " · " + snapshot.totalSources + "个影视库 · 本批返回" + snapshot.batchReturned + "/" + snapshot.batchTotal
++                + " · 当前待回" + snapshot.pending + (snapshot.failedSources > 0 ? " · " + snapshot.failedSources + "源待重试" : "");
++        if (snapshot.unmatchedSources > 0) text += " · " + snapshot.unmatchedSources + "源未声明此类";
++        if (snapshot.canResume) text += " · 未完成可继续";
++        if (snapshot.limited) text += " · 当前窗口已满，可继续浏览";
++        if (!snapshot.loading && snapshot.groups.isEmpty() && !snapshot.canResume && snapshot.failedSources == 0) text += " · 暂无匹配影片";
++        status.setText(text); status.setContentDescription(text); updatePager(snapshot.loading);
++    }
++
++    private void renderCurrentCatalog() {
++        if (allCatalogSearch(mode, query)) renderSearch(searchHandle);
++        else if (unifiedHome()) renderUnifiedBrowse(browseHandle);
++    }
++
++    private void renderGroupRows(List<Group> incoming) {
++        latestGroups = incoming;
++        boolean changed = incoming != renderedGroupItems;
++        if (searchPress.active() && changed) return;
++        SearchAnchor anchor = resetUnifiedWindow ? startWindowAnchor(incoming) : changed || restoreGridFocus
++                ? pendingSearchAnchor == null ? captureSearchAnchor() : pendingSearchAnchor : null;
++        if (changed) {
++            groups.clear(); groups.addAll(incoming); videos.clear();
++            for (Group group : groups) videos.add(group.primary);
++            renderedGroupItems = incoming; adapter.notifyDataSetChanged();
++        }
++        if (anchor != null) restoreSearchAnchor(anchor);
++        if (resetUnifiedWindow && !incoming.isEmpty()) resetUnifiedWindow = false;
++    }
++
++    static SearchAnchor startWindowAnchor(List<Group> incoming) {
++        return incoming.isEmpty() ? null : new SearchAnchor(incoming.get(0).key, 0, "", 0, false);
++    }
++
++    private static final class CardBinding {
++        final Video video; final String key;
++        CardBinding(Video video, String key) { this.video = video; this.key = key; }
++    }
++
++    private static Video boundVideo(View view) {
++        if (view == null) return null;
++        Object tag = view.getTag(); return tag instanceof CardBinding ? ((CardBinding) tag).video : tag instanceof Video ? (Video) tag : null;
++    }
++
++    static final class SearchAnchor {
++        final String selectedKey, visibleKey;
++        final int selectedTop, visibleTop;
++        final boolean requestFocus;
++        SearchAnchor(String selectedKey, int selectedTop, String visibleKey, int visibleTop, boolean requestFocus) {
++            this.selectedKey = selectedKey; this.selectedTop = selectedTop;
++            this.visibleKey = visibleKey; this.visibleTop = visibleTop; this.requestFocus = requestFocus;
++        }
++        int[] position(List<Video> after) { return position(after, Collections.emptyList()); }
++        int[] position(List<Video> after, List<Group> grouped) {
++            int index = rowIndex(after, grouped, selectedKey);
++            if (index >= 0) return new int[]{index, selectedTop};
++            index = rowIndex(after, grouped, visibleKey);
++            if (index >= 0) return new int[]{index, visibleTop};
++            return new int[]{requestFocus && !after.isEmpty() ? 0 : -1, 0};
++        }
++    }
++
++    static final class SearchPress {
++        private Video target;
++        private Object session;
++        private String query;
++        boolean down(Video video, Object session, String query) {
++            if (target != null) return true;
++            if (video == null || session == null || query == null || query.isEmpty()) return false;
++            target = video; this.session = session; this.query = query; return true;
++        }
++        boolean active() { return target != null; }
++        Video up(Object session, String query, boolean allowed) {
++            Video saved = target;
++            boolean valid = saved != null && this.session == session && this.query.equals(query) && allowed;
++            cancel(); return valid ? saved : null;
++        }
++        void cancel() { target = null; session = null; query = null; }
++    }
++
++    static int rowIndex(List<Video> items, List<Group> grouped, String key) {
++        return grouped == null || grouped.isEmpty() ? CatalogTitleOrder.indexOf(items, key) : UnifiedCatalogPolicy.indexOf(grouped, key);
++    }
++    static boolean homeEventAllowed(boolean foreground, boolean focused, boolean destroyed, boolean detail, boolean restoring) {
++        return foreground && focused && !destroyed && !detail && !restoring;
++    }
++    static boolean currentCandidate(List<Video> items, List<Group> grouped, Video video) {
++        if (items.contains(video)) return true;
++        if (grouped != null) for (Group group : grouped) if (group.contains(video)) return true;
++        return false;
++    }
++    private String boundKey(View view) {
++        return view != null && view.getTag() instanceof CardBinding ? ((CardBinding) view.getTag()).key : videoKey(boundVideo(view));
++    }
++    private String displayKey(Video video) {
++        for (Group group : groups) if (group.contains(video)) return group.key;
++        return videoKey(video);
++    }
++
++    private SearchAnchor captureSearchAnchor() {
++        View selected = grid.getSelectedView(), first = grid.getChildAt(0);
++        Video chosen = boundVideo(selected), visible = boundVideo(first);
++        String selectedKey = restoreGridFocus ? focusVideoId : chosen == null ? "" : boundKey(selected);
++        int selectedTop = restoreGridFocus || selected == null ? 0 : selected.getTop() - grid.getPaddingTop();
++        return new SearchAnchor(selectedKey, selectedTop, visible == null ? "" : boundKey(first),
++                first == null ? 0 : first.getTop() - grid.getPaddingTop(), restoreGridFocus);
++    }
++
++    private void restoreSearchAnchor(SearchAnchor anchor) {
++        int[] position = anchor.position(videos, groups);
++        clearSearchLayout();
++        if (position[0] < 0) return;
++        final GridView target = grid;
++        pendingSearchAnchor = anchor; restoringSearchPosition = true; searchLayoutGrid = target;
++        searchLayoutListener = new ViewTreeObserver.OnPreDrawListener() {
++            public boolean onPreDraw() {
++                if (target.getViewTreeObserver().isAlive()) target.getViewTreeObserver().removeOnPreDrawListener(this);
++                if (searchLayoutListener == this) {
++                    searchLayoutListener = null; searchLayoutGrid = null;
++                    pendingSearchAnchor = null; restoringSearchPosition = false;
++                }
++                return true;
++            }
++        };
++        target.getViewTreeObserver().addOnPreDrawListener(searchLayoutListener);
++        if (anchor.requestFocus) { target.requestFocus(); restoreGridFocus = false; }
++        target.setSelectionFromTop(position[0], position[1]);
++        if (rowIndex(videos, groups, anchor.selectedKey) >= 0) focusVideoId = anchor.selectedKey;
++    }
++
++    private void clearSearchLayout() {
++        if (searchLayoutListener != null && searchLayoutGrid != null && searchLayoutGrid.getViewTreeObserver().isAlive())
++            searchLayoutGrid.getViewTreeObserver().removeOnPreDrawListener(searchLayoutListener);
++        searchLayoutListener = null; searchLayoutGrid = null; pendingSearchAnchor = null; restoringSearchPosition = false;
++    }
++
++    private void clearSearchPress() {
++        searchPress.cancel();
++        if (pressedSearchView != null) pressedSearchView.setPressed(false);
++        pressedSearchView = null;
++    }
++
++    private void clearSearchInteraction() { clearSearchLayout(); clearSearchPress(); }
++
++    private boolean searchSelectionKey(int code, KeyEvent event) {
++        boolean center = code == KeyEvent.KEYCODE_DPAD_CENTER || code == KeyEvent.KEYCODE_ENTER;
++        if (!center) {
++            if (event.getAction() == KeyEvent.ACTION_DOWN && searchPress.active()) {
++                clearSearchPress(); main.post(this::renderCurrentCatalog);
++            }
++            return false;
++        }
++        if (event.getAction() == KeyEvent.ACTION_UP && capturedSearchKey == code) {
++            capturedSearchKey = 0;
++            Video chosen = searchPress.up(catalogSession(), catalogContext(), foreground && hasWindowFocus() && !inDetail && !destroyed
++                    && orderedCatalog() && !event.isCanceled());
++            View selectedView = pressedSearchView;
++            if (selectedView != null) selectedView.setPressed(false);
++            pressedSearchView = null;
++            int index = chosen == null ? -1 : rowIndex(videos, groups, UnifiedCatalogPolicy.keyFor(groups, chosen));
++            if (index >= 0 && boundVideo(selectedView) == chosen)
++                grid.performItemClick(selectedView, index, adapter.getItemId(index));
++            else main.post(this::renderCurrentCatalog);
++            return true;
++        }
++        if (event.getAction() == KeyEvent.ACTION_DOWN && orderedCatalog() && foreground && !inDetail) {
++            if (capturedSearchKey == code && searchPress.active()) return true;
++            if (event.getRepeatCount() != 0) return capturedSearchKey == code;
++            capturedSearchKey = code;
++            if (!restoringSearchPosition) {
++                View selected = grid.getSelectedView();
++                if (searchPress.down(boundVideo(selected), catalogSession(), catalogContext())) {
++                    pressedSearchView = selected; selected.setPressed(true);
++                }
++            }
++            return true;
++        }
++        return false;
+     }
+ 
+     static String globalStatus(int total, int successful, int pending, int failed,
+@@ -542,18 +825,32 @@
+             pageLabel.setText("已显示" + videos.size() + "部" + (snapshot == null ? "" : " · 本批" + snapshot.batchReturned + "/" + snapshot.batchTotal));
+             return;
+         }
++        if (unifiedHome()) {
++            UnifiedCatalogBrowse.Snapshot snapshot = browseHandle == null ? null : browseHandle.snapshot();
++            previous.setText("返回顶部"); previous.setEnabled(!videos.isEmpty());
++            next.setText(snapshot != null && snapshot.limited ? "继续浏览" : "加载更多");
++            next.setEnabled(!loading && snapshot != null && snapshot.hasMore);
++            refresh.setText(snapshot != null && snapshot.canResume ? "继续未完成" : snapshot != null && snapshot.failedSources > 0 ? "重试失败片库" : "刷新片库");
++            refresh.setEnabled(!loading); pageLabel.setText(selectedTab.label + " · " + videos.size() + "部"); return;
++        }
+         previous.setText("上一页"); next.setText("下一页"); refresh.setText("刷新 / 重试"); refresh.setEnabled(!loading);
+         previous.setEnabled(!loading && page > 1); next.setEnabled(!loading && hasMore);
+         pageLabel.setText((mode.equals("history") ? "观看历史" : mode.equals("favorites") ? "收藏" : "片库") + " · 第" + page + "页");
+     }
+ 
+     private void openDetail(Video video) {
+-        if (!inDetail) focusVideoId = videoKey(video);
+-        cancelPending();
++        if (orderedCatalog()) refreshLatestGroups();
++        Group nextGroup = null;
++        for (Group group : latestGroups) if (group.contains(video)) { nextGroup = group; break; }
++        if (nextGroup == null && detailGroup != null && (detailGroup.contains(video) || AutoSourcePolicy.sameWork(detailGroup.primary, video))) nextGroup = detailGroup;
++        if (!inDetail) focusVideoId = nextGroup == null ? videoKey(video) : nextGroup.key;
++        cancelPending(); detailGroup = nextGroup;
+         inDetail = true; detailVideo = video; detail = null;
+         root = column(); root.setPadding(d(48), d(27), d(48), d(27));
+         LinearLayout top = row(); Button back = TvUi.button(this, "返回片库");
+         action(top, back, v -> returnHome());
++        if (detailGroup != null && knownDetailCandidates(detailGroup, video).size() > 1)
++            action(top, TvUi.button(this, "换源 · " + knownDetailCandidates(detailGroup, video).size()), v -> showKnownSources());
+         TextView title = TvUi.text(this, video.title, 26, TvUi.TEXT); title.setSingleLine(true);
+         title.setEllipsize(TextUtils.TruncateAt.END); title.setTypeface(Typeface.DEFAULT, Typeface.BOLD);
+         top.addView(title, new LinearLayout.LayoutParams(0, -2, 1));
+@@ -571,6 +868,45 @@
+         lineRow = row(); scrollRow(root, lineRow);
+         episodeArea = column(); root.addView(episodeArea, new LinearLayout.LayoutParams(-1, 0, 1));
+         setContentView(root); back.requestFocus(); fetchDetail();
++    }
++
++    private void refreshLatestGroups() {
++        if (allCatalogSearch(mode, query) && searchHandle != null && searchHandle.isCurrent()) {
++            AllCatalogSearch.Snapshot snapshot = searchHandle.snapshot();
++            if (snapshot.items != renderedSearchItems) {
++                renderedSearchItems = snapshot.items; projectedSearchGroups = UnifiedCatalogPolicy.project(snapshot.items, true);
++            }
++            latestGroups = projectedSearchGroups;
++        } else if (unifiedHome() && browseHandle != null && browseHandle.isCurrent()) latestGroups = browseHandle.snapshot().groups;
++    }
++
++    static List<Video> knownDetailCandidates(Group group, Video current) {
++        ArrayList<Video> candidates = new ArrayList<>();
++        if (group == null) return candidates;
++        candidates.addAll(group.alternatives);
++        boolean present = false;
++        for (Video video : candidates) if (videoKey(video).equals(videoKey(current))) present = true;
++        if (!present && current != null && AutoSourcePolicy.sameWork(group.primary, current)) candidates.add(current);
++        return candidates;
++    }
++
++    private void showKnownSources() {
++        final Group chosen = detailGroup;
++        if (chosen == null || chosen.alternatives.isEmpty() || !inDetail) return;
++        final int ticket = generation;
++        final List<Video> candidates = knownDetailCandidates(chosen, detailVideo);
++        ArrayList<String> labels = new ArrayList<>();
++        for (Video video : candidates)
++            labels.add(video.provider.name + (video.subtitle.isEmpty() ? "" : " · " + video.subtitle)
++                    + (CatalogTitleOrder.identity(video).equals(CatalogTitleOrder.identity(detailVideo)) ? " · 当前来源" : ""));
++        closeHomeDialog();
++        final AlertDialog dialog = new AlertDialog.Builder(this).setTitle("同作品已知来源")
++                .setItems(labels.toArray(new String[0]), (ignored, index) -> {
++                    if (!foreground || destroyed || !inDetail || generation != ticket || chosen != detailGroup
++                            || index < 0 || index >= candidates.size()) return;
++                    openDetail(candidates.get(index));
++                }).setNegativeButton("返回", null).create();
++        homeDialog = dialog; dialog.setOnDismissListener(ignored -> { if (homeDialog == dialog) homeDialog = null; }); dialog.show();
+     }
+ 
+     private void fetchDetail() {
+@@ -797,20 +1133,23 @@
+         super.onResume(); foreground = true;
+         if (!inDetail && allCatalogSearch(mode, query) && searchHandle != null && searchHandle.isCurrent()) {
+             allSearch.resume(searchHandle); renderSearch(searchHandle);
++        } else if (!inDetail && unifiedHome() && browseHandle != null && browseHandle.isCurrent()) {
++            unifiedBrowse.resume(browseHandle); renderUnifiedBrowse(browseHandle);
+         }
+     }
+     @Override protected void onPause() {
+-        foreground = false; allSearch.cancelRound(searchHandle); super.onPause();
++        foreground = false; clearSearchInteraction(); closeHomeDialog(); allSearch.cancelRound(searchHandle); unifiedBrowse.cancelRound(browseHandle); super.onPause();
+     }
+     @Override protected void onSaveInstanceState(Bundle out) {
+         out.putString("categoryProvider", providerId);
+         out.putString("category", pendingCategoryId.isEmpty() ? categoryId : pendingCategoryId);
++        out.putBoolean("liveMode", liveMode); out.putString("tab", selectedTab.name());
+         out.putInt("browsePage", browsePage); out.putString("channelQuery", channelQuery);
+         out.putString("provider", providerId); out.putString("query", query); out.putString("mode", mode); out.putInt("page", page);
+         super.onSaveInstanceState(out);
+     }
+     @Override protected void onDestroy() {
+-        destroyed = true; cancelPending(); allSearch.close(); network.shutdownNow(); posters.close();
++        destroyed = true; cancelPending(); allSearch.close(); unifiedBrowse.close(); network.shutdownNow(); posters.close();
+         main.removeCallbacksAndMessages(null); if (store != null) store.close(); super.onDestroy();
+     }
+ 
+@@ -837,7 +1176,10 @@
+             }
+             Video video = videos.get(position);
+             ((TextView) card.getChildAt(1)).setText(video.title);
+-            ((TextView) card.getChildAt(2)).setText(video.provider.name + " · " + video.categoryLabel + (video.subtitle.isEmpty() ? "" : " · " + video.subtitle));
++            String subtitle = video.provider.name + " · " + video.categoryLabel + (video.subtitle.isEmpty() ? "" : " · " + video.subtitle);
++            for (Group group : groups) if (group.contains(video)) { if (group.alternatives.size() > 1) subtitle += " · " + group.alternatives.size() + "来源"; break; }
++            ((TextView) card.getChildAt(2)).setText(subtitle);
++            card.setTag(new CardBinding(video, displayKey(video)));
+             card.setContentDescription(video.title + "，" + video.categoryLabel + "，" + video.provider.name + "，" + video.subtitle);
+             posters.load((ImageView) card.getChildAt(0), video.poster); return card;
+         }
+@@ -910,7 +1252,7 @@
+             return new String(output.toByteArray(), StandardCharsets.UTF_8);
+         }
+     }
+-    private static String videoKey(Video video) { return video.provider.id + ":" + video.id; }
++    private static String videoKey(Video video) { return CatalogTitleOrder.identity(video); }
+     private static String message(Exception e) {
+         String s = e.getMessage(); if (s == null || s.trim().isEmpty()) return "网络暂不可用";
+         return s.length() > 120 ? s.substring(0, 120) : s;
+--- 137/src/com/tongpin/player4k/tv/AllCatalogSearch.java
++++ 138/src/com/tongpin/player4k/tv/AllCatalogSearch.java
+@@ -28,7 +28,7 @@
+         public final int totalSources, skippedBrowseOnly, skippedLive, successfulSources, failedSources,
+                 repeatStoppedSources, pending, batchTotal, batchReturned;
+         private Snapshot(Handle h) {
+-            query = h.query; items = Collections.unmodifiableList(new ArrayList<Video>(h.items));
++            query = h.query; items = h.orderedItems();
+             totalSources = h.cursors.size(); skippedBrowseOnly = h.skippedBrowseOnly; skippedLive = h.skippedLive;
+             int success = 0, failed = 0, repeated = 0, working = 0;
+             boolean remaining = false, suspended = false;
+@@ -51,12 +51,18 @@
+         private final String query;
+         private final ArrayList<Cursor> cursors = new ArrayList<Cursor>();
+         private final ArrayList<Video> items = new ArrayList<Video>();
++        private List<Video> sortedItems = Collections.emptyList();
++        private boolean sortedDirty;
+         private final Set<String> seen = new HashSet<String>();
+         private final ArrayList<FutureTask<Void>> jobs = new ArrayList<FutureTask<Void>>();
+         private Listener listener;
+         private int skippedBrowseOnly, skippedLive, round, batchTotal, batchReturned;
+         private boolean canceled, limited, deliveryQueued;
+         private Handle(String query, Listener listener) { this.query = query; this.listener = listener; }
++        private List<Video> orderedItems() {
++            if (sortedDirty) { sortedItems = CatalogTitleOrder.sortedCopy(items); sortedDirty = false; }
++            return sortedItems;
++        }
+         public void cancel() { AllCatalogSearch.this.cancel(this); }
+         public boolean isCurrent() { synchronized (lock) { return current(this); } }
+         public Snapshot snapshot() { synchronized (lock) { return new Snapshot(this); } }
+@@ -174,7 +180,7 @@
+             String key = cursor.identity + '\0' + video.id;
+             if (h.seen.contains(key)) continue;
+             if (h.items.size() >= MAX_RESULTS) { h.limited = true; continue; }
+-            h.seen.add(key); h.items.add(video);
++            h.seen.add(key); h.items.add(video); h.sortedDirty = true;
+         }
+         Collections.sort(ids);
+         String fingerprint = ids.toString();
+--- 137/src/com/tongpin/player4k/tv/CatalogTitleOrder.java
++++ 138/src/com/tongpin/player4k/tv/CatalogTitleOrder.java
+@@ -0,0 +1,147 @@
++package com.tongpin.player4k.tv;
++
++import com.tongpin.player4k.tv.CatalogApi.Provider;
++import com.tongpin.player4k.tv.CatalogApi.Video;
++import java.text.Normalizer;
++import java.util.ArrayList;
++import java.util.Collections;
++import java.util.List;
++import java.util.Locale;
++import java.util.regex.Matcher;
++import java.util.regex.Pattern;
++
++/** Deterministic natural title order. Comparison keys never replace a source's actual title/model. */
++public final class CatalogTitleOrder {
++    private static final Pattern ORDINAL = Pattern.compile("第([零〇一二两兩三四五六七八九十百千万]{1,32})([季部集])");
++    private CatalogTitleOrder() { }
++
++    public static String identity(Video video) {
++        if (video == null) return "";
++        Provider provider = video.provider;
++        return text(provider == null ? null : provider.id) + '\0' + text(provider == null ? null : provider.api)
++                + '\0' + text(video.id);
++    }
++
++    public static int indexOf(List<Video> videos, String identity) {
++        if (videos == null || identity == null || identity.isEmpty()) return -1;
++        int found = -1;
++        for (int i = 0; i < videos.size(); i++) if (identity.equals(identity(videos.get(i)))) {
++            if (found >= 0) return -1;
++            found = i;
++        }
++        return found;
++    }
++
++    private static final class Entry {
++        final Video video;
++        final String key, identity, original;
++        Entry(Video video) {
++            this.video = video; original = text(video == null ? null : video.title);
++            key = key(original); identity = identity(video);
++        }
++    }
++
++    public static List<Video> sortedCopy(List<Video> source) {
++        ArrayList<Entry> entries = new ArrayList<>();
++        for (Video video : source) entries.add(new Entry(video));
++        Collections.sort(entries, CatalogTitleOrder::compareEntries);
++        ArrayList<Video> result = new ArrayList<>();
++        for (Entry entry : entries) result.add(entry.video);
++        return Collections.unmodifiableList(result);
++    }
++
++    public static int compare(Video left, Video right) { return compareEntries(new Entry(left), new Entry(right)); }
++
++    private static int compareEntries(Entry left, Entry right) {
++        int compared = natural(left.key, right.key);
++        if (compared == 0) compared = left.identity.compareTo(right.identity);
++        if (compared == 0) compared = left.original.compareTo(right.original);
++        return compared;
++    }
++
++    private static String text(String value) { return value == null ? "" : value; }
++
++    static String key(String title) {
++        String normalized = Normalizer.normalize(text(title), Normalizer.Form.NFKC).toLowerCase(Locale.ROOT);
++        StringBuilder compact = new StringBuilder();
++        for (int i = 0; i < normalized.length(); i++) {
++            char c = normalized.charAt(i);
++            if (!Character.isWhitespace(c) && !Character.isSpaceChar(c)) compact.append(c);
++        }
++        Matcher matcher = ORDINAL.matcher(compact);
++        StringBuffer result = new StringBuffer();
++        while (matcher.find()) {
++            String digits = ordinal(matcher.group(1));
++            matcher.appendReplacement(result, Matcher.quoteReplacement(digits == null ? matcher.group() : "第" + digits + matcher.group(2)));
++        }
++        matcher.appendTail(result);
++        return result.toString();
++    }
++
++    private static int digit(char c) {
++        switch (c) {
++            case '零': case '〇': return 0;
++            case '一': return 1;
++            case '二': case '两': case '兩': return 2;
++            case '三': return 3;
++            case '四': return 4;
++            case '五': return 5;
++            case '六': return 6;
++            case '七': return 7;
++            case '八': return 8;
++            case '九': return 9;
++            default: return -1;
++        }
++    }
++
++    private static String ordinal(String value) {
++        boolean units = value.indexOf('十') >= 0 || value.indexOf('百') >= 0 || value.indexOf('千') >= 0 || value.indexOf('万') >= 0;
++        if (!units) {
++            StringBuilder digits = new StringBuilder();
++            for (int i = 0; i < value.length(); i++) { int d = digit(value.charAt(i)); if (d < 0) return null; digits.append(d); }
++            return digits.toString();
++        }
++        int total = 0, section = 0, number = -1, previousUnit = 10000;
++        boolean usedWan = false;
++        for (int i = 0; i < value.length(); i++) {
++            char c = value.charAt(i); int d = digit(c);
++            if (d >= 0) {
++                if (number > 0) return null;
++                number = d; continue;
++            }
++            if (c == '万') {
++                if (usedWan) return null;
++                section += Math.max(0, number);
++                total = (section == 0 ? 1 : section) * 10000;
++                usedWan = true; section = 0; number = -1; previousUnit = 10000;
++                continue;
++            }
++            int unit = c == '十' ? 10 : c == '百' ? 100 : c == '千' ? 1000 : -1;
++            if (unit <= 0 || unit >= previousUnit) return null;
++            section += (number < 0 ? 1 : number) * unit; number = -1; previousUnit = unit;
++        }
++        return Integer.toString(total + section + Math.max(0, number));
++    }
++
++    static int natural(String left, String right) {
++        int a = 0, b = 0;
++        while (a < left.length() && b < right.length()) {
++            char x = left.charAt(a), y = right.charAt(b);
++            if (x >= '0' && x <= '9' && y >= '0' && y <= '9') {
++                int aEnd = a, bEnd = b;
++                while (aEnd < left.length() && left.charAt(aEnd) >= '0' && left.charAt(aEnd) <= '9') aEnd++;
++                while (bEnd < right.length() && right.charAt(bEnd) >= '0' && right.charAt(bEnd) <= '9') bEnd++;
++                while (a < aEnd && left.charAt(a) == '0') a++;
++                while (b < bEnd && right.charAt(b) == '0') b++;
++                int compared = Integer.compare(aEnd - a, bEnd - b);
++                if (compared == 0) for (int i = 0; i < aEnd - a && compared == 0; i++) compared = left.charAt(a + i) - right.charAt(b + i);
++                if (compared != 0) return compared;
++                a = aEnd; b = bEnd;
++            } else {
++                if (x != y) return x - y;
++                a++; b++;
++            }
++        }
++        return Integer.compare(left.length() - a, right.length() - b);
++    }
++}
+--- 137/src/com/tongpin/player4k/tv/UnifiedCatalogPolicy.java
++++ 138/src/com/tongpin/player4k/tv/UnifiedCatalogPolicy.java
+@@ -0,0 +1,219 @@
++package com.tongpin.player4k.tv;
++
++import com.tongpin.player4k.tv.CatalogApi.Video;
++import java.text.Normalizer;
++import java.util.ArrayList;
++import java.util.Collections;
++import java.util.Comparator;
++import java.util.HashSet;
++import java.util.LinkedHashMap;
++import java.util.List;
++import java.util.Locale;
++import java.util.Map;
++import java.util.Set;
++import java.util.regex.Matcher;
++import java.util.regex.Pattern;
++
++/** Homepage metadata only: declarations are not measured resolution or verified episode coverage. */
++public final class UnifiedCatalogPolicy {
++    private UnifiedCatalogPolicy() {}
++    public enum Tab {
++        RECOMMEND("推荐"), MOVIE("电影"), TV("电视剧"), VARIETY("综艺"), ANIME("动漫"),
++        DOCUMENTARY("纪录片"), SHORT("短剧"), KIDS("少儿");
++        public final String label;
++        Tab(String label) { this.label = label; }
++    }
++    public static final class Group {
++        public final String key, qualityEvidence;
++        public final Video primary;
++        /** Includes primary; original source models, deterministic provider/API/id order. */
++        public final List<Video> alternatives;
++        public final int qualityTier, declaredEpisodes;
++        private Group(String key, List<Video> candidates) {
++            this.key = key;
++            ArrayList<Video> ordered = new ArrayList<Video>(candidates);
++            Collections.sort(ordered, (a, b) -> identity(a).compareTo(identity(b)));
++            alternatives = Collections.unmodifiableList(ordered);
++            Video best = ordered.get(0);
++            for (Video v : ordered) if (preference(v, best) > 0) best = v;
++            primary = best; qualityTier = quality(best); declaredEpisodes = episodes(best);
++            qualityEvidence = qualityTier == 0 ? "UNKNOWN" : "SOURCE_LABEL";
++        }
++        public boolean contains(Video video) {
++            if (video == null) return false;
++            String id = identity(video);
++            for (Video v : alternatives) if (identity(v).equals(id)) return true;
++            return false;
++        }
++    }
++    private static final Pattern QUALITY_4K = Pattern.compile("(?<![0-9a-z])(?:4k|2160p|uhd)(?![0-9a-z])");
++    private static final Pattern QUALITY_1080 = Pattern.compile("(?<![0-9a-z])(?:1080p|1080i|fhd)(?![0-9a-z])");
++    private static final Pattern QUALITY_720 = Pattern.compile("(?<![0-9a-z])720p(?![0-9a-z])");
++    private static final Pattern YEAR = Pattern.compile("(?<![0-9])(?:19|20)[0-9]{2}(?![0-9])");
++    private static final Pattern EPISODES = Pattern.compile("(?:更新(?:至|到)?|更至|连载至|連載至)\\s*(?:第\\s*)?([0-9]{1,4})\\s*集");
++    private static final Pattern COMPLETE = Pattern.compile("(?:全\\s*([0-9]{1,4})\\s*集|(?<![0-9])([0-9]{1,4})\\s*集\\s*(?:全|完结|完結))");
++    private static final Pattern FRACTION = Pattern.compile("[（(]\\s*([0-9]{1,4})\\s*/\\s*[0-9]{1,4}\\s*[）)]");
++    private static String text(String s) { return s == null ? "" : s; }
++    private static String normalized(String s) { return Normalizer.normalize(text(s), Normalizer.Form.NFKC).toLowerCase(Locale.ROOT).trim(); }
++    private static String title(String s) { return normalized(s).replaceAll("[\\s\\p{Z}]+", ""); }
++    public static String identity(Video v) { return CatalogTitleOrder.identity(v); }
++    private static String uniqueYear(Video v) {
++        Matcher m = YEAR.matcher(text(v.year)); String year = "";
++        while (m.find()) { if (!year.isEmpty() && !year.equals(m.group())) return ""; year = m.group(); }
++        return year;
++    }
++    /** No guesses from a title, country, provider name or numeric category ID. */
++    public static Tab category(Video v) { return category(v, null); }
++    static Tab category(Video v, CatalogCategories fallback) {
++        if (v == null || v.provider == null || CatalogApi.liveProvider(v.provider)) return Tab.RECOMMEND;
++        CatalogCategories catalog = v.categoryCatalog != null && !v.categoryCatalog.isEmpty() ? v.categoryCatalog : fallback;
++        if (catalog != null && !catalog.isEmpty()) {
++            String declared = catalog.label(text(v.categoryId), text(v.categoryName));
++            // Conflicting/unknown IDs must not be rescued with the conflicting name.
++            return declared.startsWith("未分类") ? Tab.RECOMMEND : category(declared);
++        }
++        String name = text(v.categoryName);
++        if (name.trim().isEmpty()) name = text(v.categoryLabel);
++        return name.startsWith("未分类") ? Tab.RECOMMEND : category(name);
++    }
++    public static Tab category(String declared) {
++        String s = normalized(declared).replaceFirst("\\(上级未提供\\)\\s*$", "").trim();
++        if (s.isEmpty() || s.contains("解说") || s.contains("解說") || s.contains("预告") || s.contains("預告")
++                || s.contains("花絮") || s.contains("片花") || s.contains("幕后") || s.contains("幕後")) return Tab.RECOMMEND;
++        if (s.contains("短剧") || s.contains("短劇") || s.contains("微短剧") || s.contains("微短劇")) return Tab.SHORT;
++        if (s.contains("少儿") || s.contains("少兒") || s.contains("儿童") || s.contains("兒童")
++                || s.contains("幼儿") || s.contains("幼兒") || s.contains("亲子") || s.contains("親子") || s.contains("kids")) return Tab.KIDS;
++        if (s.contains("纪录") || s.contains("紀錄") || s.contains("documentary")) return Tab.DOCUMENTARY;
++        // An explicitly named animation film is a film; an animation series is anime.
++        if (s.contains("动画电影") || s.contains("動畫電影") || s.contains("动漫电影") || s.contains("動漫電影")) return Tab.MOVIE;
++        if (s.contains("动漫") || s.contains("動漫") || s.contains("动画") || s.contains("動畫")
++                || s.contains("anime") || s.contains("comic") || s.contains("animation")) return Tab.ANIME;
++        if (s.contains("综艺") || s.contains("綜藝") || s.contains("variety") || s.contains("tvshow")) return Tab.VARIETY;
++        if (s.contains("电影") || s.contains("電影") || s.contains("movie") || s.contains("film")) return Tab.MOVIE;
++        // Explicit leaf category names are declarations too; no parent relation is invented.
++        int separator = s.lastIndexOf(" / ");
++        String leaf = separator < 0 ? s : s.substring(separator + 3).trim();
++        if (leaf.matches("(?:动作|動作|喜剧|喜劇|爱情|愛情|科幻|恐怖|剧情|劇情|战争|戰爭|惊悚|驚悚|悬疑|懸疑|灾难|災難|犯罪|奇幻|冒险|冒險|武侠|武俠|古装|古裝|家庭|传记|傳記|历史|歷史|运动|運動|音乐|音樂|歌舞|西部|同性|青春|励志|勵志)片")) return Tab.MOVIE;
++        if (s.contains("电视剧") || s.contains("電視劇") || s.contains("剧集") || s.contains("劇集")
++                || s.contains("国产剧") || s.contains("國產劇") || s.contains("港台剧") || s.contains("港台劇")
++                || s.contains("香港剧") || s.contains("香港劇") || s.contains("台湾剧") || s.contains("台灣劇")
++                || s.contains("欧美剧") || s.contains("歐美劇") || s.contains("海外剧") || s.contains("海外劇")
++                || s.contains("日韩剧") || s.contains("日韓劇") || s.contains("日本剧") || s.contains("日本劇")
++                || s.contains("韩国剧") || s.contains("韓國劇") || s.contains("泰国剧") || s.contains("泰國劇")
++                || s.contains("tvplay") || s.contains("series") || s.equals("tv")
++                || leaf.matches("(?:内地|內地|大陆|大陸|中国|中國|国产|國產|香港|港澳|港|澳门|澳門|台湾|台灣|台|日韩|日韓|日|韩|韓|泰|美|英|欧美|歐美|海外|新马|新馬|新加坡|马来西亚|馬來西亞|越南|印度|其他|其它)剧")) return Tab.TV;
++        return Tab.RECOMMEND;
++    }
++    public static boolean matches(Video v, Tab tab) { return tab == Tab.RECOMMEND || category(v) == tab; }
++    /** Strong stable key. Unknown year/family stays source-specific; seasons remain in the full title. */
++    public static String keyFor(Video v) {
++        if (v == null) return "";
++        String name = title(v.title), year = uniqueYear(v); Tab family = category(v);
++        if (name.isEmpty() || year.isEmpty() || family == Tab.RECOMMEND || v.provider == null || CatalogApi.liveProvider(v.provider))
++            return "source:" + identity(v);
++        // Keep known incompatible raw kinds apart even if broad navigation family agrees.
++        String kind = rawKind(v);
++        if (kind.isEmpty()) kind = canonicalKind(family);
++        return "work:" + family.name() + '\0' + kind + '\0' + year + '\0' + name;
++    }
++    public static String keyFor(List<Group> groups, Video video) {
++        if (groups != null) for (Group g : groups) if (g.contains(video)) return g.key;
++        return keyFor(video);
++    }
++    public static int indexOf(List<Group> groups, String key) {
++        if (groups == null || key == null) return -1;
++        for (int i = 0; i < groups.size(); i++) if (key.equals(groups.get(i).key)) return i;
++        return -1;
++    }
++    private static String rawKind(Video v) {
++        return CrossSourcePolicy.kind(text(v.categoryName) + " " + text(v.categoryLabel));
++    }
++    private static String canonicalKind(Tab tab) {
++        switch (tab) {
++            case MOVIE: return "movie"; case TV: return "tv"; case VARIETY: return "variety";
++            case ANIME: return "comic"; case DOCUMENTARY: return "documentary";
++            case SHORT: return "tv"; case KIDS: return "kids"; default: return "";
++        }
++    }
++    private static boolean same(Video a, Video b) {
++        if (!keyFor(a).equals(keyFor(b))) return false;
++        if (identity(a).equals(identity(b)) || AutoSourcePolicy.sameWork(a, b)) return true;
++        // New navigation aliases (韩剧/短剧/少儿, etc.) are not in the playback matcher's vocabulary.
++        // Strict full title + unique year + declared family can establish identity without a synopsis.
++        String ka = rawKind(a), kb = rawKind(b);
++        return (ka.isEmpty() || kb.isEmpty() || ka.equals(kb)) && category(a) != Tab.RECOMMEND
++                && category(a) == category(b) && !uniqueYear(a).isEmpty()
++                && uniqueYear(a).equals(uniqueYear(b)) && title(a.title).equals(title(b.title));
++    }
++    public static int quality(Video v) {
++        if (v == null) return 0;
++        String s = normalized(v.subtitle);
++        // Remarks contain episode counters too: 更新至1080集 is not a 1080P declaration.
++        if (QUALITY_4K.matcher(s).find()) return 4;
++        if (QUALITY_1080.matcher(s).find() || s.equals("1080")) return 3;
++        if (QUALITY_720.matcher(s).find() || s.equals("720")) return 2;
++        return 0;
++    }
++    public static int episodes(Video v) {
++        if (v == null) return 0;
++        String s = normalized(v.subtitle);
++        int current = number(EPISODES.matcher(s), false);
++        current = Math.max(current, number(FRACTION.matcher(s), false));
++        if (current >= 0) return current;
++        return Math.max(0, number(COMPLETE.matcher(s), true));
++    }
++    private static int number(Matcher matcher, boolean alternatives) {
++        int best = -1;
++        while (matcher.find()) {
++            String value = matcher.group(1);
++            if (alternatives && value == null) value = matcher.group(2);
++            int n = Integer.parseInt(value);
++            if (n >= 0 && n < 1900) best = Math.max(best, n);
++        }
++        return best;
++    }
++    private static int preference(Video a, Video b) {
++        int c = Integer.compare(quality(a), quality(b)); if (c != 0) return c;
++        c = Integer.compare(episodes(a), episodes(b)); if (c != 0) return c;
++        c = Integer.compare(AutoSourcePolicy.watermarkHint(text(a.subtitle)), AutoSourcePolicy.watermarkHint(text(b.subtitle)));
++        if (c != 0) return c;
++        return -identity(a).compareTo(identity(b));
++    }
++    public static List<Group> project(List<Video> videos, boolean naturalName) {
++        if (videos == null || videos.isEmpty()) return Collections.emptyList();
++        LinkedHashMap<String, ArrayList<Video>> buckets = new LinkedHashMap<String, ArrayList<Video>>();
++        Set<String> seen = new HashSet<String>();
++        for (Video v : videos) {
++            if (v == null || v.provider == null || text(v.id).isEmpty() || title(v.title).isEmpty() || CatalogApi.liveProvider(v.provider)) continue;
++            String id = identity(v); if (!seen.add(id)) continue;
++            String key = keyFor(v); ArrayList<Video> bucket = buckets.get(key);
++            if (bucket != null && !same(bucket.get(0), v)) { key = "source:" + id; bucket = buckets.get(key); }
++            if (bucket == null) { bucket = new ArrayList<Video>(); buckets.put(key, bucket); }
++            bucket.add(v);
++        }
++        ArrayList<Group> result = new ArrayList<Group>();
++        for (Map.Entry<String, ArrayList<Video>> entry : buckets.entrySet()) result.add(new Group(entry.getKey(), entry.getValue()));
++        if (naturalName) {
++            // sortedCopy precomputes normalized title keys once per row, not once per comparison.
++            ArrayList<Video> primary = new ArrayList<Video>();
++            Map<String, Group> byPrimary = new LinkedHashMap<String, Group>();
++            for (Group g : result) { primary.add(g.primary); byPrimary.put(identity(g.primary), g); }
++            result.clear();
++            for (Video v : CatalogTitleOrder.sortedCopy(primary)) result.add(byPrimary.get(identity(v)));
++        }
++        return Collections.unmodifiableList(result);
++    }
++    /** Minimal declared ancestors, so a root and its descendants do not repeat the same query. */
++    public static List<CatalogCategories.Selection> selections(CatalogCategories catalog, Tab tab) {
++        if (catalog == null || tab == null || tab == Tab.RECOMMEND) return Collections.emptyList();
++        ArrayList<CatalogCategories.Category> candidates = new ArrayList<CatalogCategories.Category>();
++        for (CatalogCategories.Category c : catalog.categories()) if (category(catalog.display(c)) == tab) candidates.add(c);
++        ArrayList<CatalogCategories.Selection> out = new ArrayList<CatalogCategories.Selection>();
++        for (CatalogCategories.Category c : candidates) {
++            boolean covered = false;
++            for (CatalogCategories.Category ancestor : candidates) if (!ancestor.id.equals(c.id) && catalog.contains(ancestor.id, c.id)) { covered = true; break; }
++            if (!covered) out.add(catalog.select(c.id));
++        }
++        return Collections.unmodifiableList(out);
++    }
++}
+--- 137/src/com/tongpin/player4k/tv/UnifiedCatalogBrowse.java
++++ 138/src/com/tongpin/player4k/tv/UnifiedCatalogBrowse.java
+@@ -0,0 +1,345 @@
++package com.tongpin.player4k.tv;
++
++import com.tongpin.player4k.tv.CatalogApi.Page;
++import com.tongpin.player4k.tv.CatalogApi.Provider;
++import com.tongpin.player4k.tv.CatalogApi.Video;
++import com.tongpin.player4k.tv.CatalogCategories.Selection;
++import com.tongpin.player4k.tv.UnifiedCatalogPolicy.Group;
++import com.tongpin.player4k.tv.UnifiedCatalogPolicy.Tab;
++import java.util.ArrayDeque;
++import java.util.ArrayList;
++import java.util.Collections;
++import java.util.HashSet;
++import java.util.List;
++import java.util.Set;
++import java.util.concurrent.ArrayBlockingQueue;
++import java.util.concurrent.Executor;
++import java.util.concurrent.FutureTask;
++import java.util.concurrent.ThreadPoolExecutor;
++import java.util.concurrent.TimeUnit;
++
++/** Empty-query VOD browsing with provider/category-owned cursors. No detail or media requests. */
++public final class UnifiedCatalogBrowse implements AutoCloseable {
++    public static final int MAX_RESULTS = 2000;
++    private static final int MAX_PROVIDERS = 128, MAX_PAGE_ITEMS = 1000, MAX_PAGE = 10000;
++    public interface Backend {
++        CatalogCategories categories(Provider provider) throws Exception;
++        Page fetch(Provider provider, int page, Selection selection) throws Exception;
++    }
++    public interface Listener { void onUpdate(Handle handle, Snapshot snapshot); }
++    public static final class Snapshot {
++        public final Tab tab;
++        public final List<Group> groups;
++        public final List<Video> items;
++        public final boolean loading, hasMore, canResume, limited;
++        public final int totalSources, skippedLive, successfulSources, failedSources, repeatStoppedSources,
++                unmatchedSources, pending, batchTotal, batchReturned;
++        private Snapshot(Handle h) {
++            tab = h.tab; groups = h.groups(); items = h.primaryItems;
++            int success = 0, failed = 0, repeated = 0, working = 0, unmatched = 0;
++            boolean remaining = false, suspended = false;
++            for (Source source : h.sources) {
++                boolean good = false, bad = source.metadataFailed, repeat = false;
++                if (source.metadataInFlight) working++;
++                if (source.metadataSuspended) suspended = true;
++                if (!source.metadataDone && !source.metadataFailed) remaining = true;
++                if (source.metadataDone && source.cursors.isEmpty()) unmatched++;
++                for (Cursor c : source.cursors) {
++                    good |= c.successes > 0; bad |= c.failed; repeat |= c.repeatStopped;
++                    if (c.inFlight) working++;
++                    if (c.suspended) suspended = true;
++                    if (c.buffer != null || !c.done && !c.failed) remaining = true;
++                }
++                if (good) success++; if (bad) failed++; if (repeat) repeated++;
++            }
++            totalSources = h.sources.size(); skippedLive = h.skippedLive;
++            successfulSources = success; failedSources = failed; repeatStoppedSources = repeated;
++            unmatchedSources = unmatched; pending = working; loading = working > 0;
++            limited = h.limited; canResume = suspended;
++            hasMore = limited || suspended || remaining;
++            batchTotal = h.batchTotal; batchReturned = h.batchReturned;
++        }
++    }
++    public final class Handle {
++        public final Tab tab;
++        private final ArrayList<Source> sources = new ArrayList<Source>();
++        private final ArrayList<Video> items = new ArrayList<Video>();
++        private final Set<String> seen = new HashSet<String>();
++        private final ArrayDeque<Work> queue = new ArrayDeque<Work>();
++        private final ArrayList<Work> runningJobs = new ArrayList<Work>();
++        private List<Group> grouped = Collections.emptyList();
++        private List<Video> primaryItems = Collections.emptyList();
++        private Listener listener;
++        private int skippedLive, round, batchTotal, batchReturned;
++        private boolean canceled, limited, dirty, deliveryQueued;
++        private Handle(Tab tab, Listener listener) { this.tab = tab; this.listener = listener; }
++        private List<Group> groups() {
++            if (dirty) {
++                grouped = UnifiedCatalogPolicy.project(items, false);
++                ArrayList<Video> primary = new ArrayList<Video>();
++                for (Group g : grouped) primary.add(g.primary);
++                primaryItems = Collections.unmodifiableList(primary); dirty = false;
++            }
++            return grouped;
++        }
++        public void cancel() { UnifiedCatalogBrowse.this.cancel(this); }
++        public boolean isCurrent() { synchronized (lock) { return current(this); } }
++        public Snapshot snapshot() { synchronized (lock) { return new Snapshot(this); } }
++    }
++    private static final class Source {
++        final Provider provider;
++        final String identity;
++        final ArrayList<Cursor> cursors = new ArrayList<Cursor>();
++        CatalogCategories catalog;
++        boolean metadataDone, metadataFailed, metadataInFlight, metadataSuspended;
++        Source(Provider p) { provider = p; identity = p.id + '\0' + p.api; }
++    }
++    private static final class Cursor {
++        final Source source;
++        final Selection selection;
++        int nextPage = 1, successes, offset;
++        boolean done, failed, inFlight, suspended, repeatStopped, bufferHasMore;
++        String previousPage = "";
++        List<Video> buffer;
++        Cursor(Source source, Selection selection) { this.source = source; this.selection = selection; }
++    }
++    private static final class Work {
++        final Source source;
++        final Cursor cursor;
++        final int page, round;
++        FutureTask<Void> future;
++        Work(Source source, Cursor cursor, int round) { this.source = source; this.cursor = cursor; this.round = round; page = cursor == null ? 0 : cursor.nextPage; }
++    }
++    private final Object lock = new Object();
++    private final Executor delivery;
++    private final Backend backend;
++    private final ThreadPoolExecutor workers = new ThreadPoolExecutor(3, 3, 30L, TimeUnit.SECONDS,
++            new ArrayBlockingQueue<Runnable>(128), task -> {
++                Thread t = new Thread(task, "tp-library-browse"); t.setDaemon(true); return t;
++            }, new ThreadPoolExecutor.AbortPolicy());
++    private Handle active;
++    private boolean closed;
++    public UnifiedCatalogBrowse(Executor delivery) {
++        this(delivery, new Backend() {
++            @Override public CatalogCategories categories(Provider p) throws Exception { return CatalogApi.fetchCategories(p); }
++            @Override public Page fetch(Provider p, int page, Selection selection) throws Exception { return CatalogApi.fetchPage(p, "", page, selection); }
++        });
++    }
++    public UnifiedCatalogBrowse(Executor delivery, Backend backend) {
++        if (delivery == null || backend == null) throw new IllegalArgumentException("Missing browse executor/backend");
++        this.delivery = delivery; this.backend = backend;
++    }
++    public Handle start(List<Provider> providers, Tab tab, Listener listener) {
++        if (providers == null || providers.size() > MAX_PROVIDERS || tab == null || listener == null)
++            throw new IllegalArgumentException("Invalid unified browse request");
++        Handle h;
++        synchronized (lock) {
++            if (closed) throw new IllegalStateException("Browse closed");
++            if (active != null) cancelLocked(active);
++            workers.purge(); h = new Handle(tab, listener); active = h;
++            Set<String> unique = new HashSet<String>();
++            for (Provider p : providers) {
++                if (p == null) continue;
++                if (CatalogApi.liveProvider(p)) { h.skippedLive++; continue; }
++                Source s = new Source(p); if (!unique.add(s.identity)) continue;
++                h.sources.add(s);
++                if (tab == Tab.RECOMMEND) { s.metadataDone = true; s.cursors.add(new Cursor(s, null)); }
++            }
++            dispatchLocked(h, 0);
++        }
++        publish(h); return h;
++    }
++    public boolean loadMore(Handle h) { return request(h, 0); }
++    public boolean retryFailed(Handle h) { return request(h, 1); }
++    public boolean resume(Handle h) { return request(h, 2); }
++    private boolean request(Handle h, int mode) {
++        synchronized (lock) {
++            if (!current(h) || busy(h) || h.limited) return false;
++            if (!dispatchLocked(h, mode)) return false;
++        }
++        publish(h); return true;
++    }
++    /** Explicit next result window: no page is advanced past unconsumed rows. */
++    public boolean continueWindow(Handle h) {
++        synchronized (lock) {
++            if (!current(h) || busy(h) || !h.limited) return false;
++            h.items.clear(); h.seen.clear(); h.dirty = true; h.limited = false;
++            // Drain one buffered page per cursor before making another request; bounded to at most three responses at a time.
++            for (Source s : h.sources) for (Cursor c : s.cursors) if (c.buffer != null) {
++                drainLocked(h, c);
++                if (h.limited) break;
++            }
++            if (!h.limited) dispatchLocked(h, 0);
++        }
++        publish(h); return true;
++    }
++    /** Pause unfinished requests; results already accepted remain available for resume. */
++    public void cancelRound(Handle h) {
++        synchronized (lock) {
++            if (!current(h)) return;
++            ++h.round;
++            for (Source s : h.sources) {
++                if (s.metadataInFlight) { s.metadataInFlight = false; s.metadataSuspended = true; }
++                for (Cursor c : s.cursors) if (c.inFlight) { c.inFlight = false; c.suspended = true; }
++            }
++            for (Work w : h.runningJobs) w.future.cancel(true);
++            h.runningJobs.clear(); h.queue.clear(); workers.purge();
++        }
++        publish(h);
++    }
++    private boolean current(Handle h) { return !closed && h != null && active == h && !h.canceled; }
++    private boolean busy(Handle h) { return !h.queue.isEmpty() || !h.runningJobs.isEmpty(); }
++    private boolean dispatchLocked(Handle h, int mode) {
++        boolean suspended = false;
++        for (Source s : h.sources) {
++            suspended |= s.metadataSuspended;
++            for (Cursor c : s.cursors) suspended |= c.suspended;
++        }
++        h.batchTotal = 0; h.batchReturned = 0; ++h.round;
++        int max = 0;
++        for (Source s : h.sources) {
++            if (!s.metadataDone && (mode == 1 ? s.metadataFailed : mode == 2 || mode == 0 && suspended ? s.metadataSuspended : !s.metadataFailed))
++                enqueueLocked(h, s, null);
++            max = Math.max(max, s.cursors.size());
++        }
++        // Round-robin providers rather than exhausting all categories of the first provider.
++        for (int i = 0; i < max; i++) for (Source s : h.sources) if (i < s.cursors.size()) {
++            Cursor c = s.cursors.get(i);
++            if (c.buffer != null) { drainLocked(h, c); if (h.limited) break; }
++            if (c.buffer == null && !c.done && (mode == 1 ? c.failed : mode == 2 || mode == 0 && suspended ? c.suspended : !c.failed))
++                enqueueLocked(h, s, c);
++        }
++        if (h.limited) pauseQueuedLocked(h);
++        boolean selected = h.batchTotal > 0;
++        pumpLocked(h); return selected;
++    }
++    private void enqueueLocked(Handle h, Source source, Cursor cursor) {
++        if (cursor == null) { source.metadataInFlight = true; source.metadataSuspended = false; }
++        else { cursor.inFlight = true; cursor.suspended = false; }
++        h.queue.addLast(new Work(source, cursor, h.round)); h.batchTotal++;
++    }
++    private void pumpLocked(Handle h) {
++        if (!current(h) || h.limited) return;
++        while (h.runningJobs.size() < 3 && !h.queue.isEmpty()) {
++            Work w = h.queue.removeFirst();
++            w.future = new FutureTask<Void>(() -> { fetch(h, w); return null; });
++            h.runningJobs.add(w);
++            try { workers.execute(w.future); }
++            catch (RuntimeException rejected) {
++                h.runningJobs.remove(w); suspend(w); w.future.cancel(true);
++            }
++        }
++    }
++    private static void suspend(Work w) {
++        if (w.cursor == null) { w.source.metadataInFlight = false; w.source.metadataSuspended = true; }
++        else { w.cursor.inFlight = false; w.cursor.suspended = true; }
++    }
++    private void pauseQueuedLocked(Handle h) {
++        while (!h.queue.isEmpty()) suspend(h.queue.removeFirst());
++    }
++    private void fetch(Handle h, Work w) {
++        Page page = null; CatalogCategories catalog = null; boolean ok = false;
++        try {
++            if (w.cursor == null) {
++                catalog = backend.categories(w.source.provider);
++                ok = catalog != null && w.source.provider.id.equals(catalog.providerId);
++            } else {
++                page = backend.fetch(w.source.provider, w.page, w.cursor.selection);
++                ok = page != null && page.items != null && page.items.size() <= MAX_PAGE_ITEMS;
++            }
++        } catch (Exception unavailable) { ok = false; }
++        synchronized (lock) {
++            if (!current(h) || w.round != h.round || !h.runningJobs.remove(w)) return;
++            h.batchReturned++;
++            if (w.cursor == null) {
++                w.source.metadataInFlight = false; w.source.metadataSuspended = false;
++                w.source.metadataFailed = !ok;
++                if (ok) {
++                    w.source.catalog = catalog; w.source.metadataDone = true;
++                    for (Selection selection : UnifiedCatalogPolicy.selections(catalog, h.tab)) {
++                        Cursor cursor = new Cursor(w.source, selection); w.source.cursors.add(cursor);
++                        enqueueLocked(h, w.source, cursor);
++                    }
++                }
++            } else {
++                Cursor c = w.cursor; c.inFlight = false; c.suspended = false;
++                if (!ok) c.failed = true;
++                else {
++                    try { acceptLocked(h, c, page, w.page); }
++                    catch (RuntimeException invalidPage) { c.failed = true; }
++                }
++            }
++            if (h.limited) pauseQueuedLocked(h);
++            pumpLocked(h);
++        }
++        publish(h);
++    }
++    private void acceptLocked(Handle h, Cursor c, Page page, int requestedPage) {
++        ArrayList<String> ids = new ArrayList<String>();
++        ArrayList<Video> accepted = new ArrayList<Video>();
++        CatalogCategories catalog = c.source.catalog;
++        if (page.categories != null && c.source.provider.id.equals(page.categories.providerId)) {
++            catalog = catalog == null ? page.categories : catalog.merge(page.categories);
++            c.source.catalog = catalog;
++        }
++        for (Video v : page.items) if (belongs(c.source, v)) {
++            ids.add(v.id);
++            if (h.tab == Tab.RECOMMEND || UnifiedCatalogPolicy.category(v, catalog) == h.tab) accepted.add(v);
++        }
++        Collections.sort(ids); StringBuilder signature = new StringBuilder();
++        for (String id : ids) signature.append(id.length()).append(':').append(id);
++        String fingerprint = signature.toString();
++        boolean repeated = !ids.isEmpty() && fingerprint.equals(c.previousPage);
++        c.previousPage = ids.isEmpty() ? "" : fingerprint;
++        c.failed = false; c.successes++; c.repeatStopped |= repeated;
++        if (repeated) { c.done = true; c.nextPage = requestedPage + 1; return; }
++        c.buffer = accepted; c.offset = 0;
++        c.bufferHasMore = page.hasMore && requestedPage < MAX_PAGE;
++        // nextPage remains the requested page until its accepted items have all been retained.
++        c.nextPage = requestedPage;
++        drainLocked(h, c);
++    }
++    private void drainLocked(Handle h, Cursor c) {
++        while (c.buffer != null && c.offset < c.buffer.size()) {
++            Video v = c.buffer.get(c.offset); String key = UnifiedCatalogPolicy.identity(v);
++            if (h.seen.contains(key)) { c.offset++; continue; }
++            if (h.items.size() >= MAX_RESULTS) { h.limited = true; return; }
++            h.seen.add(key); h.items.add(v); h.dirty = true; c.offset++;
++        }
++        if (c.buffer != null) {
++            c.buffer = null; c.offset = 0; c.nextPage++; c.done = !c.bufferHasMore;
++        }
++        if (h.items.size() >= MAX_RESULTS && (!c.done || !h.queue.isEmpty())) h.limited = true;
++    }
++    private static boolean belongs(Source s, Video v) {
++        return v != null && v.provider != null && v.id != null && !v.id.isEmpty() && v.title != null && !v.title.trim().isEmpty()
++                && s.provider.id.equals(v.provider.id) && s.provider.api.equals(v.provider.api);
++    }
++    private void publish(Handle h) {
++        synchronized (lock) { if (!current(h) || h.deliveryQueued) return; h.deliveryQueued = true; }
++        try {
++            delivery.execute(() -> {
++                Listener listener; Snapshot snapshot;
++                synchronized (lock) {
++                    h.deliveryQueued = false; if (!current(h)) return;
++                    listener = h.listener; snapshot = new Snapshot(h);
++                }
++                if (listener != null && h.isCurrent()) listener.onUpdate(h, snapshot);
++            });
++        } catch (RuntimeException rejected) { synchronized (lock) { h.deliveryQueued = false; } }
++    }
++    private void cancel(Handle h) { synchronized (lock) { cancelLocked(h); workers.purge(); } }
++    private void cancelLocked(Handle h) {
++        if (h == null || h.canceled) return;
++        h.canceled = true; h.listener = null; ++h.round;
++        for (Work w : h.runningJobs) w.future.cancel(true);
++        h.runningJobs.clear(); h.queue.clear();
++    }
++    @Override public void close() {
++        synchronized (lock) {
++            if (closed) return;
++            if (active != null) cancelLocked(active);
++            active = null; closed = true; workers.shutdownNow();
++        }
++    }
++}

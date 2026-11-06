@@ -1,0 +1,77 @@
+{
+  "passed": true,
+  "verdict": "clear: TV138 unified home gate covers five own sources with exact previous137 playback/runtime and published evidence",
+  "source_sha256": {
+    "build_tv.py": "b2fa9ed717f85d5096bfa23c719f6c8747707fa165ac80dfc92f59403ef3f849"
+  },
+  "reviewed_freeze_sha256": "3646dca7a7b1e6e556bc1a390c333be861496afe110d0e153a2a9f5a8198567b",
+  "input_count": 40,
+  "cases": [
+    {
+      "name": "actual40-input preflight boundary",
+      "passed": true
+    },
+    {
+      "name": "formal promotion not authorized",
+      "passed": true,
+      "rejection": ""
+    },
+    {
+      "name": "wrong release scope",
+      "passed": true,
+      "rejection": "Wrong release scope for unified138"
+    },
+    {
+      "name": "missing exact snapshot indexes",
+      "passed": true,
+      "rejection": ""
+    },
+    {
+      "name": "wrong prior evidence index pin",
+      "passed": true,
+      "rejection": "Snapshot index changed: prior-evidence-sha256.json"
+    },
+    {
+      "name": "missing owner source coverage",
+      "passed": true,
+      "rejection": "Changed source lacks owner freeze coverage"
+    },
+    {
+      "name": "wrong manifest input digest",
+      "passed": true,
+      "rejection": "Inputs differ from reviewed unified-home freeze"
+    },
+    {
+      "name": "unexpected input name",
+      "passed": true,
+      "rejection": "Inputs differ from reviewed unified-home freeze"
+    },
+    {
+      "name": "missing final independent coverage",
+      "passed": true,
+      "rejection": "Final source/tooling independent reviews are incomplete"
+    },
+    {
+      "name": "wrong Media3 lock pin",
+      "passed": true,
+      "rejection": ""
+    },
+    {
+      "name": "wrong prior resource ID pin",
+      "passed": true,
+      "rejection": ""
+    },
+    {
+      "name": "independent review with passed=false but clear text and matching substituted pin",
+      "passed": true
+    }
+  ],
+  "notes": [
+    "Actual preflight contract and bounded in-memory reject cases executed; production/freeze files were not mutated.",
+    "All prior137 inputs remain fixed except Home, ordered AllSearch snapshots and version metadata; three added title/unified helpers are explicitly frozen and independently reviewed.",
+    "Runtime closure, API21 guards, resource IDs, provider data, old APK digest and published evidence retain their existing checks.",
+    "138 stays in official Media3/runtime and guarded API21/23 backend paths, with the expanded unified-home gate selected explicitly; no new dependency or signing policy."
+  ],
+  "device_tested": false,
+  "signing_executed": false
+}

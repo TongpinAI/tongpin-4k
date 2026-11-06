@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "assertions": 43,
+  "law_triples_checked": 159272,
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogTitleOrder.java": "bae3398167b1214955888afb17d483e84e9903f59d369ce9f406807be5b56df6",
+    "open-sources/src/com/tongpin/player4k/catalog/AllCatalogSearch.java": "828e9db7e3e27d218e563f78402c22d96f385462e904d63b7aeede61ca150e97",
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogApi.java": "9e99cf63272fc2b42aa75d8de6094f2ab9b356270dd3f13254c7601826f9e959",
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogCategories.java": "3c368a9e8ebbfbcf15e8426b1cdacfd0e3289efdfeb1f887569840528425f03b",
+    "open-sources/src/com/tongpin/player4k/catalog/MacCmsXml.java": "5ca12bf836e1c8e10c8efd06d0054e0ce25c8c63c707f7513e77eddccf5b8f68",
+    "open-sources/src/com/tongpin/player4k/catalog/TvBoxJson.java": "4fe2bf0bdaf94a431a5ddc6514eb51a37d668006b608659a1cf16fd558faab24",
+    "open-sources/src/com/tongpin/player4k/catalog/M3uCatalog.java": "710daeaabe91bab03e078106de0b4cdd5d1b852cbdb4c7992ed0b2e3626ead51"
+  },
+  "test_source_sha256": "5232be669c7440e8048cce0db42d6bc84726119590e3528839022adc66b5ff97",
+  "runner_sha256": "3332ab2cd50a5d03d9526544d47a1ee7fd05719ba6994a492ff15e5021c11e41",
+  "actual_catalog_api_and_models_compiled": true,
+  "compile_stubs_used": false,
+  "device_tested": false,
+  "network_tested": false,
+  "scope": "Independent natural-title fixtures, long numbers, comparator laws, immutable copies/provider identity plus actual search-cache reuse, late earlier-title sorting, failure/empty-page cache stability and success-only next-page cursor. Actual helpers/models, JDK only; no UI or network."
+}

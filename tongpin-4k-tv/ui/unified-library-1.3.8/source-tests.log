@@ -1,0 +1,17 @@
+����: [options] Դֵ 8 �ѹ�ʱ������δ�����а���ɾ��
+����: [options] Ŀ��ֵ 8 �ѹ�ʱ������δ�����а���ɾ��
+����: [options] Ҫ�����й��ѹ�ʱѡ��ľ���, ��ʹ�� -Xlint:-options��
+ע: ĳЩ�����ļ�ʹ�û򸲸����ѹ�ʱ�� API��
+ע: �й���ϸ��Ϣ, ��ʹ�� -Xlint:deprecation ���±��롣
+3 ������
+TV unified home assertions passed: 25
+TV search order assertions passed: 31
+TV global search UI assertions passed: 22
+assertions passed: 42
+assertions passed: 59
+assertions passed: 22
+assertions passed: 51
+TvPlayer production static contract assertions passed: 147
+TV home assertions passed: 23
+TV seek state assertions passed: 75
+TV seek input assertions passed: 12

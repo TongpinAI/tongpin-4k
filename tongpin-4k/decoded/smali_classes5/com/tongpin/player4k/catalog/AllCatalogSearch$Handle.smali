@@ -76,6 +76,18 @@
 
 .field private skippedLive:I
 
+.field private sortedDirty:Z
+
+.field private sortedItems:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List<",
+            "Lcom/tongpin/player4k/catalog/CatalogApi$Video;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field final synthetic this$0:Lcom/tongpin/player4k/catalog/AllCatalogSearch;
 
 
@@ -95,7 +107,7 @@
         }
     .end annotation
 
-    .line 59
+    .line 61
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->this$0:Lcom/tongpin/player4k/catalog/AllCatalogSearch;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -115,20 +127,27 @@
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->items:Ljava/util/ArrayList;
 
     .line 54
+    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->sortedItems:Ljava/util/List;
+
+    .line 56
     new-instance p1, Ljava/util/HashSet;
 
     invoke-direct {p1}, Ljava/util/HashSet;-><init>()V
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->seen:Ljava/util/Set;
 
-    .line 55
+    .line 57
     new-instance p1, Ljava/util/ArrayList;
 
     invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->jobs:Ljava/util/ArrayList;
 
-    .line 59
+    .line 61
     iput-object p2, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->query:Ljava/lang/String;
 
     iput-object p3, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->listener:Lcom/tongpin/player4k/catalog/AllCatalogSearch$Listener;
@@ -154,11 +173,13 @@
     return-object p0
 .end method
 
-.method static synthetic access$100(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)Ljava/util/ArrayList;
+.method static synthetic access$100(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)Ljava/util/List;
     .locals 0
 
     .line 50
-    iget-object p0, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->items:Ljava/util/ArrayList;
+    invoke-direct {p0}, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->orderedItems()Ljava/util/List;
+
+    move-result-object p0
 
     return-object p0
 .end method
@@ -221,7 +242,25 @@
     return-object p0
 .end method
 
-.method static synthetic access$1700(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)Z
+.method static synthetic access$1700(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)Ljava/util/ArrayList;
+    .locals 0
+
+    .line 50
+    iget-object p0, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->items:Ljava/util/ArrayList;
+
+    return-object p0
+.end method
+
+.method static synthetic access$1802(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;Z)Z
+    .locals 0
+
+    .line 50
+    iput-boolean p1, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->sortedDirty:Z
+
+    return p1
+.end method
+
+.method static synthetic access$1900(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)Z
     .locals 0
 
     .line 50
@@ -230,31 +269,13 @@
     return p0
 .end method
 
-.method static synthetic access$1702(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;Z)Z
+.method static synthetic access$1902(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;Z)Z
     .locals 0
 
     .line 50
     iput-boolean p1, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->deliveryQueued:Z
 
     return p1
-.end method
-
-.method static synthetic access$1800(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)Lcom/tongpin/player4k/catalog/AllCatalogSearch$Listener;
-    .locals 0
-
-    .line 50
-    iget-object p0, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->listener:Lcom/tongpin/player4k/catalog/AllCatalogSearch$Listener;
-
-    return-object p0
-.end method
-
-.method static synthetic access$1802(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;Lcom/tongpin/player4k/catalog/AllCatalogSearch$Listener;)Lcom/tongpin/player4k/catalog/AllCatalogSearch$Listener;
-    .locals 0
-
-    .line 50
-    iput-object p1, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->listener:Lcom/tongpin/player4k/catalog/AllCatalogSearch$Listener;
-
-    return-object p1
 .end method
 
 .method static synthetic access$200(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)Ljava/util/ArrayList;
@@ -264,6 +285,24 @@
     iget-object p0, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->cursors:Ljava/util/ArrayList;
 
     return-object p0
+.end method
+
+.method static synthetic access$2000(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)Lcom/tongpin/player4k/catalog/AllCatalogSearch$Listener;
+    .locals 0
+
+    .line 50
+    iget-object p0, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->listener:Lcom/tongpin/player4k/catalog/AllCatalogSearch$Listener;
+
+    return-object p0
+.end method
+
+.method static synthetic access$2002(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;Lcom/tongpin/player4k/catalog/AllCatalogSearch$Listener;)Lcom/tongpin/player4k/catalog/AllCatalogSearch$Listener;
+    .locals 0
+
+    .line 50
+    iput-object p1, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->listener:Lcom/tongpin/player4k/catalog/AllCatalogSearch$Listener;
+
+    return-object p1
 .end method
 
 .method static synthetic access$300(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)I
@@ -377,12 +416,47 @@
     return v0
 .end method
 
+.method private orderedItems()Ljava/util/List;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Lcom/tongpin/player4k/catalog/CatalogApi$Video;",
+            ">;"
+        }
+    .end annotation
+
+    .line 63
+    iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->sortedDirty:Z
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->items:Ljava/util/ArrayList;
+
+    invoke-static {v0}, Lcom/tongpin/player4k/catalog/CatalogTitleOrder;->sortedCopy(Ljava/util/List;)Ljava/util/List;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->sortedItems:Ljava/util/List;
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->sortedDirty:Z
+
+    .line 64
+    :cond_0
+    iget-object v0, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->sortedItems:Ljava/util/List;
+
+    return-object v0
+.end method
+
 
 # virtual methods
 .method public cancel()V
     .locals 1
 
-    .line 60
+    .line 66
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->this$0:Lcom/tongpin/player4k/catalog/AllCatalogSearch;
 
     invoke-static {v0, p0}, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->access$800(Lcom/tongpin/player4k/catalog/AllCatalogSearch;Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)V
@@ -393,7 +467,7 @@
 .method public isCurrent()Z
     .locals 2
 
-    .line 61
+    .line 67
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->this$0:Lcom/tongpin/player4k/catalog/AllCatalogSearch;
 
     invoke-static {v0}, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->access$900(Lcom/tongpin/player4k/catalog/AllCatalogSearch;)Ljava/lang/Object;
@@ -426,7 +500,7 @@
 .method public snapshot()Lcom/tongpin/player4k/catalog/AllCatalogSearch$Snapshot;
     .locals 3
 
-    .line 62
+    .line 68
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->this$0:Lcom/tongpin/player4k/catalog/AllCatalogSearch;
 
     invoke-static {v0}, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->access$900(Lcom/tongpin/player4k/catalog/AllCatalogSearch;)Ljava/lang/Object;

@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "scope": "144 unified default library and natural search order; retained143 poster style/playback/native/registry",
+  "files": {
+    "resources": {},
+    "smali": {}
+  },
+  "new_resources": {},
+  "java_source_count": 37,
+  "provider_count": 28,
+  "checks": {
+    "native143_unchanged": true,
+    "version_only_resources": true,
+    "unified_categories_group_candidates_and_viewport_native_bindings": true,
+    "source_stubs_tests_and_reviews": true,
+    "published143_evidence_unchanged": true,
+    "canonical_stage_dex": true
+  },
+  "device_tested": false
+}

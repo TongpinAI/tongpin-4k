@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "verdict": "clear: natural sorted snapshots preserve real selected records and viewport anchors through incremental results",
+  "source_sha256": {
+    "src/com/tongpin/player4k/tv/TvHomeActivity.java": "113cab69019684a337286196618fe29154df2f375ba53f6c2ff640a5bcad4690",
+    "src/com/tongpin/player4k/tv/AllCatalogSearch.java": "311b91cde088b9a3ba4c8ba79be40fb6d6c0026d17c64189085dda8baef9260a",
+    "src/com/tongpin/player4k/tv/CatalogTitleOrder.java": "b9056c7cfd2cd6ec1a6573e67fb9a25a31051b126d88d6ff830702176a63885f"
+  },
+  "tests_sha256": "29f4f2a5f95fc6a0c113af7310e12be603b242804b7ea46a442091c99f314672",
+  "independent_ui_assertions": 31,
+  "all26_production_source_hashes_verified": true,
+  "shared_helpers_package_only_equal": true,
+  "reviewed_paths": [
+    "immutable cached natural-title snapshot",
+    "selected and first-visible provider/API/id anchors with pixel offset",
+    "View-bound click/selection and retained ordinary duplicate-ID browsing",
+    "center DOWN/UP captured-model dispatch and canceled/old-query guards",
+    "preDraw transition cleanup, window focus loss, background and destruction"
+  ],
+  "notes": [
+    "Text/numeric comparison keys do not mutate titles, source identity or paging state; changed snapshots alone rebind cards.",
+    "Press handling captures the actual bound Video and dispatches the native click chain for that object; old adapter positions are not used to select a new title.",
+    "Window-focus loss cancels pressed state and releases deferred snapshots even when no Activity pause occurs.",
+    "Search anchors require unique full identity; ordinary browse clicks use actual object membership and retain duplicated upstream IDs.",
+    "SetSelectionFromTop is available since API21 per the installed official SDK API table; physical D-pad/pixel-offset behavior remains untested."
+  ],
+  "device_tested": false,
+  "activity_constructed": false,
+  "media_requested": false
+}

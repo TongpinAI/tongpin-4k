@@ -1,0 +1,27 @@
+{
+  "source_ready": true,
+  "workspace_sources": true,
+  "scope": "Two new package-only mirrored metadata grouping and empty-query browse helpers. Existing CatalogApi/AllCatalogSearch/CatalogTitleOrder/player/provider assets not edited by this owner.",
+  "source_sha256": {
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogPolicy.java": "3e51355d6dc1530e2a63fa40ac89b2d91c25e9532141a442569db64d008cf9aa",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogBrowse.java": "8ccfe3a301feb6dde9efb4b9f61e382d76dbdc623f9bb3f66ec5184b3beeb475",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/UnifiedCatalogPolicy.java": "35f3ceaf09155951eefe8f64fa064bf215833fd484124347c638f01e45af45a6",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/UnifiedCatalogBrowse.java": "255548172145d1bf8be1d894e7dadec39af21e332df742f5e6d57fce472d111e"
+  },
+  "reports": {
+    "tongpin-4k/ui/unified-library-1.4.4/shared-tests/verification.json": "1a2662d592dd74c693975c435143129d3d20586293f128958d7163afa027a6f5",
+    "tongpin-4k/ui/unified-library-1.4.4/independent-tests/verification.json": "890441b0808059fb50f1acb451f77d88fb96a21442f3e7bcfbb066db2ecee3e8"
+  },
+  "test_source_sha256": {
+    "tongpin-4k/ui/unified-library-1.4.4/shared-tests/UnifiedCatalogTest.java": "eaa870132916702081a89810ceb98de6be2950f588ee21a39a6de4838ed4ccde",
+    "tongpin-4k/ui/unified-library-1.4.4/shared-tests/run.py": "86bab5f5985b6e64bed681e63b324cbae9066ebeda6da4c74ec0a5fcc4a02858",
+    "tongpin-4k/ui/unified-library-1.4.4/SHARED.md": "ff4f14b3076facccf9a337a9e12f6fdd98ceccb6d34daca174771aca0ce8b7bb"
+  },
+  "host_assertions": {
+    "phone": 79,
+    "tv": 79,
+    "independent": 171
+  },
+  "network_tested": false,
+  "device_tested": false
+}

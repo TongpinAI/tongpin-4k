@@ -1,0 +1,53 @@
+Tongpin4K 1.4.4 local build
+
+$ "D:\PyCharm\PyCharm 2024.3.1.1\jbr\bin\java.exe" -Xmx3g -jar C:\Users\Administrator.DESKTOP-R9V7M9S\Documents\ChatGPT\测试\kanke-noads\tools\apktool_3.0.3.jar b D:\DevTools\tmp\tongpin4k-build\decoded -o D:\DevTools\tmp\tongpin4k-build\output\tongpin-4k-1.4.4-unsigned.apk
+I: Using Apktool 3.0.3 on kanke-4k-latest-noads.apk with 8 threads
+I: Smaling smali_classes5 folder into classes5.dex...
+I: Building resources with aapt2...
+I: smali_classes4 has not changed.
+I: smali_classes3 has not changed.
+I: smali_classes2 has not changed.
+I: smali has not changed.
+I: Building apk file...
+I: Importing assets...
+I: Importing lib...
+I: Importing unknown files...
+I: Built apk into: D:\DevTools\tmp\tongpin4k-build\output\tongpin-4k-1.4.4-unsigned.apk
+
+$ C:\Users\Administrator.DESKTOP-R9V7M9S\Documents\ChatGPT\测试\kanke-noads\tools\build-tools-35.0.1\aapt2.exe dump resources C:\Users\Administrator.DESKTOP-R9V7M9S\Documents\ChatGPT\测试\tongpin-4k\output\tongpin-4k-1.4.4-unsigned.apk
+Evidence: rebuilt-resources.txt; exit=0
+
+$ C:\Users\Administrator.DESKTOP-R9V7M9S\Documents\ChatGPT\测试\kanke-noads\tools\build-tools-35.0.1\zipalign.exe -f -P 16 4 C:\Users\Administrator.DESKTOP-R9V7M9S\Documents\ChatGPT\测试\tongpin-4k\output\tongpin-4k-1.4.4-unsigned.apk C:\Users\Administrator.DESKTOP-R9V7M9S\Documents\ChatGPT\测试\tongpin-4k\output\tongpin-4k-1.4.4-aligned.apk
+
+$ "D:\PyCharm\PyCharm 2024.3.1.1\jbr\bin\java.exe" -jar C:\Users\Administrator.DESKTOP-R9V7M9S\Documents\ChatGPT\测试\kanke-noads\tools\build-tools-35.0.1\lib\apksigner.jar sign --ks C:\Users\Administrator.DESKTOP-R9V7M9S\Documents\ChatGPT\测试\tongpin-4k\signing\tongpin4k.p12 --ks-key-alias tongpin4k --ks-pass env:TONGPIN_SIGNING_PASSWORD --key-pass env:TONGPIN_SIGNING_PASSWORD --v1-signing-enabled true --v2-signing-enabled true --v3-signing-enabled true --v4-signing-enabled false --out C:\Users\Administrator.DESKTOP-R9V7M9S\Documents\ChatGPT\测试\tongpin-4k\output\tongpin-4k-1.4.4-candidate.apk C:\Users\Administrator.DESKTOP-R9V7M9S\Documents\ChatGPT\测试\tongpin-4k\output\tongpin-4k-1.4.4-aligned.apk
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::loadLibrary has been called by org.conscrypt.NativeLibraryUtil in an unnamed module (file:/C:/Users/Administrator.DESKTOP-R9V7M9S/Documents/ChatGPT/%e6%b5%8b%e8%af%95/kanke-noads/tools/build-tools-35.0.1/lib/apksigner.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+$ "D:\PyCharm\PyCharm 2024.3.1.1\jbr\bin\java.exe" -jar C:\Users\Administrator.DESKTOP-R9V7M9S\Documents\ChatGPT\测试\kanke-noads\tools\build-tools-35.0.1\lib\apksigner.jar verify --verbose --print-certs --min-sdk-version 23 C:\Users\Administrator.DESKTOP-R9V7M9S\Documents\ChatGPT\测试\tongpin-4k\output\tongpin-4k-1.4.4-candidate.apk
+Evidence: signature-verify.txt; exit=0
+
+$ C:\Users\Administrator.DESKTOP-R9V7M9S\Documents\ChatGPT\测试\kanke-noads\tools\build-tools-35.0.1\zipalign.exe -c -P 16 4 C:\Users\Administrator.DESKTOP-R9V7M9S\Documents\ChatGPT\测试\tongpin-4k\output\tongpin-4k-1.4.4-candidate.apk
+
+$ C:\Users\Administrator.DESKTOP-R9V7M9S\Documents\ChatGPT\测试\kanke-noads\tools\build-tools-35.0.1\aapt2.exe dump badging C:\Users\Administrator.DESKTOP-R9V7M9S\Documents\ChatGPT\测试\tongpin-4k\output\tongpin-4k-1.4.4-candidate.apk
+Evidence: final-badging.txt; exit=0
+
+$ C:\Users\Administrator.DESKTOP-R9V7M9S\Documents\ChatGPT\测试\kanke-noads\tools\build-tools-35.0.1\aapt2.exe dump xmltree --file AndroidManifest.xml C:\Users\Administrator.DESKTOP-R9V7M9S\Documents\ChatGPT\测试\tongpin-4k\output\tongpin-4k-1.4.4-candidate.apk
+Evidence: final-manifest.txt; exit=0
+
+$ C:\Users\Administrator.DESKTOP-R9V7M9S\Documents\ChatGPT\测试\kanke-noads\tools\build-tools-35.0.1\aapt2.exe dump xmltree --file AndroidManifest.xml C:\Users\Administrator.DESKTOP-R9V7M9S\Documents\ChatGPT\测试\kanke-noads\output\kanke-4k-latest-noads.apk
+Evidence: source-manifest.txt; exit=0
+
+$ "D:\PyCharm\PyCharm 2024.3.1.1\jbr\bin\java.exe" -cp C:\Users\Administrator.DESKTOP-R9V7M9S\Documents\ChatGPT\测试\kanke-noads\tools\apktool_3.0.3.jar;C:\Users\Administrator.DESKTOP-R9V7M9S\Documents\ChatGPT\测试\tongpin-4k\verification\1.4.4\proof-tools DisassembleOwn1440 C:\Users\Administrator.DESKTOP-R9V7M9S\Documents\ChatGPT\测试\tongpin-4k\verification\1.4.4\final-classes5.dex C:\Users\Administrator.DESKTOP-R9V7M9S\Documents\ChatGPT\测试\tongpin-4k\verification\1.4.4\final-smali 329
+Evidence: final-disassembly.log; exit=0
+
+$ D:\anaconda\AAA\python.exe C:\Users\Administrator.DESKTOP-R9V7M9S\Documents\ChatGPT\测试\tongpin-4k\open-sources\integration\integrate_1_4_4.py --check-final-smali C:\Users\Administrator.DESKTOP-R9V7M9S\Documents\ChatGPT\测试\tongpin-4k\verification\1.4.4\final-smali
+Evidence: final-abi.log; exit=0
+
+$ D:\anaconda\AAA\python.exe C:\Users\Administrator.DESKTOP-R9V7M9S\Documents\ChatGPT\测试\tongpin-4k\open-sources\integration\audit_final_ui_api_1440.py C:\Users\Administrator.DESKTOP-R9V7M9S\Documents\ChatGPT\测试\tongpin-4k\verification\1.4.4\final-smali C:\Users\Administrator.DESKTOP-R9V7M9S\Documents\ChatGPT\测试\tongpin-4k\verification\1.4.4\reviewed-framework-api.json
+Evidence: final-framework-api.log; exit=0
+
+$ D:\anaconda\AAA\python.exe C:\Users\Administrator.DESKTOP-R9V7M9S\Documents\ChatGPT\测试\tongpin-4k\open-sources\integration\check_timer_dex_1440.py C:\Users\Administrator.DESKTOP-R9V7M9S\Documents\ChatGPT\测试\tongpin-4k\verification\1.4.4\final-smali
+Evidence: final-timer.log; exit=0

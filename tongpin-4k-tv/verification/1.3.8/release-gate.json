@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "version": "1.3.8",
+  "scope": "unified-home",
+  "frozen_inputs_sha256": "eec0001cbe5eb1e7eb72e0674a2acc32f9b5c42a38238deac4905620d59adbb9",
+  "builder_sha256": "b2fa9ed717f85d5096bfa23c719f6c8747707fa165ac80dfc92f59403ef3f849",
+  "input_count": 40,
+  "source_review_sha256": "79c31dbd8001b385e3669b01c987583222a3eb76d2df309525a0475709bfa1a0",
+  "builder_review_sha256": "9d3b06407a96303542ce96bdc1039631909af5dc470462b7c6bc7298ce7c3bff",
+  "signed_build_authorized": true,
+  "phase": "Before formal signed build",
+  "device_tested": false
+}

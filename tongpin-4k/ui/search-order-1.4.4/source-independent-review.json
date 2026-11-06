@@ -1,0 +1,43 @@
+{
+  "passed": true,
+  "verdict": "clear: shared natural-title total order/cache and phone identity viewport/input lifecycle reviewed",
+  "workspace_sources": true,
+  "source_sha256": {
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/CatalogActivity.java": "68ac749e6dbad51d0ece9d34a4387113e5a864c496e01f2302781b74bca59370",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/AllCatalogSearch.java": "828e9db7e3e27d218e563f78402c22d96f385462e904d63b7aeede61ca150e97",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/CatalogTitleOrder.java": "bae3398167b1214955888afb17d483e84e9903f59d369ce9f406807be5b56df6",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/CatalogTitleOrder.java": "b9056c7cfd2cd6ec1a6573e67fb9a25a31051b126d88d6ff830702176a63885f",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/AllCatalogSearch.java": "311b91cde088b9a3ba4c8ba79be40fb6d6c0026d17c64189085dda8baef9260a"
+  },
+  "device_tested": false,
+  "network_tested_by_reviewer": false,
+  "actual_rendering_performed": false,
+  "owner_freeze_sha256": "757e60e7c985bbdca3a0002779066373632a4fd888a330d5b40e18b435b54d9f",
+  "shared_freeze_sha256": "8d47d9d9b84cb501bf53fda9389c0bb6a6e74e2868fcf8fa82a975786d85f010",
+  "evidence_sha256": {
+    "tongpin-4k/ui/search-order-1.4.4/tests/verification.json": "18f79a0206ddb079ce7239523969920e898b381cef228f078dbe93ff676f07c9",
+    "tongpin-4k/ui/search-order-1.4.4/independent-tests/verification.json": "445bcf685b5560bd2341fc1085153ab035b6cb82f0647bb025438f45751d1eaa",
+    "tongpin-4k/ui/search-order-1.4.4/independent-tests/IndependentTitleOrderTest.java": "5232be669c7440e8048cce0db42d6bc84726119590e3528839022adc66b5ff97",
+    "tongpin-4k/ui/search-order-1.4.4/independent-tests/run.py": "3332ab2cd50a5d03d9526544d47a1ee7fd05719ba6994a492ff15e5021c11e41"
+  },
+  "independent_assertions": 43,
+  "law_triples_checked": 159272,
+  "owner_assertions": 643,
+  "package_only_shared_equal": true,
+  "all_search_network_cursor_cancel_exact_inverse": true,
+  "other_prior_java_unchanged": 32,
+  "review_notes": [
+    "Natural keys use NFKC, ROOT case folding and bounded Chinese ordinal contexts only for 第…季/部/集. Original titles/models are never rewritten; S-style names sort naturally within their own spelling, with no cross-spelling season equivalence or pinyin promise.",
+    "Digit runs compare effective decimal length and lexicographic digits without integer parsing; equal values continue through suffixes. Fixed identity then original-title ties retain source-specific records. Independent primary-key and Video comparisons passed antisymmetry, transitivity and equality-substitution properties over159272 triples.",
+    "Keys are precomputed once per row per sort; no shared mutable Collator exists. Sorted snapshots are immutable and cached, invalidated only by actual new accepted rows. Independent cache tests verify old snapshots, late earlier-season insertion, failure/empty-page reuse and unchanged page retry/cursor progression.",
+    "Removing only the snapshot ordering/cache/dirty additions restores the complete prior AllCatalogSearch text; worker/request/cursor/cancel code remains unchanged. Shared phone/TV helper bodies are identical after package normalization.",
+    "Phone captures the actual DOWN-bound Holder.video, rejects canceled/dragged/stale-ticket taps and opens only objects still present in the current list. Ordinary browsing duplicate IDs remain clickable; unique identity is required for anchors, not for ordinary bound clicks.",
+    "Touch/settling/scroll, hidden detail, background and unfocused-window updates are deferred. Current provider+API+video identity plus row offset restores the viewport; cached-list-only progress does not notify/reorder cards.",
+    "Window loss cancels input across touch and non-touch paths, removes pending drain and clears stale scroll state. Focus gain does not revive an old click; new valid DOWN/key or explicit card accessibility CLICK restores input while retaining the native item accessibility delegate.",
+    "Only two prior phone Java files plus the new title helper differ;32 other Java files, player/API/provider configuration and the143 poster geometry/category presentation are retained. Host/source checks do not establish device click/focus/pixel-offset acceptance."
+  ],
+  "primary_framework_references": [
+    "https://android.googlesource.com/platform/frameworks/base/+/refs/heads/main/core/java/android/widget/AbsListView.java",
+    "https://android.googlesource.com/platform/frameworks/base/+/2f431e264d886fd33d537802095e98e9c3425b7c/core/java/android/widget/GridView.java"
+  ]
+}

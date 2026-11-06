@@ -3,25 +3,17 @@
 .source "D8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/view/View$OnTouchListener;
 
 
 # instance fields
 .field public final synthetic f$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
-.field public final synthetic f$1:I
-
-.field public final synthetic f$2:Ljava/lang/String;
-
-.field public final synthetic f$3:I
-
-.field public final synthetic f$4:Landroid/content/Intent;
-
-.field public final synthetic f$5:Z
+.field public final synthetic f$1:Landroid/widget/GridView;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/tongpin/player4k/catalog/CatalogActivity;ILjava/lang/String;ILandroid/content/Intent;Z)V
+.method public synthetic constructor <init>(Lcom/tongpin/player4k/catalog/CatalogActivity;Landroid/widget/GridView;)V
     .locals 0
 
     .line 0
@@ -29,38 +21,24 @@
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda35;->f$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
-    iput p2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda35;->f$1:I
-
-    iput-object p3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda35;->f$2:Ljava/lang/String;
-
-    iput p4, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda35;->f$3:I
-
-    iput-object p5, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda35;->f$4:Landroid/content/Intent;
-
-    iput-boolean p6, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda35;->f$5:Z
+    iput-object p2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda35;->f$1:Landroid/widget/GridView;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
-    .locals 6
+.method public final onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
+    .locals 2
 
     .line 0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda35;->f$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
-    iget v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda35;->f$1:I
+    iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda35;->f$1:Landroid/widget/GridView;
 
-    iget-object v2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda35;->f$2:Ljava/lang/String;
+    invoke-virtual {v0, v1, p1, p2}, Lcom/tongpin/player4k/catalog/CatalogActivity;->lambda$buildScreen$8$com-tongpin-player4k-catalog-CatalogActivity(Landroid/widget/GridView;Landroid/view/View;Landroid/view/MotionEvent;)Z
 
-    iget v3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda35;->f$3:I
+    move-result p1
 
-    iget-object v4, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda35;->f$4:Landroid/content/Intent;
-
-    iget-boolean v5, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda35;->f$5:Z
-
-    invoke-virtual/range {v0 .. v5}, Lcom/tongpin/player4k/catalog/CatalogActivity;->lambda$bridgeSourceSwitch$2$com-tongpin-player4k-catalog-CatalogActivity(ILjava/lang/String;ILandroid/content/Intent;Z)V
-
-    return-void
+    return p1
 .end method

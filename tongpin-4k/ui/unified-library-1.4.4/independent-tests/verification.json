@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "assertions": {
+    "IndependentUnifiedBrowseTest": 10,
+    "IndependentUnifiedCatalogTest": 24,
+    "IndependentUnifiedCategoriesTest": 137
+  },
+  "host_only_timings": {
+    "projection_2000_ms": 161
+  },
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogPolicy.java": "3e51355d6dc1530e2a63fa40ac89b2d91c25e9532141a442569db64d008cf9aa",
+    "open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogBrowse.java": "8ccfe3a301feb6dde9efb4b9f61e382d76dbdc623f9bb3f66ec5184b3beeb475",
+    "open-sources/src/com/tongpin/player4k/catalog/AutoSourcePolicy.java": "ce4fd68b0e2f3f0ed9eed19bd15868bc71e3e9c3dfb3394c384e0e4aa2bc1e87",
+    "open-sources/src/com/tongpin/player4k/catalog/CrossSourcePolicy.java": "f443a406641ec8e8ed8d891642afb7da8a046bb5213faddf40e37158afab195c",
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogTitleOrder.java": "bae3398167b1214955888afb17d483e84e9903f59d369ce9f406807be5b56df6",
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogApi.java": "9e99cf63272fc2b42aa75d8de6094f2ab9b356270dd3f13254c7601826f9e959",
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogCategories.java": "3c368a9e8ebbfbcf15e8426b1cdacfd0e3289efdfeb1f887569840528425f03b",
+    "open-sources/src/com/tongpin/player4k/catalog/MacCmsXml.java": "5ca12bf836e1c8e10c8efd06d0054e0ce25c8c63c707f7513e77eddccf5b8f68",
+    "open-sources/src/com/tongpin/player4k/catalog/TvBoxJson.java": "4fe2bf0bdaf94a431a5ddc6514eb51a37d668006b608659a1cf16fd558faab24",
+    "open-sources/src/com/tongpin/player4k/catalog/M3uCatalog.java": "710daeaabe91bab03e078106de0b4cdd5d1b852cbdb4c7992ed0b2e3626ead51"
+  },
+  "test_fixture_sha256": {
+    "open-sources/tests/fixtures/categories/class-360zy.json": "620309b06e0a86a29c5b739c34cc31f589d1b075a4124b7c1d595c3e5d4b6ced",
+    "open-sources/tests/fixtures/categories/class-bfzy.json": "681195572e322b0909cde989aa4f8437681bed2dd056bedcfd0b2de71508215e",
+    "open-sources/tests/fixtures/categories/class-guangsu.json": "010f2e557a41b741adc061cdfb0fe8c91a8811affc14454b3013d5ec040be1c3",
+    "open-sources/tests/fixtures/categories/class-hongniu.json": "457f68547221edbd1cebcc40cd3164f2486c5eb97ffc65e1438bc96810154316",
+    "open-sources/tests/fixtures/categories/class-huya.json": "deb4ac35f2403e7ff3e39371d257394cf96eca5c9406f8d0548a9a53af17f50b",
+    "open-sources/tests/fixtures/categories/class-ikun.json": "f06e2ff905d2b8a79511180d0f0b397238004e9960b975c9248eea7b6f4fc53d",
+    "open-sources/tests/fixtures/categories/class-jinying.json": "cf6fc9ec25a24ff9745dce56419fae14a71556294c3798f0da3bc7c3a499fb1a",
+    "open-sources/tests/fixtures/categories/class-mdzy.json": "64eaca5914bc01389d43c6ca83ed68c08cad52fea4727d8e0f25e88b22eb49f4",
+    "open-sources/tests/fixtures/categories/class-qiyi.json": "1fe71b5ec723fa808b213470a5f539280c10faae22028a4fd97a76cb583f313a"
+  },
+  "runner_sha256": "f9f9ca3a059067ef080cb1e83f85a9ec7ce1b29d9b7bfb9fa4be4e635f71eefe",
+  "test_source_sha256": {
+    "IndependentUnifiedBrowseTest.java": "9e50b272b3ded8a1047c2758b6cf86eb130bbca22383f89cec14ec8b3447465d",
+    "IndependentUnifiedCatalogTest.java": "7a023e459e8705e052659b73277ee1a1bd25a7dd142f7ca3c47ace2325771c4b",
+    "IndependentUnifiedCategoriesTest.java": "e30a6f8674daf646756177087fa10b49650306ad34dcabc7c85d79c17be99279"
+  },
+  "actual_catalog_api_and_models_compiled": true,
+  "compile_stubs_used": false,
+  "device_tested": false,
+  "network_tested": false,
+  "scope": "Independent same-work/season/year/type, source-declared preference, immutable alternatives, stable work-key and natural title order examples; actual production models, no UI construction or media."
+}

@@ -1,0 +1,202 @@
+{
+  "providers": [
+    {
+      "id": "mdzy",
+      "name": "魔都资源",
+      "kind": "maccms",
+      "api": "https://www.mdzyapi.com/api.php/provide/vod/",
+      "homepage": "https://mdzyapi.com/"
+    },
+    {
+      "id": "360zy",
+      "name": "360资源",
+      "kind": "maccms",
+      "api": "https://360zy.com/api.php/provide/vod/",
+      "homepage": "https://360zy.com/"
+    },
+    {
+      "id": "blender",
+      "name": "Blender开放电影",
+      "kind": "peertube",
+      "api": "https://video.blender.org/api/v1/video-channels/blender_open_movies/videos?sort=-publishedAt",
+      "homepage": "https://video.blender.org/video-channels/blender_open_movies"
+    },
+    {
+      "id": "ryzy",
+      "name": "如意资源",
+      "kind": "maccms",
+      "api": "https://cj.rycjapi.com/api.php/provide/vod/",
+      "homepage": "https://ryzyw.com/"
+    },
+    {
+      "id": "ikun",
+      "name": "iKun资源",
+      "kind": "maccms",
+      "api": "https://ikunzyapi.com/api.php/provide/vod/",
+      "homepage": "https://www.ikunzy.com/"
+    },
+    {
+      "id": "guangsu",
+      "name": "光速资源",
+      "kind": "maccms",
+      "api": "https://api.guangsuapi.com/api.php/provide/vod/",
+      "homepage": "https://www.guangsuzy.com/"
+    },
+    {
+      "id": "hongniu",
+      "name": "红牛资源",
+      "kind": "maccms",
+      "api": "https://www.hongniuzy2.com/api.php/provide/vod/",
+      "homepage": "https://www.hongniuzy2.com/"
+    },
+    {
+      "id": "jinying",
+      "name": "金鹰资源",
+      "kind": "maccms",
+      "api": "https://jyzyapi.com/provide/vod/from/jinyingm3u8/at/json",
+      "homepage": "https://www.jinyingzy.net/"
+    },
+    {
+      "id": "huya",
+      "name": "虎牙资源（第三方）",
+      "kind": "maccms",
+      "api": "https://www.huyaapi.com/api.php/provide/vod/from/hym3u8",
+      "homepage": "https://www.huyaapi.com/"
+    },
+    {
+      "id": "bfzy",
+      "name": "暴风资源",
+      "kind": "maccms",
+      "api": "https://bfzyapi.com/api.php/provide/vod",
+      "homepage": "https://bfzyapi.com/"
+    },
+    {
+      "id": "qiyi",
+      "name": "奇艺资源（第三方）",
+      "kind": "maccms",
+      "api": "https://www.iqiyizyapi.com/api.php/provide/vod",
+      "homepage": "https://www.iqiyizyapi.com/"
+    },
+    {
+      "id": "360zyzz",
+      "name": "三六独立资源（第三方）",
+      "kind": "maccms",
+      "api": "https://360zyzz.com/api.php/provide/vod",
+      "homepage": "https://360zyzz.com/"
+    },
+    {
+      "id": "dandan",
+      "name": "蛋蛋资源（第三方）",
+      "kind": "maccms",
+      "api": "https://ddmf.net/api.php/provide/vod",
+      "homepage": "https://ddmf.net/"
+    },
+    {
+      "id": "dazhong",
+      "name": "大众资源（第三方）",
+      "kind": "maccms",
+      "api": "https://dzzy.com/api.php/provide/vod",
+      "homepage": "https://dzzy.com/"
+    },
+    {
+      "id": "feifan",
+      "name": "非凡资源（第三方）",
+      "kind": "maccms",
+      "api": "https://api.ffzyapi.com/api.php/provide/vod/from/ffm3u8",
+      "homepage": "https://api.ffzyapi.com/"
+    },
+    {
+      "id": "hhzy",
+      "name": "豪华资源（第三方）",
+      "kind": "maccms",
+      "api": "https://hhzyapi.com/api.php/provide/vod",
+      "homepage": "https://hhzyapi.com/"
+    },
+    {
+      "id": "jszy",
+      "name": "极速资源（第三方）",
+      "kind": "maccms",
+      "api": "https://jszyapi.com/api.php/provide/vod",
+      "homepage": "https://jszyapi.com/"
+    },
+    {
+      "id": "longma",
+      "name": "龙马资源（第三方）",
+      "kind": "maccms",
+      "api": "http://jhysj.jiaheyy.top/api.php/provide/vod",
+      "homepage": "http://jhysj.jiaheyy.top/"
+    },
+    {
+      "id": "maotai",
+      "name": "茅台资源（第三方，仅浏览）",
+      "kind": "maccms",
+      "api": "https://caiji.maotaizy.cc/api.php/provide/vod",
+      "homepage": "https://caiji.maotaizy.cc/",
+      "supportsSearch": false
+    },
+    {
+      "id": "maoyan",
+      "name": "猫眼资源（第三方）",
+      "kind": "maccms",
+      "api": "https://api.maoyanapi.top/api.php/provide/vod",
+      "homepage": "https://api.maoyanapi.top/"
+    },
+    {
+      "id": "public_live",
+      "name": "公开直播（第三方清单）",
+      "kind": "m3u",
+      "api": "https://g.blfrp.cn/https://raw.githubusercontent.com/cyh92/live/refs/heads/main/source/migu.m3u",
+      "homepage": "https://github.com/cyh92/live"
+    },
+    {
+      "id": "public_live_clun",
+      "name": "公开直播CLUN（第三方清单）",
+      "kind": "m3u",
+      "api": "https://clun.top/lib/iptv.m3u",
+      "homepage": "https://clun.top/"
+    },
+    {
+      "id": "subo",
+      "name": "速播资源（第三方）",
+      "kind": "maccms",
+      "api": "https://subocj.com/api.php/provide/vod",
+      "homepage": "https://subocj.com/"
+    },
+    {
+      "id": "taopian",
+      "name": "淘片资源（第三方）",
+      "kind": "tvbox_json",
+      "api": "https://taopianapi.com/cjapi/mc/vod/json.html",
+      "homepage": "https://taopianapi.com/"
+    },
+    {
+      "id": "wsyzy",
+      "name": "WSY资源（第三方，仅浏览）",
+      "kind": "maccms",
+      "api": "https://api.wsyzy.net/api.php/provide/vod",
+      "homepage": "https://api.wsyzy.net/",
+      "supportsSearch": false
+    },
+    {
+      "id": "xigua",
+      "name": "西瓜资源（第三方）",
+      "kind": "maccms",
+      "api": "https://xiguazy.tv/api.php/provide/vod",
+      "homepage": "https://xiguazy.tv/"
+    },
+    {
+      "id": "xinlang",
+      "name": "新浪资源（第三方）",
+      "kind": "maccms",
+      "api": "https://api.xinlangapi.com/xinlangapi.php/provide/vod",
+      "homepage": "https://api.xinlangapi.com/"
+    },
+    {
+      "id": "yinghua",
+      "name": "樱花资源（第三方）",
+      "kind": "maccms",
+      "api": "https://yhzy.cc/api.php/provide/vod",
+      "homepage": "https://yhzy.cc/"
+    }
+  ]
+}

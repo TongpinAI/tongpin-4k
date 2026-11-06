@@ -1,0 +1,2158 @@
+{
+  "passed": true,
+  "scope": "emitted own session smali against bundled native declarations; no device playback",
+  "checked_field_accesses": 112,
+  "checked_invocations": 123,
+  "checked_overrides": 20,
+  "checked_native_field_accesses": 15,
+  "checked_native_invocations": 64,
+  "framework_api_sha256": "74573d56d0712739b4763d2a5db64acfe309f3c098a6135257572f1f5302dbcf",
+  "reflection_constructors": [
+    "<init>(Landroid/content/Context;)V",
+    "<init>(Landroid/content/Context;Ljava/lang/Boolean;)V"
+  ],
+  "own_smali_sha256": {
+    "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager$$ExternalSyntheticLambda0.smali": "5cb59600de514610e59f119a2ee5d3cd28eccf0bb820c95d363c4534005d5aea",
+    "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager.smali": "6e45d3b18f888324673fddef9fdd09fa870fe70959b8d057b2a949530e4d8276",
+    "com/tongpin/player4k/catalog/OwnSessionPlayer$Events.smali": "b5241d9dba78a58ec5b019c1d32b2249aea6e101e5678a1ecbebbbfc58838cd6",
+    "com/tongpin/player4k/catalog/OwnSessionPlayer.smali": "3058824ea8df1bc1afe061e19b29a10f77377c4e866aa465117ff149a5abbf65",
+    "com/tongpin/player4k/catalog/DecoderPolicy.smali": "7b288bc48fef7bdbe8d9f1f850bd154b85436e2f13aa30b6877ef8d4c683702b"
+  },
+  "native_source_sha256": {
+    "decoded/smali_classes5/com/shuyu/gsyvideoplayer/player/PlayerFactory.smali": "e3c68d3c81a76572b65d6559c96ca81a502d704d11d81501e1e7c11dc61e4554",
+    "decoded/smali_classes5/com/shuyu/gsyvideoplayer/utils/GSYAudioFocusManager$GSYAudioFocusListener.smali": "0b763c35f8747919b94d089d5c027dff7d6fac7505ccd9edee8364ea0a2a83c9",
+    "decoded/smali_classes5/com/shuyu/gsyvideoplayer/utils/GSYVideoType.smali": "eb97eacd6bf627b206e6f481d91438bbd92552c98834b2c26c97677d0f8f4bc6",
+    "decoded/smali_classes5/com/shuyu/gsyvideoplayer/utils/MeasureHelper$MeasureFormVideoParamsListener.smali": "6465bb791fbc62a4050d6445459d83c984fd9196b82e668e40f4eccdbacb8513",
+    "decoded/smali_classes5/com/shuyu/gsyvideoplayer/utils/OrientationUtils.smali": "887c7cd2d33467555419c8b1074dbef915ddfbff9684ba3f3f92ac89abfc0d5a",
+    "decoded/smali_classes5/com/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer.smali": "56a9dbc948f5f44f32f917e30bc34d4d898978a70219816c7bd47aab7503ac64",
+    "decoded/smali_classes5/com/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer.smali": "751cf22a1bc89ebfa2be9162f0543f59089f081063884a571bdbcbf29809deaa",
+    "decoded/smali_classes5/com/shuyu/gsyvideoplayer/video/base/GSYTextureRenderView.smali": "25ebd9450e808cc423a5a787284531c64a9208a645f8cc0dc094790bc1dc18ea",
+    "decoded/smali_classes5/com/shuyu/gsyvideoplayer/video/base/GSYVideoControlView.smali": "35d5bbf1226201cc9955764ad61bf50bdb8bec57660e307915d0f2f71e064f59",
+    "decoded/smali_classes5/com/shuyu/gsyvideoplayer/video/base/GSYVideoPlayer.smali": "626060259b92ec643f90919e2a8eada9ef4a0b900befa6bd81fe35ced30b8c64",
+    "decoded/smali_classes5/com/shuyu/gsyvideoplayer/video/base/GSYVideoView.smali": "b53a6775af840e4feb215cf082ff44dc33f104ae3dc8b737e91b5ad64b02175b",
+    "decoded/smali_classes5/com/shuyu/gsyvideoplayer/video/base/GSYVideoViewBridge.smali": "c3dc4667e4a93d6cf785e031bae35df5b1584927c7f1036ef6296e999a94eafb",
+    "decoded/smali_classes5/k6/b$j.smali": "5abf693b14382c1aa0631cc3c61b2e12d37a63a1033467f69cc8d22a726e8d33",
+    "decoded/smali_classes5/k6/b.smali": "5d2d7dc92adc33b5e354e5acdee719f94461bed059fdfad0ec1e113f6adc93d7",
+    "decoded/smali_classes5/k6/c.smali": "44409b93da6c037df28a7ab12dc669e4fadfe8acc6bf3651b3156b826f388834",
+    "decoded/smali_classes5/l6/b$a.smali": "bef1ace402001a4bc2d54d899e979e20c270dbc978dab10d6233a1c08b07b2e6",
+    "decoded/smali_classes5/m6/a.smali": "7cc2ce91b2818e60052c15b263a21404a578b8ffdaea56c4b8e604ba43b5ecda",
+    "decoded/smali_classes5/n6/c.smali": "0ce8d2b52f40fc9eb3abffe73b9fd016a6d25a5326e149c909e5ed6e34545cc8",
+    "decoded/smali_classes5/s6/c.smali": "826d3c207a8112178b99bebb6516419578b3fe531d1210e0c8b5b71405e2ac0c",
+    "decoded/smali_classes5/tv/danmaku/ijk/media/player/IMediaPlayer$OnBufferingUpdateListener.smali": "89f04d2d24806e4aa337454853986d848ab9c780bb99b087c85d2dd44a0dd33b",
+    "decoded/smali_classes5/tv/danmaku/ijk/media/player/IMediaPlayer$OnCompletionListener.smali": "192d8f99b84e13eb37ddff0b78ba42e4612df9310f4f96fc7ffef867833e72e5",
+    "decoded/smali_classes5/tv/danmaku/ijk/media/player/IMediaPlayer$OnErrorListener.smali": "e9dcb8b20766202599bf7cb2bc5610b82ef885146ec3cc652da6fc54093ac5f7",
+    "decoded/smali_classes5/tv/danmaku/ijk/media/player/IMediaPlayer$OnInfoListener.smali": "317864f75d054f17752aedc94cb6b0eb0a3c5fa167f74adec6279c2261ec49ae",
+    "decoded/smali_classes5/tv/danmaku/ijk/media/player/IMediaPlayer$OnPreparedListener.smali": "ea600468edd739cff3366357bac989abbcc0b219e1db7caa5ac0107a8dc1bd77",
+    "decoded/smali_classes5/tv/danmaku/ijk/media/player/IMediaPlayer$OnSeekCompleteListener.smali": "41a7260ac5130592cb4a9bd460ef58d4a7d60854d59f0e6828dfa591b746b216",
+    "decoded/smali_classes5/tv/danmaku/ijk/media/player/IMediaPlayer$OnVideoSizeChangedListener.smali": "616300dfc3bf7fde980bd165fa448e1d0d69020b759c574eb84ad01ea3c8d457"
+  },
+  "fields": [
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager$$ExternalSyntheticLambda0-><init>(Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;II)V",
+      "opcode": "iput-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager$$ExternalSyntheticLambda0",
+      "signature": "f$0:Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager$$ExternalSyntheticLambda0",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager$$ExternalSyntheticLambda0;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager$$ExternalSyntheticLambda0-><init>(Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;II)V",
+      "opcode": "iput",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager$$ExternalSyntheticLambda0",
+      "signature": "f$1:I",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager$$ExternalSyntheticLambda0",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager$$ExternalSyntheticLambda0;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager$$ExternalSyntheticLambda0-><init>(Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;II)V",
+      "opcode": "iput",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager$$ExternalSyntheticLambda0",
+      "signature": "f$2:I",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager$$ExternalSyntheticLambda0",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager$$ExternalSyntheticLambda0;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager$$ExternalSyntheticLambda0->run()V",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager$$ExternalSyntheticLambda0",
+      "signature": "f$0:Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager$$ExternalSyntheticLambda0",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager$$ExternalSyntheticLambda0;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager$$ExternalSyntheticLambda0->run()V",
+      "opcode": "iget",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager$$ExternalSyntheticLambda0",
+      "signature": "f$1:I",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager$$ExternalSyntheticLambda0",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager$$ExternalSyntheticLambda0;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager$$ExternalSyntheticLambda0->run()V",
+      "opcode": "iget",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager$$ExternalSyntheticLambda0",
+      "signature": "f$2:I",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager$$ExternalSyntheticLambda0",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager$$ExternalSyntheticLambda0;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager-><init>(Landroid/content/Context;)V",
+      "opcode": "iput-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "clock:Lcom/tongpin/player4k/catalog/PlaybackSession;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->close()V",
+      "opcode": "iget-boolean",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "closed:Z",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->close()V",
+      "opcode": "iput-boolean",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "closed:Z",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->close()V",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "clock:Lcom/tongpin/player4k/catalog/PlaybackSession;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->close()V",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "d:Landroid/os/Handler;",
+      "actual_owner": "k6/b",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->close()V",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "d:Landroid/os/Handler;",
+      "actual_owner": "k6/b",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->close()V",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "b:Lk6/b$j;",
+      "actual_owner": "k6/b",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->getCurrentPosition()J",
+      "opcode": "iget-boolean",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "closed:Z",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->getCurrentPosition()J",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "clock:Lcom/tongpin/player4k/catalog/PlaybackSession;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->getDuration()J",
+      "opcode": "iget-boolean",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "closed:Z",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->getDuration()J",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "clock:Lcom/tongpin/player4k/catalog/PlaybackSession;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->lambda$onError$0$com-tongpin-player4k-catalog-OwnSessionPlayer$EpochManager(II)V",
+      "opcode": "iget-boolean",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "closed:Z",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->lambda$onError$0$com-tongpin-player4k-catalog-OwnSessionPlayer$EpochManager(II)V",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "clock:Lcom/tongpin/player4k/catalog/PlaybackSession;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->lastListener()Lm6/a;",
+      "opcode": "iget-boolean",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "closed:Z",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->listener()Lm6/a;",
+      "opcode": "iget-boolean",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "closed:Z",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->onBufferingUpdate(Ltv/danmaku/ijk/media/player/IMediaPlayer;I)V",
+      "opcode": "iget-boolean",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "closed:Z",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->onBufferingUpdate(Ltv/danmaku/ijk/media/player/IMediaPlayer;I)V",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "clock:Lcom/tongpin/player4k/catalog/PlaybackSession;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->onCompletion(Ltv/danmaku/ijk/media/player/IMediaPlayer;)V",
+      "opcode": "iget-boolean",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "closed:Z",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->onCompletion(Ltv/danmaku/ijk/media/player/IMediaPlayer;)V",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "clock:Lcom/tongpin/player4k/catalog/PlaybackSession;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->onCompletion(Ltv/danmaku/ijk/media/player/IMediaPlayer;)V",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "clock:Lcom/tongpin/player4k/catalog/PlaybackSession;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->onError(Ltv/danmaku/ijk/media/player/IMediaPlayer;II)Z",
+      "opcode": "iget-boolean",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "closed:Z",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->onError(Ltv/danmaku/ijk/media/player/IMediaPlayer;II)Z",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "clock:Lcom/tongpin/player4k/catalog/PlaybackSession;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->onError(Ltv/danmaku/ijk/media/player/IMediaPlayer;II)Z",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "d:Landroid/os/Handler;",
+      "actual_owner": "k6/b",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->onInfo(Ltv/danmaku/ijk/media/player/IMediaPlayer;II)Z",
+      "opcode": "iget-boolean",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "closed:Z",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->onInfo(Ltv/danmaku/ijk/media/player/IMediaPlayer;II)Z",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "clock:Lcom/tongpin/player4k/catalog/PlaybackSession;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->onPrepared(Ltv/danmaku/ijk/media/player/IMediaPlayer;)V",
+      "opcode": "iget-boolean",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "closed:Z",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->onPrepared(Ltv/danmaku/ijk/media/player/IMediaPlayer;)V",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "clock:Lcom/tongpin/player4k/catalog/PlaybackSession;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->onSeekComplete(Ltv/danmaku/ijk/media/player/IMediaPlayer;)V",
+      "opcode": "iget-boolean",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "closed:Z",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->onSeekComplete(Ltv/danmaku/ijk/media/player/IMediaPlayer;)V",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "clock:Lcom/tongpin/player4k/catalog/PlaybackSession;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->onSeekComplete(Ltv/danmaku/ijk/media/player/IMediaPlayer;)V",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "clock:Lcom/tongpin/player4k/catalog/PlaybackSession;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->onVideoSizeChanged(Ltv/danmaku/ijk/media/player/IMediaPlayer;IIII)V",
+      "opcode": "iget-boolean",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "closed:Z",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->onVideoSizeChanged(Ltv/danmaku/ijk/media/player/IMediaPlayer;IIII)V",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "clock:Lcom/tongpin/player4k/catalog/PlaybackSession;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->seekTo(J)V",
+      "opcode": "iget-boolean",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "closed:Z",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->seekTo(J)V",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "clock:Lcom/tongpin/player4k/catalog/PlaybackSession;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->seekTo(J)V",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "clock:Lcom/tongpin/player4k/catalog/PlaybackSession;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->seekTo(J)V",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "clock:Lcom/tongpin/player4k/catalog/PlaybackSession;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->setLastListener(Lm6/a;)V",
+      "opcode": "iget-boolean",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "closed:Z",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->setListener(Lm6/a;)V",
+      "opcode": "iget-boolean",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "closed:Z",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->cleanTransient()V",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "mInnerHandler:Landroid/os/Handler;",
+      "actual_owner": "com/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->cleanTransient()V",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "mInnerHandler:Landroid/os/Handler;",
+      "actual_owner": "com/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->cleanTransient()V",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "mOrientationUtils:Lcom/shuyu/gsyvideoplayer/utils/OrientationUtils;",
+      "actual_owner": "com/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->cleanTransient()V",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "mOrientationUtils:Lcom/shuyu/gsyvideoplayer/utils/OrientationUtils;",
+      "actual_owner": "com/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->cleanTransient()V",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "mOrientationUtils:Lcom/shuyu/gsyvideoplayer/utils/OrientationUtils;",
+      "actual_owner": "com/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->cleanTransient()V",
+      "opcode": "iput-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "mOrientationUtils:Lcom/shuyu/gsyvideoplayer/utils/OrientationUtils;",
+      "actual_owner": "com/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->cleanTransient()V",
+      "opcode": "iput-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "mFullPauseBitmap:Landroid/graphics/Bitmap;",
+      "actual_owner": "com/shuyu/gsyvideoplayer/video/base/GSYTextureRenderView",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->epoch()Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "manager:Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->epoch()Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "opcode": "iput-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "manager:Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->epoch()Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "manager:Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->checkpoint()Lcom/tongpin/player4k/catalog/PlaybackSession;",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "clock:Lcom/tongpin/player4k/catalog/PlaybackSession;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->cloneParams(Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;)V",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "manager:Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->cloneParams(Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;)V",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "manager:Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->cloneParams(Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;)V",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "manager:Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->cloneParams(Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;)V",
+      "opcode": "iput-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "manager:Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->cloneParams(Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;)V",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "events:Lcom/tongpin/player4k/catalog/OwnSessionPlayer$Events;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->cloneParams(Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;)V",
+      "opcode": "iput-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "events:Lcom/tongpin/player4k/catalog/OwnSessionPlayer$Events;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->configure(JZLcom/tongpin/player4k/catalog/OwnSessionPlayer$Events;)V",
+      "opcode": "iput-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "events:Lcom/tongpin/player4k/catalog/OwnSessionPlayer$Events;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->configure(JZLcom/tongpin/player4k/catalog/OwnSessionPlayer$Events;)V",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "clock:Lcom/tongpin/player4k/catalog/PlaybackSession;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->failEpoch()V",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "manager:Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->failEpoch()V",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "manager:Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->failedEpoch()Z",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "manager:Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->failedEpoch()Z",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "manager:Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->failedEpoch()Z",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "clock:Lcom/tongpin/player4k/catalog/PlaybackSession;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->owns(Lcom/tongpin/player4k/catalog/OwnSessionPlayer;)Z",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "manager:Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->owns(Lcom/tongpin/player4k/catalog/OwnSessionPlayer;)Z",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "manager:Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->owns(Lcom/tongpin/player4k/catalog/OwnSessionPlayer;)Z",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "manager:Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->owns(Lcom/tongpin/player4k/catalog/OwnSessionPlayer;)Z",
+      "opcode": "iget-boolean",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "retired:Z",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->owns(Lcom/tongpin/player4k/catalog/OwnSessionPlayer;)Z",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "manager:Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->owns(Lcom/tongpin/player4k/catalog/OwnSessionPlayer;)Z",
+      "opcode": "iget-boolean",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "closed:Z",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->prepareVideo()V",
+      "opcode": "iget-boolean",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "retired:Z",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->prepareVideo()V",
+      "opcode": "iget-boolean",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "started:Z",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->prepareVideo()V",
+      "opcode": "iget-boolean",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "closed:Z",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->prepareVideo()V",
+      "opcode": "iput-boolean",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "started:Z",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->prepareVideo()V",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "events:Lcom/tongpin/player4k/catalog/OwnSessionPlayer$Events;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->prepareVideo()V",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "events:Lcom/tongpin/player4k/catalog/OwnSessionPlayer$Events;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->releaseVideos()V",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "manager:Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->releaseVideos()V",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "manager:Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->retire()V",
+      "opcode": "iget-boolean",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "retired:Z",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->retire()V",
+      "opcode": "iput-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "events:Lcom/tongpin/player4k/catalog/OwnSessionPlayer$Events;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->retire()V",
+      "opcode": "iput-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "events:Lcom/tongpin/player4k/catalog/OwnSessionPlayer$Events;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->retire()V",
+      "opcode": "iput-boolean",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "retired:Z",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->retire()V",
+      "opcode": "iput-boolean",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "retired:Z",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->retire()V",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "manager:Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->retire()V",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "manager:Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->retire()V",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "mTextureViewContainer:Landroid/view/ViewGroup;",
+      "actual_owner": "com/shuyu/gsyvideoplayer/video/base/GSYTextureRenderView",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->retire()V",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "mTextureViewContainer:Landroid/view/ViewGroup;",
+      "actual_owner": "com/shuyu/gsyvideoplayer/video/base/GSYTextureRenderView",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->retire()V",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "mTextureViewContainer:Landroid/view/ViewGroup;",
+      "actual_owner": "com/shuyu/gsyvideoplayer/video/base/GSYTextureRenderView",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->retire()V",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "mTextureViewContainer:Landroid/view/ViewGroup;",
+      "actual_owner": "com/shuyu/gsyvideoplayer/video/base/GSYTextureRenderView",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->sameEpoch(Lcom/tongpin/player4k/catalog/OwnSessionPlayer;)Z",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "manager:Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->sameEpoch(Lcom/tongpin/player4k/catalog/OwnSessionPlayer;)Z",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "manager:Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->sameEpoch(Lcom/tongpin/player4k/catalog/OwnSessionPlayer;)Z",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "manager:Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->sameEpoch(Lcom/tongpin/player4k/catalog/OwnSessionPlayer;)Z",
+      "opcode": "iget-boolean",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "retired:Z",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->setStateAndUi(I)V",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "manager:Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->setStateAndUi(I)V",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "manager:Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->setStateAndUi(I)V",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "clock:Lcom/tongpin/player4k/catalog/PlaybackSession;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->setStateAndUi(I)V",
+      "opcode": "iget-boolean",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "retired:Z",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->setStateAndUi(I)V",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "events:Lcom/tongpin/player4k/catalog/OwnSessionPlayer$Events;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->setStateAndUi(I)V",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "manager:Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->setStateAndUi(I)V",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "manager:Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->setStateAndUi(I)V",
+      "opcode": "iget-boolean",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "closed:Z",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->setStateAndUi(I)V",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "events:Lcom/tongpin/player4k/catalog/OwnSessionPlayer$Events;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->used()Z",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "manager:Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->used()Z",
+      "opcode": "iget-object",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "manager:Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->used()Z",
+      "opcode": "iget-boolean",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "started:Z",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/DecoderPolicy-><clinit>()V",
+      "opcode": "sput-object",
+      "owner": "com/tongpin/player4k/catalog/DecoderPolicy",
+      "signature": "CODECS:[Ljava/lang/String;",
+      "actual_owner": "com/tongpin/player4k/catalog/DecoderPolicy",
+      "receiver_type": null
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/DecoderPolicy->configure(Landroid/content/Context;)V",
+      "opcode": "sget-object",
+      "owner": "com/tongpin/player4k/catalog/DecoderPolicy",
+      "signature": "CODECS:[Ljava/lang/String;",
+      "actual_owner": "com/tongpin/player4k/catalog/DecoderPolicy",
+      "receiver_type": null
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/DecoderPolicy->configureFor(Landroid/content/Context;Lk6/b;)V",
+      "opcode": "sget-object",
+      "owner": "com/tongpin/player4k/catalog/DecoderPolicy",
+      "signature": "CODECS:[Ljava/lang/String;",
+      "actual_owner": "com/tongpin/player4k/catalog/DecoderPolicy",
+      "receiver_type": null
+    }
+  ],
+  "calls": [
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager$$ExternalSyntheticLambda0->run()V",
+      "opcode": "invoke-virtual",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "lambda$onError$0$com-tongpin-player4k-catalog-OwnSessionPlayer$EpochManager(II)V",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager-><init>(Landroid/content/Context;)V",
+      "opcode": "invoke-direct",
+      "owner": "k6/b",
+      "signature": "<init>()V",
+      "actual_owner": "k6/b",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager-><init>(Landroid/content/Context;)V",
+      "opcode": "invoke-direct",
+      "owner": "com/tongpin/player4k/catalog/PlaybackSession",
+      "signature": "<init>()V",
+      "actual_owner": "com/tongpin/player4k/catalog/PlaybackSession",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/PlaybackSession;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager-><init>(Landroid/content/Context;)V",
+      "opcode": "invoke-virtual",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "l()V",
+      "actual_owner": "k6/b",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager-><init>(Landroid/content/Context;)V",
+      "opcode": "invoke-virtual",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "m(Landroid/content/Context;)V",
+      "actual_owner": "k6/b",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager-><init>(Landroid/content/Context;)V",
+      "opcode": "invoke-static",
+      "owner": "com/tongpin/player4k/catalog/DecoderPolicy",
+      "signature": "configureFor(Landroid/content/Context;Lk6/b;)V",
+      "actual_owner": "com/tongpin/player4k/catalog/DecoderPolicy",
+      "receiver_type": null,
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->close()V",
+      "opcode": "invoke-virtual",
+      "owner": "com/tongpin/player4k/catalog/PlaybackSession",
+      "signature": "close()V",
+      "actual_owner": "com/tongpin/player4k/catalog/PlaybackSession",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/PlaybackSession;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->close()V",
+      "opcode": "invoke-super",
+      "owner": "k6/b",
+      "signature": "setListener(Lm6/a;)V",
+      "actual_owner": "k6/b",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->close()V",
+      "opcode": "invoke-super",
+      "owner": "k6/b",
+      "signature": "setLastListener(Lm6/a;)V",
+      "actual_owner": "k6/b",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->close()V",
+      "opcode": "invoke-super",
+      "owner": "k6/b",
+      "signature": "releaseMediaPlayer()V",
+      "actual_owner": "k6/b",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->getCurrentPosition()J",
+      "opcode": "invoke-super",
+      "owner": "k6/b",
+      "signature": "getCurrentPosition()J",
+      "actual_owner": "k6/b",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->getCurrentPosition()J",
+      "opcode": "invoke-virtual",
+      "owner": "com/tongpin/player4k/catalog/PlaybackSession",
+      "signature": "observePosition(JJ)V",
+      "actual_owner": "com/tongpin/player4k/catalog/PlaybackSession",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/PlaybackSession;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->getDuration()J",
+      "opcode": "invoke-super",
+      "owner": "k6/b",
+      "signature": "getDuration()J",
+      "actual_owner": "k6/b",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->getDuration()J",
+      "opcode": "invoke-virtual",
+      "owner": "com/tongpin/player4k/catalog/PlaybackSession",
+      "signature": "observeDuration(J)V",
+      "actual_owner": "com/tongpin/player4k/catalog/PlaybackSession",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/PlaybackSession;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->lambda$onError$0$com-tongpin-player4k-catalog-OwnSessionPlayer$EpochManager(II)V",
+      "opcode": "invoke-virtual",
+      "owner": "com/tongpin/player4k/catalog/PlaybackSession",
+      "signature": "terminal()Z",
+      "actual_owner": "com/tongpin/player4k/catalog/PlaybackSession",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/PlaybackSession;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->lambda$onError$0$com-tongpin-player4k-catalog-OwnSessionPlayer$EpochManager(II)V",
+      "opcode": "invoke-virtual",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "listener()Lm6/a;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->lambda$onError$0$com-tongpin-player4k-catalog-OwnSessionPlayer$EpochManager(II)V",
+      "opcode": "invoke-interface",
+      "owner": "m6/a",
+      "signature": "onError(II)V",
+      "actual_owner": "m6/a",
+      "receiver_type": "Lm6/a;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->lastListener()Lm6/a;",
+      "opcode": "invoke-super",
+      "owner": "k6/b",
+      "signature": "lastListener()Lm6/a;",
+      "actual_owner": "k6/b",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->listener()Lm6/a;",
+      "opcode": "invoke-super",
+      "owner": "k6/b",
+      "signature": "listener()Lm6/a;",
+      "actual_owner": "k6/b",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->onBufferingUpdate(Ltv/danmaku/ijk/media/player/IMediaPlayer;I)V",
+      "opcode": "invoke-virtual",
+      "owner": "com/tongpin/player4k/catalog/PlaybackSession",
+      "signature": "terminal()Z",
+      "actual_owner": "com/tongpin/player4k/catalog/PlaybackSession",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/PlaybackSession;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->onBufferingUpdate(Ltv/danmaku/ijk/media/player/IMediaPlayer;I)V",
+      "opcode": "invoke-super",
+      "owner": "k6/b",
+      "signature": "onBufferingUpdate(Ltv/danmaku/ijk/media/player/IMediaPlayer;I)V",
+      "actual_owner": "k6/b",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->onCompletion(Ltv/danmaku/ijk/media/player/IMediaPlayer;)V",
+      "opcode": "invoke-virtual",
+      "owner": "com/tongpin/player4k/catalog/PlaybackSession",
+      "signature": "terminal()Z",
+      "actual_owner": "com/tongpin/player4k/catalog/PlaybackSession",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/PlaybackSession;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->onCompletion(Ltv/danmaku/ijk/media/player/IMediaPlayer;)V",
+      "opcode": "invoke-virtual",
+      "owner": "com/tongpin/player4k/catalog/PlaybackSession",
+      "signature": "complete()V",
+      "actual_owner": "com/tongpin/player4k/catalog/PlaybackSession",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/PlaybackSession;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->onCompletion(Ltv/danmaku/ijk/media/player/IMediaPlayer;)V",
+      "opcode": "invoke-super",
+      "owner": "k6/b",
+      "signature": "onCompletion(Ltv/danmaku/ijk/media/player/IMediaPlayer;)V",
+      "actual_owner": "k6/b",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->onError(Ltv/danmaku/ijk/media/player/IMediaPlayer;II)Z",
+      "opcode": "invoke-virtual",
+      "owner": "com/tongpin/player4k/catalog/PlaybackSession",
+      "signature": "terminal()Z",
+      "actual_owner": "com/tongpin/player4k/catalog/PlaybackSession",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/PlaybackSession;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->onError(Ltv/danmaku/ijk/media/player/IMediaPlayer;II)Z",
+      "opcode": "invoke-direct",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager$$ExternalSyntheticLambda0",
+      "signature": "<init>(Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;II)V",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager$$ExternalSyntheticLambda0",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager$$ExternalSyntheticLambda0;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->onInfo(Ltv/danmaku/ijk/media/player/IMediaPlayer;II)Z",
+      "opcode": "invoke-virtual",
+      "owner": "com/tongpin/player4k/catalog/PlaybackSession",
+      "signature": "terminal()Z",
+      "actual_owner": "com/tongpin/player4k/catalog/PlaybackSession",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/PlaybackSession;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->onInfo(Ltv/danmaku/ijk/media/player/IMediaPlayer;II)Z",
+      "opcode": "invoke-super",
+      "owner": "k6/b",
+      "signature": "onInfo(Ltv/danmaku/ijk/media/player/IMediaPlayer;II)Z",
+      "actual_owner": "k6/b",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->onPrepared(Ltv/danmaku/ijk/media/player/IMediaPlayer;)V",
+      "opcode": "invoke-virtual",
+      "owner": "com/tongpin/player4k/catalog/PlaybackSession",
+      "signature": "terminal()Z",
+      "actual_owner": "com/tongpin/player4k/catalog/PlaybackSession",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/PlaybackSession;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->onPrepared(Ltv/danmaku/ijk/media/player/IMediaPlayer;)V",
+      "opcode": "invoke-super",
+      "owner": "k6/b",
+      "signature": "onPrepared(Ltv/danmaku/ijk/media/player/IMediaPlayer;)V",
+      "actual_owner": "k6/b",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->onSeekComplete(Ltv/danmaku/ijk/media/player/IMediaPlayer;)V",
+      "opcode": "invoke-virtual",
+      "owner": "com/tongpin/player4k/catalog/PlaybackSession",
+      "signature": "terminal()Z",
+      "actual_owner": "com/tongpin/player4k/catalog/PlaybackSession",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/PlaybackSession;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->onSeekComplete(Ltv/danmaku/ijk/media/player/IMediaPlayer;)V",
+      "opcode": "invoke-super",
+      "owner": "k6/b",
+      "signature": "getCurrentPosition()J",
+      "actual_owner": "k6/b",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->onSeekComplete(Ltv/danmaku/ijk/media/player/IMediaPlayer;)V",
+      "opcode": "invoke-virtual",
+      "owner": "com/tongpin/player4k/catalog/PlaybackSession",
+      "signature": "seekComplete(JJ)V",
+      "actual_owner": "com/tongpin/player4k/catalog/PlaybackSession",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/PlaybackSession;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->onSeekComplete(Ltv/danmaku/ijk/media/player/IMediaPlayer;)V",
+      "opcode": "invoke-super",
+      "owner": "k6/b",
+      "signature": "onSeekComplete(Ltv/danmaku/ijk/media/player/IMediaPlayer;)V",
+      "actual_owner": "k6/b",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->onVideoSizeChanged(Ltv/danmaku/ijk/media/player/IMediaPlayer;IIII)V",
+      "opcode": "invoke-virtual",
+      "owner": "com/tongpin/player4k/catalog/PlaybackSession",
+      "signature": "terminal()Z",
+      "actual_owner": "com/tongpin/player4k/catalog/PlaybackSession",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/PlaybackSession;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->onVideoSizeChanged(Ltv/danmaku/ijk/media/player/IMediaPlayer;IIII)V",
+      "opcode": "invoke-super/range",
+      "owner": "k6/b",
+      "signature": "onVideoSizeChanged(Ltv/danmaku/ijk/media/player/IMediaPlayer;IIII)V",
+      "actual_owner": "k6/b",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->seekTo(J)V",
+      "opcode": "invoke-virtual",
+      "owner": "com/tongpin/player4k/catalog/PlaybackSession",
+      "signature": "seekable()Z",
+      "actual_owner": "com/tongpin/player4k/catalog/PlaybackSession",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/PlaybackSession;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->seekTo(J)V",
+      "opcode": "invoke-super",
+      "owner": "k6/b",
+      "signature": "getDuration()J",
+      "actual_owner": "k6/b",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->seekTo(J)V",
+      "opcode": "invoke-virtual",
+      "owner": "com/tongpin/player4k/catalog/PlaybackSession",
+      "signature": "observeDuration(J)V",
+      "actual_owner": "com/tongpin/player4k/catalog/PlaybackSession",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/PlaybackSession;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->seekTo(J)V",
+      "opcode": "invoke-virtual",
+      "owner": "com/tongpin/player4k/catalog/PlaybackSession",
+      "signature": "seek(JJ)J",
+      "actual_owner": "com/tongpin/player4k/catalog/PlaybackSession",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/PlaybackSession;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->seekTo(J)V",
+      "opcode": "invoke-super",
+      "owner": "k6/b",
+      "signature": "seekTo(J)V",
+      "actual_owner": "k6/b",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->setLastListener(Lm6/a;)V",
+      "opcode": "invoke-super",
+      "owner": "k6/b",
+      "signature": "setLastListener(Lm6/a;)V",
+      "actual_owner": "k6/b",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager->setListener(Lm6/a;)V",
+      "opcode": "invoke-super",
+      "owner": "k6/b",
+      "signature": "setListener(Lm6/a;)V",
+      "actual_owner": "k6/b",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer-><init>(Landroid/content/Context;)V",
+      "opcode": "invoke-direct",
+      "owner": "com/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer",
+      "signature": "<init>(Landroid/content/Context;)V",
+      "actual_owner": "com/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer-><init>(Landroid/content/Context;Ljava/lang/Boolean;)V",
+      "opcode": "invoke-direct",
+      "owner": "com/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer",
+      "signature": "<init>(Landroid/content/Context;Ljava/lang/Boolean;)V",
+      "actual_owner": "com/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->cleanTransient()V",
+      "opcode": "invoke-virtual",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "setKeepScreenOn(Z)V",
+      "actual_owner": "android/view/View",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;",
+      "resolution": "official SDK API inherited through native superclass"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->cleanTransient()V",
+      "opcode": "invoke-virtual",
+      "owner": "com/shuyu/gsyvideoplayer/utils/OrientationUtils",
+      "signature": "setEnable(Z)V",
+      "actual_owner": "com/shuyu/gsyvideoplayer/utils/OrientationUtils",
+      "receiver_type": "Lcom/shuyu/gsyvideoplayer/utils/OrientationUtils;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->cleanTransient()V",
+      "opcode": "invoke-virtual",
+      "owner": "com/shuyu/gsyvideoplayer/utils/OrientationUtils",
+      "signature": "releaseListener()V",
+      "actual_owner": "com/shuyu/gsyvideoplayer/utils/OrientationUtils",
+      "receiver_type": "Lcom/shuyu/gsyvideoplayer/utils/OrientationUtils;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->cleanTransient()V",
+      "opcode": "invoke-virtual",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "dismissBrightnessDialog()V",
+      "actual_owner": "com/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->cleanTransient()V",
+      "opcode": "invoke-virtual",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "dismissProgressDialog()V",
+      "actual_owner": "com/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->cleanTransient()V",
+      "opcode": "invoke-virtual",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "dismissVolumeDialog()V",
+      "actual_owner": "com/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->epoch()Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "opcode": "invoke-virtual",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "getContext()Landroid/content/Context;",
+      "actual_owner": "android/view/View",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;",
+      "resolution": "official SDK API inherited through native superclass"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->epoch()Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "opcode": "invoke-direct",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "<init>(Landroid/content/Context;)V",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->backFromFull(Landroid/content/Context;)Z",
+      "opcode": "invoke-virtual",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "window()Z",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->checkpoint()Lcom/tongpin/player4k/catalog/PlaybackSession;",
+      "opcode": "invoke-direct",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "epoch()Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->cloneParams(Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;)V",
+      "opcode": "invoke-direct",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "epoch()Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->cloneParams(Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;)V",
+      "opcode": "invoke-virtual",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "close()V",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->cloneParams(Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;)V",
+      "opcode": "invoke-super",
+      "owner": "com/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer",
+      "signature": "cloneParams(Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;)V",
+      "actual_owner": "com/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->configure(JZLcom/tongpin/player4k/catalog/OwnSessionPlayer$Events;)V",
+      "opcode": "invoke-direct",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "epoch()Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->configure(JZLcom/tongpin/player4k/catalog/OwnSessionPlayer$Events;)V",
+      "opcode": "invoke-virtual",
+      "owner": "com/tongpin/player4k/catalog/PlaybackSession",
+      "signature": "seed(JZ)V",
+      "actual_owner": "com/tongpin/player4k/catalog/PlaybackSession",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/PlaybackSession;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->failEpoch()V",
+      "opcode": "invoke-virtual",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "getCurrentPlayer()Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;",
+      "actual_owner": "com/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->failEpoch()V",
+      "opcode": "invoke-virtual",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "setStateAndUi(I)V",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->failEpoch()V",
+      "opcode": "invoke-virtual",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "close()V",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->failedEpoch()Z",
+      "opcode": "invoke-virtual",
+      "owner": "com/tongpin/player4k/catalog/PlaybackSession",
+      "signature": "failedOrClosed()Z",
+      "actual_owner": "com/tongpin/player4k/catalog/PlaybackSession",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/PlaybackSession;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->getGSYVideoManager()Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoViewBridge;",
+      "opcode": "invoke-direct",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "epoch()Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->prepareVideo()V",
+      "opcode": "invoke-direct",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "epoch()Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->prepareVideo()V",
+      "opcode": "invoke-super",
+      "owner": "com/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer",
+      "signature": "prepareVideo()V",
+      "actual_owner": "com/shuyu/gsyvideoplayer/video/base/GSYVideoControlView",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->prepareVideo()V",
+      "opcode": "invoke-interface",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$Events",
+      "signature": "restart(Lcom/tongpin/player4k/catalog/OwnSessionPlayer;)V",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$Events",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$Events;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->releaseVideos()V",
+      "opcode": "invoke-virtual",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "releaseMediaPlayer()V",
+      "actual_owner": "k6/b",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->retire()V",
+      "opcode": "invoke-virtual",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "getCurrentPlayer()Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;",
+      "actual_owner": "com/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->retire()V",
+      "opcode": "invoke-virtual",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "getCurrentPlayer()Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;",
+      "actual_owner": "com/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->retire()V",
+      "opcode": "invoke-virtual",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "setVideoAllCallBack(Lm6/h;)V",
+      "actual_owner": "com/shuyu/gsyvideoplayer/video/base/GSYVideoView",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->retire()V",
+      "opcode": "invoke-virtual",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "setVideoAllCallBack(Lm6/h;)V",
+      "actual_owner": "com/shuyu/gsyvideoplayer/video/base/GSYVideoView",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->retire()V",
+      "opcode": "invoke-virtual",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "window()Z",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->retire()V",
+      "opcode": "invoke-direct",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "cleanTransient()V",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->retire()V",
+      "opcode": "invoke-direct",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "cleanTransient()V",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->retire()V",
+      "opcode": "invoke-virtual",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "close()V",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->retire()V",
+      "opcode": "invoke-virtual",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "release()V",
+      "actual_owner": "com/shuyu/gsyvideoplayer/video/base/GSYVideoControlView",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->retire()V",
+      "opcode": "invoke-virtual",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "release()V",
+      "actual_owner": "com/shuyu/gsyvideoplayer/video/base/GSYVideoControlView",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->setStateAndUi(I)V",
+      "opcode": "invoke-super",
+      "owner": "com/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer",
+      "signature": "setStateAndUi(I)V",
+      "actual_owner": "com/shuyu/gsyvideoplayer/video/base/GSYVideoControlView",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->setStateAndUi(I)V",
+      "opcode": "invoke-virtual",
+      "owner": "com/tongpin/player4k/catalog/PlaybackSession",
+      "signature": "failed()V",
+      "actual_owner": "com/tongpin/player4k/catalog/PlaybackSession",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/PlaybackSession;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->setStateAndUi(I)V",
+      "opcode": "invoke-interface",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$Events",
+      "signature": "state(Lcom/tongpin/player4k/catalog/OwnSessionPlayer;I)V",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$Events",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer$Events;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->window()Z",
+      "opcode": "invoke-virtual",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "getCurrentPlayer()Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;",
+      "actual_owner": "com/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->window()Z",
+      "opcode": "invoke-direct",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "cleanTransient()V",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->window()Z",
+      "opcode": "invoke-direct",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "cleanTransient()V",
+      "actual_owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->window()Z",
+      "opcode": "invoke-virtual",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "setShowFullAnimation(Z)V",
+      "actual_owner": "com/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OwnSessionPlayer->window()Z",
+      "opcode": "invoke-virtual",
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "backToNormal()V",
+      "actual_owner": "com/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/OwnSessionPlayer;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/DecoderPolicy->choose(Landroid/app/Activity;Ljava/lang/Runnable;)V",
+      "opcode": "invoke-static",
+      "owner": "com/tongpin/player4k/catalog/DecoderPolicy",
+      "signature": "mode(Landroid/content/Context;)I",
+      "actual_owner": "com/tongpin/player4k/catalog/DecoderPolicy",
+      "receiver_type": null,
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/DecoderPolicy->choose(Landroid/app/Activity;Ljava/lang/Runnable;)V",
+      "opcode": "invoke-direct",
+      "owner": "com/tongpin/player4k/catalog/DecoderPolicy$$ExternalSyntheticLambda0",
+      "signature": "<init>(Landroid/app/Activity;Ljava/lang/Runnable;)V",
+      "actual_owner": "com/tongpin/player4k/catalog/DecoderPolicy$$ExternalSyntheticLambda0",
+      "receiver_type": "Lcom/tongpin/player4k/catalog/DecoderPolicy$$ExternalSyntheticLambda0;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/DecoderPolicy->codecValue(I)I",
+      "opcode": "invoke-static",
+      "owner": "com/tongpin/player4k/catalog/DecoderPolicy",
+      "signature": "normalizedMode(I)I",
+      "actual_owner": "com/tongpin/player4k/catalog/DecoderPolicy",
+      "receiver_type": null,
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/DecoderPolicy->configure(Landroid/content/Context;)V",
+      "opcode": "invoke-static",
+      "owner": "com/tongpin/player4k/catalog/DecoderPolicy",
+      "signature": "mode(Landroid/content/Context;)I",
+      "actual_owner": "com/tongpin/player4k/catalog/DecoderPolicy",
+      "receiver_type": null,
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/DecoderPolicy->configure(Landroid/content/Context;)V",
+      "opcode": "invoke-static",
+      "owner": "com/tongpin/player4k/catalog/DecoderPolicy",
+      "signature": "codecValue(I)I",
+      "actual_owner": "com/tongpin/player4k/catalog/DecoderPolicy",
+      "receiver_type": null,
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/DecoderPolicy->configure(Landroid/content/Context;)V",
+      "opcode": "invoke-static",
+      "owner": "com/shuyu/gsyvideoplayer/utils/GSYVideoType",
+      "signature": "disableMediaCodec()V",
+      "actual_owner": "com/shuyu/gsyvideoplayer/utils/GSYVideoType",
+      "receiver_type": null,
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/DecoderPolicy->configure(Landroid/content/Context;)V",
+      "opcode": "invoke-static",
+      "owner": "com/shuyu/gsyvideoplayer/utils/GSYVideoType",
+      "signature": "disableMediaCodecTexture()V",
+      "actual_owner": "com/shuyu/gsyvideoplayer/utils/GSYVideoType",
+      "receiver_type": null,
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/DecoderPolicy->configure(Landroid/content/Context;)V",
+      "opcode": "invoke-static",
+      "owner": "com/shuyu/gsyvideoplayer/utils/GSYVideoType",
+      "signature": "disableSmartMediaCodec()V",
+      "actual_owner": "com/shuyu/gsyvideoplayer/utils/GSYVideoType",
+      "receiver_type": null,
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/DecoderPolicy->configure(Landroid/content/Context;)V",
+      "opcode": "invoke-static",
+      "owner": "com/shuyu/gsyvideoplayer/utils/GSYVideoType",
+      "signature": "enableMediaCodec()V",
+      "actual_owner": "com/shuyu/gsyvideoplayer/utils/GSYVideoType",
+      "receiver_type": null,
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/DecoderPolicy->configure(Landroid/content/Context;)V",
+      "opcode": "invoke-static",
+      "owner": "com/shuyu/gsyvideoplayer/utils/GSYVideoType",
+      "signature": "enableMediaCodecTexture()V",
+      "actual_owner": "com/shuyu/gsyvideoplayer/utils/GSYVideoType",
+      "receiver_type": null,
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/DecoderPolicy->configure(Landroid/content/Context;)V",
+      "opcode": "invoke-static",
+      "owner": "com/shuyu/gsyvideoplayer/utils/GSYVideoType",
+      "signature": "enableSmartMediaCodec()V",
+      "actual_owner": "com/shuyu/gsyvideoplayer/utils/GSYVideoType",
+      "receiver_type": null,
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/DecoderPolicy->configure(Landroid/content/Context;)V",
+      "opcode": "invoke-direct",
+      "owner": "n6/c",
+      "signature": "<init>(ILjava/lang/String;I)V",
+      "actual_owner": "n6/c",
+      "receiver_type": "Ln6/c;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/DecoderPolicy->configure(Landroid/content/Context;)V",
+      "opcode": "invoke-direct",
+      "owner": "n6/c",
+      "signature": "<init>(ILjava/lang/String;I)V",
+      "actual_owner": "n6/c",
+      "receiver_type": "Ln6/c;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/DecoderPolicy->configure(Landroid/content/Context;)V",
+      "opcode": "invoke-direct",
+      "owner": "n6/c",
+      "signature": "<init>(ILjava/lang/String;I)V",
+      "actual_owner": "n6/c",
+      "receiver_type": "Ln6/c;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/DecoderPolicy->configure(Landroid/content/Context;)V",
+      "opcode": "invoke-direct",
+      "owner": "n6/c",
+      "signature": "<init>(ILjava/lang/String;I)V",
+      "actual_owner": "n6/c",
+      "receiver_type": "Ln6/c;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/DecoderPolicy->configure(Landroid/content/Context;)V",
+      "opcode": "invoke-direct",
+      "owner": "n6/c",
+      "signature": "<init>(ILjava/lang/String;I)V",
+      "actual_owner": "n6/c",
+      "receiver_type": "Ln6/c;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/DecoderPolicy->configure(Landroid/content/Context;)V",
+      "opcode": "invoke-static",
+      "owner": "k6/c",
+      "signature": "D()Lk6/c;",
+      "actual_owner": "k6/c",
+      "receiver_type": null,
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/DecoderPolicy->configure(Landroid/content/Context;)V",
+      "opcode": "invoke-virtual",
+      "owner": "k6/c",
+      "signature": "w(Ljava/util/List;)V",
+      "actual_owner": "k6/b",
+      "receiver_type": "Lk6/c;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/DecoderPolicy->configureFor(Landroid/content/Context;Lk6/b;)V",
+      "opcode": "invoke-static",
+      "owner": "com/tongpin/player4k/catalog/DecoderPolicy",
+      "signature": "mode(Landroid/content/Context;)I",
+      "actual_owner": "com/tongpin/player4k/catalog/DecoderPolicy",
+      "receiver_type": null,
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/DecoderPolicy->configureFor(Landroid/content/Context;Lk6/b;)V",
+      "opcode": "invoke-static",
+      "owner": "com/tongpin/player4k/catalog/DecoderPolicy",
+      "signature": "codecValue(I)I",
+      "actual_owner": "com/tongpin/player4k/catalog/DecoderPolicy",
+      "receiver_type": null,
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/DecoderPolicy->configureFor(Landroid/content/Context;Lk6/b;)V",
+      "opcode": "invoke-direct",
+      "owner": "n6/c",
+      "signature": "<init>(ILjava/lang/String;I)V",
+      "actual_owner": "n6/c",
+      "receiver_type": "Ln6/c;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/DecoderPolicy->configureFor(Landroid/content/Context;Lk6/b;)V",
+      "opcode": "invoke-direct",
+      "owner": "n6/c",
+      "signature": "<init>(ILjava/lang/String;I)V",
+      "actual_owner": "n6/c",
+      "receiver_type": "Ln6/c;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/DecoderPolicy->configureFor(Landroid/content/Context;Lk6/b;)V",
+      "opcode": "invoke-direct",
+      "owner": "n6/c",
+      "signature": "<init>(ILjava/lang/String;I)V",
+      "actual_owner": "n6/c",
+      "receiver_type": "Ln6/c;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/DecoderPolicy->configureFor(Landroid/content/Context;Lk6/b;)V",
+      "opcode": "invoke-direct",
+      "owner": "n6/c",
+      "signature": "<init>(ILjava/lang/String;I)V",
+      "actual_owner": "n6/c",
+      "receiver_type": "Ln6/c;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/DecoderPolicy->configureFor(Landroid/content/Context;Lk6/b;)V",
+      "opcode": "invoke-direct",
+      "owner": "n6/c",
+      "signature": "<init>(ILjava/lang/String;I)V",
+      "actual_owner": "n6/c",
+      "receiver_type": "Ln6/c;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/DecoderPolicy->configureFor(Landroid/content/Context;Lk6/b;)V",
+      "opcode": "invoke-virtual",
+      "owner": "k6/b",
+      "signature": "w(Ljava/util/List;)V",
+      "actual_owner": "k6/b",
+      "receiver_type": "Lk6/b;",
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/DecoderPolicy->label(Landroid/content/Context;)Ljava/lang/String;",
+      "opcode": "invoke-static",
+      "owner": "com/tongpin/player4k/catalog/DecoderPolicy",
+      "signature": "mode(Landroid/content/Context;)I",
+      "actual_owner": "com/tongpin/player4k/catalog/DecoderPolicy",
+      "receiver_type": null,
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/DecoderPolicy->lambda$choose$0(Landroid/app/Activity;Ljava/lang/Runnable;Landroid/content/DialogInterface;I)V",
+      "opcode": "invoke-static",
+      "owner": "com/tongpin/player4k/catalog/DecoderPolicy",
+      "signature": "mode(Landroid/content/Context;)I",
+      "actual_owner": "com/tongpin/player4k/catalog/DecoderPolicy",
+      "receiver_type": null,
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/DecoderPolicy->lambda$choose$0(Landroid/app/Activity;Ljava/lang/Runnable;Landroid/content/DialogInterface;I)V",
+      "opcode": "invoke-static",
+      "owner": "com/tongpin/player4k/catalog/DecoderPolicy",
+      "signature": "normalizedMode(I)I",
+      "actual_owner": "com/tongpin/player4k/catalog/DecoderPolicy",
+      "receiver_type": null,
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/DecoderPolicy->mode(Landroid/content/Context;)I",
+      "opcode": "invoke-static",
+      "owner": "com/tongpin/player4k/catalog/DecoderPolicy",
+      "signature": "normalizedMode(I)I",
+      "actual_owner": "com/tongpin/player4k/catalog/DecoderPolicy",
+      "receiver_type": null,
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/DecoderPolicy->select(Landroid/content/Context;Z)V",
+      "opcode": "invoke-static",
+      "owner": "com/tongpin/player4k/catalog/DecoderPolicy",
+      "signature": "configure(Landroid/content/Context;)V",
+      "actual_owner": "com/tongpin/player4k/catalog/DecoderPolicy",
+      "receiver_type": null,
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/DecoderPolicy->select(Landroid/content/Context;Z)V",
+      "opcode": "invoke-static",
+      "owner": "com/tongpin/player4k/catalog/DecoderPolicy",
+      "signature": "mode(Landroid/content/Context;)I",
+      "actual_owner": "com/tongpin/player4k/catalog/DecoderPolicy",
+      "receiver_type": null,
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/DecoderPolicy->select(Landroid/content/Context;Z)V",
+      "opcode": "invoke-static",
+      "owner": "com/tongpin/player4k/catalog/DecoderPolicy",
+      "signature": "useExo(IZ)Z",
+      "actual_owner": "com/tongpin/player4k/catalog/DecoderPolicy",
+      "receiver_type": null,
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/DecoderPolicy->select(Landroid/content/Context;Z)V",
+      "opcode": "invoke-static",
+      "owner": "com/shuyu/gsyvideoplayer/player/PlayerFactory",
+      "signature": "setPlayManager(Ljava/lang/Class;)V",
+      "actual_owner": "com/shuyu/gsyvideoplayer/player/PlayerFactory",
+      "receiver_type": null,
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/DecoderPolicy->select(Landroid/content/Context;Z)V",
+      "opcode": "invoke-static",
+      "owner": "com/shuyu/gsyvideoplayer/player/PlayerFactory",
+      "signature": "setPlayManager(Ljava/lang/Class;)V",
+      "actual_owner": "com/shuyu/gsyvideoplayer/player/PlayerFactory",
+      "receiver_type": null,
+      "resolution": "bundled APK smali"
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/DecoderPolicy->useExo(IZ)Z",
+      "opcode": "invoke-static",
+      "owner": "com/tongpin/player4k/catalog/DecoderPolicy",
+      "signature": "normalizedMode(I)I",
+      "actual_owner": "com/tongpin/player4k/catalog/DecoderPolicy",
+      "receiver_type": null,
+      "resolution": "bundled APK smali"
+    }
+  ],
+  "overrides": [
+    {
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "getCurrentPosition()J",
+      "actual_parent": "k6/b"
+    },
+    {
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "getDuration()J",
+      "actual_parent": "k6/b"
+    },
+    {
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "lastListener()Lm6/a;",
+      "actual_parent": "k6/b"
+    },
+    {
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "listener()Lm6/a;",
+      "actual_parent": "k6/b"
+    },
+    {
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "onBufferingUpdate(Ltv/danmaku/ijk/media/player/IMediaPlayer;I)V",
+      "actual_parent": "k6/b"
+    },
+    {
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "onCompletion(Ltv/danmaku/ijk/media/player/IMediaPlayer;)V",
+      "actual_parent": "k6/b"
+    },
+    {
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "onError(Ltv/danmaku/ijk/media/player/IMediaPlayer;II)Z",
+      "actual_parent": "k6/b"
+    },
+    {
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "onInfo(Ltv/danmaku/ijk/media/player/IMediaPlayer;II)Z",
+      "actual_parent": "k6/b"
+    },
+    {
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "onPrepared(Ltv/danmaku/ijk/media/player/IMediaPlayer;)V",
+      "actual_parent": "k6/b"
+    },
+    {
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "onSeekComplete(Ltv/danmaku/ijk/media/player/IMediaPlayer;)V",
+      "actual_parent": "k6/b"
+    },
+    {
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "onVideoSizeChanged(Ltv/danmaku/ijk/media/player/IMediaPlayer;IIII)V",
+      "actual_parent": "k6/b"
+    },
+    {
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "seekTo(J)V",
+      "actual_parent": "k6/b"
+    },
+    {
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "setLastListener(Lm6/a;)V",
+      "actual_parent": "k6/b"
+    },
+    {
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager",
+      "signature": "setListener(Lm6/a;)V",
+      "actual_parent": "k6/b"
+    },
+    {
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "backFromFull(Landroid/content/Context;)Z",
+      "actual_parent": "com/shuyu/gsyvideoplayer/video/base/GSYVideoPlayer"
+    },
+    {
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "cloneParams(Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;)V",
+      "actual_parent": "com/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer"
+    },
+    {
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "getGSYVideoManager()Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoViewBridge;",
+      "actual_parent": "com/shuyu/gsyvideoplayer/video/base/GSYVideoPlayer"
+    },
+    {
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "prepareVideo()V",
+      "actual_parent": "com/shuyu/gsyvideoplayer/video/base/GSYVideoControlView"
+    },
+    {
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "releaseVideos()V",
+      "actual_parent": "com/shuyu/gsyvideoplayer/video/base/GSYVideoPlayer"
+    },
+    {
+      "owner": "com/tongpin/player4k/catalog/OwnSessionPlayer",
+      "signature": "setStateAndUi(I)V",
+      "actual_parent": "com/shuyu/gsyvideoplayer/video/base/GSYVideoControlView"
+    }
+  ]
+}

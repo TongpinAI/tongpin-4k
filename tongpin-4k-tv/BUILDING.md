@@ -1,3 +1,17 @@
+# 同频4K TV 1.3.8
+
+当前版本为 **1.3.8 / versionCode1308**，包名 `com.tongpin.player4k.tv`，最低API21。沿用锁定的官方Media3运行闭包与API23及以上兼容后端，播放器、API、28来源资产与资源ID保持既有实现。当前入口为统一片库：26个点播来源按8个固定分类聚合，片名搜索查询24个可搜索点播库；2个直播来源单独进入。
+
+正式产物为 `output/tongpin-4k-tv-1.3.8.apk`，7,781,184字节，SHA256 `8bb1db8e65e8dea4de43fc822650a6c68a59270a8cab63ce9a87e3d797d1deba`，Downloads副本相同。证据见 `verification/1.3.8/result.json`、`post-build-check.json`；509条调用者/既有策略断言、共享79条每端及root171条独立断言、40项生产输入、6355个最终DEX类与min21/API守卫、签名和资源核对通过。没有电视设备视觉、遥控或播放验收。
+
+本轮冻结和独立审查位于 `ui/unified-library-1.3.8/`。`python build_tv.py --preflight` 仅在隔离目录编译/审计，不签名；完整门禁与授权审查齐全后 `python build_tv.py` 生成成品并复制Downloads，已有release不覆盖。重建需要直接前版1.3.7 APK、历史合同输入及固定SDK/运行时依赖，入口恢复说明见仓库 `docs/TV_BUILD_INPUTS.md`。签名私钥仍仅留本机，不放入公开项目。
+
+`ui/search-order-1.3.8/` 保留未发布排序子阶段；其源码/文本/门禁前像另存 `ui/unified-library-1.3.8/sorting-before/`。历史索引原字节保留。公共重建仅不要求恢复两个精确旧host测试缓存目录 `ui/global-search-1.3.7/test-classes/` 与 `ui/search-order-1.3.8/test-classes/` 下的 `.class`；它们不作为当前生产/证明输入，相关源码与文本证明仍逐hash核验。当前source、proof工具、DEX/API审计和其他verification输入不能跳过。
+
+---
+
+# 历史1.3.4及更早记录（以下原文保留）
+
 # 同频4K TV 1.3.4
 
 当前电视源码版本为 **1.3.4 / versionCode1304**，包名 `com.tongpin.player4k.tv`，最低API21；Media3兼容后端仍仅在API23及以上使用。来源配置与手机一致，首页直接进入全部或单个实际来源；已返回的结果可以立即浏览，不等待所有请求结束。

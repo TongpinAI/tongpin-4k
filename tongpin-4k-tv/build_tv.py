@@ -31,9 +31,9 @@ if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
 
 ROOT = Path(__file__).resolve().parent
-VERSION = "1.3.7"
-VERSION_CODE = 1307
-PREVIOUS_VERSION = "1.3.6"
+VERSION = "1.3.8"
+VERSION_CODE = 1308
+PREVIOUS_VERSION = "1.3.7"
 PROVIDER_SHA256 = "9793756bfa35672f9c2645cd981dce4e23431be664ebceb71e6f2b05966b3e05"
 PROVIDER_IDS = ['mdzy', '360zy', 'blender', 'ryzy', 'ikun', 'guangsu', 'hongniu', 'jinying', 'huya', 'bfzy', 'qiyi', '360zyzz', 'dandan', 'dazhong', 'feifan', 'hhzy', 'jszy', 'longma', 'maotai', 'maoyan', 'public_live', 'public_live_clun', 'subo', 'taopian', 'wsyzy', 'xigua', 'xinlang', 'yinghua']
 PACKAGE = "com.tongpin.player4k.tv"
@@ -222,7 +222,7 @@ def manifest_contract():
 
 def provider_contract():
     path = ROOT / "assets/tongpin_open_sources.json"
-    assert {p.relative_to(ROOT / "assets").as_posix() for p in (ROOT / "assets").rglob("*") if p.is_file()} == ({"tongpin_open_sources.json", "third_party_licenses/media3_1_10_1.txt"} if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7"} else {"tongpin_open_sources.json"})
+    assert {p.relative_to(ROOT / "assets").as_posix() for p in (ROOT / "assets").rglob("*") if p.is_file()} == ({"tongpin_open_sources.json", "third_party_licenses/media3_1_10_1.txt"} if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7", "1.3.8"} else {"tongpin_open_sources.json"})
     providers = json.loads(path.read_text(encoding="utf-8"))["providers"]
     assert [p["id"] for p in providers] == PROVIDER_IDS
     for provider in providers:
@@ -664,6 +664,162 @@ def global_search_release_contract(snapshot, *, promotion=True):
     assert digest(ROOT / "build/1.3.6/resource-ids.txt") == frozen["previous_resource_ids_sha256"]
 
 
+def search_order_release_contract(snapshot, *, promotion=True):
+    if VERSION != "1.3.8":
+        return
+    frozen = json.loads((ROOT / "verification/1.3.8/frozen-inputs.json").read_text(encoding="utf-8"))
+    if frozen.get("release_scope") == "unified-home":
+        return
+    assert frozen["source_ready"] and (not promotion or frozen["final_promotion_authorized"])
+    normalized = {name.replace("\\", "/"): value for name, value in snapshot.items()}
+    assert normalized == frozen["input_sha256"], "Inputs differ from reviewed search-order freeze"
+    here = ROOT / "ui/search-order-1.3.8"
+    assert set(frozen["snapshot_indexes"]) == {"before-snapshot.json", "prior-evidence-sha256.json"}
+    for name, expected in frozen["snapshot_indexes"].items():
+        assert digest(here / name) == expected, "Snapshot index changed: " + name
+    owner_sources, reviewed_sources = set(), set()
+    builder_reviewed = False
+    for group in ["owner_freeze_reports", "review_reports"]:
+        for name, expected in frozen[group].items():
+            path = ROOT / name
+            report = json.loads(path.read_text(encoding="utf-8"))
+            assert digest(path) == expected and any(report.get(k) is True for k in ["passed", "source_ready", "frozen"]), name
+            if group == "owner_freeze_reports":
+                base = ROOT.parent if report.get("workspace_sources") else ROOT
+                assert all(digest(base / rel) == value for rel, value in report["source_sha256"].items()), name
+                for rel in report["source_sha256"]:
+                    source = (base / rel).resolve()
+                    if source.is_relative_to((ROOT / "src").resolve()): owner_sources.add(source.relative_to(ROOT.resolve()).as_posix())
+    for name, expected in frozen["independent_reviews"].items():
+        path = ROOT / name
+        report = json.loads(path.read_text(encoding="utf-8"))
+        assert digest(path) == expected and report["verdict"].startswith("clear"), name
+        base = ROOT.parent if report.get("workspace_sources") else ROOT
+        assert all(digest(base / rel) == value for rel, value in report["source_sha256"].items()), name
+        for rel in report["source_sha256"]:
+            source = (base / rel).resolve()
+            if source.is_relative_to((ROOT / "src").resolve()): reviewed_sources.add(source.relative_to(ROOT.resolve()).as_posix())
+            if source == (ROOT / "build_tv.py").resolve(): builder_reviewed = True
+    prior = json.loads((here / "prior-evidence-sha256.json").read_text(encoding="utf-8"))
+    assert all(digest(ROOT / name) == value for name, value in prior.items()), "Published137 evidence changed"
+    old = json.loads((ROOT / "verification/1.3.7/input-hashes.json").read_text(encoding="utf-8"))
+    old = {name.replace("\\", "/"): value for name, value in old.items()}
+    before = json.loads((here / "before-snapshot.json").read_text(encoding="utf-8"))
+    assert set(before) == set(old) | {"build_tv.py"}
+    assert all(digest(here / "before" / name) == value for name, value in before.items()), "Before snapshot bytes changed"
+    assert all(before.get(name) == value for name, value in old.items())
+    changed = {"AndroidManifest.xml", "res/values/strings.xml", "src/com/tongpin/player4k/tv/TvHomeActivity.java", "src/com/tongpin/player4k/tv/AllCatalogSearch.java"}
+    added = {"src/com/tongpin/player4k/tv/" + name + ".java"
+             for name in ["CatalogTitleOrder"]}
+    assert {name for name in old if normalized.get(name) != old[name]} == changed
+    assert set(normalized) - set(old) == added and not set(old) - set(normalized)
+    production = {name for name in changed | added if name.startswith("src/")}
+    assert production <= owner_sources, "Changed source lacks owner freeze coverage"
+    if promotion:
+        assert production <= reviewed_sources and builder_reviewed, "Final source/tooling independent reviews are incomplete"
+    # Only the version value changes in the complete manifest/string resource bytes.
+    for name, replacements in {
+            "AndroidManifest.xml": [(b'android:versionCode="1308"', b'android:versionCode="1307"'),
+                                    (b'android:versionName="1.3.8"', b'android:versionName="1.3.7"')],
+            "res/values/strings.xml": [(b'<string name="version_name">1.3.8</string>',
+                                       b'<string name="version_name">1.3.7</string>')]}.items():
+        value = (ROOT / name).read_bytes()
+        for new, previous in replacements:
+            assert value.count(new) == 1, name
+            value = value.replace(new, previous)
+        assert value == (here / "before" / name).read_bytes(), name
+    registry = json.loads((ROOT / "assets/tongpin_open_sources.json").read_text(encoding="utf-8"))["providers"]
+    baseline = json.loads((here / "before/assets/tongpin_open_sources.json").read_text(encoding="utf-8"))["providers"]
+    assert registry == baseline, "Search order release changed provider registry"
+    assert digest(ROOT / "output/tongpin-4k-tv-1.3.7.apk") == "74215343f0ff7e5151f7a03e260df1370a81207bbd0bec89eb342c90777a56f3"
+    assert digest(ROOT / "third-party/media3-1.10.1/runtime-lock.json") == frozen["runtime_lock_sha256"]
+    assert digest(ROOT / "build/1.3.7/resource-ids.txt") == frozen["previous_resource_ids_sha256"]
+
+
+def unified_home_release_contract(snapshot, *, promotion=True):
+    if VERSION != "1.3.8":
+        return
+    frozen = json.loads((ROOT / "verification/1.3.8/frozen-inputs.json").read_text(encoding="utf-8"))
+    assert frozen.get("release_scope") == "unified-home", "Wrong release scope for unified138"
+    assert frozen["source_ready"] and (not promotion or frozen["final_promotion_authorized"])
+    normalized = {name.replace("\\", "/"): value for name, value in snapshot.items()}
+    assert normalized == frozen["input_sha256"], "Inputs differ from reviewed unified-home freeze"
+    here = ROOT / "ui/unified-library-1.3.8"
+    assert set(frozen["snapshot_indexes"]) == {"before-snapshot.json", "prior-evidence-sha256.json", "sorting-stage-sha256.json"}
+    for name, expected in frozen["snapshot_indexes"].items():
+        assert digest(here / name) == expected, "Snapshot index changed: " + name
+    owner_sources, reviewed_sources = set(), set()
+    builder_reviewed = False
+    for group in ["owner_freeze_reports", "review_reports"]:
+        for name, expected in frozen[group].items():
+            path = ROOT / name
+            report = json.loads(path.read_text(encoding="utf-8"))
+            assert digest(path) == expected and any(report.get(k) is True for k in ["passed", "source_ready", "frozen"]), name
+            if group == "owner_freeze_reports":
+                base = ROOT.parent if report.get("workspace_sources") else ROOT
+                assert all(digest(base / rel) == value for rel, value in report["source_sha256"].items()), name
+                for rel in report["source_sha256"]:
+                    source = (base / rel).resolve()
+                    if source.is_relative_to((ROOT / "src").resolve()): owner_sources.add(source.relative_to(ROOT.resolve()).as_posix())
+    for name, expected in frozen["independent_reviews"].items():
+        path = ROOT / name
+        report = json.loads(path.read_text(encoding="utf-8"))
+        assert digest(path) == expected and report.get("passed") is True and report["verdict"].startswith("clear"), name
+        base = ROOT.parent if report.get("workspace_sources") else ROOT
+        assert all(digest(base / rel) == value for rel, value in report["source_sha256"].items()), name
+        for rel in report["source_sha256"]:
+            source = (base / rel).resolve()
+            if source.is_relative_to((ROOT / "src").resolve()): reviewed_sources.add(source.relative_to(ROOT.resolve()).as_posix())
+            if source == (ROOT / "build_tv.py").resolve(): builder_reviewed = True
+    prior = json.loads((here / "prior-evidence-sha256.json").read_text(encoding="utf-8"))
+    assert all(digest(ROOT / name) == value for name, value in prior.items()
+               if not (name.startswith("ui/global-search-1.3.7/test-classes/") and name.endswith(".class"))), "Published137 evidence changed"
+    old = json.loads((ROOT / "verification/1.3.7/input-hashes.json").read_text(encoding="utf-8"))
+    old = {name.replace("\\", "/"): value for name, value in old.items()}
+    before = json.loads((here / "before-snapshot.json").read_text(encoding="utf-8"))
+    assert set(before) == set(old) | {"build_tv.py"}
+    assert all(digest(here / "before" / name) == value for name, value in before.items()), "Before snapshot bytes changed"
+    assert all(before.get(name) == value for name, value in old.items())
+    sorting = json.loads((here / "sorting-stage-sha256.json").read_text(encoding="utf-8"))
+    def historical_test_cache(name):
+        # The immutable index records these old host-test caches; public rebuilds compile fresh tests.
+        return name.startswith("ui/search-order-1.3.8/test-classes/") and name.endswith(".class")
+    assert all(digest(here / "sorting-before" / name) == value for name, value in sorting.items()
+               if not historical_test_cache(name)), "Sorting substage preimages changed"
+    for name, value in sorting.items():
+        if name.startswith("ui/search-order-1.3.8/") and not historical_test_cache(name):
+            assert digest(ROOT / name) == value, "Frozen sorting substage evidence changed: " + name
+    for helper in ["AllCatalogSearch", "CatalogTitleOrder"]:
+        name = "src/com/tongpin/player4k/tv/" + helper + ".java"
+        assert digest(ROOT / name) == sorting[name], "Expanded home changed frozen sorting helper: " + helper
+    changed = {"AndroidManifest.xml", "res/values/strings.xml", "src/com/tongpin/player4k/tv/TvHomeActivity.java", "src/com/tongpin/player4k/tv/AllCatalogSearch.java"}
+    added = {"src/com/tongpin/player4k/tv/" + name + ".java"
+             for name in ["CatalogTitleOrder", "UnifiedCatalogPolicy", "UnifiedCatalogBrowse"]}
+    assert {name for name in old if normalized.get(name) != old[name]} == changed
+    assert set(normalized) - set(old) == added and not set(old) - set(normalized)
+    production = {name for name in changed | added if name.startswith("src/")}
+    assert production <= owner_sources, "Changed source lacks owner freeze coverage"
+    if promotion:
+        assert production <= reviewed_sources and builder_reviewed, "Final source/tooling independent reviews are incomplete"
+    # Only the version value changes in the complete manifest/string resource bytes.
+    for name, replacements in {
+            "AndroidManifest.xml": [(b'android:versionCode="1308"', b'android:versionCode="1307"'),
+                                    (b'android:versionName="1.3.8"', b'android:versionName="1.3.7"')],
+            "res/values/strings.xml": [(b'<string name="version_name">1.3.8</string>',
+                                       b'<string name="version_name">1.3.7</string>')]}.items():
+        value = (ROOT / name).read_bytes()
+        for new, previous in replacements:
+            assert value.count(new) == 1, name
+            value = value.replace(new, previous)
+        assert value == (here / "before" / name).read_bytes(), name
+    registry = json.loads((ROOT / "assets/tongpin_open_sources.json").read_text(encoding="utf-8"))["providers"]
+    baseline = json.loads((here / "before/assets/tongpin_open_sources.json").read_text(encoding="utf-8"))["providers"]
+    assert registry == baseline, "Unified home release changed provider registry"
+    assert digest(ROOT / "output/tongpin-4k-tv-1.3.7.apk") == "74215343f0ff7e5151f7a03e260df1370a81207bbd0bec89eb342c90777a56f3"
+    assert digest(ROOT / "third-party/media3-1.10.1/runtime-lock.json") == frozen["runtime_lock_sha256"]
+    assert digest(ROOT / "build/1.3.7/resource-ids.txt") == frozen["previous_resource_ids_sha256"]
+
+
 def main():
     global LOG, VERIFY
     parser = argparse.ArgumentParser()
@@ -712,6 +868,8 @@ def main():
     automatic_source_release_contract(snapshot, promotion=not args.preflight)
     playback_fix_release_contract(snapshot, promotion=not args.preflight)
     global_search_release_contract(snapshot, promotion=not args.preflight)
+    search_order_release_contract(snapshot, promotion=not args.preflight)
+    unified_home_release_contract(snapshot, promotion=not args.preflight)
     write_json(VERIFY / "input-hashes.json", snapshot)
     build = WORK / "build" / VERSION / "preflight" if args.preflight else WORK / "build" / VERSION
     build.mkdir(parents=True, exist_ok=True)
@@ -723,7 +881,7 @@ def main():
     run([bt / "aapt2.exe", "compile", "--dir", WORK / "res", "-o", build / "resources.zip"])
     runtime_jars=[];runtime_lock=None
     extra=[]
-    if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7"}:
+    if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7", "1.3.8"}:
         runtime_lock,library_archives,library_packages=media3_runtime.resources(ROOT,build,WORK,bt,run)
         runtime_jars=[WORK/artifact["jar"] for artifact in runtime_lock["artifacts"] if artifact["class_count"]]
         for archive in library_archives:extra += ["-R",archive]
@@ -734,11 +892,11 @@ def main():
          build / "resources.zip"]+extra+["-A", WORK / "assets", "--java", build / "generated",
          "--min-sdk-version", MIN_API, "--target-sdk-version", TARGET_API,
          "--version-code", VERSION_CODE, "--version-name", VERSION, "-o", build / "resources.ap_"])
-    if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7"}:
+    if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7", "1.3.8"}:
         parse=lambda path:dict(re.findall(r"([^\s]+) = (0x[0-9a-f]+)",Path(path).read_text()))
         old_ids=parse(ROOT/"verification/1.3.0/stable-resource-ids.txt");new_ids=parse(build/"resource-ids.txt")
         assert all(new_ids.get(name)==value for name,value in old_ids.items())
-        if VERSION in {"1.3.4", "1.3.5", "1.3.6", "1.3.7"}:
+        if VERSION in {"1.3.4", "1.3.5", "1.3.6", "1.3.7", "1.3.8"}:
             assert new_ids == parse(ROOT/("build/"+PREVIOUS_VERSION+"/resource-ids.txt")), "Release changed TV resource IDs"
         write_json(VERIFY/"resource-continuity.json",{"passed":True,"old_ids_retained":len(old_ids),
                    "new_library_resources":{k:v for k,v in new_ids.items() if k not in old_ids}})
@@ -769,7 +927,7 @@ def main():
         declared, types = dex_contents(dex.read_bytes())
         definitions += declared
         references.update(types)
-    if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7"}:
+    if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7", "1.3.8"}:
         write_json(VERIFY/"runtime-abi.json",media3_runtime.dependency_abi(ROOT,dexes,definitions))
     else:
         assert all(c.startswith("Lcom/tongpin/") for c in definitions), "Runtime third-party class found"
@@ -785,20 +943,20 @@ def main():
     api_report = ApiDatabase(TOOLS_REAL / "platform-35/data/api-versions.xml").audit(dexes, MIN_API)
     write_json(VERIFY / "min-api-audit-raw.json", api_report)
     if not api_report["passed"]:
-        assert VERSION in {"1.2.0", "1.2.1", "1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7"} and MIN_API == 21, "Review version-specific API guard support"
+        assert VERSION in {"1.2.0", "1.2.1", "1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7", "1.3.8"} and MIN_API == 21, "Review version-specific API guard support"
         proof_classes, proof_smali = build / "api-proof-tools", build / "api-proof-smali"
         fresh_directory(proof_classes)
         fresh_directory(proof_smali)
         apktool = TOOLS / "apktool_3.0.3.jar"
         run([JAVA, "-Duser.language=en", "com.sun.tools.javac.Main", "--release", "8", "-Xlint:-options",
              "-classpath", apktool, "-d", proof_classes,
-             WORK / ("verification/toolchain/InspectTvBackend130.java" if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7"} else "verification/toolchain/InspectTvSeek121.java" if VERSION == "1.2.1" else "verification/toolchain/InspectTvSpeedGuards.java")])
+             WORK / ("verification/toolchain/InspectTvBackend130.java" if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7", "1.3.8"} else "verification/toolchain/InspectTvSeek121.java" if VERSION == "1.2.1" else "verification/toolchain/InspectTvSpeedGuards.java")])
         for dex in dexes:
             run([JAVA, "-cp", str(apktool) + os.pathsep + str(proof_classes),
-                 "InspectTvBackend130" if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7"} else "InspectTvSeek121" if VERSION == "1.2.1" else "InspectTvSpeedGuards", dex, proof_smali], capture_name="api23-disassembly.log")
-        api_report = approve_backend(proof_smali,snapshot) if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7"} else (approve_seek_apis if VERSION == "1.2.1" else approve_api23_speed)(api_report, proof_smali, snapshot)
-        if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7"}:write_json(VERIFY/"media3-backend-guard.json",api_report["guarded_media3_backend"])
-        if VERSION in {"1.2.1","1.3.0","1.3.1","1.3.2","1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7"}:
+                 "InspectTvBackend130" if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7", "1.3.8"} else "InspectTvSeek121" if VERSION == "1.2.1" else "InspectTvSpeedGuards", dex, proof_smali], capture_name="api23-disassembly.log")
+        api_report = approve_backend(proof_smali,snapshot) if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7", "1.3.8"} else (approve_seek_apis if VERSION == "1.2.1" else approve_api23_speed)(api_report, proof_smali, snapshot)
+        if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7", "1.3.8"}:write_json(VERIFY/"media3-backend-guard.json",api_report["guarded_media3_backend"])
+        if VERSION in {"1.2.1","1.3.0","1.3.1","1.3.2","1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7", "1.3.8"}:
             write_json(VERIFY / "api26-seek-guard.json", api_report["guarded_api26_seek"])
         write_json(VERIFY / "api23-speed-guard.json", api_report["guarded_api23_speed"])
     write_json(VERIFY / "min-api-audit.json", api_report)
@@ -814,7 +972,7 @@ def main():
     with zipfile.ZipFile(build / "resources.ap_") as source, zipfile.ZipFile(build / "unsigned.apk", "w") as dest:
         for entry in source.infolist():
             dest.writestr(entry, source.read(entry.filename))
-        if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7"}:
+        if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7", "1.3.8"}:
             for name,data in media3_runtime.jar_resources(ROOT):
                 assert name not in dest.namelist(), "Runtime resource collision: "+name
                 dest.writestr(name,data)
@@ -870,7 +1028,7 @@ def main():
               "guarded_media3_backend": "guarded_media3_backend" in api_report,
               "provider_count":len(PROVIDER_IDS), "previous_version":PREVIOUS_VERSION,
               "same_previous_package_certificate":True,
-              "source_scope": "Own com.tongpin Java plus pinned official Media3 runtime closure" if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7"} else "Only own com.tongpin Java and own resources; Android framework runtime",
+              "source_scope": "Own com.tongpin Java plus pinned official Media3 runtime closure" if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7", "1.3.8"} else "Only own com.tongpin Java and own resources; Android framework runtime",
               "runtime_tested": False, "elapsed_seconds": round(time.time() - started, 2)}
     write_json(VERIFY / "result.json", result)
     if not args.no_download_copy:

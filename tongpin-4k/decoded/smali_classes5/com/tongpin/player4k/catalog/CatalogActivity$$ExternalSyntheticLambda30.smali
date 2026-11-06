@@ -3,7 +3,7 @@
 .source "D8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/widget/AdapterView$OnItemClickListener;
+.implements Landroid/view/View$OnClickListener;
 
 
 # instance fields
@@ -24,21 +24,13 @@
 
 
 # virtual methods
-.method public final onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .locals 6
+.method public final onClick(Landroid/view/View;)V
+    .locals 1
 
     .line 0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda30;->f$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
-    move-object v1, p1
-
-    move-object v2, p2
-
-    move v3, p3
-
-    move-wide v4, p4
-
-    invoke-virtual/range {v0 .. v5}, Lcom/tongpin/player4k/catalog/CatalogActivity;->lambda$buildScreen$7$com-tongpin-player4k-catalog-CatalogActivity(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
+    invoke-virtual {v0, p1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->lambda$buildScreen$3$com-tongpin-player4k-catalog-CatalogActivity(Landroid/view/View;)V
 
     return-void
 .end method
