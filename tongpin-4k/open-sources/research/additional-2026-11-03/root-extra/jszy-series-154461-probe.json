@@ -1,0 +1,36 @@
+{
+  "provider": "jszy",
+  "kind": "series",
+  "vod_id": 154461,
+  "title": "伟大的长征",
+  "type": "内地剧",
+  "updated": "2026-11-02 20:24:02",
+  "remarks": "第43集",
+  "episode": "第43集",
+  "episode_count": 43,
+  "selected_group": "jsm3u8",
+  "stream": {
+    "url": "https://vv.jisuzyv.com/play/dwpEWEze/index.m3u8"
+  },
+  "probe_status": "encrypted_hls_skipped",
+  "requests": [
+    {
+      "url": "https://vv.jisuzyv.com/play/dwpEWEze/index.m3u8",
+      "status": 200,
+      "type": "application/vnd.apple.mpegurl",
+      "content_range": null,
+      "declared_length": "45311",
+      "read_bytes": 45311
+    }
+  ],
+  "text_bytes": 45311,
+  "media_bytes": 0,
+  "probe_budget_seconds": 10,
+  "max_hls_text_bytes": 2097152,
+  "observed_dimensions": [],
+  "master_declared_dimensions": [],
+  "elapsed_seconds": 1.516,
+  "note": "No keys or encrypted media requested",
+  "actual_2160p_observed": false,
+  "uhd_4k_width_observed": false
+}

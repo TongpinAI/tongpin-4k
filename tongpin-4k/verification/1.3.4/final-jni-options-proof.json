@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "scope": "Literal option registry keys in unchanged packaged IJK libraries; no native execution",
+  "libraries": [
+    {
+      "library": "lib/arm64-v8a/libijkplayer.so",
+      "sha256": "bb156676d97fb83f45fc4803e2ab5164b361d956ecdd32b43d19f7797f1be1e1",
+      "supported_option_literals": {
+        "mediacodec": true,
+        "mediacodec-all-videos": true,
+        "mediacodec-avc": true,
+        "mediacodec-hevc": true,
+        "mediacodec-mpeg2": true,
+        "mediacodec-mpeg4": true
+      }
+    },
+    {
+      "library": "lib/armeabi-v7a/libijkplayer.so",
+      "sha256": "bdabd21b3b2a9777e88588203170b49d1d41b13a4359e1da5a89c388e85fae20",
+      "supported_option_literals": {
+        "mediacodec": true,
+        "mediacodec-all-videos": true,
+        "mediacodec-avc": true,
+        "mediacodec-hevc": true,
+        "mediacodec-mpeg2": true,
+        "mediacodec-mpeg4": true
+      }
+    }
+  ]
+}

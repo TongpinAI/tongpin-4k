@@ -1,0 +1,5 @@
+/build/
+/output/
+/signing/*.p12
+/signing/local-key.json
+__pycache__/

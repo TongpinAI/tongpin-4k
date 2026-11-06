@@ -1,0 +1,11 @@
+--- before/decoded/smali_classes5/com/shenma/tvlauncher/phone/fragment/e.smali
++++ after/decoded/smali_classes5/com/shenma/tvlauncher/phone/fragment/e.smali
+@@ -1533,6 +1533,8 @@
+     .line 6
+     invoke-super {p0, p1, p2}, Lcom/shenma/tvlauncher/phone/base/BaseFragment;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
+ 
++    invoke-static {p1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->bindEntry(Landroid/view/View;)V
++
+     .line 7
+     .line 8
+     .line 9

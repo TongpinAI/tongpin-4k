@@ -1,0 +1,8 @@
+{
+  "min_sdk": 21,
+  "higher_api_references": [],
+  "passed": true,
+  "scope": "DEX class/method/field references, including inherited platform members; SDK_INT guards require manual review",
+  "method_reference_count": 769,
+  "field_reference_count": 263
+}

@@ -1,0 +1,76 @@
+[
+  {
+    "method": ".method private final A1(FFZ)V",
+    "calls": [
+      "a3(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;ZZZILjava/lang/Object;)V"
+    ]
+  },
+  {
+    "method": ".method private static final K2(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;I)Lm7/f0;",
+    "calls": [
+      "A2(I)V"
+    ]
+  },
+  {
+    "method": ".method static synthetic a3(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;ZZZILjava/lang/Object;)V",
+    "calls": [
+      "Z2(ZZZ)V"
+    ]
+  },
+  {
+    "method": ".method private static final c2(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;Landroid/view/View;)V",
+    "calls": [
+      "a3(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;ZZZILjava/lang/Object;)V",
+      "a3(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;ZZZILjava/lang/Object;)V"
+    ]
+  },
+  {
+    "method": ".method private static final d2(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;Landroid/view/View;)V",
+    "calls": [
+      "t1(I)V",
+      "t1(I)V"
+    ]
+  },
+  {
+    "method": ".method public static final synthetic j1(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;I)V",
+    "calls": [
+      "A2(I)V"
+    ]
+  },
+  {
+    "method": ".method private final t1(I)V",
+    "calls": [
+      "a3(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;ZZZILjava/lang/Object;)V"
+    ]
+  },
+  {
+    "method": ".method private static final u1(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+    "calls": [
+      "A2(I)V"
+    ]
+  },
+  {
+    "method": ".method private static final v1(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+    "calls": [
+      "A2(I)V"
+    ]
+  },
+  {
+    "method": ".method private static final x1(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+    "calls": [
+      "a3(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;ZZZILjava/lang/Object;)V"
+    ]
+  },
+  {
+    "method": ".method public onBackPressed()V",
+    "calls": [
+      "t1(I)V"
+    ]
+  },
+  {
+    "method": ".method public onConfigurationChanged(Landroid/content/res/Configuration;)V",
+    "calls": [
+      "t1(I)V"
+    ]
+  }
+]

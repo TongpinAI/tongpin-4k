@@ -1,0 +1,331 @@
+{
+  "provider": {
+    "id": "ryzy",
+    "name": "如意资源",
+    "kind": "maccms",
+    "api": "https://cj.rycjapi.com/api.php/provide/vod/",
+    "homepage": "https://ryzyw.com/",
+    "help": "https://ryzyw.com/help/"
+  },
+  "pages": [
+    {
+      "url": "https://ryzyw.com/",
+      "checked_utc": "2026-11-03T00:00:13.043774+00:00",
+      "authentication": "none",
+      "cookies": "none",
+      "status": 200,
+      "final_url": "https://ryzyw.com/",
+      "content_type": "text/html; charset=utf-8",
+      "content_length": null,
+      "bytes": 35198,
+      "sha256": "2bbea773ab5bd4d1702d0ae67b5756db86af68d4e04d3a849454ba3013363ded",
+      "file": "ryzy-homepage.html",
+      "elapsed_ms": 11343,
+      "conditions_and_usage_lines": []
+    },
+    {
+      "url": "https://ryzyw.com/help/",
+      "checked_utc": "2026-11-03T00:00:24.392169+00:00",
+      "authentication": "none",
+      "cookies": "none",
+      "status": 200,
+      "final_url": "https://ryzyw.com/help/",
+      "content_type": "text/html",
+      "content_length": "58796",
+      "bytes": 58796,
+      "sha256": "efd2efe5d3473c2547d129fe32217f49b8984024be4fca14cc9afeb8ea225fd9",
+      "file": "ryzy-help.html",
+      "elapsed_ms": 6562,
+      "conditions_and_usage_lines": [
+        "APPjson接口",
+        "本站采集接口，基本上可以通用所有CMS，本站独特提供下载资源，欢迎采集！",
+        "本站图片地址后期将采用图床样式，可以调用， 采集的同时，也可以把图片下载到本地（推荐），以免杜绝日后出现类似图片失效的情况。",
+        "app json接口",
+        "app json接口参数"
+      ]
+    }
+  ],
+  "api": [
+    {
+      "url": "https://cj.rycjapi.com/api.php/provide/vod/?ac=detail&pg=1&pagesize=20",
+      "checked_utc": "2026-11-03T00:00:30.977125+00:00",
+      "authentication": "none",
+      "cookies": "none",
+      "status": 200,
+      "final_url": "https://cj.rycjapi.com/api.php/provide/vod/?ac=detail&pg=1&pagesize=20",
+      "content_type": "text/html;charset=utf-8",
+      "content_length": null,
+      "bytes": 74461,
+      "sha256": "5a20827c43f3473c1604c2e1aa4c4012a82e7e7629647ad7a674293242953783",
+      "file": "ryzy-list-p1.json",
+      "elapsed_ms": 11234,
+      "code": 1,
+      "msg": "数据列表",
+      "page": 1,
+      "pagecount": 4456,
+      "limit": 20,
+      "total": 89105,
+      "count": 20,
+      "safe_sample": [
+        {
+          "vod_id": 89263,
+          "vod_name": "你的保安 李宝安",
+          "type_name": "香港剧",
+          "vod_remarks": "更新至第05集",
+          "vod_time": "2026-11-03 03:28:35"
+        },
+        {
+          "vod_id": 89782,
+          "vod_name": "胡桃夹子2026",
+          "type_name": "动画电影",
+          "vod_remarks": "HD",
+          "vod_time": "2026-11-03 03:24:05"
+        },
+        {
+          "vod_id": 89781,
+          "vod_name": "我最好的朋友2026",
+          "type_name": "喜剧片",
+          "vod_remarks": "HD",
+          "vod_time": "2026-11-03 03:23:59"
+        }
+      ]
+    },
+    {
+      "url": "https://cj.rycjapi.com/api.php/provide/vod/?ac=detail&pg=2&pagesize=20",
+      "checked_utc": "2026-11-03T00:00:42.219961+00:00",
+      "authentication": "none",
+      "cookies": "none",
+      "status": 200,
+      "final_url": "https://cj.rycjapi.com/api.php/provide/vod/?ac=detail&pg=2&pagesize=20",
+      "content_type": "text/html;charset=utf-8",
+      "content_length": null,
+      "bytes": 448411,
+      "sha256": "7c11d55d73be0b70f79598842f999255fe267a4a1b7daa76703e357f1e6ca2f9",
+      "file": "ryzy-list-p2.json",
+      "elapsed_ms": 7360,
+      "code": 1,
+      "msg": "数据列表",
+      "page": 2,
+      "pagecount": 4456,
+      "limit": 20,
+      "total": 89105,
+      "count": 20,
+      "safe_sample": [
+        {
+          "vod_id": 85749,
+          "vod_name": "镇灵",
+          "type_name": "泰国剧",
+          "vod_remarks": "更新至第09集",
+          "vod_time": "2026-11-03 00:24:27"
+        },
+        {
+          "vod_id": 81251,
+          "vod_name": "家庭关系证明书",
+          "type_name": "韩国剧",
+          "vod_remarks": "更新至第71集",
+          "vod_time": "2026-11-03 00:24:22"
+        },
+        {
+          "vod_id": 73523,
+          "vod_name": "豆腐妈妈",
+          "type_name": "台湾剧",
+          "vod_remarks": "更新至第224集",
+          "vod_time": "2026-11-03 00:24:03"
+        }
+      ],
+      "overlap_with_p1": 0
+    },
+    {
+      "url": "https://cj.rycjapi.com/api.php/provide/vod/?ac=detail&pg=1&pagesize=20&wd=%E5%BA%86%E4%BD%99%E5%B9%B4",
+      "checked_utc": "2026-11-03T00:00:49.569714+00:00",
+      "authentication": "none",
+      "cookies": "none",
+      "status": 200,
+      "final_url": "https://cj.rycjapi.com/api.php/provide/vod/?ac=detail&pg=1&pagesize=20&wd=%E5%BA%86%E4%BD%99%E5%B9%B4",
+      "content_type": "text/html;charset=utf-8",
+      "content_length": null,
+      "bytes": 32132,
+      "sha256": "16f50c493c3984b6d0e452dc3db118a0129dc9c8508e2c61a2c4df8efe295a80",
+      "file": "ryzy-search-tv.json",
+      "elapsed_ms": 9875,
+      "code": 1,
+      "msg": "数据列表",
+      "page": 1,
+      "pagecount": 1,
+      "limit": 20,
+      "total": 3,
+      "count": 3,
+      "safe_sample": [
+        {
+          "vod_id": 28052,
+          "vod_name": "庆余年之风起沧州",
+          "type_name": "短剧",
+          "vod_remarks": "已完结",
+          "vod_time": "2024-12-01 10:51:35"
+        },
+        {
+          "vod_id": 8148,
+          "vod_name": "庆余年第二季",
+          "type_name": "国产剧",
+          "vod_remarks": "已完结",
+          "vod_time": "2024-08-24 09:58:39"
+        },
+        {
+          "vod_id": 2738,
+          "vod_name": "庆余年第一季",
+          "type_name": "国产剧",
+          "vod_remarks": "已完结",
+          "vod_time": "2024-08-12 00:00:07"
+        }
+      ]
+    },
+    {
+      "url": "https://cj.rycjapi.com/api.php/provide/vod/?ac=detail&ids=28052",
+      "checked_utc": "2026-11-03T00:00:59.441694+00:00",
+      "authentication": "none",
+      "cookies": "none",
+      "status": 200,
+      "final_url": "https://cj.rycjapi.com/api.php/provide/vod/?ac=detail&ids=28052",
+      "content_type": "text/html;charset=utf-8",
+      "content_length": null,
+      "bytes": 12314,
+      "sha256": "d35477e77e69e4e04852b5ca6c7cab316c6e4991c37e4245fde32df2e4304a93",
+      "file": "ryzy-detail-tv.json",
+      "elapsed_ms": 6250,
+      "code": 1,
+      "msg": "数据列表",
+      "page": 1,
+      "pagecount": 1,
+      "limit": 20,
+      "total": 1,
+      "count": 1,
+      "safe_sample": [
+        {
+          "vod_id": 28052,
+          "vod_name": "庆余年之风起沧州",
+          "type_name": "短剧",
+          "vod_remarks": "已完结",
+          "vod_time": "2024-12-01 10:51:35"
+        }
+      ],
+      "videos": [
+        {
+          "id": 28052,
+          "title": "庆余年之风起沧州",
+          "category": "短剧",
+          "remarks": "已完结",
+          "lines": [
+            {
+              "name": "rym3u8",
+              "episode_count": 74,
+              "first": {
+                "name": "第01集",
+                "url": "https://cdn.ryplay11.com/20241130/63415_866058d3/index.m3u8"
+              },
+              "last": {
+                "name": "第74集",
+                "url": "https://cdn.ryplay11.com/20241130/63493_283064a2/index.m3u8"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "url": "https://cj.rycjapi.com/api.php/provide/vod/?ac=detail&pg=1&pagesize=20&wd=%E6%B5%81%E6%B5%AA%E5%9C%B0%E7%90%83",
+      "checked_utc": "2026-11-03T00:01:05.691736+00:00",
+      "authentication": "none",
+      "cookies": "none",
+      "status": 200,
+      "final_url": "https://cj.rycjapi.com/api.php/provide/vod/?ac=detail&pg=1&pagesize=20&wd=%E6%B5%81%E6%B5%AA%E5%9C%B0%E7%90%83",
+      "content_type": "text/html;charset=utf-8",
+      "content_length": null,
+      "bytes": 19507,
+      "sha256": "fa741c949a96a5e1aef36527a393312810ce7ef5bfb610cd97cb6fd4bf2538ca",
+      "file": "ryzy-search-film.json",
+      "elapsed_ms": 9453,
+      "code": 1,
+      "msg": "数据列表",
+      "page": 1,
+      "pagecount": 1,
+      "limit": 20,
+      "total": 5,
+      "count": 5,
+      "safe_sample": [
+        {
+          "vod_id": 35942,
+          "vod_name": "流浪地球[电影解说]",
+          "type_name": "电影解说",
+          "vod_remarks": "已完结",
+          "vod_time": "2025-02-24 22:16:11"
+        },
+        {
+          "vod_id": 32300,
+          "vod_name": "流浪地球2[电影解说]",
+          "type_name": "电影解说",
+          "vod_remarks": "已完结",
+          "vod_time": "2025-01-12 21:46:06"
+        },
+        {
+          "vod_id": 26675,
+          "vod_name": "流浪地球2：再次冒险",
+          "type_name": "记录片",
+          "vod_remarks": "HD",
+          "vod_time": "2024-11-09 15:28:38"
+        }
+      ]
+    },
+    {
+      "url": "https://cj.rycjapi.com/api.php/provide/vod/?ac=detail&ids=35942",
+      "checked_utc": "2026-11-03T00:01:15.154560+00:00",
+      "authentication": "none",
+      "cookies": "none",
+      "status": 200,
+      "final_url": "https://cj.rycjapi.com/api.php/provide/vod/?ac=detail&ids=35942",
+      "content_type": "text/html;charset=utf-8",
+      "content_length": null,
+      "bytes": 4095,
+      "sha256": "1fbe50ed41e748b3e19e392c2ddd67db596907de53b68a26c87d1e008ea05d64",
+      "file": "ryzy-detail-film.json",
+      "elapsed_ms": 6297,
+      "code": 1,
+      "msg": "数据列表",
+      "page": 1,
+      "pagecount": 1,
+      "limit": 20,
+      "total": 1,
+      "count": 1,
+      "safe_sample": [
+        {
+          "vod_id": 35942,
+          "vod_name": "流浪地球[电影解说]",
+          "type_name": "电影解说",
+          "vod_remarks": "已完结",
+          "vod_time": "2025-02-24 22:16:11"
+        }
+      ],
+      "videos": [
+        {
+          "id": 35942,
+          "title": "流浪地球[电影解说]",
+          "category": "电影解说",
+          "remarks": "已完结",
+          "lines": [
+            {
+              "name": "rym3u8",
+              "episode_count": 1,
+              "first": {
+                "name": "第01集",
+                "url": "https://svip.ryplay13.com/20250224/4502_827384cf/index.m3u8"
+              },
+              "last": {
+                "name": "第01集",
+                "url": "https://svip.ryplay13.com/20250224/4502_827384cf/index.m3u8"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

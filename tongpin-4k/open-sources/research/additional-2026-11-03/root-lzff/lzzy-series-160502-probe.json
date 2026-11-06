@@ -1,0 +1,35 @@
+{
+  "provider": "lzzy",
+  "kind": "series",
+  "vod_id": 160502,
+  "title": "伟大的长征",
+  "type": "国产剧",
+  "updated": "2026-11-02 20:08:41",
+  "remarks": "更新至第43集",
+  "episode": "第43集",
+  "episode_count": 43,
+  "selected_group": "lzm3u8",
+  "stream": {
+    "url": "https://v.lzcdn27.com/20261102/21128_3df1ba91/index.m3u8"
+  },
+  "probe_status": "probe_failed",
+  "requests": [
+    {
+      "url": "https://v.lzcdn27.com/20261102/21128_3df1ba91/index.m3u8",
+      "status": 404,
+      "type": "text/html; charset=utf-8",
+      "content_range": null,
+      "declared_length": "883"
+    }
+  ],
+  "text_bytes": 0,
+  "media_bytes": 0,
+  "probe_budget_seconds": 10,
+  "max_hls_text_bytes": 2097152,
+  "observed_dimensions": [],
+  "master_declared_dimensions": [],
+  "elapsed_seconds": 2.687,
+  "error": "HTTPError: 404 Client Error: Not Found for url: https://v.lzcdn27.com/20261102/21128_3df1ba91/index.m3u8",
+  "actual_2160p_observed": false,
+  "uhd_4k_width_observed": false
+}

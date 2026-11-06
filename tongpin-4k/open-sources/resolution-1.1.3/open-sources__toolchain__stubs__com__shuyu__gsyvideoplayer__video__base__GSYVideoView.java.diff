@@ -1,0 +1,10 @@
+--- before/open-sources/toolchain/stubs/com/shuyu/gsyvideoplayer/video/base/GSYVideoView.java
++++ after/open-sources/toolchain/stubs/com/shuyu/gsyvideoplayer/video/base/GSYVideoView.java
+@@ -11,6 +11,7 @@
+     public void release() {}
+     public long getCurrentPositionWhenPlaying() { return 0; }
+     public int getCurrentState() { return 0; }
++    public GSYVideoViewBridge getGSYVideoManager() { return null; }
+     public void setSeekOnStart(long milliseconds) {}
+     public void setVideoAllCallBack(m6.h callback) {}
+ }

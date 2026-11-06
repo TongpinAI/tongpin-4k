@@ -1,0 +1,284 @@
+{
+  "apk": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\output\\tongpin-4k-1.0.1.apk",
+  "downloads_copy": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Downloads\\tongpin-4k-1.0.1.apk",
+  "size_bytes": 76923285,
+  "sha256": "901b10876642f7dae23127d560771477167109d3028b98d669cef2db1903869a",
+  "package_name": "com.tongpin.player4k",
+  "label": "同频4K",
+  "version_name": "1.0.1",
+  "version_code": 1001,
+  "signing_certificate_sha256": "b18aa044eef475e78a95908796475d50d5be998de39c42ffa58ef2a395b57b11",
+  "debuggable": false,
+  "retained_resource_ids": 11455,
+  "new_resource_count": 14,
+  "v1_v2_v3_verified": true,
+  "provider_authorities": [
+    "com.tongpin.player4k.DcProvider",
+    "com.tongpin.player4k.TTFileProvider",
+    "com.tongpin.player4k.TTMultiProvider",
+    "com.tongpin.player4k.adFileProvider",
+    "com.tongpin.player4k.androidx-startup",
+    "com.tongpin.player4k.anythink.initatprovider",
+    "com.tongpin.player4k.bytedance.android.openliveplugin.process.server.LiveServerManager",
+    "com.tongpin.player4k.bz.fileprovider",
+    "com.tongpin.player4k.fileprovider",
+    "com.tongpin.player4k.gdt.fileprovider",
+    "com.tongpin.player4k.pangle.fileprovider",
+    "com.tongpin.player4k.pangle.provider.proxy.main",
+    "com.tongpin.player4k.pangle.servermanager.bytelive.com.byted.live.lite",
+    "com.tongpin.player4k.pangle.servermanager.downloader.com.byted.live.lite",
+    "com.tongpin.player4k.pangle.servermanager.downloader.com.bytedance.sdk.openadsdk.adhost",
+    "com.tongpin.player4k.pangle.servermanager.main",
+    "com.tongpin.player4k.pangle.servermanager.push.com.byted.live.lite",
+    "com.tongpin.player4k.sdm.fileProvider",
+    "com.tongpin.player4k.sdm.initatprovider"
+  ],
+  "custom_permissions": [
+    "com.tongpin.player4k.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION",
+    "com.tongpin.player4k.openadsdk.permission.TT_PANGOLIN"
+  ],
+  "native_libraries": [
+    {
+      "path": "lib/arm64-v8a/libBZDevInfo.so",
+      "data_offset": 38518784,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/libPglbizssdk_ml.so",
+      "data_offset": 47677440,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/libalivcffmpeg.so",
+      "data_offset": 34701312,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/libandroidx.graphics.path.so",
+      "data_offset": 37748736,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/libavmdl_lite.so",
+      "data_offset": 37765120,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/libdcrypto.so",
+      "data_offset": 38846464,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/libijkffmpeg.so",
+      "data_offset": 39206912,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/libijkplayer.so",
+      "data_offset": 45809664,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/libijksdl.so",
+      "data_offset": 46366720,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/libimagepipeline.so",
+      "data_offset": 46743552,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/libnative-filters.so",
+      "data_offset": 46759936,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/libnative-imagetranscoder.so",
+      "data_offset": 46792704,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/libpanglearmor.so",
+      "data_offset": 47382528,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/libpangleflipped.so",
+      "data_offset": 47661056,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/libplt-base.so",
+      "data_offset": 48807936,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/librtmp-jni.so",
+      "data_offset": 49184768,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/libsaasCorePlayer.so",
+      "data_offset": 49299456,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/libsaasDownloader.so",
+      "data_offset": 56737792,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/libsgcore.so",
+      "data_offset": 57032704,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/libti-monitor.so",
+      "data_offset": 57131008,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/libtobEmbedEncrypt.so",
+      "data_offset": 57262080,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/libtt_ugen_layout.so",
+      "data_offset": 58834944,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/libttmplayer_lite.so",
+      "data_offset": 57327616,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/libverbanr.so",
+      "data_offset": 59277312,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/armeabi-v7a/libBZDevInfo.so",
+      "data_offset": 62078976,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/armeabi-v7a/libalivcffmpeg.so",
+      "data_offset": 59654144,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/armeabi-v7a/libandroidx.graphics.path.so",
+      "data_offset": 62062592,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/armeabi-v7a/libdcrypto.so",
+      "data_offset": 62291968,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/armeabi-v7a/libijkffmpeg.so",
+      "data_offset": 62521344,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/armeabi-v7a/libijkplayer.so",
+      "data_offset": 68419584,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/armeabi-v7a/libijksdl.so",
+      "data_offset": 68796416,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/armeabi-v7a/libimagepipeline.so",
+      "data_offset": 69124096,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/armeabi-v7a/libnative-filters.so",
+      "data_offset": 69140480,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/armeabi-v7a/libnative-imagetranscoder.so",
+      "data_offset": 69156864,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/armeabi-v7a/libpangleflipped.so",
+      "data_offset": 69500928,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/armeabi-v7a/libplt-base.so",
+      "data_offset": 69517312,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/armeabi-v7a/librtmp-jni.so",
+      "data_offset": 69779456,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/armeabi-v7a/libsaasCorePlayer.so",
+      "data_offset": 69877760,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/armeabi-v7a/libsaasDownloader.so",
+      "data_offset": 75382784,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/armeabi-v7a/libsgcore.so",
+      "data_offset": 75563008,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/armeabi-v7a/libti-monitor.so",
+      "data_offset": 75694080,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/armeabi-v7a/libverbanr.so",
+      "data_offset": 75776000,
+      "alignment_16kb": true
+    }
+  ],
+  "untouched_dex": [
+    {
+      "folder": "smali",
+      "files": 9357,
+      "tree_sha256": "bde8046d96ae3e97b190c1374ae66cf3d08dcf9bdc9da6b11cfa74866a9a55c3",
+      "dex": "classes.dex",
+      "dex_sha256": "02ce604e358253d4e2c4f776e9f5682da084eecf1930443f9d0d9e9df2a037ee"
+    },
+    {
+      "folder": "smali_classes2",
+      "files": 9225,
+      "tree_sha256": "4d726b7844fad9de3ead3d9e84a067c656fc509b79196e703e524834b9f920f2",
+      "dex": "classes2.dex",
+      "dex_sha256": "e648c78f4cc3a41b146840a65b6de2fcdd3487f42429ebd8e55c8edb85c8b4f0"
+    },
+    {
+      "folder": "smali_classes3",
+      "files": 8155,
+      "tree_sha256": "411e4ae54366dc88ae051ea10d874088416f64ea6faae2bbdb94270b83be3025",
+      "dex": "classes3.dex",
+      "dex_sha256": "25d4d1f8fc9450119fc8db09036d9642311fb9398783485e52046197fdc936e8"
+    },
+    {
+      "folder": "smali_classes4",
+      "files": 7561,
+      "tree_sha256": "db9b5a87b781a786599daac99735a80e7137035155d26939f320ca97875bc62e",
+      "dex": "classes4.dex",
+      "dex_sha256": "551c8f962806f0943e27dc4ad9e4853bb4dffab053be26355bc1953ec29fb598"
+    }
+  ],
+  "classes5_rebuilt": true,
+  "device_tested": false
+}

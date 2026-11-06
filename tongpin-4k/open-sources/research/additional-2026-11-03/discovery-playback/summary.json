@@ -1,0 +1,634 @@
+{
+  "research_date_cst": "2026-11-03",
+  "scope": "anonymous public film/TV API and bounded first media segment headers",
+  "maximum_media_prefix_bytes_per_sample": 2097152,
+  "providers": [
+    {
+      "id": "hongniu",
+      "name": "红牛资源",
+      "sample_count": 4,
+      "film_count": 2,
+      "tv_count": 2,
+      "header_success_count": 3,
+      "actual_4k_header_count": 0,
+      "api_checks": [
+        {
+          "name": "film-list",
+          "status": 200,
+          "code": 1,
+          "total": 16091
+        },
+        {
+          "name": "tv-list",
+          "status": 200,
+          "code": 1,
+          "total": 6948
+        },
+        {
+          "name": "search",
+          "status": 200,
+          "code": 1,
+          "total": 1
+        },
+        {
+          "name": "details",
+          "status": 200,
+          "code": 1,
+          "total": 4
+        }
+      ],
+      "search": {
+        "keyword": "伟大的长征",
+        "count": 1,
+        "exact_name_found": true
+      },
+      "samples": [
+        {
+          "id": 198886,
+          "kind": "film",
+          "name": "飞女刑事风间三姐妹的反击",
+          "episode": "正片",
+          "episode_count": 1,
+          "remarks": "正片",
+          "detail_success": true,
+          "hls_manifest_statuses": [
+            200
+          ],
+          "hls_declared_resolutions": [],
+          "published_identity_key_status": 200,
+          "key_persisted": false,
+          "segment_prefix_status": 206,
+          "segment_prefix_bytes": 2033600,
+          "actual_video_headers": [
+            {
+              "codec_name": "h264",
+              "codec_type": "video",
+              "width": 1920,
+              "height": 1080,
+              "avg_frame_rate": "24/1"
+            }
+          ],
+          "actual_header_success": true,
+          "prefix_sha256": "044e23c8c6d014aecde1b59d3f36398c13c0b5392caa7291fb16233a3462b6e5",
+          "aes_rule": {
+            "method": "AES-128",
+            "keyformat": "identity",
+            "iv_rule": "explicit EXT-X-KEY IV",
+            "padding": "complete small segment; PKCS7 validated and removed",
+            "rfc": "https://www.rfc-editor.org/rfc/rfc8216#section-5.2"
+          },
+          "failure": null,
+          "content_viewed": false
+        },
+        {
+          "id": 198817,
+          "kind": "film",
+          "name": "心跳声",
+          "episode": "正片",
+          "episode_count": 1,
+          "remarks": "正片",
+          "detail_success": true,
+          "hls_manifest_statuses": [
+            200
+          ],
+          "hls_declared_resolutions": [],
+          "published_identity_key_status": 200,
+          "key_persisted": false,
+          "segment_prefix_status": 206,
+          "segment_prefix_bytes": 296864,
+          "actual_video_headers": [
+            {
+              "codec_name": "h264",
+              "codec_type": "video",
+              "width": 1920,
+              "height": 1080,
+              "avg_frame_rate": "24/1"
+            }
+          ],
+          "actual_header_success": true,
+          "prefix_sha256": "62518b59d6ccb10ac9c562ac403b574c9a618b341533e9d3957e9653a06cc8dc",
+          "aes_rule": {
+            "method": "AES-128",
+            "keyformat": "identity",
+            "iv_rule": "explicit EXT-X-KEY IV",
+            "padding": "complete small segment; PKCS7 validated and removed",
+            "rfc": "https://www.rfc-editor.org/rfc/rfc8216#section-5.2"
+          },
+          "failure": null,
+          "content_viewed": false
+        },
+        {
+          "id": 197869,
+          "kind": "tv",
+          "name": "​尚公主​",
+          "episode": "第23集",
+          "episode_count": 23,
+          "remarks": "第23集",
+          "detail_success": true,
+          "hls_manifest_statuses": [
+            200
+          ],
+          "hls_declared_resolutions": [],
+          "published_identity_key_status": 200,
+          "key_persisted": false,
+          "segment_prefix_status": 206,
+          "segment_prefix_bytes": 1167488,
+          "actual_video_headers": [
+            {
+              "codec_name": "h264",
+              "codec_type": "video",
+              "width": 1920,
+              "height": 1080,
+              "avg_frame_rate": "24/1"
+            }
+          ],
+          "actual_header_success": true,
+          "prefix_sha256": "95f29973c0b0f6f7459d9d91feb4e7b3143abc2b38824b1ae72bc2adb36ba345",
+          "aes_rule": {
+            "method": "AES-128",
+            "keyformat": "identity",
+            "iv_rule": "explicit EXT-X-KEY IV",
+            "padding": "complete small segment; PKCS7 validated and removed",
+            "rfc": "https://www.rfc-editor.org/rfc/rfc8216#section-5.2"
+          },
+          "failure": null,
+          "content_viewed": false
+        },
+        {
+          "id": 196530,
+          "kind": "tv",
+          "name": "伟大的长征",
+          "episode": "第43集",
+          "episode_count": 43,
+          "remarks": "第43集",
+          "detail_success": true,
+          "hls_manifest_statuses": [
+            200
+          ],
+          "hls_declared_resolutions": [],
+          "published_identity_key_status": 200,
+          "key_persisted": false,
+          "segment_prefix_status": null,
+          "segment_prefix_bytes": null,
+          "actual_video_headers": [],
+          "actual_header_success": false,
+          "prefix_sha256": null,
+          "aes_rule": null,
+          "failure": "media prefix read timeout (4 seconds); not retried",
+          "content_viewed": false
+        }
+      ],
+      "fixtures": {
+        "list": "fixtures/hongniu-list.json",
+        "search": "fixtures/hongniu-search.json",
+        "details": "fixtures/hongniu-details.json"
+      }
+    },
+    {
+      "id": "guangsu",
+      "name": "光速资源",
+      "sample_count": 4,
+      "film_count": 2,
+      "tv_count": 2,
+      "header_success_count": 4,
+      "actual_4k_header_count": 0,
+      "api_checks": [
+        {
+          "name": "film-list",
+          "status": 200,
+          "code": 1,
+          "total": 20250
+        },
+        {
+          "name": "tv-list",
+          "status": 200,
+          "code": 1,
+          "total": 4197
+        },
+        {
+          "name": "search",
+          "status": 200,
+          "code": 1,
+          "total": 1
+        },
+        {
+          "name": "details",
+          "status": 200,
+          "code": 1,
+          "total": 4
+        }
+      ],
+      "search": {
+        "keyword": "寻踪者第四季",
+        "count": 1,
+        "exact_name_found": true
+      },
+      "samples": [
+        {
+          "id": 223011,
+          "kind": "film",
+          "name": "飞女刑事风间三姐妹的反击",
+          "episode": "正片",
+          "episode_count": 1,
+          "remarks": "正片",
+          "detail_success": true,
+          "hls_manifest_statuses": [
+            200
+          ],
+          "hls_declared_resolutions": [],
+          "published_identity_key_status": 200,
+          "key_persisted": false,
+          "segment_prefix_status": 206,
+          "segment_prefix_bytes": 2033600,
+          "actual_video_headers": [
+            {
+              "codec_name": "h264",
+              "codec_type": "video",
+              "width": 1920,
+              "height": 1080,
+              "avg_frame_rate": "24/1"
+            }
+          ],
+          "actual_header_success": true,
+          "prefix_sha256": "044e23c8c6d014aecde1b59d3f36398c13c0b5392caa7291fb16233a3462b6e5",
+          "aes_rule": {
+            "method": "AES-128",
+            "keyformat": "identity",
+            "iv_rule": "explicit EXT-X-KEY IV",
+            "padding": "complete small segment; PKCS7 validated and removed",
+            "rfc": "https://www.rfc-editor.org/rfc/rfc8216#section-5.2"
+          },
+          "failure": null,
+          "content_viewed": false
+        },
+        {
+          "id": 222942,
+          "kind": "film",
+          "name": "心跳声",
+          "episode": "正片",
+          "episode_count": 1,
+          "remarks": "正片",
+          "detail_success": true,
+          "hls_manifest_statuses": [
+            200
+          ],
+          "hls_declared_resolutions": [],
+          "published_identity_key_status": 200,
+          "key_persisted": false,
+          "segment_prefix_status": 206,
+          "segment_prefix_bytes": 296864,
+          "actual_video_headers": [
+            {
+              "codec_name": "h264",
+              "codec_type": "video",
+              "width": 1920,
+              "height": 1080,
+              "avg_frame_rate": "24/1"
+            }
+          ],
+          "actual_header_success": true,
+          "prefix_sha256": "62518b59d6ccb10ac9c562ac403b574c9a618b341533e9d3957e9653a06cc8dc",
+          "aes_rule": {
+            "method": "AES-128",
+            "keyformat": "identity",
+            "iv_rule": "explicit EXT-X-KEY IV",
+            "padding": "complete small segment; PKCS7 validated and removed",
+            "rfc": "https://www.rfc-editor.org/rfc/rfc8216#section-5.2"
+          },
+          "failure": null,
+          "content_viewed": false
+        },
+        {
+          "id": 222207,
+          "kind": "tv",
+          "name": "怒火交织第二季",
+          "episode": "第4集",
+          "episode_count": 4,
+          "remarks": "第4集",
+          "detail_success": true,
+          "hls_manifest_statuses": [
+            200
+          ],
+          "hls_declared_resolutions": [],
+          "published_identity_key_status": 200,
+          "key_persisted": false,
+          "segment_prefix_status": 206,
+          "segment_prefix_bytes": 1304544,
+          "actual_video_headers": [
+            {
+              "codec_name": "h264",
+              "codec_type": "video",
+              "width": 1920,
+              "height": 1080,
+              "avg_frame_rate": "24/1"
+            }
+          ],
+          "actual_header_success": true,
+          "prefix_sha256": "39038bedc5d61990409110693825bde5652cfb2fb0c2494bb34251d8c47aa2a6",
+          "aes_rule": {
+            "method": "AES-128",
+            "keyformat": "identity",
+            "iv_rule": "explicit EXT-X-KEY IV",
+            "padding": "complete small segment; PKCS7 validated and removed",
+            "rfc": "https://www.rfc-editor.org/rfc/rfc8216#section-5.2"
+          },
+          "failure": null,
+          "content_viewed": false
+        },
+        {
+          "id": 220262,
+          "kind": "tv",
+          "name": "寻踪者第四季",
+          "episode": "第5集",
+          "episode_count": 5,
+          "remarks": "第5集",
+          "detail_success": true,
+          "hls_manifest_statuses": [
+            200
+          ],
+          "hls_declared_resolutions": [],
+          "published_identity_key_status": 200,
+          "key_persisted": false,
+          "segment_prefix_status": 206,
+          "segment_prefix_bytes": 2097152,
+          "actual_video_headers": [
+            {
+              "codec_name": "h264",
+              "codec_type": "video",
+              "width": 1920,
+              "height": 1080,
+              "avg_frame_rate": "24/1"
+            }
+          ],
+          "actual_header_success": true,
+          "prefix_sha256": "388c0ca16003d587bfb99406fa10f5ca15f68db2d8643190168310fbfae767bb",
+          "aes_rule": {
+            "method": "AES-128",
+            "keyformat": "identity",
+            "iv_rule": "explicit EXT-X-KEY IV",
+            "padding": "prefix only; final padding not fetched",
+            "rfc": "https://www.rfc-editor.org/rfc/rfc8216#section-5.2"
+          },
+          "failure": null,
+          "content_viewed": false
+        }
+      ],
+      "fixtures": {
+        "list": "fixtures/guangsu-list.json",
+        "search": "fixtures/guangsu-search.json",
+        "details": "fixtures/guangsu-details.json"
+      }
+    },
+    {
+      "id": "jinying",
+      "name": "金鹰资源",
+      "sample_count": 4,
+      "film_count": 2,
+      "tv_count": 2,
+      "header_success_count": 4,
+      "actual_4k_header_count": 0,
+      "api_checks": [
+        {
+          "name": "film-list",
+          "status": 200,
+          "code": 1,
+          "total": 16172
+        },
+        {
+          "name": "tv-list",
+          "status": 200,
+          "code": 1,
+          "total": 6954
+        },
+        {
+          "name": "search",
+          "status": 200,
+          "code": 1,
+          "total": 1
+        },
+        {
+          "name": "details",
+          "status": 200,
+          "code": 1,
+          "total": 4
+        }
+      ],
+      "search": {
+        "keyword": "伟大的长征",
+        "count": 1,
+        "exact_name_found": true
+      },
+      "samples": [
+        {
+          "id": 162942,
+          "kind": "film",
+          "name": "飞女刑事风间三姐妹的反击",
+          "episode": "正片",
+          "episode_count": 1,
+          "remarks": "正片",
+          "detail_success": true,
+          "hls_manifest_statuses": [
+            200
+          ],
+          "hls_declared_resolutions": [],
+          "published_identity_key_status": 200,
+          "key_persisted": false,
+          "segment_prefix_status": 206,
+          "segment_prefix_bytes": 2033600,
+          "actual_video_headers": [
+            {
+              "codec_name": "h264",
+              "codec_type": "video",
+              "width": 1920,
+              "height": 1080,
+              "avg_frame_rate": "24/1"
+            }
+          ],
+          "actual_header_success": true,
+          "prefix_sha256": "044e23c8c6d014aecde1b59d3f36398c13c0b5392caa7291fb16233a3462b6e5",
+          "aes_rule": {
+            "method": "AES-128",
+            "keyformat": "identity",
+            "iv_rule": "explicit EXT-X-KEY IV",
+            "padding": "complete small segment; PKCS7 validated and removed",
+            "rfc": "https://www.rfc-editor.org/rfc/rfc8216#section-5.2"
+          },
+          "failure": null,
+          "content_viewed": false
+        },
+        {
+          "id": 162873,
+          "kind": "film",
+          "name": "心跳声",
+          "episode": "正片",
+          "episode_count": 1,
+          "remarks": "正片",
+          "detail_success": true,
+          "hls_manifest_statuses": [
+            200
+          ],
+          "hls_declared_resolutions": [],
+          "published_identity_key_status": 200,
+          "key_persisted": false,
+          "segment_prefix_status": 206,
+          "segment_prefix_bytes": 296864,
+          "actual_video_headers": [
+            {
+              "codec_name": "h264",
+              "codec_type": "video",
+              "width": 1920,
+              "height": 1080,
+              "avg_frame_rate": "24/1"
+            }
+          ],
+          "actual_header_success": true,
+          "prefix_sha256": "62518b59d6ccb10ac9c562ac403b574c9a618b341533e9d3957e9653a06cc8dc",
+          "aes_rule": {
+            "method": "AES-128",
+            "keyformat": "identity",
+            "iv_rule": "explicit EXT-X-KEY IV",
+            "padding": "complete small segment; PKCS7 validated and removed",
+            "rfc": "https://www.rfc-editor.org/rfc/rfc8216#section-5.2"
+          },
+          "failure": null,
+          "content_viewed": false
+        },
+        {
+          "id": 161950,
+          "kind": "tv",
+          "name": "​尚公主​",
+          "episode": "第23集",
+          "episode_count": 23,
+          "remarks": "第23集",
+          "detail_success": true,
+          "hls_manifest_statuses": [
+            200
+          ],
+          "hls_declared_resolutions": [],
+          "published_identity_key_status": 200,
+          "key_persisted": false,
+          "segment_prefix_status": 206,
+          "segment_prefix_bytes": 1167488,
+          "actual_video_headers": [
+            {
+              "codec_name": "h264",
+              "codec_type": "video",
+              "width": 1920,
+              "height": 1080,
+              "avg_frame_rate": "24/1"
+            }
+          ],
+          "actual_header_success": true,
+          "prefix_sha256": "95f29973c0b0f6f7459d9d91feb4e7b3143abc2b38824b1ae72bc2adb36ba345",
+          "aes_rule": {
+            "method": "AES-128",
+            "keyformat": "identity",
+            "iv_rule": "explicit EXT-X-KEY IV",
+            "padding": "complete small segment; PKCS7 validated and removed",
+            "rfc": "https://www.rfc-editor.org/rfc/rfc8216#section-5.2"
+          },
+          "failure": null,
+          "content_viewed": false
+        },
+        {
+          "id": 160611,
+          "kind": "tv",
+          "name": "伟大的长征",
+          "episode": "第43集",
+          "episode_count": 43,
+          "remarks": "第43集",
+          "detail_success": true,
+          "hls_manifest_statuses": [
+            200
+          ],
+          "hls_declared_resolutions": [],
+          "published_identity_key_status": 200,
+          "key_persisted": false,
+          "segment_prefix_status": 206,
+          "segment_prefix_bytes": 815360,
+          "actual_video_headers": [
+            {
+              "codec_name": "h264",
+              "codec_type": "video",
+              "width": 1920,
+              "height": 800,
+              "avg_frame_rate": "24/1"
+            }
+          ],
+          "actual_header_success": true,
+          "prefix_sha256": "036ea82a7d4318eba3e08e175e718d9fcdb0137c3456d1a6c724ee282e50778d",
+          "aes_rule": {
+            "method": "AES-128",
+            "keyformat": "identity",
+            "iv_rule": "explicit EXT-X-KEY IV",
+            "padding": "complete small segment; PKCS7 validated and removed",
+            "rfc": "https://www.rfc-editor.org/rfc/rfc8216#section-5.2"
+          },
+          "failure": null,
+          "content_viewed": false
+        }
+      ],
+      "fixtures": {
+        "list": "fixtures/jinying-list.json",
+        "search": "fixtures/jinying-search.json",
+        "details": "fixtures/jinying-details.json"
+      }
+    }
+  ],
+  "identical_prefix_evidence": [
+    {
+      "sha256": "044e23c8c6d014aecde1b59d3f36398c13c0b5392caa7291fb16233a3462b6e5",
+      "samples": [
+        {
+          "provider": "hongniu",
+          "id": 198886
+        },
+        {
+          "provider": "guangsu",
+          "id": 223011
+        },
+        {
+          "provider": "jinying",
+          "id": 162942
+        }
+      ]
+    },
+    {
+      "sha256": "62518b59d6ccb10ac9c562ac403b574c9a618b341533e9d3957e9653a06cc8dc",
+      "samples": [
+        {
+          "provider": "hongniu",
+          "id": 198817
+        },
+        {
+          "provider": "guangsu",
+          "id": 222942
+        },
+        {
+          "provider": "jinying",
+          "id": 162873
+        }
+      ]
+    },
+    {
+      "sha256": "95f29973c0b0f6f7459d9d91feb4e7b3143abc2b38824b1ae72bc2adb36ba345",
+      "samples": [
+        {
+          "provider": "hongniu",
+          "id": 197869
+        },
+        {
+          "provider": "jinying",
+          "id": 161950
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "11 header successes from 12 samples; not Android playback acceptance",
+    "No actual 4K header among successful samples; no all-catalog resolution claim",
+    "Ordinary published HLS identity AES-128 is not a content-license assertion",
+    "No full playback, embedded-ad, upload-speed, or availability guarantee",
+    "Raw fixtures and media/key URLs are local evidence, not public documentation"
+  ]
+}

@@ -1,0 +1,384 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-03T00:38:19.774606+00:00",
+  "title": "Design System: 同频4K",
+  "extensions": {
+    "colorMeta": {
+      "tp-bg": {
+        "role": "neutral",
+        "displayName": "浅米",
+        "canonical": "#F5F2E9",
+        "tonalRamp": [
+          "oklch(15% 0.0124 91.52)",
+          "oklch(27% 0.0124 91.52)",
+          "oklch(38% 0.0124 91.52)",
+          "oklch(49% 0.0124 91.52)",
+          "oklch(60% 0.0124 91.52)",
+          "oklch(72% 0.0124 91.52)",
+          "oklch(84% 0.0124 91.52)",
+          "oklch(95% 0.0124 91.52)"
+        ]
+      },
+      "tp-surface": {
+        "role": "neutral",
+        "displayName": "白色内容面",
+        "canonical": "#FFFFFF",
+        "tonalRamp": [
+          "oklch(15% 0.0000 0.00)",
+          "oklch(27% 0.0000 0.00)",
+          "oklch(38% 0.0000 0.00)",
+          "oklch(49% 0.0000 0.00)",
+          "oklch(60% 0.0000 0.00)",
+          "oklch(72% 0.0000 0.00)",
+          "oklch(84% 0.0000 0.00)",
+          "oklch(95% 0.0000 0.00)"
+        ]
+      },
+      "tp-text": {
+        "role": "neutral",
+        "displayName": "墨蓝",
+        "canonical": "#172C42",
+        "tonalRamp": [
+          "oklch(15% 0.0489 250.90)",
+          "oklch(27% 0.0489 250.90)",
+          "oklch(38% 0.0489 250.90)",
+          "oklch(49% 0.0489 250.90)",
+          "oklch(60% 0.0489 250.90)",
+          "oklch(72% 0.0489 250.90)",
+          "oklch(84% 0.0489 250.90)",
+          "oklch(95% 0.0489 250.90)"
+        ]
+      },
+      "tp-secondary": {
+        "role": "neutral",
+        "displayName": "蓝灰",
+        "canonical": "#5D6D78",
+        "tonalRamp": [
+          "oklch(15% 0.0259 238.05)",
+          "oklch(27% 0.0259 238.05)",
+          "oklch(38% 0.0259 238.05)",
+          "oklch(49% 0.0259 238.05)",
+          "oklch(60% 0.0259 238.05)",
+          "oklch(72% 0.0259 238.05)",
+          "oklch(84% 0.0259 238.05)",
+          "oklch(95% 0.0259 238.05)"
+        ]
+      },
+      "tp-primary": {
+        "role": "primary",
+        "displayName": "重点蓝",
+        "canonical": "#226CC7",
+        "tonalRamp": [
+          "oklch(15% 0.1587 256.09)",
+          "oklch(27% 0.1587 256.09)",
+          "oklch(38% 0.1587 256.09)",
+          "oklch(49% 0.1587 256.09)",
+          "oklch(60% 0.1587 256.09)",
+          "oklch(72% 0.1587 256.09)",
+          "oklch(84% 0.1587 256.09)",
+          "oklch(95% 0.1587 256.09)"
+        ]
+      },
+      "tp-outline": {
+        "role": "neutral",
+        "displayName": "浅灰绿",
+        "canonical": "#D5DDD9",
+        "tonalRamp": [
+          "oklch(15% 0.0102 164.84)",
+          "oklch(27% 0.0102 164.84)",
+          "oklch(38% 0.0102 164.84)",
+          "oklch(49% 0.0102 164.84)",
+          "oklch(60% 0.0102 164.84)",
+          "oklch(72% 0.0102 164.84)",
+          "oklch(84% 0.0102 164.84)",
+          "oklch(95% 0.0102 164.84)"
+        ]
+      },
+      "tp-on-primary": {
+        "role": "neutral",
+        "displayName": "主操作白",
+        "canonical": "#FFFFFF",
+        "tonalRamp": [
+          "oklch(15% 0.0000 0.00)",
+          "oklch(27% 0.0000 0.00)",
+          "oklch(38% 0.0000 0.00)",
+          "oklch(49% 0.0000 0.00)",
+          "oklch(60% 0.0000 0.00)",
+          "oklch(72% 0.0000 0.00)",
+          "oklch(84% 0.0000 0.00)",
+          "oklch(95% 0.0000 0.00)"
+        ]
+      },
+      "tp-pressed": {
+        "role": "neutral",
+        "displayName": "浅蓝操作面",
+        "canonical": "#E6EDF7",
+        "tonalRamp": [
+          "oklch(15% 0.0154 257.20)",
+          "oklch(27% 0.0154 257.20)",
+          "oklch(38% 0.0154 257.20)",
+          "oklch(49% 0.0154 257.20)",
+          "oklch(60% 0.0154 257.20)",
+          "oklch(72% 0.0154 257.20)",
+          "oklch(84% 0.0154 257.20)",
+          "oklch(95% 0.0154 257.20)"
+        ]
+      },
+      "tp-dark-selected": {
+        "role": "primary",
+        "displayName": "深面选中蓝",
+        "canonical": "#BDD8FF",
+        "tonalRamp": [
+          "oklch(15% 0.0650 256.00)",
+          "oklch(27% 0.0650 256.00)",
+          "oklch(38% 0.0650 256.00)",
+          "oklch(49% 0.0650 256.00)",
+          "oklch(60% 0.0650 256.00)",
+          "oklch(72% 0.0650 256.00)",
+          "oklch(84% 0.0650 256.00)",
+          "oklch(95% 0.0650 256.00)"
+        ]
+      },
+      "tp-dark-pressed": {
+        "role": "neutral",
+        "displayName": "深色按压面",
+        "canonical": "#253E59",
+        "tonalRamp": [
+          "oklch(15% 0.0570 251.00)",
+          "oklch(27% 0.0570 251.00)",
+          "oklch(38% 0.0570 251.00)",
+          "oklch(49% 0.0570 251.00)",
+          "oklch(60% 0.0570 251.00)",
+          "oklch(72% 0.0570 251.00)",
+          "oklch(84% 0.0570 251.00)",
+          "oklch(95% 0.0570 251.00)"
+        ]
+      },
+      "tp-light-pressed": {
+        "role": "neutral",
+        "displayName": "浅色按压面",
+        "canonical": "#F3F6FC",
+        "tonalRamp": [
+          "oklch(15% 0.0090 257.00)",
+          "oklch(27% 0.0090 257.00)",
+          "oklch(38% 0.0090 257.00)",
+          "oklch(49% 0.0090 257.00)",
+          "oklch(60% 0.0090 257.00)",
+          "oklch(72% 0.0090 257.00)",
+          "oklch(84% 0.0090 257.00)",
+          "oklch(95% 0.0090 257.00)"
+        ]
+      },
+      "tp-disabled": {
+        "role": "neutral",
+        "displayName": "禁用面",
+        "canonical": "#E7E8E3",
+        "tonalRamp": [
+          "oklch(15% 0.0070 111.00)",
+          "oklch(27% 0.0070 111.00)",
+          "oklch(38% 0.0070 111.00)",
+          "oklch(49% 0.0070 111.00)",
+          "oklch(60% 0.0070 111.00)",
+          "oklch(72% 0.0070 111.00)",
+          "oklch(84% 0.0070 111.00)",
+          "oklch(95% 0.0070 111.00)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "page": {
+        "displayName": "页面／首页标题",
+        "purpose": "首页品牌与我的标题。"
+      },
+      "catalog-heading": {
+        "displayName": "公开片库标题",
+        "purpose": "公开片库顶栏。"
+      },
+      "title": {
+        "displayName": "影片／原生页面标题",
+        "purpose": "影片详情与保留的次级页标题。"
+      },
+      "section": {
+        "displayName": "分组标题",
+        "purpose": "历史、热词等区块标题。"
+      },
+      "body": {
+        "displayName": "正文／输入",
+        "purpose": "正文与搜索编辑框。"
+      },
+      "action": {
+        "displayName": "共享按钮",
+        "purpose": "PhoneUi 15sp sans-serif-medium 操作。"
+      },
+      "label": {
+        "displayName": "列表／辅助标签",
+        "purpose": "导航、热词和辅助信息。"
+      },
+      "meta": {
+        "displayName": "元信息",
+        "purpose": "片源说明和时间。"
+      },
+      "caption": {
+        "displayName": "署名",
+        "purpose": "公开片库署名及局部说明。"
+      }
+    },
+    "shadows": [],
+    "motion": [],
+    "breakpoints": [],
+    "native": {
+      "platform": "Android Views",
+      "sourceVersion": "1.3.2",
+      "sourceVersionCode": 1320,
+      "buttonMinWidthDp": 48,
+      "buttonMinHeightDp": 48,
+      "normalPageInsets": "PhoneUi.installInsets; API30+ systemBars/displayCutout/IME, API23-29 fitted/adjustResize",
+      "playerInsets": "OpenPlayerActivity independent fullscreen/cutout; legacy normal root bars/cutout padding, fullscreen viewport padding, no accumulation",
+      "evidence": [
+        "ui/legacy-modernize-2026-11-03/verification.json",
+        "open-sources/ui-player-1.2.0/verification.json",
+        "ui/modern-core-1.2.0/legacy-hook-verification.json",
+        "ui/player-fix-1.2.1/layout-verification.json",
+        "ui/player-fix-1.2.1/resolution-verification.json",
+        "ui/player-controls-1.3.0/verification.json",
+        "ui/player-controls-1.3.0/legacy-controls-report.json",
+        "ui/player-polish-1.3.1/presentation-verification.json",
+        "ui/player-polish-1.3.1/controls-verification.json",
+        "ui/player-layout-1.3.2/episode-verification.json",
+        "ui/player-layout-1.3.2/controls-verification.json"
+      ],
+      "nativeRenderVerified": false,
+      "previewBoundary": "HTML/CSS are documentation illustrations only; px are not APK dp/sp rendering or device evidence.",
+      "tonalRampBoundary": "Tonal ramps are synthesized documentation swatches, not additional Android palette tokens.",
+      "buttonRippleArgb": {
+        "filled": "0x0FFFFFFF",
+        "dark": "0x33FFFFFF",
+        "other": "0x29226CC7"
+      },
+      "filledRippleCompositeIllustration": "#2F75CA",
+      "episodeGrid": "Legacy remaining-height vertical grid, 2–6 columns by screenWidthDp minus 32dp and fontScale; 14sp, minimum 48dp, two lines",
+      "playerSettings": "Grouped shortcuts, adjustment rows, paired seek actions and native persistent auto-next Switch; minimum 48dp, font-aware pairing, 75% height cap"
+    }
+  },
+  "components": [
+    {
+      "name": "Shared primary action",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "PhoneUi 主操作：最小48dp、24dp圆角、15sp medium。HTML/CSS仅文档示意。",
+      "html": "<button class=\"ds-primary\">搜索</button>",
+      "css": ".ds-primary{min-width:48px;min-height:48px;padding:8px 16px;border:0;border-radius:24px;background:#226CC7;color:#fff;font:500 15px system-ui}.ds-primary:hover,.ds-primary:active{background:#2F75CA}.ds-primary:focus-visible{outline:2px solid #172C42;outline-offset:2px}.ds-primary:disabled{background:#E7E8E3;color:#5D6D78}"
+    },
+    {
+      "name": "Shared tonal action",
+      "kind": "button",
+      "refersTo": "button-tonal",
+      "description": "画质、翻页、顺序操作用浅蓝底墨蓝字；按钮高度可随内容增大。HTML/CSS仅文档示意。",
+      "html": "<button class=\"ds-tonal\">下一页</button>",
+      "css": ".ds-tonal{min-width:48px;min-height:48px;padding:8px 16px;border:0;border-radius:24px;background:#E6EDF7;color:#172C42;font:500 15px system-ui}.ds-tonal:hover,.ds-tonal:active{box-shadow:inset 0 0 0 999px #226cc729}.ds-tonal:focus-visible{outline:2px solid #226CC7;outline-offset:2px}.ds-tonal:disabled{background:#E7E8E3;color:#5D6D78}.ds-tonal[aria-pressed=true]{background:#226CC7;color:#fff}"
+    },
+    {
+      "name": "Shared text action",
+      "kind": "button",
+      "refersTo": "button-text",
+      "description": "返回、来源和次要操作的共享按钮；HTML/CSS仅文档示意。",
+      "html": "<button class=\"ds-text\">来源</button>",
+      "css": ".ds-text{min-width:48px;min-height:48px;padding:8px 12px;border:0;border-radius:24px;background:transparent;color:#226CC7;font:500 15px system-ui}.ds-text:hover,.ds-text:active{background:#226cc729}.ds-text:focus-visible{outline:2px solid #226CC7;outline-offset:2px}.ds-text:disabled{background:#E7E8E3;color:#5D6D78}"
+    },
+    {
+      "name": "Legacy home search entry",
+      "kind": "input",
+      "refersTo": "home-search-entry",
+      "description": "首页52dp入口、12dp圆角；旧搜索编辑框另为48dp，不混同于公开片库56dp输入。HTML/CSS仅文档示意。",
+      "html": "<button class=\"ds-home-search\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"10\" cy=\"10\" r=\"6\"/><path d=\"m15 15 5 5\"/></svg>搜索影片和剧集</button>",
+      "css": ".ds-home-search{display:flex;align-items:center;gap:12px;min-height:52px;width:280px;padding:0 12px 0 14px;border:1px solid #D5DDD9;border-radius:12px;background:#fff;color:#5D6D78;font:16px system-ui}.ds-home-search svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8}.ds-home-search:hover,.ds-home-search:active{background:#E6EDF7}.ds-home-search:focus-visible{outline:2px solid #226CC7;outline-offset:2px}"
+    },
+    {
+      "name": "Public catalog search",
+      "kind": "input",
+      "refersTo": "public-search-field",
+      "description": "当前片库搜索：56dp高、16dp圆角、16sp；HTML/CSS仅文档示意。",
+      "html": "<input class=\"ds-public-search\" aria-label=\"影片或剧集名称\" placeholder=\"搜索当前片库\">",
+      "css": ".ds-public-search{height:56px;width:240px;padding:0 16px;border:0;border-radius:16px;background:#fff;color:#172C42;font:16px system-ui}.ds-public-search::placeholder{color:#5D6D78}.ds-public-search:hover{outline:1px solid #D5DDD9}.ds-public-search:focus-visible{outline:2px solid #226CC7;outline-offset:2px}"
+    },
+    {
+      "name": "Source picker",
+      "kind": "input",
+      "refersTo": "source-picker",
+      "description": "现有片源容器与系统Spinner示意；项目名来自配置，没有新增来源。",
+      "html": "<label class=\"ds-source\">片源<select aria-label=\"选择片库\"><option>魔都资源</option><option>360资源</option><option>Blender开放电影</option><option>如意资源</option><option>iKun资源</option><option>光速资源</option><option>红牛资源</option><option>金鹰资源</option></select></label>",
+      "css": ".ds-source{display:flex;align-items:center;gap:8px;width:288px;padding:4px 8px 4px 12px;border-radius:16px;background:#E6EDF7;color:#172C42;font:14px system-ui}.ds-source select{flex:1;min-width:0;min-height:48px;padding:8px 12px;border:0;background:transparent;color:#172C42;font:15px system-ui}.ds-source select:hover{background:#226cc729}.ds-source select:focus-visible{outline:2px solid #226CC7;border-radius:12px}"
+    },
+    {
+      "name": "Category tabs",
+      "kind": "nav",
+      "refersTo": "category-tabs",
+      "description": "原生48dp分类条示意，分类仍由上游动态承接。",
+      "html": "<nav class=\"ds-tabs\" aria-label=\"影片分类\"><button aria-current=\"page\">推荐</button><button>电影</button><button>剧集</button><button>动漫</button></nav>",
+      "css": ".ds-tabs{display:flex;background:#F5F2E9;color:#5D6D78}.ds-tabs button{min-height:48px;padding:0 16px;border:0;border-bottom:2px solid transparent;color:inherit;background:transparent;font:16px system-ui}.ds-tabs [aria-current]{color:#226CC7;border-bottom-color:#226CC7}.ds-tabs button:hover,.ds-tabs button:active{background:#E6EDF7}.ds-tabs button:focus-visible{outline:2px solid #226CC7;outline-offset:-2px}"
+    },
+    {
+      "name": "Actual bottom destinations",
+      "kind": "nav",
+      "refersTo": "bottom-navigation",
+      "description": "72dp底栏，实际仅首页／我的两个路由；HTML/CSS仅文档示意。",
+      "html": "<nav class=\"ds-bottom\" aria-label=\"底部导航\"><button aria-current=\"page\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"m3 10 9-7 9 7v10H3zM9 20v-7h6v7\"/></svg>首页</button><button><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"7\" r=\"4\"/><path d=\"M4 21v-2a8 8 0 0 1 16 0v2\"/></svg>我的</button></nav>",
+      "css": ".ds-bottom{display:flex;width:320px;height:72px;background:#fff;border-top:1px solid #D5DDD9}.ds-bottom button{flex:1;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px;padding:8px;min-height:48px;border:0;background:transparent;color:#5D6D78;font:14px system-ui}.ds-bottom svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linejoin:round}.ds-bottom [aria-current]{color:#226CC7}.ds-bottom button:hover,.ds-bottom button:active{background:#E6EDF7}.ds-bottom button:focus-visible{outline:2px solid #226CC7;outline-offset:-3px}"
+    },
+    {
+      "name": "Episode choice",
+      "kind": "chip",
+      "refersTo": "episode-light",
+      "description": "公开详情56dp基础最小高度、12dp圆角；实际随字体比例放大。HTML/CSS仅文档示意。",
+      "html": "<button class=\"ds-episode\" aria-pressed=\"true\">选集</button>",
+      "css": ".ds-episode{min-height:56px;min-width:88px;padding:8px;border:0;border-radius:12px;background:#fff;color:#172C42;font:15px system-ui}.ds-episode[aria-pressed=true]{color:#226CC7;background:#F3F6FC}.ds-episode:hover,.ds-episode:active{background:#F3F6FC}.ds-episode:focus-visible{outline:2px solid #226CC7;outline-offset:-2px}"
+    },
+    {
+      "name": "Public catalog poster row",
+      "kind": "card",
+      "refersTo": "public-poster",
+      "description": "72×108dp centerCrop海报／双行标题的尺寸示意。灰色封面与文字是明确文档占位，不是实际影片数据。",
+      "html": "<div class=\"ds-film-row\"><div class=\"ds-film-poster\" aria-hidden=\"true\">封面示意</div><div><strong>动态影片标题</strong><p>来源信息</p></div></div>",
+      "css": ".ds-film-row{display:flex;align-items:center;gap:12px;padding:12px 16px;width:288px;background:#fff;color:#172C42;font:16px system-ui}.ds-film-poster{display:flex;align-items:center;justify-content:center;flex:none;width:72px;height:108px;border-radius:12px;background:#D5DDD9;color:#5D6D78;font:12px system-ui}.ds-film-row strong{font-weight:700}.ds-film-row p{margin:4px 0 0;color:#5D6D78;font:14px system-ui}"
+    }
+  ],
+  "narrative": {
+    "northStar": "索引片库",
+    "overview": "用户确认浅米底、墨蓝文字、蓝色重点与紧凑密度。界面以找片和观看为目的，品牌表达落在清楚的对齐、稳定的标题层级和少量蓝色操作态上。\n\n本文记录手机端 1.3.2 的 Android Views 资源、共享 PhoneUi 与公开片库／播放页代码，采用原生 dp/sp。沿用既有 framework 控件和播放器，没有引入 Material 3 组件库。上游影片封面保留原色；HTML 草图和面板示意不作为 APK 原生渲染证据。",
+    "keyCharacteristics": [
+      "浅米背景与白色内容区域，墨蓝主文字。",
+      "蓝色用于品牌、选中态与明确操作，浅蓝操作面使用墨蓝文字。",
+      "紧凑原生列表、影片网格与可辨识的圆角操作。",
+      "真实路由、真实服务归属与动态影片内容。"
+    ],
+    "rules": [
+      {
+        "name": "One Accent",
+        "body": "蓝色承担品牌、选中态和可执行操作；正文、次要信息与分隔线各用自己的颜色角色。",
+        "section": "colors"
+      },
+      {
+        "name": "Native Measure",
+        "body": "布局与触区使用 dp，文字使用 sp；HTML 面板的像素示意不能替代设备上的原生量测。",
+        "section": "typography"
+      },
+      {
+        "name": "Flat Index",
+        "body": "普通内容区域以背景、留白和细分隔线区分层级，不为本次界面增加装饰阴影。",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do 使用现有 tp 颜色角色与系统 sans／sans-serif 字体。",
+      "Do 保留真实路由、控件 ID、绑定 tag、观看进度、手动切源及“我的”隐藏状态。",
+      "Do 保持已整理操作至少 48dp 的代码触区，并将原生字体缩放、系统栏和键盘验证列为待验项目。",
+      "Do 保留影片原色、动态数据、原始来源和作品署名／许可标注。"
+    ],
+    "donts": [
+      "Don't 把 HTML 草图、面板组件、静态检查或 APK 编译写成原生视觉验收通过。",
+      "Don't 新增无实际路由的第三个底部“片库”页面或恢复已隐藏的“我的”功能。",
+      "Don't 将来源标签、非空 URL、最大集号或应用名称写成实测 4K、可播性或最快上传保证。",
+      "Don't 把沿用原播放核心及接口的 fork 描述为从零重写或同频自有片源服务。"
+    ]
+  }
+}

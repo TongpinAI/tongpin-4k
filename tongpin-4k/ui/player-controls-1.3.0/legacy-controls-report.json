@@ -1,0 +1,179 @@
+{
+  "status": "READY",
+  "passed": true,
+  "files": {
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity.smali": {
+      "before_sha256": "335cfda5fa42a1c111eb207b531ac0575a306044a61d2fff32bacc4dc22e3fbc",
+      "after_sha256": "5ac64b221a210d1c05f08af9c04e85639222143277410ba60525d1567bb46831",
+      "modified_methods": [
+        ".method private final I1()V",
+        ".method private final R1()V",
+        ".method private final Z2(ZZZ)V"
+      ],
+      "added_methods": [
+        ".method public legacyEpisodeIndex()I",
+        ".method public legacyEpisodeCount()I",
+        ".method public legacyPlayEpisode(I)V",
+        ".method public legacySeekBy(J)Z"
+      ],
+      "added_interfaces": [
+        "Lcom/tongpin/player4k/catalog/LegacyPlayerControls$Host;"
+      ],
+      "added_fields": [],
+      "unchanged_original_register_locals": true,
+      "byte_exact_121_restoration": true,
+      "required_final_invocations": {
+        ".method private final I1()V": [
+          "Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I",
+          "Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;",
+          "Landroid/widget/Toast;->show()V",
+          "Landroidx/lifecycle/LifecycleOwnerKt;->getLifecycleScope(Landroidx/lifecycle/LifecycleOwner;)Landroidx/lifecycle/LifecycleCoroutineScope;",
+          "Lcom/shenma/tvlauncher/entity/PlayerSource;->getList()Ljava/util/List;",
+          "Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity$c;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;Lcom/shenma/tvlauncher/vod/domain/VodUrl;Lq7/e;)V",
+          "Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->V2()V",
+          "Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->w1()V",
+          "Lcom/shenma/tvlauncher/phone/base/BaseActivity;->getTAG()Ljava/lang/String;",
+          "Lcom/shenma/tvlauncher/phone/base/BaseVmActivity;->getMViewModel()Lcom/shenma/tvlauncher/phone/base/BaseViewModel;",
+          "Lcom/shenma/tvlauncher/phone/viewmodel/a;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V",
+          "Lcom/shenma/tvlauncher/vod/domain/VideoDetailInfo;->getTitle()Ljava/lang/String;",
+          "Lcom/shenma/tvlauncher/vod/domain/VodUrl;->getTitle()Ljava/lang/String;",
+          "Lcom/shenma/tvlauncher/vod/domain/VodUrl;->getUrl()Ljava/lang/String;",
+          "Lcom/tongpin/player4k/catalog/LegacyPlayerControls;->bind(Landroid/app/Activity;Lcom/tongpin/player4k/catalog/LegacyPlayerControls$Host;)V",
+          "Lj8/b1;->c()Lj8/e2;",
+          "Lj8/i;->d(Lj8/n0;Lq7/i;Lj8/p0;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lj8/u1;",
+          "Ljava/lang/String;->valueOf(I)Ljava/lang/String;",
+          "Ljava/lang/StringBuilder;-><init>()V",
+          "Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;",
+          "Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;",
+          "Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;",
+          "Ljava/lang/StringBuilder;->toString()Ljava/lang/String;",
+          "Ljava/util/List;->get(I)Ljava/lang/Object;",
+          "Ljava/util/List;->isEmpty()Z",
+          "Ljava/util/List;->size()I",
+          "Lkotlin/jvm/internal/y;->e(Ljava/lang/Object;Ljava/lang/String;)V"
+        ],
+        ".method private final R1()V": [
+          "Landroid/view/GestureDetector;-><init>(Landroid/content/Context;Landroid/view/GestureDetector$OnGestureListener;)V",
+          "Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V",
+          "Landroid/widget/SeekBar;->setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V",
+          "Landroidx/lifecycle/LiveData;->observe(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Observer;)V",
+          "Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity$e;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+          "Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity$f;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+          "Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity$i;-><init>(Lkotlin/jvm/functions/Function1;)V",
+          "Lcom/shenma/tvlauncher/phone/base/BaseDbActivity;->getMDataBind()Landroidx/databinding/ViewDataBinding;",
+          "Lcom/shenma/tvlauncher/phone/base/BaseVmActivity;->getMViewModel()Lcom/shenma/tvlauncher/phone/base/BaseViewModel;",
+          "Lcom/shenma/tvlauncher/phone/f0;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+          "Lcom/shenma/tvlauncher/phone/g0;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+          "Lcom/shenma/tvlauncher/phone/h0;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+          "Lcom/shenma/tvlauncher/phone/i0;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+          "Lcom/shenma/tvlauncher/phone/j0;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+          "Lcom/shenma/tvlauncher/phone/k0;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+          "Lcom/shenma/tvlauncher/phone/l0;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+          "Lcom/shenma/tvlauncher/phone/m0;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+          "Lcom/shenma/tvlauncher/phone/n0;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+          "Lcom/shenma/tvlauncher/phone/o0;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+          "Lcom/shenma/tvlauncher/phone/q0;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+          "Lcom/shenma/tvlauncher/phone/r0;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+          "Lcom/shenma/tvlauncher/phone/s0;-><init>()V",
+          "Lcom/shenma/tvlauncher/phone/t0;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+          "Lcom/shenma/tvlauncher/phone/u0;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+          "Lcom/shenma/tvlauncher/phone/v0;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+          "Lcom/shenma/tvlauncher/phone/viewmodel/a;->c()Landroidx/lifecycle/MutableLiveData;",
+          "Lcom/shenma/tvlauncher/phone/viewmodel/a;->d()Landroidx/lifecycle/MutableLiveData;",
+          "Lcom/shenma/tvlauncher/phone/w0;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+          "Lcom/shenma/tvlauncher/phone/x0;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+          "Lcom/shenma/tvlauncher/phone/y0;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+          "Lcom/shenma/tvlauncher/phone/z0;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+          "Lcom/tongpin/player4k/catalog/LegacyPlayerControls;->bind(Landroid/app/Activity;Lcom/tongpin/player4k/catalog/LegacyPlayerControls$Host;)V"
+        ],
+        ".method private final Z2(ZZZ)V": [
+          "Landroid/view/View;->isSelected()Z",
+          "Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z",
+          "Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z",
+          "Landroid/view/View;->setVisibility(I)V",
+          "Landroidx/databinding/ViewDataBinding;->getRoot()Landroid/view/View;",
+          "Lcom/shenma/tvlauncher/phone/base/BaseDbActivity;->getMDataBind()Landroidx/databinding/ViewDataBinding;",
+          "Lcom/tongpin/player4k/catalog/LegacyPlayerControls;->bind(Landroid/app/Activity;Lcom/tongpin/player4k/catalog/LegacyPlayerControls$Host;)V",
+          "Lkotlin/jvm/internal/y;->e(Ljava/lang/Object;Ljava/lang/String;)V"
+        ],
+        ".method public legacyEpisodeIndex()I": [],
+        ".method public legacyEpisodeCount()I": [
+          "Lcom/shenma/tvlauncher/entity/PlayerSource;->getList()Ljava/util/List;",
+          "Ljava/util/List;->get(I)Ljava/lang/Object;",
+          "Ljava/util/List;->size()I"
+        ],
+        ".method public legacyPlayEpisode(I)V": [
+          "Lcom/shenma/tvlauncher/entity/PlayerSource;->getList()Ljava/util/List;",
+          "Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->P1(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;Lcom/shenma/tvlauncher/vod/domain/VodUrl;I)Lm7/f0;",
+          "Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->legacyEpisodeCount()I",
+          "Ljava/util/List;->get(I)Ljava/lang/Object;"
+        ],
+        ".method public legacySeekBy(J)Z": [
+          "Lcom/shenma/tvlauncher/phone/base/BaseDbActivity;->getMDataBind()Landroidx/databinding/ViewDataBinding;",
+          "Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoPlayer;->getGSYVideoManager()Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoViewBridge;",
+          "Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->getCurrentState()I",
+          "Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->getDuration()J",
+          "Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->seekTo(J)V",
+          "Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoViewBridge;->getCurrentPosition()J",
+          "Lcom/tongpin/player4k/catalog/LegacyPlayerControls;->seekTarget(JJJ)J"
+        ]
+      }
+    },
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity$n.smali": {
+      "before_sha256": "f59101cc9dffa3eaddc5d54ea4a73e7e6ebf63b75325565b62bdf0b7b5721471",
+      "after_sha256": "802ea3af14b8db8b90db2cf67040d85d69eb276e0fa763319d2d16996384ef30",
+      "modified_methods": [
+        ".method public varargs c(Ljava/lang/String;[Ljava/lang/Object;)V"
+      ],
+      "added_methods": [],
+      "added_interfaces": [],
+      "added_fields": [],
+      "unchanged_original_register_locals": true,
+      "byte_exact_121_restoration": true,
+      "required_final_invocations": {
+        ".method public varargs c(Ljava/lang/String;[Ljava/lang/Object;)V": [
+          "Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I",
+          "Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->I0(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)I",
+          "Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->Q0(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)Ljava/lang/String;",
+          "Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->S0(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+          "Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->d1(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;I)V",
+          "Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->e1(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;I)V",
+          "Lcom/tongpin/player4k/catalog/LegacyPlayerControls;->autoNextEnabled(Landroid/content/Context;)Z",
+          "Ljava/lang/StringBuilder;-><init>()V",
+          "Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;",
+          "Ljava/lang/StringBuilder;->toString()Ljava/lang/String;",
+          "Lkotlin/jvm/internal/y;->f(Ljava/lang/Object;Ljava/lang/String;)V"
+        ]
+      }
+    }
+  },
+  "new_java": {
+    "open-sources/src/com/tongpin/player4k/catalog/LegacyPlayerControls.java": {
+      "sha256": "2b39078d1058ac7bace6992c2cd7c4287368d81b48edef53f88c313bc8bc9997",
+      "new_classes": [
+        "LegacyPlayerControls",
+        "LegacyPlayerControls$Host",
+        "D8-generated own-namespace lambdas"
+      ]
+    }
+  },
+  "policy_assertions": 297,
+  "policy_source_sha256": {
+    "open-sources\\src\\com\\tongpin\\player4k\\catalog\\LegacyPlayerControls.java": "2b39078d1058ac7bace6992c2cd7c4287368d81b48edef53f88c313bc8bc9997",
+    "open-sources\\src\\com\\tongpin\\player4k\\catalog\\PhoneUi.java": "c331ba1765b7beacf23161aafde84eb904c5848a75ddfd61eb9719deaef31714",
+    "ui\\player-controls-1.3.0\\LegacyPlayerControlsTest.java": "e16c2a046c73a3268ba603b653f16ed17c5665f5c745d5b4a35943e088b16b83"
+  },
+  "features": {
+    "manual_previous_next": "Canonical h/count, strict first/last bounds, both reuse original P1 episode click that clears T=0 before I1; independent of display order/auto_next",
+    "existing_more_actions": "View.performClick on original episode/source/speed/aspect/intro-outro/lock listeners; visual GONE only for four old strip items",
+    "seek": "Existing GSY current-state/position/duration/seekTo APIs; only ready states; clamps to [0,duration-1], unknown duration unavailable",
+    "auto_next": "Only VideoDetailPlayActivity$n.c onAutoComplete is gated before mutation; tongpin_ui/auto_next default true shared with public player",
+    "lock": "Original c2/iv_lock handling unchanged; helper does not hide the unlock view or player control parents",
+    "unchanged": "121 timer/insets/aspect geometry, source policy, account/ads, gesture brightness/volume and original callback bodies outside additive hooks"
+  },
+  "native_render_verified": false,
+  "not_performed": [
+    "Activity construction, real native menu/performClick, touch bounds/font scaling or Android playback",
+    "Final DEX assembly/signing owned by root build task"
+  ]
+}

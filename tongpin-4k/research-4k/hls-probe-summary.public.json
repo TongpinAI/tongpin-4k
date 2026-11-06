@@ -1,0 +1,286 @@
+{
+  "checked_for_client_date": "2026-11-02",
+  "scope": "12 bounded direct-HLS samples, not full catalogue census",
+  "limits": {
+    "samples": 12,
+    "concurrency": 3,
+    "seconds_per_stream": 10,
+    "hls_text_bytes_per_stream": 2097152,
+    "first_segment_bytes_cap": 1048576,
+    "init_bytes_cap": 524288,
+    "keys_requested": false,
+    "parsers_used": false
+  },
+  "providers": {
+    "changzhang": {
+      "samples": 6,
+      "manifest_successes": 5,
+      "dimension_successes": 1,
+      "actual_2160p": 0,
+      "at_least_3840_width": 0
+    },
+    "baofeng": {
+      "samples": 6,
+      "manifest_successes": 0,
+      "dimension_successes": 0,
+      "actual_2160p": 0,
+      "at_least_3840_width": 0
+    }
+  },
+  "status_counts": {
+    "probe_failed": 11,
+    "dimensions_observed": 1
+  },
+  "master_2160p_declarations": 0,
+  "total_hls_text_bytes": 703701,
+  "total_media_prefix_bytes": 626980,
+  "samples": [
+    {
+      "provider": "changzhang",
+      "kind": "movie",
+      "vod_id": 148440,
+      "vod_name": "蓝色星球第三季",
+      "type_name": "纪录片",
+      "vod_remarks": "更新至第03集",
+      "vod_time": "2026-11-02 16:01:02",
+      "vod_year": "2026",
+      "probe_status": "probe_failed",
+      "observed_dimensions": [],
+      "actual_2160p_observed": false,
+      "uhd_4k_width_observed": false,
+      "elapsed_seconds": 4.812,
+      "http_statuses": [],
+      "error_type": "ReadTimeout"
+    },
+    {
+      "provider": "changzhang",
+      "kind": "movie",
+      "vod_id": 2300,
+      "vod_name": "诈死游戏",
+      "type_name": "恐怖片",
+      "vod_remarks": "HD中字",
+      "vod_time": "2026-11-02 14:05:27",
+      "vod_year": "2026",
+      "probe_status": "dimensions_observed",
+      "observed_dimensions": [
+        {
+          "index": 0,
+          "codec_name": "h264",
+          "profile": "High",
+          "codec_type": "video",
+          "width": 1920,
+          "height": 800,
+          "pix_fmt": "yuv420p"
+        }
+      ],
+      "actual_2160p_observed": false,
+      "uhd_4k_width_observed": false,
+      "elapsed_seconds": 5.406,
+      "http_statuses": [
+        206,
+        206
+      ],
+      "error_type": null
+    },
+    {
+      "provider": "changzhang",
+      "kind": "movie",
+      "vod_id": 148436,
+      "vod_name": "屋下无人",
+      "type_name": "剧情片",
+      "vod_remarks": "HD",
+      "vod_time": "2026-11-02 14:05:21",
+      "vod_year": "2026",
+      "probe_status": "probe_failed",
+      "observed_dimensions": [],
+      "actual_2160p_observed": false,
+      "uhd_4k_width_observed": false,
+      "elapsed_seconds": 6.25,
+      "http_statuses": [
+        206,
+        403
+      ],
+      "error_type": "HTTPError"
+    },
+    {
+      "provider": "changzhang",
+      "kind": "series",
+      "vod_id": 32,
+      "vod_name": "捉迷藏：0秒前的女友",
+      "type_name": "日本剧",
+      "vod_remarks": "更新至第05集",
+      "vod_time": "2026-11-02 15:51:25",
+      "vod_year": "2026",
+      "probe_status": "probe_failed",
+      "observed_dimensions": [],
+      "actual_2160p_observed": false,
+      "uhd_4k_width_observed": false,
+      "elapsed_seconds": 5.422,
+      "http_statuses": [
+        200,
+        403
+      ],
+      "error_type": "HTTPError"
+    },
+    {
+      "provider": "changzhang",
+      "kind": "series",
+      "vod_id": 10340,
+      "vod_name": "逐玉",
+      "type_name": "国产剧",
+      "vod_remarks": "已完结",
+      "vod_time": "2026-11-02 15:40:06",
+      "vod_year": "2026",
+      "probe_status": "probe_failed",
+      "observed_dimensions": [],
+      "actual_2160p_observed": false,
+      "uhd_4k_width_observed": false,
+      "elapsed_seconds": 5.906,
+      "http_statuses": [
+        200,
+        403
+      ],
+      "error_type": "HTTPError"
+    },
+    {
+      "provider": "changzhang",
+      "kind": "series",
+      "vod_id": 148438,
+      "vod_name": "鬼屋欢乐送第六季",
+      "type_name": "欧美剧",
+      "vod_remarks": "更新至第01集",
+      "vod_time": "2026-11-02 15:32:03",
+      "vod_year": "2026",
+      "probe_status": "probe_failed",
+      "observed_dimensions": [],
+      "actual_2160p_observed": false,
+      "uhd_4k_width_observed": false,
+      "elapsed_seconds": 4.141,
+      "http_statuses": [
+        200,
+        403
+      ],
+      "error_type": "HTTPError"
+    },
+    {
+      "provider": "baofeng",
+      "kind": "movie",
+      "vod_id": 150461,
+      "vod_name": "疯丫头第一季",
+      "type_name": "电影片",
+      "vod_remarks": "完结",
+      "vod_time": "2026-07-01 17:06:44",
+      "vod_year": "2009",
+      "probe_status": "probe_failed",
+      "observed_dimensions": [],
+      "actual_2160p_observed": false,
+      "uhd_4k_width_observed": false,
+      "elapsed_seconds": 1.359,
+      "http_statuses": [
+        404
+      ],
+      "error_type": "HTTPError"
+    },
+    {
+      "provider": "baofeng",
+      "kind": "movie",
+      "vod_id": 48825,
+      "vod_name": "白夜最长时",
+      "type_name": "电影片",
+      "vod_remarks": "高清",
+      "vod_time": "2023-06-19 03:27:22",
+      "vod_year": "2018",
+      "probe_status": "probe_failed",
+      "observed_dimensions": [],
+      "actual_2160p_observed": false,
+      "uhd_4k_width_observed": false,
+      "elapsed_seconds": 1.969,
+      "http_statuses": [
+        404
+      ],
+      "error_type": "HTTPError"
+    },
+    {
+      "provider": "baofeng",
+      "kind": "movie",
+      "vod_id": 48824,
+      "vod_name": "摆渡人粤语版",
+      "type_name": "电影片",
+      "vod_remarks": "",
+      "vod_time": "2023-06-19 03:23:34",
+      "vod_year": "2016",
+      "probe_status": "probe_failed",
+      "observed_dimensions": [],
+      "actual_2160p_observed": false,
+      "uhd_4k_width_observed": false,
+      "elapsed_seconds": 1.422,
+      "http_statuses": [
+        404
+      ],
+      "error_type": "HTTPError"
+    },
+    {
+      "provider": "baofeng",
+      "kind": "series",
+      "vod_id": 47500,
+      "vod_name": "兄弟车行",
+      "type_name": "连续剧",
+      "vod_remarks": "三个汽车修理工",
+      "vod_time": "2023-04-29 22:58:09",
+      "vod_year": "2022",
+      "probe_status": "probe_failed",
+      "observed_dimensions": [],
+      "actual_2160p_observed": false,
+      "uhd_4k_width_observed": false,
+      "elapsed_seconds": 1.672,
+      "http_statuses": [
+        404
+      ],
+      "error_type": "HTTPError"
+    },
+    {
+      "provider": "baofeng",
+      "kind": "series",
+      "vod_id": 47473,
+      "vod_name": "上海沧桑",
+      "type_name": "连续剧",
+      "vod_remarks": "更新至56集",
+      "vod_time": "2023-04-29 22:32:18",
+      "vod_year": "1999",
+      "probe_status": "probe_failed",
+      "observed_dimensions": [],
+      "actual_2160p_observed": false,
+      "uhd_4k_width_observed": false,
+      "elapsed_seconds": 1.875,
+      "http_statuses": [
+        404
+      ],
+      "error_type": "HTTPError"
+    },
+    {
+      "provider": "baofeng",
+      "kind": "series",
+      "vod_id": 47468,
+      "vod_name": "明星制造",
+      "type_name": "连续剧",
+      "vod_remarks": "北漂女孩追逐明星梦",
+      "vod_time": "2023-04-29 22:15:02",
+      "vod_year": "2021",
+      "probe_status": "probe_failed",
+      "observed_dimensions": [],
+      "actual_2160p_observed": false,
+      "uhd_4k_width_observed": false,
+      "elapsed_seconds": 1.531,
+      "http_statuses": [
+        404
+      ],
+      "error_type": "HTTPError"
+    }
+  ],
+  "recommendation": {
+    "changzhang": "Do not integrate as a verified 4K enhancement. Metadata is accessible, but only one bounded media header was measurable and it is 1920x800.",
+    "baofeng": "Do not integrate as a verified 4K enhancement. All six sampled HLS endpoints returned 404.",
+    "scope_limit": "This does not prove the full catalogue has no 4K; it means these samples supply no supporting evidence."
+  },
+  "private_evidence_notice": "Full source URLs, signed hash query strings and playlists are local evidence only. They are omitted from this public summary."
+}

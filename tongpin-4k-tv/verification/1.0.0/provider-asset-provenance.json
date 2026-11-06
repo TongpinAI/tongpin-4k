@@ -1,0 +1,28 @@
+{
+  "source": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\decoded\\assets\\tongpin_open_sources.json",
+  "destination": "assets/tongpin_open_sources.json",
+  "sha256": "dac4189b3d682d1f8a14934ca1418db6732a74ad588c2557153a172e5d8d575e",
+  "providers": [
+    {
+      "id": "mdzy",
+      "name": "魔都资源",
+      "kind": "maccms",
+      "api": "https://www.mdzyapi.com/api.php/provide/vod/",
+      "homepage": "https://mdzyapi.com/"
+    },
+    {
+      "id": "360zy",
+      "name": "360资源",
+      "kind": "maccms",
+      "api": "https://360zy.com/api.php/provide/vod/",
+      "homepage": "https://360zy.com/"
+    },
+    {
+      "id": "blender",
+      "name": "Blender开放电影",
+      "kind": "peertube",
+      "api": "https://video.blender.org/api/v1/video-channels/blender_open_movies/videos?sort=-publishedAt",
+      "homepage": "https://video.blender.org/video-channels/blender_open_movies"
+    }
+  ]
+}

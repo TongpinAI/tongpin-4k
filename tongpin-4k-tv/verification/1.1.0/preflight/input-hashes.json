@@ -1,0 +1,18 @@
+{
+  "src\\com\\tongpin\\player4k\\tv\\CatalogApi.java": "29a1ddc2be33bcefe508bd234cec93b5227945d9f25373409e9e60ce3d41fb93",
+  "src\\com\\tongpin\\player4k\\tv\\TvHomeActivity.java": "092fd85cf2d99cea695168164d3d44ace1216a1ff526228c65a72d6e612031e0",
+  "src\\com\\tongpin\\player4k\\tv\\TvLibraryStore.java": "ba4ae0b27f686435b4e1ae66476dadc632444850a0180c9d74b04a1c92ae4df6",
+  "src\\com\\tongpin\\player4k\\tv\\TvPlayerActivity.java": "4139316dcb7d6cf4104eb4089cbbb1d25a045606c3c2287680e28dae4cbf12fd",
+  "src\\com\\tongpin\\player4k\\tv\\TvUi.java": "3715754d451e64df7b104960f50d446530b1eb6ad141a7b92f932edbf1aac0b5",
+  "res\\drawable\\tv_focus_background.xml": "bdc9f279ec4327488c22299f5adec74728e29b50bafb6f17b699ab4933710bd8",
+  "res\\drawable\\tv_focus_dark.xml": "bea33e58add31e7b9659bfb93ef0cc83662162658fd4912d47560937d056db4d",
+  "res\\drawable\\tv_grid_selector.xml": "5844d7c168efcc46bdef5efd42c9087eed43f88fb8d0dbdbb4842d75691bce7d",
+  "res\\drawable\\tv_search_background.xml": "76d1fa0b330781d5cf15d1a170668d53cc715f29a4d564e61837e92588c8bab6",
+  "res\\drawable-nodpi\\tp_banner.png": "5321ee7198ed556943833b2601fdbdf06c721ed8e215ded75554246769413e88",
+  "res\\drawable-nodpi\\tp_icon.png": "5dd31702b54c9c1a064ae8201e59491e9d9d14a70bb9eaa1a4083e7b8b73e946",
+  "res\\values\\colors.xml": "1efd0e4e0470cfc22467895ccc12d776a8adb61003a2ab43c550f8e62468c0c0",
+  "res\\values\\strings.xml": "09173de634590e321e2f6018b009aeab86ec7e2a6f5ba1ade467b155b84b8ca0",
+  "res\\values\\styles.xml": "6bd2c9f09621d294274d801bdedec58638b8ba945f2f9e1269bc944b63acfd27",
+  "assets\\tongpin_open_sources.json": "f4d9810b075ca7a67d28b22bcb4aeef18d06a37f655c0fa074c5a7a4cbccd658",
+  "AndroidManifest.xml": "8b05db2d9ff44b9c034a9627952ed70c93deb2e657c4bc99176f6ad87eb1a9f0"
+}

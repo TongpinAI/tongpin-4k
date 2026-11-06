@@ -1,0 +1,71 @@
+--- before/decoded/smali_classes5/com/shenma/tvlauncher/phone/PlayerViewportInsets.smali
++++ decoded/smali_classes5/com/shenma/tvlauncher/phone/PlayerViewportInsets.smali
+@@ -15,8 +15,6 @@
+ 
+ .method public onApplyWindowInsets(Landroid/view/View;Landroidx/core/view/WindowInsetsCompat;)Landroidx/core/view/WindowInsetsCompat;
+     .locals 5
+-    iget-boolean v0, p0, Lcom/shenma/tvlauncher/phone/PlayerViewportInsets;->fullscreen:Z
+-    if-eqz v0, :viewport_no_padding
+     invoke-static {}, Landroidx/core/view/WindowInsetsCompat$Type;->systemBars()I
+     move-result v0
+     invoke-static {}, Landroidx/core/view/WindowInsetsCompat$Type;->displayCutout()I
+@@ -28,15 +26,18 @@
+     iget v2, v0, Landroidx/core/graphics/Insets;->top:I
+     iget v3, v0, Landroidx/core/graphics/Insets;->right:I
+     iget v4, v0, Landroidx/core/graphics/Insets;->bottom:I
+-    goto :viewport_set_padding
+-    :viewport_no_padding
+-    const/4 v1, 0x0
+-    move v2, v1
+-    move v3, v1
+-    move v4, v1
+-    :viewport_set_padding
++    iget-boolean v0, p0, Lcom/shenma/tvlauncher/phone/PlayerViewportInsets;->fullscreen:Z
++    if-eqz v0, :viewport_normal_padding
++    # One inset owner: root in normal mode, the black video/control viewport in fullscreen.
++    const/4 v0, 0x0
++    invoke-virtual {p1, v0, v0, v0, v0}, Landroid/view/View;->setPadding(IIII)V
+     iget-object v0, p0, Lcom/shenma/tvlauncher/phone/PlayerViewportInsets;->viewport:Landroid/view/View;
+-    # The black viewport contains both video and controls inside the unobscured rectangle.
+     invoke-virtual {v0, v1, v2, v3, v4}, Landroid/view/View;->setPadding(IIII)V
+     return-object p2
++    :viewport_normal_padding
++    invoke-virtual {p1, v1, v2, v3, v4}, Landroid/view/View;->setPadding(IIII)V
++    iget-object v0, p0, Lcom/shenma/tvlauncher/phone/PlayerViewportInsets;->viewport:Landroid/view/View;
++    const/4 v1, 0x0
++    invoke-virtual {v0, v1, v1, v1, v1}, Landroid/view/View;->setPadding(IIII)V
++    return-object p2
+ .end method
+--- before/decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity.smali
++++ decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity.smali
+@@ -18201,13 +18201,28 @@
+     .locals 4
+     invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+     move-result-object v0
+-    const/4 v1, 0x1
+-    xor-int/2addr v1, p1
++    const/4 v1, 0x0
+     invoke-static {v0, v1}, Landroidx/core/view/WindowCompat;->setDecorFitsSystemWindows(Landroid/view/Window;Z)V
++    const v1, -0xa0d17
++    if-eqz p1, :viewport_status_color
++    const/high16 v1, -0x1000000
++    :viewport_status_color
++    invoke-virtual {v0, v1}, Landroid/view/Window;->setStatusBarColor(I)V
++    if-nez p1, :viewport_navigation_color
++    sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
++    const/16 v3, 0x1a
++    if-ge v2, v3, :viewport_navigation_color
++    const v1, -0xe8d3be
++    :viewport_navigation_color
++    invoke-virtual {v0, v1}, Landroid/view/Window;->setNavigationBarColor(I)V
+     invoke-virtual {v0}, Landroid/view/Window;->getDecorView()Landroid/view/View;
+     move-result-object v1
+     invoke-static {v0, v1}, Landroidx/core/view/WindowCompat;->getInsetsController(Landroid/view/Window;Landroid/view/View;)Landroidx/core/view/WindowInsetsControllerCompat;
+     move-result-object v0
++    const/4 v2, 0x1
++    xor-int/2addr v2, p1
++    invoke-virtual {v0, v2}, Landroidx/core/view/WindowInsetsControllerCompat;->setAppearanceLightStatusBars(Z)V
++    invoke-virtual {v0, v2}, Landroidx/core/view/WindowInsetsControllerCompat;->setAppearanceLightNavigationBars(Z)V
+     invoke-static {}, Landroidx/core/view/WindowInsetsCompat$Type;->systemBars()I
+     move-result v1
+     if-eqz p1, :viewport_show_bars

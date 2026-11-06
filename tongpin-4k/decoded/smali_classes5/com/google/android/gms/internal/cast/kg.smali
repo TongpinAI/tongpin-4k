@@ -1,0 +1,20 @@
+.class abstract Lcom/google/android/gms/internal/cast/kg;
+.super Lcom/google/android/gms/internal/cast/lg;
+.source "r8-map-id-4c0b28e571086534d372af241f48ba94b5a529610dacb5d0006953fc02fc614b"
+
+# interfaces
+.implements Lcom/google/common/util/concurrent/w;
+
+
+# direct methods
+.method constructor <init>()V
+    .locals 0
+
+    .line 1
+    invoke-direct {p0}, Lcom/google/android/gms/internal/cast/lg;-><init>()V
+
+    .line 2
+    .line 3
+    .line 4
+    return-void
+.end method

@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "scope": "actual final classes5 DEX instructions versus frozen tested r2",
+  "show_ms": 3000,
+  "single_initial_window_per_reset": true,
+  "methods": [
+    {
+      "class": "PlaybackResolution",
+      "method": "badgeDeadline(JJII)J",
+      "instructions_sha256": "1c0f716350fd36701552285a0f1db8de07e06e76073ec6547914b15be0b8bd01"
+    },
+    {
+      "class": "PlaybackResolution",
+      "method": "badgeVisible(JJII)Z",
+      "instructions_sha256": "3d6e97efccb1dd02685b0d42dbacbfccc616778d03aa99bbd2f94bdcd76c2154"
+    },
+    {
+      "class": "PlaybackResolution$Monitor",
+      "method": "clear()V",
+      "instructions_sha256": "807a2cc1f0a3a241974a2d18a02b387736237c8220f480db7c9b7f688008672b"
+    },
+    {
+      "class": "PlaybackResolution",
+      "method": "update(Lcom/tongpin/player4k/catalog/PlaybackResolution$Monitor;)V",
+      "instructions_sha256": "a44c1aaaca0e45b610d37eb2895501b8ccb231e3dcb5ead38e9fdfe21450ac39"
+    }
+  ],
+  "native_runtime_tested": false
+}

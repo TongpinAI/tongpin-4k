@@ -1,0 +1,10 @@
+--- before/decoded/AndroidManifest.xml
++++ after/decoded/AndroidManifest.xml
+@@ -347,5 +347,7 @@
+         <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE" />
+         <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver" />
+         <meta-data android:name="com.facebook.soloader.enabled" android:value="false" />
++        <activity android:name="com.tongpin.player4k.catalog.CatalogActivity" android:exported="false" android:theme="@android:style/Theme.Material.Light.NoActionBar" />
++        <activity android:name="com.tongpin.player4k.catalog.OpenPlayerActivity" android:exported="false" android:configChanges="keyboardHidden|orientation|screenSize" android:theme="@android:style/Theme.Material.Light.NoActionBar" />
+     </application>
+ </manifest>

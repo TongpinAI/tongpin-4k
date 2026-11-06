@@ -1,0 +1,12 @@
+warning: [options] source value 8 is obsolete and will be removed in a future release
+warning: [options] target value 8 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+warning: unknown enum constant Scope.LIBRARY_GROUP
+  reason: class file for androidx.annotation.RestrictTo$Scope not found
+warning: unknown enum constant Scope.LIBRARY_GROUP
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+5 warnings
+TvPlayer production static contract assertions passed: 147
+TV seek state assertions passed: 75
+TV decoder policy assertions passed: 31

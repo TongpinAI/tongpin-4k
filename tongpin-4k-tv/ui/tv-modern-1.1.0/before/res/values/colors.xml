@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="tp_bg">#F5F2E9</color>
+    <color name="tp_surface">#FFFFFF</color>
+    <color name="tp_surface_focused">#226CC7</color>
+    <color name="tp_text">#172C42</color>
+    <color name="tp_secondary">#5D6D78</color>
+    <color name="tp_text_secondary">#5D6D78</color>
+    <color name="tp_primary">#226CC7</color>
+    <color name="tp_border">#C8D3DF</color>
+    <color name="tp_player_overlay">#D9172C42</color>
+</resources>

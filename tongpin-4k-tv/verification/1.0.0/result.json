@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "package": "com.tongpin.player4k.tv",
+  "version": "1.0.0",
+  "version_code": 1000,
+  "min_sdk": 21,
+  "target_sdk": 33,
+  "output": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k-tv\\output\\tongpin-4k-tv-1.0.0.apk",
+  "bytes": 123679,
+  "sha256": "6ec111c340c21593dfaf1db8f1c3e43e4c0b86fdacbaecb91d7c85d57cc0bba4",
+  "certificate_sha256": "c6977a378251b81f1dc7f9564d5c7817f4620f54f2f2ec3befe7bfdf13fffe89",
+  "class_count": 71,
+  "native_library_count": 0,
+  "provider_asset_sha256": "dac4189b3d682d1f8a14934ca1418db6732a74ad588c2557153a172e5d8d575e",
+  "min_api_reference_audit": "passed",
+  "source_scope": "Only own com.tongpin Java and own resources; Android framework runtime",
+  "runtime_tested": false,
+  "elapsed_seconds": 4.68,
+  "downloads_copy": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Downloads\\tongpin-4k-tv-1.0.0.apk"
+}

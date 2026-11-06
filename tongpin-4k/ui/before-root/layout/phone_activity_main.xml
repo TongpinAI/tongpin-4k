@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:tag="layout/phone_activity_main_0" android:background="@color/bg_white" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tl="http://schemas.android.com/apk/res-auto">
+    <androidx.viewpager.widget.ViewPager android:id="@id/viewpage" android:layout_width="match_parent" android:layout_height="0.0dp" tl:layout_constraintBottom_toTopOf="@id/tl_tabs" tl:layout_constraintEnd_toEndOf="parent" tl:layout_constraintStart_toStartOf="parent" tl:layout_constraintTop_toTopOf="parent" />
+    <com.flyco.tablayout.CommonTabLayout android:id="@id/tl_tabs" android:background="@color/white" android:layout_width="match_parent" android:layout_height="@dimen/dp_70" tl:layout_constraintBottom_toBottomOf="parent" tl:tl_iconGravity="TOP" tl:tl_iconHeight="@dimen/dp_22" tl:tl_iconMargin="@dimen/dp_2" tl:tl_iconWidth="@dimen/dp_22" tl:tl_indicator_color="@color/transparent" tl:tl_textSelectColor="#2c97de" tl:tl_textUnselectColor="@color/black_333" tl:tl_textsize="@dimen/sp_18" tl:tl_underline_color="@color/transparent" tl:tl_underline_height="1.0px" />
+</androidx.constraintlayout.widget.ConstraintLayout>

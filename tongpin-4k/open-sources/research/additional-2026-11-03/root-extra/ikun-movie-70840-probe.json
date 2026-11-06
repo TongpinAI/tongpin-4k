@@ -1,0 +1,78 @@
+{
+  "provider": "ikun",
+  "kind": "movie",
+  "vod_id": 70840,
+  "title": "她的山间夏日",
+  "type": "剧情片",
+  "updated": "2026-11-02 12:14:49",
+  "remarks": "正片",
+  "episode": "正片",
+  "episode_count": 1,
+  "selected_group": "ikm3u8",
+  "stream": {
+    "url": "https://bfikuncdn.com/20261102/g9jfyz05/index.m3u8"
+  },
+  "probe_status": "dimensions_observed",
+  "requests": [
+    {
+      "url": "https://bfikuncdn.com/20261102/g9jfyz05/index.m3u8",
+      "status": 200,
+      "type": "application/vnd.apple.mpegURL",
+      "content_range": null,
+      "declared_length": null,
+      "read_bytes": 119
+    },
+    {
+      "url": "https://bfikuncdn.com/20261102/g9jfyz05/1526kb/hls/index.m3u8",
+      "status": 200,
+      "type": "application/vnd.apple.mpegURL",
+      "content_range": null,
+      "declared_length": null,
+      "read_bytes": 212684
+    },
+    {
+      "url": "https://kkzycdn.com:65/20261102/g9jfyz05/1526kb/hls/SmEHlnhd.ts",
+      "status": 206,
+      "type": "video/mp2t",
+      "content_range": "bytes 0-384271/384272",
+      "declared_length": "384272",
+      "read_bytes": 384272
+    }
+  ],
+  "text_bytes": 212803,
+  "media_bytes": 384272,
+  "probe_budget_seconds": 10,
+  "max_hls_text_bytes": 2097152,
+  "observed_dimensions": [
+    {
+      "index": 0,
+      "codec_name": "h264",
+      "profile": "High",
+      "codec_type": "video",
+      "width": 1920,
+      "height": 1008,
+      "pix_fmt": "yuv420p"
+    }
+  ],
+  "master_declared_dimensions": [
+    {
+      "url": "https://bfikuncdn.com/20261102/g9jfyz05/1526kb/hls/index.m3u8",
+      "width": 1920,
+      "height": 1008
+    }
+  ],
+  "elapsed_seconds": 5.453,
+  "chosen_variant": {
+    "url": "https://bfikuncdn.com/20261102/g9jfyz05/1526kb/hls/index.m3u8",
+    "width": 1920,
+    "height": 1008,
+    "attributes": "#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=1526000,RESOLUTION=1920x1008"
+  },
+  "first_segment_url": "https://kkzycdn.com:65/20261102/g9jfyz05/1526kb/hls/SmEHlnhd.ts",
+  "header_sha256": "127cad89abcdba844df2c5c864986a986a5e573696652f47e140b19cfff024ff",
+  "ffprobe_exit_code": 0,
+  "ffprobe_stderr": "",
+  "measurement": "bounded first MPEG-TS/media prefix",
+  "actual_2160p_observed": false,
+  "uhd_4k_width_observed": false
+}

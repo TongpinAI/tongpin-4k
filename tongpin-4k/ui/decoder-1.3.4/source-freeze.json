@@ -1,0 +1,11 @@
+{
+  "source_ready": true,
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/DecoderPolicy.java": "57e1335322d9b99eecc9e360417e389c3b144d08619d42718c6413993c77c24a",
+    "open-sources/src/com/tongpin/player4k/catalog/LegacyPlayerControls.java": "121aec6450d737f31084d5e8f1953e2e0ad3d3f876ec96b9d443020beb0fd97f",
+    "open-sources/src/com/tongpin/player4k/catalog/PlayerOptionsSheet.java": "85ef8cfa27771481ee3e257ea6a9f7940a4e7318c8d2ec7c5537880d17e9a3fe",
+    "open-sources/src/com/tongpin/player4k/catalog/OpenPlayerActivity.java": "d4cae6f413bea38ee19c2ceca7760ea110fea74dbe6f29055c24c151d95c79d9",
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity.smali": "a76c3ef0dbc4c8c0ccc3771c364fda899a68dc26d446aa81763c978139d4c633",
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity$e.smali": "9c6feff5414d8309a5a9b639f8106a3d101d44792d651c82d38bca3b03a10c3e"
+  }
+}

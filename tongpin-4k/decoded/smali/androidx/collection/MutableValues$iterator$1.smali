@@ -1,0 +1,314 @@
+.class public final Landroidx/collection/MutableValues$iterator$1;
+.super Ljava/lang/Object;
+.source "r8-map-id-4c0b28e571086534d372af241f48ba94b5a529610dacb5d0006953fc02fc614b"
+
+# interfaces
+.implements Ljava/util/Iterator;
+.implements Lz7/a;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Landroidx/collection/MutableValues;->iterator()Ljava/util/Iterator;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = null
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/Object;",
+        "Ljava/util/Iterator<",
+        "TV;>;",
+        "Lz7/a;"
+    }
+.end annotation
+
+.annotation runtime Lkotlin/Metadata;
+    d1 = {
+        "\u0000%\n\u0000\n\u0002\u0010)\n\u0002\u0010\u000b\n\u0002\u0008\u0004\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0010(\n\u0002\u0010\u0008\n\u0002\u0008\u000b*\u0001\u0000\u0008\n\u0018\u00002\u0008\u0012\u0004\u0012\u00028\u00000\u0001J\u0010\u0010\u0003\u001a\u00020\u0002H\u0096\u0002\u00a2\u0006\u0004\u0008\u0003\u0010\u0004J\u0010\u0010\u0005\u001a\u00028\u0000H\u0096\u0002\u00a2\u0006\u0004\u0008\u0005\u0010\u0006J\u000f\u0010\u0008\u001a\u00020\u0007H\u0016\u00a2\u0006\u0004\u0008\u0008\u0010\tR\u001d\u0010\u000c\u001a\u0008\u0012\u0004\u0012\u00020\u000b0\n8\u0006\u00a2\u0006\u000c\n\u0004\u0008\u000c\u0010\r\u001a\u0004\u0008\u000e\u0010\u000fR\"\u0010\u0010\u001a\u00020\u000b8\u0006@\u0006X\u0086\u000e\u00a2\u0006\u0012\n\u0004\u0008\u0010\u0010\u0011\u001a\u0004\u0008\u0012\u0010\u0013\"\u0004\u0008\u0014\u0010\u0015\u00a8\u0006\u0016"
+    }
+    d2 = {
+        "androidx/collection/MutableValues$iterator$1",
+        "",
+        "",
+        "hasNext",
+        "()Z",
+        "next",
+        "()Ljava/lang/Object;",
+        "Lm7/f0;",
+        "remove",
+        "()V",
+        "",
+        "",
+        "iterator",
+        "Ljava/util/Iterator;",
+        "getIterator",
+        "()Ljava/util/Iterator;",
+        "current",
+        "I",
+        "getCurrent",
+        "()I",
+        "setCurrent",
+        "(I)V",
+        "collection"
+    }
+    k = 0x1
+    mv = {
+        0x1,
+        0x9,
+        0x0
+    }
+    xi = 0x30
+.end annotation
+
+
+# instance fields
+.field private current:I
+
+.field private final iterator:Ljava/util/Iterator;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Iterator<",
+            "Ljava/lang/Integer;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field final synthetic this$0:Landroidx/collection/MutableValues;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroidx/collection/MutableValues<",
+            "TK;TV;>;"
+        }
+    .end annotation
+.end field
+
+
+# direct methods
+.method constructor <init>(Landroidx/collection/MutableValues;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroidx/collection/MutableValues<",
+            "TK;TV;>;)V"
+        }
+    .end annotation
+
+    .line 1
+    iput-object p1, p0, Landroidx/collection/MutableValues$iterator$1;->this$0:Landroidx/collection/MutableValues;
+
+    .line 2
+    .line 3
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 4
+    .line 5
+    .line 6
+    new-instance v0, Landroidx/collection/MutableValues$iterator$1$iterator$1;
+
+    .line 7
+    .line 8
+    const/4 v1, 0x0
+
+    .line 9
+    invoke-direct {v0, p1, v1}, Landroidx/collection/MutableValues$iterator$1$iterator$1;-><init>(Landroidx/collection/MutableValues;Lq7/e;)V
+
+    .line 10
+    .line 11
+    .line 12
+    invoke-static {v0}, Lf8/g;->a(Lkotlin/jvm/functions/Function2;)Ljava/util/Iterator;
+
+    .line 13
+    .line 14
+    .line 15
+    move-result-object p1
+
+    .line 16
+    iput-object p1, p0, Landroidx/collection/MutableValues$iterator$1;->iterator:Ljava/util/Iterator;
+
+    .line 17
+    .line 18
+    const/4 p1, -0x1
+
+    .line 19
+    iput p1, p0, Landroidx/collection/MutableValues$iterator$1;->current:I
+
+    .line 20
+    .line 21
+    return-void
+.end method
+
+
+# virtual methods
+.method public final getCurrent()I
+    .locals 1
+
+    .line 1
+    iget v0, p0, Landroidx/collection/MutableValues$iterator$1;->current:I
+
+    .line 2
+    .line 3
+    return v0
+.end method
+
+.method public final getIterator()Ljava/util/Iterator;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Iterator<",
+            "Ljava/lang/Integer;",
+            ">;"
+        }
+    .end annotation
+
+    .line 1
+    iget-object v0, p0, Landroidx/collection/MutableValues$iterator$1;->iterator:Ljava/util/Iterator;
+
+    .line 2
+    .line 3
+    return-object v0
+.end method
+
+.method public hasNext()Z
+    .locals 1
+
+    .line 1
+    iget-object v0, p0, Landroidx/collection/MutableValues$iterator$1;->iterator:Ljava/util/Iterator;
+
+    .line 2
+    .line 3
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    .line 4
+    .line 5
+    .line 6
+    move-result v0
+
+    .line 7
+    return v0
+.end method
+
+.method public next()Ljava/lang/Object;
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()TV;"
+        }
+    .end annotation
+
+    .line 1
+    iget-object v0, p0, Landroidx/collection/MutableValues$iterator$1;->iterator:Ljava/util/Iterator;
+
+    .line 2
+    .line 3
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    .line 4
+    .line 5
+    .line 6
+    move-result-object v0
+
+    .line 7
+    check-cast v0, Ljava/lang/Number;
+
+    .line 8
+    .line 9
+    invoke-virtual {v0}, Ljava/lang/Number;->intValue()I
+
+    .line 10
+    .line 11
+    .line 12
+    move-result v0
+
+    .line 13
+    iput v0, p0, Landroidx/collection/MutableValues$iterator$1;->current:I
+
+    .line 14
+    .line 15
+    iget-object v0, p0, Landroidx/collection/MutableValues$iterator$1;->this$0:Landroidx/collection/MutableValues;
+
+    .line 16
+    .line 17
+    invoke-static {v0}, Landroidx/collection/MutableValues;->access$getParent$p(Landroidx/collection/MutableValues;)Landroidx/collection/MutableScatterMap;
+
+    .line 18
+    .line 19
+    .line 20
+    move-result-object v0
+
+    .line 21
+    iget-object v0, v0, Landroidx/collection/ScatterMap;->values:[Ljava/lang/Object;
+
+    .line 22
+    .line 23
+    iget v1, p0, Landroidx/collection/MutableValues$iterator$1;->current:I
+
+    .line 24
+    .line 25
+    aget-object v0, v0, v1
+
+    .line 26
+    .line 27
+    return-object v0
+.end method
+
+.method public remove()V
+    .locals 2
+
+    .line 1
+    iget v0, p0, Landroidx/collection/MutableValues$iterator$1;->current:I
+
+    .line 2
+    .line 3
+    if-ltz v0, :cond_0
+
+    .line 4
+    .line 5
+    iget-object v0, p0, Landroidx/collection/MutableValues$iterator$1;->this$0:Landroidx/collection/MutableValues;
+
+    .line 6
+    .line 7
+    invoke-static {v0}, Landroidx/collection/MutableValues;->access$getParent$p(Landroidx/collection/MutableValues;)Landroidx/collection/MutableScatterMap;
+
+    .line 8
+    .line 9
+    .line 10
+    move-result-object v0
+
+    .line 11
+    iget v1, p0, Landroidx/collection/MutableValues$iterator$1;->current:I
+
+    .line 12
+    .line 13
+    invoke-virtual {v0, v1}, Landroidx/collection/MutableScatterMap;->removeValueAt(I)Ljava/lang/Object;
+
+    .line 14
+    .line 15
+    .line 16
+    const/4 v0, -0x1
+
+    .line 17
+    iput v0, p0, Landroidx/collection/MutableValues$iterator$1;->current:I
+
+    .line 18
+    .line 19
+    :cond_0
+    return-void
+.end method
+
+.method public final setCurrent(I)V
+    .locals 0
+
+    .line 1
+    iput p1, p0, Landroidx/collection/MutableValues$iterator$1;->current:I
+
+    .line 2
+    .line 3
+    return-void
+.end method

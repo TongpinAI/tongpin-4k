@@ -1,0 +1,21 @@
+{
+  "ready_for_build": true,
+  "reason": "Root final frozen config approved; packaging completed",
+  "providers": [
+    "mdzy",
+    "360zy",
+    "blender",
+    "ryzy",
+    "ikun",
+    "guangsu",
+    "hongniu",
+    "jinying"
+  ],
+  "candidate_asset_sha256": "f4d9810b075ca7a67d28b22bcb4aeef18d06a37f655c0fa074c5a7a4cbccd658",
+  "java_sources_unchanged": 5,
+  "own_smali_unchanged": 65,
+  "legacy_method_proof_files_unchanged": 5,
+  "apk_built": true,
+  "output_sha256": "17d0fc189445c681bc58bec6499867917bd94707f158b97b95c7d9c6f7860e72",
+  "all_five_dex_identical_to_1_1_3": true
+}

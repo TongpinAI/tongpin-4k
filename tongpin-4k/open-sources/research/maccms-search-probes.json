@@ -1,0 +1,22 @@
+[
+  {
+    "provider": "mdzy",
+    "url": "https://www.mdzyapi.com/api.php/provide/vod/?ac=list&wd=%E5%B0%9A%E5%85%AC%E4%B8%BB&pg=1",
+    "status": 200,
+    "code": 1,
+    "total": 1,
+    "names": [
+      "尚公主"
+    ]
+  },
+  {
+    "provider": "360zy",
+    "url": "https://360zy.com/api.php/provide/vod/?ac=list&wd=%E5%B0%9A%E5%85%AC%E4%B8%BB&pg=1",
+    "status": 200,
+    "code": 1,
+    "total": 1,
+    "names": [
+      "尚公主"
+    ]
+  }
+]

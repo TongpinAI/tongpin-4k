@@ -1,0 +1,85 @@
+.class public Lcom/byazt/crk/jx$3;
+.super Ljava/lang/Object;
+
+# interfaces
+.implements Ljava/lang/Runnable;
+
+
+# annotations
+.annotation runtime Lcom/byazt/kj/hp;
+    hp = {
+        0x0,
+        0x1,
+        0xa0,
+        0x11
+    }
+.end annotation
+
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/byazt/crk/jx;->apply()V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x0
+    name = null
+.end annotation
+
+
+# instance fields
+.field public final synthetic hp:Lcom/byazt/crk/jx;
+
+
+# direct methods
+.method public constructor <init>(Lcom/byazt/crk/jx;)V
+    .locals 0
+
+    .line 1
+    iput-object p1, p0, Lcom/byazt/crk/jx$3;->hp:Lcom/byazt/crk/jx;
+
+    .line 2
+    .line 3
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 4
+    .line 5
+    .line 6
+    return-void
+.end method
+
+
+# virtual methods
+.method public run()V
+    .locals 2
+
+    .line 1
+    iget-object v0, p0, Lcom/byazt/crk/jx$3;->hp:Lcom/byazt/crk/jx;
+
+    .line 2
+    .line 3
+    invoke-static {v0}, Lcom/byazt/crk/jx;->j(Lcom/byazt/crk/jx;)Ljava/util/concurrent/atomic/AtomicBoolean;
+
+    .line 4
+    .line 5
+    .line 6
+    move-result-object v0
+
+    .line 7
+    const/4 v1, 0x0
+
+    .line 8
+    invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
+
+    .line 9
+    .line 10
+    .line 11
+    iget-object v0, p0, Lcom/byazt/crk/jx$3;->hp:Lcom/byazt/crk/jx;
+
+    .line 12
+    .line 13
+    invoke-virtual {v0}, Lcom/byazt/crk/jx;->apply()V
+
+    .line 14
+    .line 15
+    .line 16
+    return-void
+.end method

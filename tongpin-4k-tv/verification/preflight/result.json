@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "class_count": 71,
+  "min_api_audit_passed": true,
+  "inputs_changed_during_preflight": [],
+  "signed": false,
+  "release_created": false,
+  "runtime_tested": false,
+  "elapsed_seconds": 3.1
+}

@@ -1,0 +1,19 @@
+{
+  "sha256": "6132056278d44533060bd119e8234430f47dc59352c69ee271c9799e27fe530c",
+  "matched_methods": 1,
+  "calls": {
+    "startActivity": 1,
+    "finish": 1,
+    "O": 1,
+    "M": 1,
+    "Q": 1,
+    "T": 0,
+    "setImageURI": 0,
+    "getDz": 0,
+    "getTz": 0,
+    "setOnClickListener": 0,
+    "delay": 0,
+    "initA": 1,
+    "initB": 1
+  }
+}

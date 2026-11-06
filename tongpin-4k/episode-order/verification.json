@@ -1,0 +1,90 @@
+{
+  "passed": true,
+  "checks": [
+    "exact changed/added method whitelist; every other method and nonmethod content retained",
+    "public reflection ABI exact; popup preserves its original private-copy reversal and single canonical callback conversion",
+    "ALL_TITLE is formerly unbound w.A TextView, not existing open/close listener; R1/V1/W1 unchanged",
+    "all original layout IDs/types/binding tags preserved; only reused global tv_order; 48dp controls and inline list spacing",
+    "source popup continues hiding shared order control; no source selection hook added"
+  ],
+  "method_whitelist": {
+    "smali_classes5/f6/g.smali": {
+      "modified": [
+        "c(Lf6/g$a;I)V",
+        "e(Lf6/g;ILcom/shenma/tvlauncher/vod/domain/VodUrl;Lf6/g$a;Landroid/view/View;)V"
+      ],
+      "added": [
+        "episodePosition(I)I",
+        "setEpisodeReversed(Z)V"
+      ],
+      "unchanged_methods": 13
+    },
+    "smali_classes5/h6/g0.smali": {
+      "modified": [
+        "<init>(Landroid/content/Context;Ljava/util/List;I)V",
+        "d()V",
+        "f(Lh6/g0;Landroid/widget/ImageView;Landroid/widget/TextView;Lf6/g;Landroid/view/View;)V"
+      ],
+      "added": [],
+      "unchanged_methods": 4
+    },
+    "smali_classes5/h6/c.smali": {
+      "modified": [
+        "d(Landroidx/recyclerview/widget/RecyclerView;Lh6/c;)V",
+        "onCreate(Landroid/os/Bundle;)V"
+      ],
+      "added": [],
+      "unchanged_methods": 5
+    },
+    "smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity.smali": {
+      "modified": [
+        "O1()V"
+      ],
+      "added": [
+        "refreshEpisodeOrder()V"
+      ],
+      "unchanged_methods": 186
+    }
+  },
+  "layouts": {
+    "phone_activity_video_detail_play.xml": {
+      "old_ids": 49,
+      "new_ids": 50,
+      "added_existing_global_ids": [
+        "@id/tv_order"
+      ],
+      "binding_tag": "layout/phone_activity_video_detail_play_0"
+    },
+    "dialog_bottom_juji.xml": {
+      "old_ids": 2,
+      "new_ids": 3,
+      "added_existing_global_ids": [
+        "@id/tv_order"
+      ],
+      "binding_tag": "layout/dialog_bottom_juji_0"
+    },
+    "popup_window_juji.xml": {
+      "old_ids": 5,
+      "new_ids": 5,
+      "added_existing_global_ids": [],
+      "binding_tag": "layout/popup_window_juji_0"
+    }
+  },
+  "helper_sha256": "f9b4ecc8d3bb318991fd25c99cf10dfd88c183511047d83bb6715bc51b3ea66f",
+  "files_sha256": {
+    "smali_classes5/f6/g.smali": "084b684688ad2dbd07e2b54da5ad31913530391e75578e9092097dcb17d07fcb",
+    "smali_classes5/h6/g0.smali": "df20dd559bc36e5d45b71a4529229c9f648c6e7297aa6d3e3d6bf81c36460b30",
+    "smali_classes5/h6/c.smali": "c57e64222bedd982d2a3aeb9f1ee47d1170678a33812f050f3e2cc71b1a44953",
+    "smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity.smali": "b3c99f17e09a5a21b910b7bcb8eaacc13ca8c087b00b8596e9d521a2d3f72dfe",
+    "res/layout/phone_activity_video_detail_play.xml": "b375c6808630233ebd05c22d71551eb959705bcfec5786dbd0e8a0d35250bd30",
+    "res/layout/dialog_bottom_juji.xml": "a38a08339586c4ef35cafe553c752c514217e28d870456bdf5b285542a864172",
+    "res/layout/popup_window_juji.xml": "af5c2ec0e6843159ee95995806a4544b875624973737b4e302bdecbe99f27689"
+  },
+  "production_index_tests": "PASS: 50 production helper assertions; Android UI was not instantiated.",
+  "owned_dex_sha256": "5aff3fd15d7ff0c97d3fc569b0dbf535248aed72c1d9922f509b31c023b323a9",
+  "limits": [
+    "Host executed production pure index method, not Android UI/RecyclerView.",
+    "Smali assembly validates instruction encoding and references; ART runtime and reflection behavior await device testing.",
+    "No phone installed/launched; visual spacing, large fonts, rotations, and actual episode playback remain device checks."
+  ]
+}

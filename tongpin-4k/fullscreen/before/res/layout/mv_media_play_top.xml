@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:gravity="bottom" android:orientation="horizontal" android:tag="layout/mv_media_play_top_0" android:background="@drawable/text_bg_" android:layout_width="match_parent" android:layout_height="@dimen/dp_70"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/back" android:layout_width="@dimen/dp_40" android:layout_height="@dimen/dp_30" android:layout_marginTop="@dimen/dp_26" android:src="@drawable/icon_back" android:layout_marginStart="@dimen/dp_16" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    <TextView android:textSize="@dimen/sp_18" android:textColor="@color/white" android:layout_gravity="center_vertical" android:id="@id/tv_currentTime" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/dp_8" app:layout_constraintBottom_toBottomOf="@id/back" app:layout_constraintStart_toEndOf="@id/back" app:layout_constraintTop_toTopOf="@id/back" />
+    <ImageView android:id="@id/iv_scale" android:layout_width="@dimen/dp_40" android:layout_height="@dimen/dp_30" android:layout_marginTop="@dimen/dp_10" android:src="@drawable/icon_la_shen" android:layout_marginEnd="@dimen/dp_40" app:layout_constraintBottom_toBottomOf="@id/back" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="@id/back" />
+</androidx.constraintlayout.widget.ConstraintLayout>

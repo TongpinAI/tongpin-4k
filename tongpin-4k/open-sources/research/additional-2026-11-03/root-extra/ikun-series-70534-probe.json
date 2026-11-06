@@ -1,0 +1,78 @@
+{
+  "provider": "ikun",
+  "kind": "series",
+  "vod_id": 70534,
+  "title": "伟大的长征",
+  "type": "国产剧",
+  "updated": "2026-11-02 20:21:22",
+  "remarks": "更新至43集",
+  "episode": "第43集",
+  "episode_count": 43,
+  "selected_group": "ikm3u8",
+  "stream": {
+    "url": "https://bfikuncdn.com/20261102/l9nkk2DU/index.m3u8"
+  },
+  "probe_status": "dimensions_observed",
+  "requests": [
+    {
+      "url": "https://bfikuncdn.com/20261102/l9nkk2DU/index.m3u8",
+      "status": 200,
+      "type": "application/vnd.apple.mpegURL",
+      "content_range": null,
+      "declared_length": null,
+      "read_bytes": 118
+    },
+    {
+      "url": "https://bfikuncdn.com/20261102/l9nkk2DU/1162kb/hls/index.m3u8",
+      "status": 200,
+      "type": "application/vnd.apple.mpegURL",
+      "content_range": null,
+      "declared_length": null,
+      "read_bytes": 105299
+    },
+    {
+      "url": "https://kkzycdn.com:65/20261102/l9nkk2DU/1162kb/hls/uOg7ptgF.ts",
+      "status": 206,
+      "type": "video/mp2t",
+      "content_range": "bytes 0-482595/482596",
+      "declared_length": "482596",
+      "read_bytes": 482596
+    }
+  ],
+  "text_bytes": 105417,
+  "media_bytes": 482596,
+  "probe_budget_seconds": 10,
+  "max_hls_text_bytes": 2097152,
+  "observed_dimensions": [
+    {
+      "index": 0,
+      "codec_name": "h264",
+      "profile": "High",
+      "codec_type": "video",
+      "width": 1920,
+      "height": 800,
+      "pix_fmt": "yuv420p"
+    }
+  ],
+  "master_declared_dimensions": [
+    {
+      "url": "https://bfikuncdn.com/20261102/l9nkk2DU/1162kb/hls/index.m3u8",
+      "width": 1920,
+      "height": 800
+    }
+  ],
+  "elapsed_seconds": 3.25,
+  "chosen_variant": {
+    "url": "https://bfikuncdn.com/20261102/l9nkk2DU/1162kb/hls/index.m3u8",
+    "width": 1920,
+    "height": 800,
+    "attributes": "#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=1162000,RESOLUTION=1920x800"
+  },
+  "first_segment_url": "https://kkzycdn.com:65/20261102/l9nkk2DU/1162kb/hls/uOg7ptgF.ts",
+  "header_sha256": "b258d38487c2cf8560e46efd8de8837f21cc057eb2eac0f2916d8a5ddc1ba6d6",
+  "ffprobe_exit_code": 0,
+  "ffprobe_stderr": "",
+  "measurement": "bounded first MPEG-TS/media prefix",
+  "actual_2160p_observed": false,
+  "uhd_4k_width_observed": false
+}

@@ -1,0 +1,467 @@
+{
+  "code": 1,
+  "msg": "数据列表",
+  "page": 1,
+  "pagecount": 836,
+  "limit": "20",
+  "total": 16703,
+  "list": [
+    {
+      "vod_id": 109096,
+      "vod_name": "她的山间夏日",
+      "type_id": 11,
+      "type_name": "剧情片",
+      "vod_en": "tadeshanjianxiari",
+      "vod_time": "2026-11-02 14:22:43",
+      "vod_remarks": "正片",
+      "vod_play_from": "360zy"
+    },
+    {
+      "vod_id": 109095,
+      "vod_name": "宛如爱情",
+      "type_id": 11,
+      "type_name": "剧情片",
+      "vod_en": "wanruaiqing",
+      "vod_time": "2026-11-02 13:46:04",
+      "vod_remarks": "正片",
+      "vod_play_from": "360zy"
+    },
+    {
+      "vod_id": 109029,
+      "vod_name": "野猪岭",
+      "type_id": 11,
+      "type_name": "剧情片",
+      "vod_en": "yezhuling",
+      "vod_time": "2026-11-01 19:19:47",
+      "vod_remarks": "正片",
+      "vod_play_from": "360zy"
+    },
+    {
+      "vod_id": 109027,
+      "vod_name": "茫然女王",
+      "type_id": 11,
+      "type_name": "剧情片",
+      "vod_en": "mangrannvwang",
+      "vod_time": "2026-11-01 18:22:09",
+      "vod_remarks": "正片",
+      "vod_play_from": "360zy"
+    },
+    {
+      "vod_id": 109026,
+      "vod_name": "爸爸",
+      "type_id": 11,
+      "type_name": "剧情片",
+      "vod_en": "baba",
+      "vod_time": "2026-11-01 18:09:15",
+      "vod_remarks": "正片",
+      "vod_play_from": "360zy"
+    },
+    {
+      "vod_id": 109023,
+      "vod_name": "毛骨悚然撞鬼经2026秋季特别篇",
+      "type_id": 11,
+      "type_name": "剧情片",
+      "vod_en": "maogusongranzhuangguijing2026qiujitebiepian",
+      "vod_time": "2026-11-01 12:51:56",
+      "vod_remarks": "正片",
+      "vod_play_from": "360zy"
+    },
+    {
+      "vod_id": 108959,
+      "vod_name": "冬旅人",
+      "type_id": 11,
+      "type_name": "剧情片",
+      "vod_en": "donglvren",
+      "vod_time": "2026-10-31 18:03:53",
+      "vod_remarks": "正片",
+      "vod_play_from": "360zy"
+    },
+    {
+      "vod_id": 108887,
+      "vod_name": "天启Z：新世界",
+      "type_id": 11,
+      "type_name": "剧情片",
+      "vod_en": "tianqiZxinshijie",
+      "vod_time": "2026-10-30 18:58:43",
+      "vod_remarks": "正片",
+      "vod_play_from": "360zy"
+    },
+    {
+      "vod_id": 108886,
+      "vod_name": "罗斯",
+      "type_id": 11,
+      "type_name": "剧情片",
+      "vod_en": "luosi",
+      "vod_time": "2026-10-30 18:33:58",
+      "vod_remarks": "正片",
+      "vod_play_from": "360zy"
+    },
+    {
+      "vod_id": 108816,
+      "vod_name": "突如其来",
+      "type_id": 11,
+      "type_name": "剧情片",
+      "vod_en": "turuqilai",
+      "vod_time": "2026-10-29 14:38:35",
+      "vod_remarks": "正片",
+      "vod_play_from": "360zy"
+    },
+    {
+      "vod_id": 108810,
+      "vod_name": "挺好的",
+      "type_id": 11,
+      "type_name": "剧情片",
+      "vod_en": "tinghaode",
+      "vod_time": "2026-10-29 12:01:58",
+      "vod_remarks": "正片",
+      "vod_play_from": "360zy"
+    },
+    {
+      "vod_id": 108809,
+      "vod_name": "燃烧吧！爸爸",
+      "type_id": 11,
+      "type_name": "剧情片",
+      "vod_en": "ranshaobababa",
+      "vod_time": "2026-10-29 11:59:20",
+      "vod_remarks": "正片",
+      "vod_play_from": "360zy"
+    },
+    {
+      "vod_id": 108808,
+      "vod_name": "疾速保镖",
+      "type_id": 11,
+      "type_name": "剧情片",
+      "vod_en": "jisubaobiao",
+      "vod_time": "2026-10-29 11:57:57",
+      "vod_remarks": "正片",
+      "vod_play_from": "360zy"
+    },
+    {
+      "vod_id": 108749,
+      "vod_name": "托尼",
+      "type_id": 11,
+      "type_name": "剧情片",
+      "vod_en": "tuoni",
+      "vod_time": "2026-10-28 18:34:30",
+      "vod_remarks": "正片",
+      "vod_play_from": "360zy"
+    },
+    {
+      "vod_id": 108685,
+      "vod_name": "不存在的罪人",
+      "type_id": 11,
+      "type_name": "剧情片",
+      "vod_en": "bucunzaidezuiren",
+      "vod_time": "2026-10-27 18:59:39",
+      "vod_remarks": "正片",
+      "vod_play_from": "360zy"
+    },
+    {
+      "vod_id": 108556,
+      "vod_name": "朱庇特万岁！",
+      "type_id": 11,
+      "type_name": "剧情片",
+      "vod_en": "zhubitewansui",
+      "vod_time": "2026-10-25 14:11:11",
+      "vod_remarks": "正片",
+      "vod_play_from": "360zy"
+    },
+    {
+      "vod_id": 108516,
+      "vod_name": "战邮1942",
+      "type_id": 11,
+      "type_name": "剧情片",
+      "vod_en": "zhanyou1942",
+      "vod_time": "2026-10-25 13:23:55",
+      "vod_remarks": "正片",
+      "vod_play_from": "360zy"
+    },
+    {
+      "vod_id": 108491,
+      "vod_name": "黑球",
+      "type_id": 11,
+      "type_name": "剧情片",
+      "vod_en": "heiqiu",
+      "vod_time": "2026-10-24 22:01:21",
+      "vod_remarks": "正片",
+      "vod_play_from": "360zy"
+    },
+    {
+      "vod_id": 108489,
+      "vod_name": "实习生2026",
+      "type_id": 11,
+      "type_name": "剧情片",
+      "vod_en": "shixisheng2026",
+      "vod_time": "2026-10-24 18:47:30",
+      "vod_remarks": "正片",
+      "vod_play_from": "360zy"
+    },
+    {
+      "vod_id": 108485,
+      "vod_name": "屋久岛的幻梦",
+      "type_id": 11,
+      "type_name": "剧情片",
+      "vod_en": "wujiudaodehuanmeng",
+      "vod_time": "2026-10-24 13:14:44",
+      "vod_remarks": "正片",
+      "vod_play_from": "360zy"
+    }
+  ],
+  "class": [
+    {
+      "type_id": 1,
+      "type_pid": 0,
+      "type_name": "电影"
+    },
+    {
+      "type_id": 2,
+      "type_pid": 0,
+      "type_name": "连续剧"
+    },
+    {
+      "type_id": 3,
+      "type_pid": 0,
+      "type_name": "综艺"
+    },
+    {
+      "type_id": 4,
+      "type_pid": 0,
+      "type_name": "动漫"
+    },
+    {
+      "type_id": 5,
+      "type_pid": 0,
+      "type_name": "伦理片"
+    },
+    {
+      "type_id": 6,
+      "type_pid": 1,
+      "type_name": "动作片"
+    },
+    {
+      "type_id": 7,
+      "type_pid": 1,
+      "type_name": "喜剧片"
+    },
+    {
+      "type_id": 8,
+      "type_pid": 1,
+      "type_name": "爱情片"
+    },
+    {
+      "type_id": 9,
+      "type_pid": 1,
+      "type_name": "科幻片"
+    },
+    {
+      "type_id": 10,
+      "type_pid": 1,
+      "type_name": "恐怖片"
+    },
+    {
+      "type_id": 11,
+      "type_pid": 1,
+      "type_name": "剧情片"
+    },
+    {
+      "type_id": 12,
+      "type_pid": 1,
+      "type_name": "战争片"
+    },
+    {
+      "type_id": 13,
+      "type_pid": 2,
+      "type_name": "国产剧"
+    },
+    {
+      "type_id": 14,
+      "type_pid": 2,
+      "type_name": "香港剧"
+    },
+    {
+      "type_id": 15,
+      "type_pid": 2,
+      "type_name": "韩国剧"
+    },
+    {
+      "type_id": 16,
+      "type_pid": 2,
+      "type_name": "欧美剧"
+    },
+    {
+      "type_id": 17,
+      "type_pid": 0,
+      "type_name": "体育"
+    },
+    {
+      "type_id": 18,
+      "type_pid": 17,
+      "type_name": "NBA"
+    },
+    {
+      "type_id": 20,
+      "type_pid": 1,
+      "type_name": "惊悚片"
+    },
+    {
+      "type_id": 21,
+      "type_pid": 1,
+      "type_name": "家庭篇"
+    },
+    {
+      "type_id": 22,
+      "type_pid": 1,
+      "type_name": "古装片"
+    },
+    {
+      "type_id": 23,
+      "type_pid": 1,
+      "type_name": "历史片"
+    },
+    {
+      "type_id": 24,
+      "type_pid": 1,
+      "type_name": "悬疑片"
+    },
+    {
+      "type_id": 25,
+      "type_pid": 1,
+      "type_name": "犯罪片"
+    },
+    {
+      "type_id": 26,
+      "type_pid": 1,
+      "type_name": "灾难片"
+    },
+    {
+      "type_id": 27,
+      "type_pid": 1,
+      "type_name": "纪录片"
+    },
+    {
+      "type_id": 28,
+      "type_pid": 1,
+      "type_name": "短片"
+    },
+    {
+      "type_id": 29,
+      "type_pid": 1,
+      "type_name": "动画片"
+    },
+    {
+      "type_id": 30,
+      "type_pid": 2,
+      "type_name": "台湾剧"
+    },
+    {
+      "type_id": 31,
+      "type_pid": 2,
+      "type_name": "日本剧"
+    },
+    {
+      "type_id": 32,
+      "type_pid": 2,
+      "type_name": "海外剧"
+    },
+    {
+      "type_id": 33,
+      "type_pid": 2,
+      "type_name": "泰国剧"
+    },
+    {
+      "type_id": 34,
+      "type_pid": 3,
+      "type_name": "大陆综艺"
+    },
+    {
+      "type_id": 35,
+      "type_pid": 3,
+      "type_name": "港台综艺"
+    },
+    {
+      "type_id": 36,
+      "type_pid": 3,
+      "type_name": "日韩综艺"
+    },
+    {
+      "type_id": 37,
+      "type_pid": 3,
+      "type_name": "欧美综艺"
+    },
+    {
+      "type_id": 38,
+      "type_pid": 4,
+      "type_name": "国产动漫"
+    },
+    {
+      "type_id": 39,
+      "type_pid": 4,
+      "type_name": "欧美动漫"
+    },
+    {
+      "type_id": 40,
+      "type_pid": 4,
+      "type_name": "日韩动漫"
+    },
+    {
+      "type_id": 41,
+      "type_pid": 17,
+      "type_name": "足球"
+    },
+    {
+      "type_id": 42,
+      "type_pid": 17,
+      "type_name": "篮球"
+    },
+    {
+      "type_id": 43,
+      "type_pid": 1,
+      "type_name": "未分类"
+    },
+    {
+      "type_id": 45,
+      "type_pid": 1,
+      "type_name": "西部片"
+    },
+    {
+      "type_id": 46,
+      "type_pid": 0,
+      "type_name": "爽文短剧"
+    },
+    {
+      "type_id": 47,
+      "type_pid": 46,
+      "type_name": "现代都市"
+    },
+    {
+      "type_id": 48,
+      "type_pid": 46,
+      "type_name": "脑洞悬疑"
+    },
+    {
+      "type_id": 49,
+      "type_pid": 46,
+      "type_name": "年代穿越"
+    },
+    {
+      "type_id": 50,
+      "type_pid": 46,
+      "type_name": "古装仙侠"
+    },
+    {
+      "type_id": 51,
+      "type_pid": 46,
+      "type_name": "反转爽剧"
+    },
+    {
+      "type_id": 52,
+      "type_pid": 46,
+      "type_name": "女频恋爱"
+    },
+    {
+      "type_id": 53,
+      "type_pid": 46,
+      "type_name": "成长逆袭"
+    }
+  ]
+}

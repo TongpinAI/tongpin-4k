@@ -1,0 +1,561 @@
+{
+  "status": "passed",
+  "checked_gsy_invocations": 55,
+  "framework_inherited_invocations": 5,
+  "callback_methods_verified": 23,
+  "callback_interface_has_no_parent_interfaces": true,
+  "callback_mapping": {
+    "i": "onPrepared",
+    "d": "onPlayError",
+    "f": "onQuitFullscreen",
+    "u": "onEnterFullscreen"
+  },
+  "unresolved": [],
+  "calls": [
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks.smali",
+      "invoke": "invoke-virtual {v0}, Lcom/shuyu/gsyvideoplayer/utils/OrientationUtils;->backToProtVideo()I",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/utils/OrientationUtils",
+        "line": 489,
+        "declaration": ".method public backToProtVideo()I"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks.smali",
+      "invoke": "invoke-virtual {v0}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->getCurrentPlayer()Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer",
+        "line": 1828,
+        "declaration": ".method public getCurrentPlayer()Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks.smali",
+      "invoke": "invoke-virtual {v0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;->onVideoPause()V",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/video/base/GSYVideoView",
+        "line": 3019,
+        "declaration": ".method public onVideoPause()V"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks.smali",
+      "invoke": "invoke-virtual {v0, v1}, Lcom/shuyu/gsyvideoplayer/utils/OrientationUtils;->setEnable(Z)V",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/utils/OrientationUtils",
+        "line": 1107,
+        "declaration": ".method public setEnable(Z)V"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks.smali",
+      "invoke": "invoke-virtual {v1}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->getCurrentPlayer()Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer",
+        "line": 1828,
+        "declaration": ".method public getCurrentPlayer()Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-virtual {v0}, Lcom/shuyu/gsyvideoplayer/utils/OrientationUtils;->resolveByClick()V",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/utils/OrientationUtils",
+        "line": 778,
+        "declaration": ".method public resolveByClick()V"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-virtual {v0, p0, v1, v1}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->startWindowFullscreen(Landroid/content/Context;ZZ)Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer",
+        "line": 5230,
+        "declaration": ".method public startWindowFullscreen(Landroid/content/Context;ZZ)Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-virtual {v1}, Lcom/shuyu/gsyvideoplayer/utils/OrientationUtils;->backToProtVideo()I",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/utils/OrientationUtils",
+        "line": 489,
+        "declaration": ".method public backToProtVideo()I"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-static {p0}, Lk6/c;->C(Landroid/content/Context;)Z",
+      "resolved": {
+        "owner": "k6/c",
+        "line": 65,
+        "declaration": ".method public static C(Landroid/content/Context;)Z"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-virtual {v0}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->getCurrentPlayer()Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer",
+        "line": 1828,
+        "declaration": ".method public getCurrentPlayer()Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-virtual {v0}, Lcom/shuyu/gsyvideoplayer/utils/OrientationUtils;->backToProtVideo()I",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/utils/OrientationUtils",
+        "line": 489,
+        "declaration": ".method public backToProtVideo()I"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-static {p0}, Lk6/c;->C(Landroid/content/Context;)Z",
+      "resolved": {
+        "owner": "k6/c",
+        "line": 65,
+        "declaration": ".method public static C(Landroid/content/Context;)Z"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-virtual {p2}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->getCurrentPlayer()Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer",
+        "line": 1828,
+        "declaration": ".method public getCurrentPlayer()Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-virtual {p2}, Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;->getCurrentPositionWhenPlaying()J",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/video/base/GSYVideoView",
+        "line": 919,
+        "declaration": ".method public getCurrentPositionWhenPlaying()J"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-virtual {p2}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->getCurrentPlayer()Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer",
+        "line": 1828,
+        "declaration": ".method public getCurrentPlayer()Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-virtual {p2}, Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;->getCurrentState()I",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/video/base/GSYVideoView",
+        "line": 1023,
+        "declaration": ".method public getCurrentState()I"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-virtual {p2}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->release()V",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/video/base/GSYVideoControlView",
+        "line": 4323,
+        "declaration": ".method public release()V"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-virtual {p2, p1, v1, v0}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->setUp(Ljava/lang/String;ZLjava/lang/String;)Z",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/video/base/GSYVideoControlView",
+        "line": 6109,
+        "declaration": ".method public setUp(Ljava/lang/String;ZLjava/lang/String;)Z"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-virtual {p1, v0, v1}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->setSeekOnStart(J)V",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/video/base/GSYVideoView",
+        "line": 3747,
+        "declaration": ".method public setSeekOnStart(J)V"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-virtual {p1}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->startPlayLogic()V",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer",
+        "line": 5170,
+        "declaration": ".method public startPlayLogic()V"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-virtual {p1}, Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;->getBackButton()Landroid/widget/ImageView;",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/video/base/GSYVideoControlView",
+        "line": 1272,
+        "declaration": ".method public getBackButton()Landroid/widget/ImageView;"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-virtual {p1}, Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;->getFullscreenButton()Landroid/widget/ImageView;",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/video/base/GSYVideoControlView",
+        "line": 1317,
+        "declaration": ".method public getFullscreenButton()Landroid/widget/ImageView;"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-virtual {p1}, Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;->getCurrentState()I",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/video/base/GSYVideoView",
+        "line": 1023,
+        "declaration": ".method public getCurrentState()I"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-virtual {p1}, Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;->getCurrentState()I",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/video/base/GSYVideoView",
+        "line": 1023,
+        "declaration": ".method public getCurrentState()I"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-static {}, Lk6/c;->D()Lk6/c;",
+      "resolved": {
+        "owner": "k6/c",
+        "line": 170,
+        "declaration": ".method public static declared-synchronized D()Lk6/c;"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-virtual {v0}, Lk6/c;->getVideoWidth()I",
+      "resolved": {
+        "owner": "k6/b",
+        "line": 1902,
+        "declaration": ".method public getVideoWidth()I"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-static {}, Lk6/c;->D()Lk6/c;",
+      "resolved": {
+        "owner": "k6/c",
+        "line": 170,
+        "declaration": ".method public static declared-synchronized D()Lk6/c;"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-virtual {v1}, Lk6/c;->getVideoHeight()I",
+      "resolved": {
+        "owner": "k6/b",
+        "line": 1812,
+        "declaration": ".method public getVideoHeight()I"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-virtual {p1}, Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;->getFullscreenButton()Landroid/widget/ImageView;",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/video/base/GSYVideoControlView",
+        "line": 1317,
+        "declaration": ".method public getFullscreenButton()Landroid/widget/ImageView;"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-virtual {p1}, Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;->getBackButton()Landroid/widget/ImageView;",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/video/base/GSYVideoControlView",
+        "line": 1272,
+        "declaration": ".method public getBackButton()Landroid/widget/ImageView;"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-static {p0}, Lk6/c;->C(Landroid/content/Context;)Z",
+      "resolved": {
+        "owner": "k6/c",
+        "line": 65,
+        "declaration": ".method public static C(Landroid/content/Context;)Z"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-virtual {v0, p0, p1, v1}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->onConfigurationChanged(Landroid/app/Activity;Landroid/content/res/Configuration;Lcom/shuyu/gsyvideoplayer/utils/OrientationUtils;)V",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer",
+        "line": 2788,
+        "declaration": ".method public onConfigurationChanged(Landroid/app/Activity;Landroid/content/res/Configuration;Lcom/shuyu/gsyvideoplayer/utils/OrientationUtils;)V"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-static {v2}, Lcom/shuyu/gsyvideoplayer/player/PlayerFactory;->setPlayManager(Ljava/lang/Class;)V",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/player/PlayerFactory",
+        "line": 104,
+        "declaration": ".method public static setPlayManager(Ljava/lang/Class;)V"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-static {v3}, Lcom/shuyu/gsyvideoplayer/utils/GSYVideoType;->setShowType(I)V",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/utils/GSYVideoType",
+        "line": 232,
+        "declaration": ".method public static setShowType(I)V"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-direct {v2, v1}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;-><init>(Landroid/content/Context;)V",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer",
+        "line": 41,
+        "declaration": ".method public constructor <init>(Landroid/content/Context;)V"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-virtual {v2, v8}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->setIsTouchWiget(Z)V",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/video/base/GSYVideoControlView",
+        "line": 4838,
+        "declaration": ".method public setIsTouchWiget(Z)V"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-virtual {v2, v8}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->setIsTouchWigetFull(Z)V",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/video/base/GSYVideoControlView",
+        "line": 4849,
+        "declaration": ".method public setIsTouchWigetFull(Z)V"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-virtual {v2, v8}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->setNeedLockFull(Z)V",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/video/base/GSYVideoControlView",
+        "line": 4867,
+        "declaration": ".method public setNeedLockFull(Z)V"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-virtual {v2, v8}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->setRotateViewAuto(Z)V",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer",
+        "line": 3636,
+        "declaration": ".method public setRotateViewAuto(Z)V"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-virtual {v2, v3}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->setShowFullAnimation(Z)V",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer",
+        "line": 3697,
+        "declaration": ".method public setShowFullAnimation(Z)V"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-virtual {v2, v4}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->setVideoAllCallBack(Lm6/h;)V",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/video/base/GSYVideoView",
+        "line": 4017,
+        "declaration": ".method public setVideoAllCallBack(Lm6/h;)V"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-direct {v2, v1, v4}, Lcom/shuyu/gsyvideoplayer/utils/OrientationUtils;-><init>(Landroid/app/Activity;Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;)V",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/utils/OrientationUtils",
+        "line": 51,
+        "declaration": ".method public constructor <init>(Landroid/app/Activity;Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;)V"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-virtual {v2, v3}, Lcom/shuyu/gsyvideoplayer/utils/OrientationUtils;->setEnable(Z)V",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/utils/OrientationUtils",
+        "line": 1107,
+        "declaration": ".method public setEnable(Z)V"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-virtual {v2}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->getFullscreenButton()Landroid/widget/ImageView;",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/video/base/GSYVideoControlView",
+        "line": 1317,
+        "declaration": ".method public getFullscreenButton()Landroid/widget/ImageView;"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-virtual {v2}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->getBackButton()Landroid/widget/ImageView;",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/video/base/GSYVideoControlView",
+        "line": 1272,
+        "declaration": ".method public getBackButton()Landroid/widget/ImageView;"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-static {}, Lk6/c;->E()V",
+      "resolved": {
+        "owner": "k6/c",
+        "line": 237,
+        "declaration": ".method public static E()V"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-virtual {v0}, Lcom/shuyu/gsyvideoplayer/utils/OrientationUtils;->releaseListener()V",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/utils/OrientationUtils",
+        "line": 757,
+        "declaration": ".method public releaseListener()V"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-virtual {v1}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->getCurrentPlayer()Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer",
+        "line": 1828,
+        "declaration": ".method public getCurrentPlayer()Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-virtual {v1}, Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;->getCurrentState()I",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/video/base/GSYVideoView",
+        "line": 1023,
+        "declaration": ".method public getCurrentState()I"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-virtual {v1}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->getCurrentPlayer()Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer",
+        "line": 1828,
+        "declaration": ".method public getCurrentPlayer()Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-virtual {v1}, Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;->onVideoPause()V",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/video/base/GSYVideoView",
+        "line": 3019,
+        "declaration": ".method public onVideoPause()V"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-virtual {v1, v0}, Lcom/shuyu/gsyvideoplayer/utils/OrientationUtils;->setEnable(Z)V",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/utils/OrientationUtils",
+        "line": 1107,
+        "declaration": ".method public setEnable(Z)V"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-virtual {v1}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->getCurrentPlayer()Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer",
+        "line": 1828,
+        "declaration": ".method public getCurrentPlayer()Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-virtual {v1}, Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;->onVideoResume()V",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/video/base/GSYVideoView",
+        "line": 3165,
+        "declaration": ".method public onVideoResume()V"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-virtual {v1, v0}, Lcom/shuyu/gsyvideoplayer/utils/OrientationUtils;->setEnable(Z)V",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/utils/OrientationUtils",
+        "line": 1107,
+        "declaration": ".method public setEnable(Z)V"
+      }
+    }
+  ],
+  "framework_calls": [
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks.smali",
+      "invoke": "invoke-virtual {v0, v1, v2, v3}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->postDelayed(Ljava/lang/Runnable;J)Z",
+      "resolved": {
+        "owner": "android/widget/FrameLayout",
+        "framework_inherited": true,
+        "verification": "javac resolved this method in official android.jar; the actual GSY superclass also reaches FrameLayout"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-virtual {v0, p1}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->setKeepScreenOn(Z)V",
+      "resolved": {
+        "owner": "android/widget/FrameLayout",
+        "framework_inherited": true,
+        "verification": "javac resolved this method in official android.jar; the actual GSY superclass also reaches FrameLayout"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-virtual {v0, p1}, Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;->setKeepScreenOn(Z)V",
+      "resolved": {
+        "owner": "android/widget/FrameLayout",
+        "framework_inherited": true,
+        "verification": "javac resolved this method in official android.jar; the actual GSY superclass also reaches FrameLayout"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-virtual {p1, v1}, Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;->setOnApplyWindowInsetsListener(Landroid/view/View$OnApplyWindowInsetsListener;)V",
+      "resolved": {
+        "owner": "android/widget/FrameLayout",
+        "framework_inherited": true,
+        "verification": "javac resolved this method in official android.jar; the actual GSY superclass also reaches FrameLayout"
+      }
+    },
+    {
+      "caller": "com/tongpin/player4k/catalog/OpenPlayerActivity.smali",
+      "invoke": "invoke-virtual {p1}, Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;->requestApplyInsets()V",
+      "resolved": {
+        "owner": "android/widget/FrameLayout",
+        "framework_inherited": true,
+        "verification": "javac resolved this method in official android.jar; the actual GSY superclass also reaches FrameLayout"
+      }
+    }
+  ],
+  "stubs_or_host_json_packaged": false,
+  "device_tested": false,
+  "staging": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\\u6d4b\u8bd5\\tongpin-4k\\open-sources\\staging-r1"
+}

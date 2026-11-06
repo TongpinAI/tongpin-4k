@@ -1,0 +1,81 @@
+{
+  "release_tag": "backup-2026-11-06",
+  "phone_version": "1.3.4",
+  "tv_version": "1.3.0",
+  "signing_keys_uploaded": false,
+  "artifacts": [
+    {
+      "asset": "kanke-4k-latest-noads.apk",
+      "restore_to": "kanke-noads/output/kanke-4k-latest-noads.apk",
+      "size": 76525782,
+      "sha256": "dc4b19d44ec90aeff2fbd14e6d31e087b9835ab289eb53b1fe77ccf4e7bca0b6",
+      "kind": "file"
+    },
+    {
+      "asset": "tongpin-4k-1.0.1.apk",
+      "restore_to": "tongpin-4k/output/tongpin-4k-1.0.1.apk",
+      "size": 76923285,
+      "sha256": "901b10876642f7dae23127d560771477167109d3028b98d669cef2db1903869a",
+      "kind": "file"
+    },
+    {
+      "asset": "tongpin-4k-1.3.1.apk",
+      "restore_to": "tongpin-4k/output/tongpin-4k-1.3.1.apk",
+      "size": 76988981,
+      "sha256": "e1cce6231eb28fa87bd531e827266a5d08ae228a6f70a7e8b1657157fdcdb547",
+      "kind": "file"
+    },
+    {
+      "asset": "tongpin-4k-1.3.2.apk",
+      "restore_to": "tongpin-4k/output/tongpin-4k-1.3.2.apk",
+      "size": 76988981,
+      "sha256": "93b75fe98303a24336c87f4c944f56afe0aef0afc64f4d18965a34c268e9093c",
+      "kind": "file"
+    },
+    {
+      "asset": "tongpin-4k-1.3.3.apk",
+      "restore_to": "tongpin-4k/output/tongpin-4k-1.3.3.apk",
+      "size": 76988981,
+      "sha256": "36afc75c61b0575142a7d719f22355f3cfc9b87270176b974ad993d2861730b5",
+      "kind": "file"
+    },
+    {
+      "asset": "tongpin-4k-1.3.4.apk",
+      "restore_to": "tongpin-4k/output/tongpin-4k-1.3.4.apk",
+      "size": 76988981,
+      "sha256": "79c3fee66b5c840adcd906d233b8d53800c90ff0e8703bd5c05abb62d10d105f",
+      "kind": "file"
+    },
+    {
+      "asset": "tongpin-4k-tv-1.2.1.apk",
+      "restore_to": "tongpin-4k-tv/output/tongpin-4k-tv-1.2.1.apk",
+      "size": 156609,
+      "sha256": "51c9f6ffe387ff26791d1da3e4498aea7af393c4c863cd08e899c2f4b2d957af",
+      "kind": "file"
+    },
+    {
+      "asset": "tongpin-4k-tv-1.3.0.apk",
+      "restore_to": "tongpin-4k-tv/output/tongpin-4k-tv-1.3.0.apk",
+      "size": 7613248,
+      "sha256": "1110cc47e206a2e129501377a3342cd47620d4819f0c443db3ba6387290fae3f",
+      "kind": "file"
+    },
+    {
+      "asset": "android-build-inputs.zip",
+      "restore_to": ".",
+      "size": 56340004,
+      "sha256": "7005224fcad9a05639cca59baa28f3bdd4e720e37c0ad81b70094e2c7533a5db",
+      "kind": "zip",
+      "contains": [
+        "kanke-noads/tools/apktool_3.0.3.jar",
+        "kanke-noads/tools/build-tools-35.0.1/aapt2.exe",
+        "kanke-noads/tools/build-tools-35.0.1/lib/apksigner.jar",
+        "kanke-noads/tools/build-tools-35.0.1/lib/d8.jar",
+        "kanke-noads/tools/build-tools-35.0.1/libwinpthread-1.dll",
+        "kanke-noads/tools/build-tools-35.0.1/zipalign.exe",
+        "kanke-noads/tools/platform-35/android.jar",
+        "kanke-noads/tools/platform-35/data/api-versions.xml"
+      ]
+    }
+  ]
+}

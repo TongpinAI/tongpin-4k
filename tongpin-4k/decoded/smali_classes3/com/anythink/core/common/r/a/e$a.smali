@@ -1,0 +1,18 @@
+.class interface abstract Lcom/anythink/core/common/r/a/e$a;
+.super Ljava/lang/Object;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/anythink/core/common/r/a/e;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x608
+    name = "a"
+.end annotation
+
+
+# virtual methods
+.method public abstract a(Ljava/util/concurrent/atomic/AtomicBoolean;)V
+.end method

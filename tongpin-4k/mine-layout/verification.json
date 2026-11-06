@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "xml_only": true,
+  "retained_ids": 15,
+  "binding_tag": "layout/phone_fragment_mine_0",
+  "hidden_entries": [
+    "iv_user_icon",
+    "tv_user_name",
+    "iv_settings",
+    "tv_sign",
+    "ll_msg",
+    "iv_gt",
+    "fl_ad"
+  ],
+  "visible_features": [
+    "history preview / all history",
+    "favorites"
+  ],
+  "history_empty_state_retained": true,
+  "new_resource_ids": 0,
+  "before_sha256": "cd2c98e9359ed2fc50de94b159d83aee181e61b528c4189e7307d69fb87b7a3c",
+  "after_sha256": "f8086f8b7129eb3d7e5bbd2e7a49627ca304d475fbd5d741cc28033f933bb297",
+  "device_ui_verified": false
+}

@@ -1,0 +1,44 @@
+{
+  "version_name": "1.1.4",
+  "version_code": 1104,
+  "built": false,
+  "providers_changed": false,
+  "files": [
+    {
+      "path": "build_tongpin.py",
+      "before_sha256": "de20074992edcb652e13a426655a739d58a0b8c7790d70c4fa9eae60e6f0975a",
+      "after_sha256": "a66b35cc43fcb2b7542798dffccc0dfa08b5ae0772a2e4adf18eedd1d4f2d5b2",
+      "line_endings_preserved": true
+    },
+    {
+      "path": "decoded/apktool.yml",
+      "before_sha256": "e8542818b2c126d425c3351c460712208b29f60bcb32d030d44e72bde253e1a7",
+      "after_sha256": "95a0b404d075341009f71a310e456bf1c30d3687df7b98ef51c359bfe270ba43",
+      "line_endings_preserved": true
+    },
+    {
+      "path": "decoded/AndroidManifest.xml",
+      "before_sha256": "1f47f262402a73a616f5e0a5da81b25446806ffbd91eaa09bdc0f67caee5d8b3",
+      "after_sha256": "f15707b8301fc74803cffdd016e0ce383fb901685633734fbe8805c6431bb2c2",
+      "line_endings_preserved": true
+    },
+    {
+      "path": "decoded/res/values/strings.xml",
+      "before_sha256": "3bf5d51de4b2d5cc53442c631b221b6bd9d88553872c23091b7d7d9ce38cf984",
+      "after_sha256": "8355ae7baa996161c18dbec19f6fe295fe869706c6a63a4c81489c68da14695f",
+      "line_endings_preserved": true
+    },
+    {
+      "path": "decoded/res/layout/phone_activity_splash.xml",
+      "before_sha256": "920a72410ff8839626e319c0d4bdf65efe2fa75cac8fee1fb628132b5914ad3f",
+      "after_sha256": "7855164e0c7e04882df32757d4dbc72892ae4c1a35fa053cbe7ca8648ccb77f1",
+      "line_endings_preserved": true
+    },
+    {
+      "path": "decoded/res/layout/phone_activity_settings.xml",
+      "before_sha256": "5f79420367a96c04f29f1e58e0497efb15c7bc54158f676f7a99d6fb18071820",
+      "after_sha256": "7ab39a09502ab616b374edcc453a695f9a763b556f9a45b413e6b06429552ffc",
+      "line_endings_preserved": true
+    }
+  ]
+}

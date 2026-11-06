@@ -1,0 +1,44 @@
+{
+  "passed": true,
+  "assertions": {
+    "TvPlayerContractTest": 147,
+    "TvSeekStateTest": 75,
+    "TvDecoderPolicyTest": 31
+  },
+  "source_sha256": {
+    "src/com/tongpin/player4k/tv/CatalogApi.java": "29a1ddc2be33bcefe508bd234cec93b5227945d9f25373409e9e60ce3d41fb93",
+    "src/com/tongpin/player4k/tv/TvHomeActivity.java": "f841aff76bc432ecbde8c5a0fd9da2d901a595a9c3ec4fb16039cb62a24ede1c",
+    "src/com/tongpin/player4k/tv/TvLibraryStore.java": "a72e6295c542703f45321ba3d2b296392f19f3632727a64fd26a68dbb8a9b385",
+    "src/com/tongpin/player4k/tv/TvPlaybackEngine.java": "56430c7adcfb5859fc31b80e56f805f89870c58ac14dbca4853dfa9009e728d2",
+    "src/com/tongpin/player4k/tv/TvPlayerActivity.java": "51077a089f43cb4812b1a40506dde7a0d73c87bb78868f40ba937dbc20014a13",
+    "src/com/tongpin/player4k/tv/TvPlayQueue.java": "a1d630ec5f52f53b725fc0e251871c7fc2de7934d8bca9ba0355dccab1ae35d7",
+    "src/com/tongpin/player4k/tv/TvSeekState.java": "9fe01ce88f12e525cca5a6f8be29bc0e3873f1005daefbdd9cfad7248ddc11b4",
+    "src/com/tongpin/player4k/tv/TvUi.java": "3715754d451e64df7b104960f50d446530b1eb6ad141a7b92f932edbf1aac0b5",
+    "build/1.2.1/generated/com/tongpin/player4k/tv/R.java": "d16dc8dd2f4c63a0366f9c53819fd251bb2b8d37cc5c0c7faf32896e597c0242",
+    "tests/src/com/tongpin/player4k/tv/TvPlayerContractTest.java": "f7fcd4d2f95abf817fd00d098a0945f07ba782cd2334192ff6fd40268b1db897",
+    "tests/src/com/tongpin/player4k/tv/TvSeekStateTest.java": "2dc7d6a4ca58daf5074588d8430a19dc83e6af55041ffe8b9eeb70fc264358b9",
+    "tests/src/com/tongpin/player4k/tv/TvDecoderPolicyTest.java": "eecd2d98a3b0a66bf8bcc9fdfe17f747cca5fd69379b990435b072ed64ebe191"
+  },
+  "libraries": {
+    "annotation-1.6.0.jar": "fbc64f5c44a7added8b6eab517cf7d70555e25153bf5d44a6ed9b0e5312f7de9",
+    "annotation-experimental-1.3.1.jar": "ff935d769cc61ee5b6315767059bc31e33ca38edf80b609d9e1724258ceca746",
+    "annotations-13.0.jar": "ace2a10dc8e2d5fd34925ecac03e4988b2c0f851650c94b8cef49ba1bd111478",
+    "exifinterface-1.3.6.jar": "074b42b244b390d5f18dc5f75e5d154ee67fb0c5f9626ea06b805b2acf6e1da7",
+    "failureaccess-1.0.2.jar": "8a8f81cf9b359e3f6dfa691a1e776985c061ef2f223c9b2c80753e1b458e8064",
+    "guava-33.3.1-android.jar": "2c3e41d1b380f2044d257947a3aa82dabf3ae4b978622745254aa18b6cf89ab0",
+    "kotlin-stdlib-2.0.20.jar": "fb169596659a518357c4b2c16f43dc75ab1c4980565ed4b4a317a050e5e39006",
+    "listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar": "b372a037d4230aa57fbeffdef30fd6123f9c0c2db85d0aced00c91b974f33f99",
+    "media3-common-1.10.1.jar": "4100d3befd89d33776e812dbcea689430bf742845eb80e894fcfa76ff246a7e2",
+    "media3-container-1.10.1.jar": "a1b46ca28972146059ce9a62101fa81a9e952aa9f2dc9667c2ca8b991b495bc1",
+    "media3-database-1.10.1.jar": "d4b0509ee93605d4d43da2d458e78bbf728f865dbcd00aa2a726f4daf91d5da2",
+    "media3-datasource-1.10.1.jar": "20ae5a70db934c40619c8f0ae508a1c70e18f115310c284481b64f836863ea4c",
+    "media3-decoder-1.10.1.jar": "37badeeeb625d3bc63274c4055db4e2ab0136d2d6f7fb80a04ba9ee981fbe33d",
+    "media3-exoplayer-1.10.1.jar": "d206f127f6afb7f61ae720106b81218aa0ceb963985ba6787315463329b1606a",
+    "media3-exoplayer-dash-1.10.1.jar": "6e9e5d3245c669d57c632dcf35b7a52f52d2c23620c6a33dacdeedfe12b7c828",
+    "media3-exoplayer-hls-1.10.1.jar": "61f242c61e80b0302a838f938f80f95b1517410baec9f1b54353a12f3aa6084c",
+    "media3-extractor-1.10.1.jar": "4dbb60e50d6ef4f72e2995b132cec0fc2e21c375ecea72a107b58de28524b429"
+  },
+  "scope": "Actual full-source compilation, playback/seek/decoder policies and source lifecycle contracts; no Android engine constructed",
+  "device_test": false,
+  "native_decoder_test": false
+}

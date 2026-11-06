@@ -1,0 +1,20 @@
+--- before/open-sources/src/com/tongpin/player4k/catalog/OpenPlayerActivity.java
++++ after/open-sources/src/com/tongpin/player4k/catalog/OpenPlayerActivity.java
+@@ -398,7 +398,7 @@
+         String[] items = {hasQualityChoices(urls) ? "切换画质 · " + qualityLabel(selected) : "画质 · 单一播放线路",
+                 "倍速 · " + speed + "×", "后退 10 秒", "前进 10 秒",
+                 "画面比例 · " + (aspect == 0 ? "原比例" : "填充屏幕"), "自动连播 · " + (autoNext() ? "开" : "关")};
+-        new AlertDialog.Builder(this).setTitle("播放设置").setItems(items, (dialog, action) -> {
++        PlayerOptionsSheet.show(this, "播放设置", items, new boolean[]{true, true, true, true, true, true}, (dialog, action) -> {
+             if (action == 0) {
+                 if (hasQualityChoices(urls)) chooseQuality();
+                 else Toast.makeText(this, "此集仅提供一个播放版本", Toast.LENGTH_SHORT).show();
+@@ -406,7 +406,7 @@
+             else if (action == 2 || action == 3) seekBy(action == 2 ? -10000L : 10000L);
+             else if (action == 4) chooseAspect();
+             else getSharedPreferences("tongpin_ui", MODE_PRIVATE).edit().putBoolean("auto_next", !autoNext()).apply();
+-        }).setNegativeButton("关闭", null).show();
++        });
+     }
+ 
+     private boolean autoNext() { return getSharedPreferences("tongpin_ui", MODE_PRIVATE).getBoolean("auto_next", true); }

@@ -1,0 +1,552 @@
+--- before/src/com/tongpin/player4k/tv/TvPlayerActivity.java
++++ after/src/com/tongpin/player4k/tv/TvPlayerActivity.java
+@@ -8,9 +8,12 @@
+ import android.graphics.drawable.GradientDrawable;
+ import android.media.AudioManager;
+ import android.media.MediaPlayer;
++import android.media.PlaybackParams;
++import android.os.Build;
+ import android.os.Bundle;
+ import android.os.Handler;
+ import android.os.Looper;
++import android.os.SystemClock;
+ import android.text.TextUtils;
+ import android.view.Gravity;
+ import android.view.KeyEvent;
+@@ -23,12 +26,18 @@
+ import android.widget.HorizontalScrollView;
+ import android.widget.LinearLayout;
+ import android.widget.TextView;
++import android.widget.Toast;
++import java.io.ByteArrayOutputStream;
++import java.io.InputStream;
+ import java.net.URI;
++import java.nio.charset.StandardCharsets;
++import java.util.List;
+ import java.util.Locale;
+ 
+ /** Platform-only TV playback. Home owns persistent history through the Activity result. */
+ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Callback {
+     static final int MAX_STREAMS = 64;
++    private static final float[] SPEEDS = {.5f, .75f, 1f, 1.25f, 1.5f, 2f};
+     private final Handler main = new Handler(Looper.getMainLooper());
+     private MediaPlayer player;
+     private AudioManager audio;
+@@ -36,16 +45,23 @@
+     private SurfaceView surface;
+     private FrameLayout viewport;
+     private LinearLayout header, controls;
+-    private TextView actual, status, clock, declaredQuality;
+-    private Button playButton, qualityButton, retryButton;
++    private TextView actual, status, clock, declaredQuality, heading;
++    private Button playButton, qualityButton, retryButton, previousButton, nextButton, episodesButton, speedButton, autoButton;
+     private AlertDialog qualityDialog;
+     private String[] urls, labels;
+     private int[] widths, heights;
+-    private String title, videoJson, episodeName;
++    private String title, videoJson, episodeName, author, licence, queueToken;
+     private int selected, actualWidth, actualHeight;
+     private long position, queuedSeek = -1L;
+     private boolean valid, surfaceReady, foreground, prepared, seeking, playing;
+     private boolean playWhenReady = true, failed, completed, destroyed, retryFromStart;
++    private TvPlayQueue queue;
++    private TvLibraryStore store;
++    private int episodeIndex, playbackGeneration, knownDuration;
++    private boolean advancing, progressErrorShown;
++    private float speed = 1f, appliedSpeed = 1f;
++    private long badgeUntil;
++    private final Runnable hideResolution = () -> { if (actual != null) actual.setVisibility(View.GONE); };
+ 
+     private final Runnable hideControls = () -> {
+         if (playing && !failed && qualityDialog == null) hideControls();
+@@ -88,25 +104,42 @@
+         audio = (AudioManager) getSystemService(AUDIO_SERVICE);
+         Intent input = getIntent();
+         try {
++            queueToken = input.getStringExtra("queue_token");
++            if (queueToken != null) {
++                List<CatalogApi.Provider> providers = CatalogApi.parseProviders(providerAsset());
++                queue = TvPlayQueue.load(this, queueToken, providers);
++                try { store = new TvLibraryStore(this, providers); }
++                catch (RuntimeException unavailable) { progressError(); }
++                episodeIndex = saved == null ? input.getIntExtra("queue_index", 0) : saved.getInt("queue_index", 0);
++                if (episodeIndex < 0 || episodeIndex >= queue.episodes.size()) throw new IllegalArgumentException();
++                readEpisode(episodeIndex);
++            } else {
+             urls = input.getStringArrayExtra("stream_urls");
+             labels = input.getStringArrayExtra("stream_labels");
+             widths = input.getIntArrayExtra("stream_widths");
+             heights = input.getIntArrayExtra("stream_heights");
+-            selected = saved == null ? input.getIntExtra("selected", 0) : saved.getInt("selected", 0);
+-            String invalid = validateStreams(urls, labels, widths, heights, selected);
+-            if (invalid != null) { invalidInput(invalid); return; }
++            selected = input.getIntExtra("selected", 0);
+             title = safe(input.getStringExtra("title"));
+             videoJson = safe(input.getStringExtra("video_json"));
+             episodeName = safe(input.getStringExtra("episode_name"));
+-            position = Math.max(0L, saved == null ? input.getLongExtra("resume_ms", 0L) : saved.getLong("position", 0L));
++            author = safe(input.getStringExtra("author")); licence = safe(input.getStringExtra("licence"));
++            }
++            if (saved != null) selected = saved.getInt("selected", selected);
++            String invalid = validateStreams(urls, labels, widths, heights, selected);
++            if (invalid != null) { invalidInput(invalid); return; }
++            long explicitResume = Math.max(0L, input.getLongExtra("resume_ms", 0L));
++            position = saved != null ? Math.max(0L, saved.getLong("position", 0L))
++                    : explicitResume > 0 ? explicitResume : restoredProgress();
+             if (saved != null) {
++                speed = normalizedSpeed(saved.getFloat("speed", 1f));
+                 playWhenReady = saved.getBoolean("play_when_ready", true);
+                 failed = saved.getBoolean("failed", false);
+                 completed = saved.getBoolean("completed", false);
+                 retryFromStart = saved.getBoolean("retry_from_start", false);
+             }
+-        } catch (RuntimeException invalid) {
+-            invalidInput("播放信息不完整，请返回片库重新选择。");
++            if (Build.VERSION.SDK_INT < 23) speed = 1f;
++        } catch (Exception invalid) {
++            invalidInput("播放列表暂不可用，请返回片库重新选择。");
+             return;
+         }
+         valid = true;
+@@ -134,17 +167,15 @@
+         header.setOrientation(LinearLayout.VERTICAL);
+         header.setPadding(dp(48), dp(76), dp(48), dp(12));
+         header.setBackgroundColor(TvUi.TEXT);
+-        TextView name = TvUi.text(this, title.isEmpty() ? "同频4K TV" : title, 24f, Color.WHITE);
+-        name.setTypeface(Typeface.DEFAULT, Typeface.BOLD);
+-        name.setSingleLine(true);
+-        name.setEllipsize(TextUtils.TruncateAt.END);
+-        header.addView(name);
++        heading = TvUi.text(this, title.isEmpty() ? "同频4K TV" : title, 24f, Color.WHITE);
++        heading.setTypeface(Typeface.DEFAULT, Typeface.BOLD);
++        heading.setSingleLine(true);
++        heading.setEllipsize(TextUtils.TruncateAt.END);
++        header.addView(heading);
+         declaredQuality = TvUi.text(this, "", 16f, 0xffd1dfed);
+         declaredQuality.setSingleLine(true);
+         declaredQuality.setEllipsize(TextUtils.TruncateAt.END);
+         header.addView(declaredQuality);
+-        String author = safe(getIntent().getStringExtra("author"));
+-        String licence = safe(getIntent().getStringExtra("licence"));
+         if (!author.isEmpty() || !licence.isEmpty()) {
+             TextView credit = TvUi.text(this, "作者：" + (author.isEmpty() ? "未标注" : author)
+                     + "  许可：" + (licence.isEmpty() ? "未标注" : licence), 14f, 0xffd1dfed);
+@@ -167,10 +198,19 @@
+         controls.addView(clock);
+         LinearLayout row = new LinearLayout(this);
+         row.setOrientation(LinearLayout.HORIZONTAL);
++        previousButton = addButton(row, "上一集", () -> moveEpisode(-1));
+         playButton = addButton(row, "暂停", this::togglePlayback);
++        nextButton = addButton(row, "下一集", () -> moveEpisode(1));
++        episodesButton = addButton(row, "选集", this::chooseEpisodes);
+         addButton(row, "后退10秒", () -> seekBy(-10000L));
+         addButton(row, "前进10秒", () -> seekBy(10000L));
+         qualityButton = addButton(row, "画质", this::chooseQuality);
++        speedButton = addButton(row, "倍速", this::chooseSpeed);
++        speedButton.setEnabled(Build.VERSION.SDK_INT >= 23);
++        autoButton = addButton(row, "连播", () -> {
++            getSharedPreferences("tongpin_tv_preferences", MODE_PRIVATE).edit().putBoolean("auto_next", !autoNext()).apply();
++            updateNavigation();
++        });
+         retryButton = addButton(row, "重试", this::retry);
+         retryButton.setVisibility(View.GONE);
+         addButton(row, "退出", this::finishPlayback);
+@@ -183,6 +223,7 @@
+         root.addView(controls, new FrameLayout.LayoutParams(-1, -2, Gravity.BOTTOM));
+ 
+         actual = TvUi.text(this, resolutionText(0, 0), 16f, Color.WHITE);
++        actual.setVisibility(View.GONE);
+         actual.setSingleLine(true);
+         actual.setEllipsize(TextUtils.TruncateAt.END);
+         actual.setMaxWidth(getResources().getDisplayMetrics().widthPixels - dp(96));
+@@ -197,6 +238,7 @@
+         setContentView(root);
+         surface.requestFocus();
+         updateQualityButton();
++        updateNavigation();
+     }
+ 
+     private Button addButton(LinearLayout row, String text, Runnable action) {
+@@ -209,6 +251,157 @@
+         params.setMargins(dp(4), dp(6), dp(4), 0);
+         row.addView(button, params);
+         return button;
++    }
++
++    private String providerAsset() throws Exception {
++        try (InputStream in = getAssets().open("tongpin_open_sources.json"); ByteArrayOutputStream out = new ByteArrayOutputStream()) {
++            byte[] buffer = new byte[4096]; int count;
++            while ((count = in.read(buffer)) != -1) {
++                if (out.size() + count > 8 * 1024 * 1024) throw new IllegalArgumentException();
++                out.write(buffer, 0, count);
++            }
++            return new String(out.toByteArray(), StandardCharsets.UTF_8);
++        }
++    }
++
++    private void readEpisode(int index) {
++        CatalogApi.Episode episode = queue.episodes.get(index);
++        episodeIndex = index; episodeName = episode.name;
++        title = queue.title + " · " + episodeName; videoJson = queue.videoJson;
++        author = queue.author; licence = queue.licence;
++        int count = episode.streams.size();
++        urls = new String[count]; labels = new String[count]; widths = new int[count]; heights = new int[count];
++        for (int i = 0; i < count; i++) {
++            CatalogApi.Stream stream = episode.streams.get(i);
++            urls[i] = stream.url; labels[i] = stream.label; widths[i] = stream.width; heights[i] = stream.height;
++        }
++        selected = CatalogApi.bestStream(episode.streams);
++    }
++
++    private boolean busy() { return advancing || player != null && !prepared && !failed; }
++
++    private void moveEpisode(int direction) {
++        if (queue != null) changeEpisode(TvPlayQueue.step(episodeIndex, queue.episodes.size(), direction));
++    }
++
++    private void changeEpisode(int index) {
++        if (destroyed || !foreground || busy() || queue == null || index < 0 || index >= queue.episodes.size()) return;
++        saveProgress();
++        releasePlayer();
++        readEpisode(index);
++        knownDuration = 0;
++        position = restoredProgress();
++        failed = completed = retryFromStart = false;
++        playWhenReady = true;
++        heading.setText(title); updateQualityButton();
++        retryButton.setVisibility(View.GONE); playButton.setEnabled(true);
++        prepare(); showControls(true); updateResult();
++    }
++
++    private long restoredProgress() {
++        if (queue == null || store == null) return 0L;
++        try { return Math.max(0L, store.getEpisodeProgress(queue.video, queue.progressKey(episodeIndex))); }
++        catch (RuntimeException unavailable) { progressError(); return 0L; }
++    }
++
++    private void saveProgress() {
++        if (queue == null || store == null) return;
++        rememberPosition();
++        int currentDuration = duration();
++        long saved = resumePosition(position, currentDuration > 0 ? currentDuration : knownDuration, completed);
++        try { store.saveEpisodeProgress(queue.video, queue.progressKey(episodeIndex), episodeName, saved); }
++        catch (RuntimeException unavailable) { progressError(); }
++    }
++
++    private void progressError() {
++        if (!progressErrorShown) {
++            progressErrorShown = true;
++            Toast.makeText(this, "观看进度暂不可用，可继续播放。", Toast.LENGTH_LONG).show();
++        }
++    }
++
++    private boolean autoNext() {
++        return getSharedPreferences("tongpin_tv_preferences", MODE_PRIVATE).getBoolean("auto_next", true);
++    }
++
++    private void updateNavigation() {
++        if (previousButton == null) return;
++        int count = queue == null ? 0 : queue.episodes.size();
++        previousButton.setEnabled(!busy() && TvPlayQueue.step(episodeIndex, count, -1) >= 0);
++        nextButton.setEnabled(!busy() && TvPlayQueue.step(episodeIndex, count, 1) >= 0);
++        episodesButton.setEnabled(!busy() && count > 1);
++        speedButton.setText(Build.VERSION.SDK_INT >= 23 ? "倍速 · " + speed + "×" : "倍速 · 1×（系统限制）");
++        autoButton.setText("连播 · " + (autoNext() ? "开" : "关"));
++    }
++
++    private void chooseEpisodes() {
++        if (busy() || queue == null || queue.episodes.size() < 2 || qualityDialog != null) return;
++        boolean descending = getSharedPreferences("tongpin_tv_preferences", MODE_PRIVATE).getBoolean("episodes_descending", false);
++        int count = queue.episodes.size(); String[] names = new String[count];
++        for (int i = 0; i < count; i++) names[i] = queue.episodes.get(TvHomeActivity.episodeIndex(i, count, descending)).name;
++        main.removeCallbacks(hideControls);
++        qualityDialog = new AlertDialog.Builder(this).setTitle("选集 · " + queue.lineName)
++                .setSingleChoiceItems(names, TvHomeActivity.episodeIndex(episodeIndex, count, descending), (dialog, at) -> {
++                    dialog.dismiss();
++                    int index = TvHomeActivity.episodeIndex(at, count, descending);
++                    if (index != episodeIndex) changeEpisode(index);
++                }).setNeutralButton(descending ? "切换正序" : "切换倒序", null).setNegativeButton("关闭", null).create();
++        qualityDialog.setOnDismissListener(dialog -> { qualityDialog = null; scheduleHide(); });
++        qualityDialog.setOnShowListener(dialog -> qualityDialog.getButton(AlertDialog.BUTTON_NEUTRAL).setOnClickListener(view -> {
++            getSharedPreferences("tongpin_tv_preferences", MODE_PRIVATE).edit().putBoolean("episodes_descending", !descending).apply();
++            qualityDialog.dismiss(); main.post(this::chooseEpisodes);
++        }));
++        qualityDialog.show();
++    }
++
++    private void chooseSpeed() {
++        if (Build.VERSION.SDK_INT < 23 || qualityDialog != null) return;
++        main.removeCallbacks(hideControls);
++        String[] names = new String[SPEEDS.length]; int selectedSpeed = 2;
++        for (int i = 0; i < names.length; i++) { names[i] = SPEEDS[i] + "×"; if (speed == SPEEDS[i]) selectedSpeed = i; }
++        qualityDialog = new AlertDialog.Builder(this).setTitle("倍速播放")
++                .setSingleChoiceItems(names, selectedSpeed, (dialog, index) -> {
++                    speed = SPEEDS[index];
++                    if (playing) applySpeed();
++                    updateNavigation(); dialog.dismiss();
++                }).setNegativeButton("取消", null).create();
++        qualityDialog.setOnDismissListener(dialog -> { qualityDialog = null; scheduleHide(); });
++        qualityDialog.show();
++    }
++
++    private void applySpeed() {
++        if (Build.VERSION.SDK_INT >= 23 && player != null && prepared && speed != appliedSpeed) {
++            try { Api23.setSpeed(player, speed); appliedSpeed = speed; }
++            catch (RuntimeException unavailable) {
++                speed = appliedSpeed;
++                Toast.makeText(this, "当前格式不支持所选倍速，已保持 " + speed + "×播放。", Toast.LENGTH_LONG).show();
++                updateNavigation();
++            }
++        }
++    }
++
++    private static final class Api23 {
++        static void setSpeed(MediaPlayer player, float speed) {
++            player.setPlaybackParams(new PlaybackParams().setSpeed(speed).setPitch(1f));
++        }
++    }
++
++    private void resetResolution() {
++        badgeUntil = 0L; actualWidth = actualHeight = 0;
++        main.removeCallbacks(hideResolution);
++        if (actual != null) { actual.setText(resolutionText(0, 0)); actual.setVisibility(View.GONE); }
++    }
++
++    private void updateResolution(int width, int height) {
++        actualWidth = Math.max(0, width); actualHeight = Math.max(0, height);
++        actual.setText(resolutionText(actualWidth, actualHeight));
++        long now = SystemClock.uptimeMillis(), deadline = badgeDeadline(now, badgeUntil, actualWidth, actualHeight);
++        if (deadline != badgeUntil) {
++            badgeUntil = deadline;
++            main.removeCallbacks(hideResolution); main.postDelayed(hideResolution, deadline - now);
++        }
++        actual.setVisibility(badgeVisible(now, badgeUntil, actualWidth, actualHeight) ? View.VISIBLE : View.GONE);
++        fitSurface();
+     }
+ 
+     private void invalidInput(String message) {
+@@ -228,34 +421,35 @@
+ 
+     private void prepare() {
+         if (!valid || destroyed || failed || !foreground || !surfaceReady || player != null) return;
+-        actualWidth = actualHeight = 0;
+-        actual.setText(resolutionText(0, 0));
++        resetResolution();
+         fitSurface();
+         status.setText("正在读取视频");
+         final MediaPlayer candidate;
+         try { candidate = new MediaPlayer(); }
+         catch (RuntimeException unavailable) { fail("系统播放器暂时无法启动，请重试或返回片库。", false); return; }
+         player = candidate;
++        appliedSpeed = 1f;
++        final int generation = ++playbackGeneration;
++        updateNavigation();
+         try {
+             candidate.setAudioStreamType(AudioManager.STREAM_MUSIC);
+             candidate.setDisplay(surface.getHolder());
+             candidate.setOnVideoSizeChangedListener((mp, w, h) -> {
+                 if (mp != player) return;
+-                actualWidth = Math.max(0, w); actualHeight = Math.max(0, h);
+-                actual.setText(resolutionText(actualWidth, actualHeight));
+-                fitSurface();
++                updateResolution(w, h);
+             });
+             candidate.setOnPreparedListener(mp -> {
+                 if (mp != player || !foreground || !surfaceReady) return;
+                 prepared = true;
+                 main.removeCallbacks(timeout);
+                 try {
+-                    actualWidth = Math.max(0, mp.getVideoWidth()); actualHeight = Math.max(0, mp.getVideoHeight());
++                    updateResolution(mp.getVideoWidth(), mp.getVideoHeight());
+                 } catch (RuntimeException unavailable) { fail("无法读取视频信息，请重试或选择其他画质。", false); return; }
+-                actual.setText(resolutionText(actualWidth, actualHeight));
+-                fitSurface();
+                 playButton.setEnabled(true);
+                 retryButton.setVisibility(View.GONE);
++                long clamped = resumePosition(position, duration(), false);
++                if (clamped != position) { position = clamped; saveProgress(); }
++                updateNavigation();
+                 if (position > 0) seekTo(position); else startWanted();
+                 updateClock();
+             });
+@@ -275,12 +469,25 @@
+             candidate.setOnCompletionListener(mp -> {
+                 if (mp != player) return;
+                 completed = true; position = 0L; queuedSeek = -1L; playWhenReady = false; playing = false;
++                saveProgress(); resetResolution();
+                 screenOn(false);
+                 abandonAudio();
+                 playButton.setText("重新播放");
+                 status.setText("播放结束");
+                 showControls(true);
+                 updateResult();
++                int count = queue == null ? 0 : queue.episodes.size();
++                if (canAutoAdvance(foreground, advancing, autoNext(), generation, playbackGeneration, episodeIndex, episodeIndex, count)) {
++                    final int expectedEpisode = episodeIndex;
++                    advancing = true; updateNavigation();
++                    main.post(() -> {
++                        if (destroyed || candidate != player || generation != playbackGeneration || expectedEpisode != episodeIndex) return;
++                        advancing = false;
++                        if (canAutoAdvance(foreground, false, autoNext(), generation, playbackGeneration, expectedEpisode, episodeIndex, count))
++                            changeEpisode(TvPlayQueue.step(episodeIndex, count, 1));
++                        else updateNavigation();
++                    });
++                }
+             });
+             candidate.setOnErrorListener((mp, what, extra) -> {
+                 if (mp == player) fail("视频无法播放，可能是链接失效、网络错误或设备不支持该格式。", false);
+@@ -309,6 +516,7 @@
+                 }
+             }
+             player.start();
++            applySpeed();
+             playing = true; completed = false;
+             screenOn(true);
+             status.setText("正在播放");
+@@ -371,7 +579,7 @@
+     }
+ 
+     private void chooseQuality() {
+-        if (!valid || qualityDialog != null) return;
++        if (!valid || qualityDialog != null || busy()) return;
+         main.removeCallbacks(hideControls);
+         if (urls.length == 1) {
+             qualityDialog = new AlertDialog.Builder(this).setTitle("当前画质")
+@@ -385,6 +593,7 @@
+                         dialog.dismiss();
+                         if (which == selected && !failed) return;
+                         rememberPosition();
++                        saveProgress();
+                         boolean resume = playWhenReady || failed;
+                         releasePlayer();
+                         selected = which; failed = false; completed = false; retryFromStart = false;
+@@ -434,10 +643,12 @@
+ 
+     private void errorUi(String reason) {
+         actual.setText("实际画质：暂不可用");
++        actual.setVisibility(View.GONE);
+         status.setText(reason + (urls.length == 1 ? " 当前没有其他可选画质。" : " 可选择其他画质或返回片库。"));
+         retryButton.setText(retryFromStart ? "从头重试" : "重试");
+         retryButton.setVisibility(View.VISIBLE);
+         playButton.setEnabled(false);
++        updateNavigation();
+         showControls(true);
+         retryButton.requestFocus();
+     }
+@@ -450,7 +661,7 @@
+ 
+     private int duration() {
+         if (player != null && prepared) {
+-            try { return Math.max(0, player.getDuration()); } catch (RuntimeException ignored) { }
++            try { knownDuration = Math.max(0, player.getDuration()); return knownDuration; } catch (RuntimeException ignored) { }
+         }
+         return 0;
+     }
+@@ -467,11 +678,12 @@
+ 
+     private void releasePlayer() {
+         main.removeCallbacks(timeout);
++        ++playbackGeneration;
++        advancing = false;
+         MediaPlayer old = player;
+         player = null;
+         prepared = false; seeking = false; queuedSeek = -1L; playing = false;
+-        actualWidth = actualHeight = 0;
+-        if (actual != null) actual.setText(failed ? "实际画质：暂不可用" : resolutionText(0, 0));
++        resetResolution();
+         screenOn(false);
+         abandonAudio();
+         if (old != null) {
+@@ -582,12 +794,16 @@
+     }
+ 
+     private void updateResult() {
+-        if (valid) setResult(RESULT_OK, new Intent().putExtra("video_json", videoJson)
+-                .putExtra("episode_name", episodeName).putExtra("position_ms", completed ? 0L : Math.max(0L, position))
+-                .putExtra("completed", completed));
+-    }
+-
+-    private void finishPlayback() { rememberPosition(); updateResult(); finish(); }
++        if (valid) {
++            Intent result = new Intent().putExtra("video_json", videoJson)
++                    .putExtra("episode_name", episodeName).putExtra("position_ms", resumePosition(position, knownDuration, completed))
++                    .putExtra("completed", completed);
++            if (queue != null) result.putExtra("queue_index", episodeIndex);
++            setResult(RESULT_OK, result);
++        }
++    }
++
++    private void finishPlayback() { rememberPosition(); saveProgress(); updateResult(); finish(); }
+ 
+     @Override protected void onResume() {
+         super.onResume();
+@@ -597,7 +813,7 @@
+ 
+     @Override protected void onPause() {
+         foreground = false;
+-        rememberPosition(); updateResult(); releasePlayer();
++        rememberPosition(); saveProgress(); updateResult(); releasePlayer();
+         main.removeCallbacks(ticker); main.removeCallbacks(hideControls);
+         super.onPause();
+     }
+@@ -607,14 +823,20 @@
+         saved.putInt("selected", selected); saved.putLong("position", position);
+         saved.putBoolean("play_when_ready", playWhenReady); saved.putBoolean("failed", failed);
+         saved.putBoolean("completed", completed); saved.putBoolean("retry_from_start", retryFromStart);
++        saved.putInt("queue_index", episodeIndex); saved.putFloat("speed", speed);
+         super.onSaveInstanceState(saved);
+     }
+ 
+     @Override protected void onDestroy() {
++        if (isFinishing()) saveProgress();
+         destroyed = true;
+         main.removeCallbacksAndMessages(null);
+         if (qualityDialog != null) qualityDialog.dismiss();
+         releasePlayer();
++        if (isFinishing() && queueToken != null) TvPlayQueue.delete(this, queueToken);
++        if (store != null) {
++            try { store.close(); } catch (RuntimeException unavailable) { progressError(); }
++        }
+         if (surface != null) surface.getHolder().removeCallback(this);
+         super.onDestroy();
+     }
+@@ -623,7 +845,7 @@
+     @Override public void surfaceChanged(SurfaceHolder holder, int format, int w, int h) { fitSurface(); }
+     @Override public void surfaceDestroyed(SurfaceHolder holder) {
+         surfaceReady = false;
+-        rememberPosition(); updateResult(); releasePlayer();
++        rememberPosition(); saveProgress(); updateResult(); releasePlayer();
+     }
+ 
+     static String validateStreams(String[] urls, String[] labels, int[] widths, int[] heights, int index) {
+@@ -666,6 +888,30 @@
+         return "实际画质：" + (level.isEmpty() ? "" : level + " · ") + width + "×" + height;
+     }
+ 
++    static long badgeDeadline(long now, long previous, int width, int height) {
++        return previous == 0L && width > 0 && height > 0 ? now + 3000L : previous;
++    }
++
++    static boolean badgeVisible(long now, long deadline, int width, int height) {
++        return width > 0 && height > 0 && now < deadline;
++    }
++
++    static long resumePosition(long position, long duration, boolean completed) {
++        if (completed || position < 1000L || duration > 0 && (position >= duration || duration - position <= 10000L)) return 0L;
++        return position;
++    }
++
++    static float normalizedSpeed(float value) {
++        for (float speed : SPEEDS) if (value == speed) return speed;
++        return 1f;
++    }
++
++    static boolean canAutoAdvance(boolean foreground, boolean advancing, boolean enabled, int expectedGeneration,
++                                  int generation, int expectedEpisode, int episode, int count) {
++        return foreground && !advancing && enabled && expectedGeneration == generation && expectedEpisode == episode
++                && TvPlayQueue.step(episode, count, 1) >= 0;
++    }
++
+     private static String time(long milliseconds) {
+         long seconds = Math.max(0L, milliseconds) / 1000L;
+         return seconds >= 3600 ? String.format(Locale.ROOT, "%d:%02d:%02d", seconds / 3600, seconds / 60 % 60, seconds % 60)

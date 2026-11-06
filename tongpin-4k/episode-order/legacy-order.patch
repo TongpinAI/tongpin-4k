@@ -1,0 +1,234 @@
+--- before/smali_classes5/f6/g.smali
++++ decoded/smali_classes5/f6/g.smali
+@@ -22,6 +22,8 @@
+ 
+ .field private i:I
+ 
++.field private episodeDescending:Z
++
+ 
+ # direct methods
+ .method public constructor <init>(III)V
+@@ -120,6 +122,10 @@
+     :cond_0
+     iget p2, p0, Lf6/g;->i:I
+ 
++    invoke-virtual {p0, p2}, Lf6/g;->episodePosition(I)I
++
++    move-result p2
++
+     .line 17
+     .line 18
+     sget-object p4, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
+@@ -190,6 +196,10 @@
+     .line 4
+     .line 5
+     .line 6
++    invoke-virtual {p0, p2}, Lf6/g;->episodePosition(I)I
++
++    move-result p2
++
+     iget-object v0, p0, Lf6/g;->g:Ljava/util/List;
+ 
+     .line 7
+@@ -750,3 +760,24 @@
+     .line 5
+     return-object p1
+ .end method
++
++.method public final episodePosition(I)I
++    .locals 2
++    iget-object v0, p0, Lf6/g;->g:Ljava/util/List;
++    invoke-interface {v0}, Ljava/util/List;->size()I
++    move-result v0
++    iget-boolean v1, p0, Lf6/g;->episodeDescending:Z
++    invoke-static {p1, v0, v1}, Lcom/tongpin/player4k/catalog/LegacyEpisodeOrder;->index(IIZ)I
++    move-result v0
++    return v0
++.end method
++
++.method public final setEpisodeReversed(Z)V
++    .locals 1
++    iget-boolean v0, p0, Lf6/g;->episodeDescending:Z
++    if-eq v0, p1, :episode_order_done
++    iput-boolean p1, p0, Lf6/g;->episodeDescending:Z
++    invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$Adapter;->notifyDataSetChanged()V
++    :episode_order_done
++    return-void
++.end method
+--- before/smali_classes5/h6/g0.smali
++++ decoded/smali_classes5/h6/g0.smali
+@@ -55,7 +55,7 @@
+ 
+     .line 19
+     .line 20
+-    invoke-direct {p0}, Lh6/g0;->d()V
++
+ 
+     .line 21
+     .line 22
+@@ -65,6 +65,8 @@
+     .line 24
+     iput-boolean p1, p0, Lh6/g0;->e:Z
+ 
++    invoke-direct {p0}, Lh6/g0;->d()V
++
+     .line 25
+     .line 26
+     return-void
+@@ -331,6 +333,13 @@
+     .line 119
+     .line 120
+     .line 121
++    iget-object v1, p0, Lh6/g0;->a:Landroid/content/Context;
++    invoke-static {v1}, Lcom/tongpin/player4k/catalog/LegacyEpisodeOrder;->isDescending(Landroid/content/Context;)Z
++    move-result v1
++    if-eqz v1, :episode_popup_initial_done
++    const/4 v1, 0x0
++    invoke-static {p0, v4, v0, v5, v1}, Lh6/g0;->f(Lh6/g0;Landroid/widget/ImageView;Landroid/widget/TextView;Lf6/g;Landroid/view/View;)V
++    :episode_popup_initial_done
+     return-void
+ .end method
+ 
+@@ -415,7 +424,9 @@
+ .end method
+ 
+ .method private static final f(Lh6/g0;Landroid/widget/ImageView;Landroid/widget/TextView;Lf6/g;Landroid/view/View;)V
+-    .locals 1
++    .locals 2
++
++    move-object v1, p0
+ 
+     .line 1
+     iget-boolean p4, p0, Lh6/g0;->e:Z
+@@ -530,6 +541,10 @@
+     .line 55
+     .line 56
+     .line 57
++    iget-object p1, v1, Lh6/g0;->a:Landroid/content/Context;
++    iget-boolean p2, v1, Lh6/g0;->e:Z
++    xor-int/lit8 p2, p2, 0x1
++    invoke-static {p1, p2}, Lcom/tongpin/player4k/catalog/LegacyEpisodeOrder;->setDescending(Landroid/content/Context;Z)V
+     return-void
+ .end method
+ 
+--- before/smali_classes5/h6/c.smali
++++ decoded/smali_classes5/h6/c.smali
+@@ -144,13 +144,18 @@
+ .end method
+ 
+ .method private static final d(Landroidx/recyclerview/widget/RecyclerView;Lh6/c;)V
+-    .locals 0
++    .locals 1
+ 
+     .line 1
+     iget p1, p1, Lh6/c;->d:I
+ 
+     .line 2
+     .line 3
++    invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView;->getAdapter()Landroidx/recyclerview/widget/RecyclerView$Adapter;
++    move-result-object v0
++    check-cast v0, Lf6/g;
++    invoke-virtual {v0, p1}, Lf6/g;->episodePosition(I)I
++    move-result p1
+     invoke-virtual {p0, p1}, Landroidx/recyclerview/widget/RecyclerView;->scrollToPosition(I)V
+ 
+     .line 4
+@@ -449,6 +454,13 @@
+     .line 135
+     .line 136
+     .line 137
++    invoke-virtual {p0}, Landroid/app/Dialog;->getContext()Landroid/content/Context;
++    move-result-object v0
++    const v1, 0x7f0a0b02
++    invoke-virtual {p0, v1}, Landroid/app/Dialog;->findViewById(I)Landroid/view/View;
++    move-result-object v1
++    invoke-static {v0, v1, v3}, Lcom/tongpin/player4k/catalog/LegacyEpisodeOrder;->bindDialog(Landroid/content/Context;Landroid/view/View;Ljava/lang/Object;)V
++
+     new-instance p1, Lh6/b;
+ 
+     .line 138
+--- before/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity.smali
++++ decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity.smali
+@@ -4418,6 +4418,8 @@
+     .line 93
+     .line 94
+     :cond_1
++    invoke-virtual {p0}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->refreshEpisodeOrder()V
++
+     return-void
+ .end method
+ 
+@@ -18242,3 +18244,11 @@
+     invoke-static {p0}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->u1(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V
+     return-void
+ .end method
++
++.method public final refreshEpisodeOrder()V
++    .locals 2
++    iget-object v0, p0, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->k:Lf6/g;
++    iget-object v1, p0, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->l:Lf6/g;
++    invoke-static {p0, v0, v1}, Lcom/tongpin/player4k/catalog/LegacyEpisodeOrder;->bind(Landroid/app/Activity;Ljava/lang/Object;Ljava/lang/Object;)V
++    return-void
++.end method
+--- before/res/layout/phone_activity_video_detail_play.xml
++++ decoded/res/layout/phone_activity_video_detail_play.xml
+@@ -15,10 +15,11 @@
+             <TextView android:textSize="@dimen/sp_16" android:textColor="@color/black_60_333" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_6" android:text="收藏" />
+         </LinearLayout>
+         <TextView android:textSize="@dimen/sp_20" android:textStyle="bold" android:textColor="@color/black_333" android:id="@id/tv_video_list" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_22" android:text="选集" android:layout_marginStart="@dimen/dp_16" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/ll_source" />
+-        <TextView android:textSize="@dimen/sp_18" android:textColor="@color/black_60_333" android:id="@id/tv_video_list_more" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="@dimen/dp_36" app:layout_constraintBottom_toBottomOf="@id/tv_video_list" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="@id/tv_video_list" />
++        <TextView android:textSize="@dimen/sp_18" android:textColor="@color/black_60_333" android:id="@id/tv_video_list_more" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginEnd="20dp" app:layout_constraintBottom_toBottomOf="@id/tv_video_list" app:layout_constraintTop_toTopOf="@id/tv_video_list" app:layout_constraintEnd_toStartOf="@id/tv_order" app:layout_constraintStart_toEndOf="@id/tv_video_list" android:layout_marginStart="12dp" android:maxLines="1" android:ellipsize="end" />
+         <ImageView android:layout_width="@dimen/dp_20" android:layout_height="@dimen/dp_30" android:src="@drawable/icon_more" android:tint="@color/black_60_333" app:layout_constraintBottom_toBottomOf="@id/tv_video_list_more" app:layout_constraintStart_toEndOf="@id/tv_video_list_more" app:layout_constraintTop_toTopOf="@id/tv_video_list_more" />
+-        <androidx.recyclerview.widget.RecyclerView android:id="@id/recycler_view_trunk" android:layout_width="match_parent" android:layout_height="@dimen/dp_60" android:layout_marginTop="@dimen/dp_8" android:layout_marginStart="@dimen/dp_16" android:layout_marginEnd="@dimen/dp_16" app:layout_constraintTop_toBottomOf="@id/tv_video_list" />
++        <androidx.recyclerview.widget.RecyclerView android:id="@id/recycler_view_trunk" android:layout_width="match_parent" android:layout_height="@dimen/dp_60" android:layout_marginTop="@dimen/dp_8" android:layout_marginStart="@dimen/dp_16" android:layout_marginEnd="@dimen/dp_16" app:layout_constraintTop_toBottomOf="@id/tv_order" />
+         <FrameLayout android:id="@id/fl_ad" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_20" android:layout_marginBottom="@dimen/dp_16" android:layout_marginStart="@dimen/dp_16" android:layout_marginEnd="@dimen/dp_16" app:layout_constraintTop_toBottomOf="@id/recycler_view_trunk" />
++        <TextView android:id="@id/tv_order" android:text="正序" android:textSize="16sp" android:textColor="@color/tp_primary" android:layout_width="72dp" android:layout_height="48dp" android:gravity="center" android:layout_marginEnd="16dp" android:minWidth="48dp" android:minHeight="48dp" android:background="?android:attr/selectableItemBackground" android:contentDescription="选集正序，点击切换顺序" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="@id/tv_video_list" app:layout_constraintBottom_toBottomOf="@id/tv_video_list" />
+     </androidx.constraintlayout.widget.ConstraintLayout>
+     <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/ctl_info_content" android:background="@color/tp_surface" android:visibility="gone" android:layout_width="match_parent" android:layout_height="0.0dp" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toBottomOf="@id/fl_video">
+         <TextView android:textSize="@dimen/sp_22" android:textStyle="bold" android:textColor="@color/black_333" android:id="@id/tv_video_name_intro" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_10" android:text="视频名" android:layout_marginStart="@dimen/dp_16" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+@@ -33,7 +34,7 @@
+         <TextView android:textSize="@dimen/sp_14" android:textColor="@color/black_60_333" android:id="@id/tv_video_intro" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_8" android:layout_marginStart="@dimen/dp_16" android:layout_marginEnd="@dimen/dp_16" app:layout_constraintTop_toBottomOf="@id/tv_intro" />
+     </androidx.constraintlayout.widget.ConstraintLayout>
+     <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/ctl_ju_ji_content" android:background="@color/tp_surface" android:visibility="gone" android:layout_width="match_parent" android:layout_height="0.0dp" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toBottomOf="@id/fl_video">
+-        <TextView android:textSize="@dimen/sp_22" android:textStyle="bold" android:textColor="@color/black_333" android:id="@id/tv_all_ju_ji" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_20" android:text="全部剧集" android:layout_marginStart="@dimen/dp_16" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
++        <TextView android:textSize="@dimen/sp_22" android:textStyle="bold" android:textColor="@color/black_333" android:id="@id/tv_all_ju_ji" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_20" android:text="全部剧集 · 正序" android:layout_marginStart="@dimen/dp_16" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" android:minHeight="48dp" android:gravity="center_vertical" android:background="?android:attr/selectableItemBackground" />
+         <ImageView android:id="@id/tv_ju_ji_close" android:padding="@dimen/dp_4" android:layout_width="48dp" android:layout_height="48dp" android:src="@drawable/icon_close_x" android:tint="@color/black_60_333" android:layout_marginEnd="@dimen/dp_8" app:layout_constraintBottom_toBottomOf="@id/tv_all_ju_ji" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="@id/tv_all_ju_ji" android:minHeight="48dp" android:minWidth="48dp" />
+         <androidx.recyclerview.widget.RecyclerView android:id="@id/rv_ju_ji" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_marginTop="@dimen/sp_20" android:layout_marginStart="@dimen/dp_16" android:layout_marginEnd="@dimen/dp_16" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toBottomOf="@id/tv_all_ju_ji" />
+     </androidx.constraintlayout.widget.ConstraintLayout>
+@@ -67,4 +68,4 @@
+             <TextView android:textSize="@dimen/sp_12" android:textColor="@color/white" android:id="@id/tv_volume" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_8" android:text="50%" />
+         </LinearLayout>
+     </FrameLayout>
+-</androidx.constraintlayout.widget.ConstraintLayout>
++</androidx.constraintlayout.widget.ConstraintLayout>--- before/res/layout/dialog_bottom_juji.xml
++++ decoded/res/layout/dialog_bottom_juji.xml
+@@ -1,6 +1,6 @@
+-<?xml version="1.0" encoding="utf-8"?>
+-<androidx.constraintlayout.widget.ConstraintLayout android:orientation="horizontal" android:tag="layout/dialog_bottom_juji_0" android:background="#99000000" android:layout_width="match_parent" android:layout_height="@dimen/dp_280"
+-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+-    <TextView android:textSize="@dimen/sp_20" android:textColor="@color/white" android:gravity="center" android:id="@id/tv_total" android:background="@drawable/bg_source" android:layout_width="wrap_content" android:layout_height="@dimen/dp_40" android:layout_marginTop="@dimen/dp_30" android:layout_marginStart="@dimen/dp_20" android:layout_marginEnd="@dimen/dp_8" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
++<?xml version='1.0' encoding='utf-8'?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="horizontal" android:tag="layout/dialog_bottom_juji_0" android:background="#99000000" android:layout_width="match_parent" android:layout_height="@dimen/dp_280">
++    <TextView android:textSize="@dimen/sp_20" android:textColor="@color/white" android:gravity="center" android:id="@id/tv_total" android:background="@drawable/bg_source" android:layout_width="0dp" android:layout_height="@dimen/dp_40" android:layout_marginTop="@dimen/dp_30" android:layout_marginStart="@dimen/dp_20" android:layout_marginEnd="@dimen/dp_8" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toStartOf="@id/tv_order" />
+     <androidx.recyclerview.widget.RecyclerView android:id="@id/recycler_view_juji" android:layout_width="match_parent" android:layout_height="@dimen/dp_70" android:layout_marginTop="@dimen/dp_10" android:paddingStart="@dimen/sp_20" android:paddingEnd="@dimen/sp_20" app:layout_constraintTop_toBottomOf="@id/tv_total" />
+-</androidx.constraintlayout.widget.ConstraintLayout>
++    <TextView android:id="@id/tv_order" android:text="正序" android:textSize="16sp" android:textColor="@color/white" android:gravity="center" android:layout_width="96dp" android:layout_height="48dp" android:layout_marginEnd="16dp" android:background="?android:attr/selectableItemBackground" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="@id/tv_total" app:layout_constraintBottom_toBottomOf="@id/tv_total" />
++</androidx.constraintlayout.widget.ConstraintLayout>--- before/res/layout/popup_window_juji.xml
++++ decoded/res/layout/popup_window_juji.xml
+@@ -1,10 +1,9 @@
+-<?xml version="1.0" encoding="utf-8"?>
+-<androidx.constraintlayout.widget.ConstraintLayout android:tag="layout/popup_window_juji_0" android:background="#99000000" android:layout_width="@dimen/dp_160" android:layout_height="match_parent"
+-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
++<?xml version='1.0' encoding='utf-8'?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:tag="layout/popup_window_juji_0" android:background="#99000000" android:layout_width="@dimen/dp_160" android:layout_height="match_parent">
+     <TextView android:textSize="@dimen/sp_16" android:textColor="@color/white" android:id="@id/tv_juji" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_16" android:text="剧集" android:layout_marginStart="@dimen/dp_16" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+-    <LinearLayout android:orientation="horizontal" android:id="@id/ll_order_switch" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="@dimen/dp_16" app:layout_constraintBottom_toBottomOf="@id/tv_juji" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="@id/tv_juji">
++    <LinearLayout android:orientation="horizontal" android:id="@id/ll_order_switch" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="@dimen/dp_16" app:layout_constraintBottom_toBottomOf="@id/tv_juji" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="@id/tv_juji" android:minHeight="48dp" android:minWidth="96dp" android:gravity="center">
+         <ImageView android:id="@id/iv_order" android:layout_width="@dimen/dp_26" android:layout_height="@dimen/dp_20" android:layout_marginTop="@dimen/dp_2" android:src="@drawable/select_order_icon" />
+         <TextView android:textSize="@dimen/sp_16" android:textColor="@color/white" android:id="@id/tv_order" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="正序" />
+     </LinearLayout>
+-    <androidx.recyclerview.widget.RecyclerView android:id="@id/rcv_pop" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="@dimen/dp_44" android:layout_marginBottom="@dimen/dp_40" />
+-</androidx.constraintlayout.widget.ConstraintLayout>
++    <androidx.recyclerview.widget.RecyclerView android:id="@id/rcv_pop" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="64dp" android:layout_marginBottom="@dimen/dp_40" />
++</androidx.constraintlayout.widget.ConstraintLayout>

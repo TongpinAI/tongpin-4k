@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat android:orientation="vertical" android:background="@drawable/bg_round_dialog" android:layout_width="@dimen/sm_600" android:layout_height="@dimen/sm_400"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/sm_46" android:textColor="@color/black_161922" android:gravity="center" android:layout_width="match_parent" android:layout_height="@dimen/sm_100" android:layout_marginTop="@dimen/sm_20" android:text="请选择" />
+    <View android:background="#99000000" android:layout_width="match_parent" android:layout_height="@dimen/sm_1" />
+    <TextView android:textSize="@dimen/sm_40" android:textColor="#333333" android:gravity="center" android:id="@id/tv_zfb" android:background="@drawable/bg_input4" android:focusable="true" android:layout_width="match_parent" android:layout_height="@dimen/sm_100" android:text="支付宝" />
+    <TextView android:textSize="@dimen/sm_40" android:textColor="#333333" android:gravity="center" android:id="@id/tv_wx" android:background="@drawable/bg_input4" android:focusable="true" android:layout_width="match_parent" android:layout_height="@dimen/sm_100" android:text="微信" />
+</androidx.appcompat.widget.LinearLayoutCompat>

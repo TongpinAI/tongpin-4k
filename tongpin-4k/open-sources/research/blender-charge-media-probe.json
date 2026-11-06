@@ -1,0 +1,34 @@
+{
+  "name": "Charge - Blender Open Movie",
+  "uuid": "04da454b-9893-4184-98f3-248d00625efe",
+  "requested_url": "https://video.blender.org/object-storage/web_videos/020223f7-9721-4288-afab-71594f8d2411-1608.mp4",
+  "status": 206,
+  "content_range": "bytes 0-2097151/191560304",
+  "bytes_read": 2097152,
+  "elapsed_s": 4.24,
+  "range_limit_bytes": 2097152,
+  "ffprobe_returncode": 0,
+  "ffprobe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "index": 0,
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 3840,
+        "height": 1608,
+        "avg_frame_rate": "24/1"
+      },
+      {
+        "index": 1,
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "sample_rate": "48000",
+        "channels": 2,
+        "avg_frame_rate": "0/0"
+      }
+    ]
+  },
+  "stderr": ""
+}

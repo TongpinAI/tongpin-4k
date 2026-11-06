@@ -1,0 +1,243 @@
+--- before/open-sources/src/com/tongpin/player4k/catalog/OpenPlayerActivity.java
++++ after/open-sources/src/com/tongpin/player4k/catalog/OpenPlayerActivity.java
+@@ -5,11 +5,12 @@
+ import android.content.ActivityNotFoundException;
+ import android.content.Intent;
+ import android.content.res.Configuration;
+-import android.content.res.ColorStateList;
+ import android.graphics.Typeface;
+ import android.net.Uri;
+ import android.os.Build;
+ import android.os.Bundle;
++import android.text.TextUtils;
++import android.view.Gravity;
+ import android.view.DisplayCutout;
+ import android.view.View;
+ import android.view.ViewGroup;
+@@ -37,8 +38,8 @@
+ 
+ /** Direct playback of the public API's supplied streams, with no service login. */
+ public final class OpenPlayerActivity extends Activity {
+-    private static final int BG = 0xffF5F2E9, TEXT = 0xff172C42;
+-    private static final int PRIMARY = 0xff226CC7, SECONDARY = 0xff5D6D78;
++    private static final int BG = PhoneUi.BG, TEXT = PhoneUi.TEXT;
++    private static final int SECONDARY = PhoneUi.MUTED;
+     private String title, sourceUrl;
+     private String[] urls, labels;
+     private int[] widths, heights;
+@@ -46,7 +47,7 @@
+     private StandardGSYVideoPlayer player;
+     private OrientationUtils orientation;
+     private TextView actual, error;
+-    private Button quality;
++    private Button quality, lower;
+     private LinearLayout recovery;
+     private boolean fullscreen, foreground = true, resumeAfterPause, destroying;
+     private long position;
+@@ -72,36 +73,51 @@
+         }
+         title = title == null || title.trim().isEmpty() ? "视频播放" : title.trim();
+         normalSystemBars();
++        LinearLayout screen = new LinearLayout(this);
++        screen.setOrientation(LinearLayout.VERTICAL);
++        screen.setBackgroundColor(BG);
++        screen.setOnApplyWindowInsetsListener((view, insets) -> applyInsets(view, insets));
++        LinearLayout toolbar = new LinearLayout(this);
++        toolbar.setGravity(Gravity.CENTER_VERTICAL);
++        toolbar.setMinimumHeight(dp(56));
++        toolbar.setPadding(dp(8), dp(4), dp(16), dp(4));
++        Button back = button("返回", false);
++        back.setOnClickListener(view -> onBackPressed());
++        toolbar.addView(back, new LinearLayout.LayoutParams(dp(80), -2));
++        TextView heading = text(title, 20, TEXT);
++        heading.setTypeface(null, Typeface.BOLD);
++        heading.setMaxLines(2);
++        heading.setEllipsize(TextUtils.TruncateAt.END);
++        LinearLayout.LayoutParams titleParams = new LinearLayout.LayoutParams(0, -2, 1);
++        titleParams.leftMargin = dp(8);
++        toolbar.addView(heading, titleParams);
++        screen.addView(toolbar, new LinearLayout.LayoutParams(-1, -2));
+         ScrollView scroll = new ScrollView(this);
+-        scroll.setBackgroundColor(BG);
+-        scroll.setOnApplyWindowInsetsListener((view, insets) -> applyInsets(view, insets));
++        scroll.setFillViewport(true);
+         LinearLayout body = new LinearLayout(this);
+         body.setOrientation(LinearLayout.VERTICAL);
+-        body.setPadding(dp(16), dp(8), dp(16), dp(24));
++        body.setPadding(0, 0, 0, dp(24));
+         scroll.addView(body, new ScrollView.LayoutParams(-1, -2));
+-        setContentView(scroll);
+-        scroll.requestApplyInsets();
+-
+-        Button back = button("返回片库", false);
+-        back.setOnClickListener(view -> onBackPressed());
+-        body.addView(back, new LinearLayout.LayoutParams(-2, dp(48)));
+-        TextView heading = text(title, 22, TEXT);
+-        heading.setTypeface(null, Typeface.BOLD);
+-        body.addView(heading);
++        screen.addView(scroll, new LinearLayout.LayoutParams(-1, 0, 1));
++        setContentView(screen);
++        screen.requestApplyInsets();
+         String credit = (author == null ? "" : author.trim());
+         if (licence != null && !licence.trim().isEmpty()) credit += (credit.isEmpty() ? "" : " · ") + licence.trim();
+-        if (!credit.isEmpty()) body.addView(text(credit, 14, SECONDARY));
+ 
+         error = text("", 16, TEXT);
+         error.setPadding(0, dp(12), 0, dp(8));
++        error.setAccessibilityLiveRegion(View.ACCESSIBILITY_LIVE_REGION_POLITE);
+         error.setVisibility(View.GONE);
+         recovery = new LinearLayout(this);
+         Button retry = button("重试", true);
+         retry.setOnClickListener(view -> play(selected, true));
+-        Button lower = button("选择其他画质", false);
++        lower = button("换画质", false);
+         lower.setOnClickListener(view -> chooseQuality());
+-        recovery.addView(retry, new LinearLayout.LayoutParams(0, dp(48), 1));
+-        recovery.addView(lower, new LinearLayout.LayoutParams(0, dp(48), 1));
++        recovery.addView(retry, new LinearLayout.LayoutParams(0, -2, 1));
++        LinearLayout.LayoutParams lowerParams = new LinearLayout.LayoutParams(0, -2, 1);
++        lowerParams.leftMargin = dp(8);
++        recovery.addView(lower, lowerParams);
++        lower.setVisibility(hasQualityChoices(urls) ? View.VISIBLE : View.GONE);
+         recovery.setVisibility(View.GONE);
+ 
+         if (invalid == null) {
+@@ -128,17 +144,33 @@
+                 invalid = "播放器无法启动，请返回片库后重试。";
+             }
+         }
+-        actual = text("解码分辨率：等待解码", 14, SECONDARY);
+-        body.addView(actual);
+-        quality = button("选择画质", true);
++        actual = player == null ? text(resolutionText(0, 0), 14, SECONDARY) : PlaybackResolution.badge(player);
++        if (player == null) body.addView(actual);
++        LinearLayout controls = new LinearLayout(this);
++        controls.setGravity(Gravity.CENTER_VERTICAL);
++        controls.setPadding(dp(16), dp(12), dp(16), dp(4));
++        quality = button("画质选项", true);
++        PhoneUi.styleButton(quality, PhoneUi.TONAL_BUTTON);
++        quality.setMaxLines(2);
++        quality.setEllipsize(TextUtils.TruncateAt.END);
+         quality.setOnClickListener(view -> chooseQuality());
+-        body.addView(quality, new LinearLayout.LayoutParams(-1, dp(48)));
+-        body.addView(error);
+-        body.addView(recovery);
+-        Button source = button("查看原始来源", false);
++        controls.addView(quality, new LinearLayout.LayoutParams(0, -2, 1));
++        Button source = button("来源", false);
+         source.setEnabled(validHttpUrl(sourceUrl));
++        source.setContentDescription("在浏览器查看原始来源");
+         source.setOnClickListener(view -> openSource());
+-        body.addView(source, new LinearLayout.LayoutParams(-1, dp(48)));
++        LinearLayout.LayoutParams sourceParams = new LinearLayout.LayoutParams(dp(80), -2);
++        sourceParams.leftMargin = dp(8);
++        controls.addView(source, sourceParams);
++        body.addView(controls, new LinearLayout.LayoutParams(-1, -2));
++        LinearLayout information = new LinearLayout(this);
++        information.setOrientation(LinearLayout.VERTICAL);
++        information.setPadding(dp(16), 0, dp(16), 0);
++        information.addView(error);
++        information.addView(recovery);
++        if (!credit.isEmpty()) information.addView(text(credit, 14, SECONDARY));
++        body.addView(information, new LinearLayout.LayoutParams(-1, -2));
++        quality.setEnabled(invalid == null && hasQualityChoices(urls));
+         if (invalid == null) play(selected, false);
+         else {
+             quality.setEnabled(false);
+@@ -157,8 +189,9 @@
+         selected = index;
+         error.setVisibility(View.GONE);
+         recovery.setVisibility(View.GONE);
+-        actual.setText("解码分辨率：等待解码");
+-        quality.setText("画质：" + qualityLabel(index));
++        PlaybackResolution.reset(player);
++        quality.setText(hasQualityChoices(urls) ? "画质 · " + qualityLabel(index) : "单一播放线路");
++        quality.setContentDescription(hasQualityChoices(urls) ? "选择播放画质，当前选项：" + qualityLabel(index) : "此集仅提供一个播放选项，实际画质见画面内尺寸");
+         try {
+             player.release();
+             if (!player.setUp(urls[index], false, title)) {
+@@ -173,7 +206,7 @@
+     }
+ 
+     private void chooseQuality() {
+-        if (urls == null || urls.length == 0 || player == null) return;
++        if (!hasQualityChoices(urls) || player == null) return;
+         String[] choices = new String[urls.length];
+         for (int index = 0; index < choices.length; index++) choices[index] = qualityLabel(index);
+         new AlertDialog.Builder(this).setTitle("选择画质")
+@@ -190,8 +223,7 @@
+ 
+     private void showDimensions() {
+         if (destroying || player == null) return;
+-        int width = k6.c.D().getVideoWidth(), height = k6.c.D().getVideoHeight();
+-        actual.setText(resolutionText(width, height));
++        PlaybackResolution.refresh(player);
+     }
+ 
+     private void keepScreenOn(boolean enabled) {
+@@ -206,7 +238,7 @@
+         keepScreenOn(false);
+         if (fullscreen) leaveFullscreen();
+         actual.setText(resolutionText(0, 0));
+-        error.setText("链接无法播放，或设备不支持该画质。请重试，或选择较低画质。当前画质：" + qualityLabel(selected));
++        error.setText(playbackErrorText(urls == null ? 0 : urls.length));
+         error.setVisibility(View.VISIBLE);
+         recovery.setVisibility(View.VISIBLE);
+     }
+@@ -225,6 +257,8 @@
+     private void prepareFullscreen(GSYBaseVideoPlayer full) {
+         if (full == null) throw new IllegalStateException("Fullscreen player unavailable");
+         fullscreen = true;
++        PlaybackResolution.attach(full);
++        PlaybackResolution.refresh(full);
+         hideSystemBars();
+         sizeControls(full);
+         full.setOnApplyWindowInsetsListener((view, insets) -> applyInsets(view, insets));
+@@ -336,7 +370,8 @@
+ 
+     private void normalSystemBars() {
+         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+-        getWindow().setStatusBarColor(BG); getWindow().setNavigationBarColor(BG);
++        getWindow().setStatusBarColor(BG);
++        getWindow().setNavigationBarColor(Build.VERSION.SDK_INT >= 26 ? BG : PhoneUi.DARK);
+         if (Build.VERSION.SDK_INT >= 28) {
+             WindowManager.LayoutParams attributes = getWindow().getAttributes();
+             attributes.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_NEVER;
+@@ -365,18 +400,13 @@
+     }
+ 
+     private TextView text(String value, int size, int color) {
+-        TextView view = new TextView(this);
+-        view.setText(value); view.setTextSize(size); view.setTextColor(color);
++        TextView view = PhoneUi.text(this, value, size, color);
+         view.setPadding(0, dp(6), 0, dp(6));
+         return view;
+     }
+ 
+     private Button button(String value, boolean primary) {
+-        Button button = new Button(this);
+-        button.setText(value); button.setTextSize(15); button.setAllCaps(false); button.setMinHeight(dp(48));
+-        button.setTextColor(primary ? 0xffFFFFFF : PRIMARY);
+-        button.setBackgroundTintList(ColorStateList.valueOf(primary ? PRIMARY : 0xffFFFFFF));
+-        return button;
++        return PhoneUi.button(this, value, primary ? PhoneUi.FILLED : PhoneUi.TEXT_BUTTON);
+     }
+ 
+     private int dp(int value) { return Math.round(value * getResources().getDisplayMetrics().density); }
+@@ -450,6 +480,15 @@
+     }
+ 
+     static String resolutionText(int width, int height) {
+-        return width > 0 && height > 0 ? "解码分辨率：" + width + "×" + height : "解码分辨率：未知";
++        return PlaybackResolution.resolutionText(width, height);
++    }
++
++    static boolean hasQualityChoices(String[] streams) {
++        return streams != null && streams.length > 1;
++    }
++
++    static String playbackErrorText(int streamCount) {
++        return streamCount > 1 ? "此线路暂时无法播放。请重试，或选择其他画质。"
++            : "此线路暂时无法播放。请重试，或返回片库更换线路。";
+     }
+ }

@@ -1,0 +1,157 @@
+{
+  "min_sdk": 21,
+  "higher_api_references": [
+    {
+      "kind": "class",
+      "owner": "android/media/PlaybackParams",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaPlayer;",
+      "member": "seekTo(JI)V",
+      "since": 26
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaPlayer;",
+      "member": "setPlaybackParams(Landroid/media/PlaybackParams;)V",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/PlaybackParams;",
+      "member": "<init>()V",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/PlaybackParams;",
+      "member": "setPitch(F)Landroid/media/PlaybackParams;",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/PlaybackParams;",
+      "member": "setSpeed(F)Landroid/media/PlaybackParams;",
+      "since": 23
+    }
+  ],
+  "passed": true,
+  "scope": "DEX class/method/field references, including inherited platform members; SDK_INT guards require manual review",
+  "method_reference_count": 983,
+  "field_reference_count": 366,
+  "raw_reference_only_passed": false,
+  "guarded_api23_speed": {
+    "passed": true,
+    "scope": "Only actual TvPlayerActivity.applySpeed DEX control flow and isolated Api23 speed helper",
+    "sdk_branch_checks": {
+      "21": {
+        "reachable_instructions": 4,
+        "helper_call_reachable": false
+      },
+      "22": {
+        "reachable_instructions": 4,
+        "helper_call_reachable": false
+      },
+      "23": {
+        "reachable_instructions": 32,
+        "helper_call_reachable": true
+      }
+    },
+    "higher_api_references": [
+      {
+        "kind": "class",
+        "owner": "android/media/PlaybackParams",
+        "since": 23
+      },
+      {
+        "kind": "method",
+        "owner": "Landroid/media/MediaPlayer;",
+        "member": "setPlaybackParams(Landroid/media/PlaybackParams;)V",
+        "since": 23
+      },
+      {
+        "kind": "method",
+        "owner": "Landroid/media/PlaybackParams;",
+        "member": "<init>()V",
+        "since": 23
+      },
+      {
+        "kind": "method",
+        "owner": "Landroid/media/PlaybackParams;",
+        "member": "setPitch(F)Landroid/media/PlaybackParams;",
+        "since": 23
+      },
+      {
+        "kind": "method",
+        "owner": "Landroid/media/PlaybackParams;",
+        "member": "setSpeed(F)Landroid/media/PlaybackParams;",
+        "since": 23
+      }
+    ],
+    "guard_method_sha256": "ace2bca8138223c1f58beaeb4be6d946115f5dc48cc01e3f483ad0dab4d13547",
+    "helper_method_sha256": "0f50d2af49c4e43c7b0e6d288796478ac33afbcf8709158572fef6889f5c91d9",
+    "player_source_sha256": "be985f9bb5bd115d46c0b0a90af8935f4ea779c639255597ffbcd5eb912280d4",
+    "runtime_tested": false
+  },
+  "guarded_api26_seek": {
+    "passed": true,
+    "scope": "Actual TvPlayerActivity.seekTo DEX control flow and isolated Api26 SEEK_CLOSEST(3) helper",
+    "sdk_branch_checks": {
+      "21": {
+        "reachable_instructions": 27,
+        "api26_helper_reachable": false,
+        "int_seek_reachable": true
+      },
+      "22": {
+        "reachable_instructions": 27,
+        "api26_helper_reachable": false,
+        "int_seek_reachable": true
+      },
+      "23": {
+        "reachable_instructions": 27,
+        "api26_helper_reachable": false,
+        "int_seek_reachable": true
+      },
+      "25": {
+        "reachable_instructions": 27,
+        "api26_helper_reachable": false,
+        "int_seek_reachable": true
+      },
+      "26": {
+        "reachable_instructions": 27,
+        "api26_helper_reachable": true,
+        "int_seek_reachable": false
+      },
+      "35": {
+        "reachable_instructions": 27,
+        "api26_helper_reachable": true,
+        "int_seek_reachable": false
+      }
+    },
+    "guard_method_sha256": "7c041ef31093a315ac3cc00f3298149d373aa86fbdff74ec7c507f2ed7b2f211",
+    "helper_method_sha256": "efe074bcf7776444ec77cc3ad0653efae5476050f49fd79c40515f1d0ed7f8df",
+    "seek_state_methods": {
+      "<init>()V": "d00a2263a802d82af0aedb4a30cdf1f6f3e9986d856af55be85156f22da35909",
+      "clamp(JI)J": "4f687128fd195bbf5cd7551100de53ca3a58a00d273399e87e34ecb8b13455ff",
+      "offset(JJI)J": "bebb6c7b297496c6710398cdfa05f09b122f7f1713ac9dafb999ff7cf3ffc1ff",
+      "require(J)V": "94cedaf1b316878ac08ef7f182381d6aa6c1fdc37af4e7762e3112f7339dc328",
+      "active()Z": "7b3ac9c6447a850d347f8b5a4a31bdd6f9062b4f3aa411e6a211b4f1b52f394b",
+      "begin(J)V": "9e734dc0ec33c6d4baa08264261ced0c5c4fe6fcc60ea77620e584aeea92f9bd",
+      "cancel()V": "6bc7c72f77a6c93d9334a5e3d91ec591caa08f1eac0e55a1b9e089e8536fcbc0",
+      "complete(J)Z": "ccc3672d6c8ff9eb7ce432cb660dca7801bf2174b8c54f14e11831abbd0b8d62",
+      "dragging()Z": "2bf53ff4d2811fe6216e8aa48d6ee70c78af4b9df72219ea4ab63f319e542409",
+      "end()V": "56f1ccf3073b7ae86aafa850fc49b93293c58984893d5d779765775e093d5c84",
+      "inFlight()Z": "864a4692de20e70aa9250f953ebdc30b1b2b312d3620afc59b3d89edae40f9a4",
+      "observe(JJ)J": "acf4ab114f679eca8c202b589d9d06166bc8babaaca42eee4332b1c28fafd4e2",
+      "preview(J)V": "6b27504bde812ea5e330bc5ad6ba156acca6b1102cd1e8ca0e4989ea0e3a3d8d",
+      "request(J)V": "8ab65de877426f1940dc9fc1a96a3620b2f286d6984f461d049abb3c4db7c920",
+      "reset()V": "285aa142bc706b096b92d428e5eea731552171df22f0a7ca0c0258bc223ef9d6",
+      "take(J)J": "d239bfb3e8980fb06c6d3cefaf6274e2fdeb7ee86b3da0a48394dcddbe91a6e3",
+      "target()J": "1ef22147374e645679d3a8f64a03b41389763a6e231788feef527cac28b8f6d3"
+    },
+    "seek_mode": 3,
+    "runtime_tested": false
+  }
+}

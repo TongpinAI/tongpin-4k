@@ -1,0 +1,43 @@
+{
+  "passed": true,
+  "jvm_assertions": 112,
+  "namespace": "com.tongpin.player4k.tv",
+  "min_sdk": 21,
+  "android_compile_jar_api": 35,
+  "source_sha256": {
+    "src\\com\\tongpin\\player4k\\tv\\CatalogApi.java": "29a1ddc2be33bcefe508bd234cec93b5227945d9f25373409e9e60ce3d41fb93",
+    "src\\com\\tongpin\\player4k\\tv\\TvLibraryStore.java": "a72e6295c542703f45321ba3d2b296392f19f3632727a64fd26a68dbb8a9b385",
+    "tests\\src\\com\\tongpin\\player4k\\tv\\CatalogApiTest.java": "dd93ce84a014ec9b24ef2751a5a6add73487ab41c148799e57e1b8ef00e2f55e",
+    "tests\\src\\com\\tongpin\\player4k\\tv\\TvLibraryStoreDeviceChecks.java": "9367969ec64ba476f0ae42225c4f41db673456d62e757e669caa95f6e5305cbd"
+  },
+  "host_json": {
+    "url": "https://repo.maven.apache.org/maven2/org/json/json/20260719/json-20260719.jar",
+    "sha256": "c243f45f9590c12694a4142ed3f07fc70dfb71e4daebd05ae234bf92a2da92a6",
+    "packaged_in_apk": false
+  },
+  "fixtures": {
+    "tests\\fixtures\\360zy-film-detail.json": "ae0967eba91f560187acd713cf13e653b96a6438ad2527cdddec9b2959902696",
+    "tests\\fixtures\\360zy-film-list.json": "df3857c40ea447be8a8257224fd16e84a1b755dd344ae5b7b112e6b0c954ed84",
+    "tests\\fixtures\\360zy-list.json": "f2af9873d2721049023bac116ae650eca88fb9103a2fb3fdd3016a37adeab493",
+    "tests\\fixtures\\360zy-search.json": "c8484e62bcef4d14bf9a230f752c5802a8685b6bcefb57591875c361ace54688",
+    "tests\\fixtures\\360zy-tv-detail.json": "058956e125f30170228673bdd633305e3d9fe44e31fd1819c68f1e5b14796556",
+    "tests\\fixtures\\360zy-tv-list.json": "2d0ad9d23ca917d3df692b2cb2d52660e149be485e3acbfdc8257bc6e072ffef",
+    "tests\\fixtures\\maccms-multiline.json": "cacf5057c945d280ddc16e9869f52f1b8142c65c97b156e30277944fe4144fd3",
+    "tests\\fixtures\\mdzy-film-detail.json": "1c90f146319d4656b39e538c0f36ccf34c417cefa6d428264c083e66f765d190",
+    "tests\\fixtures\\mdzy-film-list.json": "3de1bb6ee41d01b6b1ef2959efb3e312f048686b8c8feb5bf90258a24eb532d5",
+    "tests\\fixtures\\mdzy-list.json": "e970d2b6c7a64b4c27bc06c8368253ef0980215cc0b93a21c83077968ea97584",
+    "tests\\fixtures\\mdzy-search.json": "6743c9ffa48c14e6b351412ffc6f136b9523653fbc1545fb90737e8c894b0abf",
+    "tests\\fixtures\\mdzy-tv-detail.json": "a9e4ac3775b4fc659e06dec63c145fdf05dcf01d03d4eb1381aca605c33fdb8c",
+    "tests\\fixtures\\mdzy-tv-list.json": "9f8b69eee9fdcdf0e8c3bb1c49f80216044fe37e0c53999c7e5943692b89c353",
+    "tests\\fixtures\\peertube-channel-list.json": "2d50df7a9328edc0c251dc97047a3f1fe17e552683c12bc06715c18f2431d773",
+    "tests\\fixtures\\peertube-charge-detail.json": "736096b25d13bc9f6ae4aa03049492c4e470c2af8d953317c92c60bea92b98de",
+    "tests\\fixtures\\peertube-charge-media-metadata.json": "5af90c1eaef9a3234e089f25b6337f3811b51160ce62b83899836a335fb99eee",
+    "tests\\fixtures\\peertube-glass-half-detail.json": "2fa07d579c8dff818f651363453c02ae706b7bd86cc3628fc1c5e1c0ca10735e",
+    "tests\\fixtures\\peertube-glass-half-media-metadata.json": "a40f135d0770870559b1e1d08977f6b38e2e60950a91686f5cbdcec8fd4332ba"
+  },
+  "phone_source_unchanged": true,
+  "device_test_run": false,
+  "sqlite_platform_test_compiled": true,
+  "sqlite_runtime_test_run": false,
+  "network_test_scope": "actual URLConnection requests to local TCP fixture server; no public API availability claim"
+}

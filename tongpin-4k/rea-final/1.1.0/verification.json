@@ -1,0 +1,180 @@
+{
+  "passed": true,
+  "apk": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\output\\tongpin-4k-1.1.0.apk",
+  "sha256": "6132056278d44533060bd119e8234430f47dc59352c69ee271c9799e27fe530c",
+  "rea_version": "6.7.0",
+  "checked_at_utc": "2026-11-02T12:50:58.741Z",
+  "methods": [
+    {
+      "class_name": "com.shenma.tvlauncher.phone.SplashActivity",
+      "name": "U",
+      "descriptor": "(Lq7/e;)Ljava/lang/Object;"
+    },
+    {
+      "class_name": "com.shenma.tvlauncher.phone.SplashActivity",
+      "name": "b0",
+      "descriptor": "(Lcom/shenma/tvlauncher/phone/SplashActivity;Ljava/lang/String;)Lm7/f0;"
+    },
+    {
+      "class_name": "com.shenma.tvlauncher.phone.SplashActivity.e",
+      "name": "invokeSuspend",
+      "descriptor": "(Ljava/lang/Object;)Ljava/lang/Object;"
+    },
+    {
+      "class_name": "com.shenma.tvlauncher.phone.SplashActivity.e.a",
+      "name": "invokeSuspend",
+      "descriptor": "(Ljava/lang/Object;)Ljava/lang/Object;"
+    },
+    {
+      "class_name": "com.shenma.tvlauncher.phone.SplashActivity.e.b",
+      "name": "invokeSuspend",
+      "descriptor": "(Ljava/lang/Object;)Ljava/lang/Object;"
+    },
+    {
+      "class_name": "com.shenma.tvlauncher.phone.fragment.v",
+      "name": "E",
+      "descriptor": "(F)V"
+    },
+    {
+      "class_name": "com.shenma.tvlauncher.phone.fragment.v",
+      "name": "T",
+      "descriptor": "(Z)V"
+    },
+    {
+      "class_name": "com.shenma.tvlauncher.phone.VideoDetailPlayActivity",
+      "name": "s2",
+      "descriptor": "(Lcom/shenma/tvlauncher/vod/domain/VideoDetailInfo;)V"
+    },
+    {
+      "class_name": "com.shenma.tvlauncher.phone.VideoDetailPlayActivity",
+      "name": "w1",
+      "descriptor": "()V"
+    },
+    {
+      "class_name": "com.shenma.tvlauncher.phone.VideoDetailPlayActivity",
+      "name": "n2",
+      "descriptor": "(F)V"
+    },
+    {
+      "class_name": "com.shenma.tvlauncher.phone.SourcePreference",
+      "name": "choose",
+      "descriptor": "(Ljava/util/List;II)[I"
+    },
+    {
+      "class_name": "com.shenma.tvlauncher.phone.SourcePreference",
+      "name": "latestEpisode",
+      "descriptor": "(Lcom/shenma/tvlauncher/entity/PlayerSource;)J"
+    },
+    {
+      "class_name": "com.shenma.tvlauncher.phone.SourcePreference",
+      "name": "matchingEpisode",
+      "descriptor": "(Lcom/shenma/tvlauncher/entity/PlayerSource;Lcom/shenma/tvlauncher/entity/PlayerSource;I)I"
+    },
+    {
+      "class_name": "com.shenma.tvlauncher.phone.SourcePreference",
+      "name": "episodeKey",
+      "descriptor": "(Ljava/lang/String;)Ljava/lang/String;"
+    },
+    {
+      "class_name": "com.shenma.tvlauncher.phone.VideoDetailPlayActivity",
+      "name": "A2",
+      "descriptor": "(I)V"
+    },
+    {
+      "class_name": "com.shenma.tvlauncher.phone.VideoDetailPlayActivity",
+      "name": "t1",
+      "descriptor": "(I)V"
+    },
+    {
+      "class_name": "com.shenma.tvlauncher.phone.VideoDetailPlayActivity",
+      "name": "applyFullscreenWindow",
+      "descriptor": "(Z)V"
+    },
+    {
+      "class_name": "com.shenma.tvlauncher.phone.EmptyControlVideoView",
+      "name": "setViewportScale",
+      "descriptor": "(I)V"
+    },
+    {
+      "class_name": "com.shenma.tvlauncher.phone.PlayerViewportInsets",
+      "name": "onApplyWindowInsets",
+      "descriptor": "(Landroid/view/View;Landroidx/core/view/WindowInsetsCompat;)Landroidx/core/view/WindowInsetsCompat;"
+    },
+    {
+      "class_name": "com.shenma.tvlauncher.phone.fragment.e",
+      "name": "onViewCreated",
+      "descriptor": "(Landroid/view/View;Landroid/os/Bundle;)V"
+    },
+    {
+      "class_name": "com.tongpin.player4k.catalog.CatalogActivity",
+      "name": "bindEntry",
+      "descriptor": "(Landroid/view/View;)V"
+    },
+    {
+      "class_name": "com.tongpin.player4k.catalog.CatalogActivity",
+      "name": "onCreate",
+      "descriptor": "(Landroid/os/Bundle;)V"
+    },
+    {
+      "class_name": "com.tongpin.player4k.catalog.CatalogApi",
+      "name": "fetchPage",
+      "descriptor": "(Lcom/tongpin/player4k/catalog/CatalogApi$Provider;Ljava/lang/String;I)Lcom/tongpin/player4k/catalog/CatalogApi$Page;"
+    },
+    {
+      "class_name": "com.tongpin.player4k.catalog.CatalogApi",
+      "name": "fetchDetail",
+      "descriptor": "(Lcom/tongpin/player4k/catalog/CatalogApi$Video;)Lcom/tongpin/player4k/catalog/CatalogApi$Detail;"
+    },
+    {
+      "class_name": "com.tongpin.player4k.catalog.CatalogApi",
+      "name": "bestStream",
+      "descriptor": "(Ljava/util/List;)I"
+    },
+    {
+      "class_name": "com.tongpin.player4k.catalog.CatalogApi",
+      "name": "get",
+      "descriptor": "(Ljava/lang/String;)Ljava/lang/String;"
+    },
+    {
+      "class_name": "com.tongpin.player4k.catalog.CatalogActivity",
+      "name": "play",
+      "descriptor": "(Lcom/tongpin/player4k/catalog/CatalogApi$Detail;Lcom/tongpin/player4k/catalog/CatalogApi$Episode;)V"
+    },
+    {
+      "class_name": "com.tongpin.player4k.catalog.OpenPlayerActivity",
+      "name": "play",
+      "descriptor": "(IZ)V"
+    },
+    {
+      "class_name": "com.tongpin.player4k.catalog.OpenPlayerActivity",
+      "name": "showDimensions",
+      "descriptor": "()V"
+    },
+    {
+      "class_name": "com.tongpin.player4k.catalog.OpenPlayerActivity",
+      "name": "validateStreams",
+      "descriptor": "([Ljava/lang/String;[Ljava/lang/String;[I[II)Ljava/lang/String;"
+    }
+  ],
+  "startup_dex": {
+    "sha256": "6132056278d44533060bd119e8234430f47dc59352c69ee271c9799e27fe530c",
+    "matched_methods": 1,
+    "calls": {
+      "startActivity": 1,
+      "finish": 1,
+      "O": 1,
+      "M": 1,
+      "Q": 1,
+      "T": 0,
+      "setImageURI": 0,
+      "getDz": 0,
+      "getTz": 0,
+      "setOnClickListener": 0,
+      "delay": 0,
+      "initA": 1,
+      "initB": 1
+    }
+  },
+  "decompiler_note": "JADX expands the shared coroutine exit into multiple Java switch cases; unique startup calls were checked against physical DEX instructions using dexlib2 from the same JADX JAR.",
+  "scope": "Static code evidence only. Package/resources/icons/APK signatures are independently checked by the official toolchain; REA manifest inspection is intentionally unused. No Android device playback was performed."
+}

@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "checks": {
+    "version": true,
+    "compact_sheet": true,
+    "original_actions": true,
+    "truthful_fallback": true,
+    "short_quality_unchanged": true,
+    "aspect_focus": true,
+    "native_unverified": true
+  },
+  "document_sha256": {
+    "PRODUCT.md": "e3d28d06ce12b3028f5fd0f1db5cc1dbcf0674a375491deafa93bfbf9cf6ca47",
+    "DESIGN.md": "36d6cf00f99f8bfd2685a1a26e99b891f1bd6c2849f5a36aeb097a281bf38cf7",
+    ".impeccable/design.json": "2a635d5c2fe8f3cde72eb0e1b2f12139a2c45c56038e5e9bda8b0b61d1ffe20f",
+    ".impeccable/surfaces/android.md": "4076ef9da96317490c2fa43a5c1235cfd42ecb938607f1d0a6913e765ffa0019"
+  },
+  "scope": "changed phone1.3.1 native presentation and verification boundaries only",
+  "native_render_verified": false
+}

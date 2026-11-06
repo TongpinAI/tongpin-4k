@@ -1,0 +1,47 @@
+--- before/decoded/smali_classes5/f6/m.smali
++++ after/decoded/smali_classes5/f6/m.smali
+@@ -161,6 +161,10 @@
+     .line 27
+     move-result-object v1
+ 
++    iget v2, p0, Lf6/m;->f:I
++
++    invoke-static {v1, v2}, Lcom/tongpin/player4k/catalog/PhoneUi;->styleEpisodeBackground(Landroid/widget/TextView;I)V
++
+     .line 28
+     invoke-virtual {v0}, Lcom/shenma/tvlauncher/entity/PlayerSource;->getShow()Ljava/lang/String;
+ 
+@@ -182,6 +186,10 @@
+     .line 38
+     move-result-object v1
+ 
++    iget v2, p0, Lf6/m;->f:I
++
++    invoke-static {v1, v2}, Lcom/tongpin/player4k/catalog/PhoneUi;->styleEpisodeBackground(Landroid/widget/TextView;I)V
++
+     .line 39
+     invoke-virtual {v0}, Lcom/shenma/tvlauncher/entity/PlayerSource;->getList()Ljava/util/List;
+ 
+@@ -260,11 +268,11 @@
+     move-result-object p2
+ 
+     .line 80
+-    const-string v0, "#ff00a8ff"
++    iget v0, p0, Lf6/m;->f:I
+ 
+     .line 81
+     .line 82
+-    invoke-static {v0}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
++    invoke-static {v0}, Lcom/tongpin/player4k/catalog/PhoneUi;->selectionColor(I)I
+ 
+     .line 83
+     .line 84
+@@ -285,7 +293,7 @@
+     move-result-object p1
+ 
+     .line 93
+-    invoke-static {v0}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
++    invoke-static {v0}, Lcom/tongpin/player4k/catalog/PhoneUi;->selectionColor(I)I
+ 
+     .line 94
+     .line 95

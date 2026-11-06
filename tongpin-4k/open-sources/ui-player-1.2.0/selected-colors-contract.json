@@ -1,0 +1,64 @@
+[
+  {
+    "path": "decoded/smali_classes5/f6/g.smali",
+    "methods": [
+      ".method private static final e(Lf6/g;ILcom/shenma/tvlauncher/vod/domain/VodUrl;Lf6/g$a;Landroid/view/View;)V",
+      ".method public c(Lf6/g$a;I)V",
+      ".method public d(Lf6/g$a;ILjava/util/List;)V"
+    ],
+    "exact_inverse_matches_entire_baseline": true,
+    "locals_unchanged": true,
+    "substitutions": [
+      {
+        "before": "    const-string p2, \"#ff00a8ff\"\n\n    .line 80\n    .line 81\n    invoke-static {p2}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I",
+        "after": "    iget p2, p0, Lf6/g;->f:I\n\n    .line 80\n    .line 81\n    invoke-static {p2}, Lcom/tongpin/player4k/catalog/PhoneUi;->selectionColor(I)I",
+        "count": 1
+      },
+      {
+        "before": "    const-string p2, \"#ff00a8ff\"\n\n    .line 47\n    .line 48\n    invoke-static {p2}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I",
+        "after": "    iget p2, p0, Lf6/g;->f:I\n\n    .line 47\n    .line 48\n    invoke-static {p2}, Lcom/tongpin/player4k/catalog/PhoneUi;->selectionColor(I)I",
+        "count": 1
+      },
+      {
+        "before": "    const-string p1, \"#ff00a8ff\"\n\n    .line 30\n    .line 31\n    invoke-static {p1}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I",
+        "after": "    move p1, v0\n\n    .line 30\n    .line 31\n    invoke-static {p1}, Lcom/tongpin/player4k/catalog/PhoneUi;->selectionColor(I)I",
+        "count": 1
+      },
+      {
+        "before": "    invoke-virtual {p3}, Lf6/g$a;->a()Landroid/widget/TextView;",
+        "after": "    iget v0, p0, Lf6/g;->f:I\n\n    invoke-virtual {p3}, Lf6/g$a;->a()Landroid/widget/TextView;",
+        "count": 1
+      },
+      {
+        "before": "    invoke-virtual {v1, v2}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V",
+        "after": "    invoke-virtual {v1, v2}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V\n\n    iget v2, p0, Lf6/g;->f:I\n\n    invoke-static {v1, v2}, Lcom/tongpin/player4k/catalog/PhoneUi;->styleEpisodeBackground(Landroid/widget/TextView;I)V",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "path": "decoded/smali_classes5/f6/m.smali",
+    "methods": [
+      ".method public b(Lf6/m$a;I)V"
+    ],
+    "exact_inverse_matches_entire_baseline": true,
+    "locals_unchanged": true,
+    "substitutions": [
+      {
+        "before": "    const-string v0, \"#ff00a8ff\"\n\n    .line 81\n    .line 82\n    invoke-static {v0}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I\n\n    .line 83\n    .line 84\n    .line 85\n    move-result v1\n\n    .line 86\n    invoke-virtual {p2, v1}, Landroid/widget/TextView;->setTextColor(I)V\n\n    .line 87\n    .line 88\n    .line 89\n    invoke-virtual {p1}, Lf6/m$a;->a()Landroid/widget/TextView;\n\n    .line 90\n    .line 91\n    .line 92\n    move-result-object p1\n\n    .line 93\n    invoke-static {v0}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I\n\n    .line 94\n    .line 95\n    .line 96\n    move-result p2\n\n    .line 97\n    invoke-virtual {p1, p2}, Landroid/widget/TextView;->setTextColor(I)V\n\n    .line 98\n    .line 99\n    .line 100\n    return-void",
+        "after": "    iget v0, p0, Lf6/m;->f:I\n\n    .line 81\n    .line 82\n    invoke-static {v0}, Lcom/tongpin/player4k/catalog/PhoneUi;->selectionColor(I)I\n\n    .line 83\n    .line 84\n    .line 85\n    move-result v1\n\n    .line 86\n    invoke-virtual {p2, v1}, Landroid/widget/TextView;->setTextColor(I)V\n\n    .line 87\n    .line 88\n    .line 89\n    invoke-virtual {p1}, Lf6/m$a;->a()Landroid/widget/TextView;\n\n    .line 90\n    .line 91\n    .line 92\n    move-result-object p1\n\n    .line 93\n    invoke-static {v0}, Lcom/tongpin/player4k/catalog/PhoneUi;->selectionColor(I)I\n\n    .line 94\n    .line 95\n    .line 96\n    move-result p2\n\n    .line 97\n    invoke-virtual {p1, p2}, Landroid/widget/TextView;->setTextColor(I)V\n\n    .line 98\n    .line 99\n    .line 100\n    return-void",
+        "count": 1
+      },
+      {
+        "before": "    invoke-virtual {p1}, Lf6/m$a;->a()Landroid/widget/TextView;\n\n    .line 36\n    .line 37\n    .line 38\n    move-result-object v1",
+        "after": "    invoke-virtual {p1}, Lf6/m$a;->a()Landroid/widget/TextView;\n\n    .line 36\n    .line 37\n    .line 38\n    move-result-object v1\n\n    iget v2, p0, Lf6/m;->f:I\n\n    invoke-static {v1, v2}, Lcom/tongpin/player4k/catalog/PhoneUi;->styleEpisodeBackground(Landroid/widget/TextView;I)V",
+        "count": 1
+      },
+      {
+        "before": "    invoke-virtual {p1}, Lf6/m$a;->b()Landroid/widget/TextView;\n\n    .line 25\n    .line 26\n    .line 27\n    move-result-object v1",
+        "after": "    invoke-virtual {p1}, Lf6/m$a;->b()Landroid/widget/TextView;\n\n    .line 25\n    .line 26\n    .line 27\n    move-result-object v1\n\n    iget v2, p0, Lf6/m;->f:I\n\n    invoke-static {v1, v2}, Lcom/tongpin/player4k/catalog/PhoneUi;->styleEpisodeBackground(Landroid/widget/TextView;I)V",
+        "count": 1
+      }
+    ]
+  }
+]

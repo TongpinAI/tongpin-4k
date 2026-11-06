@@ -1,0 +1,801 @@
+--- before/AndroidManifest.xml
++++ decoded/AndroidManifest.xml
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="36" android:compileSdkVersionCodename="16" package="com.mivglu.ywy" platformBuildVersionCode="36" platformBuildVersionName="16">
++<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="36" android:compileSdkVersionCodename="16" package="com.tongpin.player4k" platformBuildVersionCode="36" platformBuildVersionName="16">
+     <uses-permission android:name="android.permission.INTERNET"/>
+     <uses-permission android:name="android.permission.INTERNET"/>
+     <uses-permission android:name="android.permission.INTERNET"/>
+@@ -47,12 +47,12 @@
+     <uses-permission android:name="android.permission.REORDER_TASKS"/>
+     <uses-permission android:name="android.permission.VIBRATE"/>
+     <uses-permission android:name="com.asus.msa.SupplementaryDID.ACCESS"/>
+-    <uses-permission android:name="com.mivglu.ywy.openadsdk.permission.TT_PANGOLIN"/>
+-    <permission android:name="com.mivglu.ywy.openadsdk.permission.TT_PANGOLIN" android:protectionLevel="signature"/>
++    <uses-permission android:name="com.tongpin.player4k.openadsdk.permission.TT_PANGOLIN"/>
++    <permission android:name="com.tongpin.player4k.openadsdk.permission.TT_PANGOLIN" android:protectionLevel="signature"/>
+     <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
+     <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+-    <permission android:name="com.mivglu.ywy.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" android:protectionLevel="signature"/>
+-    <uses-permission android:name="com.mivglu.ywy.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"/>
++    <permission android:name="com.tongpin.player4k.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" android:protectionLevel="signature"/>
++    <uses-permission android:name="com.tongpin.player4k.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"/>
+     <application android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:debuggable="true" android:extractNativeLibs="false" android:hardwareAccelerated="true" android:icon="@drawable/icon" android:label="@string/app_name" android:largeHeap="true" android:name="com.shenma.tvlauncher.application.MyApplication" android:supportsRtl="true" android:theme="@style/AppCompatTheme" android:usesCleartextTraffic="true">
+         <activity android:exported="false" android:name="com.shenma.tvlauncher.phone.TestPlayerAct"/>
+         <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+@@ -104,10 +104,10 @@
+         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shenma.tvlauncher.phone.SettingsActivity" android:screenOrientation="portrait"/>
+         <meta-data android:name="UMENG_APPKEY" android:value=""/>
+         <meta-data android:name="UMENG_CHANNEL" android:value="smtv"/>
+-        <provider android:authorities="com.mivglu.ywy.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
++        <provider android:authorities="com.tongpin.player4k.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+             <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
+         </provider>
+-        <provider android:authorities="com.mivglu.ywy.DcProvider" android:exported="false" android:grantUriPermissions="true" android:name="com.mob.dc.provider.DcProvider">
++        <provider android:authorities="com.tongpin.player4k.DcProvider" android:exported="false" android:grantUriPermissions="true" android:name="com.mob.dc.provider.DcProvider">
+             <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/dc_file_paths"/>
+         </provider>
+         <activity android:configChanges="keyboardHidden|navigation|orientation|screenSize" android:name="com.mob.dc.activity.StubPortraitActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+@@ -160,17 +160,17 @@
+         <activity android:configChanges="keyboardHidden|navigation|orientation|screenSize" android:exported="false" android:name="com.byazt.fk.Stub_Activity" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="stateHidden|adjustResize"/>
+         <activity android:configChanges="keyboardHidden|navigation|orientation|screenSize" android:exported="false" android:launchMode="singleTask" android:name="com.byazt.fk.Stub_SingleTask_Activity_T" android:theme="@android:style/Theme.Translucent" android:windowSoftInputMode="stateHidden|adjustResize"/>
+         <activity android:configChanges="keyboardHidden|navigation|orientation|screenSize" android:exported="false" android:launchMode="singleTask" android:name="com.byazt.fk.Stub_SingleTask_Activity" android:windowSoftInputMode="stateHidden|adjustResize"/>
+-        <provider android:authorities="com.mivglu.ywy.pangle.servermanager.downloader.com.bytedance.sdk.openadsdk.adhost" android:exported="false" android:name="com.byazt.sa.DownloaderServerManager" android:process=":downloader"/>
+-        <provider android:authorities="com.mivglu.ywy.pangle.servermanager.main" android:exported="false" android:name="com.byazt.sa.MainServerManager"/>
+-        <provider android:authorities="com.mivglu.ywy.TTMultiProvider" android:exported="false" android:name="com.byazt.fd.TTMultiProvider"/>
++        <provider android:authorities="com.tongpin.player4k.pangle.servermanager.downloader.com.bytedance.sdk.openadsdk.adhost" android:exported="false" android:name="com.byazt.sa.DownloaderServerManager" android:process=":downloader"/>
++        <provider android:authorities="com.tongpin.player4k.pangle.servermanager.main" android:exported="false" android:name="com.byazt.sa.MainServerManager"/>
++        <provider android:authorities="com.tongpin.player4k.TTMultiProvider" android:exported="false" android:name="com.byazt.fd.TTMultiProvider"/>
+         <service android:exported="false" android:name="com.byazt.wp.ApiDownloadHandlerService" android:stopWithTask="true"/>
+         <activity android:exported="false" android:launchMode="singleTask" android:name="com.byazt.wp.ApiDownloadHandleNotificationActivity"/>
+-        <provider android:authorities="com.mivglu.ywy.pangle.servermanager.main" android:exported="false" android:name="com.byazt.kc.MainServerManager"/>
+-        <provider android:authorities="com.mivglu.ywy.pangle.provider.proxy.main" android:exported="false" android:name="com.byazt.yt.MainProcessProviderProxy"/>
+-        <provider android:authorities="com.mivglu.ywy.pangle.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="com.byazt.ye.FileProvider"/>
++        <provider android:authorities="com.tongpin.player4k.pangle.servermanager.main" android:exported="false" android:name="com.byazt.kc.MainServerManager"/>
++        <provider android:authorities="com.tongpin.player4k.pangle.provider.proxy.main" android:exported="false" android:name="com.byazt.yt.MainProcessProviderProxy"/>
++        <provider android:authorities="com.tongpin.player4k.pangle.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="com.byazt.ye.FileProvider"/>
+         <activity android:exported="true" android:name="com.bytedance.android.openliveplugin.stub.activity.DouyinAuthorizeActivityProxy"/>
+         <activity android:exported="true" android:name="com.bytedance.android.openliveplugin.stub.activity.DouyinAuthorizeActivityLiveProcessProxy" android:process=":bytelive"/>
+-        <provider android:authorities="com.mivglu.ywy.bytedance.android.openliveplugin.process.server.LiveServerManager" android:exported="false" android:name="com.bytedance.android.openliveplugin.process.server.LiveServerManager" android:process=":bytelive"/>
++        <provider android:authorities="com.tongpin.player4k.bytedance.android.openliveplugin.process.server.LiveServerManager" android:exported="false" android:name="com.bytedance.android.openliveplugin.process.server.LiveServerManager" android:process=":bytelive"/>
+         <activity android:configChanges="keyboardHidden|orientation|uiMode|colorMode" android:exported="false" android:name="com.bytedance.android.openliveplugin.stub.activity.StubActivity$Activity_Portrait" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+         <activity android:configChanges="keyboardHidden|orientation|uiMode|colorMode" android:exported="false" android:name="com.bytedance.android.openliveplugin.stub.activity.StubActivity$Activity_Portrait2" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+         <activity android:configChanges="keyboardHidden|orientation|uiMode|colorMode" android:exported="false" android:name="com.bytedance.android.openliveplugin.stub.activity.StubActivity$Activity_Portrait3" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+@@ -200,9 +200,9 @@
+         <activity android:configChanges="keyboardHidden|navigation|orientation|screenSize" android:exported="false" android:launchMode="singleTop" android:name="com.byted.live.lite.Activity_main_singleTop3" android:windowSoftInputMode="stateHidden|adjustResize"/>
+         <activity android:configChanges="keyboardHidden|navigation|orientation|screenSize" android:exported="false" android:launchMode="singleTop" android:name="com.byted.live.lite.Activity_main_singleTop4" android:windowSoftInputMode="stateHidden|adjustResize"/>
+         <activity android:configChanges="keyboardHidden|navigation|orientation|screenSize" android:exported="false" android:launchMode="singleInstance" android:name="com.byted.live.lite.Activity_bytelive_singleInstance1" android:process=":bytelive" android:windowSoftInputMode="stateHidden|adjustResize"/>
+-        <provider android:authorities="com.mivglu.ywy.pangle.servermanager.bytelive.com.byted.live.lite" android:exported="false" android:name="com.byted.live.lite.ServerManager_bytelive" android:process=":bytelive"/>
+-        <provider android:authorities="com.mivglu.ywy.pangle.servermanager.push.com.byted.live.lite" android:exported="false" android:name="com.byted.live.lite.ServerManager_push" android:process=":push"/>
+-        <provider android:authorities="com.mivglu.ywy.pangle.servermanager.downloader.com.byted.live.lite" android:exported="false" android:name="com.byted.live.lite.ServerManager_downloader" android:process=":downloader"/>
++        <provider android:authorities="com.tongpin.player4k.pangle.servermanager.bytelive.com.byted.live.lite" android:exported="false" android:name="com.byted.live.lite.ServerManager_bytelive" android:process=":bytelive"/>
++        <provider android:authorities="com.tongpin.player4k.pangle.servermanager.push.com.byted.live.lite" android:exported="false" android:name="com.byted.live.lite.ServerManager_push" android:process=":push"/>
++        <provider android:authorities="com.tongpin.player4k.pangle.servermanager.downloader.com.byted.live.lite" android:exported="false" android:name="com.byted.live.lite.ServerManager_downloader" android:process=":downloader"/>
+         <activity android:exported="false" android:name="com.bytedance.msdk.api.activity.TTDelegateActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+         <activity android:configChanges="keyboard|orientation|screenSize" android:exported="false" android:name="com.bytedance.msdk.api.activity.TTTransparentActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+         <activity android:configChanges="locale|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.kwad.sdk.api.proxy.app.AdWebViewActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+@@ -250,7 +250,7 @@
+         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleInstance" android:name="com.kwad.sdk.api.proxy.app.BaseFragmentActivity$FragmentActivitySingleInstance2" android:screenOrientation="portrait"/>
+         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleInstance" android:name="com.kwad.sdk.api.proxy.app.BaseFragmentActivity$FragmentActivitySingleInstance3" android:screenOrientation="portrait"/>
+         <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:exported="true" android:label="handler" android:name="com.kwad.auth.login.KwadRouteHandlerActivity" android:screenOrientation="behind" android:theme="@style/ksad_Theme.CustomTranslucent"/>
+-        <activity-alias android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:exported="true" android:name="com.mivglu.ywy.kwad.KwadHandlerActivity" android:screenOrientation="behind" android:targetActivity="com.kwad.auth.login.KwadRouteHandlerActivity"/>
++        <activity-alias android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:exported="true" android:name="com.tongpin.player4k.kwad.KwadHandlerActivity" android:screenOrientation="behind" android:targetActivity="com.kwad.auth.login.KwadRouteHandlerActivity"/>
+         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleInstance" android:name="com.kwad.sdk.api.proxy.app.BaseFragmentActivity$DeveloperConfigActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen"/>
+         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.kwad.sdk.api.proxy.app.BaseFragmentActivity$LandscapeFragmentActivity" android:screenOrientation="landscape" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.kwad.sdk.api.proxy.app.BaseFragmentActivity$LandscapeFragmentActivitySingleTop1" android:screenOrientation="landscape" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+@@ -265,11 +265,11 @@
+         <service android:name="com.kwad.sdk.api.proxy.app.FileDownloadService$SeparateProcessService"/>
+         <service android:exported="false" android:name="com.kwad.sdk.api.proxy.app.DownloadService"/>
+         <service android:exported="false" android:name="com.kwad.sdk.api.proxy.app.ServiceProxyRemote" android:process=":kssdk_remote"/>
+-        <provider android:authorities="com.mivglu.ywy.adFileProvider" android:exported="false" android:grantUriPermissions="true" android:name="com.kwad.sdk.api.proxy.app.AdSdkFileProvider">
++        <provider android:authorities="com.tongpin.player4k.adFileProvider" android:exported="false" android:grantUriPermissions="true" android:name="com.kwad.sdk.api.proxy.app.AdSdkFileProvider">
+             <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/ksad_file_paths"/>
+         </provider>
+         <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize" android:exported="false" android:launchMode="singleTask" android:name="com.anythink.core.activity.AnyThinkGdprAuthActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+-        <provider android:authorities="com.mivglu.ywy.anythink.initatprovider" android:exported="false" android:name="com.anythink.core.api.ATInitializationProvider"/>
++        <provider android:authorities="com.tongpin.player4k.anythink.initatprovider" android:exported="false" android:name="com.anythink.core.api.ATInitializationProvider"/>
+         <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize" android:exported="false" android:launchMode="standard" android:name="com.anythink.core.common.inner.ui.ATLandscapeActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+         <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize" android:exported="false" android:launchMode="standard" android:name="com.anythink.core.common.inner.ui.ATPortraitActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+         <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize" android:exported="false" android:launchMode="standard" android:name="com.anythink.core.common.inner.ui.ATLandscapeTranslucentActivity" android:theme="@style/anythink_myoffer_half_screen"/>
+@@ -278,7 +278,7 @@
+         <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize" android:exported="false" android:launchMode="standard" android:name="com.anythink.core.basead.ui.web.WebLandPageActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+         <activity android:exported="false" android:name="com.smartdigimkt.china.activity.TransparentActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+         <activity android:exported="false" android:name="com.smartdigimkt.dlopt.activity.ApkConfirmDialogActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+-        <provider android:authorities="com.mivglu.ywy.sdm.fileProvider" android:exported="false" android:grantUriPermissions="true" android:name="com.smartdigimkt.dlopt.common.ApkFileProvider">
++        <provider android:authorities="com.tongpin.player4k.sdm.fileProvider" android:exported="false" android:grantUriPermissions="true" android:name="com.smartdigimkt.dlopt.common.ApkFileProvider">
+             <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/sdm_file_paths"/>
+         </provider>
+         <receiver android:exported="false" android:name="com.smartdigimkt.dlopt.common.NotificationBroadcastReceiver">
+@@ -293,11 +293,11 @@
+         <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize" android:exported="false" android:launchMode="standard" android:name="com.smartdigimkt.sdk.basead.ui.ATPortraitTranslucentActivity" android:theme="@style/sdm_myoffer_half_screen"/>
+         <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize" android:exported="false" android:launchMode="singleTop" android:name="com.smartdigimkt.sdk.basead.ui.web.WebLandPageActivity" android:theme="@android:style/Theme.Light.NoTitleBar" android:windowSoftInputMode="adjustResize"/>
+         <activity android:exported="false" android:name="com.smartdigimkt.sdk.basead.ui.RewardExitConfirmDialogActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+-        <provider android:authorities="com.mivglu.ywy.sdm.initatprovider" android:exported="false" android:name="com.smartdigimkt.sdk.api.SDMInitializationProvider"/>
+-        <provider android:authorities="com.mivglu.ywy.gdt.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="com.qq.e.comm.GDTFileProvider">
++        <provider android:authorities="com.tongpin.player4k.sdm.initatprovider" android:exported="false" android:name="com.smartdigimkt.sdk.api.SDMInitializationProvider"/>
++        <provider android:authorities="com.tongpin.player4k.gdt.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="com.qq.e.comm.GDTFileProvider">
+             <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/anythink_bk_gdt_file_path"/>
+         </provider>
+-        <provider android:authorities="com.mivglu.ywy.TTFileProvider" android:exported="false" android:grantUriPermissions="true" android:name="com.bytedance.sdk.openadsdk.TTFileProvider">
++        <provider android:authorities="com.tongpin.player4k.TTFileProvider" android:exported="false" android:grantUriPermissions="true" android:name="com.bytedance.sdk.openadsdk.TTFileProvider">
+             <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/anythink_bk_tt_file_path"/>
+         </provider>
+         <activity android:exported="false" android:name="com.beizi.ad.v2.activity.BeiZiNewInterstitialActivity" android:theme="@style/BeiZiTheme.Transparent"/>
+@@ -315,14 +315,14 @@
+         <activity android:name="com.beizi.fusion.asnp.adn.ad.widget.activity.ASNPLandingPageActivity"/>
+         <activity android:name="com.beizi.fusion.asnp.adn.ad.widget.activity.ASNPRewardVideoActivity"/>
+         <service android:name="com.beizi.fusion.asnp.adn.ad.download.service.DownloadService"/>
+-        <provider android:authorities="com.mivglu.ywy.bz.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="com.beizi.fusion.provider.BZFileProvider">
++        <provider android:authorities="com.tongpin.player4k.bz.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="com.beizi.fusion.provider.BZFileProvider">
+             <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/beizi_file_path"/>
+         </provider>
+         <receiver android:exported="false" android:name="com.google.android.gms.cast.framework.media.MediaIntentReceiver"/>
+         <service android:exported="false" android:name="com.google.android.gms.cast.framework.ReconnectionService"/>
+         <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+         <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+-        <provider android:authorities="com.mivglu.ywy.androidx-startup" android:exported="false" android:name="androidx.startup.InitializationProvider">
++        <provider android:authorities="com.tongpin.player4k.androidx-startup" android:exported="false" android:name="androidx.startup.InitializationProvider">
+             <meta-data android:name="androidx.emoji2.text.EmojiCompatInitializer" android:value="androidx.startup"/>
+             <meta-data android:name="androidx.lifecycle.ProcessLifecycleInitializer" android:value="androidx.startup"/>
+             <meta-data android:name="androidx.profileinstaller.ProfileInstallerInitializer" android:value="androidx.startup"/>
+--- before/apktool.yml
++++ decoded/apktool.yml
+@@ -7,8 +7,8 @@
+   minSdkVersion: 24
+   targetSdkVersion: 33
+ versionInfo:
+-  versionCode: 300
+-  versionName: 2.0
++  versionCode: 1000
++  versionName: 1.0.0
+ resourcesInfo:
+   packageId: 127
+ doNotCompress:
+--- before/smali_classes5/com/shenma/tvlauncher/phone/SplashActivity.smali
++++ decoded/smali_classes5/com/shenma/tvlauncher/phone/SplashActivity.smali
+@@ -204,185 +204,11 @@
+ .end method
+ 
+ .method private final U(Lq7/e;)Ljava/lang/Object;
+-    .locals 3
+-
+-    .line 1
+-    new-instance v0, Lj8/o;
+-
+-    .line 2
+-    .line 3
+-    invoke-static {p1}, Lr7/b;->c(Lq7/e;)Lq7/e;
+-
+-    .line 4
+-    .line 5
+-    .line 6
+-    move-result-object v1
+-
+-    .line 7
+-    const/4 v2, 0x1
+-
+-    .line 8
+-    invoke-direct {v0, v1, v2}, Lj8/o;-><init>(Lq7/e;I)V
+-
+-    .line 9
+-    .line 10
+-    .line 11
+-    invoke-virtual {v0}, Lj8/o;->G()V
+-
+-    .line 12
+-    .line 13
+-    .line 14
+-    sget-object v1, Lcom/shenma/tvlauncher/phone/b;->a:Lcom/shenma/tvlauncher/phone/b;
+-
+-    .line 15
+-    .line 16
+-    invoke-virtual {v1}, Lcom/shenma/tvlauncher/phone/b;->d()Lcom/shenma/tvlauncher/entity/ServerEntity;
+-
+-    .line 17
+-    .line 18
+-    .line 19
+-    move-result-object v1
+-
+-    .line 20
+-    if-eqz v1, :cond_0
+-
+-    .line 21
+-    .line 22
+-    invoke-virtual {v1}, Lcom/shenma/tvlauncher/entity/ServerEntity;->getAzbb()Ljava/lang/String;
+-
+-    .line 23
+-    .line 24
+-    .line 25
+-    move-result-object v1
+-
+-    .line 26
+-    if-nez v1, :cond_1
+-
+-    .line 27
+-    .line 28
+-    :cond_0
+-    const-string v1, "0"
+-
+-    .line 29
+-    .line 30
+-    :cond_1
+-    invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+-
+-    .line 31
+-    .line 32
+-    .line 33
+-    move-result v1
+-
+-    .line 34
+-    const/16 v2, 0x12c
+-
+-    .line 35
+-    .line 36
+-    if-le v1, v2, :cond_2
+-
+-    .line 37
+-    .line 38
+-    new-instance v1, Lh6/d0;
+-
+-    .line 39
+-    .line 40
+-    invoke-direct {v1, p0}, Lh6/d0;-><init>(Landroid/content/Context;)V
+-
+-    .line 41
+-    .line 42
+-    .line 43
+-    new-instance v2, Lcom/shenma/tvlauncher/phone/SplashActivity$b;
+-
+-    .line 44
+-    .line 45
+-    invoke-direct {v2, v0}, Lcom/shenma/tvlauncher/phone/SplashActivity$b;-><init>(Lj8/m;)V
+-
+-    .line 46
+-    .line 47
+-    .line 48
+-    invoke-virtual {v1, v2}, Landroid/app/Dialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
+-
+-    .line 49
+-    .line 50
+-    .line 51
+-    invoke-virtual {v1}, Landroid/app/Dialog;->show()V
+-
+-    .line 52
+-    .line 53
+-    .line 54
+-    goto :goto_0
+-
+-    .line 55
+-    :cond_2
+-    sget-object v1, Lm7/p;->c:Lm7/p$a;
+-
+-    .line 56
+-    .line 57
+-    sget-object v1, Lm7/f0;->a:Lm7/f0;
+-
+-    .line 58
+-    .line 59
+-    invoke-static {v1}, Lm7/p;->b(Ljava/lang/Object;)Ljava/lang/Object;
+-
+-    .line 60
+-    .line 61
+-    .line 62
+-    move-result-object v1
+-
+-    .line 63
+-    invoke-interface {v0, v1}, Lq7/e;->resumeWith(Ljava/lang/Object;)V
+-
+-    .line 64
+-    .line 65
+-    .line 66
+-    :goto_0
+-    invoke-virtual {v0}, Lj8/o;->A()Ljava/lang/Object;
+-
+-    .line 67
+-    .line 68
+-    .line 69
+-    move-result-object v0
+-
+-    .line 70
+-    invoke-static {}, Lr7/b;->e()Ljava/lang/Object;
+-
+-    .line 71
+-    .line 72
+-    .line 73
+-    move-result-object v1
+-
+-    .line 74
+-    if-ne v0, v1, :cond_3
+-
+-    .line 75
+-    .line 76
+-    invoke-static {p1}, Lkotlin/coroutines/jvm/internal/h;->c(Lq7/e;)V
+-
+-    .line 77
+-    .line 78
+-    .line 79
+-    :cond_3
+-    invoke-static {}, Lr7/b;->e()Ljava/lang/Object;
+-
+-    .line 80
+-    .line 81
+-    .line 82
+-    move-result-object p1
+-
+-    .line 83
+-    if-ne v0, p1, :cond_4
+-
+-    .line 84
+-    .line 85
++    .locals 1
++
++    # The independent edition does not use the upstream APK updater.
++    sget-object v0, Lm7/f0;->a:Lm7/f0;
+     return-object v0
+-
+-    .line 86
+-    :cond_4
+-    sget-object p1, Lm7/f0;->a:Lm7/f0;
+-
+-    .line 87
+-    .line 88
+-    return-object p1
+ .end method
+ 
+ .method private final V(Lq7/e;)Ljava/lang/Object;
+@@ -989,7 +815,7 @@
+ 
+     .line 17
+     .line 18
+-    invoke-virtual {p0, p1}, Lcom/facebook/drawee/view/SimpleDraweeView;->setImageURI(Ljava/lang/String;)V
++    # Keep the bundled Tongpin splash artwork.
+ 
+     .line 19
+     .line 20
+--- before/smali_classes5/com/shenma/tvlauncher/phone/SplashActivity$e.smali
++++ decoded/smali_classes5/com/shenma/tvlauncher/phone/SplashActivity$e.smali
+@@ -527,99 +527,8 @@
+     .line 175
+     .line 176
+     .line 177
+-    sget-object p1, Lcom/shenma/tvlauncher/phone/b;->a:Lcom/shenma/tvlauncher/phone/b;
+-
+-    .line 178
+-    .line 179
+-    invoke-virtual {p1}, Lcom/shenma/tvlauncher/phone/b;->a()Lcom/shenma/tvlauncher/entity/AdEntity;
+-
+-    .line 180
+-    .line 181
+-    .line 182
+-    move-result-object v2
+-
+-    .line 183
+-    if-eqz v2, :cond_3
+-
+-    .line 184
+-    .line 185
+-    invoke-virtual {v2}, Lcom/shenma/tvlauncher/entity/AdEntity;->getSfkq()Ljava/lang/String;
+-
+-    .line 186
+-    .line 187
+-    .line 188
+-    move-result-object v2
+-
+-    .line 189
+-    goto :goto_3
+-
+-    .line 190
+-    :cond_3
+-    move-object v2, v11
+-
+-    .line 191
+-    :goto_3
+-    invoke-static {v2, v9}, Lkotlin/jvm/internal/y;->b(Ljava/lang/Object;Ljava/lang/Object;)Z
+-
+-    .line 192
+-    .line 193
+-    .line 194
+-    move-result v2
+-
+-    .line 195
+-    if-eqz v2, :cond_4
+-
+-    .line 196
+-    .line 197
+-    invoke-virtual {p1}, Lcom/shenma/tvlauncher/phone/b;->a()Lcom/shenma/tvlauncher/entity/AdEntity;
+-
+-    .line 198
+-    .line 199
+-    .line 200
+-    move-result-object p1
+-
+-    .line 201
+-    if-eqz p1, :cond_4
+-
+-    .line 202
+-    .line 203
+-    invoke-virtual {p1}, Lcom/shenma/tvlauncher/entity/AdEntity;->getMtid()Ljava/lang/String;
+-
+-    .line 204
+-    .line 205
+-    .line 206
+-    move-result-object p1
+-
+-    .line 207
+-    if-eqz p1, :cond_4
+-
+-    .line 208
+-    .line 209
+-    invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
+-
+-    .line 210
+-    .line 211
+-    .line 212
+-    move-result p1
+-
+-    .line 213
+-    if-lez p1, :cond_4
+-
+-    .line 214
+-    .line 215
+-    iget-object p1, p0, Lcom/shenma/tvlauncher/phone/SplashActivity$e;->g:Lcom/shenma/tvlauncher/phone/SplashActivity;
+-
+-    .line 216
+-    .line 217
+-    invoke-static {p1}, Lcom/shenma/tvlauncher/phone/SplashActivity;->T(Lcom/shenma/tvlauncher/phone/SplashActivity;)V
+-
+-    .line 218
+-    .line 219
+-    .line 220
+-    goto/16 :goto_a
+-
+-    .line 221
+-    .line 222
++    # The local brand page does not launch the upstream SDK splash advertisement.
++
+     :cond_4
+     :try_start_1
+     iget-object p1, p0, Lcom/shenma/tvlauncher/phone/SplashActivity$e;->g:Lcom/shenma/tvlauncher/phone/SplashActivity;
+@@ -673,336 +582,15 @@
+ 
+     .line 244
+     :catch_0
+-    const-wide/16 v2, 0x3e8
+-
+-    .line 245
+-    .line 246
+-    if-eqz v11, :cond_9
+-
+-    .line 247
+-    .line 248
+-    iget-object p1, p0, Lcom/shenma/tvlauncher/phone/SplashActivity$e;->g:Lcom/shenma/tvlauncher/phone/SplashActivity;
+-
+-    .line 249
+-    .line 250
+-    invoke-virtual {v11}, Lcom/shenma/tvlauncher/entity/SplashEntity;->getKq()Ljava/lang/String;
+-
+-    .line 251
+-    .line 252
+-    .line 253
+-    move-result-object v4
+-
+-    .line 254
+-    invoke-static {v4, v9}, Lkotlin/jvm/internal/y;->b(Ljava/lang/Object;Ljava/lang/Object;)Z
+-
+-    .line 255
+-    .line 256
+-    .line 257
+-    move-result v4
+-
+-    .line 258
+-    if-eqz v4, :cond_7
+-
+-    .line 259
+-    .line 260
+-    invoke-virtual {p1}, Lcom/shenma/tvlauncher/phone/base/BaseDbActivity;->getMDataBind()Landroidx/databinding/ViewDataBinding;
+-
+-    .line 261
+-    .line 262
+-    .line 263
+-    move-result-object v2
+-
+-    .line 264
+-    check-cast v2, Lc6/u;
+-
+-    .line 265
+-    .line 266
+-    iget-object v2, v2, Lc6/u;->c:Lcom/facebook/drawee/view/SimpleDraweeView;
+-
+-    .line 267
+-    .line 268
+-    const-string v3, "splashImage"
+-
+-    .line 269
+-    .line 270
+-    invoke-static {v2, v3}, Lkotlin/jvm/internal/y;->e(Ljava/lang/Object;Ljava/lang/String;)V
+-
+-    .line 271
+-    .line 272
+-    .line 273
+-    invoke-virtual {v2, v8}, Landroid/view/View;->setVisibility(I)V
+-
+-    .line 274
+-    .line 275
+-    .line 276
+-    invoke-virtual {p1}, Lcom/shenma/tvlauncher/phone/base/BaseDbActivity;->getMDataBind()Landroidx/databinding/ViewDataBinding;
+-
+-    .line 277
+-    .line 278
+-    .line 279
+-    move-result-object v2
+-
+-    .line 280
+-    check-cast v2, Lc6/u;
+-
+-    .line 281
+-    .line 282
+-    iget-object v2, v2, Lc6/u;->c:Lcom/facebook/drawee/view/SimpleDraweeView;
+-
+-    .line 283
+-    .line 284
+-    invoke-virtual {v11}, Lcom/shenma/tvlauncher/entity/SplashEntity;->getDz()Ljava/lang/String;
+-
+-    .line 285
+-    .line 286
+-    .line 287
+-    move-result-object v3
+-
+-    .line 288
+-    invoke-virtual {v2, v3}, Lcom/facebook/drawee/view/SimpleDraweeView;->setImageURI(Ljava/lang/String;)V
+-
+-    .line 289
+-    .line 290
+-    .line 291
+-    invoke-virtual {p1}, Lcom/shenma/tvlauncher/phone/base/BaseDbActivity;->getMDataBind()Landroidx/databinding/ViewDataBinding;
+-
+-    .line 292
+-    .line 293
+-    .line 294
+-    move-result-object v2
+-
+-    .line 295
+-    check-cast v2, Lc6/u;
+-
+-    .line 296
+-    .line 297
+-    iget-object v2, v2, Lc6/u;->c:Lcom/facebook/drawee/view/SimpleDraweeView;
+-
+-    .line 298
+-    .line 299
+-    new-instance v3, Lcom/shenma/tvlauncher/phone/b0;
+-
+-    .line 300
+-    .line 301
+-    invoke-direct {v3, p1, v11}, Lcom/shenma/tvlauncher/phone/b0;-><init>(Lcom/shenma/tvlauncher/phone/SplashActivity;Lcom/shenma/tvlauncher/entity/SplashEntity;)V
+-
+-    .line 302
+-    .line 303
+-    .line 304
+-    invoke-virtual {v2, v3}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+-
+-    .line 305
+-    .line 306
+-    .line 307
+-    invoke-static {v1}, Lkotlin/coroutines/jvm/internal/l;->a(Ljava/lang/Object;)Ljava/lang/Object;
+-
+-    .line 308
+-    .line 309
+-    .line 310
+-    move-result-object v1
+-
+-    .line 311
+-    iput-object v1, p0, Lcom/shenma/tvlauncher/phone/SplashActivity$e;->f:Ljava/lang/Object;
+-
+-    .line 312
+-    .line 313
+-    iput-object p1, p0, Lcom/shenma/tvlauncher/phone/SplashActivity$e;->b:Ljava/lang/Object;
+-
+-    .line 314
+-    .line 315
+-    invoke-static {v11}, Lkotlin/coroutines/jvm/internal/l;->a(Ljava/lang/Object;)Ljava/lang/Object;
+-
+-    .line 316
+-    .line 317
+-    .line 318
+-    move-result-object v1
+-
+-    .line 319
+-    iput-object v1, p0, Lcom/shenma/tvlauncher/phone/SplashActivity$e;->c:Ljava/lang/Object;
+-
+-    .line 320
+-    .line 321
+-    iput v8, p0, Lcom/shenma/tvlauncher/phone/SplashActivity$e;->d:I
+-
+-    .line 322
+-    .line 323
+-    const/4 v1, 0x5
+-
+-    .line 324
+-    iput v1, p0, Lcom/shenma/tvlauncher/phone/SplashActivity$e;->e:I
+-
+-    .line 325
+-    .line 326
+-    const-wide/16 v1, 0xbb8
+-
+-    .line 327
+-    .line 328
+-    invoke-static {v1, v2, p0}, Lj8/x0;->b(JLq7/e;)Ljava/lang/Object;
+-
+-    .line 329
+-    .line 330
+-    .line 331
+-    move-result-object v1
+-
+-    .line 332
+-    if-ne v1, v0, :cond_6
+-
+-    .line 333
+-    .line 334
+-    goto :goto_8
+-
+-    .line 335
+-    :cond_6
+-    move-object v0, p1
+-
+-    .line 336
++    # The local brand page has no upstream promotion click or timed hold.
++    goto :goto_9
++
+     :goto_5
+-    new-instance p1, Landroid/content/Intent;
+-
+-    .line 337
+-    .line 338
+-    invoke-direct {p1, v0, v10}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+-
+-    .line 339
+-    .line 340
+-    .line 341
+-    invoke-virtual {v0, p1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+-
+-    .line 342
+-    .line 343
+-    .line 344
+-    invoke-virtual {v0}, Landroid/app/Activity;->finish()V
+-
+-    .line 345
+-    .line 346
+-    .line 347
+-    goto :goto_7
+-
+-    .line 348
+-    :cond_7
+-    invoke-static {v1}, Lkotlin/coroutines/jvm/internal/l;->a(Ljava/lang/Object;)Ljava/lang/Object;
+-
+-    .line 349
+-    .line 350
+-    .line 351
+-    move-result-object v1
+-
+-    .line 352
+-    iput-object v1, p0, Lcom/shenma/tvlauncher/phone/SplashActivity$e;->f:Ljava/lang/Object;
+-
+-    .line 353
+-    .line 354
+-    iput-object p1, p0, Lcom/shenma/tvlauncher/phone/SplashActivity$e;->b:Ljava/lang/Object;
+-
+-    .line 355
+-    .line 356
+-    invoke-static {v11}, Lkotlin/coroutines/jvm/internal/l;->a(Ljava/lang/Object;)Ljava/lang/Object;
+-
+-    .line 357
+-    .line 358
+-    .line 359
+-    move-result-object v1
+-
+-    .line 360
+-    iput-object v1, p0, Lcom/shenma/tvlauncher/phone/SplashActivity$e;->c:Ljava/lang/Object;
+-
+-    .line 361
+-    .line 362
+-    iput v8, p0, Lcom/shenma/tvlauncher/phone/SplashActivity$e;->d:I
+-
+-    .line 363
+-    .line 364
+-    const/4 v1, 0x6
+-
+-    .line 365
+-    iput v1, p0, Lcom/shenma/tvlauncher/phone/SplashActivity$e;->e:I
+-
+-    .line 366
+-    .line 367
+-    invoke-static {v2, v3, p0}, Lj8/x0;->b(JLq7/e;)Ljava/lang/Object;
+-
+-    .line 368
+-    .line 369
+-    .line 370
+-    move-result-object v1
+-
+-    .line 371
+-    if-ne v1, v0, :cond_8
+-
+-    .line 372
+-    .line 373
+-    goto :goto_8
+-
+-    .line 374
+-    :cond_8
+-    move-object v0, p1
+-
+-    .line 375
+     :goto_6
+-    new-instance p1, Landroid/content/Intent;
+-
+-    .line 376
+-    .line 377
+-    invoke-direct {p1, v0, v10}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+-
+-    .line 378
+-    .line 379
+-    .line 380
+-    invoke-virtual {v0, p1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+-
+-    .line 381
+-    .line 382
+-    .line 383
+-    invoke-virtual {v0}, Landroid/app/Activity;->finish()V
+-
+-    .line 384
+-    .line 385
+-    .line 386
+-    :goto_7
+-    sget-object p1, Lm7/f0;->a:Lm7/f0;
+-
+-    .line 387
+-    .line 388
+-    return-object p1
+-
+-    .line 389
+-    :cond_9
+-    invoke-static {v1}, Lkotlin/coroutines/jvm/internal/l;->a(Ljava/lang/Object;)Ljava/lang/Object;
+-
+-    .line 390
+-    .line 391
+-    .line 392
+-    move-result-object p1
+-
+-    .line 393
+-    iput-object p1, p0, Lcom/shenma/tvlauncher/phone/SplashActivity$e;->f:Ljava/lang/Object;
+-
+-    .line 394
+-    .line 395
+-    const/4 p1, 0x7
+-
+-    .line 396
+-    iput p1, p0, Lcom/shenma/tvlauncher/phone/SplashActivity$e;->e:I
+-
+-    .line 397
+-    .line 398
+-    invoke-static {v2, v3, p0}, Lj8/x0;->b(JLq7/e;)Ljava/lang/Object;
+-
+-    .line 399
+-    .line 400
+-    .line 401
+-    move-result-object p1
+-
+-    .line 402
+-    if-ne p1, v0, :cond_a
+-
+-    .line 403
+-    .line 404
++    goto :goto_9
++
+     :goto_8
+     return-object v0
+-
+-    .line 405
+-    :cond_a
+     :goto_9
+     iget-object p1, p0, Lcom/shenma/tvlauncher/phone/SplashActivity$e;->g:Lcom/shenma/tvlauncher/phone/SplashActivity;
+ 

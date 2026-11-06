@@ -1,0 +1,134 @@
+{
+  "ok": true,
+  "value": {
+    "evidence_id": "ev_e67ab42749df568109152a3abe35957d638de5156132a08a4d4afc91e30b1890",
+    "subject": {
+      "name": "tongpin-4k-1.1.0.apk",
+      "digest": {
+        "sha256": "6132056278d44533060bd119e8234430f47dc59352c69ee271c9799e27fe530c"
+      },
+      "local_path": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\output\\tongpin-4k-1.1.0.apk",
+      "format": "apk",
+      "architecture": null
+    },
+    "provider": {
+      "id": "jadx",
+      "name": "JADX headless",
+      "version": "0.7.1"
+    },
+    "analysis_profile": null,
+    "predicate_type": "rea.analysis",
+    "operation": "inspect_android_method",
+    "parameters": {
+      "path": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\output\\tongpin-4k-1.1.0.apk",
+      "class_name": "com.shenma.tvlauncher.phone.SplashActivity.e",
+      "method_name": "invokeSuspend",
+      "overload_index": 0
+    },
+    "raw_result": {
+      "server": {
+        "name": "rea-jadx-bridge",
+        "version": "4"
+      },
+      "bridge_sha256": "a02b1ef0a4a40abd1ae310b9ee686ca163e0b59a3256df524c35b90ed17e9e63",
+      "jar_sha256": "6e5eacf500b64292bfb73c49797c1958f6ee44646e43e868039ae7feb573ff75",
+      "loaded": {
+        "state": "LOADED",
+        "apk_path": "C:\\Users\\ADMINI~1.DES\\AppData\\Local\\Temp\\rea-android-cde274012b5f436f39e694cb558ff9db\\target.apk",
+        "class_count": 23565,
+        "resource_count": 4005,
+        "threads": 1,
+        "resources": "full"
+      },
+      "calls": [
+        {
+          "operation": "rea_jvm_status",
+          "input": {},
+          "response": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"engine_reported_version\":\"0.7.1\",\"available_processors\":16,\"java_version\":\"25.0.4\",\"max_heap_bytes\":4294967296,\"metadata_scope\":\"parsed_members\"}"
+              }
+            ],
+            "isError": false
+          }
+        },
+        {
+          "operation": "get_class_summary",
+          "input": {
+            "class_name": "com.shenma.tvlauncher.phone.SplashActivity.e"
+          },
+          "response": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"fields\":[{\"name\":\"f35786b\",\"def_pos\":0,\"type\":\"java.lang.Object\"},{\"name\":\"f35787c\",\"def_pos\":0,\"type\":\"java.lang.Object\"},{\"name\":\"f35788d\",\"def_pos\":0,\"type\":\"int\"},{\"name\":\"f35789e\",\"def_pos\":0,\"type\":\"int\"},{\"name\":\"f35790f\",\"def_pos\":0,\"type\":\"java.lang.Object\"},{\"name\":\"f35791g\",\"def_pos\":0,\"type\":\"com.shenma.tvlauncher.phone.SplashActivity\"}],\"field_count\":6,\"full_name\":\"com.shenma.tvlauncher.phone.SplashActivity.e\",\"name\":\"e\",\"inner_classes\":[\"com.shenma.tvlauncher.phone.SplashActivity.e.a\",\"com.shenma.tvlauncher.phone.SplashActivity.e.b\"],\"inner_class_count\":2,\"method_count\":7,\"methods\":[{\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/SplashActivity;Lq7/e;)V\",\"is_constructor\":true,\"name\":\"\\u003cinit\\u003e\",\"def_pos\":0,\"signature\":\"\\u003cinit\\u003e(com.shenma.tvlauncher.phone.SplashActivity, q7.e): void\"},{\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/SplashActivity;Lcom/shenma/tvlauncher/entity/SplashEntity;Landroid/view/View;)V\",\"is_constructor\":false,\"name\":\"a\",\"def_pos\":0,\"signature\":\"a(com.shenma.tvlauncher.phone.SplashActivity, com.shenma.tvlauncher.entity.SplashEntity, android.view.View): void\"},{\"dex_descriptor\":\"(Ljava/lang/Object;Lq7/e;)Lq7/e;\",\"is_constructor\":false,\"name\":\"create\",\"def_pos\":0,\"signature\":\"create(java.lang.Object, q7.e): q7.e\"},{\"dex_descriptor\":\"(Lj8/n0;Lq7/e;)Ljava/lang/Object;\",\"is_constructor\":false,\"name\":\"invoke\",\"def_pos\":0,\"signature\":\"invoke(j8.n0, q7.e): java.lang.Object\"},{\"dex_descriptor\":\"(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;\",\"is_constructor\":false,\"name\":\"invoke\",\"def_pos\":0,\"signature\":\"invoke(java.lang.Object, java.lang.Object): java.lang.Object\"},{\"dex_descriptor\":\"(Ljava/lang/Object;)Ljava/lang/Object;\",\"is_constructor\":false,\"name\":\"invokeSuspend\",\"def_pos\":0,\"signature\":\"invokeSuspend(java.lang.Object): java.lang.Object\"},{\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/SplashActivity;Lcom/shenma/tvlauncher/entity/SplashEntity;Landroid/view/View;)V\",\"is_constructor\":false,\"name\":\"j\",\"def_pos\":0,\"signature\":\"j(com.shenma.tvlauncher.phone.SplashActivity, com.shenma.tvlauncher.entity.SplashEntity, android.view.View): void\"}]}"
+              }
+            ],
+            "isError": false
+          }
+        },
+        {
+          "operation": "get_method_body",
+          "input": {
+            "class_name": "com.shenma.tvlauncher.phone.SplashActivity.e",
+            "method_name": "invokeSuspend",
+            "overload_index": 0,
+            "smali_fallback": true
+          },
+          "response": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"body\":\"        /* JADX WARN: Code duplicated, block: B:20:0x0096  */\\r\\n        /* JADX WARN: Code duplicated, block: B:23:0x00a9  */\\r\\n        /* JADX WARN: Code duplicated, block: B:26:0x00c1  */\\r\\n        @Override // kotlin.coroutines.jvm.internal.a\\r\\n        public final Object invokeSuspend(Object obj) throws Throwable {\\r\\n            List listQ;\\r\\n            SplashActivity splashActivity;\\r\\n            j8.n0 n0Var \\u003d (j8.n0) this.f35790f;\\r\\n            Object objE \\u003d r7.b.e();\\r\\n            try {\\r\\n                switch (this.f35789e) {\\r\\n                    case 0:\\r\\n                        m7.q.b(obj);\\r\\n                        SplashActivity splashActivity2 \\u003d SplashActivity.this;\\r\\n                        this.f35790f \\u003d n0Var;\\r\\n                        this.f35789e \\u003d 1;\\r\\n                        if (splashActivity2.W(this) !\\u003d objE) {\\r\\n                            listQ \\u003d kotlin.collections.v.q(j8.k.b(n0Var, null, null, new a(SplashActivity.this, null), 3, null), j8.k.b(n0Var, null, null, new b(SplashActivity.this, null), 3, null));\\r\\n                            this.f35790f \\u003d kotlin.coroutines.jvm.internal.l.a(n0Var);\\r\\n                            this.f35789e \\u003d 2;\\r\\n                            if (j8.f.a(listQ, this) !\\u003d objE) {\\r\\n                                splashActivity \\u003d SplashActivity.this;\\r\\n                                this.f35790f \\u003d kotlin.coroutines.jvm.internal.l.a(n0Var);\\r\\n                                this.f35789e \\u003d 3;\\r\\n                                if (splashActivity.U(this) !\\u003d objE) {\\r\\n                                    com.shenma.tvlauncher.phone.a.f35868a.b(SplashActivity.this);\\r\\n                                    SplashActivity splashActivity3 \\u003d SplashActivity.this;\\r\\n                                    this.f35790f \\u003d kotlin.coroutines.jvm.internal.l.a(n0Var);\\r\\n                                    this.f35789e \\u003d 4;\\r\\n                                    obj \\u003d splashActivity3.Y(this);\\r\\n                                    if (obj \\u003d\\u003d objE) {\\r\\n                                    }\\r\\n                                    SplashActivity.this.startActivity(new Intent(SplashActivity.this, (Class\\u003c?\\u003e) MainActivity.class));\\r\\n                                    SplashActivity.this.finish();\\r\\n                                    return m7.f0.f45275a;\\r\\n                                }\\r\\n                            }\\r\\n                        }\\r\\n                        return objE;\\r\\n                    case 1:\\r\\n                        m7.q.b(obj);\\r\\n                        listQ \\u003d kotlin.collections.v.q(j8.k.b(n0Var, null, null, new a(SplashActivity.this, null), 3, null), j8.k.b(n0Var, null, null, new b(SplashActivity.this, null), 3, null));\\r\\n                        this.f35790f \\u003d kotlin.coroutines.jvm.internal.l.a(n0Var);\\r\\n                        this.f35789e \\u003d 2;\\r\\n                        if (j8.f.a(listQ, this) !\\u003d objE) {\\r\\n                            splashActivity \\u003d SplashActivity.this;\\r\\n                            this.f35790f \\u003d kotlin.coroutines.jvm.internal.l.a(n0Var);\\r\\n                            this.f35789e \\u003d 3;\\r\\n                            if (splashActivity.U(this) !\\u003d objE) {\\r\\n                                com.shenma.tvlauncher.phone.a.f35868a.b(SplashActivity.this);\\r\\n                                SplashActivity splashActivity4 \\u003d SplashActivity.this;\\r\\n                                this.f35790f \\u003d kotlin.coroutines.jvm.internal.l.a(n0Var);\\r\\n                                this.f35789e \\u003d 4;\\r\\n                                obj \\u003d splashActivity4.Y(this);\\r\\n                                if (obj \\u003d\\u003d objE) {\\r\\n                                }\\r\\n                                SplashActivity.this.startActivity(new Intent(SplashActivity.this, (Class\\u003c?\\u003e) MainActivity.class));\\r\\n                                SplashActivity.this.finish();\\r\\n                                return m7.f0.f45275a;\\r\\n                            }\\r\\n                        }\\r\\n                        return objE;\\r\\n                    case 2:\\r\\n                        m7.q.b(obj);\\r\\n                        splashActivity \\u003d SplashActivity.this;\\r\\n                        this.f35790f \\u003d kotlin.coroutines.jvm.internal.l.a(n0Var);\\r\\n                        this.f35789e \\u003d 3;\\r\\n                        if (splashActivity.U(this) !\\u003d objE) {\\r\\n                            com.shenma.tvlauncher.phone.a.f35868a.b(SplashActivity.this);\\r\\n                            SplashActivity splashActivity5 \\u003d SplashActivity.this;\\r\\n                            this.f35790f \\u003d kotlin.coroutines.jvm.internal.l.a(n0Var);\\r\\n                            this.f35789e \\u003d 4;\\r\\n                            obj \\u003d splashActivity5.Y(this);\\r\\n                            if (obj \\u003d\\u003d objE) {\\r\\n                            }\\r\\n                            SplashActivity.this.startActivity(new Intent(SplashActivity.this, (Class\\u003c?\\u003e) MainActivity.class));\\r\\n                            SplashActivity.this.finish();\\r\\n                            return m7.f0.f45275a;\\r\\n                        }\\r\\n                        return objE;\\r\\n                    case 3:\\r\\n                        m7.q.b(obj);\\r\\n                        com.shenma.tvlauncher.phone.a.f35868a.b(SplashActivity.this);\\r\\n                        SplashActivity splashActivity6 \\u003d SplashActivity.this;\\r\\n                        this.f35790f \\u003d kotlin.coroutines.jvm.internal.l.a(n0Var);\\r\\n                        this.f35789e \\u003d 4;\\r\\n                        obj \\u003d splashActivity6.Y(this);\\r\\n                        if (obj \\u003d\\u003d objE) {\\r\\n                            return objE;\\r\\n                        }\\r\\n                        SplashActivity.this.startActivity(new Intent(SplashActivity.this, (Class\\u003c?\\u003e) MainActivity.class));\\r\\n                        SplashActivity.this.finish();\\r\\n                        return m7.f0.f45275a;\\r\\n                    case 4:\\r\\n                        m7.q.b(obj);\\r\\n                        SplashActivity.this.startActivity(new Intent(SplashActivity.this, (Class\\u003c?\\u003e) MainActivity.class));\\r\\n                        SplashActivity.this.finish();\\r\\n                        return m7.f0.f45275a;\\r\\n                    case 5:\\r\\n                        m7.q.b(obj);\\r\\n                        SplashActivity.this.startActivity(new Intent(SplashActivity.this, (Class\\u003c?\\u003e) MainActivity.class));\\r\\n                        SplashActivity.this.finish();\\r\\n                        return m7.f0.f45275a;\\r\\n                    case 6:\\r\\n                        m7.q.b(obj);\\r\\n                        SplashActivity.this.startActivity(new Intent(SplashActivity.this, (Class\\u003c?\\u003e) MainActivity.class));\\r\\n                        SplashActivity.this.finish();\\r\\n                        return m7.f0.f45275a;\\r\\n                    case 7:\\r\\n                        m7.q.b(obj);\\r\\n                        SplashActivity.this.startActivity(new Intent(SplashActivity.this, (Class\\u003c?\\u003e) MainActivity.class));\\r\\n                        SplashActivity.this.finish();\\r\\n                        return m7.f0.f45275a;\\r\\n                    default:\\r\\n                        throw new IllegalStateException(\\\"call to \\u0027resume\\u0027 before \\u0027invoke\\u0027 with coroutine\\\");\\r\\n                }\\r\\n            } catch (Exception unused) {\\r\\n            }\\r\\n        }\",\"mode\":\"java\",\"class_name\":\"com.shenma.tvlauncher.phone.SplashActivity.e\",\"dex_descriptor\":\"(Ljava/lang/Object;)Ljava/lang/Object;\",\"overload_count\":1,\"method_name\":\"invokeSuspend\",\"overload_index\":0,\"full_name\":\"com.shenma.tvlauncher.phone.SplashActivity.e.invokeSuspend\",\"fell_back\":false,\"markers\":[]}"
+              }
+            ],
+            "isError": false
+          }
+        }
+      ]
+    },
+    "normalized_result": {
+      "engine": {
+        "name": "jadx-headless-mcp",
+        "version": "0.7.1",
+        "artifact_sha256": "6e5eacf500b64292bfb73c49797c1958f6ee44646e43e868039ae7feb573ff75",
+        "source_revision": "5844800a486d2248fa949b74c9896285f5b54de2",
+        "worker_count": 1,
+        "heap_limit_mib": 4096
+      },
+      "class_name": "com.shenma.tvlauncher.phone.SplashActivity.e",
+      "method": {
+        "name": "invokeSuspend",
+        "reported_signature": "invokeSuspend(java.lang.Object): java.lang.Object",
+        "overload_index": 0,
+        "is_constructor": false,
+        "dex_descriptor": "(Ljava/lang/Object;)Ljava/lang/Object;"
+      },
+      "overload_count": 1,
+      "representation": "java",
+      "body_status": "available",
+      "fell_back": false,
+      "markers": [],
+      "source": {
+        "status": "complete",
+        "text": "        /* JADX WARN: Code duplicated, block: B:20:0x0096  */\r\n        /* JADX WARN: Code duplicated, block: B:23:0x00a9  */\r\n        /* JADX WARN: Code duplicated, block: B:26:0x00c1  */\r\n        @Override // kotlin.coroutines.jvm.internal.a\r\n        public final Object invokeSuspend(Object obj) throws Throwable {\r\n            List listQ;\r\n            SplashActivity splashActivity;\r\n            j8.n0 n0Var = (j8.n0) this.f35790f;\r\n            Object objE = r7.b.e();\r\n            try {\r\n                switch (this.f35789e) {\r\n                    case 0:\r\n                        m7.q.b(obj);\r\n                        SplashActivity splashActivity2 = SplashActivity.this;\r\n                        this.f35790f = n0Var;\r\n                        this.f35789e = 1;\r\n                        if (splashActivity2.W(this) != objE) {\r\n                            listQ = kotlin.collections.v.q(j8.k.b(n0Var, null, null, new a(SplashActivity.this, null), 3, null), j8.k.b(n0Var, null, null, new b(SplashActivity.this, null), 3, null));\r\n                            this.f35790f = kotlin.coroutines.jvm.internal.l.a(n0Var);\r\n                            this.f35789e = 2;\r\n                            if (j8.f.a(listQ, this) != objE) {\r\n                                splashActivity = SplashActivity.this;\r\n                                this.f35790f = kotlin.coroutines.jvm.internal.l.a(n0Var);\r\n                                this.f35789e = 3;\r\n                                if (splashActivity.U(this) != objE) {\r\n                                    com.shenma.tvlauncher.phone.a.f35868a.b(SplashActivity.this);\r\n                                    SplashActivity splashActivity3 = SplashActivity.this;\r\n                                    this.f35790f = kotlin.coroutines.jvm.internal.l.a(n0Var);\r\n                                    this.f35789e = 4;\r\n                                    obj = splashActivity3.Y(this);\r\n                                    if (obj == objE) {\r\n                                    }\r\n                                    SplashActivity.this.startActivity(new Intent(SplashActivity.this, (Class<?>) MainActivity.class));\r\n                                    SplashActivity.this.finish();\r\n                                    return m7.f0.f45275a;\r\n                                }\r\n                            }\r\n                        }\r\n                        return objE;\r\n                    case 1:\r\n                        m7.q.b(obj);\r\n                        listQ = kotlin.collections.v.q(j8.k.b(n0Var, null, null, new a(SplashActivity.this, null), 3, null), j8.k.b(n0Var, null, null, new b(SplashActivity.this, null), 3, null));\r\n                        this.f35790f = kotlin.coroutines.jvm.internal.l.a(n0Var);\r\n                        this.f35789e = 2;\r\n                        if (j8.f.a(listQ, this) != objE) {\r\n                            splashActivity = SplashActivity.this;\r\n                            this.f35790f = kotlin.coroutines.jvm.internal.l.a(n0Var);\r\n                            this.f35789e = 3;\r\n                            if (splashActivity.U(this) != objE) {\r\n                                com.shenma.tvlauncher.phone.a.f35868a.b(SplashActivity.this);\r\n                                SplashActivity splashActivity4 = SplashActivity.this;\r\n                                this.f35790f = kotlin.coroutines.jvm.internal.l.a(n0Var);\r\n                                this.f35789e = 4;\r\n                                obj = splashActivity4.Y(this);\r\n                                if (obj == objE) {\r\n                                }\r\n                                SplashActivity.this.startActivity(new Intent(SplashActivity.this, (Class<?>) MainActivity.class));\r\n                                SplashActivity.this.finish();\r\n                                return m7.f0.f45275a;\r\n                            }\r\n                        }\r\n                        return objE;\r\n                    case 2:\r\n                        m7.q.b(obj);\r\n                        splashActivity = SplashActivity.this;\r\n                        this.f35790f = kotlin.coroutines.jvm.internal.l.a(n0Var);\r\n                        this.f35789e = 3;\r\n                        if (splashActivity.U(this) != objE) {\r\n                            com.shenma.tvlauncher.phone.a.f35868a.b(SplashActivity.this);\r\n                            SplashActivity splashActivity5 = SplashActivity.this;\r\n                            this.f35790f = kotlin.coroutines.jvm.internal.l.a(n0Var);\r\n                            this.f35789e = 4;\r\n                            obj = splashActivity5.Y(this);\r\n                            if (obj == objE) {\r\n                            }\r\n                            SplashActivity.this.startActivity(new Intent(SplashActivity.this, (Class<?>) MainActivity.class));\r\n                            SplashActivity.this.finish();\r\n                            return m7.f0.f45275a;\r\n                        }\r\n                        return objE;\r\n                    case 3:\r\n                        m7.q.b(obj);\r\n                        com.shenma.tvlauncher.phone.a.f35868a.b(SplashActivity.this);\r\n                        SplashActivity splashActivity6 = SplashActivity.this;\r\n                        this.f35790f = kotlin.coroutines.jvm.internal.l.a(n0Var);\r\n                        this.f35789e = 4;\r\n                        obj = splashActivity6.Y(this);\r\n                        if (obj == objE) {\r\n                            return objE;\r\n                        }\r\n                        SplashActivity.this.startActivity(new Intent(SplashActivity.this, (Class<?>) MainActivity.class));\r\n                        SplashActivity.this.finish();\r\n                        return m7.f0.f45275a;\r\n                    case 4:\r\n                        m7.q.b(obj);\r\n                        SplashActivity.this.startActivity(new Intent(SplashActivity.this, (Class<?>) MainActivity.class));\r\n                        SplashActivity.this.finish();\r\n                        return m7.f0.f45275a;\r\n                    case 5:\r\n                        m7.q.b(obj);\r\n                        SplashActivity.this.startActivity(new Intent(SplashActivity.this, (Class<?>) MainActivity.class));\r\n                        SplashActivity.this.finish();\r\n                        return m7.f0.f45275a;\r\n                    case 6:\r\n                        m7.q.b(obj);\r\n                        SplashActivity.this.startActivity(new Intent(SplashActivity.this, (Class<?>) MainActivity.class));\r\n                        SplashActivity.this.finish();\r\n                        return m7.f0.f45275a;\r\n                    case 7:\r\n                        m7.q.b(obj);\r\n                        SplashActivity.this.startActivity(new Intent(SplashActivity.this, (Class<?>) MainActivity.class));\r\n                        SplashActivity.this.finish();\r\n                        return m7.f0.f45275a;\r\n                    default:\r\n                        throw new IllegalStateException(\"call to 'resume' before 'invoke' with coroutine\");\r\n                }\r\n            } catch (Exception unused) {\r\n            }\r\n        }",
+        "reported_total_bytes": null
+      }
+    },
+    "confidence": "derived",
+    "authority": "shipped-artifact",
+    "environment": null,
+    "limitations": [
+      "Static decompiler observations do not establish runtime behavior; the APK is never executed.",
+      "Method signatures use provider display types; DEX prototypes come from frozen JADX metadata. Display names may be aliases, and overload indices are local to this engine and artifact.",
+      "Class inventories use parsed metadata before code generation, including synthetic members that may be omitted from decompiled source. Source positions remain unknown.",
+      "Incoming reference totals count JADX using nodes. Direct invoke entries within a using method report raw DEX code-unit offsets and method indexes, but coverage is limited to those nodes and directly matched invokes; it does not establish every possible dynamic or reflective call site.",
+      "Manifest summary fields are extracted by the upstream engine; decoded XML is retained for verification. APK signatures, split APKs, native libraries and Android runtime capture are not verified by this provider."
+    ],
+    "relationship_coverage": null,
+    "locations": [],
+    "evidence_links": []
+  }
+}

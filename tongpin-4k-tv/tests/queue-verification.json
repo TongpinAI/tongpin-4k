@@ -1,0 +1,27 @@
+{
+  "status": "READY",
+  "passed": true,
+  "jvm_assertions": 129,
+  "source_sha256": {
+    "src\\com\\tongpin\\player4k\\tv\\CatalogApi.java": "29a1ddc2be33bcefe508bd234cec93b5227945d9f25373409e9e60ce3d41fb93",
+    "src\\com\\tongpin\\player4k\\tv\\TvPlayQueue.java": "a1d630ec5f52f53b725fc0e251871c7fc2de7934d8bca9ba0355dccab1ae35d7",
+    "tests\\src\\com\\tongpin\\player4k\\tv\\TvPlayQueueTest.java": "5e17b6636226ee0dc812e4c8dcf4ef7f97e21f929532a32d77610842d501d5fb"
+  },
+  "limits": {
+    "episodes": 10000,
+    "streams_per_episode": 64,
+    "utf8_bytes": 8388608
+  },
+  "test_scope": "Actual TV CatalogApi video/provider/media validation, queue encode/decode and private file I/O; canonical order, duplicate names, stable keys, full64 variants/10000 episodes, byte/token/corruption/eviction boundaries",
+  "host_json": {
+    "sha256": "c243f45f9590c12694a4142ed3f07fc70dfb71e4daebd05ae234bf92a2da92a6",
+    "packaged_in_apk": false
+  },
+  "android_compile_jar_api": 35,
+  "android_runtime_test": false,
+  "native_render_verified": false,
+  "not_performed": [
+    "Android Context/Activity execution, decoder playback or device tests",
+    "Store schema/migration and Home/Player handoff owned by other agents"
+  ]
+}

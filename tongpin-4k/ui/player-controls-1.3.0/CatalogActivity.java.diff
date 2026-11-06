@@ -1,0 +1,73 @@
+--- before/open-sources/src/com/tongpin/player4k/catalog/CatalogActivity.java
++++ after/open-sources/src/com/tongpin/player4k/catalog/CatalogActivity.java
+@@ -67,7 +67,7 @@
+     private final ArrayList<Video> videos = new ArrayList<>();
+     private List<Provider> providers;
+     private int providerIndex, page = 1, pageTicket, detailTicket;
+-    private boolean loading, hasMore, episodesDescending;
++    private boolean loading, hasMore, episodesDescending, preparingPlayback;
+     private String keyword = "";
+     private Future<?> pageRequest, detailRequest;
+     private Detail detail;
+@@ -449,32 +449,35 @@
+     private void play(Detail value, Episode episode) {
+         int best = CatalogApi.bestStream(episode.streams);
+         if (best < 0) { Toast.makeText(this, "此选集没有可用播放地址", Toast.LENGTH_LONG).show(); return; }
+-        int count = Math.min(episode.streams.size(), 40);
+-        String[] urls = new String[count], labels = new String[count];
+-        int[] widths = new int[count], heights = new int[count];
+-        // Keep the preferred stream even when an upstream returns unusually many variants.
+-        ArrayList<Stream> streams = new ArrayList<>();
+-        streams.add(episode.streams.get(best));
+-        for (int i = 0; i < episode.streams.size() && streams.size() < count; i++)
+-            if (i != best) streams.add(episode.streams.get(i));
+-        for (int i = 0; i < count; i++) {
+-            Stream stream = streams.get(i);
+-            urls[i] = stream.url;
+-            labels[i] = quality(stream);
+-            widths[i] = stream.width;
+-            heights[i] = stream.height;
+-        }
+-        Intent intent = new Intent(this, OpenPlayerActivity.class);
+-        intent.putExtra("title", value.video.title + " · " + episode.name);
+-        intent.putExtra("licence", value.video.licence);
+-        intent.putExtra("author", value.video.author);
+-        intent.putExtra("source_url", value.video.sourceUrl);
+-        intent.putExtra("stream_urls", urls);
+-        intent.putExtra("stream_labels", labels);
+-        intent.putExtra("stream_widths", widths);
+-        intent.putExtra("stream_heights", heights);
+-        intent.putExtra("selected", 0);
+-        startActivity(intent);
++        if (preparingPlayback) return;
++        Line chosen = null;
++        for (Line line : value.lines) if (line.episodes.contains(episode)) { chosen = line; break; }
++        if (chosen == null) { Toast.makeText(this, "选集已变化，请重新选择", Toast.LENGTH_LONG).show(); return; }
++        final Line line = chosen;
++        final int index = line.episodes.indexOf(episode), ticket = detailTicket;
++        preparingPlayback = true;
++        requests.execute(() -> {
++            try {
++                final String token = PlayQueue.save(this, value, line);
++                main.post(() -> {
++                    preparingPlayback = false;
++                    if (!alive() || ticket != detailTicket || detail != value) { PlayQueue.delete(this, token); return; }
++                    try {
++                        startActivity(new Intent(this, OpenPlayerActivity.class)
++                                .putExtra("queue_token", token).putExtra("queue_index", index));
++                    } catch (RuntimeException unavailable) {
++                        PlayQueue.delete(this, token);
++                        Toast.makeText(this, "暂时无法打开播放器，请重试", Toast.LENGTH_LONG).show();
++                    }
++                });
++            } catch (Exception failure) {
++                main.post(() -> {
++                    preparingPlayback = false;
++                    if (alive() && ticket == detailTicket)
++                        Toast.makeText(this, "播放列表暂不可用，请返回片库重新选择。", Toast.LENGTH_LONG).show();
++                });
++            }
++        });
+     }
+ 
+     private static String quality(Stream stream) {

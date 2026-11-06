@@ -1,0 +1,22 @@
+.class interface abstract Landroidx/media3/session/MediaSession$Listener;
+.super Ljava/lang/Object;
+.source "r8-map-id-4c0b28e571086534d372af241f48ba94b5a529610dacb5d0006953fc02fc614b"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroidx/media3/session/MediaSession;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x608
+    name = "Listener"
+.end annotation
+
+
+# virtual methods
+.method public abstract onNotificationRefreshRequired(Landroidx/media3/session/MediaSession;)V
+.end method
+
+.method public abstract onPlayRequested(Landroidx/media3/session/MediaSession;)Z
+.end method

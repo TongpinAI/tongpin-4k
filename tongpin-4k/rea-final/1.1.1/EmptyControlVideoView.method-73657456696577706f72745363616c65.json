@@ -1,0 +1,134 @@
+{
+  "ok": true,
+  "value": {
+    "evidence_id": "ev_614733da089462103ccd134fa8ad1915036d9e0ba5f3d2a79a80deb6942741b4",
+    "subject": {
+      "name": "tongpin-4k-1.1.1.apk",
+      "digest": {
+        "sha256": "31b03d84a4249c13ccf0849eacb7e0e1373e437e013eb36060ff969019dad498"
+      },
+      "local_path": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\output\\tongpin-4k-1.1.1.apk",
+      "format": "apk",
+      "architecture": null
+    },
+    "provider": {
+      "id": "jadx",
+      "name": "JADX headless",
+      "version": "0.7.1"
+    },
+    "analysis_profile": null,
+    "predicate_type": "rea.analysis",
+    "operation": "inspect_android_method",
+    "parameters": {
+      "path": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\output\\tongpin-4k-1.1.1.apk",
+      "class_name": "com.shenma.tvlauncher.phone.EmptyControlVideoView",
+      "method_name": "setViewportScale",
+      "overload_index": 0
+    },
+    "raw_result": {
+      "server": {
+        "name": "rea-jadx-bridge",
+        "version": "4"
+      },
+      "bridge_sha256": "a02b1ef0a4a40abd1ae310b9ee686ca163e0b59a3256df524c35b90ed17e9e63",
+      "jar_sha256": "6e5eacf500b64292bfb73c49797c1958f6ee44646e43e868039ae7feb573ff75",
+      "loaded": {
+        "state": "LOADED",
+        "apk_path": "C:\\Users\\ADMINI~1.DES\\AppData\\Local\\Temp\\rea-android-154e11aec2078573b91f2e1200c75abe\\target.apk",
+        "class_count": 23565,
+        "resource_count": 4005,
+        "threads": 1,
+        "resources": "full"
+      },
+      "calls": [
+        {
+          "operation": "rea_jvm_status",
+          "input": {},
+          "response": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"available_processors\":16,\"java_version\":\"25.0.4\",\"max_heap_bytes\":4294967296,\"metadata_scope\":\"parsed_members\",\"engine_reported_version\":\"0.7.1\"}"
+              }
+            ],
+            "isError": false
+          }
+        },
+        {
+          "operation": "get_class_summary",
+          "input": {
+            "class_name": "com.shenma.tvlauncher.phone.EmptyControlVideoView"
+          },
+          "response": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"name\":\"EmptyControlVideoView\",\"inner_classes\":[],\"inner_class_count\":0,\"method_count\":6,\"methods\":[{\"def_pos\":0,\"signature\":\"\\u003cinit\\u003e(android.content.Context): void\",\"dex_descriptor\":\"(Landroid/content/Context;)V\",\"is_constructor\":true,\"name\":\"\\u003cinit\\u003e\"},{\"def_pos\":0,\"signature\":\"\\u003cinit\\u003e(android.content.Context, android.util.AttributeSet): void\",\"dex_descriptor\":\"(Landroid/content/Context;Landroid/util/AttributeSet;)V\",\"is_constructor\":true,\"name\":\"\\u003cinit\\u003e\"},{\"def_pos\":0,\"signature\":\"getLayoutId(): int\",\"dex_descriptor\":\"()I\",\"is_constructor\":false,\"name\":\"getLayoutId\"},{\"def_pos\":0,\"signature\":\"setViewportScale(int): void\",\"dex_descriptor\":\"(I)V\",\"is_constructor\":false,\"name\":\"setViewportScale\"},{\"def_pos\":0,\"signature\":\"touchDoubleUp(android.view.MotionEvent): void\",\"dex_descriptor\":\"(Landroid/view/MotionEvent;)V\",\"is_constructor\":false,\"name\":\"touchDoubleUp\"},{\"def_pos\":0,\"signature\":\"touchSurfaceMoveFullLogic(float, float): void\",\"dex_descriptor\":\"(FF)V\",\"is_constructor\":false,\"name\":\"touchSurfaceMoveFullLogic\"}],\"fields\":[],\"field_count\":0,\"full_name\":\"com.shenma.tvlauncher.phone.EmptyControlVideoView\"}"
+              }
+            ],
+            "isError": false
+          }
+        },
+        {
+          "operation": "get_method_body",
+          "input": {
+            "class_name": "com.shenma.tvlauncher.phone.EmptyControlVideoView",
+            "method_name": "setViewportScale",
+            "overload_index": 0,
+            "smali_fallback": true
+          },
+          "response": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"dex_descriptor\":\"(I)V\",\"overload_count\":1,\"method_name\":\"setViewportScale\",\"overload_index\":0,\"full_name\":\"com.shenma.tvlauncher.phone.EmptyControlVideoView.setViewportScale\",\"fell_back\":false,\"markers\":[],\"body\":\"    public final void setViewportScale(int i9) {\\r\\n        int i10 \\u003d 0;\\r\\n        if (i9 \\u003d\\u003d 1) {\\r\\n            i10 \\u003d 4;\\r\\n        } else if (i9 \\u003d\\u003d 2) {\\r\\n            i10 \\u003d -4;\\r\\n        }\\r\\n        GSYVideoType.setShowType(i10);\\r\\n        p6.a renderProxy \\u003d getRenderProxy();\\r\\n        if (renderProxy !\\u003d null \\u0026\\u0026 renderProxy.e() !\\u003d null) {\\r\\n            changeTextureViewShowType();\\r\\n        }\\r\\n        requestLayout();\\r\\n    }\",\"mode\":\"java\",\"class_name\":\"com.shenma.tvlauncher.phone.EmptyControlVideoView\"}"
+              }
+            ],
+            "isError": false
+          }
+        }
+      ]
+    },
+    "normalized_result": {
+      "engine": {
+        "name": "jadx-headless-mcp",
+        "version": "0.7.1",
+        "artifact_sha256": "6e5eacf500b64292bfb73c49797c1958f6ee44646e43e868039ae7feb573ff75",
+        "source_revision": "5844800a486d2248fa949b74c9896285f5b54de2",
+        "worker_count": 1,
+        "heap_limit_mib": 4096
+      },
+      "class_name": "com.shenma.tvlauncher.phone.EmptyControlVideoView",
+      "method": {
+        "name": "setViewportScale",
+        "reported_signature": "setViewportScale(int): void",
+        "overload_index": 0,
+        "is_constructor": false,
+        "dex_descriptor": "(I)V"
+      },
+      "overload_count": 1,
+      "representation": "java",
+      "body_status": "available",
+      "fell_back": false,
+      "markers": [],
+      "source": {
+        "status": "complete",
+        "text": "    public final void setViewportScale(int i9) {\r\n        int i10 = 0;\r\n        if (i9 == 1) {\r\n            i10 = 4;\r\n        } else if (i9 == 2) {\r\n            i10 = -4;\r\n        }\r\n        GSYVideoType.setShowType(i10);\r\n        p6.a renderProxy = getRenderProxy();\r\n        if (renderProxy != null && renderProxy.e() != null) {\r\n            changeTextureViewShowType();\r\n        }\r\n        requestLayout();\r\n    }",
+        "reported_total_bytes": null
+      }
+    },
+    "confidence": "derived",
+    "authority": "shipped-artifact",
+    "environment": null,
+    "limitations": [
+      "Static decompiler observations do not establish runtime behavior; the APK is never executed.",
+      "Method signatures use provider display types; DEX prototypes come from frozen JADX metadata. Display names may be aliases, and overload indices are local to this engine and artifact.",
+      "Class inventories use parsed metadata before code generation, including synthetic members that may be omitted from decompiled source. Source positions remain unknown.",
+      "Incoming reference totals count JADX using nodes. Direct invoke entries within a using method report raw DEX code-unit offsets and method indexes, but coverage is limited to those nodes and directly matched invokes; it does not establish every possible dynamic or reflective call site.",
+      "Manifest summary fields are extracted by the upstream engine; decoded XML is retained for verification. APK signatures, split APKs, native libraries and Android runtime capture are not verified by this provider."
+    ],
+    "relationship_coverage": null,
+    "locations": [],
+    "evidence_links": []
+  }
+}

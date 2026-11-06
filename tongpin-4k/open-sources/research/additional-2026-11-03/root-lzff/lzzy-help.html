@@ -1,0 +1,1221 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>帮助中心 - 量子资源网</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="shortcut icon" href="/favicon.ico?v=20261023" type="image/x-icon">
+<link rel="stylesheet" href="/template/lzizycom/static/css/main.css?v=20261023">
+<link rel="stylesheet" href="/template/lzizycom/static/css/plugin.css?v=20261023">
+<link rel="stylesheet" href="/template/lzizycom/static/css/layui.css?v=20261023">
+<link rel="stylesheet" href="/template/lzizycom/static/css/migration.css?v=20261023">
+<script src="/static/js/jquery.js"></script>
+<script src="/static/js/jquery-migrate.js"></script>
+<script>var maccms={"path":"","mid":"0","aid":"0","url":"www.lzizy.com","wapurl":"www.lzizy.com","mob_status":"0"};</script>
+<script src="/static/js/home.js"></script>
+
+<style>
+/* 有的主题全局第一条是 *{margin:0 auto;padding:0}(如 m1938pc3 的 css/main.css),整站靠它让 max-width 区块居中。
+   可帮助页的接口行、步骤、Tab、键值对都是 flex 行,auto 外边距会吃掉 flex 容器的剩余空间,
+   把「标签 | 地址框 | 复制」推散到行首、行中、行尾(步骤里夹着的 <strong> 同理)。
+   在组件内部清零水平外边距,需要间距的地方在下面各自声明;没有这条全局规则的主题不受影响。
+   外层 .help-wrap 本身保留 margin:0 auto + 1200 宽,与站点头部/导航同一条对齐线。 */
+.help-wrap *{margin-left:0;margin-right:0;}
+/* clear:主题导航若是浮动布局且没清浮动(番号 default_pc 的分类导航),.help-wrap 会从导航区域开始排,
+   带 overflow:hidden 的 .help-tabs 为避让浮动被压成 0 宽,分页按钮整排看不见 */
+.help-outer{width:960px;max-width:calc(100% - 24px);margin:0 auto;}
+/* box-sizing：窄屏媒体查询会加左右内边距，content-box 下外框会比页头宽 24px */
+.help-wrap{width:100%;max-width:960px;margin:0 auto;padding:20px 0 40px;clear:both;box-sizing:border-box;}
+.help-tabs{display:flex;flex-wrap:wrap;background:#2c3e50;border-radius:4px 4px 0 0;overflow:hidden;margin-bottom:0;}
+.help-tabs a{display:inline-block;color:#cdd3d9;padding:12px 18px;text-decoration:none;font-size:14px;border-right:1px solid #3d5166;transition:background .2s,color .2s;white-space:nowrap;}
+.help-tabs a:last-child{border-right:none;}
+.help-tabs a:hover{background:#3d5166;color:#fff;}
+.help-tabs a.active{background:#354052;color:#fff;}
+.help-tab{display:none;padding:24px 0 0;}
+.help-tab.active{display:block;}
+.help-card{background:#fff;border:1px solid #e5e9ef;border-radius:6px;padding:20px 24px;margin-bottom:20px;}
+.help-card h3{font-size:16px;font-weight:600;color:#2c3e50;margin:0 0 16px;padding-bottom:10px;border-bottom:2px solid #354052;}
+.help-card h4{font-size:14px;font-weight:600;color:#34495e;margin:16px 0 8px;}
+.help-step{counter-reset:step;margin:0;padding:0;list-style:none;}
+/* 步骤正文里夹着 <strong>/<code>:li 若是 flex,文字和行内元素会被拆成多个 flex 项、丢掉中间空格。
+   改为正常文本流,序号圆点用绝对定位放在左侧留白里。 */
+.help-step li{counter-increment:step;display:block;position:relative;padding-left:32px;min-height:22px;margin-bottom:10px;font-size:14px;color:#555;line-height:1.6;}
+.help-step li::before{content:counter(step);position:absolute;left:0;top:1px;display:flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:#354052;color:#fff;font-size:12px;font-weight:700;}
+.api-group{margin-bottom:16px;}
+.api-group-title{font-size:12px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;}
+.api-row{display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap;}
+.api-label{font-size:13px;color:#666;min-width:110px;flex-shrink:0;}
+.api-box{display:inline-block;background:#f4f6f8;border:1px solid #dde2e8;border-radius:4px;padding:6px 12px;font-family:'Courier New',Courier,monospace;font-size:13px;color:#2c3e50;word-break:break-all;max-width:100%;box-sizing:border-box;}
+.api-box.primary{background:#e8f4ff;border-color:#b3d8ff;}
+.api-box.backup{background:#f5f5f5;border-color:#ccc;color:#777;}
+.api-tag{display:inline-block;padding:1px 6px;border-radius:3px;font-size:11px;font-weight:600;margin-left:4px;vertical-align:middle;}
+.tag-json{background:#27ae60;color:#fff;}
+.tag-xml{background:#999;color:#fff;}
+.tag-rec{background:#e74c3c;color:#fff;}
+.tag-bak{background:#aaa;color:#fff;}
+.copy-btn{display:inline-block;padding:4px 10px;background:#354052;color:#fff;font-size:12px;border-radius:3px;cursor:pointer;border:none;outline:none;transition:background .2s;vertical-align:middle;white-space:nowrap;}
+.copy-btn:hover{background:#0971c7;}
+.copy-btn.copied{background:#27ae60;}
+.help-dl-btn{display:inline-block;padding:8px 20px;background:#27ae60;color:#fff;border-radius:4px;text-decoration:none;font-size:14px;margin-top:8px;transition:background .2s;}
+.help-dl-btn:hover{background:#1e9451;color:#fff;}
+.help-dl-btn+.help-dl-btn{margin-left:10px;}
+.help-warn{background:#fff8e1;border-left:4px solid #f9a825;border-radius:4px;padding:12px 16px;font-size:14px;color:#7b5800;margin-bottom:16px;line-height:1.7;}
+.help-info{background:#e3f2fd;border-left:4px solid #354052;border-radius:4px;padding:12px 16px;font-size:14px;color:#0d47a1;margin-bottom:16px;line-height:1.7;}
+.help-kv{display:flex;align-items:flex-start;padding:10px 0;border-bottom:1px solid #f0f2f5;font-size:14px;}
+.help-kv:last-child{border-bottom:none;}
+.help-kv .kv-label{color:#888;min-width:130px;flex-shrink:0;}
+.help-kv .kv-val{color:#2c3e50;word-break:break-all;flex:1;}
+.help-code{background:#f4f6f8;border:1px solid #dde2e8;border-radius:4px;padding:12px 16px;font-family:'Courier New',Courier,monospace;font-size:13px;color:#2c3e50;margin-bottom:12px;white-space:pre-wrap;word-break:break-all;}
+.help-text{font-size:14px;color:#555;line-height:1.7;margin-bottom:10px;}
+.help-list{margin:0 0 4px;padding:0 0 0 20px;font-size:14px;color:#555;line-height:1.8;}
+.help-wrap code{background:#f4f6f8;border:1px solid #e3e7ec;border-radius:3px;padding:0 4px;font-family:'Courier New',Courier,monospace;font-size:13px;color:#c0392b;word-break:break-all;}
+/* 教程截图:站点自己放在 upload/help/guide/ 的图,缺图时整块不输出。
+   宽图(爱影后台原图 3000px+)按卡片宽度缩小,点开看原图。 */
+.help-shot{margin-top:10px;margin-bottom:14px;}
+.help-shot a{display:block;border:1px solid #e5e9ef;border-radius:4px;background:#fafbfc;padding:6px;text-align:center;}
+.help-shot img{display:inline-block;max-width:100%;height:auto;vertical-align:top;}
+.help-shot figcaption{font-size:12px;color:#999;margin-top:6px;text-align:center;}
+.help-table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:13px;margin-bottom:12px;}
+.help-table th,.help-table td{border:1px solid #e5e9ef;padding:8px 10px;text-align:left;vertical-align:top;color:#555;line-height:1.6;word-break:break-all;}
+.help-table th{background:#f7f9fb;color:#2c3e50;font-weight:600;}
+.divider{border:none;border-top:1px dashed #e0e0e0;margin:16px 0;}
+/* 窄于内容宽度时两侧留白,卡片不贴屏幕边 */
+@media(max-width:1230px){.help-wrap{padding-left:12px;padding-right:12px;}}
+@media(max-width:640px){
+  .help-tabs a{padding:10px 12px;font-size:13px;}
+  .help-card{padding:14px 14px;}
+  .api-label{min-width:80px;font-size:12px;}
+  .api-box{font-size:12px;}
+  .help-kv .kv-label{min-width:90px;font-size:13px;}
+  .help-table th,.help-table td{padding:6px;font-size:12px;}
+}
+</style>
+</head>
+<body>
+<style>
+  .index-header {
+    text-align: center;
+    background: #354052;
+    background-size: cover;
+    padding: 12px 0;
+  }
+  
+  .index-card {
+    padding: 15px;
+    text-align: start;
+    display: inline-block;
+    border-radius: 6px;
+    margin: 0 auto;
+    font-size: 13px;
+    background-color: white;
+    width: 930px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+    text-align: center;
+  }
+  
+  .index-card li {
+    list-style: none;
+  }
+  
+  .titlestart {
+    color: #ff0000;
+    font-weight: bold;
+  }
+  
+  .card-content {
+    color: #474957;
+    font-weight: bold;
+  }
+
+  /* Liangzi MacRep announcement: keep the original notice palette. */
+  .lz-rep-notice {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 10px 0;
+    padding: 14px 16px;
+    border-left: 4px solid #ff0000;
+    border-radius: 4px;
+    background: #fff5f5;
+    color: #474957;
+    text-align: left;
+    text-decoration: none;
+    line-height: 1.6;
+  }
+  .lz-rep-notice:hover { background: #ffe6e6; text-decoration: none; }
+  .lz-rep-notice:focus-visible { outline: 2px solid #d00000; outline-offset: 3px; }
+  .lz-rep-notice__label { flex: 0 0 auto; color: #d00000; font-weight: bold; }
+  .lz-rep-notice__body { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+  .lz-rep-notice__title { display: block; font-size: 15px; color: #333; }
+  .lz-rep-notice__latest { display: block; margin-top: 3px; font-size: 12px; color: #75545c; font-weight: normal; }
+  .lz-rep-notice__action { flex: 0 0 auto; color: #d00000; font-weight: bold; }
+  @media (max-width: 640px) {
+    .lz-rep-notice { display: block; padding: 12px 14px; }
+    .lz-rep-notice__body { display: block; margin-top: 5px; }
+    .lz-rep-notice__action { display: inline-block; margin-top: 8px; }
+  }
+</style>
+
+<header class="index-header">
+  <ul class="index-card">
+    <!-- liangzi-macrep-notice:start -->
+        <li>
+      <a class="lz-rep-notice" href="/index.php/macrep.html">
+        <span class="lz-rep-notice__label">替换公告</span>
+        <span class="lz-rep-notice__body">
+          <strong class="lz-rep-notice__title">图片、播放地址与域名替换</strong>
+                    <span class="lz-rep-notice__latest">最新公告：2026/10/28，视频封面替换，请站长替换</span>
+                  </span>
+        <span class="lz-rep-notice__action">查看替换助手 <span aria-hidden="true">→</span></span>
+      </a>
+    </li>
+        <!-- liangzi-macrep-notice:end -->
+
+    <hr>
+    
+    <li><span class="titlestart"><font size="5" color="#333333">量子公告：</font></span></li>
+    <hr>
+    <li><span class="titlestart"><b>本站使用量子CDN加速，速度快到无法想象，全新上线，欢迎测试！！！</b></span></li>
+    <hr>
+    <li><span class="titlestart"><b><font color="#333333">量子资源（备用网址):</font> Lzizy1.com 至 Lzizy8.com M3U8视频解析：<a target="_blank" href="https://lziplayer.com/?url=https://vip.lz-cdn14.com/20220827/9100_31da5344/index.m3u8">https://lziplayer.com/?url=</a></b></span></li>
+    <hr>
+    <li>
+      <a class="titlestart" href="/index.php/gbook/index.html"><font color="#333333">★求片请点这里 ★&nbsp;</a>
+      <a href="https://t.me/+-hMw2asuTgJhZjk1" target="blank">◆量子飞机群◆ &nbsp;</a>
+    </li>
+    <hr>
+  </ul>
+</header>
+
+
+<div class="head_box">
+  <div class="width1200 header">
+    <div class="header_left"><a href="/"><img src="/template/lzizycom/static/picture/logo.png" alt="量子资源网"></a></div>
+    <div class="header_right">
+      <div class="header_submit">
+        <div class="header_submit_b">
+          <form data-sb='sd' id="search" name="search" method="get" action="/index.php/vod/search.html">
+            <input type="text" name="wd" class="search-input mac_wd" placeholder="请在此处输入影片名或演员名称"/>
+            <input type="submit" id="searchbutton" class="search-button mac_search" value="搜索"/>
+          </form>
+        </div>
+      </div>
+      <div class="header_list">
+        <ul>
+          <li>今日更新：<span style="color:red;;font-weight: bold;">75</span></li>
+          <li>本站总计：<span style="color:red;;font-weight: bold;">162217</span></li>
+          <li><a href="/index.php/help.html" target="_blank"><span style="color:red;">采集教程帮助中心</span></a></li>
+          <li><a href="/index.php/gbook/index.html"><span style="color:red;">有求必应</span></a></li>
+          <li><a href="/index.php/macrep.html"><span style="color:red;">域名替换公告</span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="header_fl">
+      <div class="qq-c"><a target="_blank" href="https://t.me/+-hMw2asuTgJhZjk1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;加入资源群</a></div>
+    </div>
+  </div>
+  <div class="nav">
+    <div class="width1200">
+      <ul>
+        <li class="yes"><a class="nav-link" href="/" title="首页">首页</a></li>
+                <li>
+          <div class="dropdown">
+            <a href="/index.php/vod/type/id/52.html" title="AI漫剧">AI漫剧</a>
+            <div class="dropdown-content">
+              <ul>              </ul>
+            </div>
+          </div>
+        </li>
+                <li>
+          <div class="dropdown">
+            <a href="/index.php/vod/type/id/1.html" title="电影片">电影片</a>
+            <div class="dropdown-content">
+              <ul>                <li><a href="/index.php/vod/type/id/6.html" title="动作片">动作片</a></li>                <li><a href="/index.php/vod/type/id/7.html" title="喜剧片">喜剧片</a></li>                <li><a href="/index.php/vod/type/id/9.html" title="科幻片">科幻片</a></li>                <li><a href="/index.php/vod/type/id/10.html" title="恐怖片">恐怖片</a></li>                <li><a href="/index.php/vod/type/id/8.html" title="爱情片">爱情片</a></li>                <li><a href="/index.php/vod/type/id/11.html" title="剧情片">剧情片</a></li>                <li><a href="/index.php/vod/type/id/12.html" title="战争片">战争片</a></li>                <li><a href="/index.php/vod/type/id/20.html" title="记录片">记录片</a></li>                <li><a href="/index.php/vod/type/id/34.html" title="伦理片">伦理片</a></li>                <li><a href="/index.php/vod/type/id/45.html" title="预告片">预告片</a></li>                <li><a href="/index.php/vod/type/id/49.html" title="动画片">动画片</a></li>              </ul>
+            </div>
+          </div>
+        </li>
+                <li>
+          <div class="dropdown">
+            <a href="/index.php/vod/type/id/2.html" title="连续剧">连续剧</a>
+            <div class="dropdown-content">
+              <ul>                <li><a href="/index.php/vod/type/id/13.html" title="国产剧">国产剧</a></li>                <li><a href="/index.php/vod/type/id/16.html" title="欧美剧">欧美剧</a></li>                <li><a href="/index.php/vod/type/id/14.html" title="香港剧">香港剧</a></li>                <li><a href="/index.php/vod/type/id/15.html" title="韩国剧">韩国剧</a></li>                <li><a href="/index.php/vod/type/id/21.html" title="台湾剧">台湾剧</a></li>                <li><a href="/index.php/vod/type/id/22.html" title="日本剧">日本剧</a></li>                <li><a href="/index.php/vod/type/id/23.html" title="海外剧">海外剧</a></li>                <li><a href="/index.php/vod/type/id/24.html" title="泰国剧">泰国剧</a></li>              </ul>
+            </div>
+          </div>
+        </li>
+                <li>
+          <div class="dropdown">
+            <a href="/index.php/vod/type/id/4.html" title="动漫片">动漫片</a>
+            <div class="dropdown-content">
+              <ul>                <li><a href="/index.php/vod/type/id/29.html" title="国产动漫">国产动漫</a></li>                <li><a href="/index.php/vod/type/id/30.html" title="日韩动漫">日韩动漫</a></li>                <li><a href="/index.php/vod/type/id/31.html" title="欧美动漫">欧美动漫</a></li>                <li><a href="/index.php/vod/type/id/32.html" title="港台动漫">港台动漫</a></li>                <li><a href="/index.php/vod/type/id/33.html" title="海外动漫">海外动漫</a></li>              </ul>
+            </div>
+          </div>
+        </li>
+                <li>
+          <div class="dropdown">
+            <a href="/index.php/vod/type/id/46.html" title="短剧">短剧</a>
+            <div class="dropdown-content">
+              <ul>              </ul>
+            </div>
+          </div>
+        </li>
+                <li>
+          <div class="dropdown">
+            <a href="/index.php/vod/type/id/3.html" title="综艺片">综艺片</a>
+            <div class="dropdown-content">
+              <ul>                <li><a href="/index.php/vod/type/id/25.html" title="大陆综艺">大陆综艺</a></li>                <li><a href="/index.php/vod/type/id/26.html" title="港台综艺">港台综艺</a></li>                <li><a href="/index.php/vod/type/id/27.html" title="日韩综艺">日韩综艺</a></li>                <li><a href="/index.php/vod/type/id/28.html" title="欧美综艺">欧美综艺</a></li>              </ul>
+            </div>
+          </div>
+        </li>
+                <li>
+          <div class="dropdown">
+            <a href="/index.php/vod/type/id/35.html" title="电影解说">电影解说</a>
+            <div class="dropdown-content">
+              <ul>              </ul>
+            </div>
+          </div>
+        </li>
+                <li>
+          <div class="dropdown">
+            <a href="/index.php/vod/type/id/36.html" title="体育">体育</a>
+            <div class="dropdown-content">
+              <ul>                <li><a href="/index.php/vod/type/id/37.html" title="足球">足球</a></li>                <li><a href="/index.php/vod/type/id/38.html" title="篮球">篮球</a></li>                <li><a href="/index.php/vod/type/id/39.html" title="网球">网球</a></li>                <li><a href="/index.php/vod/type/id/40.html" title="斯诺克">斯诺克</a></li>              </ul>
+            </div>
+          </div>
+        </li>
+                <li>
+          <div class="dropdown">
+            <a href="/index.php/actor/type/id/41.html" title="演员">演员</a>
+            <div class="dropdown-content">
+              <ul>              </ul>
+            </div>
+          </div>
+        </li>
+                <li>
+          <div class="dropdown">
+            <a href="/index.php/art/type/id/42.html" title="新闻资讯">新闻资讯</a>
+            <div class="dropdown-content">
+              <ul>                <li><a href="/index.php/art/type/id/43.html" title="电影资讯">电影资讯</a></li>                <li><a href="/index.php/art/type/id/44.html" title="娱乐新闻">娱乐新闻</a></li>              </ul>
+            </div>
+          </div>
+        </li>
+              </ul>
+    </div>
+  </div>
+</div>
+<div class="help-outer">
+<div class="help-wrap">
+
+  <div class="help-tabs">
+    <a href="#" data-tab="home" class="active">主页</a>
+    <a href="#" data-tab="mac10">MacCMS v10</a>
+    <a href="#" data-tab="maccms">MacCMS v8</a>
+    <a href="#" data-tab="seacms">SeaCMS</a>
+    <a href="#" data-tab="ff50">飞飞CMS</a>
+    <a href="#" data-tab="maxcms">MaxCMS</a>
+    <a href="#" data-tab="zanpian">赞片CMS</a>
+    <a href="#" data-tab="iycms">爱影CMS</a>
+    <a href="#" data-tab="api">接口参数</a>
+    <a href="#" data-tab="legacy">历史教程与截图</a>
+    <a href="#" data-tab="newart">文章演员</a>  </div>
+
+  <!-- Tab 1: 主页 -->
+  <div class="help-tab active" id="tab-home">
+    <div class="help-card">
+      <h3>量子分组与下载接口</h3>
+      <p class="help-text">量子云使用 <code>liangzi</code>，M3U8 使用 <code>lzm3u8</code>。采集综合接口时会获得两个播放组；分别采集时使用下面的分组接口。播放器包同时包含两个标识，请都导入。</p>
+      <div class="api-row"><span class="api-label">量子云 XML</span><span class="api-box">https://cj.lziapi.com/api.php/provide/vod/from/liangzi/at/xml/</span><button class="copy-btn" data-text="https://cj.lziapi.com/api.php/provide/vod/from/liangzi/at/xml/">复制</button></div>
+      <div class="api-row"><span class="api-label">M3U8 XML</span><span class="api-box">https://cj.lziapi.com/api.php/provide/vod/from/lzm3u8/at/xml/</span><button class="copy-btn" data-text="https://cj.lziapi.com/api.php/provide/vod/from/lzm3u8/at/xml/">复制</button></div>
+      <div class="api-row"><span class="api-label">MP4 下载 XML</span><span class="api-box">https://cj.lziapi.com/api.php/providedown/vod/at/xml/</span><button class="copy-btn" data-text="https://cj.lziapi.com/api.php/providedown/vod/at/xml/">复制</button></div>
+      <p class="help-text">下载资源请在客户端选择下载资源类型，并启用 <code>http</code> 下载器。播放器标识必须逐字一致；<code>lzu3u8</code> 是旧教程笔误，请使用 <code>lzm3u8</code>。</p>
+    </div>
+
+        <div class="help-card">
+      <h3>公告</h3>
+      <div class="help-warn">量子云播放器标识：liangzi；M3U8 播放器标识：lzm3u8。播放器文件同时提供两组，请一并导入。</div>
+    </div>
+        <div class="help-card">
+      <h3>欢迎使用 量子资源网 帮助中心</h3>
+      <div class="help-kv"><span class="kv-label">站点地址</span><span class="kv-val"><a href="https://www.lzizy.com/" target="_blank">https://www.lzizy.com/</a></span></div>
+            <div class="help-kv"><span class="kv-label">备用提示</span><span class="kv-val">Lzizy1.com 至 Lzizy8.com</span></div>
+            <div class="help-kv"><span class="kv-label">Telegram群组</span><span class="kv-val"><a href="https://t.me/+-hMw2asuTgJhZjk1" target="_blank">https://t.me/+-hMw2asuTgJhZjk1</a></span></div>
+          </div>
+    <div class="help-card">
+      <h3>接口总览</h3>
+      <div class="help-info">MacCMS v10、爱影CMS 推荐 <strong>JSON</strong> 接口；MacCMS v8、赞片CMS 用<strong>通用 XML</strong> 接口；<strong>SeaCMS、飞飞CMS、MaxCMS 请用 SeaCMS 接口</strong>（每集地址带播放器标识，这几个程序靠它识别播放器）。各程序的填法见对应分页。</div>
+
+      <div class="api-group">
+        <div class="api-group-title">M3U8 解析接口</div>
+        <div class="api-row">
+          <span class="api-box primary">https://lziplayer.com/?url=</span>
+          <button class="copy-btn" data-text="https://lziplayer.com/?url=">复制</button>
+        </div>
+      </div>
+
+      <div class="api-group">
+        <div class="api-group-title">播放器标识</div>
+        <div class="api-row">
+          <span class="api-box primary">lzm3u8</span>
+          <button class="copy-btn" data-text="lzm3u8">复制</button>
+        </div>
+      </div>
+
+      <div class="api-group">
+        <div class="api-group-title">JSON 采集接口 <span class="api-tag tag-rec">推荐</span></div>
+        <div class="api-row">
+          <span class="api-label">主接口</span>
+          <span class="api-box primary">https://cj.lziapi.com/api.php/provide/vod/</span>
+          <button class="copy-btn" data-text="https://cj.lziapi.com/api.php/provide/vod/">复制</button>
+        </div>
+                <div class="api-row">
+          <span class="api-label">备用接口</span>
+          <span class="api-box backup">https://cj.lzcaiji.com/api.php/provide/vod/</span>
+          <button class="copy-btn" data-text="https://cj.lzcaiji.com/api.php/provide/vod/">复制</button>
+        </div>
+              </div>
+
+      <div class="api-group">
+        <div class="api-group-title">XML 采集接口 <span class="api-tag tag-xml">XML</span></div>
+        <div class="api-row">
+          <span class="api-label">主接口</span>
+          <span class="api-box">https://cj.lziapi.com/api.php/provide/vod/at/xml/</span>
+          <button class="copy-btn" data-text="https://cj.lziapi.com/api.php/provide/vod/at/xml/">复制</button>
+        </div>
+                <div class="api-row">
+          <span class="api-label">备用接口</span>
+          <span class="api-box backup">https://cj.lzcaiji.com/api.php/provide/vod/at/xml/</span>
+          <button class="copy-btn" data-text="https://cj.lzcaiji.com/api.php/provide/vod/at/xml/">复制</button>
+        </div>
+              </div>
+
+      <div class="api-group">
+        <div class="api-group-title">SeaCMS 采集接口 <span class="api-tag tag-xml">SeaCMS / 飞飞 / MaxCMS</span></div>
+        <div class="api-row">
+          <span class="api-label">主接口</span>
+          <span class="api-box primary">https://cj.lziapi.com/api.php/Seacms/vod/</span>
+          <button class="copy-btn" data-text="https://cj.lziapi.com/api.php/Seacms/vod/">复制</button>
+        </div>
+                <div class="api-row">
+          <span class="api-label">备用接口</span>
+          <span class="api-box backup">https://cj.lzcaiji.com/api.php/Seacms/vod/</span>
+          <button class="copy-btn" data-text="https://cj.lzcaiji.com/api.php/Seacms/vod/">复制</button>
+        </div>
+              </div>
+
+            <hr class="divider">
+      <div class="api-group">
+        <div class="api-group-title">文章 / 演员接口</div>
+                <div class="api-row">
+          <span class="api-label">文章接口</span>
+          <span class="api-box">https://cj.lziapi.com/api.php/provide/art/</span>
+          <button class="copy-btn" data-text="https://cj.lziapi.com/api.php/provide/art/">复制</button>
+        </div>
+                <div class="api-row">
+          <span class="api-label">演员接口</span>
+          <span class="api-box">https://cj.lziapi.com/api.php/provide/actor/</span>
+          <button class="copy-btn" data-text="https://cj.lziapi.com/api.php/provide/actor/">复制</button>
+        </div>
+              </div>
+          </div>
+    <div class="help-card">
+      <h3>采集前必读</h3>
+      <ul class="help-list">
+        <li>采集时请开启<strong>同步图片</strong>，把封面保存到你自己的服务器，避免日后图片地址变更导致封面失效。</li>
+        <li>分类必须先<strong>绑定</strong>再采集；SeaCMS 等程序重装或更换资源后要重新绑定，否则数据会进错分类。</li>
+        <li>采集后播放提示“暂没有数据”、没有选中播放片源、或者播放不了，几乎都是因为还没添加播放器：播放器标识必须填 <code>lzm3u8</code>，各程序的添加方法见对应分页。</li>
+        <li>采集途中偶尔提示 XML 出错，重新进入采集列表再采一次即可。</li>
+        <li>已经按老教程填写接口地址、并且采集和播放都正常的，不需要改动。</li>
+        <li>教程截图来自不同时期的后台版本，截图里的名称、地址只用来示意操作位置，请以本页复制框里的内容为准。</li>      </ul>
+    </div>
+  </div>
+
+  <!-- Tab 2: MacCMS v10 -->
+  <div class="help-tab" id="tab-mac10">
+    <div class="help-card">
+      <h3>MacCMS v10 — 采集配置</h3>
+      <div class="help-info">苹果CMS v10 同时支持 JSON 与 XML，推荐 JSON。请<strong>先安装下方播放器</strong>再采集，否则采集后没有选中播放片源。</div>
+
+      <div class="api-group">
+        <div class="api-group-title">JSON 采集接口 <span class="api-tag tag-rec">推荐</span></div>
+        <div class="api-row">
+          <span class="api-label">主接口</span>
+          <span class="api-box primary">https://cj.lziapi.com/api.php/provide/vod/</span>
+          <button class="copy-btn" data-text="https://cj.lziapi.com/api.php/provide/vod/">复制</button>
+        </div>
+                <div class="api-row">
+          <span class="api-label">备用接口</span>
+          <span class="api-box backup">https://cj.lzcaiji.com/api.php/provide/vod/</span>
+          <button class="copy-btn" data-text="https://cj.lzcaiji.com/api.php/provide/vod/">复制</button>
+        </div>
+              </div>
+
+      <div class="api-group">
+        <div class="api-group-title">XML 采集接口 <span class="api-tag tag-xml">备选</span></div>
+        <div class="api-row">
+          <span class="api-label">主接口</span>
+          <span class="api-box">https://cj.lziapi.com/api.php/provide/vod/at/xml/</span>
+          <button class="copy-btn" data-text="https://cj.lziapi.com/api.php/provide/vod/at/xml/">复制</button>
+        </div>
+                <div class="api-row">
+          <span class="api-label">备用接口</span>
+          <span class="api-box backup">https://cj.lzcaiji.com/api.php/provide/vod/at/xml/</span>
+          <button class="copy-btn" data-text="https://cj.lzcaiji.com/api.php/provide/vod/at/xml/">复制</button>
+        </div>
+              </div>
+
+      <div class="api-group">
+        <div class="api-group-title">M3U8 解析接口</div>
+        <div class="api-row">
+          <span class="api-box primary">https://lziplayer.com/?url=</span>
+          <button class="copy-btn" data-text="https://lziplayer.com/?url=">复制</button>
+        </div>
+      </div>
+
+      <h4>添加采集接口</h4>
+      <ol class="help-step">
+        <li>后台 → <strong>采集</strong> → <strong>自定义接口</strong> → 添加</li>
+        <li>资源名称填「量子资源网」，接口地址填上方 JSON 主接口，接口类型选 <strong>json</strong>（填 XML 地址时选 xml）</li>
+        <li><strong>附加参数留空</strong>；资源类型选「视频」，数据操作选「新增+更新」，同步图片建议开启，保存</li>
+        <li>进入该接口先绑定分类，再点「采集当天」或「采集全部」，确认数据正常入库</li>
+      </ol>
+            <figure class="help-shot"><a href="/upload/help/guide/mac10_api.png?v=1792737881" target="_blank" rel="noopener"><img src="/upload/help/guide/mac10_api.png?v=1792737881" alt="采集 → 自定义接口 → 添加" loading="lazy"></a><figcaption>采集 → 自定义接口 → 添加（地址以上方复制框为准，点击查看大图）</figcaption></figure>
+          </div>
+
+    <div class="help-card">
+      <h3>MacCMS v10 — 播放器安装</h3>
+      <ol class="help-step">
+        <li>下载下方 mac10.zip 并解压，得到 <code>maccms10/mac_lzm3u8.txt</code></li>
+        <li>后台 → <strong>视频</strong> → <strong>播放器</strong> → 点击「导入」，选择该 txt 文件</li>
+        <li>导入成功后，播放器列表里出现编码为 <code>lzm3u8</code> 的播放器</li>
+        <li>点击后台右上角清理缓存，再看数据即可自动选中播放器，前台播放任意视频验证</li>
+      </ol>
+            <figure class="help-shot"><a href="/upload/help/guide/mac10_player.png?v=1792737881" target="_blank" rel="noopener"><img src="/upload/help/guide/mac10_player.png?v=1792737881" alt="视频 → 播放器 → 导入" loading="lazy"></a><figcaption>视频 → 播放器 → 导入</figcaption></figure>
+            <a class="help-dl-btn" href="/upload/help/mac10.zip?v=1792738336">下载播放器文件 mac10.zip</a>
+      
+      <h4>装好播放器仍然播放不了？</h4>
+      <p class="help-text">后台 → <strong>系统</strong> → <strong>播放器参数配置</strong>，清空「预加载提示」和「缓冲提示」两项的默认值后保存。</p>
+            <figure class="help-shot"><a href="/upload/help/guide/mac10_player_option.png?v=1792737881" target="_blank" rel="noopener"><img src="/upload/help/guide/mac10_player_option.png?v=1792737881" alt="系统 → 播放器参数配置" loading="lazy"></a><figcaption>系统 → 播放器参数配置</figcaption></figure>
+          </div>
+
+    <div class="help-card">
+      <h3>MacCMS v10 — 定时自动采集（可选）</h3>
+      <ol class="help-step">
+        <li>后台 → <strong>采集</strong> → <strong>自定义接口</strong>，在本站接口的「采集当天」上点右键，复制链接地址
+                    <figure class="help-shot"><a href="/upload/help/guide/mac10_collect_link.png?v=1792737881" target="_blank" rel="noopener"><img src="/upload/help/guide/mac10_collect_link.png?v=1792737881" alt="右键复制采集当天链接" loading="lazy"></a><figcaption>右键「采集当天」→ 复制链接地址</figcaption></figure>
+                  </li>
+        <li>后台 → <strong>系统</strong> → <strong>定时任务配置</strong> → 添加：状态选启用，名称只用英文或数字（例如 <code>lzm3u8</code>），执行文件选「自定义采集collect」</li>
+        <li>附加参数填第 1 步链接中 <code>?</code> 后面的全部内容（以 <code>ac=cj</code> 开头），执行周期与时间全选，保存
+                    <figure class="help-shot"><a href="/upload/help/guide/mac10_timming_add.png?v=1792737881" target="_blank" rel="noopener"><img src="/upload/help/guide/mac10_timming_add.png?v=1792737881" alt="定时任务配置 → 添加" loading="lazy"></a><figcaption>系统 → 定时任务配置 → 添加（附加参数只填链接中 ? 后面的部分）</figcaption></figure>
+                  </li>
+        <li>在任务列表点该任务的「测试」，页面开始输出采集进度即为正常
+                    <figure class="help-shot"><a href="/upload/help/guide/mac10_timming_test.png?v=1792737881" target="_blank" rel="noopener"><img src="/upload/help/guide/mac10_timming_test.png?v=1792737881" alt="测试定时任务" loading="lazy"></a><figcaption>点击「测试」检查是否正常</figcaption></figure>
+                  </li>
+        <li>在「测试」按钮上点右键，复制链接地址
+                    <figure class="help-shot"><a href="/upload/help/guide/mac10_timming_link.png?v=1792737881" target="_blank" rel="noopener"><img src="/upload/help/guide/mac10_timming_link.png?v=1792737881" alt="右键复制测试链接" loading="lazy"></a><figcaption>右键「测试」→ 复制链接地址</figcaption></figure>
+                  </li>
+        <li>服务器面板（宝塔 / aaPanel）→ <strong>计划任务</strong> → 任务类型选「访问URL」，执行周期建议每 30 分钟，URL 地址粘贴第 5 步的链接，添加后点「执行」验证
+                    <figure class="help-shot"><a href="/upload/help/guide/mac10_cron.png?v=1792737881" target="_blank" rel="noopener"><img src="/upload/help/guide/mac10_cron.png?v=1792737881" alt="面板计划任务 → 访问URL" loading="lazy"></a><figcaption>面板计划任务 → 访问URL</figcaption></figure>
+                  </li>
+      </ol>
+      <div class="help-info">如果访问该链接提示缺少令牌（token），请到你的后台定时任务页面复制带令牌的完整链接再填入计划任务。</div>
+    </div>
+  </div>
+
+  <!-- Tab 3: MacCMS v8 -->
+  <div class="help-tab" id="tab-maccms">
+    <div class="help-card">
+      <h3>MacCMS v8 — 采集配置</h3>
+      <div class="help-info">苹果CMS v8 的资源库只支持 <strong>XML</strong>，请使用下方 XML 接口。请仔细阅读下方说明，并开启图片同步到本地。</div>
+
+      <div class="api-group">
+        <div class="api-group-title">XML 采集接口 <span class="api-tag tag-rec">推荐</span></div>
+        <div class="api-row">
+          <span class="api-label">主接口</span>
+          <span class="api-box primary">https://cj.lziapi.com/api.php/provide/vod/at/xml/</span>
+          <button class="copy-btn" data-text="https://cj.lziapi.com/api.php/provide/vod/at/xml/">复制</button>
+        </div>
+                <div class="api-row">
+          <span class="api-label">备用接口</span>
+          <span class="api-box backup">https://cj.lzcaiji.com/api.php/provide/vod/at/xml/</span>
+          <button class="copy-btn" data-text="https://cj.lzcaiji.com/api.php/provide/vod/at/xml/">复制</button>
+        </div>
+              </div>
+
+      <h4>方法一：快捷采集菜单</h4>
+      <p class="help-text">在后台快捷菜单设置里新增下面这一行（每行一个菜单，格式为“菜单名称,链接”），保存后从快捷菜单进入即可采集：</p>
+      <div class="api-row">
+        <span class="api-box">量子资源网,?m=collect-list-ac2--hour--xt-1-ct--group--flag-lzm3u8-apiurl-https://cj.lziapi.com/api.php/provide/vod/at/xml/</span>
+        <button class="copy-btn" data-text="量子资源网,?m=collect-list-ac2--hour--xt-1-ct--group--flag-lzm3u8-apiurl-https://cj.lziapi.com/api.php/provide/vod/at/xml/">复制</button>
+      </div>
+
+            <figure class="help-shot"><a href="/upload/help/guide/mac8_menu.png?v=1792737881" target="_blank" rel="noopener"><img src="/upload/help/guide/mac8_menu.png?v=1792737881" alt="首页 → 快捷菜单配置" loading="lazy"></a><figcaption>首页 → 快捷菜单配置，每行一个菜单</figcaption></figure>
+      
+      <h4>方法二：自定义资源</h4>
+      <ol class="help-step">
+        <li>后台 → <strong>采集</strong> → <strong>自定义资源</strong> → 添加</li>
+        <li>资源名称填「量子资源网」，接口地址填上方 XML 主接口，<strong>附加参数不要填写</strong></li>
+        <li>接口类型选 <strong>xml</strong>，资源类型选「视频」，保存</li>
+        <li>进入资源绑定分类后开始采集</li>
+      </ol>
+          </div>
+
+    <div class="help-card">
+      <h3>MacCMS v8 — 播放器安装</h3>
+      <ol class="help-step">
+        <li>下载 maccms.zip 并解压，得到 <code>maccms8/vodplay_lzm3u8.txt</code></li>
+        <li>后台 → <strong>视频</strong> → <strong>播放器</strong> → 导入，选择该 txt 文件后点「开始导入」</li>
+        <li>导入后点击后台右上角清空缓存，至此可以正常采集和播放</li>
+      </ol>
+            <figure class="help-shot"><a href="/upload/help/guide/mac8_player.png?v=1792737881" target="_blank" rel="noopener"><img src="/upload/help/guide/mac8_player.png?v=1792737881" alt="视频 → 播放器 → 导入" loading="lazy"></a><figcaption>视频 → 播放器 → 导入（文件名以下载包内为准）</figcaption></figure>
+            <a class="help-dl-btn" href="/upload/help/maccms.zip?v=1792738336">下载播放器文件 maccms.zip</a>
+          </div>
+
+    <div class="help-card">
+      <h3>MacCMS v8 — 常见问题</h3>
+      <h4>点击采集提示 404？</h4>
+      <p class="help-text">采集页（admin_maccj.php）跳转时网址参数丢失导致。手动修改浏览器地址，在 <code>admin/</code> 后面加上 <code>index.php?m=admin-index</code> 即可正常进入采集。</p>
+      <h4>采集后没有更新播放地址或备注？</h4>
+      <p class="help-text">后台 → <strong>系统</strong> → <strong>采集参数配置</strong>，在「二次更新规则」里勾选 播放地址、下载地址、备注，保存后重新采集。</p>
+            <figure class="help-shot"><a href="/upload/help/guide/mac8_update_rule.png?v=1792737881" target="_blank" rel="noopener"><img src="/upload/help/guide/mac8_update_rule.png?v=1792737881" alt="采集参数配置 → 二次更新规则" loading="lazy"></a><figcaption>系统 → 采集参数配置 → 二次更新规则</figcaption></figure>
+            <h4>没有选中播放片源？</h4>
+      <p class="help-text">还没有添加对应播放器。按上方「播放器安装」导入播放器并清空缓存后，再看数据即可正确选中。</p>
+    </div>
+  </div>
+
+  <!-- Tab 4: SeaCMS -->
+  <div class="help-tab" id="tab-seacms">
+    <div class="help-card">
+      <h3>SeaCMS — 采集配置</h3>
+      <div class="help-warn">海洋CMS 采集前必须<strong>重新绑定分类</strong>，否则数据会错乱；请务必开启图片同步到本地。</div>
+      <div class="help-warn"><strong>必须使用下方 SeaCMS 接口，不要填通用 XML 地址。</strong>SeaCMS 按每集地址末尾的播放器标识加载 <code>js/player/</code> 里的播放器文件：SeaCMS 接口的每集地址带 <code>$lzm3u8</code>，通用 XML 地址不带，v9 及更早版本采集后播放器会是空的。</div>
+      <div class="api-group">
+        <div class="api-group-title">SeaCMS 采集接口 <span class="api-tag tag-rec">推荐</span></div>
+        <div class="api-row">
+          <span class="api-label">主接口</span>
+          <span class="api-box primary">https://cj.lziapi.com/api.php/Seacms/vod/</span>
+          <button class="copy-btn" data-text="https://cj.lziapi.com/api.php/Seacms/vod/">复制</button>
+        </div>
+                <div class="api-row">
+          <span class="api-label">备用接口</span>
+          <span class="api-box backup">https://cj.lzcaiji.com/api.php/Seacms/vod/</span>
+          <button class="copy-btn" data-text="https://cj.lzcaiji.com/api.php/Seacms/vod/">复制</button>
+        </div>
+              </div>
+
+      <div class="api-group">
+        <div class="api-group-title">M3U8 解析接口</div>
+        <div class="api-row">
+          <span class="api-box primary">https://lziplayer.com/?url=</span>
+          <button class="copy-btn" data-text="https://lziplayer.com/?url=">复制</button>
+        </div>
+      </div>
+
+      <h4>方法一：资源库管理</h4>
+      <ol class="help-step">
+        <li>后台 → <strong>采集</strong> → <strong>资源库管理</strong></li>
+        <li>资源库名称填「量子资源网」，资源库地址填上方 SeaCMS 主接口，描述随意</li>
+        <li>点击「增加」，然后从资源库列表进入采集，先绑定分类再开始采集</li>
+      </ol>
+            <figure class="help-shot"><a href="/upload/help/guide/seacms_api.png?v=1792737881" target="_blank" rel="noopener"><img src="/upload/help/guide/seacms_api.png?v=1792737881" alt="采集 → 资源库管理" loading="lazy"></a><figcaption>采集 → 资源库管理 → 增加（截图中的地址是旧示例，请填上方 SeaCMS 接口）</figcaption></figure>
+      
+      <h4>方法二：快捷菜单</h4>
+      <p class="help-text">在后台快捷菜单里新增一行（格式为“菜单名称,链接”），保存后从快捷菜单进入即可采集：</p>
+      <div class="api-row">
+        <span class="api-box">量子资源网,admin_reslib.php?ac=list&amp;rid=&amp;url=https://cj.lziapi.com/api.php/Seacms/vod/</span>
+        <button class="copy-btn" data-text="量子资源网,admin_reslib.php?ac=list&amp;rid=&amp;url=https://cj.lziapi.com/api.php/Seacms/vod/">复制</button>
+      </div>
+
+    </div>
+
+    <div class="help-card">
+      <h3>SeaCMS — 添加播放来源（必做）</h3>
+      <p class="help-text">采集后播放提示“暂没有数据”，是因为还没有添加对应的播放来源。</p>
+      <ol class="help-step">
+        <li>后台 → <strong>系统</strong> → <strong>播放来源管理</strong></li>
+        <li>在「播放来源添加」一栏：来源名称随意，排序填 0，标识填 <code>lzm3u8</code>，点击右侧「保存」</li>
+        <li>再下载下方播放器文件放到网站，清空缓存后验证播放</li>
+      </ol>
+            <figure class="help-shot"><a href="/upload/help/guide/seacms_player.png?v=1792737881" target="_blank" rel="noopener"><img src="/upload/help/guide/seacms_player.png?v=1792737881" alt="系统 → 播放来源管理" loading="lazy"></a><figcaption>系统 → 播放来源管理 → 添加来源</figcaption></figure>
+      
+    </div>
+
+    <div class="help-card">
+      <h3>播放器安装（SeaCMS v9.0+）</h3>
+      <ol class="help-step">
+        <li>下载 seacms.zip 并解压，得到 <code>seacms/lzm3u8.html</code></li>
+        <li>把该文件上传到网站的 <code>js/player/</code> 目录</li>
+        <li>确认已添加标识为 <code>lzm3u8</code> 的播放来源 → 清缓存 → 验证播放</li>
+      </ol>
+            <a class="help-dl-btn" href="/upload/help/seacms.zip?v=1792738336">下载 seacms.zip（v9.0+）</a>
+      
+    </div>
+
+    <div class="help-card">
+      <h3>播放器安装（SeaCMS v8.7 及以下）</h3>
+      <ol class="help-step">
+        <li>下载 seacms87.zip 并解压，得到 <code>seacms87/lzm3u8.html</code></li>
+        <li>上传到网站的 <code>js/player/</code> 目录，播放来源添加方法同上</li>
+        <li>清缓存后验证播放</li>
+      </ol>
+            <a class="help-dl-btn" href="/upload/help/seacms87.zip?v=1792738336">下载 seacms87.zip（v8.7-）</a>
+      
+    </div>
+  </div>
+
+  <!-- Tab 5: 飞飞CMS(3.4 / 4.x / 5.0) -->
+  <div class="help-tab" id="tab-ff50">
+    <div class="help-card">
+      <h3>飞飞CMS — 接口与版本</h3>
+      <div class="help-warn"><strong>飞飞各版本请统一使用下方 SeaCMS 接口。</strong>它的每集地址带播放器标识 <code>lzm3u8</code>：飞飞 5.0 自带的「一键采集视频」只认这种格式，填其它 XML 接口会丢播放地址或一条都采不到；4.x 同样能正常解析。已按老教程填写、采集和播放都正常的，不需要改。</div>
+      <div class="api-group">
+        <div class="api-group-title">SeaCMS 接口（飞飞通用） <span class="api-tag tag-rec">推荐</span></div>
+        <div class="api-row">
+          <span class="api-label">主接口</span>
+          <span class="api-box primary">https://cj.lziapi.com/api.php/Seacms/vod/</span>
+          <button class="copy-btn" data-text="https://cj.lziapi.com/api.php/Seacms/vod/">复制</button>
+        </div>
+                <div class="api-row">
+          <span class="api-label">备用接口</span>
+          <span class="api-box backup">https://cj.lzcaiji.com/api.php/Seacms/vod/</span>
+          <button class="copy-btn" data-text="https://cj.lzcaiji.com/api.php/Seacms/vod/">复制</button>
+        </div>
+              </div>
+
+      <div class="api-group">
+        <div class="api-group-title">M3U8 解析接口</div>
+        <div class="api-row">
+          <span class="api-box primary">https://lziplayer.com/?url=</span>
+          <button class="copy-btn" data-text="https://lziplayer.com/?url=">复制</button>
+        </div>
+      </div>
+
+      <table class="help-table">
+        <colgroup><col style="width:22%"><col><col style="width:22%"><col style="width:22%"></colgroup>
+        <thead><tr><th>版本</th><th>采集入口</th><th>播放器文件</th><th>上传到</th></tr></thead>
+        <tbody>
+          <tr><td>飞飞 3.4（PPVOD）</td><td>采集 → 添加资源库</td><td>ff50player.zip</td><td><code>Public/player/</code></td></tr>
+          <tr><td>飞飞 4.x</td><td>后台采集里添加资源库（XML）</td><td>ff4player.zip</td><td><code>Public/player/</code></td></tr>
+          <tr><td>飞飞 5.0</td><td>采集管理 → 一键采集视频（用下方链接进入）</td><td>ff50player.zip</td><td><code>Public/player5.0/</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="help-card">
+      <h3>飞飞 3.4 / 4.x — 添加资源库</h3>
+      <ol class="help-step">
+        <li>后台 → <strong>采集</strong> → <strong>添加资源库</strong></li>
+        <li>资源库名称填「量子资源网」，资源库地址填上方 SeaCMS 主接口，资源库类型选「视频库」，提交</li>
+        <li>首次使用需要先添加播放器（见下方），再开始采集</li>
+      </ol>
+            <figure class="help-shot"><a href="/upload/help/guide/feifei34_api.png?v=1792737881" target="_blank" rel="noopener"><img src="/upload/help/guide/feifei34_api.png?v=1792737881" alt="采集 → 添加资源库" loading="lazy"></a><figcaption>采集 → 添加资源库（截图中的地址是旧示例，请填上方 SeaCMS 接口）</figcaption></figure>
+      
+    </div>
+
+    <div class="help-card">
+      <h3>飞飞 3.4 / 4.x — 添加播放器</h3>
+      <ol class="help-step">
+        <li>后台 → <strong>视频</strong> → <strong>播放器设置</strong>，在「添加播放器来源」一栏填写（4.x 在后台播放器管理里添加）</li>
+        <li>播放器名称填「量子资源网」，播放器标识填 <code>lzm3u8</code>，点击「保存」</li>
+        <li>按上表下载对应播放器文件并解压，把 <code>lzm3u8.js</code> 上传到网站的 <code>Public/player/</code> 目录</li>
+        <li>点击后台右上角「清理系统缓存」，后台会自动选中正确的播放片源</li>
+      </ol>
+            <figure class="help-shot"><a href="/upload/help/guide/feifei34_player.png?v=1792737881" target="_blank" rel="noopener"><img src="/upload/help/guide/feifei34_player.png?v=1792737881" alt="视频 → 播放器设置" loading="lazy"></a><figcaption>视频 → 播放器设置 → 添加播放器来源</figcaption></figure>
+      <a class="help-dl-btn" href="/upload/help/ff50player.zip?v=1792738336">飞飞 3.4：ff50player.zip</a><a class="help-dl-btn" href="/upload/help/ff4player.zip?v=1792738336">飞飞 4.x：ff4player.zip</a>      <h4>仍然播放不了？</h4>
+      <p class="help-text">飞飞默认使用云播放器解析，可能不支持本站资源。后台 → <strong>系统</strong> → <strong>网站配置</strong> → 视频、文章：视频片头广告时长填 0，清空「节目缓冲广告地址」和「云播放器调用地址」，提交。</p>
+            <figure class="help-shot"><a href="/upload/help/guide/feifei34_option.png?v=1792737881" target="_blank" rel="noopener"><img src="/upload/help/guide/feifei34_option.png?v=1792737881" alt="网站配置 → 视频、文章" loading="lazy"></a><figcaption>系统 → 网站配置 → 视频、文章</figcaption></figure>
+      
+    </div>
+
+    <div class="help-card">
+      <h3>飞飞 5.0 — 采集</h3>
+      <p class="help-text">5.0 的「采集管理 → 一键采集视频」列表里没有自定义资源库的输入框，本站资源用下面这个链接进入：登录飞飞后台，把浏览器地址栏里 <code>?s=</code> 开头的部分替换成下面这段后回车（<code>fid-99</code> 是分类绑定用的编号，换成任意一个没用过的数字也可以）。</p>
+      <div class="api-row">
+        <span class="api-box primary">?s=Admin-Xml-Caijia-fid-99-xmlurl-https:||cj.lziapi.com|api.php|Seacms|vod|?ac@list</span>
+        <button class="copy-btn" data-text="?s=Admin-Xml-Caijia-fid-99-xmlurl-https:||cj.lziapi.com|api.php|Seacms|vod|?ac@list">复制</button>
+      </div>
+
+      <ol class="help-step">
+        <li>打开后先点分类后面的「未绑定」，选择你网站对应的分类并提交</li>
+        <li>分类绑定完成后，点击「采集当天」或「采集所有」开始采集</li>
+      </ol>
+            <figure class="help-shot"><a href="/upload/help/guide/feifei5_bind.png?v=1792737881" target="_blank" rel="noopener"><img src="/upload/help/guide/feifei5_bind.png?v=1792737881" alt="绑定分类" loading="lazy"></a><figcaption>点击「未绑定」→ 选择分类 → 提交</figcaption></figure>
+            <figure class="help-shot"><a href="/upload/help/guide/feifei5_collect.png?v=1792737881" target="_blank" rel="noopener"><img src="/upload/help/guide/feifei5_collect.png?v=1792737881" alt="采集管理 → 一键采集视频" loading="lazy"></a><figcaption>采集管理 → 一键采集视频</figcaption></figure>
+      
+    </div>
+
+    <div class="help-card">
+      <h3>飞飞 5.0 — 添加播放器</h3>
+      <ol class="help-step">
+        <li>打开网站文件 <code>Lib/Conf/config.php</code>，在 <code>play_player</code> 播放器列表的最后追加一行（<code>36</code> 改成比上一行大的序号）</li>
+      </ol>
+      <div class="help-code">'lzm3u8' =&gt; array('36','lzm3u8'),</div>
+            <figure class="help-shot"><a href="/upload/help/guide/feifei5_player.png?v=1792737881" target="_blank" rel="noopener"><img src="/upload/help/guide/feifei5_player.png?v=1792737881" alt="Lib/Conf/config.php 播放器列表" loading="lazy"></a><figcaption>Lib/Conf/config.php → play_player 末尾追加</figcaption></figure>
+      
+      <ol class="help-step" start="2">
+        <li>下载 ff50player.zip 并解压，把 <code>feifei50/lzm3u8.js</code> 上传到网站的 <code>Public/player5.0/</code> 目录</li>
+        <li>点击后台右上角「清空缓存」，后台会自动选中正确的播放片源，前台验证播放</li>
+      </ol>
+            <a class="help-dl-btn" href="/upload/help/ff50player.zip?v=1792738336">下载播放器文件 ff50player.zip</a>
+      
+    </div>
+  </div>
+
+  <!-- Tab 6: MaxCMS -->
+  <div class="help-tab" id="tab-maxcms">
+    <div class="help-card">
+      <h3>MaxCMS — 采集配置</h3>
+      <div class="help-info">MaxCMS 4.0 通过资源库采集插件采集，插件里的资源库地址请填下方 <strong>SeaCMS 接口</strong>（每集地址带播放器标识 <code>lzm3u8</code>）。播放器需要手动修改两个文件注册，没有自动导入。</div>
+      <div class="api-group">
+        <div class="api-group-title">SeaCMS 采集接口 <span class="api-tag tag-rec">推荐</span></div>
+        <div class="api-row">
+          <span class="api-label">主接口</span>
+          <span class="api-box primary">https://cj.lziapi.com/api.php/Seacms/vod/</span>
+          <button class="copy-btn" data-text="https://cj.lziapi.com/api.php/Seacms/vod/">复制</button>
+        </div>
+                <div class="api-row">
+          <span class="api-label">备用接口</span>
+          <span class="api-box backup">https://cj.lzcaiji.com/api.php/Seacms/vod/</span>
+          <button class="copy-btn" data-text="https://cj.lzcaiji.com/api.php/Seacms/vod/">复制</button>
+        </div>
+              </div>
+
+      <div class="api-group">
+        <div class="api-group-title">M3U8 解析接口</div>
+        <div class="api-row">
+          <span class="api-box primary">https://lziplayer.com/?url=</span>
+          <button class="copy-btn" data-text="https://lziplayer.com/?url=">复制</button>
+        </div>
+      </div>
+
+      <h4>首次采集先绑定分类</h4>
+      <p class="help-text">在采集列表点击分类后面的「未绑定」，在弹出的窗口选择你网站对应的分类，点击「绑定」。</p>
+            <figure class="help-shot"><a href="/upload/help/guide/maxcms_bind.png?v=1792737881" target="_blank" rel="noopener"><img src="/upload/help/guide/maxcms_bind.png?v=1792737881" alt="采集绑定分类" loading="lazy"></a><figcaption>点击「未绑定」→ 选择分类 → 绑定</figcaption></figure>
+      
+    </div>
+    <div class="help-card">
+      <h3>修改 admin/imgs/main.js</h3>
+      <p class="help-text">在识别播放来源的一串 <code>if(str.indexOf(...))</code> 末尾、<code>return ""</code> 之前追加一行：</p>
+      <div class="help-code">if(str.indexOf('lzm3u8')&gt;-1) return "lzm3u8"</div>
+            <figure class="help-shot"><a href="/upload/help/guide/maxcms_mainjs.png?v=1792737881" target="_blank" rel="noopener"><img src="/upload/help/guide/maxcms_mainjs.png?v=1792737881" alt="admin/imgs/main.js" loading="lazy"></a><figcaption>admin/imgs/main.js 追加位置</figcaption></figure>
+      
+    </div>
+    <div class="help-card">
+      <h3>修改 inc/playerKinds.xml</h3>
+      <p class="help-text">在文件末尾 <code>&lt;/playerkinds&gt;</code> 之前追加：</p>
+      <div class="help-code">&lt;player open="1" sort="99" flag="lzm3u8" des="lzm3u8"&gt;&lt;intro&gt;&lt;![CDATA[无需安装任何插件，即可快速播放]]&gt;&lt;/intro&gt;&lt;/player&gt;</div>
+            <figure class="help-shot"><a href="/upload/help/guide/maxcms_playerkinds.png?v=1792737881" target="_blank" rel="noopener"><img src="/upload/help/guide/maxcms_playerkinds.png?v=1792737881" alt="inc/playerKinds.xml" loading="lazy"></a><figcaption>inc/playerKinds.xml 追加位置</figcaption></figure>
+      
+      <ol class="help-step">
+        <li>修改并上传覆盖以上两个文件</li>
+        <li>下载 maxcms.zip 并解压，把 <code>maxcms/lzm3u8.html</code> 上传到网站播放器目录 <code>player/playdy/</code></li>
+        <li>后台清除缓存，后台会自动选中正确的播放片源，刷新前台验证播放</li>
+      </ol>
+            <a class="help-dl-btn" href="/upload/help/maxcms.zip?v=1792738336">下载播放器文件 maxcms.zip</a>
+      
+      <div class="help-warn">操作前建议备份原文件。</div>
+    </div>
+  </div>
+
+  <!-- Tab 7: 赞片CMS -->
+  <div class="help-tab" id="tab-zanpian">
+    <div class="help-card">
+      <h3>赞片CMS v8 — 采集配置</h3>
+      <div class="help-info">赞片CMS 添加资源时「资源类型」请选择 <strong>XML</strong>。采集后如果有数据但没有播放地址，把资源地址换成 SeaCMS 分页里的 SeaCMS 接口再采一次。</div>
+      <div class="api-group">
+        <div class="api-group-title">XML 采集接口 <span class="api-tag tag-rec">推荐</span></div>
+        <div class="api-row">
+          <span class="api-label">主接口</span>
+          <span class="api-box primary">https://cj.lziapi.com/api.php/provide/vod/at/xml/</span>
+          <button class="copy-btn" data-text="https://cj.lziapi.com/api.php/provide/vod/at/xml/">复制</button>
+        </div>
+                <div class="api-row">
+          <span class="api-label">备用接口</span>
+          <span class="api-box backup">https://cj.lzcaiji.com/api.php/provide/vod/at/xml/</span>
+          <button class="copy-btn" data-text="https://cj.lzcaiji.com/api.php/provide/vod/at/xml/">复制</button>
+        </div>
+              </div>
+      <div class="api-group">
+        <div class="api-group-title">M3U8 解析接口</div>
+        <div class="api-row">
+          <span class="api-box primary">https://lziplayer.com/?url=</span>
+          <button class="copy-btn" data-text="https://lziplayer.com/?url=">复制</button>
+        </div>
+      </div>
+      <div class="api-row">
+        <span class="api-label">播放器标识</span>
+        <span class="api-box">lzm3u8</span>
+        <button class="copy-btn" data-text="lzm3u8">复制</button>
+      </div>
+      <h4>添加资源</h4>
+      <ol class="help-step">
+        <li>后台 → <strong>采集管理</strong> → <strong>资源列表</strong> → <strong>视频采集</strong> → 添加
+                    <figure class="help-shot"><a href="/upload/help/guide/zanpian_open.png?v=1792737881" target="_blank" rel="noopener"><img src="/upload/help/guide/zanpian_open.png?v=1792737881" alt="采集管理 → 视频采集 → 添加" loading="lazy"></a><figcaption>采集管理 → 资源列表 → 视频采集 → 添加</figcaption></figure>
+                  </li>
+        <li>资源模型选「视频」，资源名称填「量子资源网」，资源地址填上方 XML 主接口，资源类型选 <strong>XML</strong>，点击最下方「确定」
+                    <figure class="help-shot"><a href="/upload/help/guide/zanpian_api.png?v=1792737881" target="_blank" rel="noopener"><img src="/upload/help/guide/zanpian_api.png?v=1792737881" alt="资源信息" loading="lazy"></a><figcaption>资源名称、资源地址、资源类型选 XML（地址以上方复制框为准）</figcaption></figure>
+                  </li>
+        <li>采集前先绑定分类</li>
+      </ol>
+    </div>
+    <div class="help-card">
+      <h3>赞片CMS — 添加播放器</h3>
+      <p class="help-text">采集后没有选中播放片源，是因为没有添加对应的播放器。</p>
+      <ol class="help-step">
+        <li>后台 → <strong>系统管理</strong> → <strong>播放器管理</strong> → 添加
+                    <figure class="help-shot"><a href="/upload/help/guide/zanpian_player_open.png?v=1792737881" target="_blank" rel="noopener"><img src="/upload/help/guide/zanpian_player_open.png?v=1792737881" alt="系统管理 → 播放器管理 → 添加" loading="lazy"></a><figcaption>系统管理 → 播放器管理 → 添加</figcaption></figure>
+                  </li>
+        <li>播放器名称填「量子资源网」，播放器标识填 <code>lzm3u8</code>，解析地址可填上方 M3U8 解析接口（非必填），点击「确定」
+                    <figure class="help-shot"><a href="/upload/help/guide/zanpian_player.png?v=1792737881" target="_blank" rel="noopener"><img src="/upload/help/guide/zanpian_player.png?v=1792737881" alt="播放器信息" loading="lazy"></a><figcaption>播放器名称、播放器标识、解析地址</figcaption></figure>
+                  </li>
+        <li>全部完成后点击后台右上角垃圾桶图标清空缓存，再看数据即可正确选中播放器</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Tab 8: 爱影CMS -->
+  <div class="help-tab" id="tab-iycms">
+    <div class="help-card">
+      <h3>爱影CMS — 采集配置</h3>
+      <div class="help-warn">一定要<strong>先添加站点</strong>，再添加资源库，否则资源库无法绑定站点。</div>
+      <div class="api-group">
+        <div class="api-group-title">JSON 采集接口 <span class="api-tag tag-rec">推荐</span></div>
+        <div class="api-row">
+          <span class="api-label">主接口</span>
+          <span class="api-box primary">https://cj.lziapi.com/api.php/provide/vod/</span>
+          <button class="copy-btn" data-text="https://cj.lziapi.com/api.php/provide/vod/">复制</button>
+        </div>
+                <div class="api-row">
+          <span class="api-label">备用接口</span>
+          <span class="api-box backup">https://cj.lzcaiji.com/api.php/provide/vod/</span>
+          <button class="copy-btn" data-text="https://cj.lzcaiji.com/api.php/provide/vod/">复制</button>
+        </div>
+              </div>
+      <div class="api-group">
+        <div class="api-group-title">M3U8 解析接口</div>
+        <div class="api-row">
+          <span class="api-box primary">https://lziplayer.com/?url=</span>
+          <button class="copy-btn" data-text="https://lziplayer.com/?url=">复制</button>
+        </div>
+      </div>
+      <div class="api-row">
+        <span class="api-label">播放器标识</span>
+        <span class="api-box">lzm3u8</span>
+        <button class="copy-btn" data-text="lzm3u8">复制</button>
+      </div>
+    </div>
+    <div class="help-card">
+      <h3>一、添加播放器</h3>
+      <ol class="help-step">
+        <li>后台 → <strong>工具软件</strong> → <strong>播放器管理</strong> → 新增播放器</li>
+        <li>采集标识填 <code>lzm3u8</code>，模式选「播放器模式」，播放器地址填上方 M3U8 解析接口，保存</li>
+      </ol>
+            <h3>二、新增资源库</h3>
+      <ol class="help-step">
+        <li>后台 → <strong>数据采集</strong> → <strong>采集管理</strong> → 新增资源库</li>
+        <li>采集数据选「视频」，采集来源选「苹果CMSV10」，资源地址填上方 JSON 主接口，接口类型选 <strong>JSON</strong>，数据操作选「新增+更新」，保存</li>
+      </ol>
+            <h3>三、绑定站点与分类，开始采集</h3>
+      <ol class="help-step">
+        <li>把新增的资源库绑定到你的站点</li>
+        <li>进入资源库，按右侧分类列表逐个绑定分类后开始采集</li>
+      </ol>
+            <div class="help-info">若播放异常，请检查播放器的采集标识是否为 lzm3u8。</div>
+    </div>
+  </div>
+
+  <!-- Tab 9: 接口参数 -->
+  <div class="help-tab" id="tab-api">
+    <div class="help-card">
+      <h3>采集接口地址</h3>
+      <div class="api-group">
+        <div class="api-group-title">JSON <span class="api-tag tag-json">JSON</span></div>
+        <div class="api-row">
+          <span class="api-label">视频列表</span>
+          <span class="api-box primary">https://cj.lziapi.com/api.php/provide/vod/?ac=list</span>
+          <button class="copy-btn" data-text="https://cj.lziapi.com/api.php/provide/vod/?ac=list">复制</button>
+        </div>
+        <div class="api-row">
+          <span class="api-label">视频详情</span>
+          <span class="api-box primary">https://cj.lziapi.com/api.php/provide/vod/?ac=detail</span>
+          <button class="copy-btn" data-text="https://cj.lziapi.com/api.php/provide/vod/?ac=detail">复制</button>
+        </div>
+      </div>
+      <div class="api-group">
+        <div class="api-group-title">XML <span class="api-tag tag-xml">XML</span></div>
+        <div class="api-row">
+          <span class="api-label">视频列表</span>
+          <span class="api-box">https://cj.lziapi.com/api.php/provide/vod/at/xml/?ac=list</span>
+          <button class="copy-btn" data-text="https://cj.lziapi.com/api.php/provide/vod/at/xml/?ac=list">复制</button>
+        </div>
+        <div class="api-row">
+          <span class="api-label">视频详情</span>
+          <span class="api-box">https://cj.lziapi.com/api.php/provide/vod/at/xml/?ac=videolist</span>
+          <button class="copy-btn" data-text="https://cj.lziapi.com/api.php/provide/vod/at/xml/?ac=videolist">复制</button>
+        </div>
+      </div>
+      <div class="api-group">
+        <div class="api-group-title">SeaCMS <span class="api-tag tag-xml">每集带播放器标识</span></div>
+        <div class="api-row">
+          <span class="api-label">视频列表</span>
+          <span class="api-box">https://cj.lziapi.com/api.php/Seacms/vod/?ac=list</span>
+          <button class="copy-btn" data-text="https://cj.lziapi.com/api.php/Seacms/vod/?ac=list">复制</button>
+        </div>
+        <div class="api-row">
+          <span class="api-label">视频详情</span>
+          <span class="api-box">https://cj.lziapi.com/api.php/Seacms/vod/?ac=videolist</span>
+          <button class="copy-btn" data-text="https://cj.lziapi.com/api.php/Seacms/vod/?ac=videolist">复制</button>
+        </div>
+      </div>
+            <p class="help-text">备用域名把地址开头换成 <code>https://cj.lzcaiji.com/</code> 即可，参数完全相同。</p>
+          </div>
+
+    <div class="help-card">
+      <h3>请求参数</h3>
+      <p class="help-text">JSON 与 XML 接口参数相同，多个参数用 <code>&amp;</code> 连接。</p>
+      <table class="help-table">
+        <colgroup><col style="width:22%"><col><col style="width:30%"></colgroup>
+        <thead><tr><th>参数</th><th>说明</th><th>示例</th></tr></thead>
+        <tbody>
+          <tr><td><code>ac</code></td><td><code>list</code> 列表（不含播放地址）；<code>detail</code> 或 <code>videolist</code> 详情（含播放地址）</td><td><code>ac=detail</code></td></tr>
+          <tr><td><code>t</code></td><td>分类 ID，只返回该分类的数据（不含其子分类）</td><td><code>t=1</code></td></tr>
+          <tr><td><code>pg</code></td><td>页码，从 1 开始</td><td><code>pg=2</code></td></tr>
+          <tr><td><code>pagesize</code></td><td>每页条数，最大 100；不传时使用本站默认值</td><td><code>pagesize=50</code></td></tr>
+          <tr><td><code>h</code></td><td>只返回最近 N 小时内更新的数据</td><td><code>h=24</code></td></tr>
+          <tr><td><code>wd</code></td><td>按名称搜索</td><td><code>wd=关键字</code></td></tr>
+          <tr><td><code>ids</code></td><td>指定视频 ID，多个用英文逗号分隔，一次最多 200 个</td><td><code>ids=1,2,3</code></td></tr>
+          <tr><td><code>year</code></td><td>年份或年份区间</td><td><code>year=2020-2024</code></td></tr>
+          <tr><td><code>isend</code></td><td><code>1</code> 只要已完结，<code>0</code> 只要连载中</td><td><code>isend=1</code></td></tr>
+          <tr><td><code>sort_direction</code></td><td>按更新时间排序：<code>desc</code> 从最新开始（默认）；<code>asc</code> 从最早开始，适合全量补采</td><td><code>sort_direction=asc</code></td></tr>
+        </tbody>
+      </table>
+      <div class="api-group">
+        <div class="api-group-title">示例</div>
+        <div class="api-row">
+          <span class="api-label">最近24小时</span>
+          <span class="api-box">https://cj.lziapi.com/api.php/provide/vod/?ac=detail&amp;h=24</span>
+          <button class="copy-btn" data-text="https://cj.lziapi.com/api.php/provide/vod/?ac=detail&amp;h=24">复制</button>
+        </div>
+        <div class="api-row">
+          <span class="api-label">从最早补采</span>
+          <span class="api-box">https://cj.lziapi.com/api.php/provide/vod/?ac=detail&amp;sort_direction=asc</span>
+          <button class="copy-btn" data-text="https://cj.lziapi.com/api.php/provide/vod/?ac=detail&amp;sort_direction=asc">复制</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="help-card">
+      <h3>解析接口</h3>
+      <div class="api-row">
+        <span class="api-label">M3U8 解析</span>
+        <span class="api-box primary">https://lziplayer.com/?url=</span>
+        <button class="copy-btn" data-text="https://lziplayer.com/?url=">复制</button>
+      </div>
+      <div class="api-row">
+        <span class="api-label">播放器标识</span>
+        <span class="api-box">lzm3u8</span>
+        <button class="copy-btn" data-text="lzm3u8">复制</button>
+      </div>
+    </div>
+  </div>
+
+    <!-- Tab 10: 文章 / 演员 -->
+  <div class="help-tab" id="tab-newart">
+    <div class="help-card">
+      <h3>文章 &amp; 演员接口</h3>
+      <div class="help-info">以下接口独立于视频接口，可在支持自定义接口的 CMS 中单独配置，格式为 JSON。</div>
+            <div class="api-group">
+        <div class="api-group-title">文章接口 <span class="api-tag tag-json">JSON</span></div>
+        <div class="api-row">
+          <span class="api-label">主接口</span>
+          <span class="api-box primary">https://cj.lziapi.com/api.php/provide/art/</span>
+          <button class="copy-btn" data-text="https://cj.lziapi.com/api.php/provide/art/">复制</button>
+        </div>
+                <div class="api-row">
+          <span class="api-label">备用接口</span>
+          <span class="api-box backup">https://cj.lzcaiji.com/api.php/provide/art/</span>
+          <button class="copy-btn" data-text="https://cj.lzcaiji.com/api.php/provide/art/">复制</button>
+        </div>
+                <div class="api-row">
+          <span class="api-label">文章列表</span>
+          <span class="api-box">https://cj.lziapi.com/api.php/provide/art/?ac=list</span>
+          <button class="copy-btn" data-text="https://cj.lziapi.com/api.php/provide/art/?ac=list">复制</button>
+        </div>
+        <div class="api-row">
+          <span class="api-label">文章详情</span>
+          <span class="api-box">https://cj.lziapi.com/api.php/provide/art/?ac=detail</span>
+          <button class="copy-btn" data-text="https://cj.lziapi.com/api.php/provide/art/?ac=detail">复制</button>
+        </div>
+      </div>
+            <div class="api-group">
+        <div class="api-group-title">演员接口 <span class="api-tag tag-json">JSON</span></div>
+        <div class="api-row">
+          <span class="api-label">主接口</span>
+          <span class="api-box primary">https://cj.lziapi.com/api.php/provide/actor/</span>
+          <button class="copy-btn" data-text="https://cj.lziapi.com/api.php/provide/actor/">复制</button>
+        </div>
+                <div class="api-row">
+          <span class="api-label">备用接口</span>
+          <span class="api-box backup">https://cj.lzcaiji.com/api.php/provide/actor/</span>
+          <button class="copy-btn" data-text="https://cj.lzcaiji.com/api.php/provide/actor/">复制</button>
+        </div>
+              </div>
+          </div>
+    <div class="help-card">
+      <h3>MacCMS v10 采集文章</h3>
+      <ol class="help-step">
+        <li>后台 → <strong>采集</strong> → <strong>自定义资源库</strong> → 添加</li>
+        <li>资源名称随意，接口地址填上方文章主接口，<strong>附加参数留空</strong></li>
+        <li>接口类型选 <strong>json</strong>，资源类型选「文章」，保存</li>
+        <li>进入该接口绑定分类后开始采集，前台验证展示效果</li>
+      </ol>
+      
+    </div>
+  </div>
+  
+  <div class="help-tab" id="tab-legacy">
+    <div class="help-card"><h3>旧客户端配置说明</h3>
+      <p class="help-text">本节保留旧帮助页的赤兔、多米及播放器缓存教程截图。截图来自当时的客户端版本；界面和参数应以所使用版本为准。</p>
+      <ol class="help-step"><li>赤兔、多米等支持自定义资源库的客户端，填写本站 XML 接口；云播放组为 liangzi，M3U8 播放组为 lzm3u8。</li><li>为两个播放组分别添加同名播放器，解析地址使用本页公开的 M3U8 解析接口。下载资源单独使用 providedown 接口和 http 下载器。</li><li>旧静态页提供的 PHP 采集插件已停供。使用客户端内置采集功能；需维护旧插件的站长请自行审核客户端代码后适配。</li><li>老 DPlayer/hls.js 缓存截图仅供对应旧版本核对。请先备份播放器文件，再根据自身 hls.js 版本调整；新版本参数名称可能不同。</li></ol>
+      <p class="help-text">MacCMS v8 采集出现 admin_maccj.php 404：旧后台 URL 可能丢失入口参数，可在自身后台 admin/ 后检查 index.php?m=admin-index。请仅在自己的旧版后台操作。</p>
+    </div>
+    <div class="help-card"><h3>原站图文教程存档</h3><p class="help-text">点击截图查看原图。主要操作步骤已迁入对应程序分页。</p>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/addhy1.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/addhy1.png" alt="海洋添加采集" loading="lazy"></a><figcaption>海洋添加采集 · addhy1.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/addplayer23.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/addplayer23.png" alt="历史教程截图" loading="lazy"></a><figcaption>历史教程截图 · addplayer23.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/addplayermac10.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/addplayermac10.png" alt="苹果添加播放来源" loading="lazy"></a><figcaption>苹果添加播放来源 · addplayermac10.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/bfq.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/bfq.png" alt="苹果10" loading="lazy"></a><figcaption>苹果10 · bfq.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/bind.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/bind.png" alt="绑定分类" loading="lazy"></a><figcaption>绑定分类 · bind.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/caijiinit1.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/caijiinit1.png" alt="历史教程截图" loading="lazy"></a><figcaption>历史教程截图 · caijiinit1.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/cj_auto.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/cj_auto.png" alt="自动采集1" loading="lazy"></a><figcaption>自动采集1 · cj_auto.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/cj_auto2.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/cj_auto2.png" alt="自动采集2" loading="lazy"></a><figcaption>自动采集2 · cj_auto2.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/cj_auto3.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/cj_auto3.png" alt="自动采集3" loading="lazy"></a><figcaption>自动采集3 · cj_auto3.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/cj_auto4.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/cj_auto4.png" alt="自动采集4" loading="lazy"></a><figcaption>自动采集4 · cj_auto4.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/cj_auto5.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/cj_auto5.png" alt="自动采集5" loading="lazy"></a><figcaption>自动采集5 · cj_auto5.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/ct-cj-1.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/ct-cj-1.png" alt="添加采集" loading="lazy"></a><figcaption>添加采集 · ct-cj-1.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/ct-cj-2.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/ct-cj-2.png" alt="添加采集" loading="lazy"></a><figcaption>添加采集 · ct-cj-2.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/ct_bf.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/ct_bf.png" alt="添加播放器" loading="lazy"></a><figcaption>添加播放器 · ct_bf.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/ct_ok.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/ct_ok.png" alt="添加播放器" loading="lazy"></a><figcaption>添加播放器 · ct_ok.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/dm.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/dm.png" alt="多米添加采集" loading="lazy"></a><figcaption>多米添加采集 · dm.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/dm_bf.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/dm_bf.png" alt="添加播放来源" loading="lazy"></a><figcaption>添加播放来源 · dm_bf.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/dm_s.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/dm_s.png" alt="多米添加采集" loading="lazy"></a><figcaption>多米添加采集 · dm_s.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/dm_wl.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/dm_wl.png" alt="添加播放来源" loading="lazy"></a><figcaption>添加播放来源 · dm_wl.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/duomi2.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/duomi2.png" alt="多米添加采集" loading="lazy"></a><figcaption>多米添加采集 · duomi2.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/fei5.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/fei5.png" alt="使用插件图" loading="lazy"></a><figcaption>使用插件图 · fei5.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/fei52.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/fei52.png" alt="使用插件" loading="lazy"></a><figcaption>使用插件 · fei52.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/ff3_addbfq.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/ff3_addbfq.png" alt="飞飞添加播放器" loading="lazy"></a><figcaption>飞飞添加播放器 · ff3_addbfq.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/ff3_addbfq1.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/ff3_addbfq1.png" alt="飞飞添加播放器" loading="lazy"></a><figcaption>飞飞添加播放器 · ff3_addbfq1.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/ff4_cj.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/ff4_cj.png" alt="添加采集" loading="lazy"></a><figcaption>添加采集 · ff4_cj.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/ff4_xt.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/ff4_xt.png" alt="飞飞播放器配置" loading="lazy"></a><figcaption>飞飞播放器配置 · ff4_xt.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/ff_auto_cj5.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/ff_auto_cj5.png" alt="历史教程截图" loading="lazy"></a><figcaption>历史教程截图 · ff_auto_cj5.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/ff_auto_cj6.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/ff_auto_cj6.png" alt="历史教程截图" loading="lazy"></a><figcaption>历史教程截图 · ff_auto_cj6.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/ff_auto_cj7.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/ff_auto_cj7.png" alt="历史教程截图" loading="lazy"></a><figcaption>历史教程截图 · ff_auto_cj7.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/ff_auto_cj8.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/ff_auto_cj8.png" alt="历史教程截图" loading="lazy"></a><figcaption>历史教程截图 · ff_auto_cj8.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/ff_bf.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/ff_bf.png" alt="飞飞添加播放器" loading="lazy"></a><figcaption>飞飞添加播放器 · ff_bf.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/hy.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/hy.png" alt="海洋添加采集" loading="lazy"></a><figcaption>海洋添加采集 · hy.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/hykuaijie.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/hykuaijie.png" alt="海洋添加采集" loading="lazy"></a><figcaption>海洋添加采集 · hykuaijie.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/mac10.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/mac10.png" alt="打开资源" loading="lazy"></a><figcaption>打开资源 · mac10.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/mac10_s.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/mac10_s.png" alt="打开资源" loading="lazy"></a><figcaption>打开资源 · mac10_s.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/mac10dow.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/mac10dow.png" alt="苹果添加播放来源" loading="lazy"></a><figcaption>苹果添加播放来源 · mac10dow.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/mac8.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/mac8.png" alt="打开资源" loading="lazy"></a><figcaption>打开资源 · mac8.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/mac8_auto_cj.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/mac8_auto_cj.png" alt="自动采集1" loading="lazy"></a><figcaption>自动采集1 · mac8_auto_cj.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/mac8_auto_cj2.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/mac8_auto_cj2.png" alt="自动采集2" loading="lazy"></a><figcaption>自动采集2 · mac8_auto_cj2.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/mac8_auto_cj3.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/mac8_auto_cj3.png" alt="自动采集3" loading="lazy"></a><figcaption>自动采集3 · mac8_auto_cj3.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/mac8_auto_cj4.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/mac8_auto_cj4.png" alt="历史教程截图" loading="lazy"></a><figcaption>历史教程截图 · mac8_auto_cj4.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/mac8_bf.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/mac8_bf.png" alt="苹果添加播放来源" loading="lazy"></a><figcaption>苹果添加播放来源 · mac8_bf.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/max.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/max.png" alt="添加菜单" loading="lazy"></a><figcaption>添加菜单 · max.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/max_1.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/max_1.png" alt="maxcms添加播放器2" loading="lazy"></a><figcaption>maxcms添加播放器2 · max_1.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/max_bf.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/max_bf.png" alt="maxcms添加播放器" loading="lazy"></a><figcaption>maxcms添加播放器 · max_bf.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/pg8.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/pg8.png" alt="苹果8修改播放地址" loading="lazy"></a><figcaption>苹果8修改播放地址 · pg8.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/player_js.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/player_js.png" alt="播放器js文件" loading="lazy"></a><figcaption>播放器js文件 · player_js.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/seacms_bf.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/seacms_bf.png" alt="海洋添加播放来源" loading="lazy"></a><figcaption>海洋添加播放来源 · seacms_bf.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/seacms_kuyun.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/seacms_kuyun.png" alt="历史教程截图" loading="lazy"></a><figcaption>历史教程截图 · seacms_kuyun.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/seaxunlei.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/seaxunlei.png" alt="海洋添加采集" loading="lazy"></a><figcaption>海洋添加采集 · seaxunlei.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/up_playercache.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/up_playercache.png" alt="修改缓存参数" loading="lazy"></a><figcaption>修改缓存参数 · up_playercache.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/zan_addcaiji-1.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/zan_addcaiji-1.png" alt="采集添加引导" loading="lazy"></a><figcaption>采集添加引导 · zan_addcaiji-1.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/zan_addcaiji.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/zan_addcaiji.png" alt="采集添加引导" loading="lazy"></a><figcaption>采集添加引导 · zan_addcaiji.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/zan_addplayer-http.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/zan_addplayer-http.png" alt="添加播放器" loading="lazy"></a><figcaption>添加播放器 · zan_addplayer-http.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/zan_addplayer-liangzi.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/zan_addplayer-liangzi.png" alt="添加播放器" loading="lazy"></a><figcaption>添加播放器 · zan_addplayer-liangzi.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/zan_addplayer-m3u8.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/zan_addplayer-m3u8.png" alt="添加播放器" loading="lazy"></a><figcaption>添加播放器 · zan_addplayer-m3u8.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/zan_addplayer.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/zan_addplayer.png" alt="添加播放器" loading="lazy"></a><figcaption>添加播放器 · zan_addplayer.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/zan_addplayer3.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/zan_addplayer3.png" alt="历史教程截图" loading="lazy"></a><figcaption>历史教程截图 · zan_addplayer3.png</figcaption></figure>
+      <figure class="help-shot"><a href="/upload/help/legacy-quantum/zan_caijiopen.png" target="_blank" rel="noopener"><img src="/upload/help/legacy-quantum/zan_caijiopen.png" alt="采集添加引导图" loading="lazy"></a><figcaption>采集添加引导图 · zan_caijiopen.png</figcaption></figure>
+    </div>
+  </div>
+
+</div>
+</div>
+<div class="footer">
+	<div class="width1200">
+        <div class="footer_right">
+        	<ul>
+						</ul>
+			<ul>
+            <p>本站所有内容均来自互联网，本站不会保存、复制或传播任何视频文件，也不对本站上的任何内容负法律责任。</p>
+            <p>如果本站部分内容侵犯您的版权请告知，在必要证明文件下我们第一时间撤除，发布的内容仅做宽带测试使用，请在下载后24小时内删除。</p>
+            <p>请支持购买正版！反馈邮箱：</p>
+            <p>
+            Copyright © 2012-2022 量子资源网 &nbsp<a href="/">www.lzizy.com</a> &nbsp All Right Reserved.
+			统计代码            <span>|</span>
+            <a href="/index.php/rss/baidu.xml">百度地图</a>
+            <span>|</span>
+            <a href="/index.php/rss/sm.xml">神马地图</a>
+            <span>|</span>
+            <a href="/index.php/rss/index.xml">RSS订阅</a>
+            <span>|</span>
+            <a href="/index.php/rss/google.xml">谷歌地图</a>
+            </p>
+			</ul>
+        </div>
+    </div>
+</div>
+<script>
+
+$(function(){
+  $('.help-tabs a').on('click',function(e){
+    e.preventDefault();
+    var tab=$(this).data('tab');
+    $('.help-tabs a').removeClass('active');
+    $(this).addClass('active');
+    $('.help-tab').hide();
+    $('#tab-'+tab).show();
+  });
+
+  // 支持用 URL hash 直达某个分页,例如 /index.php/help.html#tab-mac10
+  // 老站静态帮助页(/template/help/)的锚点是 #MacCms10 / #FeiFei34 / #aycms / #JSONAPI 这类,
+  // 老链接会被重定向到这里并保留锚点,这里做别名映射,免得停在主页看不到目标章节。
+  var tabAlias={wlcome:'home',welcome:'home',more:'home',maccms10:'mac10',maccms8:'maccms',maccms:'maccms',ctcms:'legacy',playercachetime:'legacy',appjson:'api',duomicms:'legacy',chshcms:'legacy',zanpiancms:'zanpian',
+                feifei4:'ff50',feifei34:'ff50',feifei42:'ff50',feifei5:'ff50',feifei:'ff50',aycms:'iycms',jsonapi:'api',
+                xstp:'newart|api'};
+  function activateFromHash(){
+    var h=(location.hash||'').replace(/^#/,'').replace(/^tab-/,'').toLowerCase();
+    if(!h) return;
+    // 别名可写多个候选(竖线分隔):站点关掉文章/演员接口时分页不存在,退到接口参数页
+    var names=(tabAlias[h]||h).split('|');
+    for(var i=0;i<names.length;i++){
+      var $t=$('.help-tabs a[data-tab="'+names[i]+'"]');
+      if($t.length){ $t.trigger('click'); return; }
+    }
+  }
+  activateFromHash();
+  $(window).on('hashchange',activateFromHash);
+
+  $(document).on('click','.copy-btn',function(){
+    var btn=$(this);
+    var text=btn.data('text')||btn.prev('.api-box').text().trim();
+    if(!text)return;
+    function done(){btn.text('已复制').addClass('copied');setTimeout(function(){btn.text('复制').removeClass('copied');},2000);}
+    if(navigator.clipboard&&window.isSecureContext){
+      navigator.clipboard.writeText(text).then(done).catch(function(){fb(text,done);});
+    }else{fb(text,done);}
+  });
+
+  function fb(text,cb){
+    var ta=document.createElement('textarea');
+    ta.value=text;ta.style.position='fixed';ta.style.opacity='0';
+    document.body.appendChild(ta);ta.focus();ta.select();
+    try{document.execCommand('copy');}catch(e){}
+    document.body.removeChild(ta);cb();
+  }
+});
+
+</script>
+</body>
+</html>

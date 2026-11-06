@@ -1,0 +1,35 @@
+{
+  "provider": "lzzy",
+  "kind": "movie",
+  "vod_id": 164779,
+  "title": "屋下无人",
+  "type": "剧情片",
+  "updated": "2026-11-02 13:55:14",
+  "remarks": "HD",
+  "episode": "HD中字",
+  "episode_count": 1,
+  "selected_group": "lzm3u8",
+  "stream": {
+    "url": "https://v.lzcdn27.com/20261102/21037_b79a82a7/index.m3u8"
+  },
+  "probe_status": "probe_failed",
+  "requests": [
+    {
+      "url": "https://v.lzcdn27.com/20261102/21037_b79a82a7/index.m3u8",
+      "status": 404,
+      "type": "text/html; charset=utf-8",
+      "content_range": null,
+      "declared_length": "883"
+    }
+  ],
+  "text_bytes": 0,
+  "media_bytes": 0,
+  "probe_budget_seconds": 10,
+  "max_hls_text_bytes": 2097152,
+  "observed_dimensions": [],
+  "master_declared_dimensions": [],
+  "elapsed_seconds": 2.687,
+  "error": "HTTPError: 404 Client Error: Not Found for url: https://v.lzcdn27.com/20261102/21037_b79a82a7/index.m3u8",
+  "actual_2160p_observed": false,
+  "uhd_4k_width_observed": false
+}

@@ -1,0 +1,35 @@
+{
+  "provider": "ffzy",
+  "kind": "movie",
+  "vod_id": 100169,
+  "title": "野马九号",
+  "type": "剧情片",
+  "updated": "2026-11-01 15:36:52",
+  "remarks": "TC中字",
+  "episode": "TC中字",
+  "episode_count": 1,
+  "selected_group": "ffm3u8",
+  "stream": {
+    "url": "https://vip.ffzy-play9.com/20261101/52107_e8b754f2/index.m3u8"
+  },
+  "probe_status": "probe_failed",
+  "requests": [
+    {
+      "url": "https://vip.ffzy-play9.com/20261101/52107_e8b754f2/index.m3u8",
+      "status": 403,
+      "type": "text/html; charset=utf-8",
+      "content_range": null,
+      "declared_length": "409"
+    }
+  ],
+  "text_bytes": 0,
+  "media_bytes": 0,
+  "probe_budget_seconds": 10,
+  "max_hls_text_bytes": 2097152,
+  "observed_dimensions": [],
+  "master_declared_dimensions": [],
+  "elapsed_seconds": 3.75,
+  "error": "HTTPError: 403 Client Error: Forbidden for url: https://vip.ffzy-play9.com/20261101/52107_e8b754f2/index.m3u8",
+  "actual_2160p_observed": false,
+  "uhd_4k_width_observed": false
+}

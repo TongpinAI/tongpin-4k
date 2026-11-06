@@ -1,0 +1,5 @@
+PASS assemble f6/g.smali
+PASS assemble h6/g0.smali
+PASS assemble h6/c.smali
+PASS assemble com/shenma/tvlauncher/phone/VideoDetailPlayActivity.smali
+PASS owned smali DEX written; this is syntax/reference encoding validation, not device verification.

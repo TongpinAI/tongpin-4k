@@ -1,0 +1,146 @@
+{
+  "passed": true,
+  "scope": "actual final classes5 DEX instructions versus frozen tested r2",
+  "decoder_policy_fresh_dex_verified": true,
+  "decoder_policy_methods": [
+    {
+      "method": "<clinit>()V",
+      "instructions_sha256": "9414763d28515fd03eec342e353a5dd298b9864748cdd772d37d4d414af97c11"
+    },
+    {
+      "method": "<init>()V",
+      "instructions_sha256": "8f8dcae5f3ad16d5c943bdc2594abc2c124d4f388aea14939264465fa4e7554d"
+    },
+    {
+      "method": "choose(Landroid/app/Activity;Ljava/lang/Runnable;)V",
+      "instructions_sha256": "4bee69c8b4f090a942f60a80d28ef2a6abb9567044f80f27c3f1ceafaee6ea14"
+    },
+    {
+      "method": "codecValue(I)I",
+      "instructions_sha256": "76a0866b93e70797cf437272bebf760e9fd47243b5f6675b6305f1ea88ff10a1"
+    },
+    {
+      "method": "configure(Landroid/content/Context;)V",
+      "instructions_sha256": "d72db9722bff91c085d4e0d1a10e8dba2557f23935338fd9fae3886e4e739a79"
+    },
+    {
+      "method": "label(Landroid/content/Context;)Ljava/lang/String;",
+      "instructions_sha256": "e26782352ba4a9c872fc41f4f6e964e90f42ebadcabdf703cb941d97bfec6ee4"
+    },
+    {
+      "method": "lambda$choose$0(Landroid/app/Activity;Ljava/lang/Runnable;Landroid/content/DialogInterface;I)V",
+      "instructions_sha256": "e59488d63669f7013a0c4135559dba6eae576927918eb1022f5f5921353e79a8"
+    },
+    {
+      "method": "mode(Landroid/content/Context;)I",
+      "instructions_sha256": "0fb49216e61e255eede8ed08d3910a1a080b9ea8879d44af6880ddf4448d637d"
+    },
+    {
+      "method": "normalizedMode(I)I",
+      "instructions_sha256": "502adada68bcf4d9eb06b2b1ee019d0a0cf539371d9890dc5f0d926a755c0d2d"
+    },
+    {
+      "method": "select(Landroid/content/Context;Z)V",
+      "instructions_sha256": "edd1aedc54af2371a04e0a67faf80248dd4d68fb4400c021626d420fa4dfefe6"
+    },
+    {
+      "method": "useExo(IZ)Z",
+      "instructions_sha256": "54e5e4076d3d836cb8f1dd9ecf4cf45f81e2f07b7ea576088d17baacde2549d4"
+    }
+  ],
+  "native_decoder_helpers_verified": true,
+  "native_seek_hooks": {
+    "user_preview_returns_before_automatic_logic": true,
+    "tracking_begin_and_single_finish_hooks": true,
+    "poll_deferred_before_progress_update": true,
+    "swipe_uses_transaction_helper": true
+  },
+  "seek_state_fresh_dex_verified": true,
+  "seek_state_methods": [
+    {
+      "method": "<init>()V",
+      "instructions_sha256": "516988623246c838fbeac53b6b7a77647219c826c7fecfa228a2443ba361b881"
+    },
+    {
+      "method": "beginPosition(JJIIZ)V",
+      "instructions_sha256": "0691de6c4a3e2dd20a47eec1e75bbd441d8130fa05ec6a7887633c280f301ca7"
+    },
+    {
+      "method": "clamp(JJ)J",
+      "instructions_sha256": "5e397e5337db0893b2b7505ebb136343f48c9faa20418df74f169109f9b53b18"
+    },
+    {
+      "method": "commit(JJ)J",
+      "instructions_sha256": "3b465b86daec5b11956c72ada86ff04df116ea1585536876dcd91d0c7f315c24"
+    },
+    {
+      "method": "allowAutomatic(IIIJ)Z",
+      "instructions_sha256": "393392476449c88b9ccb849d5701af94cdf04bce1533f65c5eea6cbc3b514010"
+    },
+    {
+      "method": "begin(IJII)V",
+      "instructions_sha256": "e6a2e3ae8ae1b3b675d47f5be9233542d000dce7009f0104c015f0dbcc72613e"
+    },
+    {
+      "method": "cancel()V",
+      "instructions_sha256": "89b6a7c8e1a1c711a56d6ba986e97e74c1085e72beb5c797d37353329ad3411e"
+    },
+    {
+      "method": "defer(JJ)Z",
+      "instructions_sha256": "3c2ea18b9d3217726501d324657f7f6a4c3c8e2463f9b48b4b52ba5ca791ce00"
+    },
+    {
+      "method": "finish(JIIJ)J",
+      "instructions_sha256": "8e5d69a094ca3b9f5ab2bf80859994e46f7c8fa451c0ba01c6fd8604bdd78cd8"
+    },
+    {
+      "method": "isCancelled()Z",
+      "instructions_sha256": "9d7f46941f29b0c99cad304de3b0704cea0c2b9cb2658ab9e756f1f0f458e79c"
+    },
+    {
+      "method": "isGesture()Z",
+      "instructions_sha256": "dce434f15c8c4d88ffa92e8219cfec2e1ac8f8f47b7ca6db7cfae2b01a9a3771"
+    },
+    {
+      "method": "preview(IJIIJ)J",
+      "instructions_sha256": "cdcc277ada652dbe1d5006a70ca4e29dce1f3b86009a718ddb84632dc10b2e3a"
+    },
+    {
+      "method": "reset()V",
+      "instructions_sha256": "d51023d6240167e20d15f6c355f7e5c8533069b881b3dd1732d79f980ab14351"
+    },
+    {
+      "method": "seconds()I",
+      "instructions_sha256": "3b6593705d3573b5a0abcfac47fb5cd286bb709bd9359a00676ec9452a59a5c4"
+    },
+    {
+      "method": "swipe(FZJJIIJ)J",
+      "instructions_sha256": "fee86110305b7f8fcf104495e0e408d5cfcb13fe21e1359a7a84b26ec4a56ba3"
+    }
+  ],
+  "show_ms": 3000,
+  "single_initial_window_per_reset": true,
+  "methods": [
+    {
+      "class": "PlaybackResolution",
+      "method": "badgeDeadline(JJII)J",
+      "instructions_sha256": "1c0f716350fd36701552285a0f1db8de07e06e76073ec6547914b15be0b8bd01"
+    },
+    {
+      "class": "PlaybackResolution",
+      "method": "badgeVisible(JJII)Z",
+      "instructions_sha256": "3d6e97efccb1dd02685b0d42dbacbfccc616778d03aa99bbd2f94bdcd76c2154"
+    },
+    {
+      "class": "PlaybackResolution$Monitor",
+      "method": "clear()V",
+      "instructions_sha256": "807a2cc1f0a3a241974a2d18a02b387736237c8220f480db7c9b7f688008672b"
+    },
+    {
+      "class": "PlaybackResolution",
+      "method": "update(Lcom/tongpin/player4k/catalog/PlaybackResolution$Monitor;)V",
+      "instructions_sha256": "a44c1aaaca0e45b610d37eb2895501b8ccb231e3dcb5ead38e9fdfe21450ac39"
+    }
+  ],
+  "native_runtime_tested": false
+}

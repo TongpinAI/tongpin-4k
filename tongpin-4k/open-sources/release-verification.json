@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "version": "1.1.0",
+  "version_code": 1100,
+  "apk": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Downloads\\tongpin-4k-1.1.0.apk",
+  "sha256": "6132056278d44533060bd119e8234430f47dc59352c69ee271c9799e27fe530c",
+  "providers": [
+    "魔都资源",
+    "360资源",
+    "Blender开放电影"
+  ],
+  "own_classes": 58,
+  "api_assertions": 78,
+  "quality_assertions": 7,
+  "rea_methods": 30,
+  "source_stage_apk_hashes_match": true,
+  "entry_contract": true,
+  "android_device_tested": false
+}

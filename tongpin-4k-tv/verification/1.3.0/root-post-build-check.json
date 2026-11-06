@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "apk_sha256": "1110cc47e206a2e129501377a3342cd47620d4819f0c443db3ba6387290fae3f",
+  "downloads_hash_identical": true,
+  "frozen_inputs_source_docs_and_prior_evidence_match": true,
+  "final_dex_equals_audited_bytes": true,
+  "original_compiled_res_and_provider_asset_unchanged": true,
+  "all_21_original_resource_ids_retained": true,
+  "correct_text_license_packaged": true,
+  "signature_package_version_min_sdk_certificate_verified": true,
+  "changed_apk_entries": [
+    "AndroidManifest.xml",
+    "META-INF/MANIFEST.MF",
+    "META-INF/TONGPIN4.RSA",
+    "META-INF/TONGPIN4.SF",
+    "classes.dex",
+    "resources.arsc"
+  ],
+  "added_entries": 21,
+  "native_device_tested": false
+}

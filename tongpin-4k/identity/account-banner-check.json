@@ -1,0 +1,10 @@
+{
+  "only_method_changed": "E(F)V",
+  "callers": [
+    "decoded\\smali_classes5\\com\\shenma\\tvlauncher\\phone\\fragment\\v$c.smali",
+    "decoded\\smali_classes5\\com\\shenma\\tvlauncher\\phone\\fragment\\v.smali"
+  ],
+  "reward_signin_and_account_logic_unchanged": true,
+  "before_sha256": "21bd85bf36dfbf3aecf51fd1d159bbd999364f2fcee3a8c1cf22eca9eff47595",
+  "after_sha256": "bd6e3eda8a272b11417692e4cdf7ad2280fece70ee689d3e6318f061e32609a2"
+}

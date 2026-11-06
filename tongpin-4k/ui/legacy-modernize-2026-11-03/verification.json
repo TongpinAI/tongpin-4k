@@ -1,0 +1,844 @@
+{
+  "passed": true,
+  "resource_only": true,
+  "new_resource_ids": 0,
+  "files": {
+    "phone_fragment_main.xml": {
+      "original_bound_ids": 6,
+      "current_bound_ids": 6,
+      "same_parent_constraint_references": 15,
+      "binding_root_tag": "layout/phone_fragment_main_0",
+      "changed_bound_attributes": {
+        "@id/tp_brand_mark": {
+          "android:layout_marginStart": [
+            "18dp",
+            "20dp"
+          ],
+          "android:layout_marginTop": [
+            "44dp",
+            "12dp"
+          ],
+          "android:layout_width": [
+            "36dp",
+            "40dp"
+          ],
+          "android:layout_height": [
+            "36dp",
+            "40dp"
+          ]
+        },
+        "@id/tp_default_quality": {
+          "android:background": [
+            "?android:attr/selectableItemBackground",
+            "@drawable/tp_search_bg"
+          ],
+          "android:textStyle": [
+            null,
+            "bold"
+          ],
+          "android:layout_marginEnd": [
+            "18dp",
+            "16dp"
+          ],
+          "android:minWidth": [
+            "80dp",
+            "96dp"
+          ]
+        },
+        "@id/tv_search": {
+          "android:textSize": [
+            "15sp",
+            "16sp"
+          ],
+          "android:layout_marginEnd": [
+            "10dp",
+            "8dp"
+          ],
+          "android:focusable": [
+            null,
+            "true"
+          ],
+          "android:layout_marginStart": [
+            "18dp",
+            "16dp"
+          ],
+          "android:layout_height": [
+            "48dp",
+            "52dp"
+          ],
+          "android:clickable": [
+            null,
+            "true"
+          ]
+        },
+        "@id/iv_history": {
+          "android:layout_marginEnd": [
+            "14dp",
+            "12dp"
+          ]
+        },
+        "@id/tab_title": {
+          "android:layout_marginEnd": [
+            "8dp",
+            "4dp"
+          ],
+          "android:layout_marginStart": [
+            "8dp",
+            "4dp"
+          ],
+          "android:layout_marginTop": [
+            "10dp",
+            "8dp"
+          ],
+          "app:tl_tab_padding": [
+            "12dp",
+            "16dp"
+          ]
+        },
+        "@id/view_pager": {
+          "android:layout_marginTop": [
+            "8dp",
+            "4dp"
+          ]
+        }
+      },
+      "sha256": "9e0d10ea9a8b6dc296b13083768d4f688d3aa2bffe86242da373eab32ecea870"
+    },
+    "phone_activity_main.xml": {
+      "original_bound_ids": 2,
+      "current_bound_ids": 2,
+      "same_parent_constraint_references": 1,
+      "binding_root_tag": "layout/phone_activity_main_0",
+      "changed_bound_attributes": {
+        "@id/tl_tabs": {
+          "android:importantForAccessibility": [
+            null,
+            "yes"
+          ],
+          "app:tl_iconHeight": [
+            "23dp",
+            "24dp"
+          ],
+          "android:paddingBottom": [
+            null,
+            "8dp"
+          ],
+          "android:paddingTop": [
+            "6dp",
+            "8dp"
+          ],
+          "app:tl_iconWidth": [
+            "23dp",
+            "24dp"
+          ],
+          "android:layout_height": [
+            "70dp",
+            "72dp"
+          ]
+        }
+      },
+      "sha256": "946f7e13e755160a02ec9e03f452589ece5be53e8f03325781b3ec3d879bc9a1"
+    },
+    "phone_fragment_mine.xml": {
+      "original_bound_ids": 15,
+      "current_bound_ids": 15,
+      "same_parent_constraint_references": 33,
+      "binding_root_tag": "layout/phone_fragment_mine_0",
+      "changed_bound_attributes": {
+        "@id/view_history": {
+          "android:layout_marginTop": [
+            "24dp",
+            "16dp"
+          ],
+          "android:layout_height": [
+            "188dp",
+            "204dp"
+          ]
+        },
+        "@id/tv_history": {
+          "android:layout_marginTop": [
+            "8dp",
+            "4dp"
+          ]
+        },
+        "@id/tv_history_more": {
+          "android:layout_marginEnd": [
+            "36dp",
+            "32dp"
+          ],
+          "android:layout_marginTop": [
+            "8dp",
+            "4dp"
+          ],
+          "android:layout_width": [
+            "48dp",
+            "64dp"
+          ]
+        },
+        "@id/rv_history": {
+          "android:layout_marginEnd": [
+            "12dp",
+            "8dp"
+          ],
+          "android:layout_marginStart": [
+            "12dp",
+            "8dp"
+          ]
+        },
+        "@id/tv_empty_history": {
+          "android:gravity": [
+            null,
+            "center"
+          ],
+          "android:layout_marginEnd": [
+            null,
+            "24dp"
+          ],
+          "android:layout_marginStart": [
+            null,
+            "24dp"
+          ],
+          "android:layout_width": [
+            "wrap_content",
+            "0dp"
+          ]
+        },
+        "@id/tv_normal": {
+          "android:gravity": [
+            null,
+            "center_vertical"
+          ],
+          "android:layout_marginTop": [
+            "36dp",
+            "8dp"
+          ],
+          "android:layout_height": [
+            "wrap_content",
+            "56dp"
+          ]
+        },
+        "@id/ll_collect": {
+          "android:layout_height": [
+            "64dp",
+            "72dp"
+          ],
+          "android:clickable": [
+            null,
+            "true"
+          ]
+        }
+      },
+      "sha256": "9480be4c5ead6b14ffee49728b2a012df45ba8ceca8f00ba2ba179a6b5100c5d"
+    },
+    "phone_activity_search.xml": {
+      "original_bound_ids": 6,
+      "current_bound_ids": 6,
+      "same_parent_constraint_references": 12,
+      "binding_root_tag": "layout/phone_activity_search_0",
+      "changed_bound_attributes": {
+        "@id/tv_search": {
+          "android:textSize": [
+            "15sp",
+            "16sp"
+          ],
+          "android:background": [
+            "@color/tp_surface",
+            "@drawable/tp_search_bg"
+          ],
+          "android:layout_marginStart": [
+            "4dp",
+            "8dp"
+          ],
+          "android:layout_marginTop": [
+            "28dp",
+            "8dp"
+          ]
+        },
+        "@id/search": {
+          "android:contentDescription": [
+            null,
+            "搜索影片和剧集"
+          ],
+          "android:focusable": [
+            null,
+            "true"
+          ],
+          "android:clickable": [
+            null,
+            "true"
+          ]
+        },
+        "@id/tv_hot_title": {
+          "android:textSize": [
+            "16sp",
+            "18sp"
+          ],
+          "android:layout_marginEnd": [
+            "@dimen/dp_16",
+            "20dp"
+          ],
+          "android:layout_marginStart": [
+            "@dimen/dp_16",
+            "20dp"
+          ]
+        },
+        "@id/tv_hot": {
+          "android:layout_marginEnd": [
+            "@dimen/dp_16",
+            "16dp"
+          ],
+          "android:layout_marginStart": [
+            "@dimen/dp_16",
+            "16dp"
+          ],
+          "android:layout_marginTop": [
+            "12dp",
+            "8dp"
+          ]
+        },
+        "@id/rv_search": {
+          "android:paddingEnd": [
+            "12dp",
+            "16dp"
+          ],
+          "android:paddingStart": [
+            "12dp",
+            "16dp"
+          ],
+          "android:paddingBottom": [
+            "16dp",
+            "24dp"
+          ],
+          "android:layout_marginTop": [
+            "16dp",
+            "12dp"
+          ]
+        }
+      },
+      "sha256": "9bb43dca78f5a27235b60646383c618b1fcd3602d13c4a49840ae7366a3e5bca"
+    },
+    "phone_activity_history_collect.xml": {
+      "original_bound_ids": 6,
+      "current_bound_ids": 6,
+      "same_parent_constraint_references": 14,
+      "binding_root_tag": "layout/phone_activity_history_collect_0",
+      "changed_bound_attributes": {
+        "@id/tv_title": {
+          "android:gravity": [
+            "center",
+            "start|center_vertical"
+          ],
+          "android:layout_marginTop": [
+            "24dp",
+            "8dp"
+          ]
+        },
+        "@id/iv_clear": {
+          "android:tint": [
+            "@color/tp_secondary",
+            "@color/tp_text"
+          ]
+        },
+        "@id/recycler_view": {
+          "android:paddingEnd": [
+            "12dp",
+            "16dp"
+          ],
+          "android:paddingStart": [
+            "12dp",
+            "16dp"
+          ],
+          "android:paddingBottom": [
+            "20dp",
+            "24dp"
+          ],
+          "android:layout_marginTop": [
+            "12dp",
+            "8dp"
+          ]
+        },
+        "@id/tv_empty": {
+          "android:textSize": [
+            "14sp",
+            "16sp"
+          ],
+          "android:layout_marginStart": [
+            "24dp",
+            "32dp"
+          ],
+          "android:text": [
+            "这里还没有影片",
+            "还没有影片记录"
+          ],
+          "android:lineSpacingExtra": [
+            null,
+            "4dp"
+          ],
+          "android:layout_marginEnd": [
+            "24dp",
+            "32dp"
+          ],
+          "android:maxLines": [
+            null,
+            "3"
+          ],
+          "android:layout_width": [
+            "wrap_content",
+            "0dp"
+          ]
+        }
+      },
+      "sha256": "f5367e493894896daf9cbb513b8791e5108e65213652b56a1117bd284b86c61a"
+    },
+    "item_history_collect.xml": {
+      "original_bound_ids": 2,
+      "current_bound_ids": 2,
+      "same_parent_constraint_references": 1,
+      "binding_root_tag": null,
+      "changed_bound_attributes": {
+        "@id/iv": {
+          "app:actualImageScaleType": [
+            null,
+            "centerCrop"
+          ],
+          "app:roundedCornerRadius": [
+            "@dimen/dp_4",
+            "8dp"
+          ],
+          "app:placeholderImageScaleType": [
+            "fitXY",
+            "centerCrop"
+          ],
+          "android:layout_height": [
+            "@dimen/dp_60",
+            "80dp"
+          ]
+        },
+        "@id/tv": {
+          "android:textSize": [
+            "@dimen/sp_16",
+            "14sp"
+          ],
+          "android:textColor": [
+            "@color/black_333",
+            "@color/tp_text"
+          ],
+          "android:ellipsize": [
+            null,
+            "end"
+          ],
+          "android:fontFamily": [
+            null,
+            "sans-serif"
+          ],
+          "android:maxLines": [
+            null,
+            "1"
+          ],
+          "android:layout_marginTop": [
+            "@dimen/dp_5",
+            "8dp"
+          ],
+          "android:includeFontPadding": [
+            null,
+            "false"
+          ]
+        }
+      },
+      "sha256": "16fa04653bffa153acb4e5a0c3c5093dfa6973d99f9843d107568555e4259ca6"
+    },
+    "item_history_collect_big.xml": {
+      "original_bound_ids": 3,
+      "current_bound_ids": 3,
+      "same_parent_constraint_references": 3,
+      "binding_root_tag": null,
+      "changed_bound_attributes": {
+        "@id/iv": {
+          "android:layout_marginStart": [
+            "@dimen/dp_12",
+            "0dp"
+          ],
+          "android:layout_width": [
+            "@dimen/dp_170",
+            "128dp"
+          ],
+          "app:actualImageScaleType": [
+            null,
+            "centerCrop"
+          ],
+          "app:roundedCornerRadius": [
+            "@dimen/dp_8",
+            "8dp"
+          ],
+          "android:layout_height": [
+            "@dimen/dp_100",
+            "88dp"
+          ]
+        },
+        "@id/tv": {
+          "android:textSize": [
+            "@dimen/sp_16",
+            "16sp"
+          ],
+          "android:lineSpacingExtra": [
+            null,
+            "2dp"
+          ],
+          "app:layout_constraintEnd_toEndOf": [
+            null,
+            "parent"
+          ],
+          "android:textColor": [
+            "@color/black_333",
+            "@color/tp_text"
+          ],
+          "android:layout_marginEnd": [
+            null,
+            "4dp"
+          ],
+          "android:maxWidth": [
+            "@dimen/dp_150",
+            null
+          ],
+          "android:fontFamily": [
+            null,
+            "sans-serif"
+          ],
+          "android:maxLines": [
+            "1",
+            "2"
+          ],
+          "android:layout_marginStart": [
+            "@dimen/dp_12",
+            "16dp"
+          ],
+          "android:layout_marginTop": [
+            "@dimen/dp_5",
+            "4dp"
+          ],
+          "android:layout_width": [
+            "wrap_content",
+            "0dp"
+          ],
+          "android:includeFontPadding": [
+            null,
+            "false"
+          ]
+        },
+        "@id/tv_time": {
+          "android:textSize": [
+            "@dimen/sp_12",
+            "13sp"
+          ],
+          "app:layout_constraintEnd_toEndOf": [
+            null,
+            "parent"
+          ],
+          "android:textColor": [
+            "@color/black_999",
+            "@color/tp_secondary"
+          ],
+          "android:layout_marginEnd": [
+            null,
+            "4dp"
+          ],
+          "android:ellipsize": [
+            null,
+            "end"
+          ],
+          "android:fontFamily": [
+            null,
+            "sans-serif"
+          ],
+          "android:maxLines": [
+            null,
+            "2"
+          ],
+          "android:layout_marginStart": [
+            "@dimen/dp_12",
+            "16dp"
+          ],
+          "android:layout_marginTop": [
+            "@dimen/dp_16",
+            "8dp"
+          ],
+          "android:layout_width": [
+            "wrap_content",
+            "0dp"
+          ]
+        }
+      },
+      "sha256": "1402bf849ae8c311ff2fcfb137372a34e1fc13ac6ab0a151a70f24d5436ecf60"
+    },
+    "mv_type_details_item.xml": {
+      "original_bound_ids": 5,
+      "current_bound_ids": 5,
+      "same_parent_constraint_references": 2,
+      "binding_root_tag": null,
+      "changed_bound_attributes": {
+        "@id/rootlayout": {
+          "android:background": [
+            null,
+            "?android:attr/selectableItemBackground"
+          ],
+          "android:paddingBottom": [
+            null,
+            "12dp"
+          ],
+          "android:minHeight": [
+            null,
+            "48dp"
+          ],
+          "android:focusable": [
+            null,
+            "true"
+          ],
+          "android:layout_height": [
+            "@dimen/dp_186",
+            "wrap_content"
+          ]
+        },
+        "@id/video_poster": {
+          "app:layout_constraintDimensionRatio": [
+            null,
+            "2:3"
+          ],
+          "android:layout_width": [
+            "match_parent",
+            "0dp"
+          ],
+          "app:actualImageScaleType": [
+            null,
+            "centerCrop"
+          ],
+          "app:roundedCornerRadius": [
+            "@dimen/dp_8",
+            "8dp"
+          ],
+          "android:layout_height": [
+            "@dimen/dp_150",
+            "0dp"
+          ]
+        },
+        "@id/video_score": {
+          "android:textSize": [
+            "@dimen/sp_14",
+            "12sp"
+          ],
+          "android:minHeight": [
+            null,
+            "24dp"
+          ],
+          "android:ellipsize": [
+            null,
+            "end"
+          ],
+          "android:background": [
+            null,
+            "@color/tp_surface"
+          ],
+          "android:shadowRadius": [
+            "5.0",
+            null
+          ],
+          "android:textStyle": [
+            "italic",
+            "bold"
+          ],
+          "android:paddingEnd": [
+            null,
+            "6dp"
+          ],
+          "android:gravity": [
+            null,
+            "center"
+          ],
+          "android:textColor": [
+            "@color/detail_point",
+            "@color/tp_primary"
+          ],
+          "android:layout_marginEnd": [
+            null,
+            "6dp"
+          ],
+          "android:paddingStart": [
+            null,
+            "6dp"
+          ],
+          "android:minWidth": [
+            null,
+            "32dp"
+          ],
+          "android:shadowDx": [
+            "3.0",
+            null
+          ],
+          "android:maxLines": [
+            null,
+            "1"
+          ],
+          "android:layout_marginTop": [
+            null,
+            "6dp"
+          ],
+          "android:layout_width": [
+            "@dimen/sm_160",
+            "wrap_content"
+          ],
+          "android:shadowColor": [
+            "@color/Gold",
+            null
+          ],
+          "android:shadowDy": [
+            "1.0",
+            null
+          ],
+          "android:layout_height": [
+            "@dimen/sm_30",
+            "wrap_content"
+          ]
+        },
+        "@id/video_state": {
+          "android:textSize": [
+            "@dimen/sp_14",
+            "12sp"
+          ],
+          "style": [
+            "@style/marqueeText",
+            null
+          ],
+          "android:scrollHorizontally": [
+            null,
+            "false"
+          ],
+          "android:paddingEnd": [
+            null,
+            "8dp"
+          ],
+          "android:gravity": [
+            "center_horizontal",
+            "center_vertical"
+          ],
+          "android:minHeight": [
+            null,
+            "28dp"
+          ],
+          "android:textColor": [
+            "@color/white_80",
+            "@color/tp_on_primary"
+          ],
+          "android:paddingStart": [
+            null,
+            "8dp"
+          ],
+          "android:ellipsize": [
+            null,
+            "end"
+          ],
+          "android:background": [
+            "@drawable/text_bg_two",
+            "@color/tp_text"
+          ],
+          "android:maxLines": [
+            null,
+            "1"
+          ],
+          "android:singleLine": [
+            null,
+            "true"
+          ],
+          "android:layout_height": [
+            "@dimen/dp_20",
+            "wrap_content"
+          ]
+        },
+        "@id/video_name": {
+          "android:textSize": [
+            "@dimen/sp_16",
+            "14sp"
+          ],
+          "style": [
+            "@style/marqueeText",
+            null
+          ],
+          "android:scrollHorizontally": [
+            null,
+            "false"
+          ],
+          "android:textStyle": [
+            null,
+            "normal"
+          ],
+          "android:lineSpacingExtra": [
+            null,
+            "2dp"
+          ],
+          "android:gravity": [
+            null,
+            "start|top"
+          ],
+          "android:textColor": [
+            "@color/black_80_333",
+            "@color/tp_text"
+          ],
+          "android:ellipsize": [
+            null,
+            "end"
+          ],
+          "android:fontFamily": [
+            null,
+            "sans-serif"
+          ],
+          "android:maxLines": [
+            null,
+            "2"
+          ],
+          "android:layout_marginTop": [
+            "@dimen/dp_6",
+            "8dp"
+          ],
+          "android:layout_width": [
+            "wrap_content",
+            "0dp"
+          ],
+          "android:singleLine": [
+            null,
+            "false"
+          ],
+          "android:includeFontPadding": [
+            null,
+            "false"
+          ]
+        }
+      },
+      "sha256": "e7b8fa61778d26b09118418e5a0f234a761e9183a1a8d9f15c7629e6d88c8998"
+    }
+  },
+  "templates_in_sync": true,
+  "my_hidden_views": [
+    "iv_user_icon",
+    "tv_user_name",
+    "iv_settings",
+    "tv_sign",
+    "ll_msg",
+    "iv_gt",
+    "fl_ad"
+  ],
+  "contrast_ratios": {
+    "tp_text/tp_bg": 12.715,
+    "tp_text/tp_surface": 14.234,
+    "tp_secondary/tp_bg": 4.781,
+    "tp_secondary/tp_surface": 5.352,
+    "tp_primary/tp_bg": 4.646,
+    "tp_primary/tp_surface": 5.201,
+    "tp_on_primary/tp_text": 14.234
+  },
+  "aapt2_compile": "8/8 layouts succeeded",
+  "native_render_verified": false,
+  "native_runtime_evidence": "verification/1.2.0/runtime-feasibility/summary.json",
+  "limits": [
+    "No device/emulator/layoutlib available. XML/AAPT2 checks do not establish measured bounds, rendering or TalkBack behavior.",
+    "System bar/IME insets and dynamic search hot-word styles belong to root PhoneUi helper; resource margins are visual spacing, not status bar placeholders.",
+    "320dp/1.3-font, empty/populated history and search keyboard still need native screenshots/device validation."
+  ]
+}

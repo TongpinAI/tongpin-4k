@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "negative_checks": [
+    {
+      "method": "Lcom/tongpin/player4k/tv/TvPlaybackEngine$SystemEngine;->setSpeed(F)V",
+      "inverted_sdk_guard_rejected": true
+    },
+    {
+      "method": "Lcom/tongpin/player4k/tv/TvPlaybackEngine$SystemEngine;->seekTo(J)V",
+      "inverted_sdk_guard_rejected": true
+    },
+    {
+      "method": "Lcom/tongpin/player4k/tv/TvPlaybackEngine$-CC;->create(Landroid/content/Context;I)Lcom/tongpin/player4k/tv/TvPlaybackEngine;",
+      "inverted_sdk_guard_rejected": true
+    }
+  ],
+  "missing_pinned_runtime_class_rejected": true,
+  "assertions": 4,
+  "checker_sha256": "c805628639458fa701cf0ea324d56e7500cb1c1fcdd4e7382af333b7350bfb79",
+  "runtime_checker_sha256": "19923fa6d87940b76a4ebd88e98c444e66830ccce967784d93f6ba9220289bfb",
+  "scope": "Actual preflight DEX method text with SDK comparison inverted as negative fixtures; actual class inventory minus one required class. No Android execution."
+}

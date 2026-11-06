@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "apk": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\output\\tongpin-4k-1.1.2.apk",
+  "sha256": "bf37ead56fb984f385f8463b256c2f81b15916e1704923640c948551f4a76b07",
+  "previous_apk": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\output\\tongpin-4k-1.1.1.apk",
+  "previous_apk_sha256": "31b03d84a4249c13ccf0849eacb7e0e1373e437e013eb36060ff969019dad498",
+  "method_checks_reused": 31,
+  "all_five_dex_byte_identical": true,
+  "dex_sha256": {
+    "classes.dex": "02ce604e358253d4e2c4f776e9f5682da084eecf1930443f9d0d9e9df2a037ee",
+    "classes2.dex": "e648c78f4cc3a41b146840a65b6de2fcdd3487f42429ebd8e55c8edb85c8b4f0",
+    "classes3.dex": "25d4d1f8fc9450119fc8db09036d9642311fb9398783485e52046197fdc936e8",
+    "classes4.dex": "551c8f962806f0943e27dc4ad9e4853bb4dffab053be26355bc1953ec29fb598",
+    "classes5.dex": "d07fb6f1c34b4cfebf2a3e6770ca9c2b35737ac1aadb5f49edf1ce08dcd688ba"
+  },
+  "source_evidence": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\rea-final\\1.1.1\\verification.json",
+  "rea_rerun": false,
+  "reason": "Resource-only change; previous code evidence bound by exact DEX bytes."
+}

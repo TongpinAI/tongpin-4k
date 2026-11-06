@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <external-path name="dc_external_download" path="dc_download" />
+    <external-files-path name="dc_external_files_download" path="dc_download" />
+    <external-cache-path name="dc_external_cache_download" path="dc_download" />
+    <files-path name="dc_file_download" path="dc_download" />
+    <cache-path name="dc_cache_download" path="dc_download" />
+</paths>

@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "verdict": "clear: four documentation files agree with the reviewed decoder-trial behavior and evidence limits",
+  "source_version": "1.3.0",
+  "source_version_code": 1300,
+  "documentation_sha256": {
+    "PRODUCT.md": "49ed8c634018921445190f3311af133436757be1b9d78911b1b61fccb5077dfc",
+    "DESIGN.md": "affc9da5815fc29cfacaf8a460396a39206ef577ea039b4c695a43cb2232ef4f",
+    ".impeccable/surfaces/android-tv.md": "b2cb26f67459fc6dfb1291707d36e27721dff5cefaf16cddab2b53b82f0e517c",
+    "使用说明.md": "2c1b317b9748daf6793169ff4b2dbec6a6def6d84f7e69bbe0067d3a9df13d59"
+  },
+  "facts_checked": [
+    "Version 1.3.0/versionCode 1300 and minimum API21 remain documented",
+    "Default system MediaPlayer remains; official Media3 1.10.1 compatible engine is API23+ only",
+    "Software is preferred with possible hardware fallback, not claimed to be measured software-only decoding",
+    "Explicit same-episode switching preserves position, pause intent and speed without automatic restart loops",
+    "Actual quality uses dimensions from the current playback backend, distinct from source labels",
+    "253 reported source/policy assertions are distinguished from native TV decoding and smoothness validation",
+    "Fixed official dependency and license inclusion are documented"
+  ],
+  "reported_source_policy_assertions": 253,
+  "production_freeze_unchanged": true,
+  "native_device_validation": false
+}

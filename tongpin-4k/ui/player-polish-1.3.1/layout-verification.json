@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "resources": {
+    "decoded/res/layout/phone_activity_video_detail_play.xml": {
+      "before_sha256": "2505dd8efe736f418313f6ed234655e8b79ea648e26154271d2b7b1486a9a693",
+      "after_sha256": "47ec11e69da1e519525638acbc12e916220049d89e4448277796bc1761572ff0",
+      "binding_tree_preserved": true
+    },
+    "decoded/res/layout/mv_media_controler_phone.xml": {
+      "before_sha256": "391b5260149bb7213f1a3a87e8602ae8c96e8de25d485e40eca8ed636692b334",
+      "after_sha256": "78ca62529180a7234422006c5e7540cfb429ae79edef750a82bcc609b22fbb4e",
+      "binding_tree_preserved": true
+    },
+    "decoded/res/layout/item_juji_bottom.xml": {
+      "before_sha256": "2008e3d3d79b4bd626ba3ceb3e0db967a640c92b55e91504c7ac2faa6169a745",
+      "after_sha256": "2254402a7f8e7b24d5bf89a4608c92f753aac4188da7bf079d490f9a13db5080",
+      "binding_tree_preserved": true
+    },
+    "decoded/res/layout/item_juji_gride.xml": {
+      "before_sha256": "fcb738324feaa5697de61e0520082d16dffc3097816e7d27fb552744c2ffa87a",
+      "after_sha256": "4f4d27af68ddb130ceb3275f5f568600ea94912aa4d845b707ed4396c5fb56f8",
+      "binding_tree_preserved": true
+    }
+  },
+  "new_resource_names": {
+    "drawable/tp_player_action_bg": "0x7f080751"
+  },
+  "native_render_verified": false
+}

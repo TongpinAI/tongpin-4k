@@ -1,0 +1,42 @@
+{
+  "root_owned_layouts": [
+    {
+      "layout": "phone_activity_main.xml",
+      "original_view_ids": 2,
+      "preserved": true
+    },
+    {
+      "layout": "phone_activity_splash.xml",
+      "original_view_ids": 2,
+      "preserved": true
+    },
+    {
+      "layout": "phone_activity_video_detail_play.xml",
+      "original_view_ids": 49,
+      "preserved": true
+    },
+    {
+      "layout": "phone_activity_web.xml",
+      "original_view_ids": 4,
+      "preserved": true
+    },
+    {
+      "layout": "phone_fragment_main.xml",
+      "original_view_ids": 4,
+      "preserved": true
+    },
+    {
+      "layout": "phone_fragment_main_rec.xml",
+      "original_view_ids": 1,
+      "preserved": true
+    },
+    {
+      "layout": "phone_fragment_main_type.xml",
+      "original_view_ids": 1,
+      "preserved": true
+    }
+  ],
+  "app_name": "同频4K",
+  "source_selection_hook_retained": true,
+  "noads_gate_retained": true
+}

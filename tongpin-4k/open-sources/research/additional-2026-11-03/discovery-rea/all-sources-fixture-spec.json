@@ -1,0 +1,284 @@
+{
+  "expected_providers": [
+    {
+      "id": "mdzy",
+      "name": "魔都资源",
+      "kind": "maccms",
+      "api": "https://www.mdzyapi.com/api.php/provide/vod/",
+      "homepage": "https://mdzyapi.com/"
+    },
+    {
+      "id": "360zy",
+      "name": "360资源",
+      "kind": "maccms",
+      "api": "https://360zy.com/api.php/provide/vod/",
+      "homepage": "https://360zy.com/"
+    },
+    {
+      "id": "blender",
+      "name": "Blender开放电影",
+      "kind": "peertube",
+      "api": "https://video.blender.org/api/v1/video-channels/blender_open_movies/videos?sort=-publishedAt",
+      "homepage": "https://video.blender.org/video-channels/blender_open_movies"
+    },
+    {
+      "id": "ryzy",
+      "name": "如意资源",
+      "kind": "maccms",
+      "api": "https://cj.rycjapi.com/api.php/provide/vod/",
+      "homepage": "https://ryzyw.com/"
+    },
+    {
+      "id": "ikun",
+      "name": "iKun资源",
+      "kind": "maccms",
+      "api": "https://ikunzyapi.com/api.php/provide/vod/",
+      "homepage": "https://www.ikunzy.com/"
+    },
+    {
+      "id": "guangsu",
+      "name": "光速资源",
+      "kind": "maccms",
+      "api": "https://api.guangsuapi.com/api.php/provide/vod/",
+      "homepage": "https://www.guangsuzy.com/"
+    },
+    {
+      "id": "hongniu",
+      "name": "红牛资源",
+      "kind": "maccms",
+      "api": "https://www.hongniuzy2.com/api.php/provide/vod/",
+      "homepage": "https://www.hongniuzy2.com/"
+    },
+    {
+      "id": "jinying",
+      "name": "金鹰资源",
+      "kind": "maccms",
+      "api": "https://jyzyapi.com/provide/vod/from/jinyingm3u8/at/json",
+      "homepage": "https://www.jinyingzy.net/"
+    }
+  ],
+  "fixtures": [
+    {
+      "id": "ryzy",
+      "list": "ryzy-list-p1.json",
+      "search": "ryzy-search-tv.json",
+      "query": "庆余年",
+      "details": [
+        {
+          "file": "ryzy-supplement-detail-current-tv.json",
+          "id": "89263",
+          "line": "rym3u8",
+          "episode_count": 5,
+          "first_name": "第01集",
+          "first_url": "https://svip.ryiplay18.com/20261026/14526_a3d2ad32/index.m3u8",
+          "last_name": "第05集",
+          "last_url": "https://svip.ryiplay18.com/20261102/15367_68af4f19/index.m3u8"
+        },
+        {
+          "file": "ryzy-supplement-detail-film.json",
+          "id": "15971",
+          "line": "rym3u8",
+          "episode_count": 1,
+          "first_name": "HD中字",
+          "first_url": "https://cdn1.ryplay1.com/20240909/7654_11abb47d/index.m3u8",
+          "last_name": "HD中字",
+          "last_url": "https://cdn1.ryplay1.com/20240909/7654_11abb47d/index.m3u8"
+        }
+      ],
+      "page2": "ryzy-list-p2.json"
+    },
+    {
+      "id": "ikun",
+      "list": "../root-extra/ikun-page-1.json",
+      "search": "../root-extra/ikun-search.json",
+      "query": "庆余年",
+      "details": [
+        {
+          "file": "../root-extra/ikun-series-1-detail.json",
+          "id": "70618",
+          "line": "ikm3u8",
+          "episode_count": 26,
+          "first_name": "第01集",
+          "first_url": "https://bfikuncdn.com/20261015/ogee9nAv/index.m3u8",
+          "last_name": "第26集",
+          "last_url": "https://bfikuncdn.com/20261102/w6RdKxz0/index.m3u8"
+        },
+        {
+          "file": "../root-extra/ikun-series-2-detail.json",
+          "id": "70534",
+          "line": "ikm3u8",
+          "episode_count": 43,
+          "first_name": "第01集",
+          "first_url": "https://bfikuncdn.com/20261010/o4uoYuEw/index.m3u8",
+          "last_name": "第43集",
+          "last_url": "https://bfikuncdn.com/20261102/l9nkk2DU/index.m3u8"
+        },
+        {
+          "file": "../root-extra/ikun-movie-1-detail.json",
+          "id": "70840",
+          "line": "ikm3u8",
+          "episode_count": 1,
+          "first_name": "正片",
+          "first_url": "https://bfikuncdn.com/20261102/g9jfyz05/index.m3u8",
+          "last_name": "正片",
+          "last_url": "https://bfikuncdn.com/20261102/g9jfyz05/index.m3u8"
+        },
+        {
+          "file": "../root-extra/ikun-movie-2-detail.json",
+          "id": "70835",
+          "line": "ikm3u8",
+          "episode_count": 1,
+          "first_name": "正片",
+          "first_url": "https://bfikuncdn.com/20261101/nWFSMzAz/index.m3u8",
+          "last_name": "正片",
+          "last_url": "https://bfikuncdn.com/20261101/nWFSMzAz/index.m3u8"
+        }
+      ],
+      "page2": "../root-extra/ikun-page-2.json"
+    },
+    {
+      "id": "guangsu",
+      "list": "../discovery-playback/fixtures/guangsu-list.json",
+      "search": "../discovery-playback/fixtures/guangsu-search.json",
+      "query": "寻踪者第四季",
+      "details": [
+        {
+          "file": "../discovery-playback/fixtures/guangsu-details.json",
+          "id": "222207",
+          "line": "gsm3u8",
+          "episode_count": 4,
+          "first_name": "第1集",
+          "first_url": "https://v.gsuus.com/play/epYRl0Xa/index.m3u8",
+          "last_name": "第4集",
+          "last_url": "https://v.gsuus.com/play/dG6Y4zKb/index.m3u8"
+        },
+        {
+          "file": "../discovery-playback/fixtures/guangsu-details.json",
+          "id": "220262",
+          "line": "gsm3u8",
+          "episode_count": 5,
+          "first_name": "第1集",
+          "first_url": "https://v.gsuus.com/play/dyPmY4nb/index.m3u8",
+          "last_name": "第5集",
+          "last_url": "https://v.gsuus.com/play/dyP6Y76b/index.m3u8"
+        },
+        {
+          "file": "../discovery-playback/fixtures/guangsu-details.json",
+          "id": "223011",
+          "line": "gsm3u8",
+          "episode_count": 1,
+          "first_name": "正片",
+          "first_url": "https://v.gsuus.com/play/elYvGpVa/index.m3u8",
+          "last_name": "正片",
+          "last_url": "https://v.gsuus.com/play/elYvGpVa/index.m3u8"
+        },
+        {
+          "file": "../discovery-playback/fixtures/guangsu-details.json",
+          "id": "222942",
+          "line": "gsm3u8",
+          "episode_count": 1,
+          "first_name": "正片",
+          "first_url": "https://v.gsuus.com/play/aQWNwBqd/index.m3u8",
+          "last_name": "正片",
+          "last_url": "https://v.gsuus.com/play/aQWNwBqd/index.m3u8"
+        }
+      ]
+    },
+    {
+      "id": "hongniu",
+      "list": "../discovery-playback/fixtures/hongniu-list.json",
+      "search": "../discovery-playback/fixtures/hongniu-search.json",
+      "query": "伟大的长征",
+      "details": [
+        {
+          "file": "../discovery-playback/fixtures/hongniu-details.json",
+          "id": "198886",
+          "line": "hnm3u8",
+          "episode_count": 1,
+          "first_name": "正片",
+          "first_url": "https://hn.bfvvs.com/play/bkRwEoKa/index.m3u8",
+          "last_name": "正片",
+          "last_url": "https://hn.bfvvs.com/play/bkRwEoKa/index.m3u8"
+        },
+        {
+          "file": "../discovery-playback/fixtures/hongniu-details.json",
+          "id": "197869",
+          "line": "hnm3u8",
+          "episode_count": 23,
+          "first_name": "第01集",
+          "first_url": "https://hn.bfvvs.com/play/bYEQB5Kb/index.m3u8",
+          "last_name": "第23集",
+          "last_url": "https://hn.bfvvs.com/play/bkRwEOJa/index.m3u8"
+        },
+        {
+          "file": "../discovery-playback/fixtures/hongniu-details.json",
+          "id": "196530",
+          "line": "hnm3u8",
+          "episode_count": 43,
+          "first_name": "第01集",
+          "first_url": "https://hn.bfvvs.com/play/e3197M9b/index.m3u8",
+          "last_name": "第43集",
+          "last_url": "https://hn.bfvvs.com/play/bo2vLvka/index.m3u8"
+        },
+        {
+          "file": "../discovery-playback/fixtures/hongniu-details.json",
+          "id": "198817",
+          "line": "hnm3u8",
+          "episode_count": 1,
+          "first_name": "正片",
+          "first_url": "https://hn.bfvvs.com/play/dPNMvAla/index.m3u8",
+          "last_name": "正片",
+          "last_url": "https://hn.bfvvs.com/play/dPNMvAla/index.m3u8"
+        }
+      ]
+    },
+    {
+      "id": "jinying",
+      "list": "../discovery-playback/fixtures/jinying-list.json",
+      "search": "../discovery-playback/fixtures/jinying-search.json",
+      "query": "伟大的长征",
+      "details": [
+        {
+          "file": "../discovery-playback/fixtures/jinying-details.json",
+          "id": "162942",
+          "line": "jinyingm3u8",
+          "episode_count": 1,
+          "first_name": "正片",
+          "first_url": "https://hd.kuktxu.com/play/en5YKzPd/index.m3u8",
+          "last_name": "正片",
+          "last_url": "https://hd.kuktxu.com/play/en5YKzPd/index.m3u8"
+        },
+        {
+          "file": "../discovery-playback/fixtures/jinying-details.json",
+          "id": "161950",
+          "line": "jinyingm3u8",
+          "episode_count": 23,
+          "first_name": "第01集",
+          "first_url": "https://hd.kuktxu.com/play/b2kgAWKd/index.m3u8",
+          "last_name": "第23集",
+          "last_url": "https://hd.kuktxu.com/play/en5YK85d/index.m3u8"
+        },
+        {
+          "file": "../discovery-playback/fixtures/jinying-details.json",
+          "id": "160611",
+          "line": "jinyingm3u8",
+          "episode_count": 43,
+          "first_name": "第01集",
+          "first_url": "https://hd.kuktxu.com/play/b680kPze/index.m3u8",
+          "last_name": "第43集",
+          "last_url": "https://hd.kuktxu.com/play/erkEOEWa/index.m3u8"
+        },
+        {
+          "file": "../discovery-playback/fixtures/jinying-details.json",
+          "id": "162873",
+          "line": "jinyingm3u8",
+          "episode_count": 1,
+          "first_name": "正片",
+          "first_url": "https://hd.kuktxu.com/play/eVO5BK9a/index.m3u8",
+          "last_name": "正片",
+          "last_url": "https://hd.kuktxu.com/play/eVO5BK9a/index.m3u8"
+        }
+      ]
+    }
+  ]
+}

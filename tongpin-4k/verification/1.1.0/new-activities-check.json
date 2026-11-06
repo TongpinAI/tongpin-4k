@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "activities": {
+    "com.tongpin.player4k.catalog.CatalogActivity": true,
+    "com.tongpin.player4k.catalog.OpenPlayerActivity": true
+  },
+  "evidence": "final-manifest.txt"
+}

@@ -1,0 +1,483 @@
+{
+  "ok": true,
+  "value": {
+    "evidence_id": "ev_c748f60277aa21511a4d7aec36db1b33b5ec2b416cc6c423d10e2b18de19d5df",
+    "subject": {
+      "name": "tongpin-4k-1.1.0.apk",
+      "digest": {
+        "sha256": "6132056278d44533060bd119e8234430f47dc59352c69ee271c9799e27fe530c"
+      },
+      "local_path": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\output\\tongpin-4k-1.1.0.apk",
+      "format": "apk",
+      "architecture": null
+    },
+    "provider": {
+      "id": "jadx",
+      "name": "JADX headless",
+      "version": "0.7.1"
+    },
+    "analysis_profile": null,
+    "predicate_type": "rea.analysis",
+    "operation": "inspect_android_class",
+    "parameters": {
+      "path": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\output\\tongpin-4k-1.1.0.apk",
+      "class_name": "com.shenma.tvlauncher.phone.fragment.v"
+    },
+    "raw_result": {
+      "server": {
+        "name": "rea-jadx-bridge",
+        "version": "4"
+      },
+      "bridge_sha256": "a02b1ef0a4a40abd1ae310b9ee686ca163e0b59a3256df524c35b90ed17e9e63",
+      "jar_sha256": "6e5eacf500b64292bfb73c49797c1958f6ee44646e43e868039ae7feb573ff75",
+      "loaded": {
+        "state": "LOADED",
+        "apk_path": "C:\\Users\\ADMINI~1.DES\\AppData\\Local\\Temp\\rea-android-cde274012b5f436f39e694cb558ff9db\\target.apk",
+        "class_count": 23565,
+        "resource_count": 4005,
+        "threads": 1,
+        "resources": "full"
+      },
+      "calls": [
+        {
+          "operation": "rea_jvm_status",
+          "input": {},
+          "response": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"engine_reported_version\":\"0.7.1\",\"available_processors\":16,\"java_version\":\"25.0.4\",\"max_heap_bytes\":4294967296,\"metadata_scope\":\"parsed_members\"}"
+              }
+            ],
+            "isError": false
+          }
+        },
+        {
+          "operation": "get_class_summary",
+          "input": {
+            "class_name": "com.shenma.tvlauncher.phone.fragment.v"
+          },
+          "response": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"fields\":[{\"name\":\"f35928c\",\"def_pos\":0,\"type\":\"m7.g\"},{\"name\":\"f35929d\",\"def_pos\":0,\"type\":\"m7.g\"},{\"name\":\"f35930e\",\"def_pos\":0,\"type\":\"boolean\"},{\"name\":\"f35931f\",\"def_pos\":0,\"type\":\"f6.c\"},{\"name\":\"f35932g\",\"def_pos\":0,\"type\":\"long\"},{\"name\":\"f35933h\",\"def_pos\":0,\"type\":\"h6.y\"}],\"field_count\":6,\"full_name\":\"com.shenma.tvlauncher.phone.fragment.v\",\"name\":\"v\",\"inner_classes\":[\"com.shenma.tvlauncher.phone.fragment.v.a\",\"com.shenma.tvlauncher.phone.fragment.v.b\",\"com.shenma.tvlauncher.phone.fragment.v.c\",\"com.shenma.tvlauncher.phone.fragment.v.d\",\"com.shenma.tvlauncher.phone.fragment.v.e\",\"com.shenma.tvlauncher.phone.fragment.v.f\"],\"inner_class_count\":6,\"method_count\":50,\"methods\":[{\"dex_descriptor\":\"()V\",\"is_constructor\":true,\"name\":\"\\u003cinit\\u003e\",\"def_pos\":0,\"signature\":\"\\u003cinit\\u003e(): void\"},{\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/fragment/v;)Lj6/a;\",\"is_constructor\":false,\"name\":\"A\",\"def_pos\":0,\"signature\":\"A(com.shenma.tvlauncher.phone.fragment.v): j6.a\"},{\"dex_descriptor\":\"()Lj6/a;\",\"is_constructor\":false,\"name\":\"B\",\"def_pos\":0,\"signature\":\"B(): j6.a\"},{\"dex_descriptor\":\"()V\",\"is_constructor\":false,\"name\":\"C\",\"def_pos\":0,\"signature\":\"C(): void\"},{\"dex_descriptor\":\"()Landroid/content/SharedPreferences;\",\"is_constructor\":false,\"name\":\"D\",\"def_pos\":0,\"signature\":\"D(): android.content.SharedPreferences\"},{\"dex_descriptor\":\"(F)V\",\"is_constructor\":false,\"name\":\"E\",\"def_pos\":0,\"signature\":\"E(float): void\"},{\"dex_descriptor\":\"()V\",\"is_constructor\":false,\"name\":\"F\",\"def_pos\":0,\"signature\":\"F(): void\"},{\"dex_descriptor\":\"()V\",\"is_constructor\":false,\"name\":\"G\",\"def_pos\":0,\"signature\":\"G(): void\"},{\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/fragment/v;Lcom/shenma/tvlauncher/vod/db/Album;I)Lm7/f0;\",\"is_constructor\":false,\"name\":\"H\",\"def_pos\":0,\"signature\":\"H(com.shenma.tvlauncher.phone.fragment.v, com.shenma.tvlauncher.vod.db.Album, int): m7.f0\"},{\"dex_descriptor\":\"()V\",\"is_constructor\":false,\"name\":\"I\",\"def_pos\":0,\"signature\":\"I(): void\"},{\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/fragment/v;Landroid/view/View;)V\",\"is_constructor\":false,\"name\":\"J\",\"def_pos\":0,\"signature\":\"J(com.shenma.tvlauncher.phone.fragment.v, android.view.View): void\"},{\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/fragment/v;Landroid/view/View;)V\",\"is_constructor\":false,\"name\":\"K\",\"def_pos\":0,\"signature\":\"K(com.shenma.tvlauncher.phone.fragment.v, android.view.View): void\"},{\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/fragment/v;Landroid/view/View;)V\",\"is_constructor\":false,\"name\":\"L\",\"def_pos\":0,\"signature\":\"L(com.shenma.tvlauncher.phone.fragment.v, android.view.View): void\"},{\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/fragment/v;Landroid/view/View;)V\",\"is_constructor\":false,\"name\":\"M\",\"def_pos\":0,\"signature\":\"M(com.shenma.tvlauncher.phone.fragment.v, android.view.View): void\"},{\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/fragment/v;Landroid/view/View;)V\",\"is_constructor\":false,\"name\":\"N\",\"def_pos\":0,\"signature\":\"N(com.shenma.tvlauncher.phone.fragment.v, android.view.View): void\"},{\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/fragment/v;Landroid/view/View;)V\",\"is_constructor\":false,\"name\":\"O\",\"def_pos\":0,\"signature\":\"O(com.shenma.tvlauncher.phone.fragment.v, android.view.View): void\"},{\"dex_descriptor\":\"()V\",\"is_constructor\":false,\"name\":\"P\",\"def_pos\":0,\"signature\":\"P(): void\"},{\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/fragment/v;Landroid/view/View;)V\",\"is_constructor\":false,\"name\":\"Q\",\"def_pos\":0,\"signature\":\"Q(com.shenma.tvlauncher.phone.fragment.v, android.view.View): void\"},{\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/fragment/v;ZLjava/lang/String;)Lm7/f0;\",\"is_constructor\":false,\"name\":\"R\",\"def_pos\":0,\"signature\":\"R(com.shenma.tvlauncher.phone.fragment.v, boolean, java.lang.String): m7.f0\"},{\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/fragment/v;)V\",\"is_constructor\":false,\"name\":\"S\",\"def_pos\":0,\"signature\":\"S(com.shenma.tvlauncher.phone.fragment.v): void\"},{\"dex_descriptor\":\"(Z)V\",\"is_constructor\":false,\"name\":\"T\",\"def_pos\":0,\"signature\":\"T(boolean): void\"},{\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/fragment/v;ZILjava/lang/Object;)V\",\"is_constructor\":false,\"name\":\"U\",\"def_pos\":0,\"signature\":\"U(com.shenma.tvlauncher.phone.fragment.v, boolean, int, java.lang.Object): void\"},{\"dex_descriptor\":\"(Ljava/lang/String;Z)V\",\"is_constructor\":false,\"name\":\"V\",\"def_pos\":0,\"signature\":\"V(java.lang.String, boolean): void\"},{\"dex_descriptor\":\"()V\",\"is_constructor\":false,\"name\":\"W\",\"def_pos\":0,\"signature\":\"W(): void\"},{\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/fragment/v;)Landroid/content/SharedPreferences;\",\"is_constructor\":false,\"name\":\"X\",\"def_pos\":0,\"signature\":\"X(com.shenma.tvlauncher.phone.fragment.v): android.content.SharedPreferences\"},{\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/fragment/v;)V\",\"is_constructor\":false,\"name\":\"f\",\"def_pos\":0,\"signature\":\"f(com.shenma.tvlauncher.phone.fragment.v): void\"},{\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/fragment/v;Landroid/view/View;)V\",\"is_constructor\":false,\"name\":\"g\",\"def_pos\":0,\"signature\":\"g(com.shenma.tvlauncher.phone.fragment.v, android.view.View): void\"},{\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/fragment/v;ZLjava/lang/String;)Lm7/f0;\",\"is_constructor\":false,\"name\":\"h\",\"def_pos\":0,\"signature\":\"h(com.shenma.tvlauncher.phone.fragment.v, boolean, java.lang.String): m7.f0\"},{\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/fragment/v;Landroid/view/View;)V\",\"is_constructor\":false,\"name\":\"i\",\"def_pos\":0,\"signature\":\"i(com.shenma.tvlauncher.phone.fragment.v, android.view.View): void\"},{\"dex_descriptor\":\"(Landroid/os/Bundle;)V\",\"is_constructor\":false,\"name\":\"initView\",\"def_pos\":0,\"signature\":\"initView(android.os.Bundle): void\"},{\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/fragment/v;Landroid/view/View;)V\",\"is_constructor\":false,\"name\":\"j\",\"def_pos\":0,\"signature\":\"j(com.shenma.tvlauncher.phone.fragment.v, android.view.View): void\"},{\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/fragment/v;Lcom/shenma/tvlauncher/vod/db/Album;I)Lm7/f0;\",\"is_constructor\":false,\"name\":\"k\",\"def_pos\":0,\"signature\":\"k(com.shenma.tvlauncher.phone.fragment.v, com.shenma.tvlauncher.vod.db.Album, int): m7.f0\"},{\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/fragment/v;Landroid/view/View;)V\",\"is_constructor\":false,\"name\":\"l\",\"def_pos\":0,\"signature\":\"l(com.shenma.tvlauncher.phone.fragment.v, android.view.View): void\"},{\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/fragment/v;)Landroid/content/SharedPreferences;\",\"is_constructor\":false,\"name\":\"m\",\"def_pos\":0,\"signature\":\"m(com.shenma.tvlauncher.phone.fragment.v): android.content.SharedPreferences\"},{\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/fragment/v;Landroid/view/View;)V\",\"is_constructor\":false,\"name\":\"n\",\"def_pos\":0,\"signature\":\"n(com.shenma.tvlauncher.phone.fragment.v, android.view.View): void\"},{\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/fragment/v;)Lj6/a;\",\"is_constructor\":false,\"name\":\"o\",\"def_pos\":0,\"signature\":\"o(com.shenma.tvlauncher.phone.fragment.v): j6.a\"},{\"dex_descriptor\":\"(Z)V\",\"is_constructor\":false,\"name\":\"onHiddenChanged\",\"def_pos\":0,\"signature\":\"onHiddenChanged(boolean): void\"},{\"dex_descriptor\":\"()V\",\"is_constructor\":false,\"name\":\"onResume\",\"def_pos\":0,\"signature\":\"onResume(): void\"},{\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/fragment/v;Landroid/view/View;)V\",\"is_constructor\":false,\"name\":\"p\",\"def_pos\":0,\"signature\":\"p(com.shenma.tvlauncher.phone.fragment.v, android.view.View): void\"},{\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/fragment/v;Landroid/view/View;)V\",\"is_constructor\":false,\"name\":\"q\",\"def_pos\":0,\"signature\":\"q(com.shenma.tvlauncher.phone.fragment.v, android.view.View): void\"},{\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/fragment/v;)V\",\"is_constructor\":false,\"name\":\"r\",\"def_pos\":0,\"signature\":\"r(com.shenma.tvlauncher.phone.fragment.v): void\"},{\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/fragment/v;)Lj6/a;\",\"is_constructor\":false,\"name\":\"s\",\"def_pos\":0,\"signature\":\"s(com.shenma.tvlauncher.phone.fragment.v): j6.a\"},{\"dex_descriptor\":\"(Z)V\",\"is_constructor\":false,\"name\":\"setUserVisibleHint\",\"def_pos\":0,\"signature\":\"setUserVisibleHint(boolean): void\"},{\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/fragment/v;)V\",\"is_constructor\":false,\"name\":\"t\",\"def_pos\":0,\"signature\":\"t(com.shenma.tvlauncher.phone.fragment.v): void\"},{\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/fragment/v;)Lf6/c;\",\"is_constructor\":false,\"name\":\"u\",\"def_pos\":0,\"signature\":\"u(com.shenma.tvlauncher.phone.fragment.v): f6.c\"},{\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/fragment/v;)Lh6/y;\",\"is_constructor\":false,\"name\":\"v\",\"def_pos\":0,\"signature\":\"v(com.shenma.tvlauncher.phone.fragment.v): h6.y\"},{\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/fragment/v;)Landroid/content/SharedPreferences;\",\"is_constructor\":false,\"name\":\"w\",\"def_pos\":0,\"signature\":\"w(com.shenma.tvlauncher.phone.fragment.v): android.content.SharedPreferences\"},{\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/fragment/v;)Ljava/lang/String;\",\"is_constructor\":false,\"name\":\"x\",\"def_pos\":0,\"signature\":\"x(com.shenma.tvlauncher.phone.fragment.v): java.lang.String\"},{\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/fragment/v;)V\",\"is_constructor\":false,\"name\":\"y\",\"def_pos\":0,\"signature\":\"y(com.shenma.tvlauncher.phone.fragment.v): void\"},{\"dex_descriptor\":\"()V\",\"is_constructor\":false,\"name\":\"z\",\"def_pos\":0,\"signature\":\"z(): void\"}]}"
+              }
+            ],
+            "isError": false
+          }
+        }
+      ]
+    },
+    "normalized_result": {
+      "engine": {
+        "name": "jadx-headless-mcp",
+        "version": "0.7.1",
+        "artifact_sha256": "6e5eacf500b64292bfb73c49797c1958f6ee44646e43e868039ae7feb573ff75",
+        "source_revision": "5844800a486d2248fa949b74c9896285f5b54de2",
+        "worker_count": 1,
+        "heap_limit_mib": 4096
+      },
+      "class_name": "com.shenma.tvlauncher.phone.fragment.v",
+      "methods": [
+        {
+          "name": "<init>",
+          "reported_signature": "<init>(): void",
+          "overload_index": 0,
+          "is_constructor": true,
+          "dex_descriptor": "()V"
+        },
+        {
+          "name": "A",
+          "reported_signature": "A(com.shenma.tvlauncher.phone.fragment.v): j6.a",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lcom/shenma/tvlauncher/phone/fragment/v;)Lj6/a;"
+        },
+        {
+          "name": "B",
+          "reported_signature": "B(): j6.a",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "()Lj6/a;"
+        },
+        {
+          "name": "C",
+          "reported_signature": "C(): void",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "()V"
+        },
+        {
+          "name": "D",
+          "reported_signature": "D(): android.content.SharedPreferences",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "()Landroid/content/SharedPreferences;"
+        },
+        {
+          "name": "E",
+          "reported_signature": "E(float): void",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(F)V"
+        },
+        {
+          "name": "F",
+          "reported_signature": "F(): void",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "()V"
+        },
+        {
+          "name": "G",
+          "reported_signature": "G(): void",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "()V"
+        },
+        {
+          "name": "H",
+          "reported_signature": "H(com.shenma.tvlauncher.phone.fragment.v, com.shenma.tvlauncher.vod.db.Album, int): m7.f0",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lcom/shenma/tvlauncher/phone/fragment/v;Lcom/shenma/tvlauncher/vod/db/Album;I)Lm7/f0;"
+        },
+        {
+          "name": "I",
+          "reported_signature": "I(): void",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "()V"
+        },
+        {
+          "name": "J",
+          "reported_signature": "J(com.shenma.tvlauncher.phone.fragment.v, android.view.View): void",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lcom/shenma/tvlauncher/phone/fragment/v;Landroid/view/View;)V"
+        },
+        {
+          "name": "K",
+          "reported_signature": "K(com.shenma.tvlauncher.phone.fragment.v, android.view.View): void",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lcom/shenma/tvlauncher/phone/fragment/v;Landroid/view/View;)V"
+        },
+        {
+          "name": "L",
+          "reported_signature": "L(com.shenma.tvlauncher.phone.fragment.v, android.view.View): void",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lcom/shenma/tvlauncher/phone/fragment/v;Landroid/view/View;)V"
+        },
+        {
+          "name": "M",
+          "reported_signature": "M(com.shenma.tvlauncher.phone.fragment.v, android.view.View): void",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lcom/shenma/tvlauncher/phone/fragment/v;Landroid/view/View;)V"
+        },
+        {
+          "name": "N",
+          "reported_signature": "N(com.shenma.tvlauncher.phone.fragment.v, android.view.View): void",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lcom/shenma/tvlauncher/phone/fragment/v;Landroid/view/View;)V"
+        },
+        {
+          "name": "O",
+          "reported_signature": "O(com.shenma.tvlauncher.phone.fragment.v, android.view.View): void",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lcom/shenma/tvlauncher/phone/fragment/v;Landroid/view/View;)V"
+        },
+        {
+          "name": "P",
+          "reported_signature": "P(): void",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "()V"
+        },
+        {
+          "name": "Q",
+          "reported_signature": "Q(com.shenma.tvlauncher.phone.fragment.v, android.view.View): void",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lcom/shenma/tvlauncher/phone/fragment/v;Landroid/view/View;)V"
+        },
+        {
+          "name": "R",
+          "reported_signature": "R(com.shenma.tvlauncher.phone.fragment.v, boolean, java.lang.String): m7.f0",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lcom/shenma/tvlauncher/phone/fragment/v;ZLjava/lang/String;)Lm7/f0;"
+        },
+        {
+          "name": "S",
+          "reported_signature": "S(com.shenma.tvlauncher.phone.fragment.v): void",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lcom/shenma/tvlauncher/phone/fragment/v;)V"
+        },
+        {
+          "name": "T",
+          "reported_signature": "T(boolean): void",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Z)V"
+        },
+        {
+          "name": "U",
+          "reported_signature": "U(com.shenma.tvlauncher.phone.fragment.v, boolean, int, java.lang.Object): void",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lcom/shenma/tvlauncher/phone/fragment/v;ZILjava/lang/Object;)V"
+        },
+        {
+          "name": "V",
+          "reported_signature": "V(java.lang.String, boolean): void",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Ljava/lang/String;Z)V"
+        },
+        {
+          "name": "W",
+          "reported_signature": "W(): void",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "()V"
+        },
+        {
+          "name": "X",
+          "reported_signature": "X(com.shenma.tvlauncher.phone.fragment.v): android.content.SharedPreferences",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lcom/shenma/tvlauncher/phone/fragment/v;)Landroid/content/SharedPreferences;"
+        },
+        {
+          "name": "f",
+          "reported_signature": "f(com.shenma.tvlauncher.phone.fragment.v): void",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lcom/shenma/tvlauncher/phone/fragment/v;)V"
+        },
+        {
+          "name": "g",
+          "reported_signature": "g(com.shenma.tvlauncher.phone.fragment.v, android.view.View): void",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lcom/shenma/tvlauncher/phone/fragment/v;Landroid/view/View;)V"
+        },
+        {
+          "name": "h",
+          "reported_signature": "h(com.shenma.tvlauncher.phone.fragment.v, boolean, java.lang.String): m7.f0",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lcom/shenma/tvlauncher/phone/fragment/v;ZLjava/lang/String;)Lm7/f0;"
+        },
+        {
+          "name": "i",
+          "reported_signature": "i(com.shenma.tvlauncher.phone.fragment.v, android.view.View): void",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lcom/shenma/tvlauncher/phone/fragment/v;Landroid/view/View;)V"
+        },
+        {
+          "name": "initView",
+          "reported_signature": "initView(android.os.Bundle): void",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Landroid/os/Bundle;)V"
+        },
+        {
+          "name": "j",
+          "reported_signature": "j(com.shenma.tvlauncher.phone.fragment.v, android.view.View): void",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lcom/shenma/tvlauncher/phone/fragment/v;Landroid/view/View;)V"
+        },
+        {
+          "name": "k",
+          "reported_signature": "k(com.shenma.tvlauncher.phone.fragment.v, com.shenma.tvlauncher.vod.db.Album, int): m7.f0",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lcom/shenma/tvlauncher/phone/fragment/v;Lcom/shenma/tvlauncher/vod/db/Album;I)Lm7/f0;"
+        },
+        {
+          "name": "l",
+          "reported_signature": "l(com.shenma.tvlauncher.phone.fragment.v, android.view.View): void",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lcom/shenma/tvlauncher/phone/fragment/v;Landroid/view/View;)V"
+        },
+        {
+          "name": "m",
+          "reported_signature": "m(com.shenma.tvlauncher.phone.fragment.v): android.content.SharedPreferences",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lcom/shenma/tvlauncher/phone/fragment/v;)Landroid/content/SharedPreferences;"
+        },
+        {
+          "name": "n",
+          "reported_signature": "n(com.shenma.tvlauncher.phone.fragment.v, android.view.View): void",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lcom/shenma/tvlauncher/phone/fragment/v;Landroid/view/View;)V"
+        },
+        {
+          "name": "o",
+          "reported_signature": "o(com.shenma.tvlauncher.phone.fragment.v): j6.a",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lcom/shenma/tvlauncher/phone/fragment/v;)Lj6/a;"
+        },
+        {
+          "name": "onHiddenChanged",
+          "reported_signature": "onHiddenChanged(boolean): void",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Z)V"
+        },
+        {
+          "name": "onResume",
+          "reported_signature": "onResume(): void",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "()V"
+        },
+        {
+          "name": "p",
+          "reported_signature": "p(com.shenma.tvlauncher.phone.fragment.v, android.view.View): void",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lcom/shenma/tvlauncher/phone/fragment/v;Landroid/view/View;)V"
+        },
+        {
+          "name": "q",
+          "reported_signature": "q(com.shenma.tvlauncher.phone.fragment.v, android.view.View): void",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lcom/shenma/tvlauncher/phone/fragment/v;Landroid/view/View;)V"
+        },
+        {
+          "name": "r",
+          "reported_signature": "r(com.shenma.tvlauncher.phone.fragment.v): void",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lcom/shenma/tvlauncher/phone/fragment/v;)V"
+        },
+        {
+          "name": "s",
+          "reported_signature": "s(com.shenma.tvlauncher.phone.fragment.v): j6.a",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lcom/shenma/tvlauncher/phone/fragment/v;)Lj6/a;"
+        },
+        {
+          "name": "setUserVisibleHint",
+          "reported_signature": "setUserVisibleHint(boolean): void",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Z)V"
+        },
+        {
+          "name": "t",
+          "reported_signature": "t(com.shenma.tvlauncher.phone.fragment.v): void",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lcom/shenma/tvlauncher/phone/fragment/v;)V"
+        },
+        {
+          "name": "u",
+          "reported_signature": "u(com.shenma.tvlauncher.phone.fragment.v): f6.c",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lcom/shenma/tvlauncher/phone/fragment/v;)Lf6/c;"
+        },
+        {
+          "name": "v",
+          "reported_signature": "v(com.shenma.tvlauncher.phone.fragment.v): h6.y",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lcom/shenma/tvlauncher/phone/fragment/v;)Lh6/y;"
+        },
+        {
+          "name": "w",
+          "reported_signature": "w(com.shenma.tvlauncher.phone.fragment.v): android.content.SharedPreferences",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lcom/shenma/tvlauncher/phone/fragment/v;)Landroid/content/SharedPreferences;"
+        },
+        {
+          "name": "x",
+          "reported_signature": "x(com.shenma.tvlauncher.phone.fragment.v): java.lang.String",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lcom/shenma/tvlauncher/phone/fragment/v;)Ljava/lang/String;"
+        },
+        {
+          "name": "y",
+          "reported_signature": "y(com.shenma.tvlauncher.phone.fragment.v): void",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lcom/shenma/tvlauncher/phone/fragment/v;)V"
+        },
+        {
+          "name": "z",
+          "reported_signature": "z(): void",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "()V"
+        }
+      ],
+      "fields": [
+        {
+          "name": "f35928c",
+          "reported_type": "m7.g"
+        },
+        {
+          "name": "f35929d",
+          "reported_type": "m7.g"
+        },
+        {
+          "name": "f35930e",
+          "reported_type": "boolean"
+        },
+        {
+          "name": "f35931f",
+          "reported_type": "f6.c"
+        },
+        {
+          "name": "f35932g",
+          "reported_type": "long"
+        },
+        {
+          "name": "f35933h",
+          "reported_type": "h6.y"
+        }
+      ],
+      "inner_classes": [
+        "com.shenma.tvlauncher.phone.fragment.v.a",
+        "com.shenma.tvlauncher.phone.fragment.v.b",
+        "com.shenma.tvlauncher.phone.fragment.v.c",
+        "com.shenma.tvlauncher.phone.fragment.v.d",
+        "com.shenma.tvlauncher.phone.fragment.v.e",
+        "com.shenma.tvlauncher.phone.fragment.v.f"
+      ]
+    },
+    "confidence": "observed",
+    "authority": "shipped-artifact",
+    "environment": null,
+    "limitations": [
+      "Static decompiler observations do not establish runtime behavior; the APK is never executed.",
+      "Method signatures use provider display types; DEX prototypes come from frozen JADX metadata. Display names may be aliases, and overload indices are local to this engine and artifact.",
+      "Class inventories use parsed metadata before code generation, including synthetic members that may be omitted from decompiled source. Source positions remain unknown.",
+      "Incoming reference totals count JADX using nodes. Direct invoke entries within a using method report raw DEX code-unit offsets and method indexes, but coverage is limited to those nodes and directly matched invokes; it does not establish every possible dynamic or reflective call site.",
+      "Manifest summary fields are extracted by the upstream engine; decoded XML is retained for verification. APK signatures, split APKs, native libraries and Android runtime capture are not verified by this provider."
+    ],
+    "relationship_coverage": null,
+    "locations": [],
+    "evidence_links": []
+  }
+}

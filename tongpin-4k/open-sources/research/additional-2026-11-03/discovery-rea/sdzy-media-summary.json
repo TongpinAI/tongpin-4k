@@ -1,0 +1,154 @@
+{
+  "provider": {
+    "id": "sdzy",
+    "name": "闪电资源",
+    "kind": "maccms",
+    "api": "https://xsd.sdzyapi.com/api.php/provide/vod/",
+    "homepage": "https://www.shandianzy.com/",
+    "help": "https://www.shandianzy.com/help/"
+  },
+  "detail_requests": [
+    {
+      "url": "https://xsd.sdzyapi.com/api.php/provide/vod/?ac=detail&ids=138421",
+      "checked_utc": "2026-11-03T00:02:05.206844+00:00",
+      "authentication": "none",
+      "cookies": "none",
+      "status": 200,
+      "final_url": "https://xsd.sdzyapi.com/api.php/provide/vod/?ac=detail&ids=138421",
+      "content_type": "text/html;charset=utf-8",
+      "content_length": null,
+      "bytes": 4542,
+      "sha256": "1141c601b688ee9f8df59f234cf2dc1ca45a726f468b9ab5374add068a66c105",
+      "file": "sdzy-supplement-detail-current-tv.json",
+      "elapsed_ms": 6641,
+      "code": 1,
+      "msg": "数据列表",
+      "page": 1,
+      "pagecount": 1,
+      "limit": "20",
+      "total": 1,
+      "count": 1,
+      "safe_sample": [
+        {
+          "vod_id": 138421,
+          "vod_name": "尚公主",
+          "type_name": "国产剧",
+          "vod_remarks": "更新第23集",
+          "vod_time": "2026-11-02 21:35:18"
+        }
+      ]
+    },
+    {
+      "url": "https://xsd.sdzyapi.com/api.php/provide/vod/?ac=detail&ids=136805",
+      "checked_utc": "2026-11-03T00:02:25.762366+00:00",
+      "authentication": "none",
+      "cookies": "none",
+      "status": 200,
+      "final_url": "https://xsd.sdzyapi.com/api.php/provide/vod/?ac=detail&ids=136805",
+      "content_type": "text/html;charset=utf-8",
+      "content_length": null,
+      "bytes": 2541,
+      "sha256": "65bca0e7fd1c39c195dab74e1b4bd8125b1d40fa151bd15eb14c464057135649",
+      "file": "sdzy-supplement-detail-film.json",
+      "elapsed_ms": 5485,
+      "code": 1,
+      "msg": "数据列表",
+      "page": 1,
+      "pagecount": 1,
+      "limit": "20",
+      "total": 1,
+      "count": 1,
+      "safe_sample": [
+        {
+          "vod_id": 136805,
+          "vod_name": "生化危机：爆发夜",
+          "type_name": "恐怖片",
+          "vod_remarks": "更新HD",
+          "vod_time": "2026-11-02 22:43:24"
+        }
+      ]
+    }
+  ],
+  "samples": [
+    {
+      "provider": "sdzy",
+      "episode": {
+        "name": "第01集",
+        "url": "https://v13.qqqrst.com/yyv13/202610/23/JwLHj0TZGC27/video/index.m3u8"
+      },
+      "requests": [
+        {
+          "url": "https://v13.qqqrst.com/yyv13/202610/23/JwLHj0TZGC27/video/index.m3u8",
+          "checked_utc": "2026-11-03T00:02:11.855166+00:00",
+          "authentication": "none",
+          "cookies": "none",
+          "error": "HTTPError: HTTP Error 403: Forbidden",
+          "elapsed_ms": 6953
+        }
+      ],
+      "observed_resolutions": [],
+      "manifest_get": "ordinary GET without Range/Referer/Cookie/auth",
+      "video_id": 138421,
+      "title": "尚公主",
+      "category": "国产剧",
+      "remarks": "更新第23集",
+      "line": "sdm3u8",
+      "episode_count": 23
+    },
+    {
+      "provider": "sdzy",
+      "episode": {
+        "name": "第23集",
+        "url": "https://v14.qqqrst.com/yyv14/202611/02/KCiDZrzbJc27/video/index.m3u8"
+      },
+      "requests": [
+        {
+          "url": "https://v14.qqqrst.com/yyv14/202611/02/KCiDZrzbJc27/video/index.m3u8",
+          "checked_utc": "2026-11-03T00:02:18.802740+00:00",
+          "authentication": "none",
+          "cookies": "none",
+          "error": "HTTPError: HTTP Error 403: Forbidden",
+          "elapsed_ms": 6953
+        }
+      ],
+      "observed_resolutions": [],
+      "manifest_get": "ordinary GET without Range/Referer/Cookie/auth",
+      "video_id": 138421,
+      "title": "尚公主",
+      "category": "国产剧",
+      "remarks": "更新第23集",
+      "line": "sdm3u8",
+      "episode_count": 23
+    },
+    {
+      "provider": "sdzy",
+      "episode": {
+        "name": "TC",
+        "url": "https://v14.qqqrst.com/yyv14/202609/19/Cz24nnjZuT27/video/index.m3u8"
+      },
+      "requests": [
+        {
+          "url": "https://v14.qqqrst.com/yyv14/202609/19/Cz24nnjZuT27/video/index.m3u8",
+          "checked_utc": "2026-11-03T00:02:31.239085+00:00",
+          "authentication": "none",
+          "cookies": "none",
+          "error": "HTTPError: HTTP Error 403: Forbidden",
+          "elapsed_ms": 6718
+        }
+      ],
+      "observed_resolutions": [],
+      "manifest_get": "ordinary GET without Range/Referer/Cookie/auth",
+      "video_id": 136805,
+      "title": "生化危机：爆发夜",
+      "category": "恐怖片",
+      "remarks": "更新HD",
+      "line": "sdm3u8",
+      "episode_count": 2
+    }
+  ],
+  "limits": [
+    "Small prefix and HLS checks do not prove decoding, full-length playback, absent burned-in ads, or universal location reachability.",
+    "Resolution is reported only if present in HLS metadata; names, labels, or bitrate are not treated as measured 4K.",
+    "No key requests, DRM/auth/geo bypass, parser-page execution, or production edits."
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "layouts": [
+    {
+      "layout": "layout/phone_activity_main.xml",
+      "original_ids_preserved": 2,
+      "binding_tag_preserved": true
+    },
+    {
+      "layout": "layout/phone_fragment_main.xml",
+      "original_ids_preserved": 4,
+      "binding_tag_preserved": true
+    },
+    {
+      "layout": "layout/phone_activity_splash.xml",
+      "original_ids_preserved": 2,
+      "binding_tag_preserved": true
+    },
+    {
+      "layout": "layout/phone_fragment_main_rec.xml",
+      "original_ids_preserved": 1,
+      "binding_tag_preserved": true
+    },
+    {
+      "layout": "layout/phone_fragment_main_type.xml",
+      "original_ids_preserved": 1,
+      "binding_tag_preserved": true
+    },
+    {
+      "layout": "layout/phone_activity_web.xml",
+      "original_ids_preserved": 4,
+      "binding_tag_preserved": true
+    },
+    {
+      "layout": "layout/phone_activity_video_detail_play.xml",
+      "original_ids_preserved": 49,
+      "binding_tag_preserved": true
+    }
+  ],
+  "palette": {
+    "tp_bg": "#F5F2E9",
+    "tp_surface": "#FFFFFF",
+    "tp_text": "#172C42",
+    "tp_secondary": "#5D6D78",
+    "tp_primary": "#226CC7",
+    "tp_outline": "#D5DDD9",
+    "tp_on_primary": "#FFFFFF",
+    "tp_pressed": "#E6EDF7"
+  },
+  "contrast_on_background": {
+    "tp_text": 12.72,
+    "tp_secondary": 4.78,
+    "tp_primary": 4.65
+  },
+  "launcher_and_wordmark_replaced": true,
+  "bottom_routes_preserved": [
+    "首页",
+    "我的"
+  ]
+}

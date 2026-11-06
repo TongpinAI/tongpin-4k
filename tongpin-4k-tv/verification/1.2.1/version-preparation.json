@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "version": "1.2.1",
+  "version_code": 1201,
+  "previous": "1.2.0",
+  "min_sdk": 21,
+  "target_sdk": 33,
+  "files": {
+    "build_tv.py": {
+      "before_sha256": "97d894ae35636b8523bccc3ef9022c0ee10f9450d9126583b6e7686b411daa9e",
+      "after_sha256": "3c1103a5e0e2029c21ed6a2a2080d60658dc5c9f6bd3753addbcb25e46c3ee54"
+    },
+    "AndroidManifest.xml": {
+      "before_sha256": "12bb4a00b9fad7b0480993fff5207a0748ec0f1aa0adef2a0f6e4a20ca80dae4",
+      "after_sha256": "8722d9b59a077e49e51c0dab4e9c9fc25f7a291e11809682d6f4de81037b75ee"
+    },
+    "res/values/strings.xml": {
+      "before_sha256": "cd487dad93091988d5c9af7b73403fab378a3c79ecf375de5857edbb786d91ec",
+      "after_sha256": "7032211da8c54eba09be733fbf9340562c6cdb6a69a4e21eb921a7c13d63fc4e"
+    }
+  },
+  "runtime_tested": false
+}

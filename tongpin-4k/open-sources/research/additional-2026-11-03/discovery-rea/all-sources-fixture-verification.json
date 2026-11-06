@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "config_sha256": "f4d9810b075ca7a67d28b22bcb4aeef18d06a37f655c0fa074c5a7a4cbccd658",
+  "production_source_sha256": "bde2ffbf12c6008f751db263852125f1fb50dbe8d7b0cf3852c4e4d4d3df5193",
+  "host_only_org_json_sha256": "c243f45f9590c12694a4142ed3f07fc70dfb71e4daebd05ae234bf92a2da92a6",
+  "fixtures_sha256": {
+    "../discovery-playback/fixtures/guangsu-details.json": "4124635dd0d958bc9d964a190654cef6f44bad9afe4c9b6cf9fb5d336b87153c",
+    "../discovery-playback/fixtures/guangsu-list.json": "ef4210db390c962e3537381bffe0bdde93e47d5dfc11b0cb03f0e61253adb357",
+    "../discovery-playback/fixtures/guangsu-search.json": "fbd24a4a550fdb05bbc7e5b101be3731f1ec7683bcc1578b28ba6cf00197824a",
+    "../discovery-playback/fixtures/hongniu-details.json": "b055987e5b82b9d29375cbe465ac99f83e2c4b1b00a82c83022f387b97f723d9",
+    "../discovery-playback/fixtures/hongniu-list.json": "dbef60d0ef39aeae8c3235d65ac13fcd3a7456763e14c72a6ec0e5cd924219c5",
+    "../discovery-playback/fixtures/hongniu-search.json": "f35dfa0f46eb2ee74c77959d96d369acc3f224cd86a44a47d46ca5a0200567af",
+    "../discovery-playback/fixtures/jinying-details.json": "1199600a3001fb26e6a9758fb32e111570f7715de8af54a55767a41a9500c00a",
+    "../discovery-playback/fixtures/jinying-list.json": "17ecef84998821a3b6dc66a3bef9d47ce64b3bedb1d3107829d979388fc3ce96",
+    "../discovery-playback/fixtures/jinying-search.json": "940cc5bd42a92d7c97465b00166bef2c38afaa4c7dc8d7376f30c11b2def0ac4",
+    "../root-extra/ikun-movie-1-detail.json": "5e9c4dc64373ef0ea2c462317722c55a97a25db826805968a6ec596f46cabdcd",
+    "../root-extra/ikun-movie-2-detail.json": "8147cabd7f3481c442fbd6b9fdfda7f31316e749e105bc790684328b67582eb8",
+    "../root-extra/ikun-page-1.json": "e3048c00a2a95bac197cb1dce7f9bf5bcd1a61029629dadd5907357c34975cff",
+    "../root-extra/ikun-page-2.json": "a00bd566dac87b0cffcba9d7bb3afcaeb710afcf82eb8514b803d4476a8f346d",
+    "../root-extra/ikun-search.json": "70a3ad23b0939d1bf33e9d11bf2720d5dacd71eeaff2132614a83d586cebafa0",
+    "../root-extra/ikun-series-1-detail.json": "54d8473b7ce6072058033b7dd22a5d1bd286e6a97e98969b164448a0e0e6da92",
+    "../root-extra/ikun-series-2-detail.json": "3dd3a4333bd1a24bb44bb5956cab979b2c428b2d22a9f2aaeca5c7c706c9d58b",
+    "ryzy-list-p1.json": "5a20827c43f3473c1604c2e1aa4c4012a82e7e7629647ad7a674293242953783",
+    "ryzy-list-p2.json": "7c11d55d73be0b70f79598842f999255fe267a4a1b7daa76703e357f1e6ca2f9",
+    "ryzy-search-tv.json": "16f50c493c3984b6d0e452dc3db118a0129dc9c8508e2c61a2c4df8efe295a80",
+    "ryzy-supplement-detail-current-tv.json": "33eceeb5489adc581ee7677ff6ec54985f05d826b30d7db944cbda7b62bc9710",
+    "ryzy-supplement-detail-film.json": "1bcd4467577b2097b70df29a3214a7a70cc698b800e61d652d144c711ad27609"
+  },
+  "logs": [
+    {
+      "exit": 0,
+      "output": "Note: C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\����\\tongpin-4k\\open-sources\\src\\com\\tongpin\\player4k\\catalog\\CatalogApi.java uses or overrides a deprecated API.\nNote: Recompile with -Xlint:deprecation for details.\n"
+    },
+    {
+      "exit": 0,
+      "output": "PASS ryzy actual list/search/2 ids details\nPASS ikun actual list/search/4 ids details\nPASS guangsu actual list/search/4 ids details\nPASS hongniu actual list/search/4 ids details\nPASS jinying actual list/search/4 ids details\nPASS: 1648 assertions against eight-source config and unchanged production CatalogApi.\n"
+    }
+  ],
+  "limits": "Saved real response parser/config compatibility only; no network requests or Android UI/device playback in this test."
+}

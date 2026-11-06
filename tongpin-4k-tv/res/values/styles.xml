@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TongpinTvTheme" parent="android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:windowBackground">@color/tp_bg</item>
+        <item name="android:colorAccent">@color/tp_primary</item>
+        <item name="android:textColorPrimary">@color/tp_text</item>
+        <item name="android:textColorSecondary">@color/tp_text_secondary</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:navigationBarColor">@color/tp_bg</item>
+        <item name="android:statusBarColor">@color/tp_bg</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+</resources>

@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "version": "1.1.2",
+  "version_code": 1102,
+  "apk": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Downloads\\tongpin-4k-1.1.2.apk",
+  "sha256": "bf37ead56fb984f385f8463b256c2f81b15916e1704923640c948551f4a76b07",
+  "binary_xml_verified": true,
+  "original_binding_ids": 15,
+  "visible_features": [
+    "history",
+    "favorites"
+  ],
+  "all_five_dex_unchanged": true,
+  "code_evidence_reused_from": "1.1.1",
+  "device_ui_verified": false
+}

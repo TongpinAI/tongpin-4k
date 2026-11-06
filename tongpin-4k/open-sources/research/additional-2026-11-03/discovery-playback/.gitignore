@@ -1,0 +1,5 @@
+*.local.json
+*.raw
+fixtures/*.json
+fixtures/*.m3u8
+fixtures/*.probe.*

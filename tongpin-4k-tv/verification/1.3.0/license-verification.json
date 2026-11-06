@@ -1,0 +1,33 @@
+{
+  "passed": true,
+  "asset": "assets/third_party_licenses/media3_1_10_1.txt",
+  "bytes": 15553,
+  "sha256": "6d7755b5107932b011843f15b0c76474aaacd5e30887452437dd0dc5e29acbae",
+  "nul_bytes": 0,
+  "replacement_characters": 0,
+  "contains_full_apache_license": true,
+  "upstream_notice_included": true,
+  "artifact_count": 19,
+  "license_text_sources": [
+    {
+      "path": "third-party/media3-1.10.1/downloads/Apache-LICENSE-2.0.txt",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0.txt",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "third-party/media3-1.10.1/downloads/guava-LICENSE.txt",
+      "url": "https://raw.githubusercontent.com/google/guava/v33.3.1/LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "third-party/media3-1.10.1/downloads/kotlin-LICENSE.txt",
+      "url": "https://raw.githubusercontent.com/JetBrains/kotlin/v2.0.20/license/LICENSE.txt",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "third-party/media3-1.10.1/downloads/kotlin-NOTICE.txt",
+      "url": "https://raw.githubusercontent.com/JetBrains/kotlin/v2.0.20/license/NOTICE.txt",
+      "sha256": "0b09a83d3ef7795c7dec65e815866597c066c53898f2852a76599b8f5552941a"
+    }
+  ]
+}

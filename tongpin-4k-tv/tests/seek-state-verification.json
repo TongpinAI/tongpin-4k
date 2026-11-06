@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "assertions": 75,
+  "source_sha256": {
+    "src/com/tongpin/player4k/tv/TvSeekState.java": "9fe01ce88f12e525cca5a6f8be29bc0e3873f1005daefbdd9cfad7248ddc11b4",
+    "tests/src/com/tongpin/player4k/tv/TvSeekStateTest.java": "2dc7d6a4ca58daf5074588d8430a19dc83e6af55041ffe8b9eeb70fc264358b9"
+  },
+  "android_objects_created": false,
+  "device_test": false
+}

@@ -1,0 +1,36 @@
+[
+  {
+    "folder": "smali",
+    "files": 9357,
+    "tree_sha256": "bde8046d96ae3e97b190c1374ae66cf3d08dcf9bdc9da6b11cfa74866a9a55c3",
+    "dex": "classes.dex",
+    "dex_sha256": "02ce604e358253d4e2c4f776e9f5682da084eecf1930443f9d0d9e9df2a037ee"
+  },
+  {
+    "folder": "smali_classes2",
+    "files": 9225,
+    "tree_sha256": "4d726b7844fad9de3ead3d9e84a067c656fc509b79196e703e524834b9f920f2",
+    "dex": "classes2.dex",
+    "dex_sha256": "e648c78f4cc3a41b146840a65b6de2fcdd3487f42429ebd8e55c8edb85c8b4f0"
+  },
+  {
+    "folder": "smali_classes3",
+    "files": 8155,
+    "tree_sha256": "411e4ae54366dc88ae051ea10d874088416f64ea6faae2bbdb94270b83be3025",
+    "dex": "classes3.dex",
+    "dex_sha256": "25d4d1f8fc9450119fc8db09036d9642311fb9398783485e52046197fdc936e8"
+  },
+  {
+    "folder": "smali_classes4",
+    "files": 7561,
+    "tree_sha256": "db9b5a87b781a786599daac99735a80e7137035155d26939f320ca97875bc62e",
+    "dex": "classes4.dex",
+    "dex_sha256": "551c8f962806f0943e27dc4ad9e4853bb4dffab053be26355bc1953ec29fb598"
+  },
+  {
+    "folder": "smali_classes5",
+    "dex": "classes5.dex",
+    "dex_sha256": "f0fe16a3393cddca28c64968e8010e60c5c8cb9cc95216d4635472f23acf07e5",
+    "code_reused_from": "1.1.3"
+  }
+]

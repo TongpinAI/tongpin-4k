@@ -1,0 +1,346 @@
+
+
+
+
+
+  <button class="btn d-none d-md-flex modal-navigation next z-1"
+    data-url="/projects/api/assets/137/?site_context=featured_artwork" data-asset-id="137">
+    <i class="i-chevron-right"></i>
+  </button>
+
+
+  <button class="btn d-md-block d-none modal-navigation previous z-1"
+    data-url="/projects/api/assets/201/?site_context=featured_artwork"
+    data-asset-id="201">
+    <i class="i-chevron-left"></i>
+  </button>
+
+<button class="btn d-md-block d-none modal-navigation modal-close d-none d-md-block z-1" data-bs-dismiss="modal">
+  <i class="i-cancel"></i>
+</button>
+
+
+  <div id="asset-141" data-asset-id="141" class="js-modal-inner-wrapper modal-inner-wrapper ">
+    <div class="d-md-block d-none h-100 js-modal-bg modal-bg position-absolute start-0 top-0 w-100"></div>
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        
+        
+        
+
+        <div class="bg-black modal-header p-0 position-relative">
+          <div class="align-items-center mb-md-transparent bg-tertiary d-flex d-md-none justify-content-between position-md-relative position-sticky px-3 py-4 top-0 z-4">
+            <div>
+              <h3 class="mb-0">Glass Half</h3>
+            </div>
+            <button class="btn modal-close modal-navigation" data-bs-dismiss="modal">
+              <i class="i-cancel"></i>
+            </button>
+          </div>
+          
+            
+            
+              
+              
+              
+              
+                
+
+<div class="video-player w-100"  >
+  <video class="w-100" preload="none"   playsinline controls poster="https://studio.blender.org/files/public/thumbnail/c6/3d/c63ddc47dd56cf369557e969f15e2cb644aa421a_m.webp" data-poster="https://studio.blender.org/files/public/thumbnail/c6/3d/c63ddc47dd56cf369557e969f15e2cb644aa421a_m.webp" >
+    <source src="https://studio.blender.org/files/c6/c63ddc47dd56cf369557e969f15e2cb644aa421a/c63ddc47dd56cf369557e969f15e2cb644aa421a-1080p.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=WPXVUIKB8MLIOWB7INUX%2F20261102%2Feu-central-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20261102T122209Z&amp;X-Amz-Expires=3600&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=ca6aa11ee5b434884040a11793f7367b33c0cc9f384849e092630238963fe3ab">
+    
+  </video>
+</div>
+
+              
+            
+
+          
+        </div>
+        <div class="modal-body">
+          <div class="bg-color position-md-sticky pt-3 top-0 z-4">
+            <div class="row">
+              <div class="col-auto">
+                <div class="d-flex">
+                  
+                  
+
+<div class="profile-card">
+  
+
+
+  
+  
+
+  <div class="profile-avatar profile-avatar-helper avatar-md">
+    <img src="/static/common/images/blank-profile-pic.05aafa6b130a.png" alt="Ton Roosendaal" title="Ton Roosendaal">
+  </div>
+
+
+
+  <div class="profile-details">
+    <strong class="profile-name">Ton Roosendaal</strong>
+
+    
+  </div>
+</div>
+
+
+                  
+                  
+                  
+                    
+                  
+                </div>
+
+                <div class="d-flex ps-5 text-muted x-sm">
+                  <ul class="list-inline">
+                    <li>
+                      13 Nov 2015
+                    </li>
+
+                    
+                    
+
+                    
+
+                    
+                    
+
+                    
+                    
+                    <li title="Width and height dimensions">1920&times;1080</li>
+                    <li>3:13</li>
+                    
+
+                    
+                    
+
+                    
+                    
+
+                    
+                    
+                    <li>Free</li>
+                    
+                  </ul>
+                </div>
+              </div>
+
+              <div class="ms-auto">
+                
+
+
+<div class="btns-toolbar d-flex justify-content-md-between pb-3">
+  
+  
+  
+
+  <div class="btn-row d-none d-md-flex">
+    
+    
+
+    
+      
+      
+      
+      
+        <a href="/download-source/files/c6/c63ddc47dd56cf369557e969f15e2cb644aa421a/c63ddc47dd56cf369557e969f15e2cb644aa421a-1080p.mp4"
+      target="_blank"
+      title="Download (62.7 MB)"
+      download="glass_half-hd-1080p.mp4"
+      class="btn btn-primary btn-link bg-transparent px-1"><i class="i-download"></i></a>
+
+      
+    
+
+    
+    
+      <button class="btn btn-link px-1 js-checkbox-like checkbox-like disabled" data-like-url="/projects/api/assets/141/like/"
+        disabled 
+        title="7 likes"
+      >
+        <i class="checkbox-like-icon-checked i-heart-filled"></i>
+        <i class="checkbox-like-icon-unchecked i-heart"></i>
+
+        
+          
+            <span class="js-likes-count mx-1">7</span>
+          
+        
+      </button>
+    
+
+    
+    <div>
+      <button data-bs-toggle="dropdown" class="btn btn-link px-1">
+        <i class="i-more-vertical"></i>
+      </button>
+      <div class="dropdown-menu dropdown-menu-end">
+
+        
+        
+
+        
+        
+          <a href="https://creativecommons.org/licenses/by/4.0/" class="dropdown-item" target="_blank" data-bs-toggle="tooltip" data-placement="left" title="You are free to share and adapt this content - but you must give attribution to Blender Studio.">
+            <i class="i-cc-by"></i>
+            License <span class="text-muted ms-auto">CC-BY</span>
+          </a>
+          <div class="dropdown-divider"></div>
+        
+
+        
+        <a href="https://projects.blender.org/studio/blender-studio/issues/new" target="_blank"
+          class="dropdown-item">
+          <i class="i-flag"></i>
+          <span>Report Problem</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="markdown-text">
+            <h3>Glass Half</h3>
+
+            
+              <p>The HD version of Glass Half.</p>
+
+            
+          </div>
+
+          
+            <section>
+
+<div class="js-comment-section comment-section" data-comment-url="/projects/api/assets/141/comment/">
+  
+    <div class="comment-input mb-0" onkeydown="event.stopPropagation()">
+      <div class="js-comment-input-div comment-input-div disabled form-control" contenteditable="false">
+        <p class="mb-0"><a href="/join/">Join</a> to leave a comment.</p>
+      </div>
+    </div>
+  
+
+  
+    <h5 class="text-muted mt-4 ">
+      <span class="js-comments-counter">1</span> comment
+    </h5>
+  
+
+  
+  <div class="js-comments comments">
+    
+    
+
+
+
+
+
+<div
+  id="comment-12929"
+  class="box js-comment comment  js-top-level-comment top-level-comment"
+  data-comment-id="12929" data-message="is that a true language or just voices 🤣 ? 
+as the characters were very expressive so almost understood the idea but keen to know " data-profile-img-url="https://studio.blender.org/files/57/57e09055f1223fac157dc68cb8b37b01/57e09055f1223fac157dc68cb8b37b01.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=WPXVUIKB8MLIOWB7INUX%2F20261102%2Feu-central-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20261102T122209Z&amp;X-Amz-Expires=3600&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=74b1992ff54b9400ef6aa6145b5f1b7604e1d0ee85ba4950d26b84ac4c00e4de" data-comment-like-url="/comments/api/comments/12929/like/"
+  
+  
+  
+  
+  >
+  <div class="js-comment-name-date-wrapper comment-name-date-wrapper">
+    <div class="d-flex flex-wrap">
+      <div class="d-flex mb-2 me-2">
+        <div class="avatar-sm me-2 profile-avatar">
+          <img src="https://studio.blender.org/files/57/57e09055f1223fac157dc68cb8b37b01/57e09055f1223fac157dc68cb8b37b01.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=WPXVUIKB8MLIOWB7INUX%2F20261102%2Feu-central-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20261102T122209Z&amp;X-Amz-Expires=3600&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=74b1992ff54b9400ef6aa6145b5f1b7604e1d0ee85ba4950d26b84ac4c00e4de" alt="Bassem" title="Bassem"
+            
+            onerror="this.onerror=null; this.src='/static/common/images/blank-profile-pic.05aafa6b130a.png'">
+        </div>
+        <span class="js-comment-name comment-name text-muted">Bassem</span>
+      </div>
+      
+        <div class="badges mb-2">
+          
+            
+  <img width="16" src="https://id.blender.org/media/badges/badge_studio_71ISEWJ.png" title="Blender Studio subscriber" label="Blender Studio" />
+
+
+          
+        </div>
+      
+    </div>
+
+    
+
+    <small class="js-comment-date comment-date" title="April 15, 2024 19:43">April 15th, 2024</small>
+  </div>
+
+  
+
+  <div class="col js-comment-content">
+    <div class="row comment-content-inner">
+      <div class="comment-body">
+        <div class="js-comment-text comment-text markdown-text">
+          <p>is that a true language or just voices 🤣 ? 
+as the characters were very expressive so almost understood the idea but keen to know</p>
+
+        </div>
+
+        
+          <div class="js-comment-toolbar comment-toolbar">
+            <div class="btn-row">
+              <button class="btn btn-link js-checkbox-like checkbox-like px-1 disabled" disabled >
+                <i class="i-heart-filled checkbox-like-icon-checked"></i>
+                <i class="i-heart checkbox-like-icon-unchecked"></i>
+                
+              </button>
+              <button class="btn btn-link js-comment-reply disabled" disabled>
+                <i class="i-reply"></i>
+                <span>Reply</span>
+              </button>
+
+              
+            </div>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+  
+
+  <div class="js-comment-reply-inputs comment-reply-inputs"></div>
+
+  <div class="js-replies replies">
+    <div class="js-comments comments">
+      
+        
+          
+
+
+          
+        
+      
+    </div>
+  </div>
+
+  
+</div>
+
+
+
+
+  </div>
+</div>
+</section>
+          
+
+        </div>
+      </div>
+    </div>
+  </div>
+

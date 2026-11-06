@@ -1,0 +1,176 @@
+{
+  "provider": {
+    "id": "sdzy",
+    "name": "闪电资源",
+    "kind": "maccms",
+    "api": "https://xsd.sdzyapi.com/api.php/provide/vod/",
+    "homepage": "https://www.shandianzy.com/",
+    "help": "https://www.shandianzy.com/help/"
+  },
+  "pages": [
+    {
+      "url": "https://www.shandianzy.com/",
+      "checked_utc": "2026-11-03T00:00:13.043774+00:00",
+      "authentication": "none",
+      "cookies": "none",
+      "status": 200,
+      "final_url": "https://www.shandianzy.com/",
+      "content_type": "text/html; charset=utf-8",
+      "content_length": null,
+      "bytes": 36641,
+      "sha256": "2cb1c18da6353c5eaa0346abf7ff3f8fcc08a82da211bd040387a71f37c4f57e",
+      "file": "sdzy-homepage.html",
+      "elapsed_ms": 7406,
+      "conditions_and_usage_lines": [
+        "郑重承诺：资源永久免费,资源不含任何诈骗广告,采用国内CDN加速，速度快到无法想象！",
+        "本站图片地址采用远程方式，可以调用， 但采集的同时建议将图片同步本地，避免日后图片失效。",
+        "欢迎各位新老站长加盟采集！更多资源福利分享，尽在站长资源分享群！",
+        "本站屏蔽欧美 欧洲 线路播放",
+        "由于之前播放域名被屏蔽  带来不便"
+      ]
+    },
+    {
+      "url": "https://www.shandianzy.com/help/",
+      "checked_utc": "2026-11-03T00:00:20.458261+00:00",
+      "authentication": "none",
+      "cookies": "none",
+      "status": 200,
+      "final_url": "https://www.shandianzy.com/help/",
+      "content_type": "text/html",
+      "content_length": null,
+      "bytes": 26094,
+      "sha256": "0b430acd7365d2d980c62f7940cffc49a0f9dc4b49475e811d5acbbc4cc148f0",
+      "file": "sdzy-help.html",
+      "elapsed_ms": 5735,
+      "conditions_and_usage_lines": [
+        "APP json接口",
+        "资源 http 容易被国内屏蔽 导致无法播放",
+        "高清画质 国内商业CDN 秒拖秒播",
+        "无法采集请加群私聊管理员加白名单",
+        "本站图片地址后期将采用图床样式，可以调用， 采集的同时，也可以把图片下载到本地（推荐），以免杜绝日后出现类似图片失效的情况。",
+        "app json接口"
+      ]
+    }
+  ],
+  "api": [
+    {
+      "url": "https://xsd.sdzyapi.com/api.php/provide/vod/?ac=detail&pg=1&pagesize=20",
+      "checked_utc": "2026-11-03T00:00:26.198048+00:00",
+      "authentication": "none",
+      "cookies": "none",
+      "status": 200,
+      "final_url": "https://xsd.sdzyapi.com/api.php/provide/vod/?ac=detail&pg=1&pagesize=20",
+      "content_type": "text/html;charset=utf-8",
+      "content_length": null,
+      "bytes": 169965,
+      "sha256": "1d3ad5596a38a94cf7b74d90c4a8a56a2f29fc3d07f759a902a7c378d6eb4742",
+      "file": "sdzy-list-p1.json",
+      "elapsed_ms": 6484,
+      "code": 1,
+      "msg": "数据列表",
+      "page": "1",
+      "pagecount": 6258,
+      "limit": "20",
+      "total": 125142,
+      "count": 20,
+      "safe_sample": [
+        {
+          "vod_id": 138209,
+          "vod_name": "非常律师南田南",
+          "type_name": "日剧",
+          "vod_remarks": "更新第03集",
+          "vod_time": "2026-11-03 00:58:31"
+        },
+        {
+          "vod_id": 137484,
+          "vod_name": "恋爱博士",
+          "type_name": "韩剧",
+          "vod_remarks": "更新第09集",
+          "vod_time": "2026-11-03 00:58:30"
+        },
+        {
+          "vod_id": 138628,
+          "vod_name": "暑假",
+          "type_name": "韩剧",
+          "vod_remarks": "更新第03集",
+          "vod_time": "2026-11-03 00:58:28"
+        }
+      ]
+    },
+    {
+      "url": "https://xsd.sdzyapi.com/api.php/provide/vod/?ac=detail&pg=2&pagesize=20",
+      "checked_utc": "2026-11-03T00:00:32.676318+00:00",
+      "authentication": "none",
+      "cookies": "none",
+      "status": 200,
+      "final_url": "https://xsd.sdzyapi.com/api.php/provide/vod/?ac=detail&pg=2&pagesize=20",
+      "content_type": "text/html;charset=utf-8",
+      "content_length": null,
+      "bytes": 236400,
+      "sha256": "62d343506b17e5141e016778d310be6c1cdae9d631cbe30afc57c10975d8d901",
+      "file": "sdzy-list-p2.json",
+      "elapsed_ms": 6000,
+      "code": 1,
+      "msg": "数据列表",
+      "page": "2",
+      "pagecount": 6258,
+      "limit": "20",
+      "total": 125142,
+      "count": 20,
+      "safe_sample": [
+        {
+          "vod_id": 134482,
+          "vod_name": "灵珠传：神妙奇珠",
+          "type_name": "泰剧",
+          "vod_remarks": "更新第21集",
+          "vod_time": "2026-11-02 20:28:15"
+        },
+        {
+          "vod_id": 138998,
+          "vod_name": "宝莲灯凡心问天",
+          "type_name": "动画片",
+          "vod_remarks": "更新HD",
+          "vod_time": "2026-11-02 20:28:05"
+        },
+        {
+          "vod_id": 35030,
+          "vod_name": "吞噬星空",
+          "type_name": "国产动漫",
+          "vod_remarks": "更新第248集",
+          "vod_time": "2026-11-02 20:28:03"
+        }
+      ],
+      "overlap_with_p1": 0
+    },
+    {
+      "url": "https://xsd.sdzyapi.com/api.php/provide/vod/?ac=detail&pg=1&pagesize=20&wd=%E5%BA%86%E4%BD%99%E5%B9%B4",
+      "checked_utc": "2026-11-03T00:00:38.679334+00:00",
+      "authentication": "none",
+      "cookies": "none",
+      "status": 200,
+      "final_url": "https://xsd.sdzyapi.com/api.php/provide/vod/?ac=detail&pg=1&pagesize=20&wd=%E5%BA%86%E4%BD%99%E5%B9%B4",
+      "content_type": "text/html;charset=utf-8",
+      "content_length": null,
+      "bytes": 18,
+      "sha256": "168b027be8853eafa163f162fb3b74febab24bc9a82a979359aec52d371ebab6",
+      "file": "sdzy-search-tv.json",
+      "elapsed_ms": 6031,
+      "json_error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "url": "https://xsd.sdzyapi.com/api.php/provide/vod/?ac=detail&pg=1&pagesize=20&wd=%E6%B5%81%E6%B5%AA%E5%9C%B0%E7%90%83",
+      "checked_utc": "2026-11-03T00:00:44.712381+00:00",
+      "authentication": "none",
+      "cookies": "none",
+      "status": 200,
+      "final_url": "https://xsd.sdzyapi.com/api.php/provide/vod/?ac=detail&pg=1&pagesize=20&wd=%E6%B5%81%E6%B5%AA%E5%9C%B0%E7%90%83",
+      "content_type": "text/html;charset=utf-8",
+      "content_length": null,
+      "bytes": 18,
+      "sha256": "168b027be8853eafa163f162fb3b74febab24bc9a82a979359aec52d371ebab6",
+      "file": "sdzy-search-film.json",
+      "elapsed_ms": 6172,
+      "json_error": "Expecting value: line 1 column 1 (char 0)"
+    }
+  ]
+}

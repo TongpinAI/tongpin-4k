@@ -1,0 +1,176 @@
+{
+  "provider": {
+    "id": "snzy",
+    "name": "索尼资源",
+    "kind": "maccms",
+    "api": "https://suoniapi.com/api.php/provide/vod/",
+    "homepage": "https://suonizy.net/",
+    "help": "https://suonizy.net/help/"
+  },
+  "pages": [
+    {
+      "url": "https://suonizy.net/",
+      "checked_utc": "2026-11-03T00:00:13.046074+00:00",
+      "authentication": "none",
+      "cookies": "none",
+      "status": 200,
+      "final_url": "https://suonizy.net/",
+      "content_type": "text/html; charset=utf-8",
+      "content_length": null,
+      "bytes": 46312,
+      "sha256": "1447d4848bb4e8be9b6f933592da53a73d2c04b00b975d615f139676e2dec8cb",
+      "file": "snzy-homepage.html",
+      "elapsed_ms": 6703,
+      "conditions_and_usage_lines": [
+        "高清画质,更新快,秒播,国内线路!永久免费的资源站！欢迎采集。",
+        "本站屏蔽美国,欧洲线路播放",
+        "免费模板",
+        "由于之前播放域名被屏蔽  带来不便"
+      ]
+    },
+    {
+      "url": "https://suonizy.net/help/",
+      "checked_utc": "2026-11-03T00:00:19.747845+00:00",
+      "authentication": "none",
+      "cookies": "none",
+      "status": 200,
+      "final_url": "https://suonizy.net/help/",
+      "content_type": "text/html",
+      "content_length": null,
+      "bytes": 21985,
+      "sha256": "65eadc27844f4e54ed0cbc672b9b1a985af8146373bd1cf38f447d581914ded2",
+      "file": "snzy-help.html",
+      "elapsed_ms": 5703,
+      "conditions_and_usage_lines": [
+        "APP json接口",
+        "资源 http 容易被国内屏蔽 导致无法播放",
+        "高清画质 国内商业CDN 秒拖秒播",
+        "无法采集请加群私聊管理员加白名单",
+        "本站图片地址后期将采用图床样式，可以调用， 采集的同时，也可以把图片下载到本地（推荐），以免杜绝日后出现类似图片失效的情况。",
+        "app json接口",
+        "注意：app接口仅供调试，不允许直接调用到生产环境，违者必封ip"
+      ]
+    }
+  ],
+  "api": [
+    {
+      "url": "https://suoniapi.com/api.php/provide/vod/?ac=detail&pg=1&pagesize=20",
+      "checked_utc": "2026-11-03T00:00:25.443078+00:00",
+      "authentication": "none",
+      "cookies": "none",
+      "status": 200,
+      "final_url": "https://suoniapi.com/api.php/provide/vod/?ac=detail&pg=1&pagesize=20",
+      "content_type": "text/html;charset=utf-8",
+      "content_length": null,
+      "bytes": 191945,
+      "sha256": "50eb2f0a4990c4481dc46af0e84e6865d768c8c2d2ef5e616b5ed4927ea54d25",
+      "file": "snzy-list-p1.json",
+      "elapsed_ms": 7109,
+      "code": 1,
+      "msg": "数据列表",
+      "page": "1",
+      "pagecount": 7408,
+      "limit": "20",
+      "total": 148150,
+      "count": 20,
+      "safe_sample": [
+        {
+          "vod_id": 158154,
+          "vod_name": "暑假",
+          "type_name": "韩剧",
+          "vod_remarks": "更新至03集",
+          "vod_time": "2026-11-02 23:27:04"
+        },
+        {
+          "vod_id": 156430,
+          "vod_name": "恋爱博士",
+          "type_name": "韩剧",
+          "vod_remarks": "更新至09集",
+          "vod_time": "2026-11-02 23:04:34"
+        },
+        {
+          "vod_id": 157530,
+          "vod_name": "非常律师南田南",
+          "type_name": "日剧",
+          "vod_remarks": "更新至03集",
+          "vod_time": "2026-11-02 22:39:46"
+        }
+      ]
+    },
+    {
+      "url": "https://suoniapi.com/api.php/provide/vod/?ac=detail&pg=2&pagesize=20",
+      "checked_utc": "2026-11-03T00:00:32.553012+00:00",
+      "authentication": "none",
+      "cookies": "none",
+      "status": 200,
+      "final_url": "https://suoniapi.com/api.php/provide/vod/?ac=detail&pg=2&pagesize=20",
+      "content_type": "text/html;charset=utf-8",
+      "content_length": null,
+      "bytes": 203743,
+      "sha256": "cbf3bfdf789afff7ed8b0730c548c0738f25b764441f9f820b039bef11abbf2d",
+      "file": "snzy-list-p2.json",
+      "elapsed_ms": 6000,
+      "code": 1,
+      "msg": "数据列表",
+      "page": "2",
+      "pagecount": 7408,
+      "limit": "20",
+      "total": 148150,
+      "count": 20,
+      "safe_sample": [
+        {
+          "vod_id": 155345,
+          "vod_name": "高地迷踪第二季",
+          "type_name": "海外剧",
+          "vod_remarks": "更新至08集",
+          "vod_time": "2026-11-02 18:32:18"
+        },
+        {
+          "vod_id": 158219,
+          "vod_name": "天狗的厨房第三季",
+          "type_name": "日剧",
+          "vod_remarks": "更新至05集",
+          "vod_time": "2026-11-02 18:31:54"
+        },
+        {
+          "vod_id": 157524,
+          "vod_name": "装备我最强",
+          "type_name": "日韩动漫",
+          "vod_remarks": "更新至06集",
+          "vod_time": "2026-11-02 18:31:25"
+        }
+      ],
+      "overlap_with_p1": 0
+    },
+    {
+      "url": "https://suoniapi.com/api.php/provide/vod/?ac=detail&pg=1&pagesize=20&wd=%E5%BA%86%E4%BD%99%E5%B9%B4",
+      "checked_utc": "2026-11-03T00:00:38.559404+00:00",
+      "authentication": "none",
+      "cookies": "none",
+      "status": 200,
+      "final_url": "https://suoniapi.com/api.php/provide/vod/?ac=detail&pg=1&pagesize=20&wd=%E5%BA%86%E4%BD%99%E5%B9%B4",
+      "content_type": "text/html;charset=utf-8",
+      "content_length": null,
+      "bytes": 18,
+      "sha256": "168b027be8853eafa163f162fb3b74febab24bc9a82a979359aec52d371ebab6",
+      "file": "snzy-search-tv.json",
+      "elapsed_ms": 5813,
+      "json_error": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "url": "https://suoniapi.com/api.php/provide/vod/?ac=detail&pg=1&pagesize=20&wd=%E6%B5%81%E6%B5%AA%E5%9C%B0%E7%90%83",
+      "checked_utc": "2026-11-03T00:00:44.368017+00:00",
+      "authentication": "none",
+      "cookies": "none",
+      "status": 200,
+      "final_url": "https://suoniapi.com/api.php/provide/vod/?ac=detail&pg=1&pagesize=20&wd=%E6%B5%81%E6%B5%AA%E5%9C%B0%E7%90%83",
+      "content_type": "text/html;charset=utf-8",
+      "content_length": null,
+      "bytes": 18,
+      "sha256": "168b027be8853eafa163f162fb3b74febab24bc9a82a979359aec52d371ebab6",
+      "file": "snzy-search-film.json",
+      "elapsed_ms": 6328,
+      "json_error": "Expecting value: line 1 column 1 (char 0)"
+    }
+  ]
+}

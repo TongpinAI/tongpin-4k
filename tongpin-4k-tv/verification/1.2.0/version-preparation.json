@@ -1,0 +1,34 @@
+{
+  "version": "1.2.0",
+  "code": 1200,
+  "previous_version": "1.1.0",
+  "build_ready": false,
+  "previous_sha256": "810ce2173775027bdba32351b2babeb4376a561adef834435a61a0c2fe1230ae",
+  "previous_certificate_sha256": "c6977a378251b81f1dc7f9564d5c7817f4620f54f2f2ec3befe7bfdf13fffe89",
+  "provider_sha256": "f4d9810b075ca7a67d28b22bcb4aeef18d06a37f655c0fa074c5a7a4cbccd658",
+  "min_sdk": 21,
+  "target_sdk": 33,
+  "files": [
+    {
+      "path": "build_tv.py",
+      "before_sha256": "5cb181a5b9730ff99c82bb30721069524711bb907d22696680fd22609e4abfdb",
+      "after_sha256": "9991469d428e0d81f124d459118c9be63b72bcd099536c397e575a62c17b49ca"
+    },
+    {
+      "path": "AndroidManifest.xml",
+      "before_sha256": "8b05db2d9ff44b9c034a9627952ed70c93deb2e657c4bc99176f6ad87eb1a9f0",
+      "after_sha256": "12bb4a00b9fad7b0480993fff5207a0748ec0f1aa0adef2a0f6e4a20ca80dae4"
+    },
+    {
+      "path": "res/values/strings.xml",
+      "before_sha256": "09173de634590e321e2f6018b009aeab86ec7e2a6f5ba1ade467b155b84b8ca0",
+      "after_sha256": "cd487dad93091988d5c9af7b73403fab378a3c79ecf375de5857edbb786d91ec"
+    }
+  ],
+  "compiled": false,
+  "pending": [
+    "Home/Store/Queue and Player READY",
+    "exact API23 speed guard actualDEX proof",
+    "sameTVcertificate/ownclasses/zero-native/finalasset/signature/ZIP checks"
+  ]
+}

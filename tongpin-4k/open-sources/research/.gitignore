@@ -1,0 +1,5 @@
+# Local media prefixes / raw network evidence are not distribution assets.
+*.local.json
+fixtures/*.probe.*
+fixtures/*manifest*.m3u8
+

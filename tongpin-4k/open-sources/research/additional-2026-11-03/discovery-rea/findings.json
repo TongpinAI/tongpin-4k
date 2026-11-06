@@ -1,0 +1,239 @@
+{
+  "checked_date": "2026-11-03",
+  "scope": "Only own discovery-rea directory changed. No production configuration/source/APK edits.",
+  "candidates": [
+    {
+      "provider": {
+        "id": "ryzy",
+        "name": "如意资源",
+        "kind": "maccms",
+        "api": "https://cj.rycjapi.com/api.php/provide/vod/",
+        "homepage": "https://ryzyw.com/",
+        "help": "https://ryzyw.com/help/"
+      },
+      "recommended": true,
+      "reason": "public API and bounded actual media header passed",
+      "primary_pages": [
+        {
+          "url": "https://ryzyw.com/",
+          "checked_utc": "2026-11-03T00:00:13.043774+00:00",
+          "authentication": "none",
+          "cookies": "none",
+          "status": 200,
+          "final_url": "https://ryzyw.com/",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": null,
+          "bytes": 35198,
+          "sha256": "2bbea773ab5bd4d1702d0ae67b5756db86af68d4e04d3a849454ba3013363ded",
+          "file": "ryzy-homepage.html",
+          "elapsed_ms": 11343,
+          "conditions_and_usage_lines": []
+        },
+        {
+          "url": "https://ryzyw.com/help/",
+          "checked_utc": "2026-11-03T00:00:24.392169+00:00",
+          "authentication": "none",
+          "cookies": "none",
+          "status": 200,
+          "final_url": "https://ryzyw.com/help/",
+          "content_type": "text/html",
+          "content_length": "58796",
+          "bytes": 58796,
+          "sha256": "efd2efe5d3473c2547d129fe32217f49b8984024be4fca14cc9afeb8ea225fd9",
+          "file": "ryzy-help.html",
+          "elapsed_ms": 6562,
+          "conditions_and_usage_lines": [
+            "APPjson接口",
+            "本站采集接口，基本上可以通用所有CMS，本站独特提供下载资源，欢迎采集！",
+            "本站图片地址后期将采用图床样式，可以调用， 采集的同时，也可以把图片下载到本地（推荐），以免杜绝日后出现类似图片失效的情况。",
+            "app json接口",
+            "app json接口参数"
+          ]
+        }
+      ],
+      "api_probes_file": "ryzy-summary.json",
+      "media_probes_file": "ryzy-media-summary.json"
+    },
+    {
+      "provider": {
+        "id": "ukzy",
+        "name": "U酷资源",
+        "kind": "maccms",
+        "api": "https://api.ukuapi88.com/api.php/provide/vod/",
+        "homepage": "https://ukuzy0.com/",
+        "help": "https://ukuzy0.com/help/"
+      },
+      "recommended": false,
+      "reason": "ordinary no-Range manifests: 3/3 HTTP403",
+      "primary_pages": [
+        {
+          "url": "https://ukuzy0.com/",
+          "checked_utc": "2026-11-03T00:00:13.046074+00:00",
+          "authentication": "none",
+          "cookies": "none",
+          "status": 200,
+          "final_url": "https://ukuzy0.com/",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": null,
+          "bytes": 28727,
+          "sha256": "c056ba47f5c3c62e98b77f6eff5f3b551419bf743a599216a80f00330a2bfd13",
+          "file": "ukzy-homepage.html",
+          "elapsed_ms": 6781,
+          "conditions_and_usage_lines": [
+            "郑重承诺：资源永久免费,资源不含任何广告,无广告永久免费的资源站(承诺绝不影响用户体验)",
+            "欢迎各位新老站长加盟采集！更多资源福利分享，尽在站长资源分享群！",
+            "欢迎大家采集，每日实时更新求片联系管理"
+          ]
+        },
+        {
+          "url": "https://ukuzy0.com/help/",
+          "checked_utc": "2026-11-03T00:00:19.833244+00:00",
+          "authentication": "none",
+          "cookies": "none",
+          "status": 200,
+          "final_url": "https://ukuzy0.com/help/",
+          "content_type": "text/html",
+          "content_length": null,
+          "bytes": 32924,
+          "sha256": "c15c52b37ce9868b5e3cd70d8e03e17e4de67101a572b1ca23326b8ba987b7fe",
+          "file": "ukzy-help.html",
+          "elapsed_ms": 5688,
+          "conditions_and_usage_lines": [
+            "APP json接口",
+            "资源 http 容易被国内屏蔽 导致无法播放",
+            "app json接口 ：",
+            "本站图片地址后期将采用图床样式，可以调用， 采集的同时，也可以把图片下载到本地（推荐），以免杜绝日后出现类似图片失效的情况。",
+            "app json接口"
+          ]
+        }
+      ],
+      "api_probes_file": "ukzy-summary.json",
+      "media_probes_file": "ukzy-media-summary.json"
+    },
+    {
+      "provider": {
+        "id": "sdzy",
+        "name": "闪电资源",
+        "kind": "maccms",
+        "api": "https://xsd.sdzyapi.com/api.php/provide/vod/",
+        "homepage": "https://www.shandianzy.com/",
+        "help": "https://www.shandianzy.com/help/"
+      },
+      "recommended": false,
+      "reason": "wd search unsupported and ordinary manifests: 3/3 HTTP403",
+      "primary_pages": [
+        {
+          "url": "https://www.shandianzy.com/",
+          "checked_utc": "2026-11-03T00:00:13.043774+00:00",
+          "authentication": "none",
+          "cookies": "none",
+          "status": 200,
+          "final_url": "https://www.shandianzy.com/",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": null,
+          "bytes": 36641,
+          "sha256": "2cb1c18da6353c5eaa0346abf7ff3f8fcc08a82da211bd040387a71f37c4f57e",
+          "file": "sdzy-homepage.html",
+          "elapsed_ms": 7406,
+          "conditions_and_usage_lines": [
+            "郑重承诺：资源永久免费,资源不含任何诈骗广告,采用国内CDN加速，速度快到无法想象！",
+            "本站图片地址采用远程方式，可以调用， 但采集的同时建议将图片同步本地，避免日后图片失效。",
+            "欢迎各位新老站长加盟采集！更多资源福利分享，尽在站长资源分享群！",
+            "本站屏蔽欧美 欧洲 线路播放",
+            "由于之前播放域名被屏蔽  带来不便"
+          ]
+        },
+        {
+          "url": "https://www.shandianzy.com/help/",
+          "checked_utc": "2026-11-03T00:00:20.458261+00:00",
+          "authentication": "none",
+          "cookies": "none",
+          "status": 200,
+          "final_url": "https://www.shandianzy.com/help/",
+          "content_type": "text/html",
+          "content_length": null,
+          "bytes": 26094,
+          "sha256": "0b430acd7365d2d980c62f7940cffc49a0f9dc4b49475e811d5acbbc4cc148f0",
+          "file": "sdzy-help.html",
+          "elapsed_ms": 5735,
+          "conditions_and_usage_lines": [
+            "APP json接口",
+            "资源 http 容易被国内屏蔽 导致无法播放",
+            "高清画质 国内商业CDN 秒拖秒播",
+            "无法采集请加群私聊管理员加白名单",
+            "本站图片地址后期将采用图床样式，可以调用， 采集的同时，也可以把图片下载到本地（推荐），以免杜绝日后出现类似图片失效的情况。",
+            "app json接口"
+          ]
+        }
+      ],
+      "api_probes_file": "sdzy-summary.json",
+      "media_probes_file": "sdzy-media-summary.json"
+    },
+    {
+      "provider": {
+        "id": "snzy",
+        "name": "索尼资源",
+        "kind": "maccms",
+        "api": "https://suoniapi.com/api.php/provide/vod/",
+        "homepage": "https://suonizy.net/",
+        "help": "https://suonizy.net/help/"
+      },
+      "recommended": false,
+      "reason": "official help prohibits direct production-app use",
+      "primary_pages": [
+        {
+          "url": "https://suonizy.net/",
+          "checked_utc": "2026-11-03T00:00:13.046074+00:00",
+          "authentication": "none",
+          "cookies": "none",
+          "status": 200,
+          "final_url": "https://suonizy.net/",
+          "content_type": "text/html; charset=utf-8",
+          "content_length": null,
+          "bytes": 46312,
+          "sha256": "1447d4848bb4e8be9b6f933592da53a73d2c04b00b975d615f139676e2dec8cb",
+          "file": "snzy-homepage.html",
+          "elapsed_ms": 6703,
+          "conditions_and_usage_lines": [
+            "高清画质,更新快,秒播,国内线路!永久免费的资源站！欢迎采集。",
+            "本站屏蔽美国,欧洲线路播放",
+            "免费模板",
+            "由于之前播放域名被屏蔽  带来不便"
+          ]
+        },
+        {
+          "url": "https://suonizy.net/help/",
+          "checked_utc": "2026-11-03T00:00:19.747845+00:00",
+          "authentication": "none",
+          "cookies": "none",
+          "status": 200,
+          "final_url": "https://suonizy.net/help/",
+          "content_type": "text/html",
+          "content_length": null,
+          "bytes": 21985,
+          "sha256": "65eadc27844f4e54ed0cbc672b9b1a985af8146373bd1cf38f447d581914ded2",
+          "file": "snzy-help.html",
+          "elapsed_ms": 5703,
+          "conditions_and_usage_lines": [
+            "APP json接口",
+            "资源 http 容易被国内屏蔽 导致无法播放",
+            "高清画质 国内商业CDN 秒拖秒播",
+            "无法采集请加群私聊管理员加白名单",
+            "本站图片地址后期将采用图床样式，可以调用， 采集的同时，也可以把图片下载到本地（推荐），以免杜绝日后出现类似图片失效的情况。",
+            "app json接口",
+            "注意：app接口仅供调试，不允许直接调用到生产环境，违者必封ip"
+          ]
+        }
+      ],
+      "api_probes_file": "snzy-summary.json",
+      "media_probes_file": null
+    }
+  ],
+  "ryzy_actual_headers": "ryzy-actual-header-summary.json",
+  "ryzy_actual_parser_tests": "real-fixture-verification.json",
+  "no_prohibition_scope": "For Ruyi only the saved official home/help snapshot was checked; no production-app prohibition found there. This is not media-rights authorization or a future availability guarantee.",
+  "discovery_only_github": [
+    "https://github.com/hd9211/Tvbox1/blob/main/zy.json",
+    "https://github.com/qist/tvbox/blob/master/dianshi.json"
+  ]
+}

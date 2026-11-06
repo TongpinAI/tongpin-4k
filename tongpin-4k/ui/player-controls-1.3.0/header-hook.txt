@@ -1,0 +1,2 @@
+.implements Lcom/tongpin/player4k/catalog/LegacyPlayerControls$Host;
+    invoke-static {p0, p0}, Lcom/tongpin/player4k/catalog/LegacyPlayerControls;->bind(Landroid/app/Activity;Lcom/tongpin/player4k/catalog/LegacyPlayerControls$Host;)V

@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "provider_count": 8,
+  "config_sha256": "f4d9810b075ca7a67d28b22bcb4aeef18d06a37f655c0fa074c5a7a4cbccd658",
+  "production_catalog_api_sha256": "bde2ffbf12c6008f751db263852125f1fb50dbe8d7b0cf3852c4e4d4d3df5193",
+  "production_fixture_report": "open-sources/research/additional-2026-11-03/discovery-rea/all-sources-fixture-verification.json",
+  "production_fixture_report_sha256": "0174b6df589a4efa952ce9b9974c21da493ab6e01898dca991775815fdc98484",
+  "replay_config_synced": true,
+  "runtime_apk_tested": false
+}

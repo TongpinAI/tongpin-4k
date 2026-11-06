@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "constructors_attached": 2,
+  "constructor_locals_unchanged": true,
+  "new_state_override": ".method protected setStateAndUi(I)V",
+  "original_super_called_first": true,
+  "original_code_unchanged_after_removing_additions": true,
+  "routes": [
+    "phone.VideoDetailPlayActivity",
+    "phone.TestPlayerAct",
+    "their EmptyControlVideoView fullscreen clones"
+  ]
+}

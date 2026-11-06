@@ -1,0 +1,191 @@
+--- before/decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity.smali
++++ decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity.smali
+@@ -1,5 +1,6 @@
+ .class public final Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;
+ .super Lcom/shenma/tvlauncher/phone/base/BaseDbActivity;
++.implements Lcom/tongpin/player4k/catalog/LegacyPlayerControls$Host;
+ .source "r8-map-id-4c0b28e571086534d372af241f48ba94b5a529610dacb5d0006953fc02fc614b"
+ 
+ 
+@@ -2521,6 +2522,7 @@
+     .line 19
+     .line 20
+     .line 21
++    invoke-static {p0, p0}, Lcom/tongpin/player4k/catalog/LegacyPlayerControls;->bind(Landroid/app/Activity;Lcom/tongpin/player4k/catalog/LegacyPlayerControls$Host;)V
+     return-void
+ 
+     .line 22
+@@ -2619,6 +2621,7 @@
+     .line 70
+     .line 71
+     .line 72
++    invoke-static {p0, p0}, Lcom/tongpin/player4k/catalog/LegacyPlayerControls;->bind(Landroid/app/Activity;Lcom/tongpin/player4k/catalog/LegacyPlayerControls$Host;)V
+     return-void
+ 
+     .line 73
+@@ -2680,6 +2683,7 @@
+     .line 100
+     .line 101
+     .line 102
++    invoke-static {p0, p0}, Lcom/tongpin/player4k/catalog/LegacyPlayerControls;->bind(Landroid/app/Activity;Lcom/tongpin/player4k/catalog/LegacyPlayerControls$Host;)V
+     return-void
+ 
+     .line 103
+@@ -2952,6 +2956,7 @@
+     .line 236
+     .line 237
+     .line 238
++    invoke-static {p0, p0}, Lcom/tongpin/player4k/catalog/LegacyPlayerControls;->bind(Landroid/app/Activity;Lcom/tongpin/player4k/catalog/LegacyPlayerControls$Host;)V
+     return-void
+ 
+     .line 239
+@@ -2998,6 +3003,7 @@
+     .line 257
+     .line 258
+     .line 259
++    invoke-static {p0, p0}, Lcom/tongpin/player4k/catalog/LegacyPlayerControls;->bind(Landroid/app/Activity;Lcom/tongpin/player4k/catalog/LegacyPlayerControls$Host;)V
+     return-void
+ 
+     .line 260
+@@ -3130,6 +3136,7 @@
+ 
+     .line 326
+     .line 327
++    invoke-static {p0, p0}, Lcom/tongpin/player4k/catalog/LegacyPlayerControls;->bind(Landroid/app/Activity;Lcom/tongpin/player4k/catalog/LegacyPlayerControls$Host;)V
+     return-void
+ .end method
+ 
+@@ -5508,6 +5515,7 @@
+     .line 381
+     .line 382
+     .line 383
++    invoke-static {p0, p0}, Lcom/tongpin/player4k/catalog/LegacyPlayerControls;->bind(Landroid/app/Activity;Lcom/tongpin/player4k/catalog/LegacyPlayerControls$Host;)V
+     return-void
+ .end method
+ 
+@@ -7738,6 +7746,7 @@
+     .line 75
+     .line 76
+     .line 77
++    invoke-static {p0, p0}, Lcom/tongpin/player4k/catalog/LegacyPlayerControls;->bind(Landroid/app/Activity;Lcom/tongpin/player4k/catalog/LegacyPlayerControls$Host;)V
+     return-void
+ 
+     .line 78
+@@ -8593,6 +8602,7 @@
+     .line 501
+     .line 502
+     :cond_c
++    invoke-static {p0, p0}, Lcom/tongpin/player4k/catalog/LegacyPlayerControls;->bind(Landroid/app/Activity;Lcom/tongpin/player4k/catalog/LegacyPlayerControls$Host;)V
+     return-void
+ .end method
+ 
+@@ -18267,3 +18277,94 @@
+     invoke-static {p0, v0, v1}, Lcom/tongpin/player4k/catalog/LegacyEpisodeOrder;->bind(Landroid/app/Activity;Ljava/lang/Object;Ljava/lang/Object;)V
+     return-void
+ .end method
++
++
++.method public legacyEpisodeIndex()I
++    .locals 1
++    iget v0, p0, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->h:I
++    return v0
++.end method
++
++.method public legacyEpisodeCount()I
++    .locals 3
++    iget-object v0, p0, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->f:Ljava/util/List;
++    if-eqz v0, :legacy_no_episodes
++    iget v1, p0, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->g:I
++    if-ltz v1, :legacy_no_episodes
++    invoke-interface {v0}, Ljava/util/List;->size()I
++    move-result v2
++    if-ge v1, v2, :legacy_no_episodes
++    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
++    move-result-object v0
++    check-cast v0, Lcom/shenma/tvlauncher/entity/PlayerSource;
++    if-eqz v0, :legacy_no_episodes
++    invoke-virtual {v0}, Lcom/shenma/tvlauncher/entity/PlayerSource;->getList()Ljava/util/List;
++    move-result-object v0
++    if-eqz v0, :legacy_no_episodes
++    invoke-interface {v0}, Ljava/util/List;->size()I
++    move-result v0
++    return v0
++    :legacy_no_episodes
++    const/4 v0, 0x0
++    return v0
++.end method
++
++.method public legacyPlayEpisode(I)V
++    .locals 2
++    if-ltz p1, :legacy_episode_done
++    invoke-virtual {p0}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->legacyEpisodeCount()I
++    move-result v0
++    if-ge p1, v0, :legacy_episode_done
++    iget v0, p0, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->h:I
++    if-eq p1, v0, :legacy_episode_done
++    iget-object v0, p0, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->f:Ljava/util/List;
++    iget v1, p0, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->g:I
++    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
++    move-result-object v0
++    check-cast v0, Lcom/shenma/tvlauncher/entity/PlayerSource;
++    invoke-virtual {v0}, Lcom/shenma/tvlauncher/entity/PlayerSource;->getList()Ljava/util/List;
++    move-result-object v0
++    invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
++    move-result-object v0
++    check-cast v0, Lcom/shenma/tvlauncher/vod/domain/VodUrl;
++    invoke-static {p0, v0, p1}, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->P1(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;Lcom/shenma/tvlauncher/vod/domain/VodUrl;I)Lm7/f0;
++    :legacy_episode_done
++    return-void
++.end method
++
++.method public legacySeekBy(J)Z
++    .locals 8
++    invoke-virtual {p0}, Lcom/shenma/tvlauncher/phone/base/BaseDbActivity;->getMDataBind()Landroidx/databinding/ViewDataBinding;
++    move-result-object v0
++    check-cast v0, Lc6/w;
++    iget-object v0, v0, Lc6/w;->i:Lcom/shenma/tvlauncher/phone/EmptyControlVideoView;
++    invoke-virtual {v0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->getCurrentState()I
++    move-result v1
++    const/4 v2, 0x2
++    if-eq v1, v2, :legacy_seek_ready
++    const/4 v2, 0x3
++    if-eq v1, v2, :legacy_seek_ready
++    const/4 v2, 0x5
++    if-eq v1, v2, :legacy_seek_ready
++    const/4 v2, 0x6
++    if-ne v1, v2, :legacy_seek_unavailable
++    :legacy_seek_ready
++    invoke-virtual {v0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoPlayer;->getGSYVideoManager()Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoViewBridge;
++    move-result-object v1
++    invoke-interface {v1}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoViewBridge;->getCurrentPosition()J
++    move-result-wide v2
++    invoke-virtual {v0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->getDuration()J
++    move-result-wide v4
++    move-wide v6, p1
++    invoke-static/range {v2 .. v7}, Lcom/tongpin/player4k/catalog/LegacyPlayerControls;->seekTarget(JJJ)J
++    move-result-wide v2
++    const-wide/16 v4, 0x0
++    cmp-long v1, v2, v4
++    if-ltz v1, :legacy_seek_unavailable
++    invoke-virtual {v0, v2, v3}, Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->seekTo(J)V
++    const/4 v0, 0x1
++    return v0
++    :legacy_seek_unavailable
++    const/4 v0, 0x0
++    return v0
++.end method
+--- before/decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity$n.smali
++++ decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity$n.smali
+@@ -229,6 +229,12 @@
+     .line 30
+     .line 31
+     .line 32
++    iget-object v0, p0, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity$n;->b:Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;
++    invoke-static {v0}, Lcom/tongpin/player4k/catalog/LegacyPlayerControls;->autoNextEnabled(Landroid/content/Context;)Z
++    move-result v0
++    if-nez v0, :legacy_auto_next_enabled
++    return-void
++    :legacy_auto_next_enabled
+     iget-object p1, p0, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity$n;->b:Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;
+ 
+     .line 33

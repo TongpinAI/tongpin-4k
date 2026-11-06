@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "apk_sha256": "93b75fe98303a24336c87f4c944f56afe0aef0afc64f4d18965a34c268e9093c",
+  "downloads_hash_identical": true,
+  "production_inputs_match_frozen": true,
+  "all15_prior131_release_evidence_unchanged": true,
+  "first4_dex_unchanged": true,
+  "source_registry_unchanged": true,
+  "compiled_grid_remaining_height_constraint": true,
+  "compiled_item_wrap_content_14sp_min48_two_lines": true,
+  "device_tested": false
+}

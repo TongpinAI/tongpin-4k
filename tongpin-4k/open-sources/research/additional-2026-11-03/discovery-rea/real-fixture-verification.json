@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "production_source_sha256": "bde2ffbf12c6008f751db263852125f1fb50dbe8d7b0cf3852c4e4d4d3df5193",
+  "host_only_org_json_sha256": "c243f45f9590c12694a4142ed3f07fc70dfb71e4daebd05ae234bf92a2da92a6",
+  "logs": [
+    {
+      "exit": 0,
+      "output": "Note: C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\����\\tongpin-4k\\open-sources\\src\\com\\tongpin\\player4k\\catalog\\CatalogApi.java uses or overrides a deprecated API.\nNote: Recompile with -Xlint:deprecation for details.\n"
+    },
+    {
+      "exit": 0,
+      "output": "PASS: 55 real-response assertions against current phone CatalogApi; no production source edits.\n"
+    }
+  ]
+}

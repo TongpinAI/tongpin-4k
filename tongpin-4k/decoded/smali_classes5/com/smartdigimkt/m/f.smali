@@ -1,0 +1,80 @@
+.class public final Lcom/smartdigimkt/m/f;
+.super Ljava/lang/Object;
+.source "r8-map-id-4c0b28e571086534d372af241f48ba94b5a529610dacb5d0006953fc02fc614b"
+
+# interfaces
+.implements Ljava/lang/Runnable;
+
+
+# instance fields
+.field public final synthetic a:Lcom/smartdigimkt/k/r;
+
+.field public final synthetic b:Lcom/smartdigimkt/m/j;
+
+
+# direct methods
+.method public constructor <init>(Lcom/smartdigimkt/m/j;Lcom/smartdigimkt/k/r;)V
+    .locals 0
+
+    .line 1
+    iput-object p1, p0, Lcom/smartdigimkt/m/f;->b:Lcom/smartdigimkt/m/j;
+
+    .line 2
+    .line 3
+    iput-object p2, p0, Lcom/smartdigimkt/m/f;->a:Lcom/smartdigimkt/k/r;
+
+    .line 4
+    .line 5
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 6
+    .line 7
+    .line 8
+    return-void
+.end method
+
+
+# virtual methods
+.method public final run()V
+    .locals 9
+
+    .line 1
+    iget-object v0, p0, Lcom/smartdigimkt/m/f;->b:Lcom/smartdigimkt/m/j;
+
+    .line 2
+    .line 3
+    iget-object v1, p0, Lcom/smartdigimkt/m/f;->a:Lcom/smartdigimkt/k/r;
+
+    .line 4
+    .line 5
+    invoke-virtual {v0, v1}, Lcom/smartdigimkt/m/j;->a(Lcom/smartdigimkt/k/r;)V
+
+    .line 6
+    .line 7
+    .line 8
+    iget-object v2, p0, Lcom/smartdigimkt/m/f;->b:Lcom/smartdigimkt/m/j;
+
+    .line 9
+    .line 10
+    iget-object v3, p0, Lcom/smartdigimkt/m/f;->a:Lcom/smartdigimkt/k/r;
+
+    .line 11
+    .line 12
+    const-wide/16 v6, 0x64
+
+    .line 13
+    .line 14
+    const/4 v8, 0x1
+
+    .line 15
+    const-wide/16 v4, 0x0
+
+    .line 16
+    .line 17
+    invoke-virtual/range {v2 .. v8}, Lcom/smartdigimkt/m/j;->a(Lcom/smartdigimkt/k/r;JJZ)V
+
+    .line 18
+    .line 19
+    .line 20
+    return-void
+.end method

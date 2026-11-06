@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>索尼资源网</title>
+    <meta name="keywords" content="短视频,搞笑视频,视频分享,免费视频,在线视频,预告片" />
+    <meta name="description" content="提供最新最快的视频分享数据" />
+    <script src="/static/js/jquery.js"></script>
+<script src="/static/js/jquery.autocomplete.js"></script>
+<script>var maccms={"path":"","mid":"","aid":"1","url":"www.test.cn","wapurl":"wap.test.cn","mob_status":"0"};</script>
+<script src="/static/js/home.js"></script>
+<script src="/template/suo/js/tpl.js"></script>
+<link rel="stylesheet" href="/static/suoni/css/style.css" />
+<link rel="stylesheet" href="/static/suoni/css/index.css?v=1" />
+<link rel="stylesheet" href="/static/suoni/css/pagination.css" />
+<link rel="icon" type="image/png" sizes="96x96" href="/static/suoni/img/favicon-96x96.png">
+  </head>
+  <body>
+     <header class="nav">
+      <div class="content">
+        <div class="nav-top">
+          <img class="logo" src="/static/suoni/img/logo.png" alt="" />
+          <div class="menu-box">
+            <div class="menu-item"><a href="/">首页</a></div>
+            <div class="menu-item">
+              <a href="/vodtype/1.html">电影</a>
+              <img src="/static/suoni/img/down.png" alt="" />
+              <div class="dropdown-menu">
+			                  <div class="dropdown-item"><a href="/vodtype/6.html">动作片</a></div>
+                               <div class="dropdown-item"><a href="/vodtype/7.html">喜剧片</a></div>
+                               <div class="dropdown-item"><a href="/vodtype/8.html">爱情片</a></div>
+                               <div class="dropdown-item"><a href="/vodtype/9.html">科幻片</a></div>
+                               <div class="dropdown-item"><a href="/vodtype/10.html">恐怖片</a></div>
+                               <div class="dropdown-item"><a href="/vodtype/11.html">剧情片</a></div>
+                               <div class="dropdown-item"><a href="/vodtype/12.html">战争片</a></div>
+                               <div class="dropdown-item"><a href="/vodtype/20.html">纪录片</a></div>
+                               <div class="dropdown-item"><a href="/vodtype/39.html">动画片</a></div>
+                               <div class="dropdown-item"><a href="/vodtype/62.html">4K电影</a></div>
+                               <div class="dropdown-item"><a href="/vodtype/70.html">邵氏电影</a></div>
+                               <div class="dropdown-item"><a href="/vodtype/71.html">Netflix电影</a></div>
+                             </div>
+            </div>
+            <div class="menu-item">
+              <a href="/vodtype/2.html">电视剧</a>
+              <img src="/static/suoni/img/down.png" alt="" />
+              <div class="dropdown-menu">
+			                  <div class="dropdown-item"><a href="/vodtype/13.html">国产剧</a></div>
+                               <div class="dropdown-item"><a href="/vodtype/14.html">欧美剧</a></div>
+                               <div class="dropdown-item"><a href="/vodtype/15.html">韩剧</a></div>
+                               <div class="dropdown-item"><a href="/vodtype/16.html">日剧</a></div>
+                               <div class="dropdown-item"><a href="/vodtype/17.html">港剧</a></div>
+                               <div class="dropdown-item"><a href="/vodtype/18.html">台剧</a></div>
+                               <div class="dropdown-item"><a href="/vodtype/19.html">泰剧</a></div>
+                               <div class="dropdown-item"><a href="/vodtype/23.html">海外剧</a></div>
+                               <div class="dropdown-item"><a href="/vodtype/72.html">Netflix自制剧</a></div>
+                             </div>
+            </div>
+            <div class="menu-item">
+              <a href="/vodtype/3.html">综艺</a>
+              <img src="/static/suoni/img/down.png" alt="" />
+              <div class="dropdown-menu">
+			                  <div class="dropdown-item"><a href="/vodtype/25.html">大陆综艺</a></div>
+                               <div class="dropdown-item"><a href="/vodtype/26.html">日韩综艺</a></div>
+                               <div class="dropdown-item"><a href="/vodtype/27.html">港台综艺</a></div>
+                               <div class="dropdown-item"><a href="/vodtype/28.html">欧美综艺</a></div>
+                               <div class="dropdown-item"><a href="/vodtype/47.html">演唱会</a></div>
+                               <div class="dropdown-item"><a href="/vodtype/77.html">儿童儿歌</a></div>
+                             </div>
+            </div>
+            <div class="menu-item">
+              <a href="/vodtype/4.html">动漫</a>
+              <img src="/static/suoni/img/down.png" alt="" />
+              <div class="dropdown-menu">
+			                  <div class="dropdown-item"><a href="/vodtype/29.html">国产动漫</a></div>
+                               <div class="dropdown-item"><a href="/vodtype/30.html">日韩动漫</a></div>
+                               <div class="dropdown-item"><a href="/vodtype/31.html">欧美动漫</a></div>
+                               <div class="dropdown-item"><a href="/vodtype/44.html">港台动漫</a></div>
+                               <div class="dropdown-item"><a href="/vodtype/45.html">海外动漫</a></div>
+                             </div>
+            </div>
+            <div class="menu-item">
+              <a href="/vodtype/48.html">体育赛事</a>
+              <img src="/static/suoni/img/down.png" alt="" />
+              <div class="dropdown-menu">
+			                  <div class="dropdown-item"><a href="/vodtype/49.html">篮球</a></div>
+                               <div class="dropdown-item"><a href="/vodtype/50.html">足球</a></div>
+                             </div>
+            </div>
+            <div class="menu-item">
+              <a href="/vodtype/54.html">爽文短剧</a>
+              <img src="/static/suoni/img/down.png" alt="" />
+              <div class="dropdown-menu">
+			                  <div class="dropdown-item"><a href="/vodtype/63.html">有声动漫</a></div>
+                               <div class="dropdown-item"><a href="/vodtype/64.html">女频恋爱</a></div>
+                               <div class="dropdown-item"><a href="/vodtype/65.html">反转爽剧</a></div>
+                               <div class="dropdown-item"><a href="/vodtype/66.html">古装仙侠</a></div>
+                               <div class="dropdown-item"><a href="/vodtype/67.html">年代穿越</a></div>
+                               <div class="dropdown-item"><a href="/vodtype/68.html">脑洞悬疑</a></div>
+                               <div class="dropdown-item"><a href="/vodtype/69.html">现代都市</a></div>
+                               <div class="dropdown-item"><a href="/vodtype/73.html">擦边短剧</a></div>
+                               <div class="dropdown-item"><a href="/vodtype/76.html">漫剧</a></div>
+                             </div>
+            </div>
+            <div class="menu-item">
+              <a href="/vodtype/55.html">伦理</a>
+              <img src="/static/suoni/img/down.png" alt="" />
+              <div class="dropdown-menu">
+			                  <div class="dropdown-item"><a href="/vodtype/56.html">港台三级</a></div>
+                               <div class="dropdown-item"><a href="/vodtype/57.html">韩国伦理</a></div>
+                               <div class="dropdown-item"><a href="/vodtype/58.html">西方伦理</a></div>
+                               <div class="dropdown-item"><a href="/vodtype/59.html">日本伦理</a></div>
+                               <div class="dropdown-item"><a href="/vodtype/60.html">两性课堂</a></div>
+                               <div class="dropdown-item"><a href="/vodtype/61.html">写真热舞</a></div>
+                             </div>
+            </div>
+            <div class="menu-item">
+              <a href="/vodtype/74.html">预告解说</a>
+              <img src="/static/suoni/img/down.png" alt="" />
+              <div class="dropdown-menu">
+			                  <div class="dropdown-item"><a href="/vodtype/51.html">预告片</a></div>
+                               <div class="dropdown-item"><a href="/vodtype/53.html">影视解说</a></div>
+                             </div>
+            </div>
+            <div class="menu-item">
+              <a href="/vodtype/75.html">科普学习</a>
+              <img src="/static/suoni/img/down.png" alt="" />
+              <div class="dropdown-menu">
+			                </div>
+            </div>
+            <div class="menu-item">
+              <!-- <a href="https://www.suoniys.com/" target="_blank">演示站</a>
+              <div class="song">体验</div> -->
+            </div>
+          </div>
+          <div class="nav-icon">
+            <img src="/static/suoni/img/caiji.png" alt="" />
+            <div> <a href="/help" target="_blank">采集教程</a></div>
+          </div>
+          <div class="nav-icon" style="margin-left: 32px">
+            <img src="/static/suoni/img/qiupian.png" alt="" />
+            <div> <a href="/gbook.html" target="_blank">求片必应</a></div>
+          </div>
+        </div>
+        <div class="nav-bottom">
+          <div class="flex">
+            <div class="nav-total">
+              <img src="/static/suoni/img/statistics.png" alt="" />
+              <div class="text">本站统计</div>
+              <div class="num">146742</div>
+            </div>
+            <div class="nav-total" style="margin-left: 40px">
+              <img src="/static/suoni/img/today.png" alt="" />
+              <div class="text">今日更新</div>
+              <div class="num">0</div>
+            </div>
+          </div>
+          <div class="nav-input">
+		  <form method="get" style="display: flex;align-items: center; justify-content: space-between;flex:1;" action="/vodsearch/-------------.html">
+            <input  type="text" autocomplete="off" name="wd" id="wd" value="" placeholder="搜索你想看的内容" />
+            <button type="submit" style="width: 16px;height: 16px;border: none;cursor: pointer;position: relative;padding: 0;">
+                <img style="padding: 0;" src="/static/suoni/img/search.png" alt="" />
+            </button>
+		  </form>
+          </div>
+        </div>
+
+         <script src="https://ad.niuniuzs.cc/ad.js"></script>
+      </div>
+    </header>
+	
+    <div class="home-content">
+      <div class="content">
+        <div class="link-box">
+          <!--<div class="link-item">
+            <div class="link-title">新手站长建站教程：</div>
+            <a href="/help" target="_blank">点击查看帮助</a>
+          </div>-->
+          <div class="link-item">
+            <div class="link-title">M3U8视频解析：</div>
+            <a href="https://dxfbk.com/?url=" target="_blank">https://dxfbk.com/?url=</a>
+          </div>
+           <div class="link-item"> 
+             <div class="link-title">M3U8采集：</div> 
+             <a href="https://suoniapi.com/api.php/provide/vod/from/snm3u8/at/xml" target="_blank"> https://suoniapi.com/api.php/provide/vod/from/snm3u8/at/xml</a> 
+           </div>
+           
+           <div class="link-item"> 
+            <div class="link-title">josn采集：</div> 
+             <a href="https://suoniapi.com/api.php/provide/vod/?ac=list" target="_blank"> https://suoniapi.com/api.php/provide/vod/?ac=list</a>
+           </div>
+           
+          <div class="link-item">
+            <div class="link-title">索尼资源网址：</div>
+            <a href="https://suonizy.net" target="_blank">suonizy.net</a>、<a href="https://suonizy.cc" target="_blank">suonizy.cc</a>
+          </div>
+           <div class="link-item">
+            <div class="link-title" style="color: #ff0000;"><a href="/gg" target="_blank">紧急公告： >>> 2026/05/24替换域名-请点击进入查看 <<<</a></div>
+          </div>
+          
+            <div class="link-item">
+            <div class="link-title" style="color: #ff0000;">高清画质,更新快,秒播,国内线路!永久免费的资源站！欢迎采集。</div>
+          </div>
+           <div class="link-item">
+            <div class="link-title"><font color="#FF0000">本站屏蔽美国,欧洲线路播放</font></div>
+          </div>
+        
+
+        
+        </div>
+        <!-- 表头 -->
+        <div class="tab-box">
+          <table cellspacing="0">
+            <thead>
+              <tr>
+                <th class="table-left"><div class="left-box">影片名称</div></th>
+                <th>影片地区</th>
+                <th>影片类型</th>
+                <th>获取地址</th>
+                <th class="table-right"><div>更新时间</div></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/158154.html">暑假</a></div>
+                    <div class="tr-num">更新至03集</div>
+                  </div>
+                </td>
+                <td>韩国</td>
+                <td>【韩剧】</td>
+                <td><a href="/voddetail/158154.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 23:27:04</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/156430.html">恋爱博士</a></div>
+                    <div class="tr-num">更新至09集</div>
+                  </div>
+                </td>
+                <td>韩国</td>
+                <td>【韩剧】</td>
+                <td><a href="/voddetail/156430.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 23:04:34</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/157530.html">非常律师南田南</a></div>
+                    <div class="tr-num">更新至03集</div>
+                  </div>
+                </td>
+                <td>日本</td>
+                <td>【日剧】</td>
+                <td><a href="/voddetail/157530.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 22:39:46</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/157785.html">田园恋曲</a></div>
+                    <div class="tr-num">更新至06集</div>
+                  </div>
+                </td>
+                <td>泰国</td>
+                <td>【泰剧】</td>
+                <td><a href="/voddetail/157785.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 22:19:22</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/158710.html">授课到天亮Chu</a></div>
+                    <div class="tr-num">HD中字</div>
+                  </div>
+                </td>
+                <td>日本</td>
+                <td>【日本伦理】</td>
+                <td><a href="/voddetail/158710.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 22:16:17</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/157529.html">我的有罪之人</a></div>
+                    <div class="tr-num">更新至05集</div>
+                  </div>
+                </td>
+                <td>韩国</td>
+                <td>【韩剧】</td>
+                <td><a href="/voddetail/157529.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 22:05:14</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/156426.html">你好、我是受心上人所托来做恋爱药的魔女</a></div>
+                    <div class="tr-num">更新至05集</div>
+                  </div>
+                </td>
+                <td>日本</td>
+                <td>【日韩动漫】</td>
+                <td><a href="/voddetail/156426.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 21:42:03</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/156428.html">转生成哥布林有问题吗？</a></div>
+                    <div class="tr-num">更新至06集</div>
+                  </div>
+                </td>
+                <td>日本</td>
+                <td>【日韩动漫】</td>
+                <td><a href="/voddetail/156428.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 21:41:14</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/82524.html">新老娘舅</a></div>
+                    <div class="tr-num">更新至20261102期</div>
+                  </div>
+                </td>
+                <td>中国大陆</td>
+                <td>【大陆综艺】</td>
+                <td><a href="/voddetail/82524.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 21:21:30</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/82526.html">人气美食</a></div>
+                    <div class="tr-num">更新至20261102期</div>
+                  </div>
+                </td>
+                <td>中国大陆</td>
+                <td>【大陆综艺】</td>
+                <td><a href="/voddetail/82526.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 21:21:16</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/155264.html">生化危机：爆发夜</a></div>
+                    <div class="tr-num">HD中字</div>
+                  </div>
+                </td>
+                <td>美国</td>
+                <td>【恐怖片】</td>
+                <td><a href="/voddetail/155264.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 21:20:46</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/156247.html">记忆修理店</a></div>
+                    <div class="tr-num">更新至10集</div>
+                  </div>
+                </td>
+                <td>泰国</td>
+                <td>【泰剧】</td>
+                <td><a href="/voddetail/156247.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 20:43:06</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/153044.html">爱·回家之三代同糖粤语</a></div>
+                    <div class="tr-num">更新至60集</div>
+                  </div>
+                </td>
+                <td>中国香港</td>
+                <td>【港剧】</td>
+                <td><a href="/voddetail/153044.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 20:22:01</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/153043.html">爱·回家之三代同糖国语</a></div>
+                    <div class="tr-num">更新至60集</div>
+                  </div>
+                </td>
+                <td>中国香港</td>
+                <td>【港剧】</td>
+                <td><a href="/voddetail/153043.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 20:21:48</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/82912.html">欢乐集结号</a></div>
+                    <div class="tr-num">更新20261102期</div>
+                  </div>
+                </td>
+                <td>中国大陆</td>
+                <td>【大陆综艺】</td>
+                <td><a href="/voddetail/82912.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 20:19:06</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/156744.html">伟大的长征</a></div>
+                    <div class="tr-num">更新至43集</div>
+                  </div>
+                </td>
+                <td>中国大陆</td>
+                <td>【国产剧】</td>
+                <td><a href="/voddetail/156744.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 20:18:45</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/157103.html">当妈不容易</a></div>
+                    <div class="tr-num">更新至26集</div>
+                  </div>
+                </td>
+                <td>中国大陆</td>
+                <td>【国产剧】</td>
+                <td><a href="/voddetail/157103.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 20:07:10</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/157871.html">尚公主</a></div>
+                    <div class="tr-num">更新至23集</div>
+                  </div>
+                </td>
+                <td>中国大陆</td>
+                <td>【国产剧】</td>
+                <td><a href="/voddetail/157871.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 19:59:38</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/35030.html">吞噬星空</a></div>
+                    <div class="tr-num">更新至248集</div>
+                  </div>
+                </td>
+                <td>大陆</td>
+                <td>【国产动漫】</td>
+                <td><a href="/voddetail/35030.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 19:13:33</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/158709.html">宝莲灯凡心问天</a></div>
+                    <div class="tr-num">HD国语</div>
+                  </div>
+                </td>
+                <td>中国大陆</td>
+                <td>【动画片】</td>
+                <td><a href="/voddetail/158709.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 18:52:08</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/155345.html">高地迷踪第二季</a></div>
+                    <div class="tr-num">更新至08集</div>
+                  </div>
+                </td>
+                <td>澳大利亚</td>
+                <td>【海外剧】</td>
+                <td><a href="/voddetail/155345.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 18:32:18</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/158219.html">天狗的厨房第三季</a></div>
+                    <div class="tr-num">更新至05集</div>
+                  </div>
+                </td>
+                <td>日本</td>
+                <td>【日剧】</td>
+                <td><a href="/voddetail/158219.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 18:31:54</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/157524.html">装备我最强</a></div>
+                    <div class="tr-num">更新至06集</div>
+                  </div>
+                </td>
+                <td>日本</td>
+                <td>【日韩动漫】</td>
+                <td><a href="/voddetail/157524.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 18:31:25</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/151097.html">灵珠传：神妙奇珠</a></div>
+                    <div class="tr-num">更新至21集</div>
+                  </div>
+                </td>
+                <td>泰国</td>
+                <td>【泰剧】</td>
+                <td><a href="/voddetail/151097.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 18:31:03</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/82525.html">第三调解室</a></div>
+                    <div class="tr-num">更新至20261102期</div>
+                  </div>
+                </td>
+                <td>中国大陆</td>
+                <td>【大陆综艺】</td>
+                <td><a href="/voddetail/82525.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 18:17:36</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/59345.html">男生女生向前冲</a></div>
+                    <div class="tr-num">更新至20261102期</div>
+                  </div>
+                </td>
+                <td>中国大陆</td>
+                <td>【大陆综艺】</td>
+                <td><a href="/voddetail/59345.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 18:17:19</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/32701.html">毛雪汪</a></div>
+                    <div class="tr-num">更新至20261102期</div>
+                  </div>
+                </td>
+                <td>大陆</td>
+                <td>【大陆综艺】</td>
+                <td><a href="/voddetail/32701.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 18:17:03</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/158708.html">野猪岭</a></div>
+                    <div class="tr-num">HD中字</div>
+                  </div>
+                </td>
+                <td>美国</td>
+                <td>【恐怖片】</td>
+                <td><a href="/voddetail/158708.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 18:16:39</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/156423.html">寻踪者第四季</a></div>
+                    <div class="tr-num">更新至05集</div>
+                  </div>
+                </td>
+                <td>美国</td>
+                <td>【欧美剧】</td>
+                <td><a href="/voddetail/156423.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 16:51:49</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/156424.html">法警小队第二季</a></div>
+                    <div class="tr-num">更新至05集</div>
+                  </div>
+                </td>
+                <td>美国</td>
+                <td>【欧美剧】</td>
+                <td><a href="/voddetail/156424.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 16:51:22</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/155266.html">行李变变变：四人一箱去旅行</a></div>
+                    <div class="tr-num">更新至09集</div>
+                  </div>
+                </td>
+                <td>韩国</td>
+                <td>【日韩综艺】</td>
+                <td><a href="/voddetail/155266.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 16:51:00</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/158707.html">11月02日 26-27赛季NBA常规赛 篮网VS步行者</a></div>
+                    <div class="tr-num">HD</div>
+                  </div>
+                </td>
+                <td>大陆</td>
+                <td>【篮球】</td>
+                <td><a href="/voddetail/158707.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 15:20:18</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/158706.html">11月02日 26-27赛季NBA常规赛 猛龙VS湖人</a></div>
+                    <div class="tr-num">HD</div>
+                  </div>
+                </td>
+                <td>大陆</td>
+                <td>【篮球】</td>
+                <td><a href="/voddetail/158706.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 15:20:06</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/158705.html">11月02日 26-27赛季NBA常规赛 快船VS勇士</a></div>
+                    <div class="tr-num">HD</div>
+                  </div>
+                </td>
+                <td>大陆</td>
+                <td>【篮球】</td>
+                <td><a href="/voddetail/158705.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 15:19:55</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/158704.html">11月2日 26-27赛季西甲第11轮 毕尔巴鄂竞技VS皇家社会</a></div>
+                    <div class="tr-num">HD</div>
+                  </div>
+                </td>
+                <td>大陆</td>
+                <td>【足球】</td>
+                <td><a href="/voddetail/158704.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 14:20:12</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/158703.html">11月2日 26-27赛季意甲第10轮 尤文图斯VS那不勒斯</a></div>
+                    <div class="tr-num">HD</div>
+                  </div>
+                </td>
+                <td>大陆</td>
+                <td>【足球】</td>
+                <td><a href="/voddetail/158703.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 14:20:00</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/158702.html">11月02日 26-27赛季NBA常规赛 凯尔特人VS魔术</a></div>
+                    <div class="tr-num">HD</div>
+                  </div>
+                </td>
+                <td>大陆</td>
+                <td>【篮球】</td>
+                <td><a href="/voddetail/158702.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 14:19:49</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/158271.html">舟寒知婳意</a></div>
+                    <div class="tr-num">全29集</div>
+                  </div>
+                </td>
+                <td>中国大陆</td>
+                <td>【国产剧】</td>
+                <td><a href="/voddetail/158271.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 13:52:40</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/158664.html">走马上任</a></div>
+                    <div class="tr-num">更新至05集</div>
+                  </div>
+                </td>
+                <td>中国大陆</td>
+                <td>【国产剧】</td>
+                <td><a href="/voddetail/158664.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 13:45:05</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/156164.html">花朵盛开</a></div>
+                    <div class="tr-num">更新至26集</div>
+                  </div>
+                </td>
+                <td>日本</td>
+                <td>【日剧】</td>
+                <td><a href="/voddetail/156164.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 13:44:00</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/31631.html">两天一夜第四季</a></div>
+                    <div class="tr-num">更新至20261102期</div>
+                  </div>
+                </td>
+                <td>韩国</td>
+                <td>【日韩综艺】</td>
+                <td><a href="/voddetail/31631.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 13:43:37</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/158701.html">11月2日 26-27赛季西甲第11轮 埃尔切VS瓦伦西亚</a></div>
+                    <div class="tr-num">HD</div>
+                  </div>
+                </td>
+                <td>大陆</td>
+                <td>【足球】</td>
+                <td><a href="/voddetail/158701.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 13:34:54</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/158700.html">11月2日 26-27赛季英超第9轮 利物浦VS阿森纳</a></div>
+                    <div class="tr-num">HD</div>
+                  </div>
+                </td>
+                <td>大陆</td>
+                <td>【足球】</td>
+                <td><a href="/voddetail/158700.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 13:34:43</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/158699.html">11月2日 26-27赛季法甲第9轮 马赛VS图卢兹</a></div>
+                    <div class="tr-num">HD</div>
+                  </div>
+                </td>
+                <td>大陆</td>
+                <td>【足球】</td>
+                <td><a href="/voddetail/158699.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 13:34:31</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/158698.html">11月2日 26-27赛季法甲第9轮 里昂VS昂热</a></div>
+                    <div class="tr-num">HD</div>
+                  </div>
+                </td>
+                <td>大陆</td>
+                <td>【足球】</td>
+                <td><a href="/voddetail/158698.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 13:34:19</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/158697.html">11月2日 26-27赛季法甲第9轮 巴黎FCVS摩纳哥</a></div>
+                    <div class="tr-num">HD</div>
+                  </div>
+                </td>
+                <td>大陆</td>
+                <td>【足球】</td>
+                <td><a href="/voddetail/158697.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 13:34:08</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/158696.html">11月2日 26-27赛季意甲第10轮 莱切VS热那亚</a></div>
+                    <div class="tr-num">HD</div>
+                  </div>
+                </td>
+                <td>大陆</td>
+                <td>【足球】</td>
+                <td><a href="/voddetail/158696.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 13:33:56</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/158695.html">11月2日 26-27赛季德甲第8轮 法兰克福VS汉堡</a></div>
+                    <div class="tr-num">HD</div>
+                  </div>
+                </td>
+                <td>大陆</td>
+                <td>【足球】</td>
+                <td><a href="/voddetail/158695.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 13:33:44</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/158694.html">11月1日 26-27赛季西甲第11轮 赫塔菲VS塞维利亚</a></div>
+                    <div class="tr-num">HD</div>
+                  </div>
+                </td>
+                <td>大陆</td>
+                <td>【足球】</td>
+                <td><a href="/voddetail/158694.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 13:33:33</div></td>
+              </tr><tr>
+                <td class="table-left">
+                  <div class="left-box">
+                    <div class="title"><a href="/voddetail/158693.html">11月1日 26-27赛季法甲第9轮 斯特拉斯堡VS欧塞尔</a></div>
+                    <div class="tr-num">HD</div>
+                  </div>
+                </td>
+                <td>大陆</td>
+                <td>【足球】</td>
+                <td><a href="/voddetail/158693.html">点此进入</a></td>
+                <td class="table-right"><div>2026-11-02 13:33:21</div></td>
+              </tr> 
+            </tbody>
+          </table>
+        </div>
+        <!-- 分页器 -->
+        <div class="pagination">
+
+
+          <div class="pagination-info">共146742条数据,当前1/2935页</div>
+          <div class="pagination-back"><a style="padding: 2px 16px;" href="/index-1.html" title="首页">首页</a></div>
+          <div class="pagination-item"><a style="padding: 2px 16px;" href="/index-1.html" title="上一页"><img src="/static/suoni/img/wleft.png" alt="" /></a></div>
+                <div class="pagination-item pagination-active" style="padding: 2px 16px;" >1</div>
+                <div class="pagination-item"><a style="padding: 2px 16px;" href="/index-2.html" title="第2页" >2</a></div>
+                <div class="pagination-item"><a style="padding: 2px 16px;" href="/index-3.html" title="第3页" >3</a></div>
+                <div class="pagination-item"><a style="padding: 2px 16px;" href="/index-4.html" title="第4页" >4</a></div>
+                <div class="pagination-item"><a style="padding: 2px 16px;" href="/index-5.html" title="第5页" >5</a></div>
+                  <div class="pagination-item"><a style="padding: 2px 16px;" href="/index-2.html" title="下一页"><img src="/static/suoni/img/wright.png" alt="" /></a></div>
+		  <div class="pagination-back"><a style="padding: 2px 16px;" href="/index-2935.html" title="尾页">尾页</a></div>
+          <div class="pagination-text" style="margin-left: 12px">跳至</div>
+          <div class="pagination-input"><input type="text" placeholder="页码"  id="page" autocomplete="off"  /></div>
+          <div class="pagination-text">页</div>
+          <div style="padding: 2px 16px;"><button class="page_btn mac_page_go" type="button" data-url="/index-PAGELINK.html" data-total="2935" data-sp="_" style="width:50px;height:30px;" >GO</button></div>
+        </div>
+      </div>
+    </div>
+ <div class="fiexd">
+      <div class="fiexd-item">
+        <img src="/static/suoni/img/icon-qq.png" alt="" />
+        <div class="fiexd-num"><a href="https://qm.qq.com/q/8ydaG44vMA">1061835248</a></div>
+        <div class="fiexd-text"><a href="https://qm.qq.com/q/8ydaG44vMA">点击加入QQ群</a></div>
+      </div>
+      <div class="fiexd-item" style="margin-top: 32px">
+        <img src="/static/suoni/img/icon-tg.png" alt="" />
+        <div class="fiexd-num"><a href="https://t.me/suonizy">@SuoniZY</a></div>
+        <div class="fiexd-text"><a href="https://t.me/suonizy">飞机交流群</a></div>
+      </div>
+       <div class="fiexd-item" style="margin-top: 32px">
+        <div class="fiexd-text"><a href="https://suonizy.com/help/" target="_blank">采集教程</a></div>
+      </div>
+      <div class="fiexd-item" style="margin-top: 32px">
+        <div class="fiexd-text"><a href="https://niuniubbs.com" target="_blank">免费模板</a></div>
+      </div>
+      <div class="fiexd-item" style="margin-top: 32px">
+        <div class="fiexd-text"><a href="https://qp.niuniuzs.vip/?play=snm3u8" target="_blank">在线求片</a></div>
+      </div>
+      
+
+
+
+
+      
+    </div>
+    <footer class="footer">
+      <div>本站所有内容均来自互联网，本站不会保存、复制或传播任何视频文件，也不对本站上的任何内容负法律责任。</div>
+      <div>如果本站部分内容侵犯您的版权请告知，在必要证明文件下我们第一时间撤除，发布的内容仅做宽带测试使用，请在下载后24小时内删除。</div>
+      <div>Copyright © 2020-2024 索尼资源网 www.test.cn All Right Reserved.</div>
+    </footer>
+ 
+ <div class="popup"><div class="popup-header"><h3 class="popup-title">站公告</h3></div><div class="popup-main">
+
+
+<center><font color="#FF0000"><p>索尼资源通知:20260524</p></font></font>
+<font color="#FF0000">由于之前播放域名被屏蔽  带来不便 <br>
+请站长用sql 语句或者 后台替换工具<br> 进行操作一下  即可
+sql 批量替换</font></span><br><br>
+<span style="color:blue;">
+yuglf.com 替换为 rstu6.com<br>
+yuglf.com 替换为 rstu6.com<br>
+yuglf.com 替换为 rstu6.com<br>
+</span></span><br></center>
+
+
+</center>
+</div><div class="popup-footer"><div class="popup-btn close-pop">好的，我知道了</div></div>
+</div>
+<script>
+     $(".close-pop").click(function () {
+     $(".popup").hide();
+  });
+</script>
+
+<style>
+.popup {
+    box-shadow: 0 0.25rem 0.5rem rgb(0 0 0 / 5%), 0 1.5rem 2.2rem rgb(0 0 0 / 10%) !important;
+    overflow: hidden;
+    padding: 0 30px;
+    background: #fff;
+    width: 450px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 999999;
+    transform: translateX(-50%) translateY(-50%);
+    margin: 0 auto;
+    border-radius: 18px;
+}
+.popup-header {
+    text-align: center;
+    padding: 25px 0 10px;
+}
+.popup-title {
+    position: relative;
+    font-size: 20px;
+    font-weight: 900;
+    display: inline-block;
+}
+.popup-main {
+    padding-bottom: 10px;
+    font-size:16px;
+}
+.popup-main p {
+    padding: 5px 0 0;
+    /* color: rgba(0, 118, 255, 1); */
+}
+a {
+    text-decoration: none;
+}
+.popup-footer {
+    padding: 10px 0 15px;
+    text-align: center;
+}
+.popup-btn {
+    font-weight: 700;
+    padding: 0 30px;
+    position: relative;
+    transition: box-shadow .2s ease;
+    background-image: linear-gradient(89.29deg,#ff6600 0%,#ffa86f 100%);
+    color: #fff;
+    line-height: 40px;
+    font-size: 14px;
+    display: inline-block;
+    border-radius: 8px;
+    cursor: pointer;
+    overflow: hidden;
+}
+    </style>
+ 
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"6e6e58c7bbcf4235bed631570ee61aec","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>

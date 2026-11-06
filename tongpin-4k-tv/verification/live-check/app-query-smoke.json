@@ -1,0 +1,33 @@
+{
+  "checked_at_utc": "2026-11-02T14:13:16.857353+00:00",
+  "scope": "Exact app first-page parameter shape; metadata only; not media playback",
+  "checks": [
+    {
+      "id": "mdzy",
+      "passed": true,
+      "request": "https://www.mdzyapi.com/api.php/provide/vod/?ac=detail&pg=1&pagesize=20&wd=",
+      "status": 200,
+      "items": 20,
+      "total": 91173,
+      "pagecount": 4559
+    },
+    {
+      "id": "360zy",
+      "passed": true,
+      "request": "https://360zy.com/api.php/provide/vod/?ac=detail&pg=1&pagesize=20&wd=",
+      "status": 200,
+      "items": 20,
+      "total": 74264,
+      "pagecount": 3714
+    },
+    {
+      "id": "blender",
+      "passed": true,
+      "request": "https://video.blender.org/api/v1/video-channels/blender_open_movies/videos?sort=-publishedAt&start=0&count=100",
+      "status": 200,
+      "items": 23,
+      "total": 23,
+      "pagecount": null
+    }
+  ]
+}

@@ -1,0 +1,280 @@
+{
+  "ok": true,
+  "value": {
+    "evidence_id": "ev_d42a33dd24915bc5f420669910378af8a90827176c0870cd2db31599b72fa393",
+    "subject": {
+      "name": "tongpin-4k-1.1.1.apk",
+      "digest": {
+        "sha256": "31b03d84a4249c13ccf0849eacb7e0e1373e437e013eb36060ff969019dad498"
+      },
+      "local_path": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\output\\tongpin-4k-1.1.1.apk",
+      "format": "apk",
+      "architecture": null
+    },
+    "provider": {
+      "id": "jadx",
+      "name": "JADX headless",
+      "version": "0.7.1"
+    },
+    "analysis_profile": null,
+    "predicate_type": "rea.analysis",
+    "operation": "inspect_android_class",
+    "parameters": {
+      "path": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\output\\tongpin-4k-1.1.1.apk",
+      "class_name": "com.shenma.tvlauncher.phone.SplashActivity"
+    },
+    "raw_result": {
+      "server": {
+        "name": "rea-jadx-bridge",
+        "version": "4"
+      },
+      "bridge_sha256": "a02b1ef0a4a40abd1ae310b9ee686ca163e0b59a3256df524c35b90ed17e9e63",
+      "jar_sha256": "6e5eacf500b64292bfb73c49797c1958f6ee44646e43e868039ae7feb573ff75",
+      "loaded": {
+        "state": "LOADED",
+        "apk_path": "C:\\Users\\ADMINI~1.DES\\AppData\\Local\\Temp\\rea-android-154e11aec2078573b91f2e1200c75abe\\target.apk",
+        "class_count": 23565,
+        "resource_count": 4005,
+        "threads": 1,
+        "resources": "full"
+      },
+      "calls": [
+        {
+          "operation": "rea_jvm_status",
+          "input": {},
+          "response": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"available_processors\":16,\"java_version\":\"25.0.4\",\"max_heap_bytes\":4294967296,\"metadata_scope\":\"parsed_members\",\"engine_reported_version\":\"0.7.1\"}"
+              }
+            ],
+            "isError": false
+          }
+        },
+        {
+          "operation": "load_apk",
+          "input": {
+            "path": "C:\\Users\\ADMINI~1.DES\\AppData\\Local\\Temp\\rea-android-154e11aec2078573b91f2e1200c75abe\\target.apk",
+            "threads": 1,
+            "resources": "full"
+          },
+          "response": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"state\":\"LOADED\",\"apk_path\":\"C:\\\\Users\\\\ADMINI~1.DES\\\\AppData\\\\Local\\\\Temp\\\\rea-android-154e11aec2078573b91f2e1200c75abe\\\\target.apk\",\"class_count\":23565,\"raw_class_count\":23565,\"resource_count\":4005,\"load_duration_ms\":10520,\"decompile_timeout_ms\":90000,\"threads\":1,\"code_cache_size\":64,\"resources\":\"full\"}"
+              }
+            ],
+            "isError": false
+          }
+        },
+        {
+          "operation": "get_class_summary",
+          "input": {
+            "class_name": "com.shenma.tvlauncher.phone.SplashActivity"
+          },
+          "response": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"name\":\"SplashActivity\",\"inner_classes\":[\"com.shenma.tvlauncher.phone.SplashActivity.a\",\"com.shenma.tvlauncher.phone.SplashActivity.b\",\"com.shenma.tvlauncher.phone.SplashActivity.c\",\"com.shenma.tvlauncher.phone.SplashActivity.d\",\"com.shenma.tvlauncher.phone.SplashActivity.e\",\"com.shenma.tvlauncher.phone.SplashActivity.f\",\"com.shenma.tvlauncher.phone.SplashActivity.g\"],\"inner_class_count\":7,\"method_count\":22,\"methods\":[{\"def_pos\":0,\"signature\":\"\\u003cinit\\u003e(): void\",\"dex_descriptor\":\"()V\",\"is_constructor\":true,\"name\":\"\\u003cinit\\u003e\"},{\"def_pos\":0,\"signature\":\"L(com.shenma.tvlauncher.phone.SplashActivity, java.lang.String): m7.f0\",\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/SplashActivity;Ljava/lang/String;)Lm7/f0;\",\"is_constructor\":false,\"name\":\"L\"},{\"def_pos\":0,\"signature\":\"M(com.shenma.tvlauncher.phone.SplashActivity, q7.e): java.lang.Object\",\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/SplashActivity;Lq7/e;)Ljava/lang/Object;\",\"is_constructor\":false,\"name\":\"M\"},{\"def_pos\":0,\"signature\":\"N(com.shenma.tvlauncher.phone.SplashActivity, q7.e): java.lang.Object\",\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/SplashActivity;Lq7/e;)Ljava/lang/Object;\",\"is_constructor\":false,\"name\":\"N\"},{\"def_pos\":0,\"signature\":\"O(com.shenma.tvlauncher.phone.SplashActivity, q7.e): java.lang.Object\",\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/SplashActivity;Lq7/e;)Ljava/lang/Object;\",\"is_constructor\":false,\"name\":\"O\"},{\"def_pos\":0,\"signature\":\"P(com.shenma.tvlauncher.phone.SplashActivity, q7.e): java.lang.Object\",\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/SplashActivity;Lq7/e;)Ljava/lang/Object;\",\"is_constructor\":false,\"name\":\"P\"},{\"def_pos\":0,\"signature\":\"Q(com.shenma.tvlauncher.phone.SplashActivity, q7.e): java.lang.Object\",\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/SplashActivity;Lq7/e;)Ljava/lang/Object;\",\"is_constructor\":false,\"name\":\"Q\"},{\"def_pos\":0,\"signature\":\"R(com.shenma.tvlauncher.phone.SplashActivity): java.lang.String\",\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/SplashActivity;)Ljava/lang/String;\",\"is_constructor\":false,\"name\":\"R\"},{\"def_pos\":0,\"signature\":\"S(com.shenma.tvlauncher.phone.SplashActivity, q7.e): java.lang.Object\",\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/SplashActivity;Lq7/e;)Ljava/lang/Object;\",\"is_constructor\":false,\"name\":\"S\"},{\"def_pos\":0,\"signature\":\"T(com.shenma.tvlauncher.phone.SplashActivity): void\",\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/SplashActivity;)V\",\"is_constructor\":false,\"name\":\"T\"},{\"def_pos\":0,\"signature\":\"U(q7.e): java.lang.Object\",\"dex_descriptor\":\"(Lq7/e;)Ljava/lang/Object;\",\"is_constructor\":false,\"name\":\"U\"},{\"def_pos\":0,\"signature\":\"V(q7.e): java.lang.Object\",\"dex_descriptor\":\"(Lq7/e;)Ljava/lang/Object;\",\"is_constructor\":false,\"name\":\"V\"},{\"def_pos\":0,\"signature\":\"W(q7.e): java.lang.Object\",\"dex_descriptor\":\"(Lq7/e;)Ljava/lang/Object;\",\"is_constructor\":false,\"name\":\"W\"},{\"def_pos\":0,\"signature\":\"X(q7.e): java.lang.Object\",\"dex_descriptor\":\"(Lq7/e;)Ljava/lang/Object;\",\"is_constructor\":false,\"name\":\"X\"},{\"def_pos\":0,\"signature\":\"Y(q7.e): java.lang.Object\",\"dex_descriptor\":\"(Lq7/e;)Ljava/lang/Object;\",\"is_constructor\":false,\"name\":\"Y\"},{\"def_pos\":0,\"signature\":\"Z(q7.e): java.lang.Object\",\"dex_descriptor\":\"(Lq7/e;)Ljava/lang/Object;\",\"is_constructor\":false,\"name\":\"Z\"},{\"def_pos\":0,\"signature\":\"a0(): void\",\"dex_descriptor\":\"()V\",\"is_constructor\":false,\"name\":\"a0\"},{\"def_pos\":0,\"signature\":\"b0(com.shenma.tvlauncher.phone.SplashActivity, java.lang.String): m7.f0\",\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/SplashActivity;Ljava/lang/String;)Lm7/f0;\",\"is_constructor\":false,\"name\":\"b0\"},{\"def_pos\":0,\"signature\":\"c0(): void\",\"dex_descriptor\":\"()V\",\"is_constructor\":false,\"name\":\"c0\"},{\"def_pos\":0,\"signature\":\"d0(): void\",\"dex_descriptor\":\"()V\",\"is_constructor\":false,\"name\":\"d0\"},{\"def_pos\":0,\"signature\":\"initView(android.os.Bundle): void\",\"dex_descriptor\":\"(Landroid/os/Bundle;)V\",\"is_constructor\":false,\"name\":\"initView\"},{\"def_pos\":0,\"signature\":\"onCreate(android.os.Bundle): void\",\"dex_descriptor\":\"(Landroid/os/Bundle;)V\",\"is_constructor\":false,\"name\":\"onCreate\"}],\"fields\":[],\"field_count\":0,\"full_name\":\"com.shenma.tvlauncher.phone.SplashActivity\"}"
+              }
+            ],
+            "isError": false
+          }
+        }
+      ]
+    },
+    "normalized_result": {
+      "engine": {
+        "name": "jadx-headless-mcp",
+        "version": "0.7.1",
+        "artifact_sha256": "6e5eacf500b64292bfb73c49797c1958f6ee44646e43e868039ae7feb573ff75",
+        "source_revision": "5844800a486d2248fa949b74c9896285f5b54de2",
+        "worker_count": 1,
+        "heap_limit_mib": 4096
+      },
+      "class_name": "com.shenma.tvlauncher.phone.SplashActivity",
+      "methods": [
+        {
+          "name": "<init>",
+          "reported_signature": "<init>(): void",
+          "overload_index": 0,
+          "is_constructor": true,
+          "dex_descriptor": "()V"
+        },
+        {
+          "name": "L",
+          "reported_signature": "L(com.shenma.tvlauncher.phone.SplashActivity, java.lang.String): m7.f0",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lcom/shenma/tvlauncher/phone/SplashActivity;Ljava/lang/String;)Lm7/f0;"
+        },
+        {
+          "name": "M",
+          "reported_signature": "M(com.shenma.tvlauncher.phone.SplashActivity, q7.e): java.lang.Object",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lcom/shenma/tvlauncher/phone/SplashActivity;Lq7/e;)Ljava/lang/Object;"
+        },
+        {
+          "name": "N",
+          "reported_signature": "N(com.shenma.tvlauncher.phone.SplashActivity, q7.e): java.lang.Object",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lcom/shenma/tvlauncher/phone/SplashActivity;Lq7/e;)Ljava/lang/Object;"
+        },
+        {
+          "name": "O",
+          "reported_signature": "O(com.shenma.tvlauncher.phone.SplashActivity, q7.e): java.lang.Object",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lcom/shenma/tvlauncher/phone/SplashActivity;Lq7/e;)Ljava/lang/Object;"
+        },
+        {
+          "name": "P",
+          "reported_signature": "P(com.shenma.tvlauncher.phone.SplashActivity, q7.e): java.lang.Object",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lcom/shenma/tvlauncher/phone/SplashActivity;Lq7/e;)Ljava/lang/Object;"
+        },
+        {
+          "name": "Q",
+          "reported_signature": "Q(com.shenma.tvlauncher.phone.SplashActivity, q7.e): java.lang.Object",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lcom/shenma/tvlauncher/phone/SplashActivity;Lq7/e;)Ljava/lang/Object;"
+        },
+        {
+          "name": "R",
+          "reported_signature": "R(com.shenma.tvlauncher.phone.SplashActivity): java.lang.String",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lcom/shenma/tvlauncher/phone/SplashActivity;)Ljava/lang/String;"
+        },
+        {
+          "name": "S",
+          "reported_signature": "S(com.shenma.tvlauncher.phone.SplashActivity, q7.e): java.lang.Object",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lcom/shenma/tvlauncher/phone/SplashActivity;Lq7/e;)Ljava/lang/Object;"
+        },
+        {
+          "name": "T",
+          "reported_signature": "T(com.shenma.tvlauncher.phone.SplashActivity): void",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lcom/shenma/tvlauncher/phone/SplashActivity;)V"
+        },
+        {
+          "name": "U",
+          "reported_signature": "U(q7.e): java.lang.Object",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lq7/e;)Ljava/lang/Object;"
+        },
+        {
+          "name": "V",
+          "reported_signature": "V(q7.e): java.lang.Object",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lq7/e;)Ljava/lang/Object;"
+        },
+        {
+          "name": "W",
+          "reported_signature": "W(q7.e): java.lang.Object",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lq7/e;)Ljava/lang/Object;"
+        },
+        {
+          "name": "X",
+          "reported_signature": "X(q7.e): java.lang.Object",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lq7/e;)Ljava/lang/Object;"
+        },
+        {
+          "name": "Y",
+          "reported_signature": "Y(q7.e): java.lang.Object",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lq7/e;)Ljava/lang/Object;"
+        },
+        {
+          "name": "Z",
+          "reported_signature": "Z(q7.e): java.lang.Object",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lq7/e;)Ljava/lang/Object;"
+        },
+        {
+          "name": "a0",
+          "reported_signature": "a0(): void",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "()V"
+        },
+        {
+          "name": "b0",
+          "reported_signature": "b0(com.shenma.tvlauncher.phone.SplashActivity, java.lang.String): m7.f0",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Lcom/shenma/tvlauncher/phone/SplashActivity;Ljava/lang/String;)Lm7/f0;"
+        },
+        {
+          "name": "c0",
+          "reported_signature": "c0(): void",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "()V"
+        },
+        {
+          "name": "d0",
+          "reported_signature": "d0(): void",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "()V"
+        },
+        {
+          "name": "initView",
+          "reported_signature": "initView(android.os.Bundle): void",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Landroid/os/Bundle;)V"
+        },
+        {
+          "name": "onCreate",
+          "reported_signature": "onCreate(android.os.Bundle): void",
+          "overload_index": 0,
+          "is_constructor": false,
+          "dex_descriptor": "(Landroid/os/Bundle;)V"
+        }
+      ],
+      "fields": [],
+      "inner_classes": [
+        "com.shenma.tvlauncher.phone.SplashActivity.a",
+        "com.shenma.tvlauncher.phone.SplashActivity.b",
+        "com.shenma.tvlauncher.phone.SplashActivity.c",
+        "com.shenma.tvlauncher.phone.SplashActivity.d",
+        "com.shenma.tvlauncher.phone.SplashActivity.e",
+        "com.shenma.tvlauncher.phone.SplashActivity.f",
+        "com.shenma.tvlauncher.phone.SplashActivity.g"
+      ]
+    },
+    "confidence": "observed",
+    "authority": "shipped-artifact",
+    "environment": null,
+    "limitations": [
+      "Static decompiler observations do not establish runtime behavior; the APK is never executed.",
+      "Method signatures use provider display types; DEX prototypes come from frozen JADX metadata. Display names may be aliases, and overload indices are local to this engine and artifact.",
+      "Class inventories use parsed metadata before code generation, including synthetic members that may be omitted from decompiled source. Source positions remain unknown.",
+      "Incoming reference totals count JADX using nodes. Direct invoke entries within a using method report raw DEX code-unit offsets and method indexes, but coverage is limited to those nodes and directly matched invokes; it does not establish every possible dynamic or reflective call site.",
+      "Manifest summary fields are extracted by the upstream engine; decoded XML is retained for verification. APK signatures, split APKs, native libraries and Android runtime capture are not verified by this provider."
+    ],
+    "relationship_coverage": null,
+    "locations": [],
+    "evidence_links": []
+  }
+}

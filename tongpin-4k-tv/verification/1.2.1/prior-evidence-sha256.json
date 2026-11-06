@@ -1,0 +1,13 @@
+{
+  "verification/1.2.0/api23-speed-guard.json": "1400d9a887b0d212ded2a682787b189a83ca8e8c5253b1baacb60ae989263a6a",
+  "verification/1.2.0/class-definitions.json": "9ff209ebfb385eac003b6134fcf1e1086d0850defccace75bda61e7d424264f7",
+  "verification/1.2.0/frozen-inputs.json": "a0d91545479a268a2c969874fdb7e9c86a583a8dc086de85b8e3f6a0f8ca6016",
+  "verification/1.2.0/input-hashes.json": "f531d9b71077567a26a31b99ea9f2ed372006fa0c6a651ce668ac045d09cff24",
+  "verification/1.2.0/min-api-audit-raw.json": "6ccc4f7a98daf810fbc0fbccaf9a7f1e7150aafeacfad91cf128f34e33b87e89",
+  "verification/1.2.0/min-api-audit.json": "8713d7c971abe33351dc83f57ca8d68f5d49994c6e5588583271eb76e58a4330",
+  "verification/1.2.0/provider-asset-provenance.json": "194a0c16b233dc9ea896dbff94121fb94db7647e9f0d27d0106baa9322c27cf9",
+  "verification/1.2.0/resource-continuity.json": "4f19179c9384b7b636d974a31723e0f0f0ba94e9cb20b04b1a649df6f05c6a6d",
+  "verification/1.2.0/result.json": "0be68f41e40a0cc1f4395942dcaaa9bc3c99875479fa2202745bfc952bd25f5a",
+  "verification/1.2.0/type-references.json": "e598259e3ead846eae7c7ddefe57867afe514e030a4243269863105e55f88925",
+  "verification/1.2.0/version-preparation.json": "3fb4006d9930849386a9b453990e603e029dd6c1d8398431c4013aff750ceb25"
+}

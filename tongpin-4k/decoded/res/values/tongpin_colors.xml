@@ -1,0 +1,10 @@
+<resources>
+    <color name="tp_bg">#F5F2E9</color>
+    <color name="tp_surface">#FFFFFF</color>
+    <color name="tp_text">#172C42</color>
+    <color name="tp_secondary">#5D6D78</color>
+    <color name="tp_primary">#226CC7</color>
+    <color name="tp_outline">#D5DDD9</color>
+    <color name="tp_on_primary">#FFFFFF</color>
+    <color name="tp_pressed">#E6EDF7</color>
+</resources>

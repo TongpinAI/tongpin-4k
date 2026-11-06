@@ -1,0 +1,78 @@
+{
+  "provider": "ikun",
+  "kind": "series",
+  "vod_id": 70618,
+  "title": "当妈不容易",
+  "type": "国产剧",
+  "updated": "2026-11-02 20:33:06",
+  "remarks": "全26集",
+  "episode": "第26集",
+  "episode_count": 26,
+  "selected_group": "ikm3u8",
+  "stream": {
+    "url": "https://bfikuncdn.com/20261102/w6RdKxz0/index.m3u8"
+  },
+  "probe_status": "dimensions_observed",
+  "requests": [
+    {
+      "url": "https://bfikuncdn.com/20261102/w6RdKxz0/index.m3u8",
+      "status": 200,
+      "type": "application/vnd.apple.mpegURL",
+      "content_range": null,
+      "declared_length": null,
+      "read_bytes": 119
+    },
+    {
+      "url": "https://bfikuncdn.com/20261102/w6RdKxz0/3200kb/hls/index.m3u8",
+      "status": 200,
+      "type": "application/vnd.apple.mpegURL",
+      "content_range": null,
+      "declared_length": null,
+      "read_bytes": 107251
+    },
+    {
+      "url": "https://kkzycdn.com:65/20261102/w6RdKxz0/3200kb/hls/POCZQTPb.ts",
+      "status": 206,
+      "type": "video/mp2t",
+      "content_range": "bytes 0-292527/292528",
+      "declared_length": "292528",
+      "read_bytes": 292528
+    }
+  ],
+  "text_bytes": 107370,
+  "media_bytes": 292528,
+  "probe_budget_seconds": 10,
+  "max_hls_text_bytes": 2097152,
+  "observed_dimensions": [
+    {
+      "index": 0,
+      "codec_name": "h264",
+      "profile": "High",
+      "codec_type": "video",
+      "width": 1920,
+      "height": 1080,
+      "pix_fmt": "yuv420p"
+    }
+  ],
+  "master_declared_dimensions": [
+    {
+      "url": "https://bfikuncdn.com/20261102/w6RdKxz0/3200kb/hls/index.m3u8",
+      "width": 1920,
+      "height": 1080
+    }
+  ],
+  "elapsed_seconds": 4.078,
+  "chosen_variant": {
+    "url": "https://bfikuncdn.com/20261102/w6RdKxz0/3200kb/hls/index.m3u8",
+    "width": 1920,
+    "height": 1080,
+    "attributes": "#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=3200000,RESOLUTION=1920x1080"
+  },
+  "first_segment_url": "https://kkzycdn.com:65/20261102/w6RdKxz0/3200kb/hls/POCZQTPb.ts",
+  "header_sha256": "bb6ac28c6c6da8de1aceed6288e1b040c1b0aea89db0cab3eacd5f7dbb63de74",
+  "ffprobe_exit_code": 0,
+  "ffprobe_stderr": "",
+  "measurement": "bounded first MPEG-TS/media prefix",
+  "actual_2160p_observed": false,
+  "uhd_4k_width_observed": false
+}

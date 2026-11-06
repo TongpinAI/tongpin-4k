@@ -1,0 +1,542 @@
+.class public Lcom/byazt/jc/l$hp;
+.super Ljava/lang/Object;
+
+# interfaces
+.implements Landroid/media/MediaPlayer$OnBufferingUpdateListener;
+.implements Landroid/media/MediaPlayer$OnCompletionListener;
+.implements Landroid/media/MediaPlayer$OnErrorListener;
+.implements Landroid/media/MediaPlayer$OnInfoListener;
+.implements Landroid/media/MediaPlayer$OnPreparedListener;
+.implements Landroid/media/MediaPlayer$OnSeekCompleteListener;
+.implements Landroid/media/MediaPlayer$OnVideoSizeChangedListener;
+
+
+# annotations
+.annotation runtime Lcom/byazt/kj/hp;
+    hp = {
+        0x0,
+        0x1,
+        0x2b4,
+        0x7b
+    }
+.end annotation
+
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/byazt/jc/l;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0xa
+    name = "hp"
+.end annotation
+
+
+# instance fields
+.field public final hp:Ljava/lang/ref/WeakReference;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/lang/ref/WeakReference<",
+            "Lcom/byazt/jc/l;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+
+# direct methods
+.method public constructor <init>(Lcom/byazt/jc/l;)V
+    .locals 1
+
+    .line 1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 2
+    .line 3
+    .line 4
+    new-instance v0, Ljava/lang/ref/WeakReference;
+
+    .line 5
+    .line 6
+    invoke-direct {v0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
+
+    .line 7
+    .line 8
+    .line 9
+    iput-object v0, p0, Lcom/byazt/jc/l$hp;->hp:Ljava/lang/ref/WeakReference;
+
+    .line 10
+    .line 11
+    return-void
+.end method
+
+
+# virtual methods
+.method public onBufferingUpdate(Landroid/media/MediaPlayer;I)V
+    .locals 1
+
+    .line 1
+    :try_start_0
+    iget-object p1, p0, Lcom/byazt/jc/l$hp;->hp:Ljava/lang/ref/WeakReference;
+
+    .line 2
+    .line 3
+    invoke-virtual {p1}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
+
+    .line 4
+    .line 5
+    .line 6
+    move-result-object p1
+
+    .line 7
+    check-cast p1, Lcom/byazt/jc/l;
+
+    .line 8
+    .line 9
+    if-eqz p1, :cond_0
+
+    .line 10
+    .line 11
+    invoke-virtual {p1, p2}, Lcom/byazt/jc/hp;->hp(I)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 12
+    .line 13
+    .line 14
+    return-void
+
+    .line 15
+    :catchall_0
+    move-exception p1
+
+    .line 16
+    goto :goto_0
+
+    .line 17
+    :cond_0
+    return-void
+
+    .line 18
+    :goto_0
+    const-string p2, "CSJ_VIDEO"
+
+    .line 19
+    .line 20
+    const-string v0, "AndroidMediaPlayerListenerHolder.onBufferingUpdate error: "
+
+    .line 21
+    .line 22
+    invoke-static {p2, v0, p1}, Lcom/byazt/qm/l;->hp(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    .line 23
+    .line 24
+    .line 25
+    return-void
+.end method
+
+.method public onCompletion(Landroid/media/MediaPlayer;)V
+    .locals 2
+
+    .line 1
+    :try_start_0
+    iget-object p1, p0, Lcom/byazt/jc/l$hp;->hp:Ljava/lang/ref/WeakReference;
+
+    .line 2
+    .line 3
+    invoke-virtual {p1}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
+
+    .line 4
+    .line 5
+    .line 6
+    move-result-object p1
+
+    .line 7
+    check-cast p1, Lcom/byazt/jc/l;
+
+    .line 8
+    .line 9
+    if-eqz p1, :cond_0
+
+    .line 10
+    .line 11
+    invoke-virtual {p1}, Lcom/byazt/jc/hp;->jx()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 12
+    .line 13
+    .line 14
+    return-void
+
+    .line 15
+    :catchall_0
+    move-exception p1
+
+    .line 16
+    goto :goto_0
+
+    .line 17
+    :cond_0
+    return-void
+
+    .line 18
+    :goto_0
+    const-string v0, "CSJ_VIDEO"
+
+    .line 19
+    .line 20
+    const-string v1, "AndroidMediaPlayerListenerHolder.onCompletion error: "
+
+    .line 21
+    .line 22
+    invoke-static {v0, v1, p1}, Lcom/byazt/qm/l;->hp(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    .line 23
+    .line 24
+    .line 25
+    return-void
+.end method
+
+.method public onError(Landroid/media/MediaPlayer;II)Z
+    .locals 1
+
+    .line 1
+    const/4 p1, 0x0
+
+    .line 2
+    :try_start_0
+    iget-object v0, p0, Lcom/byazt/jc/l$hp;->hp:Ljava/lang/ref/WeakReference;
+
+    .line 3
+    .line 4
+    invoke-virtual {v0}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
+
+    .line 5
+    .line 6
+    .line 7
+    move-result-object v0
+
+    .line 8
+    check-cast v0, Lcom/byazt/jc/l;
+
+    .line 9
+    .line 10
+    if-eqz v0, :cond_0
+
+    .line 11
+    .line 12
+    invoke-virtual {v0, p2, p3}, Lcom/byazt/jc/hp;->hp(II)Z
+
+    .line 13
+    .line 14
+    .line 15
+    move-result p2
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 16
+    if-eqz p2, :cond_0
+
+    .line 17
+    .line 18
+    const/4 p1, 0x1
+
+    .line 19
+    return p1
+
+    .line 20
+    :catchall_0
+    move-exception p2
+
+    .line 21
+    goto :goto_0
+
+    .line 22
+    :cond_0
+    return p1
+
+    .line 23
+    :goto_0
+    const-string p3, "CSJ_VIDEO"
+
+    .line 24
+    .line 25
+    const-string v0, "AndroidMediaPlayerListenerHolder.onError error: "
+
+    .line 26
+    .line 27
+    invoke-static {p3, v0, p2}, Lcom/byazt/qm/l;->hp(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    .line 28
+    .line 29
+    .line 30
+    return p1
+.end method
+
+.method public onInfo(Landroid/media/MediaPlayer;II)Z
+    .locals 1
+
+    .line 1
+    const/4 p1, 0x0
+
+    .line 2
+    :try_start_0
+    iget-object v0, p0, Lcom/byazt/jc/l$hp;->hp:Ljava/lang/ref/WeakReference;
+
+    .line 3
+    .line 4
+    invoke-virtual {v0}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
+
+    .line 5
+    .line 6
+    .line 7
+    move-result-object v0
+
+    .line 8
+    check-cast v0, Lcom/byazt/jc/l;
+
+    .line 9
+    .line 10
+    if-eqz v0, :cond_0
+
+    .line 11
+    .line 12
+    invoke-virtual {v0, p2, p3}, Lcom/byazt/jc/hp;->l(II)Z
+
+    .line 13
+    .line 14
+    .line 15
+    move-result p2
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 16
+    if-eqz p2, :cond_0
+
+    .line 17
+    .line 18
+    const/4 p1, 0x1
+
+    .line 19
+    return p1
+
+    .line 20
+    :catchall_0
+    move-exception p2
+
+    .line 21
+    goto :goto_0
+
+    .line 22
+    :cond_0
+    return p1
+
+    .line 23
+    :goto_0
+    const-string p3, "CSJ_VIDEO"
+
+    .line 24
+    .line 25
+    const-string v0, "AndroidMediaPlayerListenerHolder.onInfo error: "
+
+    .line 26
+    .line 27
+    invoke-static {p3, v0, p2}, Lcom/byazt/qm/l;->hp(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    .line 28
+    .line 29
+    .line 30
+    return p1
+.end method
+
+.method public onPrepared(Landroid/media/MediaPlayer;)V
+    .locals 2
+
+    .line 1
+    :try_start_0
+    iget-object p1, p0, Lcom/byazt/jc/l$hp;->hp:Ljava/lang/ref/WeakReference;
+
+    .line 2
+    .line 3
+    invoke-virtual {p1}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
+
+    .line 4
+    .line 5
+    .line 6
+    move-result-object p1
+
+    .line 7
+    check-cast p1, Lcom/byazt/jc/l;
+
+    .line 8
+    .line 9
+    if-eqz p1, :cond_0
+
+    .line 10
+    .line 11
+    invoke-virtual {p1}, Lcom/byazt/jc/hp;->l()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 12
+    .line 13
+    .line 14
+    return-void
+
+    .line 15
+    :catchall_0
+    move-exception p1
+
+    .line 16
+    goto :goto_0
+
+    .line 17
+    :cond_0
+    return-void
+
+    .line 18
+    :goto_0
+    const-string v0, "CSJ_VIDEO"
+
+    .line 19
+    .line 20
+    const-string v1, "AndroidMediaPlayerListenerHolder.onPrepared error: "
+
+    .line 21
+    .line 22
+    invoke-static {v0, v1, p1}, Lcom/byazt/qm/l;->hp(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    .line 23
+    .line 24
+    .line 25
+    return-void
+.end method
+
+.method public onSeekComplete(Landroid/media/MediaPlayer;)V
+    .locals 2
+
+    .line 1
+    :try_start_0
+    iget-object p1, p0, Lcom/byazt/jc/l$hp;->hp:Ljava/lang/ref/WeakReference;
+
+    .line 2
+    .line 3
+    invoke-virtual {p1}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
+
+    .line 4
+    .line 5
+    .line 6
+    move-result-object p1
+
+    .line 7
+    check-cast p1, Lcom/byazt/jc/l;
+
+    .line 8
+    .line 9
+    if-eqz p1, :cond_0
+
+    .line 10
+    .line 11
+    invoke-virtual {p1}, Lcom/byazt/jc/hp;->j()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 12
+    .line 13
+    .line 14
+    return-void
+
+    .line 15
+    :catchall_0
+    move-exception p1
+
+    .line 16
+    goto :goto_0
+
+    .line 17
+    :cond_0
+    return-void
+
+    .line 18
+    :goto_0
+    const-string v0, "CSJ_VIDEO"
+
+    .line 19
+    .line 20
+    const-string v1, "AndroidMediaPlayerListenerHolder.onSeekComplete error: "
+
+    .line 21
+    .line 22
+    invoke-static {v0, v1, p1}, Lcom/byazt/qm/l;->hp(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    .line 23
+    .line 24
+    .line 25
+    return-void
+.end method
+
+.method public onVideoSizeChanged(Landroid/media/MediaPlayer;II)V
+    .locals 1
+
+    .line 1
+    :try_start_0
+    iget-object p1, p0, Lcom/byazt/jc/l$hp;->hp:Ljava/lang/ref/WeakReference;
+
+    .line 2
+    .line 3
+    invoke-virtual {p1}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
+
+    .line 4
+    .line 5
+    .line 6
+    move-result-object p1
+
+    .line 7
+    check-cast p1, Lcom/byazt/jc/l;
+
+    .line 8
+    .line 9
+    if-eqz p1, :cond_0
+
+    .line 10
+    .line 11
+    const/4 v0, 0x1
+
+    .line 12
+    invoke-virtual {p1, p2, p3, v0, v0}, Lcom/byazt/jc/hp;->hp(IIII)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 13
+    .line 14
+    .line 15
+    return-void
+
+    .line 16
+    :catchall_0
+    move-exception p1
+
+    .line 17
+    goto :goto_0
+
+    .line 18
+    :cond_0
+    return-void
+
+    .line 19
+    :goto_0
+    const-string p2, "CSJ_VIDEO"
+
+    .line 20
+    .line 21
+    const-string p3, "AndroidMediaPlayerListenerHolder.onVideoSizeChanged error: "
+
+    .line 22
+    .line 23
+    invoke-static {p2, p3, p1}, Lcom/byazt/qm/l;->hp(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    .line 24
+    .line 25
+    .line 26
+    return-void
+.end method

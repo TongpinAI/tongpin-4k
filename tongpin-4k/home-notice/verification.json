@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "scope": "Only MainActivity.Q()V changed",
+  "before_sha256": "2abeeb54469dab67c260add17a77136b8615062f079c21efcd1c0ec51c060e0e",
+  "after_sha256": "1d3f445e5f4a3efb29e770bd026c1349f04f466dbef5746fc5ccba81cdd31b32",
+  "dialog": "h6.l / dialog_gong_gao",
+  "removed": [
+    "announcement creation",
+    "dialog dim overlay",
+    "learn more / dismiss buttons"
+  ],
+  "unchanged": [
+    "M/N/initView and home tabs",
+    "public catalog",
+    "source selection",
+    "playback",
+    "account initialization"
+  ],
+  "device_ui_verified": false
+}

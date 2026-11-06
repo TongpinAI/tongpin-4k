@@ -1,0 +1,134 @@
+{
+  "ok": true,
+  "value": {
+    "evidence_id": "ev_96b67a6046fb4077f5a460006a7520c925e9d88fd7dceca40c14e158dcf29a7c",
+    "subject": {
+      "name": "tongpin-4k-1.0.1.apk",
+      "digest": {
+        "sha256": "901b10876642f7dae23127d560771477167109d3028b98d669cef2db1903869a"
+      },
+      "local_path": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\output\\tongpin-4k-1.0.1.apk",
+      "format": "apk",
+      "architecture": null
+    },
+    "provider": {
+      "id": "jadx",
+      "name": "JADX headless",
+      "version": "0.7.1"
+    },
+    "analysis_profile": null,
+    "predicate_type": "rea.analysis",
+    "operation": "inspect_android_method",
+    "parameters": {
+      "path": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\output\\tongpin-4k-1.0.1.apk",
+      "class_name": "com.shenma.tvlauncher.phone.SplashActivity.e.a",
+      "method_name": "invokeSuspend",
+      "overload_index": 0
+    },
+    "raw_result": {
+      "server": {
+        "name": "rea-jadx-bridge",
+        "version": "4"
+      },
+      "bridge_sha256": "a02b1ef0a4a40abd1ae310b9ee686ca163e0b59a3256df524c35b90ed17e9e63",
+      "jar_sha256": "6e5eacf500b64292bfb73c49797c1958f6ee44646e43e868039ae7feb573ff75",
+      "loaded": {
+        "state": "LOADED",
+        "apk_path": "C:\\Users\\ADMINI~1.DES\\AppData\\Local\\Temp\\rea-android-c905bb0c939ad685ec6f85217b4d3376\\target.apk",
+        "class_count": 23562,
+        "resource_count": 4004,
+        "threads": 1,
+        "resources": "full"
+      },
+      "calls": [
+        {
+          "operation": "rea_jvm_status",
+          "input": {},
+          "response": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"max_heap_bytes\":4294967296,\"java_version\":\"25.0.4\",\"available_processors\":16,\"engine_reported_version\":\"0.7.1\",\"metadata_scope\":\"parsed_members\"}"
+              }
+            ],
+            "isError": false
+          }
+        },
+        {
+          "operation": "get_class_summary",
+          "input": {
+            "class_name": "com.shenma.tvlauncher.phone.SplashActivity.e.a"
+          },
+          "response": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"methods\":[{\"def_pos\":0,\"name\":\"\\u003cinit\\u003e\",\"is_constructor\":true,\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/SplashActivity;Lq7/e;)V\",\"signature\":\"\\u003cinit\\u003e(com.shenma.tvlauncher.phone.SplashActivity, q7.e): void\"},{\"def_pos\":0,\"name\":\"create\",\"is_constructor\":false,\"dex_descriptor\":\"(Ljava/lang/Object;Lq7/e;)Lq7/e;\",\"signature\":\"create(java.lang.Object, q7.e): q7.e\"},{\"def_pos\":0,\"name\":\"invoke\",\"is_constructor\":false,\"dex_descriptor\":\"(Lj8/n0;Lq7/e;)Ljava/lang/Object;\",\"signature\":\"invoke(j8.n0, q7.e): java.lang.Object\"},{\"def_pos\":0,\"name\":\"invoke\",\"is_constructor\":false,\"dex_descriptor\":\"(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;\",\"signature\":\"invoke(java.lang.Object, java.lang.Object): java.lang.Object\"},{\"def_pos\":0,\"name\":\"invokeSuspend\",\"is_constructor\":false,\"dex_descriptor\":\"(Ljava/lang/Object;)Ljava/lang/Object;\",\"signature\":\"invokeSuspend(java.lang.Object): java.lang.Object\"}],\"method_count\":5,\"inner_class_count\":0,\"inner_classes\":[],\"name\":\"a\",\"full_name\":\"com.shenma.tvlauncher.phone.SplashActivity.e.a\",\"field_count\":2,\"fields\":[{\"type\":\"int\",\"def_pos\":0,\"name\":\"f35792b\"},{\"type\":\"com.shenma.tvlauncher.phone.SplashActivity\",\"def_pos\":0,\"name\":\"f35793c\"}]}"
+              }
+            ],
+            "isError": false
+          }
+        },
+        {
+          "operation": "get_method_body",
+          "input": {
+            "class_name": "com.shenma.tvlauncher.phone.SplashActivity.e.a",
+            "method_name": "invokeSuspend",
+            "overload_index": 0,
+            "smali_fallback": true
+          },
+          "response": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"fell_back\":false,\"full_name\":\"com.shenma.tvlauncher.phone.SplashActivity.e.a.invokeSuspend\",\"overload_index\":0,\"method_name\":\"invokeSuspend\",\"overload_count\":1,\"dex_descriptor\":\"(Ljava/lang/Object;)Ljava/lang/Object;\",\"class_name\":\"com.shenma.tvlauncher.phone.SplashActivity.e.a\",\"mode\":\"java\",\"body\":\"            @Override // kotlin.coroutines.jvm.internal.a\\r\\n            public final Object invokeSuspend(Object obj) throws Throwable {\\r\\n                ServerEntity serverEntityD;\\r\\n                Object objE \\u003d r7.b.e();\\r\\n                int i9 \\u003d this.f35792b;\\r\\n                if (i9 \\u003d\\u003d 0) {\\r\\n                    m7.q.b(obj);\\r\\n                    SplashActivity splashActivity \\u003d this.f35793c;\\r\\n                    this.f35792b \\u003d 1;\\r\\n                    obj \\u003d splashActivity.X(this);\\r\\n                    if (obj \\u003d\\u003d objE) {\\r\\n                        return objE;\\r\\n                    }\\r\\n                } else {\\r\\n                    if (i9 !\\u003d 1) {\\r\\n                        throw new IllegalStateException(\\\"call to \\u0027resume\\u0027 before \\u0027invoke\\u0027 with coroutine\\\");\\r\\n                    }\\r\\n                    m7.q.b(obj);\\r\\n                }\\r\\n                boolean zBooleanValue \\u003d ((Boolean) obj).booleanValue();\\r\\n                SplashActivity splashActivity2 \\u003d this.f35793c;\\r\\n                com.shenma.tvlauncher.phone.b bVar \\u003d com.shenma.tvlauncher.phone.b.f35872a;\\r\\n                TalkingDataSDK.initSDK(splashActivity2, (bVar \\u003d\\u003d null || (serverEntityD \\u003d bVar.d()) \\u003d\\u003d null) ? null : serverEntityD.getAztj(), \\\"123_456\\\", null);\\r\\n                TalkingDataSDK.startA(this.f35793c.getApplicationContext());\\r\\n                TalkingDataSDK.setReportUncaughtExceptions(true);\\r\\n                Log.d(this.f35793c.getTAG(), \\\"mainUrlResult: \\\" + zBooleanValue);\\r\\n                if (!zBooleanValue) {\\r\\n                    Toast.makeText(this.f35793c, \\\"获取服务器地址失败1\\\", 0).show();\\r\\n                }\\r\\n                return m7.f0.f45275a;\\r\\n            }\",\"markers\":[]}"
+              }
+            ],
+            "isError": false
+          }
+        }
+      ]
+    },
+    "normalized_result": {
+      "engine": {
+        "name": "jadx-headless-mcp",
+        "version": "0.7.1",
+        "artifact_sha256": "6e5eacf500b64292bfb73c49797c1958f6ee44646e43e868039ae7feb573ff75",
+        "source_revision": "5844800a486d2248fa949b74c9896285f5b54de2",
+        "worker_count": 1,
+        "heap_limit_mib": 4096
+      },
+      "class_name": "com.shenma.tvlauncher.phone.SplashActivity.e.a",
+      "method": {
+        "name": "invokeSuspend",
+        "reported_signature": "invokeSuspend(java.lang.Object): java.lang.Object",
+        "overload_index": 0,
+        "is_constructor": false,
+        "dex_descriptor": "(Ljava/lang/Object;)Ljava/lang/Object;"
+      },
+      "overload_count": 1,
+      "representation": "java",
+      "body_status": "available",
+      "fell_back": false,
+      "markers": [],
+      "source": {
+        "status": "complete",
+        "text": "            @Override // kotlin.coroutines.jvm.internal.a\r\n            public final Object invokeSuspend(Object obj) throws Throwable {\r\n                ServerEntity serverEntityD;\r\n                Object objE = r7.b.e();\r\n                int i9 = this.f35792b;\r\n                if (i9 == 0) {\r\n                    m7.q.b(obj);\r\n                    SplashActivity splashActivity = this.f35793c;\r\n                    this.f35792b = 1;\r\n                    obj = splashActivity.X(this);\r\n                    if (obj == objE) {\r\n                        return objE;\r\n                    }\r\n                } else {\r\n                    if (i9 != 1) {\r\n                        throw new IllegalStateException(\"call to 'resume' before 'invoke' with coroutine\");\r\n                    }\r\n                    m7.q.b(obj);\r\n                }\r\n                boolean zBooleanValue = ((Boolean) obj).booleanValue();\r\n                SplashActivity splashActivity2 = this.f35793c;\r\n                com.shenma.tvlauncher.phone.b bVar = com.shenma.tvlauncher.phone.b.f35872a;\r\n                TalkingDataSDK.initSDK(splashActivity2, (bVar == null || (serverEntityD = bVar.d()) == null) ? null : serverEntityD.getAztj(), \"123_456\", null);\r\n                TalkingDataSDK.startA(this.f35793c.getApplicationContext());\r\n                TalkingDataSDK.setReportUncaughtExceptions(true);\r\n                Log.d(this.f35793c.getTAG(), \"mainUrlResult: \" + zBooleanValue);\r\n                if (!zBooleanValue) {\r\n                    Toast.makeText(this.f35793c, \"获取服务器地址失败1\", 0).show();\r\n                }\r\n                return m7.f0.f45275a;\r\n            }",
+        "reported_total_bytes": null
+      }
+    },
+    "confidence": "derived",
+    "authority": "shipped-artifact",
+    "environment": null,
+    "limitations": [
+      "Static decompiler observations do not establish runtime behavior; the APK is never executed.",
+      "Method signatures use provider display types; DEX prototypes come from frozen JADX metadata. Display names may be aliases, and overload indices are local to this engine and artifact.",
+      "Class inventories use parsed metadata before code generation, including synthetic members that may be omitted from decompiled source. Source positions remain unknown.",
+      "Incoming reference totals count JADX using nodes. Direct invoke entries within a using method report raw DEX code-unit offsets and method indexes, but coverage is limited to those nodes and directly matched invokes; it does not establish every possible dynamic or reflective call site.",
+      "Manifest summary fields are extracted by the upstream engine; decoded XML is retained for verification. APK signatures, split APKs, native libraries and Android runtime capture are not verified by this provider."
+    ],
+    "relationship_coverage": null,
+    "locations": [],
+    "evidence_links": []
+  }
+}

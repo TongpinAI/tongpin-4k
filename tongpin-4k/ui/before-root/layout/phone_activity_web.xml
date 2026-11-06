@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:tag="layout/phone_activity_web_0" android:background="#e2e2e2" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tl="http://schemas.android.com/apk/res-auto">
+    <View android:id="@id/view" android:background="@color/white" android:layout_width="match_parent" android:layout_height="@dimen/dp_100" tl:layout_constraintTop_toTopOf="parent" />
+    <ImageView android:id="@id/iv_back" android:padding="@dimen/dp_6" android:layout_width="@dimen/dp_40" android:layout_height="@dimen/dp_40" android:layout_marginTop="@dimen/dp_40" android:src="@drawable/icon_back" android:tint="@color/black_333" android:layout_marginStart="@dimen/dp_10" tl:layout_constraintStart_toStartOf="parent" tl:layout_constraintTop_toTopOf="parent" />
+    <TextView android:textSize="@dimen/sp_18" android:textColor="@color/black_333" android:id="@id/tv_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="消息" tl:layout_constraintBottom_toBottomOf="@id/iv_back" tl:layout_constraintEnd_toEndOf="parent" tl:layout_constraintStart_toStartOf="parent" tl:layout_constraintTop_toTopOf="@id/iv_back" />
+    <WebView android:id="@id/webview" android:layout_width="match_parent" android:layout_height="0.0dp" tl:layout_constraintBottom_toBottomOf="parent" tl:layout_constraintTop_toBottomOf="@id/view" />
+</androidx.constraintlayout.widget.ConstraintLayout>

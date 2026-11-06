@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "checks": {
+    "version": true,
+    "additive_schema": true,
+    "short_quality": true,
+    "core_navigation": true,
+    "api23_requirement": true,
+    "stable_progress": true,
+    "native_pending": true
+  },
+  "document_sha256": {
+    "PRODUCT.md": "5cf545ac717ee4358cab75935a4ff3a52b2961309530d5fccc5386165d812457",
+    "DESIGN.md": "4145f16d44a7f91cdde670b27b9b22223997e559b90ee463b8ee079ac2a8e8fe",
+    ".impeccable/surfaces/android-tv.md": "262a301f53b46dd4f8e2b78dc9eaed1fda86c8da6c3e92bd3cc91df5edbbf73f",
+    "使用说明.md": "550c478e8b0d34ccd00c1767c404263aa14cf16291cf7a44262aad75f7d5743c"
+  },
+  "scope": "changed TV1.2.0 source behavior and native acceptance boundary only",
+  "native_render_verified": false
+}

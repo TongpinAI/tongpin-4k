@@ -1,0 +1,10 @@
+{
+  "controls": [
+    "@id/tv_intro_close",
+    "@id/tv_ju_ji_close",
+    "@id/tv_source_close",
+    "@id/iv_lock"
+  ],
+  "fixed_40dp_dimensions_replaced_by_48dp": true,
+  "ids_and_control_types_unchanged": true
+}

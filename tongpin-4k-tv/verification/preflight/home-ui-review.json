@@ -1,0 +1,21 @@
+{
+  "read_only": true,
+  "runtime_tested": false,
+  "source_hashes": {
+    "TvUi.java": "13379bfcc03ee600dd15751aa864bc7901078534639aa466cea038c2d9dc93cc",
+    "TvHomeActivity.java": "0ba2de1048780c098f646ec54f60be3c2dbe25b399314a27c0c27b198a278ae4"
+  },
+  "material_blockers": [],
+  "reviewed": [
+    "Home lifecycle cancellation/generation tickets and stale replies",
+    "Framework TV D-pad focusable controls and selected grid item styling",
+    "Light brand/focused contrast,48dp controls",
+    "Activity exports and launchers,min21 manifest",
+    "Bounded poster requests,decode dimensions and cache",
+    "All five Java integration compiled to DEX in isolated preflight; post21 API audit empty"
+  ],
+  "limitations": [
+    "D-pad focus path and actual layout not executed on a TV",
+    "HighAPI audit is static and cannot establish device/network/codec behavior"
+  ]
+}

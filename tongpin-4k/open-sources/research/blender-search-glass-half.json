@@ -1,0 +1,259 @@
+{
+  "total": 2,
+  "data": [
+    {
+      "id": 49,
+      "uuid": "64222c8a-c4c7-4b3b-9850-7fb2078edcf6",
+      "shortUUID": "dnayqfMS4PAE9pSZ3kyVUb",
+      "url": "https://video.blender.org/videos/watch/64222c8a-c4c7-4b3b-9850-7fb2078edcf6",
+      "name": "Glass Half - Blender animated cartoon",
+      "category": {
+        "id": 10,
+        "label": "Entertainment"
+      },
+      "licence": {
+        "id": 1,
+        "label": "Attribution"
+      },
+      "language": {
+        "id": null,
+        "label": "Unknown"
+      },
+      "privacy": {
+        "id": 1,
+        "label": "Public"
+      },
+      "nsfw": false,
+      "nsfwFlags": 0,
+      "nsfwSummary": null,
+      "truncatedDescription": "Two amateur art critics meet in a gallery and argue passionately about the pieces they see, until finally they find a piece on which they can agree...\r\n\r\nAll of the visuals of the film have been realized using Blender and other free/open source so...",
+      "description": "Two amateur art critics meet in a gallery and argue passionately about the pieces they see, until finally they find a piece on which they can agree...\r\n\r\nAll of the visuals of the film have been realized using Blender and other free/open source so...",
+      "isLocal": true,
+      "duration": 193,
+      "aspectRatio": null,
+      "views": 1328,
+      "viewers": 0,
+      "downloads": 1058,
+      "likes": 16,
+      "dislikes": 0,
+      "thumbnailPath": "/lazy-static/thumbnails/64222c8a-c4c7-4b3b-9850-7fb2078edcf6.jpg",
+      "previewPath": "/lazy-static/thumbnails/64222c8a-c4c7-4b3b-9850-7fb2078edcf6.jpg",
+      "thumbnails": [
+        {
+          "height": 110,
+          "width": 200,
+          "aspectRatio": "16:9",
+          "fileUrl": "https://video.blender.org/lazy-static/thumbnails/64222c8a-c4c7-4b3b-9850-7fb2078edcf6.jpg"
+        }
+      ],
+      "embedPath": "/videos/embed/dnayqfMS4PAE9pSZ3kyVUb",
+      "createdAt": "2018-10-25T13:10:33.450Z",
+      "updatedAt": "2026-11-02T12:20:43.755Z",
+      "publishedAt": "2018-10-26T22:11:40.162Z",
+      "originallyPublishedAt": null,
+      "isLive": false,
+      "account": {
+        "id": 6,
+        "displayName": "Blender",
+        "name": "blender",
+        "url": "https://video.blender.org/accounts/blender",
+        "host": "video.blender.org",
+        "avatars": [
+          {
+            "width": 48,
+            "path": "/lazy-static/avatars/d81f71c9-cdd8-4c61-a0dd-75a9dfad8dc1.png",
+            "fileUrl": "https://video.blender.org/lazy-static/avatars/d81f71c9-cdd8-4c61-a0dd-75a9dfad8dc1.png",
+            "createdAt": "2026-05-24T11:32:01.734Z",
+            "updatedAt": "2026-05-24T11:32:01.734Z"
+          },
+          {
+            "width": 120,
+            "path": "/lazy-static/avatars/07965da7-5723-40d6-9a61-c034d6ebeabd.png",
+            "fileUrl": "https://video.blender.org/lazy-static/avatars/07965da7-5723-40d6-9a61-c034d6ebeabd.png",
+            "createdAt": "2026-05-24T11:32:01.730Z",
+            "updatedAt": "2026-05-24T11:32:01.730Z"
+          },
+          {
+            "width": 600,
+            "path": "/lazy-static/avatars/1485e2e7-71d0-4e6a-b56d-bf46b2ec40de.png",
+            "fileUrl": "https://video.blender.org/lazy-static/avatars/1485e2e7-71d0-4e6a-b56d-bf46b2ec40de.png",
+            "createdAt": "2026-05-24T11:32:01.724Z",
+            "updatedAt": "2026-05-24T11:32:01.724Z"
+          },
+          {
+            "width": 1500,
+            "path": "/lazy-static/avatars/b4d1c81e-bded-45e2-a569-413d391cdd82.png",
+            "fileUrl": "https://video.blender.org/lazy-static/avatars/b4d1c81e-bded-45e2-a569-413d391cdd82.png",
+            "createdAt": "2026-05-24T11:32:01.719Z",
+            "updatedAt": "2026-05-24T11:32:01.719Z"
+          }
+        ]
+      },
+      "channel": {
+        "id": 9,
+        "name": "blender_open_movies",
+        "displayName": "Blender Open Movies",
+        "url": "https://video.blender.org/video-channels/blender_open_movies",
+        "host": "video.blender.org",
+        "avatars": [
+          {
+            "width": 48,
+            "path": "/lazy-static/avatars/f79d3ae7-86a8-4705-a9cf-75652312ed20.png",
+            "fileUrl": "https://video.blender.org/lazy-static/avatars/f79d3ae7-86a8-4705-a9cf-75652312ed20.png",
+            "createdAt": "2026-06-04T09:58:19.748Z",
+            "updatedAt": "2026-06-04T09:58:19.748Z"
+          },
+          {
+            "width": 120,
+            "path": "/lazy-static/avatars/df50b04c-67e0-4317-822a-be1f1a2d85d3.png",
+            "fileUrl": "https://video.blender.org/lazy-static/avatars/df50b04c-67e0-4317-822a-be1f1a2d85d3.png",
+            "createdAt": "2026-06-04T09:58:19.735Z",
+            "updatedAt": "2026-06-04T09:58:19.735Z"
+          },
+          {
+            "width": 600,
+            "path": "/lazy-static/avatars/0001ea1f-7c7b-45b3-8a15-004c6d0713bb.png",
+            "fileUrl": "https://video.blender.org/lazy-static/avatars/0001ea1f-7c7b-45b3-8a15-004c6d0713bb.png",
+            "createdAt": "2026-06-04T09:58:19.728Z",
+            "updatedAt": "2026-06-04T09:58:19.728Z"
+          },
+          {
+            "width": 1500,
+            "path": "/lazy-static/avatars/2676b86b-94a3-4692-9601-f4e41dcbf72f.png",
+            "fileUrl": "https://video.blender.org/lazy-static/avatars/2676b86b-94a3-4692-9601-f4e41dcbf72f.png",
+            "createdAt": "2026-06-04T09:58:19.710Z",
+            "updatedAt": "2026-06-04T09:58:19.710Z"
+          }
+        ]
+      },
+      "comments": 0
+    },
+    {
+      "id": 23910,
+      "uuid": "35e2c4dc-4791-44df-9c4f-c836beca6e11",
+      "shortUUID": "7DWe4XcL8cF6Umo3YMmRYe",
+      "url": "https://video.blender.org/videos/watch/35e2c4dc-4791-44df-9c4f-c836beca6e11",
+      "name": "Everything you wanted to know about rendering Glass not only with Cycles - Vilem Duha",
+      "category": {
+        "id": null,
+        "label": "Unknown"
+      },
+      "licence": {
+        "id": 1,
+        "label": "Attribution"
+      },
+      "language": {
+        "id": null,
+        "label": "Unknown"
+      },
+      "privacy": {
+        "id": 1,
+        "label": "Public"
+      },
+      "nsfw": false,
+      "nsfwFlags": 0,
+      "nsfwSummary": null,
+      "truncatedDescription": "Support core Blender development - https://fund.blender.org",
+      "description": "Support core Blender development - https://fund.blender.org",
+      "isLocal": true,
+      "duration": 1846,
+      "aspectRatio": null,
+      "views": 25,
+      "viewers": 0,
+      "downloads": 1,
+      "likes": 0,
+      "dislikes": 0,
+      "thumbnailPath": "/lazy-static/thumbnails/35e2c4dc-4791-44df-9c4f-c836beca6e11.jpg",
+      "previewPath": "/lazy-static/thumbnails/35e2c4dc-4791-44df-9c4f-c836beca6e11.jpg",
+      "thumbnails": [
+        {
+          "height": 110,
+          "width": 200,
+          "aspectRatio": "16:9",
+          "fileUrl": "https://video.blender.org/lazy-static/thumbnails/35e2c4dc-4791-44df-9c4f-c836beca6e11.jpg"
+        }
+      ],
+      "embedPath": "/videos/embed/7DWe4XcL8cF6Umo3YMmRYe",
+      "createdAt": "2019-10-27T16:15:39.699Z",
+      "updatedAt": "2026-10-08T13:16:33.222Z",
+      "publishedAt": "2019-11-01T16:18:36.290Z",
+      "originallyPublishedAt": null,
+      "isLive": false,
+      "account": {
+        "id": 6,
+        "displayName": "Blender",
+        "name": "blender",
+        "url": "https://video.blender.org/accounts/blender",
+        "host": "video.blender.org",
+        "avatars": [
+          {
+            "width": 48,
+            "path": "/lazy-static/avatars/d81f71c9-cdd8-4c61-a0dd-75a9dfad8dc1.png",
+            "fileUrl": "https://video.blender.org/lazy-static/avatars/d81f71c9-cdd8-4c61-a0dd-75a9dfad8dc1.png",
+            "createdAt": "2026-05-24T11:32:01.734Z",
+            "updatedAt": "2026-05-24T11:32:01.734Z"
+          },
+          {
+            "width": 120,
+            "path": "/lazy-static/avatars/07965da7-5723-40d6-9a61-c034d6ebeabd.png",
+            "fileUrl": "https://video.blender.org/lazy-static/avatars/07965da7-5723-40d6-9a61-c034d6ebeabd.png",
+            "createdAt": "2026-05-24T11:32:01.730Z",
+            "updatedAt": "2026-05-24T11:32:01.730Z"
+          },
+          {
+            "width": 600,
+            "path": "/lazy-static/avatars/1485e2e7-71d0-4e6a-b56d-bf46b2ec40de.png",
+            "fileUrl": "https://video.blender.org/lazy-static/avatars/1485e2e7-71d0-4e6a-b56d-bf46b2ec40de.png",
+            "createdAt": "2026-05-24T11:32:01.724Z",
+            "updatedAt": "2026-05-24T11:32:01.724Z"
+          },
+          {
+            "width": 1500,
+            "path": "/lazy-static/avatars/b4d1c81e-bded-45e2-a569-413d391cdd82.png",
+            "fileUrl": "https://video.blender.org/lazy-static/avatars/b4d1c81e-bded-45e2-a569-413d391cdd82.png",
+            "createdAt": "2026-05-24T11:32:01.719Z",
+            "updatedAt": "2026-05-24T11:32:01.719Z"
+          }
+        ]
+      },
+      "channel": {
+        "id": 4,
+        "name": "blender_channel",
+        "displayName": "Blender",
+        "url": "https://video.blender.org/video-channels/blender_channel",
+        "host": "video.blender.org",
+        "avatars": [
+          {
+            "width": 48,
+            "path": "/lazy-static/avatars/56817c33-af28-475f-9e87-0244015a04e0.png",
+            "fileUrl": "https://video.blender.org/lazy-static/avatars/56817c33-af28-475f-9e87-0244015a04e0.png",
+            "createdAt": "2026-05-24T10:42:47.572Z",
+            "updatedAt": "2026-05-24T10:42:47.572Z"
+          },
+          {
+            "width": 120,
+            "path": "/lazy-static/avatars/5720b4a8-d244-4fae-a2bf-3474caa8f644.png",
+            "fileUrl": "https://video.blender.org/lazy-static/avatars/5720b4a8-d244-4fae-a2bf-3474caa8f644.png",
+            "createdAt": "2026-05-24T10:42:47.565Z",
+            "updatedAt": "2026-05-24T10:42:47.565Z"
+          },
+          {
+            "width": 600,
+            "path": "/lazy-static/avatars/24f94d65-d525-4afc-8522-cfe19ea97464.png",
+            "fileUrl": "https://video.blender.org/lazy-static/avatars/24f94d65-d525-4afc-8522-cfe19ea97464.png",
+            "createdAt": "2026-05-24T10:42:47.556Z",
+            "updatedAt": "2026-05-24T10:42:47.556Z"
+          },
+          {
+            "width": 1500,
+            "path": "/lazy-static/avatars/40cb35af-7fd5-45f3-8026-c90b54cd9da1.png",
+            "fileUrl": "https://video.blender.org/lazy-static/avatars/40cb35af-7fd5-45f3-8026-c90b54cd9da1.png",
+            "createdAt": "2026-05-24T10:42:47.543Z",
+            "updatedAt": "2026-05-24T10:42:47.543Z"
+          }
+        ]
+      },
+      "comments": 0
+    }
+  ]
+}

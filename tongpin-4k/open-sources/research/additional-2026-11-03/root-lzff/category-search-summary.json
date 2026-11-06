@@ -1,0 +1,643 @@
+[
+  {
+    "provider": "lzzy",
+    "kind": "categories",
+    "params": {
+      "ac": "list",
+      "pg": 1
+    },
+    "status": 200,
+    "total": 162218,
+    "pagecount": 8111,
+    "categories": [
+      {
+        "type_id": 1,
+        "type_pid": 0,
+        "type_name": "电影片"
+      },
+      {
+        "type_id": 2,
+        "type_pid": 0,
+        "type_name": "连续剧"
+      },
+      {
+        "type_id": 3,
+        "type_pid": 0,
+        "type_name": "综艺片"
+      },
+      {
+        "type_id": 4,
+        "type_pid": 0,
+        "type_name": "动漫片"
+      },
+      {
+        "type_id": 6,
+        "type_pid": 1,
+        "type_name": "动作片"
+      },
+      {
+        "type_id": 7,
+        "type_pid": 1,
+        "type_name": "喜剧片"
+      },
+      {
+        "type_id": 8,
+        "type_pid": 1,
+        "type_name": "爱情片"
+      },
+      {
+        "type_id": 9,
+        "type_pid": 1,
+        "type_name": "科幻片"
+      },
+      {
+        "type_id": 10,
+        "type_pid": 1,
+        "type_name": "恐怖片"
+      },
+      {
+        "type_id": 11,
+        "type_pid": 1,
+        "type_name": "剧情片"
+      },
+      {
+        "type_id": 12,
+        "type_pid": 1,
+        "type_name": "战争片"
+      },
+      {
+        "type_id": 13,
+        "type_pid": 2,
+        "type_name": "国产剧"
+      },
+      {
+        "type_id": 14,
+        "type_pid": 2,
+        "type_name": "香港剧"
+      },
+      {
+        "type_id": 15,
+        "type_pid": 2,
+        "type_name": "韩国剧"
+      },
+      {
+        "type_id": 16,
+        "type_pid": 2,
+        "type_name": "欧美剧"
+      },
+      {
+        "type_id": 20,
+        "type_pid": 1,
+        "type_name": "记录片"
+      },
+      {
+        "type_id": 21,
+        "type_pid": 2,
+        "type_name": "台湾剧"
+      },
+      {
+        "type_id": 22,
+        "type_pid": 2,
+        "type_name": "日本剧"
+      },
+      {
+        "type_id": 23,
+        "type_pid": 2,
+        "type_name": "海外剧"
+      },
+      {
+        "type_id": 24,
+        "type_pid": 2,
+        "type_name": "泰国剧"
+      },
+      {
+        "type_id": 25,
+        "type_pid": 3,
+        "type_name": "大陆综艺"
+      },
+      {
+        "type_id": 26,
+        "type_pid": 3,
+        "type_name": "港台综艺"
+      },
+      {
+        "type_id": 27,
+        "type_pid": 3,
+        "type_name": "日韩综艺"
+      },
+      {
+        "type_id": 28,
+        "type_pid": 3,
+        "type_name": "欧美综艺"
+      },
+      {
+        "type_id": 29,
+        "type_pid": 4,
+        "type_name": "国产动漫"
+      },
+      {
+        "type_id": 30,
+        "type_pid": 4,
+        "type_name": "日韩动漫"
+      },
+      {
+        "type_id": 31,
+        "type_pid": 4,
+        "type_name": "欧美动漫"
+      },
+      {
+        "type_id": 32,
+        "type_pid": 4,
+        "type_name": "港台动漫"
+      },
+      {
+        "type_id": 33,
+        "type_pid": 4,
+        "type_name": "海外动漫"
+      },
+      {
+        "type_id": 34,
+        "type_pid": 1,
+        "type_name": "伦理片"
+      },
+      {
+        "type_id": 35,
+        "type_pid": 0,
+        "type_name": "电影解说"
+      },
+      {
+        "type_id": 36,
+        "type_pid": 0,
+        "type_name": "体育"
+      },
+      {
+        "type_id": 37,
+        "type_pid": 36,
+        "type_name": "足球"
+      },
+      {
+        "type_id": 38,
+        "type_pid": 36,
+        "type_name": "篮球"
+      },
+      {
+        "type_id": 39,
+        "type_pid": 36,
+        "type_name": "网球"
+      },
+      {
+        "type_id": 40,
+        "type_pid": 36,
+        "type_name": "斯诺克"
+      },
+      {
+        "type_id": 45,
+        "type_pid": 1,
+        "type_name": "预告片"
+      },
+      {
+        "type_id": 46,
+        "type_pid": 0,
+        "type_name": "短剧"
+      },
+      {
+        "type_id": 49,
+        "type_pid": 1,
+        "type_name": "动画片"
+      },
+      {
+        "type_id": 52,
+        "type_pid": 0,
+        "type_name": "AI漫剧"
+      }
+    ],
+    "items": [
+      {
+        "id": 164866,
+        "title": "精神小妹竟是机甲高手",
+        "type": "AI漫剧",
+        "time": "2026-11-03 07:59:35",
+        "remarks": "已完结"
+      },
+      {
+        "id": 164865,
+        "title": "假结婚，真沦陷",
+        "type": "AI漫剧",
+        "time": "2026-11-03 07:59:04",
+        "remarks": "已完结"
+      },
+      {
+        "id": 164864,
+        "title": "霍总，夫人又爆猛料了",
+        "type": "AI漫剧",
+        "time": "2026-11-03 07:58:30",
+        "remarks": "已完结"
+      },
+      {
+        "id": 164863,
+        "title": "换嫁有喜，我家夫君妻管严",
+        "type": "AI漫剧",
+        "time": "2026-11-03 07:57:55",
+        "remarks": "已完结"
+      },
+      {
+        "id": 164862,
+        "title": "虎婿下山第三季",
+        "type": "AI漫剧",
+        "time": "2026-11-03 07:57:23",
+        "remarks": "已完结"
+      },
+      {
+        "id": 164861,
+        "title": "侯府嫡女昭雪录",
+        "type": "AI漫剧",
+        "time": "2026-11-03 07:56:49",
+        "remarks": "已完结"
+      },
+      {
+        "id": 164860,
+        "title": "红衣昭昭：权臣知我心",
+        "type": "AI漫剧",
+        "time": "2026-11-03 07:56:16",
+        "remarks": "已完结"
+      },
+      {
+        "id": 164859,
+        "title": "闺蜜双穿暗卫和皇位全都要",
+        "type": "AI漫剧",
+        "time": "2026-11-03 07:55:37",
+        "remarks": "已完结"
+      }
+    ]
+  },
+  {
+    "provider": "ffzy",
+    "kind": "categories",
+    "params": {
+      "ac": "list",
+      "pg": 1
+    },
+    "status": 200,
+    "total": 98910,
+    "pagecount": 4946,
+    "categories": [
+      {
+        "type_id": 1,
+        "type_pid": 0,
+        "type_name": "电影片"
+      },
+      {
+        "type_id": 2,
+        "type_pid": 0,
+        "type_name": "连续剧"
+      },
+      {
+        "type_id": 3,
+        "type_pid": 0,
+        "type_name": "综艺片"
+      },
+      {
+        "type_id": 4,
+        "type_pid": 0,
+        "type_name": "动漫片"
+      },
+      {
+        "type_id": 6,
+        "type_pid": 1,
+        "type_name": "动作片"
+      },
+      {
+        "type_id": 7,
+        "type_pid": 1,
+        "type_name": "喜剧片"
+      },
+      {
+        "type_id": 8,
+        "type_pid": 1,
+        "type_name": "爱情片"
+      },
+      {
+        "type_id": 9,
+        "type_pid": 1,
+        "type_name": "科幻片"
+      },
+      {
+        "type_id": 10,
+        "type_pid": 1,
+        "type_name": "恐怖片"
+      },
+      {
+        "type_id": 11,
+        "type_pid": 1,
+        "type_name": "剧情片"
+      },
+      {
+        "type_id": 12,
+        "type_pid": 1,
+        "type_name": "战争片"
+      },
+      {
+        "type_id": 13,
+        "type_pid": 2,
+        "type_name": "国产剧"
+      },
+      {
+        "type_id": 14,
+        "type_pid": 2,
+        "type_name": "香港剧"
+      },
+      {
+        "type_id": 15,
+        "type_pid": 2,
+        "type_name": "韩国剧"
+      },
+      {
+        "type_id": 16,
+        "type_pid": 2,
+        "type_name": "欧美剧"
+      },
+      {
+        "type_id": 20,
+        "type_pid": 1,
+        "type_name": "记录片"
+      },
+      {
+        "type_id": 21,
+        "type_pid": 2,
+        "type_name": "台湾剧"
+      },
+      {
+        "type_id": 22,
+        "type_pid": 2,
+        "type_name": "日本剧"
+      },
+      {
+        "type_id": 23,
+        "type_pid": 2,
+        "type_name": "海外剧"
+      },
+      {
+        "type_id": 24,
+        "type_pid": 2,
+        "type_name": "泰国剧"
+      },
+      {
+        "type_id": 25,
+        "type_pid": 3,
+        "type_name": "大陆综艺"
+      },
+      {
+        "type_id": 26,
+        "type_pid": 3,
+        "type_name": "港台综艺"
+      },
+      {
+        "type_id": 27,
+        "type_pid": 3,
+        "type_name": "日韩综艺"
+      },
+      {
+        "type_id": 28,
+        "type_pid": 3,
+        "type_name": "欧美综艺"
+      },
+      {
+        "type_id": 29,
+        "type_pid": 4,
+        "type_name": "国产动漫"
+      },
+      {
+        "type_id": 30,
+        "type_pid": 4,
+        "type_name": "日韩动漫"
+      },
+      {
+        "type_id": 31,
+        "type_pid": 4,
+        "type_name": "欧美动漫"
+      },
+      {
+        "type_id": 32,
+        "type_pid": 4,
+        "type_name": "港台动漫"
+      },
+      {
+        "type_id": 33,
+        "type_pid": 4,
+        "type_name": "海外动漫"
+      },
+      {
+        "type_id": 34,
+        "type_pid": 1,
+        "type_name": "伦理片"
+      },
+      {
+        "type_id": 36,
+        "type_pid": 2,
+        "type_name": "短剧"
+      }
+    ],
+    "items": [
+      {
+        "id": 99674,
+        "title": "魔法少女育成计划restart",
+        "type": "日韩动漫",
+        "time": "2026-11-03 01:59:13",
+        "remarks": "更新至第05集"
+      },
+      {
+        "id": 100073,
+        "title": "暑假",
+        "type": "韩国剧",
+        "time": "2026-11-03 00:01:01",
+        "remarks": "更新至第03集"
+      },
+      {
+        "id": 8727,
+        "title": "综艺玩很大",
+        "type": "港台综艺",
+        "time": "2026-11-02 22:55:27",
+        "remarks": "更新至第20261101期"
+      },
+      {
+        "id": 9795,
+        "title": "詹姆士出走料理",
+        "type": "港台综艺",
+        "time": "2026-11-02 22:54:44",
+        "remarks": "更新至第20261101期"
+      },
+      {
+        "id": 99672,
+        "title": "恋爱博士",
+        "type": "韩国剧",
+        "time": "2026-11-02 22:32:27",
+        "remarks": "更新至第09集"
+      },
+      {
+        "id": 99931,
+        "title": "非常律师南田南",
+        "type": "日本剧",
+        "time": "2026-11-02 22:20:54",
+        "remarks": "更新至第03集"
+      },
+      {
+        "id": 99925,
+        "title": "我的有罪之人",
+        "type": "韩国剧",
+        "time": "2026-11-02 22:20:12",
+        "remarks": "更新至第05集"
+      },
+      {
+        "id": 99669,
+        "title": "转生成哥布林有问题吗？",
+        "type": "日韩动漫",
+        "time": "2026-11-02 22:06:45",
+        "remarks": "更新至第06集"
+      }
+    ]
+  },
+  {
+    "provider": "lzzy",
+    "kind": "search",
+    "params": {
+      "ac": "detail",
+      "wd": "庆余年",
+      "pg": 1,
+      "pagesize": 20
+    },
+    "status": 200,
+    "total": 1675,
+    "pagecount": 84,
+    "categories": [],
+    "items": [
+      {
+        "id": 17701,
+        "title": "庆余年第一季",
+        "type": "国产剧",
+        "time": "2025-09-25 15:28:06",
+        "remarks": "已完结"
+      },
+      {
+        "id": 61205,
+        "title": "庆余年[电影解说]",
+        "type": "电影解说",
+        "time": "2023-05-18 20:04:04",
+        "remarks": "已完结"
+      },
+      {
+        "id": 88770,
+        "title": "庆余年第二季",
+        "type": "国产剧",
+        "time": "2025-09-25 15:28:40",
+        "remarks": "已完结"
+      },
+      {
+        "id": 91024,
+        "title": "2019腾讯视频星光盛典",
+        "type": "大陆综艺",
+        "time": "2024-07-10 16:40:28",
+        "remarks": "HD"
+      },
+      {
+        "id": 38596,
+        "title": "大演员",
+        "type": "喜剧片",
+        "time": "2022-11-05 16:47:03",
+        "remarks": "HD"
+      },
+      {
+        "id": 6881,
+        "title": "大秦赋",
+        "type": "国产剧",
+        "time": "2022-04-13 10:30:56",
+        "remarks": "已完结"
+      },
+      {
+        "id": 79951,
+        "title": "大秦赋[电影解说]",
+        "type": "电影解说",
+        "time": "2024-01-04 19:00:59",
+        "remarks": "已完结"
+      },
+      {
+        "id": 132411,
+        "title": "路边有条鱼",
+        "type": "短剧",
+        "time": "2026-04-01 10:06:38",
+        "remarks": "已完结"
+      }
+    ]
+  },
+  {
+    "provider": "ffzy",
+    "kind": "search",
+    "params": {
+      "ac": "detail",
+      "wd": "庆余年",
+      "pg": 1,
+      "pagesize": 20
+    },
+    "status": 200,
+    "total": 8,
+    "pagecount": 1,
+    "categories": [],
+    "items": [
+      {
+        "id": 79613,
+        "title": "庆余年第二季粤语",
+        "type": "国产剧",
+        "time": "2025-05-27 21:34:12",
+        "remarks": "已完结"
+      },
+      {
+        "id": 75904,
+        "title": "庆余年之风起沧州",
+        "type": "短剧",
+        "time": "2025-01-04 18:33:03",
+        "remarks": "已完结"
+      },
+      {
+        "id": 73261,
+        "title": "庆余年之帝王业",
+        "type": "短剧",
+        "time": "2024-10-26 20:04:56",
+        "remarks": "已完结"
+      },
+      {
+        "id": 72651,
+        "title": "庆余年之少年风流",
+        "type": "短剧",
+        "time": "2024-10-10 13:53:20",
+        "remarks": "已完结"
+      },
+      {
+        "id": 67695,
+        "title": "庆余年，全世界都以为我是废物太子",
+        "type": "短剧",
+        "time": "2024-06-11 17:53:24",
+        "remarks": "已完结"
+      },
+      {
+        "id": 66696,
+        "title": "庆余年第二季",
+        "type": "国产剧",
+        "time": "2024-05-30 20:42:57",
+        "remarks": "已完结"
+      },
+      {
+        "id": 66505,
+        "title": "庆余年第一季特别篇",
+        "type": "国产剧",
+        "time": "2024-05-14 20:30:55",
+        "remarks": "已完结"
+      },
+      {
+        "id": 4203,
+        "title": "庆余年第一季",
+        "type": "国产剧",
+        "time": "2023-01-09 15:35:00",
+        "remarks": "已完结"
+      }
+    ]
+  }
+]

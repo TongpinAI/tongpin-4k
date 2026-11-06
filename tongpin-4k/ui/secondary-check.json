@@ -1,0 +1,174 @@
+{
+  "direction": "索引片库：浅米底、墨蓝文字、蓝色重点、紧凑原生",
+  "files": [
+    {
+      "file": "decoded/res/layout/phone_activity_settings.xml",
+      "ids": 16,
+      "ids_unchanged": true,
+      "id_view_types_unchanged": true,
+      "root_type_unchanged": true,
+      "root_binding_tag": "layout/phone_activity_settings_0",
+      "root_binding_tag_unchanged": true,
+      "declarative_events_unchanged": true,
+      "original_control_types_retained": true,
+      "changed_id_views": [
+        "@id/view",
+        "@id/iv_back",
+        "@id/tv_title",
+        "@id/view2",
+        "@id/tv_user",
+        "@id/tv_m_z",
+        "@id/tv_y_s",
+        "@id/fl_version",
+        "@id/tv_version",
+        "@id/tv_version_num",
+        "@id/fl_clear_cache",
+        "@id/tv_clear_cache",
+        "@id/tv_cache_size",
+        "@id/fl_about",
+        "@id/tv_connect",
+        "@id/tv_logout"
+      ],
+      "added_unbound_text_views": 2,
+      "before_sha256": "fce9ac3a629a5228759ff64eb7278546d67f81bda6d9be53754eabb67e474007",
+      "after_sha256": "0f001ee7f075a40b96d9190d6922496bbb712ef773209e30c816eb839057ec9c"
+    },
+    {
+      "file": "decoded/res/layout/phone_fragment_mine.xml",
+      "ids": 15,
+      "ids_unchanged": true,
+      "id_view_types_unchanged": true,
+      "root_type_unchanged": true,
+      "root_binding_tag": "layout/phone_fragment_mine_0",
+      "root_binding_tag_unchanged": true,
+      "declarative_events_unchanged": true,
+      "original_control_types_retained": true,
+      "changed_id_views": [
+        "@id/iv_user_icon",
+        "@id/tv_user_name",
+        "@id/iv_settings",
+        "@id/view_history",
+        "@id/tv_history",
+        "@id/tv_history_more",
+        "@id/rv_history",
+        "@id/tv_empty_history",
+        "@id/view_function",
+        "@id/tv_normal",
+        "@id/ll_collect",
+        "@id/tv_sign",
+        "@id/ll_msg",
+        "@id/iv_gt",
+        "@id/fl_ad"
+      ],
+      "added_unbound_text_views": 2,
+      "before_sha256": "cc4d4417a2565393a82b736082d3cc0efa48a1d459a2bceb30cfa5bf55c273c5",
+      "after_sha256": "cd2c98e9359ed2fc50de94b159d83aee181e61b528c4189e7307d69fb87b7a3c"
+    },
+    {
+      "file": "decoded/res/layout/phone_activity_search.xml",
+      "ids": 6,
+      "ids_unchanged": true,
+      "id_view_types_unchanged": true,
+      "root_type_unchanged": true,
+      "root_binding_tag": "layout/phone_activity_search_0",
+      "root_binding_tag_unchanged": true,
+      "declarative_events_unchanged": true,
+      "original_control_types_retained": true,
+      "changed_id_views": [
+        "@id/iv_back",
+        "@id/tv_search",
+        "@id/search",
+        "@id/tv_hot_title",
+        "@id/tv_hot",
+        "@id/rv_search"
+      ],
+      "added_unbound_text_views": 0,
+      "before_sha256": "b99981a146166895aa042a11880e7c5f8eb42f3eed9705a7e88008d391600d1c",
+      "after_sha256": "98993a1efc0a84f11fa76c7857469d403342a37dcf4485aa22a3493bfc322f71"
+    },
+    {
+      "file": "decoded/res/layout/phone_activity_history_collect.xml",
+      "ids": 6,
+      "ids_unchanged": true,
+      "id_view_types_unchanged": true,
+      "root_type_unchanged": true,
+      "root_binding_tag": "layout/phone_activity_history_collect_0",
+      "root_binding_tag_unchanged": true,
+      "declarative_events_unchanged": true,
+      "original_control_types_retained": true,
+      "changed_id_views": [
+        "@id/tv_title",
+        "@id/iv_back",
+        "@id/iv_clear",
+        "@id/recycler_view",
+        "@id/iv_empty",
+        "@id/tv_empty"
+      ],
+      "added_unbound_text_views": 0,
+      "before_sha256": "4d3cb9feb1bf2703fdcf0af7c15a63e817a7ccceb9c501d74a21457453dbd771",
+      "after_sha256": "639b422e0433f63ab49b1f87f0ee2ea34f78814c866795b6d409eba6f8051d8d"
+    },
+    {
+      "file": "decoded/res/layout/phone_activity_msg.xml",
+      "ids": 7,
+      "ids_unchanged": true,
+      "id_view_types_unchanged": true,
+      "root_type_unchanged": true,
+      "root_binding_tag": "layout/phone_activity_msg_0",
+      "root_binding_tag_unchanged": true,
+      "declarative_events_unchanged": true,
+      "original_control_types_retained": true,
+      "changed_id_views": [
+        "@id/iv_back",
+        "@id/tv_title",
+        "@id/tv_msg_time",
+        "@id/view",
+        "@id/tv_msg_title",
+        "@id/tv_msg_content",
+        "@id/tv_msg_detail"
+      ],
+      "added_unbound_text_views": 0,
+      "before_sha256": "dc7fbfccddb51ead0cd6684dc0580888bdbe5a34d260962e68991454c9d677d3",
+      "after_sha256": "c79be34a5911681d5c3b998743c56e798123800baa6117dad4dcc31958b7a831"
+    },
+    {
+      "file": "decoded/res/layout/phone_activity_msg_detail.xml",
+      "ids": 4,
+      "ids_unchanged": true,
+      "id_view_types_unchanged": true,
+      "root_type_unchanged": true,
+      "root_binding_tag": "layout/phone_activity_msg_detail_0",
+      "root_binding_tag_unchanged": true,
+      "declarative_events_unchanged": true,
+      "original_control_types_retained": true,
+      "changed_id_views": [
+        "@id/view",
+        "@id/iv_back",
+        "@id/tv_title",
+        "@id/tv_content"
+      ],
+      "added_unbound_text_views": 0,
+      "before_sha256": "4c675e7c21f5556686433487e6142fab65a3b6cb05fb19cbe533e1d5f7a08e88",
+      "after_sha256": "0626e2ffbf26e3ebba755cc1c8f27658df1e4544a2ab758b17aa14002869b5ba"
+    }
+  ],
+  "changes": [
+    "统一tp颜色角色、sp字体与紧凑标题层级",
+    "返回、设置、清空、搜索、退出、常用功能等触区至少48dp",
+    "设置页显示同频4K 1.0.0及原服务方边界",
+    "服务隐私、片源说明与原服务方联系方式保留原事件",
+    "我的页保留历史、收藏、签到、消息、原服务方入口，广告容器默认gone",
+    "账号、版本、缓存、消息时间移除静态假占位，仍由原绑定填充"
+  ],
+  "modification_scope": [
+    "six requested layout XML files",
+    "ui/secondary-check.json"
+  ],
+  "xml_parse": "passed",
+  "binding_contract": "passed",
+  "device_render_verified": false,
+  "limitations": [
+    "未连接安卓设备，尚未验证原生渲染、字体缩放及真实业务填充",
+    "动态消息、账号、片源服务内容仍由原业务代码填充"
+  ]
+}

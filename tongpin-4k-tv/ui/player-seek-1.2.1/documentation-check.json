@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "review_type": "Independent current TV documentation/source consistency review; report-only write",
+  "documentation_sha256": {
+    "PRODUCT.md": "8f7814489c1b251438aa602592084eafafe00e7853d4e0b9de84ecb3943cf134",
+    "DESIGN.md": "ccaaf59238f8535782334247c1acabda6f5c8b7fc0fa7ddd952a040512270e20",
+    ".impeccable/surfaces/android-tv.md": "8984faf4e15ad977253c0c19a0d4c53680698286c4523b0ab39ca35ee2f1c0ae",
+    "使用说明.md": "1e3107a7c9a24a4cef53e74f69f3eb7d23731f3c24ca47b7c1365587fc2e6420"
+  },
+  "facts_checked": [
+    "Current source version1.2.1/code1201 is consistent across product, surface and installation instructions.",
+    "The native progress bar is48dp high with white thumb/played track and dark TV focus selector.",
+    "Remote10-second steps,150ms repeat throttling and200ms last-input coalescing match source.",
+    "Touch preview/release/cancel, one-flight/latest-queued target and four-second post-completion display hold match state/integration.",
+    "API26 closest-frame positioning and API21 legacy key-frame precision limitation are described accurately without promising lower buffering latency.",
+    "Pause, release, background, source/quality/episode transitions retain intended playback and identity boundaries.",
+    "All four documents retain device/native validation boundaries; prior historical evidence remains distinguished from current1.2.1 source policy checks.",
+    "Installation instruction heading/version code and surface evidence table formatting were corrected."
+  ],
+  "production_review_hashes_matched": true,
+  "device_test": false
+}

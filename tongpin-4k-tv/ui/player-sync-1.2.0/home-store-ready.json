@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "source_sha256": {
+    "src/com/tongpin/player4k/tv/TvHomeActivity.java": "f841aff76bc432ecbde8c5a0fd9da2d901a595a9c3ec4fb16039cb62a24ede1c",
+    "src/com/tongpin/player4k/tv/TvLibraryStore.java": "a72e6295c542703f45321ba3d2b296392f19f3632727a64fd26a68dbb8a9b385"
+  },
+  "scope": "TvHome canonical queue token handoff and result index; schema2 additive per-episode progress with unchanged original history/favorites schema",
+  "android_runtime_verified": false,
+  "player_order_preference_refreshed_on_result": true,
+  "line_switch_cancels_pending_handoff": true
+}

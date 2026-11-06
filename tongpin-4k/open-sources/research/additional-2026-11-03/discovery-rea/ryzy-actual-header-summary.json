@@ -1,0 +1,181 @@
+{
+  "samples": [
+    {
+      "tag": "film",
+      "video_id": 15971,
+      "title": "流浪地球",
+      "episode": "HD中字",
+      "playlist_segment_index": 657,
+      "segment_duration": 5.583333,
+      "request": {
+        "url": "https://cdn1.ryplay1.com/20240909/7654_11abb47d/2000k/hls/bd0362faf826a11e8aa63ef0c6c3c3da.ts",
+        "checked_utc": "2026-11-03T00:04:13.880365+00:00",
+        "authentication": "none",
+        "cookies": "none",
+        "status": 206,
+        "final_url": "https://cdn1.ryplay1.com/20240909/7654_11abb47d/2000k/hls/bd0362faf826a11e8aa63ef0c6c3c3da.ts",
+        "content_type": "video/mp2t",
+        "content_length": "1048576",
+        "bytes": 1048576,
+        "sha256": "9e90a3842c7e63c436fb7480fc4016672c97c6817d37b08a73536d1d64e557ac",
+        "file": "ryzy-film-actual-prefix.bin",
+        "elapsed_ms": 7078
+      },
+      "declared_master_resolutions": [
+        [
+          1080,
+          608
+        ]
+      ],
+      "max_media_bytes": 1048576,
+      "ffprobe_exit": 0,
+      "ffprobe": {
+        "programs": [
+          {
+            "streams": [
+              {
+                "index": 0,
+                "codec_name": "h264",
+                "codec_type": "video",
+                "width": 1920,
+                "height": 756,
+                "r_frame_rate": "24/1",
+                "nb_read_frames": "28"
+              },
+              {
+                "index": 1,
+                "codec_name": "aac",
+                "codec_type": "audio",
+                "sample_rate": "48000",
+                "channels": 2,
+                "r_frame_rate": "0/0",
+                "nb_read_frames": "48"
+              }
+            ]
+          }
+        ],
+        "stream_groups": [],
+        "streams": [
+          {
+            "index": 0,
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 1920,
+            "height": 756,
+            "r_frame_rate": "24/1",
+            "nb_read_frames": "28"
+          },
+          {
+            "index": 1,
+            "codec_name": "aac",
+            "codec_type": "audio",
+            "sample_rate": "48000",
+            "channels": 2,
+            "r_frame_rate": "0/0",
+            "nb_read_frames": "48"
+          }
+        ]
+      },
+      "stderr": "[h264 @ 00000000027eebc0] error while decoding MB 46 47, bytestream -5\n",
+      "actual_dimensions": [
+        {
+          "width": 1920,
+          "height": 756,
+          "codec": "h264",
+          "read_frames": "28"
+        }
+      ]
+    },
+    {
+      "tag": "current-tv",
+      "video_id": 89263,
+      "title": "你的保安 李宝安",
+      "episode": "第01集",
+      "playlist_segment_index": 168,
+      "segment_duration": 6.76,
+      "request": {
+        "url": "https://svip.ryiplay18.com/20261026/14526_a3d2ad32/2000k/hls/625935122d6980645df915df7fbd5f1a.ts",
+        "checked_utc": "2026-11-03T00:04:13.873949+00:00",
+        "authentication": "none",
+        "cookies": "none",
+        "status": 206,
+        "final_url": "https://svip.ryiplay18.com/20261026/14526_a3d2ad32/2000k/hls/625935122d6980645df915df7fbd5f1a.ts",
+        "content_type": "video/mp2t",
+        "content_length": "1048576",
+        "bytes": 1048576,
+        "sha256": "475cecff7ebe839aed3d28e42b741a2686ff91f8a8a26d05a1eb48cb4d6b4843",
+        "file": "ryzy-current-tv-actual-prefix.bin",
+        "elapsed_ms": 7078
+      },
+      "declared_master_resolutions": [
+        [
+          1080,
+          608
+        ]
+      ],
+      "max_media_bytes": 1048576,
+      "ffprobe_exit": 0,
+      "ffprobe": {
+        "programs": [
+          {
+            "streams": [
+              {
+                "index": 0,
+                "codec_name": "h264",
+                "codec_type": "video",
+                "width": 1920,
+                "height": 1080,
+                "r_frame_rate": "25/1",
+                "nb_read_frames": "135"
+              },
+              {
+                "index": 1,
+                "codec_name": "aac",
+                "codec_type": "audio",
+                "sample_rate": "44100",
+                "channels": 2,
+                "r_frame_rate": "0/0",
+                "nb_read_frames": "229"
+              }
+            ]
+          }
+        ],
+        "stream_groups": [],
+        "streams": [
+          {
+            "index": 0,
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 1920,
+            "height": 1080,
+            "r_frame_rate": "25/1",
+            "nb_read_frames": "135"
+          },
+          {
+            "index": 1,
+            "codec_name": "aac",
+            "codec_type": "audio",
+            "sample_rate": "44100",
+            "channels": 2,
+            "r_frame_rate": "0/0",
+            "nb_read_frames": "229"
+          }
+        ]
+      },
+      "stderr": "[h264 @ 0000000002e45040] error while decoding MB 64 22, bytestream -6\n",
+      "actual_dimensions": [
+        {
+          "width": 1920,
+          "height": 1080,
+          "codec": "h264",
+          "read_frames": "135"
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "One bounded segment per selected TV/film playlist, not full videos.",
+    "Master RESOLUTION declaration is separated from actual ffprobe elementary stream dimensions.",
+    "No external protocols allowed for local ffprobe; no keys, remote code, auth or geo bypass."
+  ]
+}

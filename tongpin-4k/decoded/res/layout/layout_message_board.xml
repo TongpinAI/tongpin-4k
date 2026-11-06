@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/empower" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/ll_type_details" android:paddingTop="@dimen/sm_10" android:paddingRight="@dimen/sm_35" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <ImageView android:layout_width="@dimen/sm_220" android:layout_height="@dimen/sm_80" android:layout_marginLeft="@dimen/sm_16" android:src="@drawable/inv" />
+        <TextView android:textSize="@dimen/sm_24" android:textColor="#ffffffff" android:gravity="left" android:id="@id/empower_users" android:paddingLeft="@dimen/sm_20" android:paddingRight="@dimen/sm_0" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="账户：" />
+        <TextView android:textSize="@dimen/sm_30" android:textColor="@color/detail_point" android:gravity="left" android:id="@id/empower_user" android:paddingRight="@dimen/sm_0" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" />
+        <TextView android:textSize="@dimen/sm_24" android:textColor="#ffffffff" android:gravity="left" android:id="@id/empower_invis" android:paddingLeft="@dimen/sm_20" android:paddingRight="@dimen/sm_0" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="邀请码：" />
+        <TextView android:textSize="@dimen/sm_30" android:textColor="@color/white" android:gravity="left" android:id="@id/empower_invi" android:paddingRight="@dimen/sm_0" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/rl_active" android:paddingTop="@dimen/sm_40" android:visibility="visible" android:layout_width="match_parent" android:layout_height="match_parent">
+        <ImageView android:id="@id/message_board_img" android:layout_width="@dimen/sm_400" android:layout_height="@dimen/sm_400" android:layout_marginTop="@dimen/sm_10" />
+        <TextView android:textSize="@dimen/sm_32" android:textColor="@color/white" android:id="@id/ivntext" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/sm_50" android:text="" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,123 @@
+{
+  "passed": true,
+  "policy_assertions": 258,
+  "scope": "Activity O1 initialization/handled resize plus one private configuration helper; additive PhoneUi sizing policy; two layout attribute edits with exact binding tree.",
+  "canonical_adapter_unchanged_from_1_3_1": true,
+  "layouts": {
+    "decoded/res/layout/phone_activity_video_detail_play.xml": [
+      {
+        "tag": "androidx.recyclerview.widget.RecyclerView",
+        "id": "@id/recycler_view_trunk",
+        "changed_attributes": {
+          "{http://schemas.android.com/apk/res/android}clipToPadding": [
+            null,
+            "false"
+          ],
+          "{http://schemas.android.com/apk/res/android}scrollbars": [
+            null,
+            "vertical"
+          ],
+          "{http://schemas.android.com/apk/res/android}paddingBottom": [
+            null,
+            "16dp"
+          ],
+          "{http://schemas.android.com/apk/res/android}layout_height": [
+            "56dp",
+            "0dp"
+          ],
+          "{http://schemas.android.com/apk/res-auto}layout_constraintBottom_toBottomOf": [
+            null,
+            "parent"
+          ]
+        }
+      }
+    ],
+    "decoded/res/layout/mv_details_key_grid_item.xml": [
+      {
+        "tag": "RelativeLayout",
+        "id": null,
+        "changed_attributes": {
+          "{http://schemas.android.com/apk/res/android}layout_width": [
+            "wrap_content",
+            "match_parent"
+          ]
+        }
+      },
+      {
+        "tag": "TextView",
+        "id": "@id/gv_text",
+        "changed_attributes": {
+          "{http://schemas.android.com/apk/res/android}textColor": [
+            "@color/black",
+            "@color/tp_text"
+          ],
+          "{http://schemas.android.com/apk/res/android}paddingLeft": [
+            "@dimen/dp_2",
+            "4dp"
+          ],
+          "{http://schemas.android.com/apk/res/android}paddingTop": [
+            null,
+            "8dp"
+          ],
+          "{http://schemas.android.com/apk/res/android}maxLines": [
+            null,
+            "2"
+          ],
+          "{http://schemas.android.com/apk/res/android}minHeight": [
+            null,
+            "48dp"
+          ],
+          "{http://schemas.android.com/apk/res/android}singleLine": [
+            "true",
+            null
+          ],
+          "{http://schemas.android.com/apk/res/android}marqueeRepeatLimit": [
+            "3",
+            null
+          ],
+          "{http://schemas.android.com/apk/res/android}ellipsize": [
+            "marquee",
+            "end"
+          ],
+          "{http://schemas.android.com/apk/res/android}duplicateParentState": [
+            null,
+            "true"
+          ],
+          "{http://schemas.android.com/apk/res/android}paddingRight": [
+            null,
+            "4dp"
+          ],
+          "{http://schemas.android.com/apk/res/android}paddingBottom": [
+            null,
+            "8dp"
+          ],
+          "{http://schemas.android.com/apk/res/android}textSize": [
+            "@dimen/sp_18",
+            "14sp"
+          ],
+          "{http://schemas.android.com/apk/res/android}layout_width": [
+            "@dimen/dp_90",
+            "match_parent"
+          ],
+          "{http://schemas.android.com/apk/res/android}layout_height": [
+            "@dimen/dp_60",
+            "wrap_content"
+          ]
+        }
+      }
+    ]
+  },
+  "source_sha256": {
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity.smali": "48472d5d130f363900ed8ebe02f97bb54b00e92e1917f60567cf36a53bd68b79",
+    "open-sources/src/com/tongpin/player4k/catalog/PhoneUi.java": "8d8e39fea8e3b5c2e7e15301014e54ba55294713a28ee22600056a04e0b9fe8a",
+    "decoded/res/layout/phone_activity_video_detail_play.xml": "841aaaa76b3aac04402be6d44bebd5fb02fa8414dc18bfda608774480af13640",
+    "decoded/res/layout/mv_details_key_grid_item.xml": "149cd4930a1e7636e92a04e988d4d85be2f1f75b9314162ef90a8322a07cc9f0",
+    "decoded/smali_classes5/f6/g.smali": "30f881d0988e6b21d772531a9f2c899353fd7fab4c80417850a07e5954575e29",
+    "open-sources/src/com/tongpin/player4k/catalog/LegacyEpisodeOrder.java": "f9b4ecc8d3bb318991fd25c99cf10dfd88c183511047d83bb6715bc51b3ea66f"
+  },
+  "device_test": false,
+  "activity_constructed": false,
+  "risks": [
+    "Native ConstraintLayout/RecyclerView measurement, actual scrolling, multiwindow and large-font behavior require device validation."
+  ]
+}

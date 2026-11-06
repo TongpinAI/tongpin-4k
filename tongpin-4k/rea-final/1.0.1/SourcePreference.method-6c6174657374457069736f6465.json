@@ -1,0 +1,134 @@
+{
+  "ok": true,
+  "value": {
+    "evidence_id": "ev_9db4a94e27e21c6704e35a221f370e33b773e347cd57fb7431e63d68aa0448b5",
+    "subject": {
+      "name": "tongpin-4k-1.0.1.apk",
+      "digest": {
+        "sha256": "901b10876642f7dae23127d560771477167109d3028b98d669cef2db1903869a"
+      },
+      "local_path": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\output\\tongpin-4k-1.0.1.apk",
+      "format": "apk",
+      "architecture": null
+    },
+    "provider": {
+      "id": "jadx",
+      "name": "JADX headless",
+      "version": "0.7.1"
+    },
+    "analysis_profile": null,
+    "predicate_type": "rea.analysis",
+    "operation": "inspect_android_method",
+    "parameters": {
+      "path": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\output\\tongpin-4k-1.0.1.apk",
+      "class_name": "com.shenma.tvlauncher.phone.SourcePreference",
+      "method_name": "latestEpisode",
+      "overload_index": 0
+    },
+    "raw_result": {
+      "server": {
+        "name": "rea-jadx-bridge",
+        "version": "4"
+      },
+      "bridge_sha256": "a02b1ef0a4a40abd1ae310b9ee686ca163e0b59a3256df524c35b90ed17e9e63",
+      "jar_sha256": "6e5eacf500b64292bfb73c49797c1958f6ee44646e43e868039ae7feb573ff75",
+      "loaded": {
+        "state": "LOADED",
+        "apk_path": "C:\\Users\\ADMINI~1.DES\\AppData\\Local\\Temp\\rea-android-c905bb0c939ad685ec6f85217b4d3376\\target.apk",
+        "class_count": 23562,
+        "resource_count": 4004,
+        "threads": 1,
+        "resources": "full"
+      },
+      "calls": [
+        {
+          "operation": "rea_jvm_status",
+          "input": {},
+          "response": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"max_heap_bytes\":4294967296,\"java_version\":\"25.0.4\",\"available_processors\":16,\"engine_reported_version\":\"0.7.1\",\"metadata_scope\":\"parsed_members\"}"
+              }
+            ],
+            "isError": false
+          }
+        },
+        {
+          "operation": "get_class_summary",
+          "input": {
+            "class_name": "com.shenma.tvlauncher.phone.SourcePreference"
+          },
+          "response": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"methods\":[{\"def_pos\":0,\"name\":\"\\u003cclinit\\u003e\",\"is_constructor\":false,\"dex_descriptor\":\"()V\",\"signature\":\"\\u003cclinit\\u003e(): void\"},{\"def_pos\":0,\"name\":\"\\u003cinit\\u003e\",\"is_constructor\":true,\"dex_descriptor\":\"()V\",\"signature\":\"\\u003cinit\\u003e(): void\"},{\"def_pos\":0,\"name\":\"at\",\"is_constructor\":false,\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/entity/PlayerSource;I)Lcom/shenma/tvlauncher/vod/domain/VodUrl;\",\"signature\":\"at(com.shenma.tvlauncher.entity.PlayerSource, int): com.shenma.tvlauncher.vod.domain.VodUrl\"},{\"def_pos\":0,\"name\":\"choose\",\"is_constructor\":false,\"dex_descriptor\":\"(Ljava/util/List;II)[I\",\"signature\":\"choose(java.util.List\\u003ccom.shenma.tvlauncher.entity.PlayerSource\\u003e, int, int): int[]\"},{\"def_pos\":0,\"name\":\"episodeKey\",\"is_constructor\":false,\"dex_descriptor\":\"(Ljava/lang/String;)Ljava/lang/String;\",\"signature\":\"episodeKey(java.lang.String): java.lang.String\"},{\"def_pos\":0,\"name\":\"latestEpisode\",\"is_constructor\":false,\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/entity/PlayerSource;)J\",\"signature\":\"latestEpisode(com.shenma.tvlauncher.entity.PlayerSource): long\"},{\"def_pos\":0,\"name\":\"marked\",\"is_constructor\":false,\"dex_descriptor\":\"(Ljava/lang/String;Ljava/lang/String;)Z\",\"signature\":\"marked(java.lang.String, java.lang.String): boolean\"},{\"def_pos\":0,\"name\":\"matchingEpisode\",\"is_constructor\":false,\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/entity/PlayerSource;Lcom/shenma/tvlauncher/entity/PlayerSource;I)I\",\"signature\":\"matchingEpisode(com.shenma.tvlauncher.entity.PlayerSource, com.shenma.tvlauncher.entity.PlayerSource, int): int\"},{\"def_pos\":0,\"name\":\"playable\",\"is_constructor\":false,\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/vod/domain/VodUrl;)Z\",\"signature\":\"playable(com.shenma.tvlauncher.vod.domain.VodUrl): boolean\"},{\"def_pos\":0,\"name\":\"rank\",\"is_constructor\":false,\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/entity/PlayerSource;)I\",\"signature\":\"rank(com.shenma.tvlauncher.entity.PlayerSource): int\"}],\"method_count\":10,\"inner_class_count\":0,\"inner_classes\":[],\"name\":\"SourcePreference\",\"full_name\":\"com.shenma.tvlauncher.phone.SourcePreference\",\"field_count\":2,\"fields\":[{\"type\":\"java.util.regex.Pattern\",\"def_pos\":0,\"name\":\"EPISODE_NUMBER\"},{\"type\":\"int\",\"def_pos\":0,\"name\":\"FOUR_K\"}]}"
+              }
+            ],
+            "isError": false
+          }
+        },
+        {
+          "operation": "get_method_body",
+          "input": {
+            "class_name": "com.shenma.tvlauncher.phone.SourcePreference",
+            "method_name": "latestEpisode",
+            "overload_index": 0,
+            "smali_fallback": true
+          },
+          "response": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"fell_back\":false,\"full_name\":\"com.shenma.tvlauncher.phone.SourcePreference.latestEpisode\",\"overload_index\":0,\"method_name\":\"latestEpisode\",\"overload_count\":1,\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/entity/PlayerSource;)J\",\"class_name\":\"com.shenma.tvlauncher.phone.SourcePreference\",\"mode\":\"java\",\"body\":\"    private static long latestEpisode(PlayerSource playerSource) {\\r\\n        if (playerSource \\u003d\\u003d null || playerSource.getList() \\u003d\\u003d null) {\\r\\n            return -1L;\\r\\n        }\\r\\n        long jMax \\u003d -1;\\r\\n        long j9 \\u003d -1;\\r\\n        boolean z9 \\u003d false;\\r\\n        for (VodUrl vodUrl : playerSource.getList()) {\\r\\n            if (playable(vodUrl) \\u0026\\u0026 vodUrl.getTitle() !\\u003d null) {\\r\\n                String lowerCase \\u003d vodUrl.getTitle().trim().toLowerCase(Locale.ROOT);\\r\\n                Matcher matcher \\u003d EPISODE_NUMBER.matcher(lowerCase);\\r\\n                if (matcher.matches()) {\\r\\n                    boolean z10 \\u003d true;\\r\\n                    try {\\r\\n                        long j10 \\u003d Long.parseLong(matcher.group(1));\\r\\n                        if (j9 \\u003c 0) {\\r\\n                            j9 \\u003d j10;\\r\\n                        }\\r\\n                        if (j10 \\u003d\\u003d j9 \\u0026\\u0026 Character.isDigit(lowerCase.charAt(0)) \\u0026\\u0026 Character.isDigit(lowerCase.charAt(lowerCase.length() - 1))) {\\r\\n                            z10 \\u003d false;\\r\\n                        }\\r\\n                        z9 |\\u003d z10;\\r\\n                        jMax \\u003d Math.max(jMax, j10);\\r\\n                    } catch (NumberFormatException e10) {\\r\\n                    }\\r\\n                }\\r\\n            }\\r\\n        }\\r\\n        if (z9) {\\r\\n            return jMax;\\r\\n        }\\r\\n        return -1L;\\r\\n    }\",\"markers\":[]}"
+              }
+            ],
+            "isError": false
+          }
+        }
+      ]
+    },
+    "normalized_result": {
+      "engine": {
+        "name": "jadx-headless-mcp",
+        "version": "0.7.1",
+        "artifact_sha256": "6e5eacf500b64292bfb73c49797c1958f6ee44646e43e868039ae7feb573ff75",
+        "source_revision": "5844800a486d2248fa949b74c9896285f5b54de2",
+        "worker_count": 1,
+        "heap_limit_mib": 4096
+      },
+      "class_name": "com.shenma.tvlauncher.phone.SourcePreference",
+      "method": {
+        "name": "latestEpisode",
+        "reported_signature": "latestEpisode(com.shenma.tvlauncher.entity.PlayerSource): long",
+        "overload_index": 0,
+        "is_constructor": false,
+        "dex_descriptor": "(Lcom/shenma/tvlauncher/entity/PlayerSource;)J"
+      },
+      "overload_count": 1,
+      "representation": "java",
+      "body_status": "available",
+      "fell_back": false,
+      "markers": [],
+      "source": {
+        "status": "complete",
+        "text": "    private static long latestEpisode(PlayerSource playerSource) {\r\n        if (playerSource == null || playerSource.getList() == null) {\r\n            return -1L;\r\n        }\r\n        long jMax = -1;\r\n        long j9 = -1;\r\n        boolean z9 = false;\r\n        for (VodUrl vodUrl : playerSource.getList()) {\r\n            if (playable(vodUrl) && vodUrl.getTitle() != null) {\r\n                String lowerCase = vodUrl.getTitle().trim().toLowerCase(Locale.ROOT);\r\n                Matcher matcher = EPISODE_NUMBER.matcher(lowerCase);\r\n                if (matcher.matches()) {\r\n                    boolean z10 = true;\r\n                    try {\r\n                        long j10 = Long.parseLong(matcher.group(1));\r\n                        if (j9 < 0) {\r\n                            j9 = j10;\r\n                        }\r\n                        if (j10 == j9 && Character.isDigit(lowerCase.charAt(0)) && Character.isDigit(lowerCase.charAt(lowerCase.length() - 1))) {\r\n                            z10 = false;\r\n                        }\r\n                        z9 |= z10;\r\n                        jMax = Math.max(jMax, j10);\r\n                    } catch (NumberFormatException e10) {\r\n                    }\r\n                }\r\n            }\r\n        }\r\n        if (z9) {\r\n            return jMax;\r\n        }\r\n        return -1L;\r\n    }",
+        "reported_total_bytes": null
+      }
+    },
+    "confidence": "derived",
+    "authority": "shipped-artifact",
+    "environment": null,
+    "limitations": [
+      "Static decompiler observations do not establish runtime behavior; the APK is never executed.",
+      "Method signatures use provider display types; DEX prototypes come from frozen JADX metadata. Display names may be aliases, and overload indices are local to this engine and artifact.",
+      "Class inventories use parsed metadata before code generation, including synthetic members that may be omitted from decompiled source. Source positions remain unknown.",
+      "Incoming reference totals count JADX using nodes. Direct invoke entries within a using method report raw DEX code-unit offsets and method indexes, but coverage is limited to those nodes and directly matched invokes; it does not establish every possible dynamic or reflective call site.",
+      "Manifest summary fields are extracted by the upstream engine; decoded XML is retained for verification. APK signatures, split APKs, native libraries and Android runtime capture are not verified by this provider."
+    ],
+    "relationship_coverage": null,
+    "locations": [],
+    "evidence_links": []
+  }
+}

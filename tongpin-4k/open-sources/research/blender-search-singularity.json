@@ -1,0 +1,422 @@
+{
+  "total": 3,
+  "data": [
+    {
+      "id": 55194,
+      "uuid": "1ba07bbb-1456-4293-99a6-833fa450eda0",
+      "shortUUID": "4pSeQCu9XXz9wWMh5gTNMf",
+      "url": "https://video.blender.org/videos/watch/1ba07bbb-1456-4293-99a6-833fa450eda0",
+      "name": "SINGULARITY - Painterly Space Adventure",
+      "category": {
+        "id": null,
+        "label": "Unknown"
+      },
+      "licence": {
+        "id": 2,
+        "label": "Attribution - Share Alike"
+      },
+      "language": {
+        "id": null,
+        "label": "Unknown"
+      },
+      "privacy": {
+        "id": 1,
+        "label": "Public"
+      },
+      "nsfw": false,
+      "nsfwFlags": 0,
+      "nsfwSummary": null,
+      "truncatedDescription": "Our story takes place in a distant age of the universe, when the stars and galaxies were young. When an ominous cosmic event swallows the icy home of a small space critter, he must find refuge among a group of luminous creatures watched over by a ...",
+      "description": "Our story takes place in a distant age of the universe, when the stars and galaxies were young. When an ominous cosmic event swallows the icy home of a small space critter, he must find refuge among a group of luminous creatures watched over by a ...",
+      "isLocal": true,
+      "duration": 391,
+      "aspectRatio": 2.3869,
+      "views": 8420,
+      "viewers": 0,
+      "downloads": 2411,
+      "likes": 83,
+      "dislikes": 1,
+      "thumbnailPath": "/lazy-static/thumbnails/38b6e48a-40e7-4c46-801f-9a46baf9c02a.jpg",
+      "previewPath": "/lazy-static/thumbnails/54d3fc9c-96ba-4108-bb2f-ba27f5c71ae9.jpg",
+      "thumbnails": [
+        {
+          "height": 157,
+          "width": 280,
+          "aspectRatio": "16:9",
+          "fileUrl": "https://video.blender.org/lazy-static/thumbnails/38b6e48a-40e7-4c46-801f-9a46baf9c02a.jpg"
+        },
+        {
+          "height": 480,
+          "width": 850,
+          "aspectRatio": "16:9",
+          "fileUrl": "https://video.blender.org/lazy-static/thumbnails/54d3fc9c-96ba-4108-bb2f-ba27f5c71ae9.jpg"
+        }
+      ],
+      "embedPath": "/videos/embed/4pSeQCu9XXz9wWMh5gTNMf",
+      "createdAt": "2026-05-15T09:33:59.329Z",
+      "updatedAt": "2026-11-02T10:50:44.226Z",
+      "publishedAt": "2026-05-15T09:59:06.707Z",
+      "originallyPublishedAt": "2026-05-11T15:00:00.000Z",
+      "isLive": false,
+      "account": {
+        "id": 6,
+        "displayName": "Blender",
+        "name": "blender",
+        "url": "https://video.blender.org/accounts/blender",
+        "host": "video.blender.org",
+        "avatars": [
+          {
+            "width": 48,
+            "path": "/lazy-static/avatars/d81f71c9-cdd8-4c61-a0dd-75a9dfad8dc1.png",
+            "fileUrl": "https://video.blender.org/lazy-static/avatars/d81f71c9-cdd8-4c61-a0dd-75a9dfad8dc1.png",
+            "createdAt": "2026-05-24T11:32:01.734Z",
+            "updatedAt": "2026-05-24T11:32:01.734Z"
+          },
+          {
+            "width": 120,
+            "path": "/lazy-static/avatars/07965da7-5723-40d6-9a61-c034d6ebeabd.png",
+            "fileUrl": "https://video.blender.org/lazy-static/avatars/07965da7-5723-40d6-9a61-c034d6ebeabd.png",
+            "createdAt": "2026-05-24T11:32:01.730Z",
+            "updatedAt": "2026-05-24T11:32:01.730Z"
+          },
+          {
+            "width": 600,
+            "path": "/lazy-static/avatars/1485e2e7-71d0-4e6a-b56d-bf46b2ec40de.png",
+            "fileUrl": "https://video.blender.org/lazy-static/avatars/1485e2e7-71d0-4e6a-b56d-bf46b2ec40de.png",
+            "createdAt": "2026-05-24T11:32:01.724Z",
+            "updatedAt": "2026-05-24T11:32:01.724Z"
+          },
+          {
+            "width": 1500,
+            "path": "/lazy-static/avatars/b4d1c81e-bded-45e2-a569-413d391cdd82.png",
+            "fileUrl": "https://video.blender.org/lazy-static/avatars/b4d1c81e-bded-45e2-a569-413d391cdd82.png",
+            "createdAt": "2026-05-24T11:32:01.719Z",
+            "updatedAt": "2026-05-24T11:32:01.719Z"
+          }
+        ]
+      },
+      "channel": {
+        "id": 9,
+        "name": "blender_open_movies",
+        "displayName": "Blender Open Movies",
+        "url": "https://video.blender.org/video-channels/blender_open_movies",
+        "host": "video.blender.org",
+        "avatars": [
+          {
+            "width": 48,
+            "path": "/lazy-static/avatars/f79d3ae7-86a8-4705-a9cf-75652312ed20.png",
+            "fileUrl": "https://video.blender.org/lazy-static/avatars/f79d3ae7-86a8-4705-a9cf-75652312ed20.png",
+            "createdAt": "2026-06-04T09:58:19.748Z",
+            "updatedAt": "2026-06-04T09:58:19.748Z"
+          },
+          {
+            "width": 120,
+            "path": "/lazy-static/avatars/df50b04c-67e0-4317-822a-be1f1a2d85d3.png",
+            "fileUrl": "https://video.blender.org/lazy-static/avatars/df50b04c-67e0-4317-822a-be1f1a2d85d3.png",
+            "createdAt": "2026-06-04T09:58:19.735Z",
+            "updatedAt": "2026-06-04T09:58:19.735Z"
+          },
+          {
+            "width": 600,
+            "path": "/lazy-static/avatars/0001ea1f-7c7b-45b3-8a15-004c6d0713bb.png",
+            "fileUrl": "https://video.blender.org/lazy-static/avatars/0001ea1f-7c7b-45b3-8a15-004c6d0713bb.png",
+            "createdAt": "2026-06-04T09:58:19.728Z",
+            "updatedAt": "2026-06-04T09:58:19.728Z"
+          },
+          {
+            "width": 1500,
+            "path": "/lazy-static/avatars/2676b86b-94a3-4692-9601-f4e41dcbf72f.png",
+            "fileUrl": "https://video.blender.org/lazy-static/avatars/2676b86b-94a3-4692-9601-f4e41dcbf72f.png",
+            "createdAt": "2026-06-04T09:58:19.710Z",
+            "updatedAt": "2026-06-04T09:58:19.710Z"
+          }
+        ]
+      },
+      "comments": 10
+    },
+    {
+      "id": 55213,
+      "uuid": "c163ae1a-0bb4-4a91-bd66-e14e131e07bb",
+      "shortUUID": "pT59NDdBRLHX3zmnvGNm9c",
+      "url": "https://video.blender.org/videos/watch/c163ae1a-0bb4-4a91-bd66-e14e131e07bb",
+      "name": "The Making of SINGULARITY - Blender Open Movie",
+      "category": {
+        "id": null,
+        "label": "Unknown"
+      },
+      "licence": {
+        "id": null,
+        "label": "Unknown"
+      },
+      "language": {
+        "id": "en",
+        "label": "English"
+      },
+      "privacy": {
+        "id": 1,
+        "label": "Public"
+      },
+      "nsfw": false,
+      "nsfwFlags": 0,
+      "nsfwSummary": null,
+      "truncatedDescription": "Join Blender Studio team in this making-of video about SINGULARITY – a story of cosmic scale painted in watercolour brushstrokes.\r\n\r\nThe full journey of this Blender Open Movie, from early story beats to final grade, is documented on Blender Studi...",
+      "description": "Join Blender Studio team in this making-of video about SINGULARITY – a story of cosmic scale painted in watercolour brushstrokes.\r\n\r\nThe full journey of this Blender Open Movie, from early story beats to final grade, is documented on Blender Studi...",
+      "isLocal": true,
+      "duration": 1019,
+      "aspectRatio": 1.7778,
+      "views": 243,
+      "viewers": 0,
+      "downloads": 553,
+      "likes": 24,
+      "dislikes": 0,
+      "thumbnailPath": "/lazy-static/thumbnails/3d61fdb7-28d4-4e9e-8b44-2225fcd04e35.jpg",
+      "previewPath": "/lazy-static/thumbnails/20e30370-6e80-4b08-9eb3-55c436221ed2.jpg",
+      "thumbnails": [
+        {
+          "height": 157,
+          "width": 280,
+          "aspectRatio": "16:9",
+          "fileUrl": "https://video.blender.org/lazy-static/thumbnails/3d61fdb7-28d4-4e9e-8b44-2225fcd04e35.jpg"
+        },
+        {
+          "height": 480,
+          "width": 850,
+          "aspectRatio": "16:9",
+          "fileUrl": "https://video.blender.org/lazy-static/thumbnails/20e30370-6e80-4b08-9eb3-55c436221ed2.jpg"
+        }
+      ],
+      "embedPath": "/videos/embed/pT59NDdBRLHX3zmnvGNm9c",
+      "createdAt": "2026-05-23T12:43:41.931Z",
+      "updatedAt": "2026-11-02T02:50:43.834Z",
+      "publishedAt": "2026-05-23T13:35:07.611Z",
+      "originallyPublishedAt": "2026-05-22T13:15:34.000Z",
+      "isLive": false,
+      "account": {
+        "id": 6,
+        "displayName": "Blender",
+        "name": "blender",
+        "url": "https://video.blender.org/accounts/blender",
+        "host": "video.blender.org",
+        "avatars": [
+          {
+            "width": 48,
+            "path": "/lazy-static/avatars/d81f71c9-cdd8-4c61-a0dd-75a9dfad8dc1.png",
+            "fileUrl": "https://video.blender.org/lazy-static/avatars/d81f71c9-cdd8-4c61-a0dd-75a9dfad8dc1.png",
+            "createdAt": "2026-05-24T11:32:01.734Z",
+            "updatedAt": "2026-05-24T11:32:01.734Z"
+          },
+          {
+            "width": 120,
+            "path": "/lazy-static/avatars/07965da7-5723-40d6-9a61-c034d6ebeabd.png",
+            "fileUrl": "https://video.blender.org/lazy-static/avatars/07965da7-5723-40d6-9a61-c034d6ebeabd.png",
+            "createdAt": "2026-05-24T11:32:01.730Z",
+            "updatedAt": "2026-05-24T11:32:01.730Z"
+          },
+          {
+            "width": 600,
+            "path": "/lazy-static/avatars/1485e2e7-71d0-4e6a-b56d-bf46b2ec40de.png",
+            "fileUrl": "https://video.blender.org/lazy-static/avatars/1485e2e7-71d0-4e6a-b56d-bf46b2ec40de.png",
+            "createdAt": "2026-05-24T11:32:01.724Z",
+            "updatedAt": "2026-05-24T11:32:01.724Z"
+          },
+          {
+            "width": 1500,
+            "path": "/lazy-static/avatars/b4d1c81e-bded-45e2-a569-413d391cdd82.png",
+            "fileUrl": "https://video.blender.org/lazy-static/avatars/b4d1c81e-bded-45e2-a569-413d391cdd82.png",
+            "createdAt": "2026-05-24T11:32:01.719Z",
+            "updatedAt": "2026-05-24T11:32:01.719Z"
+          }
+        ]
+      },
+      "channel": {
+        "id": 9,
+        "name": "blender_open_movies",
+        "displayName": "Blender Open Movies",
+        "url": "https://video.blender.org/video-channels/blender_open_movies",
+        "host": "video.blender.org",
+        "avatars": [
+          {
+            "width": 48,
+            "path": "/lazy-static/avatars/f79d3ae7-86a8-4705-a9cf-75652312ed20.png",
+            "fileUrl": "https://video.blender.org/lazy-static/avatars/f79d3ae7-86a8-4705-a9cf-75652312ed20.png",
+            "createdAt": "2026-06-04T09:58:19.748Z",
+            "updatedAt": "2026-06-04T09:58:19.748Z"
+          },
+          {
+            "width": 120,
+            "path": "/lazy-static/avatars/df50b04c-67e0-4317-822a-be1f1a2d85d3.png",
+            "fileUrl": "https://video.blender.org/lazy-static/avatars/df50b04c-67e0-4317-822a-be1f1a2d85d3.png",
+            "createdAt": "2026-06-04T09:58:19.735Z",
+            "updatedAt": "2026-06-04T09:58:19.735Z"
+          },
+          {
+            "width": 600,
+            "path": "/lazy-static/avatars/0001ea1f-7c7b-45b3-8a15-004c6d0713bb.png",
+            "fileUrl": "https://video.blender.org/lazy-static/avatars/0001ea1f-7c7b-45b3-8a15-004c6d0713bb.png",
+            "createdAt": "2026-06-04T09:58:19.728Z",
+            "updatedAt": "2026-06-04T09:58:19.728Z"
+          },
+          {
+            "width": 1500,
+            "path": "/lazy-static/avatars/2676b86b-94a3-4692-9601-f4e41dcbf72f.png",
+            "fileUrl": "https://video.blender.org/lazy-static/avatars/2676b86b-94a3-4692-9601-f4e41dcbf72f.png",
+            "createdAt": "2026-06-04T09:58:19.710Z",
+            "updatedAt": "2026-06-04T09:58:19.710Z"
+          }
+        ]
+      },
+      "comments": 0
+    },
+    {
+      "id": 57051,
+      "uuid": "fe2347ab-cd17-42c4-a208-eadd3e089d2a",
+      "shortUUID": "xoa7MEKFRQadPoJHqk5bmJ",
+      "url": "https://video.blender.org/videos/watch/fe2347ab-cd17-42c4-a208-eadd3e089d2a",
+      "name": "Production Lessons of Singularity - A Painterly Short by Blender Studio — BCON26",
+      "category": {
+        "id": 15,
+        "label": "Science & Technology"
+      },
+      "licence": {
+        "id": 2,
+        "label": "Attribution - Share Alike"
+      },
+      "language": {
+        "id": "en",
+        "label": "English"
+      },
+      "privacy": {
+        "id": 1,
+        "label": "Public"
+      },
+      "nsfw": false,
+      "nsfwFlags": 0,
+      "nsfwSummary": null,
+      "truncatedDescription": "\"Production Lessons of Singularity - A Painterly Short by Blender Studio\" by Andy Goralczyk, Demeter Dzadik, Vivien Lulkowski, Julien Kaspar, Simon Thommes, Rik Schutte at Blender Conference 2026\r\n\r\nThe Blender Studio team shares what they learnt ...",
+      "description": "\"Production Lessons of Singularity - A Painterly Short by Blender Studio\" by Andy Goralczyk, Demeter Dzadik, Vivien Lulkowski, Julien Kaspar, Simon Thommes, Rik Schutte at Blender Conference 2026\r\n\r\nThe Blender Studio team shares what they learnt ...",
+      "isLocal": true,
+      "duration": 3159,
+      "aspectRatio": 1.7778,
+      "views": 32,
+      "viewers": 0,
+      "downloads": 101,
+      "likes": 5,
+      "dislikes": 0,
+      "thumbnailPath": "/lazy-static/thumbnails/a32e5429-9bf4-4099-8e83-51f5b4135873.jpg",
+      "previewPath": "/lazy-static/thumbnails/0612f8f4-9193-4fb3-b357-3258f5eda1c4.jpg",
+      "thumbnails": [
+        {
+          "height": 157,
+          "width": 280,
+          "aspectRatio": "16:9",
+          "fileUrl": "https://video.blender.org/lazy-static/thumbnails/a32e5429-9bf4-4099-8e83-51f5b4135873.jpg"
+        },
+        {
+          "height": 480,
+          "width": 850,
+          "aspectRatio": "16:9",
+          "fileUrl": "https://video.blender.org/lazy-static/thumbnails/55aba34d-5add-4f99-9f57-083365ed0621.jpg"
+        },
+        {
+          "height": 720,
+          "width": 1280,
+          "aspectRatio": "16:9",
+          "fileUrl": "https://video.blender.org/lazy-static/thumbnails/a11251c6-4554-4e26-a3b2-ce9b99f0b132.jpg"
+        },
+        {
+          "height": 1400,
+          "width": 1400,
+          "aspectRatio": "1:1",
+          "fileUrl": "https://video.blender.org/lazy-static/thumbnails/ae6aed01-cfd7-44b6-8398-034145db7b25.jpg"
+        },
+        {
+          "height": 1080,
+          "width": 1920,
+          "aspectRatio": "16:9",
+          "fileUrl": "https://video.blender.org/lazy-static/thumbnails/0612f8f4-9193-4fb3-b357-3258f5eda1c4.jpg"
+        }
+      ],
+      "embedPath": "/videos/embed/xoa7MEKFRQadPoJHqk5bmJ",
+      "createdAt": "2026-09-23T14:57:28.556Z",
+      "updatedAt": "2026-11-01T00:50:45.766Z",
+      "publishedAt": "2026-09-23T15:11:18.652Z",
+      "originallyPublishedAt": "2026-09-23T00:00:00.000Z",
+      "isLive": false,
+      "account": {
+        "id": 6,
+        "displayName": "Blender",
+        "name": "blender",
+        "url": "https://video.blender.org/accounts/blender",
+        "host": "video.blender.org",
+        "avatars": [
+          {
+            "width": 48,
+            "path": "/lazy-static/avatars/d81f71c9-cdd8-4c61-a0dd-75a9dfad8dc1.png",
+            "fileUrl": "https://video.blender.org/lazy-static/avatars/d81f71c9-cdd8-4c61-a0dd-75a9dfad8dc1.png",
+            "createdAt": "2026-05-24T11:32:01.734Z",
+            "updatedAt": "2026-05-24T11:32:01.734Z"
+          },
+          {
+            "width": 120,
+            "path": "/lazy-static/avatars/07965da7-5723-40d6-9a61-c034d6ebeabd.png",
+            "fileUrl": "https://video.blender.org/lazy-static/avatars/07965da7-5723-40d6-9a61-c034d6ebeabd.png",
+            "createdAt": "2026-05-24T11:32:01.730Z",
+            "updatedAt": "2026-05-24T11:32:01.730Z"
+          },
+          {
+            "width": 600,
+            "path": "/lazy-static/avatars/1485e2e7-71d0-4e6a-b56d-bf46b2ec40de.png",
+            "fileUrl": "https://video.blender.org/lazy-static/avatars/1485e2e7-71d0-4e6a-b56d-bf46b2ec40de.png",
+            "createdAt": "2026-05-24T11:32:01.724Z",
+            "updatedAt": "2026-05-24T11:32:01.724Z"
+          },
+          {
+            "width": 1500,
+            "path": "/lazy-static/avatars/b4d1c81e-bded-45e2-a569-413d391cdd82.png",
+            "fileUrl": "https://video.blender.org/lazy-static/avatars/b4d1c81e-bded-45e2-a569-413d391cdd82.png",
+            "createdAt": "2026-05-24T11:32:01.719Z",
+            "updatedAt": "2026-05-24T11:32:01.719Z"
+          }
+        ]
+      },
+      "channel": {
+        "id": 4,
+        "name": "blender_channel",
+        "displayName": "Blender",
+        "url": "https://video.blender.org/video-channels/blender_channel",
+        "host": "video.blender.org",
+        "avatars": [
+          {
+            "width": 48,
+            "path": "/lazy-static/avatars/56817c33-af28-475f-9e87-0244015a04e0.png",
+            "fileUrl": "https://video.blender.org/lazy-static/avatars/56817c33-af28-475f-9e87-0244015a04e0.png",
+            "createdAt": "2026-05-24T10:42:47.572Z",
+            "updatedAt": "2026-05-24T10:42:47.572Z"
+          },
+          {
+            "width": 120,
+            "path": "/lazy-static/avatars/5720b4a8-d244-4fae-a2bf-3474caa8f644.png",
+            "fileUrl": "https://video.blender.org/lazy-static/avatars/5720b4a8-d244-4fae-a2bf-3474caa8f644.png",
+            "createdAt": "2026-05-24T10:42:47.565Z",
+            "updatedAt": "2026-05-24T10:42:47.565Z"
+          },
+          {
+            "width": 600,
+            "path": "/lazy-static/avatars/24f94d65-d525-4afc-8522-cfe19ea97464.png",
+            "fileUrl": "https://video.blender.org/lazy-static/avatars/24f94d65-d525-4afc-8522-cfe19ea97464.png",
+            "createdAt": "2026-05-24T10:42:47.556Z",
+            "updatedAt": "2026-05-24T10:42:47.556Z"
+          },
+          {
+            "width": 1500,
+            "path": "/lazy-static/avatars/40cb35af-7fd5-45f3-8026-c90b54cd9da1.png",
+            "fileUrl": "https://video.blender.org/lazy-static/avatars/40cb35af-7fd5-45f3-8026-c90b54cd9da1.png",
+            "createdAt": "2026-05-24T10:42:47.543Z",
+            "updatedAt": "2026-05-24T10:42:47.543Z"
+          }
+        ]
+      },
+      "comments": 0
+    }
+  ]
+}

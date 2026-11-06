@@ -1,0 +1,143 @@
+{
+  "status": "passed",
+  "checked_invocations": 15,
+  "calls": [
+    {
+      "invoke": "invoke-virtual {v0}, Lcom/shuyu/gsyvideoplayer/utils/OrientationUtils;->resolveByClick()V",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/utils/OrientationUtils",
+        "file": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\\u6d4b\u8bd5\\tongpin-4k\\decoded\\smali_classes5\\com\\shuyu\\gsyvideoplayer\\utils\\OrientationUtils.smali",
+        "line": 778,
+        "declaration": ".method public resolveByClick()V"
+      }
+    },
+    {
+      "invoke": "invoke-virtual {v0, p0, v1, v1}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->startWindowFullscreen(Landroid/content/Context;ZZ)Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer",
+        "file": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\\u6d4b\u8bd5\\tongpin-4k\\decoded\\smali_classes5\\com\\shuyu\\gsyvideoplayer\\video\\StandardGSYVideoPlayer.smali",
+        "line": 5230,
+        "declaration": ".method public startWindowFullscreen(Landroid/content/Context;ZZ)Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;"
+      }
+    },
+    {
+      "invoke": "invoke-virtual {v0}, Lcom/shuyu/gsyvideoplayer/utils/OrientationUtils;->backToProtVideo()I",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/utils/OrientationUtils",
+        "file": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\\u6d4b\u8bd5\\tongpin-4k\\decoded\\smali_classes5\\com\\shuyu\\gsyvideoplayer\\utils\\OrientationUtils.smali",
+        "line": 489,
+        "declaration": ".method public backToProtVideo()I"
+      }
+    },
+    {
+      "invoke": "invoke-static {p0}, Lk6/c;->C(Landroid/content/Context;)Z",
+      "resolved": {
+        "owner": "k6/c",
+        "file": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\\u6d4b\u8bd5\\tongpin-4k\\decoded\\smali_classes5\\k6\\c.smali",
+        "line": 65,
+        "declaration": ".method public static C(Landroid/content/Context;)Z"
+      }
+    },
+    {
+      "invoke": "invoke-static {p1}, Lcom/shuyu/gsyvideoplayer/player/PlayerFactory;->setPlayManager(Ljava/lang/Class;)V",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/player/PlayerFactory",
+        "file": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\\u6d4b\u8bd5\\tongpin-4k\\decoded\\smali_classes5\\com\\shuyu\\gsyvideoplayer\\player\\PlayerFactory.smali",
+        "line": 104,
+        "declaration": ".method public static setPlayManager(Ljava/lang/Class;)V"
+      }
+    },
+    {
+      "invoke": "invoke-direct {p1, p0}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;-><init>(Landroid/content/Context;)V",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer",
+        "file": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\\u6d4b\u8bd5\\tongpin-4k\\decoded\\smali_classes5\\com\\shuyu\\gsyvideoplayer\\video\\StandardGSYVideoPlayer.smali",
+        "line": 41,
+        "declaration": ".method public constructor <init>(Landroid/content/Context;)V"
+      }
+    },
+    {
+      "invoke": "invoke-direct {p1, p0, v0}, Lcom/shuyu/gsyvideoplayer/utils/OrientationUtils;-><init>(Landroid/app/Activity;Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;)V",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/utils/OrientationUtils",
+        "file": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\\u6d4b\u8bd5\\tongpin-4k\\decoded\\smali_classes5\\com\\shuyu\\gsyvideoplayer\\utils\\OrientationUtils.smali",
+        "line": 51,
+        "declaration": ".method public constructor <init>(Landroid/app/Activity;Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;)V"
+      }
+    },
+    {
+      "invoke": "invoke-virtual {p1, v2, v0, v1}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->setUp(Ljava/lang/String;ZLjava/lang/String;)Z",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/video/base/GSYVideoControlView",
+        "file": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\\u6d4b\u8bd5\\tongpin-4k\\decoded\\smali_classes5\\com\\shuyu\\gsyvideoplayer\\video\\base\\GSYVideoControlView.smali",
+        "line": 6109,
+        "declaration": ".method public setUp(Ljava/lang/String;ZLjava/lang/String;)Z"
+      }
+    },
+    {
+      "invoke": "invoke-virtual {p1}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->startPlayLogic()V",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer",
+        "file": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\\u6d4b\u8bd5\\tongpin-4k\\decoded\\smali_classes5\\com\\shuyu\\gsyvideoplayer\\video\\StandardGSYVideoPlayer.smali",
+        "line": 5170,
+        "declaration": ".method public startPlayLogic()V"
+      }
+    },
+    {
+      "invoke": "invoke-static {}, Lk6/c;->E()V",
+      "resolved": {
+        "owner": "k6/c",
+        "file": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\\u6d4b\u8bd5\\tongpin-4k\\decoded\\smali_classes5\\k6\\c.smali",
+        "line": 237,
+        "declaration": ".method public static E()V"
+      }
+    },
+    {
+      "invoke": "invoke-virtual {v0}, Lcom/shuyu/gsyvideoplayer/utils/OrientationUtils;->releaseListener()V",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/utils/OrientationUtils",
+        "file": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\\u6d4b\u8bd5\\tongpin-4k\\decoded\\smali_classes5\\com\\shuyu\\gsyvideoplayer\\utils\\OrientationUtils.smali",
+        "line": 757,
+        "declaration": ".method public releaseListener()V"
+      }
+    },
+    {
+      "invoke": "invoke-virtual {v0}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->getCurrentPlayer()Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer",
+        "file": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\\u6d4b\u8bd5\\tongpin-4k\\decoded\\smali_classes5\\com\\shuyu\\gsyvideoplayer\\video\\base\\GSYBaseVideoPlayer.smali",
+        "line": 1828,
+        "declaration": ".method public getCurrentPlayer()Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;"
+      }
+    },
+    {
+      "invoke": "invoke-virtual {v0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;->onVideoPause()V",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/video/base/GSYVideoView",
+        "file": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\\u6d4b\u8bd5\\tongpin-4k\\decoded\\smali_classes5\\com\\shuyu\\gsyvideoplayer\\video\\base\\GSYVideoView.smali",
+        "line": 3019,
+        "declaration": ".method public onVideoPause()V"
+      }
+    },
+    {
+      "invoke": "invoke-virtual {v0}, Lcom/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer;->getCurrentPlayer()Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer",
+        "file": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\\u6d4b\u8bd5\\tongpin-4k\\decoded\\smali_classes5\\com\\shuyu\\gsyvideoplayer\\video\\base\\GSYBaseVideoPlayer.smali",
+        "line": 1828,
+        "declaration": ".method public getCurrentPlayer()Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;"
+      }
+    },
+    {
+      "invoke": "invoke-virtual {v0}, Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;->onVideoResume()V",
+      "resolved": {
+        "owner": "com/shuyu/gsyvideoplayer/video/base/GSYVideoView",
+        "file": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\\u6d4b\u8bd5\\tongpin-4k\\decoded\\smali_classes5\\com\\shuyu\\gsyvideoplayer\\video\\base\\GSYVideoView.smali",
+        "line": 3165,
+        "declaration": ".method public onVideoResume()V"
+      }
+    }
+  ],
+  "probe_installed_or_run": false,
+  "scope": "Static method descriptor resolution against shipped decoded smali; javac+D8+Apktool pipeline also passed."
+}

@@ -1,0 +1,51 @@
+{
+  "passed": true,
+  "package": "com.tongpin.player4k",
+  "version_name": "1.0.0",
+  "version_code": 1000,
+  "manifest_prefix_replacements": 26,
+  "provider_declarations": 20,
+  "checks": [
+    "Manifest identity prefix and approved release/mobile/icon attributes match exactly",
+    "Version 1.0.0 / 1000",
+    "Only U, b0, and startup invokeSuspend methods changed in the scoped startup files",
+    "All method-local branches/catches/switch labels resolve",
+    "Updater immediately returns Unit",
+    "Remote splash image, click, timed hold, and visible SDK splash call absent",
+    "Normal initialization prefix and config request/error handling unchanged",
+    "One existing MainActivity entry and finish retained",
+    "SDK classes/implementation retained"
+  ],
+  "files": [
+    {
+      "path": "AndroidManifest.xml",
+      "before_sha256": "58f777313176b4631d62b5e19a3beef43a19286e166e16bed6c7e877347de2e3",
+      "after_sha256": "865c8f4335cc76ea8ef53cc20badb75c5e3f77ab87a5b356ca5a3c7342b8d120"
+    },
+    {
+      "path": "apktool.yml",
+      "before_sha256": "860acb1e252cfea8359da1cadc6c21f139dfc6de7c1a25e7f95b05febbe06d92",
+      "after_sha256": "4b6eb04f98bf7dbcf6d32bece7faf3888e16d475bfb130d69ed6f0bf86f98ecd"
+    },
+    {
+      "path": "smali_classes5/com/shenma/tvlauncher/phone/SplashActivity.smali",
+      "before_sha256": "c192fedda40cec0b5c6cd708bfde3cc2da56ab4757fc8ba47f78678ab1c817a4",
+      "after_sha256": "631c6ab162563ad4f100bca584aea8e4355cff3821970c0dd60ba3f84fc0fde1"
+    },
+    {
+      "path": "smali_classes5/com/shenma/tvlauncher/phone/SplashActivity$e.smali",
+      "before_sha256": "bb291fc05bd773676105c10f1dfe0b0c7f37ee83a88e3ac37e7dbb3735644c08",
+      "after_sha256": "2796ebd3a014fcc34a096cbdd69b03dc0226061bfa24985e08d6af8f9edfcda9"
+    }
+  ],
+  "changed_methods": {
+    "smali_classes5/com/shenma/tvlauncher/phone/SplashActivity.smali": [
+      ".method private final U(Lq7/e;)Ljava/lang/Object;",
+      ".method private static final b0(Lcom/shenma/tvlauncher/phone/SplashActivity;Ljava/lang/String;)Lm7/f0;"
+    ],
+    "smali_classes5/com/shenma/tvlauncher/phone/SplashActivity$e.smali": [
+      ".method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;"
+    ]
+  },
+  "build_validation": "Pending the combined app build; assertions do not establish Android runtime behavior."
+}

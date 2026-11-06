@@ -1,0 +1,11 @@
+{
+  "platform": "Android SDK Platform 35",
+  "source_url": "https://dl.google.com/android/repository/platform-35_r02.zip",
+  "sdk_zip": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\\u6d4b\u8bd5\\kanke-noads\\tools\\platform-35_r02.zip",
+  "zip_size_bytes": 64273788,
+  "official_sha1": "0bb560a90a7a2cbd0dd8348224d518b638fe7949",
+  "zip_sha256": "0988cacad01b38a18a47bac14a0695f246bc76c1b06c0eeb8eb0dc825ab0c8e0",
+  "android_jar": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\\u6d4b\u8bd5\\kanke-noads\\tools\\platform-35\\android.jar",
+  "android_jar_size_bytes": 27092450,
+  "android_jar_sha256": "4566663c3876e022b4fa4ced8c8697c4ab1688267f090114fd92d027b32e619b"
+}

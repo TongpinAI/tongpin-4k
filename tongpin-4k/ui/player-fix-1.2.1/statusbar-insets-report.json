@@ -1,0 +1,66 @@
+{
+  "status": "READY",
+  "passed": true,
+  "files": {
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/PlayerViewportInsets.smali": {
+      "before_sha256": "109e1fa321eb9dc3bad714029b821935af6fc133e391a65e20ce69a5c331901c",
+      "after_sha256": "720c2d825e23e460447547e58191ac2e52fb2fe682d54f1805116e44f2a95f3f",
+      "modified_methods": [
+        "public onApplyWindowInsets(Landroid/view/View;Landroidx/core/view/WindowInsetsCompat;)Landroidx/core/view/WindowInsetsCompat;"
+      ],
+      "locals_before_and_after": 5,
+      "byte_exact_unchanged_outside_method": true,
+      "required_final_invocations": [
+        "Landroid/view/View;->setPadding(IIII)V",
+        "Landroidx/core/view/WindowInsetsCompat$Type;->displayCutout()I",
+        "Landroidx/core/view/WindowInsetsCompat$Type;->systemBars()I",
+        "Landroidx/core/view/WindowInsetsCompat;->getInsets(I)Landroidx/core/graphics/Insets;"
+      ]
+    },
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity.smali": {
+      "before_sha256": "b3c99f17e09a5a21b910b7bcb8eaacc13ca8c087b00b8596e9d521a2d3f72dfe",
+      "after_sha256": "335cfda5fa42a1c111eb207b531ac0575a306044a61d2fff32bacc4dc22e3fbc",
+      "modified_methods": [
+        "private final applyFullscreenWindow(Z)V"
+      ],
+      "locals_before_and_after": 4,
+      "byte_exact_unchanged_outside_method": true,
+      "required_final_invocations": [
+        "Landroid/app/Activity;->getWindow()Landroid/view/Window;",
+        "Landroid/view/Window;->getDecorView()Landroid/view/View;",
+        "Landroid/view/Window;->setNavigationBarColor(I)V",
+        "Landroid/view/Window;->setStatusBarColor(I)V",
+        "Landroidx/core/view/ViewCompat;->requestApplyInsets(Landroid/view/View;)V",
+        "Landroidx/core/view/ViewCompat;->setOnApplyWindowInsetsListener(Landroid/view/View;Landroidx/core/view/OnApplyWindowInsetsListener;)V",
+        "Landroidx/core/view/WindowCompat;->getInsetsController(Landroid/view/Window;Landroid/view/View;)Landroidx/core/view/WindowInsetsControllerCompat;",
+        "Landroidx/core/view/WindowCompat;->setDecorFitsSystemWindows(Landroid/view/Window;Z)V",
+        "Landroidx/core/view/WindowInsetsCompat$Type;->systemBars()I",
+        "Landroidx/core/view/WindowInsetsControllerCompat;->hide(I)V",
+        "Landroidx/core/view/WindowInsetsControllerCompat;->setAppearanceLightNavigationBars(Z)V",
+        "Landroidx/core/view/WindowInsetsControllerCompat;->setAppearanceLightStatusBars(Z)V",
+        "Landroidx/core/view/WindowInsetsControllerCompat;->setSystemBarsBehavior(I)V",
+        "Landroidx/core/view/WindowInsetsControllerCompat;->show(I)V",
+        "Landroidx/databinding/ViewDataBinding;->getRoot()Landroid/view/View;",
+        "Lcom/shenma/tvlauncher/phone/PlayerViewportInsets;-><init>(ZLandroid/view/View;)V",
+        "Lcom/shenma/tvlauncher/phone/base/BaseDbActivity;->getMDataBind()Landroidx/databinding/ViewDataBinding;"
+      ]
+    }
+  },
+  "instruction_branch_assertions": 270,
+  "test_method": "Execute actual changed smali instructions with mock views/insets/window/controller; no Android runtime",
+  "padding_cases": "Visible/hidden bars, status/navigation edges, landscape cutout, cutout union, repeated dispatch and normal/fullscreen transitions",
+  "window_sdk_cases": [
+    24,
+    25,
+    26,
+    29,
+    30,
+    35,
+    36
+  ],
+  "shared_inset_hook_or_root_xml_base_padding": false,
+  "framework_references": "Only existing Activity/View/Window plus Build.VERSION.SDK_INT; newly used Window colors exist since API21 (minSdk24)",
+  "compat_references": "Every referenced AndroidX method exists in the bundled smali_classes2 definitions; WindowCompat and Controller contain platform API guards",
+  "device_test": false,
+  "native_overlap_acceptance": false
+}

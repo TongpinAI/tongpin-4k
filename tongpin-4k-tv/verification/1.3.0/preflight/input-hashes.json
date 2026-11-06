@@ -1,0 +1,22 @@
+{
+  "src\\com\\tongpin\\player4k\\tv\\CatalogApi.java": "29a1ddc2be33bcefe508bd234cec93b5227945d9f25373409e9e60ce3d41fb93",
+  "src\\com\\tongpin\\player4k\\tv\\TvHomeActivity.java": "f841aff76bc432ecbde8c5a0fd9da2d901a595a9c3ec4fb16039cb62a24ede1c",
+  "src\\com\\tongpin\\player4k\\tv\\TvLibraryStore.java": "a72e6295c542703f45321ba3d2b296392f19f3632727a64fd26a68dbb8a9b385",
+  "src\\com\\tongpin\\player4k\\tv\\TvPlaybackEngine.java": "56430c7adcfb5859fc31b80e56f805f89870c58ac14dbca4853dfa9009e728d2",
+  "src\\com\\tongpin\\player4k\\tv\\TvPlayerActivity.java": "51077a089f43cb4812b1a40506dde7a0d73c87bb78868f40ba937dbc20014a13",
+  "src\\com\\tongpin\\player4k\\tv\\TvPlayQueue.java": "a1d630ec5f52f53b725fc0e251871c7fc2de7934d8bca9ba0355dccab1ae35d7",
+  "src\\com\\tongpin\\player4k\\tv\\TvSeekState.java": "9fe01ce88f12e525cca5a6f8be29bc0e3873f1005daefbdd9cfad7248ddc11b4",
+  "src\\com\\tongpin\\player4k\\tv\\TvUi.java": "3715754d451e64df7b104960f50d446530b1eb6ad141a7b92f932edbf1aac0b5",
+  "res\\drawable\\tv_focus_background.xml": "bdc9f279ec4327488c22299f5adec74728e29b50bafb6f17b699ab4933710bd8",
+  "res\\drawable\\tv_focus_dark.xml": "bea33e58add31e7b9659bfb93ef0cc83662162658fd4912d47560937d056db4d",
+  "res\\drawable\\tv_grid_selector.xml": "5844d7c168efcc46bdef5efd42c9087eed43f88fb8d0dbdbb4842d75691bce7d",
+  "res\\drawable\\tv_search_background.xml": "76d1fa0b330781d5cf15d1a170668d53cc715f29a4d564e61837e92588c8bab6",
+  "res\\drawable-nodpi\\tp_banner.png": "5321ee7198ed556943833b2601fdbdf06c721ed8e215ded75554246769413e88",
+  "res\\drawable-nodpi\\tp_icon.png": "5dd31702b54c9c1a064ae8201e59491e9d9d14a70bb9eaa1a4083e7b8b73e946",
+  "res\\values\\colors.xml": "1efd0e4e0470cfc22467895ccc12d776a8adb61003a2ab43c550f8e62468c0c0",
+  "res\\values\\strings.xml": "2fa91dc5b1bbf6856e8db9058599cb7456bd45ea3a4efde4ad3e540c7c37b0b4",
+  "res\\values\\styles.xml": "6bd2c9f09621d294274d801bdedec58638b8ba945f2f9e1269bc944b63acfd27",
+  "assets\\tongpin_open_sources.json": "f4d9810b075ca7a67d28b22bcb4aeef18d06a37f655c0fa074c5a7a4cbccd658",
+  "assets\\third_party_licenses\\media3_1_10_1.txt": "6d7755b5107932b011843f15b0c76474aaacd5e30887452437dd0dc5e29acbae",
+  "AndroidManifest.xml": "e38756149256226f2e5676dced30bf6a87f372fd6c919596298649a296765429"
+}

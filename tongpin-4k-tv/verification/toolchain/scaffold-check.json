@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "python_syntax": true,
+  "manifest_contract": true,
+  "aapt2_resource_compile_link": true,
+  "java_d8_final_apk": "Not run; waiting for source READY",
+  "runtime_tested": false
+}

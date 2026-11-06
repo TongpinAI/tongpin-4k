@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:tag="layout/phone_fragment_main_rec_0" android:background="@color/bg_white" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tl="http://schemas.android.com/apk/res-auto">
+    <me.jingbin.library.ByRecyclerView android:id="@id/recycler_view" android:paddingBottom="@dimen/dp_16" android:layout_width="match_parent" android:layout_height="match_parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

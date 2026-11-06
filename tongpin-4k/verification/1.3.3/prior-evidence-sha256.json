@@ -1,0 +1,18 @@
+{
+  "verification/1.3.2/apk-entry-diff.json": "28fed89510bf7ce66f6a26a1d3862dce3b49dac3db32a2ad889270d749c8c257",
+  "verification/1.3.2/build-result.json": "722fe0128dcfd465ccf3e11be6b689c547aac8ceca5f08a017a571856fdde50f",
+  "verification/1.3.2/final-framework-api-review.json": "335973afbba7b17dced474e0595a5f23c56fcb4e3f00ecac807ad41335d08116",
+  "verification/1.3.2/final-own-abi-check.json": "948132c9ddd1ea897eea5a80cbc69e256fe160619fc0c492adacd2ac93f8cb73",
+  "verification/1.3.2/final-timer-proof.json": "9ad119c419683185cf03b33844f8e0f1a703f5054b6c50ca961a76a51c927a65",
+  "verification/1.3.2/frozen-inputs.json": "7dd31882f660703fc68977bcb4e5785f262de2d49a4bfb7a5c08375b997387ea",
+  "verification/1.3.2/integration-contract.json": "17720b996ac68dd18f078e131e102c5339856e7d96d9af270ab45f6648494b27",
+  "verification/1.3.2/layout-contract.json": "ec10bc9c23e835cc335ef6042b7b037e157340816576e3cb90b3848d11b456d4",
+  "verification/1.3.2/own-abi-check.json": "f7145591e097e709cf7d2b698039908dfd063bc1fc38daec2c86728141173229",
+  "verification/1.3.2/post-build-check.json": "24ec3a8439383d389e17ee0919d7c02e73b75c6ac08009e9b9c90ee2fdf04543",
+  "verification/1.3.2/prior-evidence-sha256.json": "df2d93f768f511e761ae417464f414e5fe8cefd009be729e3efe64c919c6ec55",
+  "verification/1.3.2/resource-build-timing.json": "670f71d7200fe89974be4f09b7de17cfa142edf8631bea6efd8db38dbe1c8250",
+  "verification/1.3.2/resource-id-check.json": "01de3c865b334cc048ed128a3debbd26e96a6b911b1a6a1eab083756a3001e2c",
+  "verification/1.3.2/reviewed-framework-api.json": "bc86e4af81aa934e354f89403fec7a78306459bd6bd283f1267e6e19b17e1ffb",
+  "verification/1.3.2/unchanged-dex-inputs.json": "435a44d361840b6aab262fd87639e729b1d923ab8260c43d84503d3df87c857c",
+  "verification/1.3.2/version-preparation.json": "9099d4c6631f9969842b6150e385023e041d9a8e01a7752abeebb4e9dd9bd785"
+}

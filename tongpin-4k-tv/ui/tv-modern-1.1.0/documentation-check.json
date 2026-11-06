@@ -1,0 +1,34 @@
+{
+  "status": "READY",
+  "documentation_only": true,
+  "checked_at": "2026-11-03T00:56:53.799896+00:00",
+  "checks": {
+    "manifest_version": true,
+    "eight_sources_with_legacy_prefix": true,
+    "mobile_asset_exact_sha": true,
+    "safe_48_horizontal_27_vertical": true,
+    "order_default_ascending_display_copy": true,
+    "grid_focus_drawn_on_top": true,
+    "button_focus_vs_selected": true,
+    "quality_badge_independent_and_dimensions_only": true,
+    "sqlite_schema_1_retained": true,
+    "token_references_resolve": true,
+    "canonical_design_sections": true,
+    "native_acceptance_not_claimed": true
+  },
+  "documentation_sha256": {
+    "PRODUCT.md": "769278f9e5c59840ecd1691063b51657a05ca1aea105a9b7ce8df9a3a42bd865",
+    "DESIGN.md": "1f9b8baa2203cb63512bab0a20f2d546d5e2f2a10841834b5571674004c42c79",
+    ".impeccable/surfaces/android-tv.md": "8c30e16085fc563911e06ffd4ea8723623afba6d1802641b94cccce616d353c4",
+    "使用说明.md": "ab3b139b42a4447f802522dd772b8ee6c7b94e7c6f5594075b158870f4925508"
+  },
+  "source_sha256": {
+    "src/com/tongpin/player4k/tv/TvHomeActivity.java": "092fd85cf2d99cea695168164d3d44ace1216a1ff526228c65a72d6e612031e0",
+    "src/com/tongpin/player4k/tv/TvUi.java": "3715754d451e64df7b104960f50d446530b1eb6ad141a7b92f932edbf1aac0b5",
+    "src/com/tongpin/player4k/tv/TvPlayerActivity.java": "4139316dcb7d6cf4104eb4089cbbb1d25a045606c3c2287680e28dae4cbf12fd",
+    "src/com/tongpin/player4k/tv/TvLibraryStore.java": "ba4ae0b27f686435b4e1ae66476dadc632444850a0180c9d74b04a1c92ae4df6",
+    "assets/tongpin_open_sources.json": "f4d9810b075ca7a67d28b22bcb4aeef18d06a37f655c0fa074c5a7a4cbccd658"
+  },
+  "native_acceptance": false,
+  "not_checked": "No APK build/sign/install or TV/device/emulator execution by this documentation task; root owns delivery."
+}

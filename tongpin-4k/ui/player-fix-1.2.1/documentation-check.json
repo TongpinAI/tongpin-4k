@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "checks": {
+    "product_version": true,
+    "product_short_badge": true,
+    "design_short_badge": true,
+    "design_compact_controls": true,
+    "surface_current": true,
+    "no_native_acceptance_claim": true,
+    "adaptive_changes_do_not_reopen": true
+  },
+  "document_sha256": {
+    "PRODUCT.md": "65fef911a9782a1dc649ad17ea2d33e8ad65ce259ff9e4fd265dc2ec1b9b4b53",
+    "DESIGN.md": "ff2a7de24890d821c7bb2a431aa758aa92b4d3313e169957cee78b12480e2822",
+    ".impeccable/design.json": "f1a43e20757984d65639b52657b61ae3a1792bcdf1257bbb6461ced9a6d5f75a",
+    ".impeccable/surfaces/android.md": "b87468af1284568b7c660d487ceac40e1fce29a3ccf09b488a99d6d33e4e0b3c"
+  },
+  "scope": "current version and changed player behavior documentation only",
+  "native_render_verified": false
+}

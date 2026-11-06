@@ -1,0 +1,34 @@
+{
+  "version": "1.3.2",
+  "code": 1320,
+  "previous_version": "1.3.1",
+  "files": [
+    {
+      "path": "decoded/apktool.yml",
+      "before_sha256": "72f09b941f4201b54371007ec3efde32d49a6553cf50ebab63e15911cc7c07b8",
+      "after_sha256": "c6e3738e7a17e88201b78390f2dddc30e31ea4fd8a276a57393e021e25da5a02"
+    },
+    {
+      "path": "decoded/AndroidManifest.xml",
+      "before_sha256": "057826995925650d381531d973374d7e4c3b4304b209e239d5e8d77797af0846",
+      "after_sha256": "87abef55b602d121c577416cd484cab7349e7832c56f964aee15001dc5cd3bde"
+    },
+    {
+      "path": "decoded/res/values/strings.xml",
+      "before_sha256": "cb40f2b6103331e7670d511375a0f85832bf4e535ace385e39471459dbe0cbf1",
+      "after_sha256": "93b7fddaae5893d5a3e321225a63644308f59f9ebfdbd39d9a42aec34d0689f0"
+    },
+    {
+      "path": "decoded/res/layout/phone_activity_splash.xml",
+      "before_sha256": "679c23e1ff3b9ee07a5e15526e0c2f05791850cae52cbc15bc7c8425152ffa1c",
+      "after_sha256": "6fd282140c5d3ccd401f5ba10a34034e64b1e51ab0e270d137cb255c0c484deb"
+    },
+    {
+      "path": "decoded/res/layout/phone_activity_settings.xml",
+      "before_sha256": "cd4859e26ce25cbd138b1ad80efad4b45731025e685c0c77676fab2d479a0265",
+      "after_sha256": "48e35c1a3356b6c2aedf45c53a06c4973000a82b2337e91a23dce53f8b565dff"
+    }
+  ],
+  "compiled": false,
+  "source_ready": false
+}

@@ -1,0 +1,143 @@
+--- before/src/com/tongpin/player4k/tv/TvPlayerActivity.java
++++ after/src/com/tongpin/player4k/tv/TvPlayerActivity.java
+@@ -8,8 +8,6 @@
+ import android.graphics.Typeface;
+ import android.graphics.drawable.GradientDrawable;
+ import android.media.AudioManager;
+-import android.media.MediaPlayer;
+-import android.media.PlaybackParams;
+ import android.os.Build;
+ import android.os.Bundle;
+ import android.os.Handler;
+@@ -42,19 +40,19 @@
+     static final int MAX_STREAMS = 64;
+     private static final float[] SPEEDS = {.5f, .75f, 1f, 1.25f, 1.5f, 2f};
+     private final Handler main = new Handler(Looper.getMainLooper());
+-    private MediaPlayer player;
++    private TvPlaybackEngine player;
+     private AudioManager audio;
+     private boolean audioFocusHeld, waitingForFocus;
+     private SurfaceView surface;
+     private FrameLayout viewport;
+     private LinearLayout header, controls;
+     private TextView actual, status, clock, declaredQuality, heading;
+-    private Button playButton, qualityButton, retryButton, previousButton, nextButton, episodesButton, speedButton, autoButton;
++    private Button playButton, qualityButton, retryButton, previousButton, nextButton, episodesButton, speedButton, autoButton, decoderButton;
+     private AlertDialog qualityDialog;
+     private String[] urls, labels;
+     private int[] widths, heights;
+     private String title, videoJson, episodeName, author, licence, queueToken;
+-    private int selected, actualWidth, actualHeight;
++    private int selected, actualWidth, actualHeight, decoderMode;
+     private long position, seekReadyAt, lastSeekKey = -1L;
+     private final TvSeekState seekState = new TvSeekState();
+     private SeekBar progress;
+@@ -144,6 +142,7 @@
+                 retryFromStart = saved.getBoolean("retry_from_start", false);
+             }
+             if (Build.VERSION.SDK_INT < 23) speed = 1f;
++            decoderMode = normalizedDecoderMode(Build.VERSION.SDK_INT, getSharedPreferences("tongpin_tv_preferences", MODE_PRIVATE).getInt("decoder_mode", 0));
+         } catch (Exception invalid) {
+             invalidInput("播放列表暂不可用，请返回片库重新选择。");
+             return;
+@@ -255,6 +254,8 @@
+         qualityButton = addButton(row, "画质", this::chooseQuality);
+         speedButton = addButton(row, "倍速", this::chooseSpeed);
+         speedButton.setEnabled(Build.VERSION.SDK_INT >= 23);
++        decoderButton = addButton(row, decoderButtonLabel(Build.VERSION.SDK_INT, decoderMode), this::chooseDecoder);
++        decoderButton.setEnabled(Build.VERSION.SDK_INT >= 23);
+         autoButton = addButton(row, "连播", () -> {
+             getSharedPreferences("tongpin_tv_preferences", MODE_PRIVATE).edit().putBoolean("auto_next", !autoNext()).apply();
+             updateNavigation();
+@@ -419,18 +420,12 @@
+ 
+     private void applySpeed() {
+         if (Build.VERSION.SDK_INT >= 23 && player != null && prepared && speed != appliedSpeed) {
+-            try { Api23.setSpeed(player, speed); appliedSpeed = speed; }
++            try { player.setSpeed(speed); appliedSpeed = speed; }
+             catch (RuntimeException unavailable) {
+                 speed = appliedSpeed;
+                 Toast.makeText(this, "当前格式不支持所选倍速，已保持 " + speed + "×播放。", Toast.LENGTH_LONG).show();
+                 updateNavigation();
+             }
+-        }
+-    }
+-
+-    private static final class Api23 {
+-        static void setSpeed(MediaPlayer player, float speed) {
+-            player.setPlaybackParams(new PlaybackParams().setSpeed(speed).setPitch(1f));
+         }
+     }
+ 
+@@ -472,8 +467,8 @@
+         resetResolution();
+         fitSurface();
+         status.setText("正在读取视频");
+-        final MediaPlayer candidate;
+-        try { candidate = new MediaPlayer(); }
++        final TvPlaybackEngine candidate;
++        try { candidate = TvPlaybackEngine.create(this, decoderMode); }
+         catch (RuntimeException unavailable) { fail("系统播放器暂时无法启动，请重试或返回片库。", false); return; }
+         player = candidate;
+         appliedSpeed = 1f;
+@@ -612,16 +607,11 @@
+         if (!prepared || player == null || !foreground) return;
+         seeking = true;
+         try {
+-            if (Build.VERSION.SDK_INT >= 26) Api26.seek(player, requested);
+-            else player.seekTo((int) requested);
++            player.seekTo(requested);
+             main.removeCallbacks(timeout);
+             main.postDelayed(timeout, 15000);
+             updateClock();
+         } catch (RuntimeException error) { fail("该线路无法定位到播放进度，可从头重试或选择其他画质。", true); }
+-    }
+-
+-    private static final class Api26 {
+-        static void seek(MediaPlayer player, long position) { player.seekTo(position, MediaPlayer.SEEK_CLOSEST); }
+     }
+ 
+     private boolean canSeek() { return prepared && player != null && foreground && !failed && duration() > 0; }
+@@ -664,6 +654,33 @@
+ 
+     static boolean acceptSeekRepeat(long now, long previous, int repeat) {
+         return repeat == 0 || previous < 0L || now - previous >= 150L;
++    }
++
++    static int normalizedDecoderMode(int sdk, int requested) { return sdk >= 23 && requested == 1 ? 1 : 0; }
++
++    static String decoderButtonLabel(int sdk, int mode) {
++        return sdk < 23 ? "解码 · 系统（安卓6起可切换）" : mode == 1 ? "解码 · 软件优先" : "解码 · 系统";
++    }
++
++    private void chooseDecoder() {
++        if (Build.VERSION.SDK_INT < 23 || qualityDialog != null || busy()) return;
++        main.removeCallbacks(hideControls);
++        qualityDialog = new AlertDialog.Builder(this).setTitle("选择解码方式")
++                .setSingleChoiceItems(new String[]{"系统解码（默认）", "兼容解码（软件优先，支持时自动回退）"}, decoderMode, (dialog, which) -> {
++                    dialog.dismiss();
++                    if (which == decoderMode && !failed) return;
++                    rememberPosition(); saveProgress();
++                    boolean resume = playWhenReady;
++                    releasePlayer();
++                    decoderMode = normalizedDecoderMode(Build.VERSION.SDK_INT, which);
++                    getSharedPreferences("tongpin_tv_preferences", MODE_PRIVATE).edit().putInt("decoder_mode", decoderMode).apply();
++                    failed = completed = retryFromStart = false; playWhenReady = resume;
++                    retryButton.setVisibility(View.GONE); playButton.setEnabled(true);
++                    decoderButton.setText(decoderButtonLabel(Build.VERSION.SDK_INT, decoderMode));
++                    prepare(); showControls(true);
++                }).setNegativeButton("取消", null).create();
++        qualityDialog.setOnDismissListener(dialog -> { qualityDialog = null; scheduleHide(); });
++        qualityDialog.show();
+     }
+ 
+     private void chooseQuality() {
+@@ -777,7 +794,7 @@
+         main.removeCallbacks(timeout);
+         ++playbackGeneration;
+         advancing = false;
+-        MediaPlayer old = player;
++        TvPlaybackEngine old = player;
+         player = null;
+         prepared = false; seeking = false; playing = false;
+         main.removeCallbacks(commitSeek); seekState.reset(); seekReadyAt = 0L; lastSeekKey = -1L;

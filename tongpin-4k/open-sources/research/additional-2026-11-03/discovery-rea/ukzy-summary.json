@@ -1,0 +1,335 @@
+{
+  "provider": {
+    "id": "ukzy",
+    "name": "U酷资源",
+    "kind": "maccms",
+    "api": "https://api.ukuapi88.com/api.php/provide/vod/",
+    "homepage": "https://ukuzy0.com/",
+    "help": "https://ukuzy0.com/help/"
+  },
+  "pages": [
+    {
+      "url": "https://ukuzy0.com/",
+      "checked_utc": "2026-11-03T00:00:13.046074+00:00",
+      "authentication": "none",
+      "cookies": "none",
+      "status": 200,
+      "final_url": "https://ukuzy0.com/",
+      "content_type": "text/html; charset=utf-8",
+      "content_length": null,
+      "bytes": 28727,
+      "sha256": "c056ba47f5c3c62e98b77f6eff5f3b551419bf743a599216a80f00330a2bfd13",
+      "file": "ukzy-homepage.html",
+      "elapsed_ms": 6781,
+      "conditions_and_usage_lines": [
+        "郑重承诺：资源永久免费,资源不含任何广告,无广告永久免费的资源站(承诺绝不影响用户体验)",
+        "欢迎各位新老站长加盟采集！更多资源福利分享，尽在站长资源分享群！",
+        "欢迎大家采集，每日实时更新求片联系管理"
+      ]
+    },
+    {
+      "url": "https://ukuzy0.com/help/",
+      "checked_utc": "2026-11-03T00:00:19.833244+00:00",
+      "authentication": "none",
+      "cookies": "none",
+      "status": 200,
+      "final_url": "https://ukuzy0.com/help/",
+      "content_type": "text/html",
+      "content_length": null,
+      "bytes": 32924,
+      "sha256": "c15c52b37ce9868b5e3cd70d8e03e17e4de67101a572b1ca23326b8ba987b7fe",
+      "file": "ukzy-help.html",
+      "elapsed_ms": 5688,
+      "conditions_and_usage_lines": [
+        "APP json接口",
+        "资源 http 容易被国内屏蔽 导致无法播放",
+        "app json接口 ：",
+        "本站图片地址后期将采用图床样式，可以调用， 采集的同时，也可以把图片下载到本地（推荐），以免杜绝日后出现类似图片失效的情况。",
+        "app json接口"
+      ]
+    }
+  ],
+  "api": [
+    {
+      "url": "https://api.ukuapi88.com/api.php/provide/vod/?ac=detail&pg=1&pagesize=20",
+      "checked_utc": "2026-11-03T00:00:25.526479+00:00",
+      "authentication": "none",
+      "cookies": "none",
+      "status": 200,
+      "final_url": "https://api.ukuapi88.com/api.php/provide/vod/?ac=detail&pg=1&pagesize=20",
+      "content_type": "text/html;charset=utf-8",
+      "content_length": null,
+      "bytes": 100534,
+      "sha256": "730945dfd0626490708bbdb4df495cac4816d9b14cf6c388c449a17e9aa10604",
+      "file": "ukzy-list-p1.json",
+      "elapsed_ms": 6328,
+      "code": 1,
+      "msg": "数据列表",
+      "page": "1",
+      "pagecount": 3003,
+      "limit": "20",
+      "total": 60050,
+      "count": 20,
+      "safe_sample": [
+        {
+          "vod_id": 75111,
+          "vod_name": "网黄之路 第一季",
+          "type_name": "欧美剧",
+          "vod_remarks": "6集全",
+          "vod_time": "2026-11-03 07:22:54"
+        },
+        {
+          "vod_id": 75110,
+          "vod_name": "网黄之路 第二季",
+          "type_name": "欧美剧",
+          "vod_remarks": "更新至01集",
+          "vod_time": "2026-11-03 07:22:08"
+        },
+        {
+          "vod_id": 74108,
+          "vod_name": "寻踪者 第四季",
+          "type_name": "欧美剧",
+          "vod_remarks": "更新至05集",
+          "vod_time": "2026-11-03 07:21:07"
+        }
+      ]
+    },
+    {
+      "url": "https://api.ukuapi88.com/api.php/provide/vod/?ac=detail&pg=2&pagesize=20",
+      "checked_utc": "2026-11-03T00:00:31.848563+00:00",
+      "authentication": "none",
+      "cookies": "none",
+      "status": 200,
+      "final_url": "https://api.ukuapi88.com/api.php/provide/vod/?ac=detail&pg=2&pagesize=20",
+      "content_type": "text/html;charset=utf-8",
+      "content_length": null,
+      "bytes": 43332,
+      "sha256": "09618b2eaf5e0ff93fbed1023d60149147935fb6c947ab3b351f2f54e34e8ecc",
+      "file": "ukzy-list-p2.json",
+      "elapsed_ms": 5984,
+      "code": 1,
+      "msg": "数据列表",
+      "page": "2",
+      "pagecount": 3003,
+      "limit": "20",
+      "total": 60050,
+      "count": 20,
+      "safe_sample": [
+        {
+          "vod_id": 75106,
+          "vod_name": "覆红妆：听雪燃春",
+          "type_name": "短剧",
+          "vod_remarks": "正片",
+          "vod_time": "2026-11-02 20:08:34"
+        },
+        {
+          "vod_id": 73033,
+          "vod_name": "生化危机：爆发夜",
+          "type_name": "科幻片",
+          "vod_remarks": "正片",
+          "vod_time": "2026-11-02 20:06:02"
+        },
+        {
+          "vod_id": 75103,
+          "vod_name": "兰香如故·花胜秋宴",
+          "type_name": "综艺",
+          "vod_remarks": "更新至20261102期",
+          "vod_time": "2026-11-02 19:40:12"
+        }
+      ],
+      "overlap_with_p1": 0
+    },
+    {
+      "url": "https://api.ukuapi88.com/api.php/provide/vod/?ac=detail&pg=1&pagesize=20&wd=%E5%BA%86%E4%BD%99%E5%B9%B4",
+      "checked_utc": "2026-11-03T00:00:37.829512+00:00",
+      "authentication": "none",
+      "cookies": "none",
+      "status": 200,
+      "final_url": "https://api.ukuapi88.com/api.php/provide/vod/?ac=detail&pg=1&pagesize=20&wd=%E5%BA%86%E4%BD%99%E5%B9%B4",
+      "content_type": "text/html;charset=utf-8",
+      "content_length": null,
+      "bytes": 24491,
+      "sha256": "f3efcdf4e43a11bfd326380c86ba38c526bb7e0264535fe8376a37af41e0ada0",
+      "file": "ukzy-search-tv.json",
+      "elapsed_ms": 5766,
+      "code": 1,
+      "msg": "数据列表",
+      "page": "1",
+      "pagecount": 1,
+      "limit": "20",
+      "total": 3,
+      "count": 3,
+      "safe_sample": [
+        {
+          "vod_id": 51271,
+          "vod_name": "庆余年 第二季",
+          "type_name": "国产剧",
+          "vod_remarks": "全36集",
+          "vod_time": "2024-06-06 17:26:34"
+        },
+        {
+          "vod_id": 51191,
+          "vod_name": "庆余年第一季 特别版",
+          "type_name": "国产剧",
+          "vod_remarks": "全25集",
+          "vod_time": "2024-05-14 21:52:34"
+        },
+        {
+          "vod_id": 47645,
+          "vod_name": "庆余年",
+          "type_name": "国产剧",
+          "vod_remarks": "全46集",
+          "vod_time": "2023-06-30 22:07:45"
+        }
+      ]
+    },
+    {
+      "url": "https://api.ukuapi88.com/api.php/provide/vod/?ac=detail&ids=51271",
+      "checked_utc": "2026-11-03T00:00:43.608440+00:00",
+      "authentication": "none",
+      "cookies": "none",
+      "status": 200,
+      "final_url": "https://api.ukuapi88.com/api.php/provide/vod/?ac=detail&ids=51271",
+      "content_type": "text/html;charset=utf-8",
+      "content_length": null,
+      "bytes": 8193,
+      "sha256": "e096b0daa165499d81a1515c129218b5d330d9b01e57880a3798bccd611c92bf",
+      "file": "ukzy-detail-tv.json",
+      "elapsed_ms": 6813,
+      "code": 1,
+      "msg": "数据列表",
+      "page": 1,
+      "pagecount": 1,
+      "limit": "20",
+      "total": 1,
+      "count": 1,
+      "safe_sample": [
+        {
+          "vod_id": 51271,
+          "vod_name": "庆余年 第二季",
+          "type_name": "国产剧",
+          "vod_remarks": "全36集",
+          "vod_time": "2024-06-06 17:26:34"
+        }
+      ],
+      "videos": [
+        {
+          "id": 51271,
+          "title": "庆余年 第二季",
+          "category": "国产剧",
+          "remarks": "全36集",
+          "lines": [
+            {
+              "name": "ukm3u8",
+              "episode_count": 36,
+              "first": {
+                "name": "第01集",
+                "url": "https://ukzy.ukubf4.com/20240516/CxeWo1s4/index.m3u8"
+              },
+              "last": {
+                "name": "第36集",
+                "url": "https://ukzy.ukubf4.com/20240530/EoAs0pKT/index.m3u8"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "url": "https://api.ukuapi88.com/api.php/provide/vod/?ac=detail&pg=1&pagesize=20&wd=%E6%B5%81%E6%B5%AA%E5%9C%B0%E7%90%83",
+      "checked_utc": "2026-11-03T00:00:50.422605+00:00",
+      "authentication": "none",
+      "cookies": "none",
+      "status": 200,
+      "final_url": "https://api.ukuapi88.com/api.php/provide/vod/?ac=detail&pg=1&pagesize=20&wd=%E6%B5%81%E6%B5%AA%E5%9C%B0%E7%90%83",
+      "content_type": "text/html;charset=utf-8",
+      "content_length": null,
+      "bytes": 17304,
+      "sha256": "a4f813ba0ad933227f73da89032176e5d2f60d2d441d554da55e23554f206a96",
+      "file": "ukzy-search-film.json",
+      "elapsed_ms": 5578,
+      "code": 1,
+      "msg": "数据列表",
+      "page": "1",
+      "pagecount": 1,
+      "limit": "20",
+      "total": 5,
+      "count": 5,
+      "safe_sample": [
+        {
+          "vod_id": 53253,
+          "vod_name": "流浪地球2：再次冒险",
+          "type_name": "记录片",
+          "vod_remarks": "正片",
+          "vod_time": "2024-11-08 14:25:03"
+        },
+        {
+          "vod_id": 46778,
+          "vod_name": "流浪地球2",
+          "type_name": "科幻片",
+          "vod_remarks": "正片",
+          "vod_time": "2023-04-15 16:08:54"
+        },
+        {
+          "vod_id": 46777,
+          "vod_name": "流浪地球",
+          "type_name": "科幻片",
+          "vod_remarks": "正片",
+          "vod_time": "2023-04-15 16:07:03"
+        }
+      ]
+    },
+    {
+      "url": "https://api.ukuapi88.com/api.php/provide/vod/?ac=detail&ids=53253",
+      "checked_utc": "2026-11-03T00:00:55.993912+00:00",
+      "authentication": "none",
+      "cookies": "none",
+      "status": 200,
+      "final_url": "https://api.ukuapi88.com/api.php/provide/vod/?ac=detail&ids=53253",
+      "content_type": "text/html;charset=utf-8",
+      "content_length": null,
+      "bytes": 3328,
+      "sha256": "55153e5db621577693f45ebeab16438543cf0ad5a249c2a943b3a4c74e097405",
+      "file": "ukzy-detail-film.json",
+      "elapsed_ms": 5437,
+      "code": 1,
+      "msg": "数据列表",
+      "page": 1,
+      "pagecount": 1,
+      "limit": "20",
+      "total": 1,
+      "count": 1,
+      "safe_sample": [
+        {
+          "vod_id": 53253,
+          "vod_name": "流浪地球2：再次冒险",
+          "type_name": "记录片",
+          "vod_remarks": "正片",
+          "vod_time": "2024-11-08 14:25:03"
+        }
+      ],
+      "videos": [
+        {
+          "id": 53253,
+          "title": "流浪地球2：再次冒险",
+          "category": "记录片",
+          "remarks": "正片",
+          "lines": [
+            {
+              "name": "ukm3u8",
+              "episode_count": 1,
+              "first": {
+                "name": "720P",
+                "url": "https://ukzy.ukubf3.com/20241108/Tz0TgZA0/index.m3u8"
+              },
+              "last": {
+                "name": "720P",
+                "url": "https://ukzy.ukubf3.com/20241108/Tz0TgZA0/index.m3u8"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

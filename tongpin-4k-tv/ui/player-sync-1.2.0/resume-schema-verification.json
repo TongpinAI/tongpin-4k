@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "assertions": 16,
+  "sqlite_version": "3.41.2",
+  "source_sha256": "a72e6295c542703f45321ba3d2b296392f19f3632727a64fd26a68dbb8a9b385",
+  "baseline_sha256": "ba4ae0b27f686435b4e1ae66476dadc632444850a0180c9d74b04a1c92ae4df6",
+  "production_sql": {
+    "create": "CREATE TABLE episode_progress (provider_id TEXT NOT NULL, video_id TEXT NOT NULL, episode_key TEXT NOT NULL, episode_name TEXT NOT NULL, position_ms INTEGER NOT NULL CHECK(position_ms>0), updated_at INTEGER NOT NULL, PRIMARY KEY(provider_id, video_id, episode_key))",
+    "index": "CREATE INDEX episode_progress_order ON episode_progress(updated_at DESC)",
+    "trim": "DELETE FROM episode_progress WHERE rowid IN (SELECT rowid FROM episode_progress ORDER BY updated_at DESC, provider_id ASC, video_id ASC, episode_key ASC LIMIT -1 OFFSET 200)",
+    "identity": "provider_id=? AND video_id=? AND episode_key=?"
+  },
+  "scope": "Actual production SQL on an in-memory host SQLite database; v1 data preserved, isolated episode keys and 200-position trimming",
+  "android_sqlite_runtime_tested": false,
+  "device_tested": false
+}

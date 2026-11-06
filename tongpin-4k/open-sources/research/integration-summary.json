@@ -1,0 +1,174 @@
+{
+  "checked_at_utc": "2026-11-02T12:29:46.861508+00:00",
+  "scope": "Read-only anonymous public catalog and bounded media headers; no Android/full playback/advertising acceptance",
+  "providers": [
+    {
+      "id": "blender",
+      "provider_kind": "official open-film publisher using open-source PeerTube",
+      "channel_api": "https://video.blender.org/api/v1/video-channels/blender_open_movies/videos?count=100&sort=-publishedAt",
+      "api_docs": "https://docs.joinpeertube.org/api-rest-reference.html",
+      "channel_count": 23,
+      "main_film_details": 18,
+      "progressive_width_ge_3840": 1,
+      "independent_media_probes": 1,
+      "independent_4k_width_confirmations": 1,
+      "schema": {
+        "list": "total,data[]",
+        "detail": "/api/v1/videos/{uuid}",
+        "progressive": "files[].fileUrl,width,height,fps,hasAudio,hasVideo",
+        "hls": "streamingPlaylists[].playlistUrl"
+      },
+      "license_sources": [
+        "https://studio.blender.org/terms-and-conditions/",
+        "https://studio.blender.org/remixing/",
+        "https://studio.blender.org/projects/glass-half/pages/licensing/",
+        "https://studio.blender.org/projects/agent-327/pages/about/",
+        "https://studio.blender.org/projects/singularity/pages/licensing/",
+        "https://studio.blender.org/projects/spring/pages/about/"
+      ],
+      "license_status": "per-work; Unknown and API/project-page mismatches preserved; no blanket uniform license",
+      "limit": "Open shorts and behind the scenes, not a recent popular movie/TV source"
+    },
+    {
+      "id": "mdzy",
+      "provider_kind": "public MacCMS-compatible catalog; content authorization unconfirmed",
+      "api": "https://www.mdzyapi.com/api.php/provide/vod/",
+      "terms_sources": [
+        "https://mdzyapi.com/",
+        "https://mdzyapi.com/caiji/"
+      ],
+      "public_collection_invited": true,
+      "production_use_prohibition_found_in_reviewed_pages": false,
+      "list_success": true,
+      "detail_samples": 2,
+      "manifest_success": 2,
+      "media_header_attempted": 2,
+      "media_header_success": 2,
+      "proven_4k_samples": 0
+    },
+    {
+      "id": "360zy",
+      "provider_kind": "public MacCMS-compatible catalog; content authorization unconfirmed",
+      "api": "https://360zy.com/api.php/provide/vod/",
+      "terms_sources": [
+        "https://www.360zy.com/360zy/help.html"
+      ],
+      "public_collection_invited": true,
+      "production_use_prohibition_found_in_reviewed_pages": false,
+      "list_success": true,
+      "detail_samples": 2,
+      "manifest_success": 2,
+      "media_header_attempted": 0,
+      "media_header_success": 0,
+      "media_header_skip_reason": "AES-128 media; no key retrieval during bounded scope",
+      "proven_4k_samples": 0
+    }
+  ],
+  "maccms_samples": [
+    {
+      "provider": "mdzy",
+      "kind": "tv",
+      "id": 90995,
+      "name": "伟大的长征",
+      "episode": "第43集",
+      "episode_count": 43,
+      "remarks": "更新至43集",
+      "time": "2026-11-02 20:21:53",
+      "manifest_resolutions": [
+        "1920x800"
+      ],
+      "verified_video_header": {
+        "index": 0,
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1920,
+        "height": 800,
+        "avg_frame_rate": "25/1"
+      },
+      "media_probe_skipped": null
+    },
+    {
+      "provider": "mdzy",
+      "kind": "film",
+      "id": 92131,
+      "name": "茫然女王",
+      "episode": "正片",
+      "episode_count": 1,
+      "remarks": "正片",
+      "time": "2026-11-01 18:53:02",
+      "manifest_resolutions": [
+        "1920x1158"
+      ],
+      "verified_video_header": {
+        "index": 0,
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1920,
+        "height": 1158,
+        "avg_frame_rate": "25/1"
+      },
+      "media_probe_skipped": null
+    },
+    {
+      "provider": "360zy",
+      "kind": "tv",
+      "id": 108361,
+      "name": "尚公主",
+      "episode": "第23集",
+      "episode_count": 23,
+      "remarks": "更新至23集",
+      "time": "2026-11-02 19:36:29",
+      "manifest_resolutions": [
+        "1920x1080"
+      ],
+      "verified_video_header": null,
+      "media_probe_skipped": "encrypted media; no key retrieval"
+    },
+    {
+      "provider": "360zy",
+      "kind": "film",
+      "id": 109096,
+      "name": "她的山间夏日",
+      "episode": "正片",
+      "episode_count": 1,
+      "remarks": "正片",
+      "time": "2026-11-02 14:22:43",
+      "manifest_resolutions": [
+        "1920x1008"
+      ],
+      "verified_video_header": null,
+      "media_probe_skipped": "encrypted media; no key retrieval"
+    }
+  ],
+  "search_tests": [
+    {
+      "provider": "mdzy",
+      "url": "https://www.mdzyapi.com/api.php/provide/vod/?ac=list&wd=%E5%B0%9A%E5%85%AC%E4%B8%BB&pg=1",
+      "status": 200,
+      "code": 1,
+      "total": 1,
+      "names": [
+        "尚公主"
+      ]
+    },
+    {
+      "provider": "360zy",
+      "url": "https://360zy.com/api.php/provide/vod/?ac=list&wd=%E5%B0%9A%E5%85%AC%E4%B8%BB&pg=1",
+      "status": 200,
+      "code": 1,
+      "total": 1,
+      "names": [
+        "尚公主"
+      ]
+    }
+  ],
+  "fixture_sha256": {
+    "peertube-channel-list.json": "2d50df7a9328edc0c251dc97047a3f1fe17e552683c12bc06715c18f2431d773",
+    "peertube-charge-detail.json": "736096b25d13bc9f6ae4aa03049492c4e470c2af8d953317c92c60bea92b98de",
+    "peertube-glass-half-detail.json": "2fa07d579c8dff818f651363453c02ae706b7bd86cc3628fc1c5e1c0ca10735e",
+    "mdzy-tv-detail.json": "a9e4ac3775b4fc659e06dec63c145fdf05dcf01d03d4eb1381aca605c33fdb8c",
+    "mdzy-film-detail.json": "1c90f146319d4656b39e538c0f36ccf34c417cefa6d428264c083e66f765d190",
+    "360zy-tv-detail.json": "058956e125f30170228673bdd633305e3d9fe44e31fd1819c68f1e5b14796556",
+    "360zy-film-detail.json": "ae0967eba91f560187acd713cf13e653b96a6438ad2527cdddec9b2959902696"
+  }
+}

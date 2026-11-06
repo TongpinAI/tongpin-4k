@@ -1,0 +1,9 @@
+# Local evidence may contain signed/ephemeral media queries.
+*-probe.json
+*-playlist-*.m3u8
+hls-probe-results.json
+hls-samples.json
+*-catalogue.json
+network-candidates-2026-11-02.json
+*-header.bin
+__pycache__/

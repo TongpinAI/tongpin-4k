@@ -1,0 +1,298 @@
+{
+  "provider": {
+    "id": "ryzy",
+    "name": "如意资源",
+    "kind": "maccms",
+    "api": "https://cj.rycjapi.com/api.php/provide/vod/",
+    "homepage": "https://ryzyw.com/",
+    "help": "https://ryzyw.com/help/"
+  },
+  "detail_requests": [
+    {
+      "url": "https://cj.rycjapi.com/api.php/provide/vod/?ac=detail&ids=89263",
+      "checked_utc": "2026-11-03T00:02:05.224844+00:00",
+      "authentication": "none",
+      "cookies": "none",
+      "status": 200,
+      "final_url": "https://cj.rycjapi.com/api.php/provide/vod/?ac=detail&ids=89263",
+      "content_type": "text/html;charset=utf-8",
+      "content_length": null,
+      "bytes": 3352,
+      "sha256": "33eceeb5489adc581ee7677ff6ec54985f05d826b30d7db944cbda7b62bc9710",
+      "file": "ryzy-supplement-detail-current-tv.json",
+      "elapsed_ms": 13469,
+      "code": 1,
+      "msg": "数据列表",
+      "page": 1,
+      "pagecount": 1,
+      "limit": 20,
+      "total": 1,
+      "count": 1,
+      "safe_sample": [
+        {
+          "vod_id": 89263,
+          "vod_name": "你的保安 李宝安",
+          "type_name": "香港剧",
+          "vod_remarks": "更新至第05集",
+          "vod_time": "2026-11-03 03:28:35"
+        }
+      ]
+    },
+    {
+      "url": "https://cj.rycjapi.com/api.php/provide/vod/?ac=detail&ids=15971",
+      "checked_utc": "2026-11-03T00:02:56.651685+00:00",
+      "authentication": "none",
+      "cookies": "none",
+      "status": 200,
+      "final_url": "https://cj.rycjapi.com/api.php/provide/vod/?ac=detail&ids=15971",
+      "content_type": "text/html;charset=utf-8",
+      "content_length": null,
+      "bytes": 3982,
+      "sha256": "1bcd4467577b2097b70df29a3214a7a70cc698b800e61d652d144c711ad27609",
+      "file": "ryzy-supplement-detail-film.json",
+      "elapsed_ms": 13922,
+      "code": 1,
+      "msg": "数据列表",
+      "page": 1,
+      "pagecount": 1,
+      "limit": 20,
+      "total": 1,
+      "count": 1,
+      "safe_sample": [
+        {
+          "vod_id": 15971,
+          "vod_name": "流浪地球",
+          "type_name": "科幻片",
+          "vod_remarks": "HD",
+          "vod_time": "2024-09-10 15:43:28"
+        }
+      ]
+    }
+  ],
+  "samples": [
+    {
+      "provider": "ryzy",
+      "episode": {
+        "name": "第01集",
+        "url": "https://svip.ryiplay18.com/20261026/14526_a3d2ad32/index.m3u8"
+      },
+      "requests": [
+        {
+          "url": "https://svip.ryiplay18.com/20261026/14526_a3d2ad32/index.m3u8",
+          "checked_utc": "2026-11-03T00:02:18.698032+00:00",
+          "authentication": "none",
+          "cookies": "none",
+          "status": 200,
+          "final_url": "https://svip.ryiplay18.com/20261026/14526_a3d2ad32/index.m3u8",
+          "content_type": "application/vnd.apple.mpegurl",
+          "content_length": "96",
+          "bytes": 96,
+          "sha256": "8dcb4487f749170253b047ccb7bccf0c27840bbec81dc084d77687efcdd9b105",
+          "file": "ryzy-current-tv-first-hls0.m3u8",
+          "elapsed_ms": 8031
+        },
+        {
+          "url": "https://svip.ryiplay18.com/20261026/14526_a3d2ad32/2000k/hls/index.m3u8",
+          "checked_utc": "2026-11-03T00:02:26.730854+00:00",
+          "authentication": "none",
+          "cookies": "none",
+          "status": 200,
+          "final_url": "https://svip.ryiplay18.com/20261026/14526_a3d2ad32/2000k/hls/index.m3u8",
+          "content_type": "application/vnd.apple.mpegurl",
+          "content_length": null,
+          "bytes": 19814,
+          "sha256": "921a41477237fb41ed0a7ca1a9ec6d541e92f559cecc96651c457d34a4dce060",
+          "file": "ryzy-current-tv-first-hls1.m3u8",
+          "elapsed_ms": 6719
+        }
+      ],
+      "observed_resolutions": [
+        [
+          1080,
+          608
+        ]
+      ],
+      "manifest_get": "ordinary GET without Range/Referer/Cookie/auth",
+      "is_hls": true,
+      "segment_count": 338,
+      "endlist": true,
+      "encrypted_methods": [],
+      "discontinuities": 69,
+      "media_prefix": {
+        "url": "https://svip.ryiplay18.com/20261026/14526_a3d2ad32/2000k/hls/d2cbd2b03b618f7f7596e4d273aa3dd1.ts",
+        "checked_utc": "2026-11-03T00:02:33.454145+00:00",
+        "authentication": "none",
+        "cookies": "none",
+        "status": 206,
+        "final_url": "https://svip.ryiplay18.com/20261026/14526_a3d2ad32/2000k/hls/d2cbd2b03b618f7f7596e4d273aa3dd1.ts",
+        "content_type": "video/mp2t",
+        "content_length": "752",
+        "bytes": 752,
+        "sha256": "b6d9aa3c575f683d450bb91902badd9b5533c52512ec837669f35fbf737d2290",
+        "file": "ryzy-current-tv-first-segment-prefix.bin",
+        "elapsed_ms": 6187
+      },
+      "transport_stream_sync_offsets": [
+        0
+      ],
+      "mp4_signature": "\u0000B�%",
+      "video_id": 89263,
+      "title": "你的保安 李宝安",
+      "category": "香港剧",
+      "remarks": "更新至第05集",
+      "line": "rym3u8",
+      "episode_count": 5
+    },
+    {
+      "provider": "ryzy",
+      "episode": {
+        "name": "第05集",
+        "url": "https://svip.ryiplay18.com/20261102/15367_68af4f19/index.m3u8"
+      },
+      "requests": [
+        {
+          "url": "https://svip.ryiplay18.com/20261102/15367_68af4f19/index.m3u8",
+          "checked_utc": "2026-11-03T00:02:39.633551+00:00",
+          "authentication": "none",
+          "cookies": "none",
+          "status": 200,
+          "final_url": "https://svip.ryiplay18.com/20261102/15367_68af4f19/index.m3u8",
+          "content_type": "application/vnd.apple.mpegurl",
+          "content_length": "96",
+          "bytes": 96,
+          "sha256": "8dcb4487f749170253b047ccb7bccf0c27840bbec81dc084d77687efcdd9b105",
+          "file": "ryzy-current-tv-last-hls0.m3u8",
+          "elapsed_ms": 5594
+        },
+        {
+          "url": "https://svip.ryiplay18.com/20261102/15367_68af4f19/2000k/hls/index.m3u8",
+          "checked_utc": "2026-11-03T00:02:45.221713+00:00",
+          "authentication": "none",
+          "cookies": "none",
+          "status": 200,
+          "final_url": "https://svip.ryiplay18.com/20261102/15367_68af4f19/2000k/hls/index.m3u8",
+          "content_type": "application/vnd.apple.mpegurl",
+          "content_length": null,
+          "bytes": 19799,
+          "sha256": "2c0e89373f7882a52534fa80b4ad8bc7c5da16f8c98201a749be0c40a81c1a4d",
+          "file": "ryzy-current-tv-last-hls1.m3u8",
+          "elapsed_ms": 5766
+        }
+      ],
+      "observed_resolutions": [
+        [
+          1080,
+          608
+        ]
+      ],
+      "manifest_get": "ordinary GET without Range/Referer/Cookie/auth",
+      "is_hls": true,
+      "segment_count": 342,
+      "endlist": true,
+      "encrypted_methods": [],
+      "discontinuities": 58,
+      "media_prefix": {
+        "url": "https://svip.ryiplay18.com/20261102/15367_68af4f19/2000k/hls/f31d4814e56fc4da96e0517a9bc0f9f8.ts",
+        "checked_utc": "2026-11-03T00:02:50.994418+00:00",
+        "authentication": "none",
+        "cookies": "none",
+        "status": 206,
+        "final_url": "https://svip.ryiplay18.com/20261102/15367_68af4f19/2000k/hls/f31d4814e56fc4da96e0517a9bc0f9f8.ts",
+        "content_type": "video/mp2t",
+        "content_length": "752",
+        "bytes": 752,
+        "sha256": "b6d9aa3c575f683d450bb91902badd9b5533c52512ec837669f35fbf737d2290",
+        "file": "ryzy-current-tv-last-segment-prefix.bin",
+        "elapsed_ms": 5656
+      },
+      "transport_stream_sync_offsets": [
+        0
+      ],
+      "mp4_signature": "\u0000B�%",
+      "video_id": 89263,
+      "title": "你的保安 李宝安",
+      "category": "香港剧",
+      "remarks": "更新至第05集",
+      "line": "rym3u8",
+      "episode_count": 5
+    },
+    {
+      "provider": "ryzy",
+      "episode": {
+        "name": "HD中字",
+        "url": "https://cdn1.ryplay1.com/20240909/7654_11abb47d/index.m3u8"
+      },
+      "requests": [
+        {
+          "url": "https://cdn1.ryplay1.com/20240909/7654_11abb47d/index.m3u8",
+          "checked_utc": "2026-11-03T00:03:10.565175+00:00",
+          "authentication": "none",
+          "cookies": "none",
+          "status": 200,
+          "final_url": "https://cdn1.ryplay1.com/20240909/7654_11abb47d/index.m3u8",
+          "content_type": "application/vnd.apple.mpegurl",
+          "content_length": "96",
+          "bytes": 96,
+          "sha256": "8dcb4487f749170253b047ccb7bccf0c27840bbec81dc084d77687efcdd9b105",
+          "file": "ryzy-film-first-hls0.m3u8",
+          "elapsed_ms": 7125
+        },
+        {
+          "url": "https://cdn1.ryplay1.com/20240909/7654_11abb47d/2000k/hls/index.m3u8",
+          "checked_utc": "2026-11-03T00:03:17.697487+00:00",
+          "authentication": "none",
+          "cookies": "none",
+          "status": 200,
+          "final_url": "https://cdn1.ryplay1.com/20240909/7654_11abb47d/2000k/hls/index.m3u8",
+          "content_type": "application/vnd.apple.mpegurl",
+          "content_length": null,
+          "bytes": 76667,
+          "sha256": "519b8e2ace8d5609469482f974054a6d3fd55a4c98440e904daab89eb0b08fc7",
+          "file": "ryzy-film-first-hls1.m3u8",
+          "elapsed_ms": 6500
+        }
+      ],
+      "observed_resolutions": [
+        [
+          1080,
+          608
+        ]
+      ],
+      "manifest_get": "ordinary GET without Range/Referer/Cookie/auth",
+      "is_hls": true,
+      "segment_count": 1315,
+      "endlist": true,
+      "encrypted_methods": [],
+      "discontinuities": 264,
+      "media_prefix": {
+        "url": "https://cdn1.ryplay1.com/20240909/7654_11abb47d/2000k/hls/1c66649a2ab348b2c565f500d8104815.ts",
+        "checked_utc": "2026-11-03T00:03:24.190409+00:00",
+        "authentication": "none",
+        "cookies": "none",
+        "status": 206,
+        "final_url": "https://cdn1.ryplay1.com/20240909/7654_11abb47d/2000k/hls/1c66649a2ab348b2c565f500d8104815.ts",
+        "content_type": "video/mp2t",
+        "content_length": "752",
+        "bytes": 752,
+        "sha256": "fef2b546aee9c74a8d63ff90dc7ea83cbf6e14b163338de0a3c318e1383b6f50",
+        "file": "ryzy-film-first-segment-prefix.bin",
+        "elapsed_ms": 5906
+      },
+      "transport_stream_sync_offsets": [
+        0
+      ],
+      "mp4_signature": "\u0000B�%",
+      "video_id": 15971,
+      "title": "流浪地球",
+      "category": "科幻片",
+      "remarks": "HD",
+      "line": "rym3u8",
+      "episode_count": 1
+    }
+  ],
+  "limits": [
+    "Small prefix and HLS checks do not prove decoding, full-length playback, absent burned-in ads, or universal location reachability.",
+    "Resolution is reported only if present in HLS metadata; names, labels, or bitrate are not treated as measured 4K.",
+    "No key requests, DRM/auth/geo bypass, parser-page execution, or production edits."
+  ]
+}

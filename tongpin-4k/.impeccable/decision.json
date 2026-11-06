@@ -1,0 +1,223 @@
+{
+  "title": "同频4K · 首页方向",
+  "question": "选择你希望使用的界面方向，包名和功能改造会继续进行。",
+  "options": [
+    {
+      "id": "index",
+      "kind": "assigned",
+      "label": "索引片库",
+      "thesis": "墨蓝与浅米色，搜索和分类集中，片库浏览紧凑。",
+      "palette": [
+        "#F5F2E9",
+        "#172C42",
+        "#226CC7"
+      ],
+      "materials": [
+        "原生控件",
+        "影片内容保持原色"
+      ],
+      "viewport": "同频4K标题、搜索、分类与三列影片区，底部保留原有导航。",
+      "risk": "信息更紧凑，视觉表达偏理性。",
+      "html": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\.impeccable\\mocks\\decision\\index.html",
+      "htmlFrame": "390x844",
+      "comp": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\.impeccable\\mocks\\decision\\index.webp",
+      "raised": [
+        {
+          "from": "图录",
+          "raise": "统一对齐、标题和内容层级。"
+        },
+        {
+          "from": "分区地图",
+          "raise": "用清楚的分区边界组织任务，不依赖装饰。"
+        },
+        {
+          "from": "时刻表",
+          "raise": "提高紧凑内容的可扫描性。"
+        },
+        {
+          "from": "手册",
+          "raise": "导航和状态保持稳定。"
+        },
+        {
+          "from": "票夹",
+          "raise": "只用一种强调色表达当前操作。"
+        }
+      ]
+    },
+    {
+      "id": "program",
+      "kind": "pick",
+      "label": "片单留白",
+      "thesis": "暖白与朱红，标题清楚，封面与片单留出更多空间。",
+      "palette": [
+        "#FAF6EE",
+        "#271E1B",
+        "#B83E35"
+      ],
+      "materials": [
+        "原生控件",
+        "影片内容保持原色"
+      ],
+      "viewport": "更宽松的顶部和双列内容，突出搜索入口。",
+      "risk": "与常见文艺片单较接近，屏幕可见内容稍少。",
+      "html": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\.impeccable\\mocks\\decision\\program.html",
+      "htmlFrame": "390x844",
+      "comp": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\.impeccable\\mocks\\decision\\program.webp"
+    },
+    {
+      "id": "night",
+      "kind": "challenger",
+      "label": "夜映影库",
+      "thesis": "深炭色与青绿，弱光观看舒适，重点留给影片。",
+      "palette": [
+        "#101619",
+        "#192226",
+        "#56DDBD"
+      ],
+      "materials": [
+        "原生控件",
+        "影片内容保持原色"
+      ],
+      "viewport": "深色首页、青绿选中态、清楚的搜索栏和片库内容。",
+      "risk": "需要逐页核对旧控件的深色对比度。",
+      "html": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\.impeccable\\mocks\\decision\\night.html",
+      "htmlFrame": "390x844",
+      "comp": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\.impeccable\\mocks\\decision\\night.webp",
+      "catalogId": "operate-c-emission-line-rail",
+      "verdict": "competitive",
+      "case": "适合手机看片场景，同时保留原生导航与控件。"
+    },
+    {
+      "id": "map",
+      "kind": "challenger",
+      "catalogId": "aww2-zoo-gardens-guide-map",
+      "label": "彩色分区",
+      "verdict": "declined",
+      "thesis": "色块分区强调分类。",
+      "palette": [
+        "#F5F1E4",
+        "#8ED462",
+        "#2C2E2A"
+      ],
+      "materials": [
+        "原生界面"
+      ],
+      "viewport": "分区边界占据更多画面。",
+      "risk": "影片封面和分类色块会争夺注意力。",
+      "case": "影片封面和分类色块会争夺注意力。",
+      "kept": "清楚的分区边界"
+    },
+    {
+      "id": "plate",
+      "kind": "challenger",
+      "catalogId": "design-annual-s-plate-section",
+      "label": "印刷图录",
+      "verdict": "declined",
+      "thesis": "轻纸色和细分隔线组织片单。",
+      "palette": [
+        "#F5F4F6",
+        "#16181A",
+        "#DCDDF3"
+      ],
+      "materials": [
+        "原生界面"
+      ],
+      "viewport": "图录式片库与标题。",
+      "risk": "注册线和图章会增加与观看任务无关的装饰。",
+      "case": "注册线和图章会增加与观看任务无关的装饰。",
+      "kept": "统一对齐和层级"
+    },
+    {
+      "id": "timetable",
+      "kind": "challenger",
+      "catalogId": "rw-timetable-slide-rack",
+      "label": "紧凑时刻表",
+      "verdict": "declined",
+      "thesis": "用密度和字重表达片库层次。",
+      "palette": [
+        "#E5B349",
+        "#142638",
+        "#F0E9DA"
+      ],
+      "materials": [
+        "原生界面"
+      ],
+      "viewport": "紧凑行列与分类标签。",
+      "risk": "信息密度较高，不利于封面浏览。",
+      "case": "信息密度较高，不利于封面浏览。",
+      "kept": "内容扫描效率"
+    },
+    {
+      "id": "manual",
+      "kind": "challenger",
+      "catalogId": "rw-manual-acetate-tab-board",
+      "label": "分册手册",
+      "verdict": "declined",
+      "thesis": "稳定分栏和标签导航。",
+      "palette": [
+        "#EDF0EB",
+        "#252B31",
+        "#DB9B3E"
+      ],
+      "materials": [
+        "原生界面"
+      ],
+      "viewport": "手册式标签分类。",
+      "risk": "过多分隔层会干扰直接找片。",
+      "case": "过多分隔层会干扰直接找片。",
+      "kept": "稳定导航"
+    },
+    {
+      "id": "ticket",
+      "kind": "challenger",
+      "catalogId": "vernacular-ephemera-jet-age-ticket-wallet",
+      "label": "影院票夹",
+      "verdict": "declined",
+      "thesis": "少量高对比色突出当前动作。",
+      "palette": [
+        "#F4E8CE",
+        "#132A4D",
+        "#D54C35"
+      ],
+      "materials": [
+        "原生界面"
+      ],
+      "viewport": "票夹式紧凑信息区。",
+      "risk": "票据装饰与长时间看片关系较弱。",
+      "case": "票据装饰与长时间看片关系较弱。",
+      "kept": "单一强调色"
+    }
+  ],
+  "buildPath": {
+    "value": "code",
+    "toggle": true
+  },
+  "canon": true,
+  "canonCard": {
+    "id": "canon",
+    "kind": "canon",
+    "label": "熟悉的影视 App 布局",
+    "thesis": "按常见影视 App 的结构制作。",
+    "palette": [
+      "#F8FAFC",
+      "#152331",
+      "#2C7CDB"
+    ],
+    "materials": [
+      "原生控件",
+      "影片内容保持原色"
+    ],
+    "viewport": "搜索、分类、影片网格和原有底部导航。",
+    "risk": "辨识度主要依靠同频4K的名称与图标。",
+    "html": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\.impeccable\\mocks\\decision\\canon.html",
+    "htmlFrame": "390x844",
+    "comp": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\.impeccable\\mocks\\decision\\canon.webp"
+  },
+  "reroll": {
+    "registers": [
+      "safer",
+      "bolder"
+    ]
+  },
+  "steer": true
+}

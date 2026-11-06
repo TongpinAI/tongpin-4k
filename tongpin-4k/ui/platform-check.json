@@ -1,0 +1,15 @@
+{
+  "debuggable": false,
+  "tv_hardware_optional": true,
+  "round_icon_set": true,
+  "navigation_icons_replaced": [
+    "decoded\\res\\drawable\\icon_home_black.png",
+    "decoded\\res\\drawable\\icon_home_blue_.png",
+    "decoded\\res\\drawable-mdpi\\icon_mine_333.png",
+    "decoded\\res\\drawable-mdpi\\icon_mine_blue.png"
+  ],
+  "existing_routes": [
+    "首页",
+    "我的"
+  ]
+}

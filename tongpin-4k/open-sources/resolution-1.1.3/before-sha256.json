@@ -1,0 +1,6 @@
+{
+  "open-sources/src/com/tongpin/player4k/catalog/OpenPlayerActivity.java": "f3391e09af99a0c2745a83b8d8d045c0af9e70f405368ad0da1f8d4c52576f8e",
+  "decoded/smali_classes5/com/shenma/tvlauncher/phone/EmptyControlVideoView.smali": "97e564d94e9bc90013f15687dc1d1a38059ec655c7ca292c31c40944760bdcd8",
+  "open-sources/toolchain/stubs/com/shuyu/gsyvideoplayer/video/base/GSYVideoView.java": "e73ddd403a3cef6e125d214017c3691d32dc80504f5e5cad1644e89742a234fc",
+  "open-sources/toolchain/tests/com/tongpin/player4k/catalog/OpenPlayerValidationTest.java": "e595336e39d43f1d2503507332420f78812247213e14363c38bcafd3f89e899f"
+}

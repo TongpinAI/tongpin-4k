@@ -1,0 +1,25 @@
+{
+  "version": "1.1.0",
+  "code": 1100,
+  "built": false,
+  "files": [
+    {
+      "path": "build_tv.py",
+      "before_sha256": "4b21683d29176479278a414d9dd8c7e0634f44c5c92972a67f7e6300ff0eef80",
+      "after_sha256": "f97c675a5de9217fca4f3ca24b5c800e46f1242a1c5ca084aa1051d13e88bed1",
+      "line_endings_preserved": true
+    },
+    {
+      "path": "AndroidManifest.xml",
+      "before_sha256": "980eefff2efa57aebf93c378cda1e86accdf916c878b41bcf905dcc1a3945459",
+      "after_sha256": "8b05db2d9ff44b9c034a9627952ed70c93deb2e657c4bc99176f6ad87eb1a9f0",
+      "line_endings_preserved": true
+    },
+    {
+      "path": "res/values/strings.xml",
+      "before_sha256": "5dfafc76683fcc26f5845eeb02b580320d1e2ef5c54df7725355d7af0287c262",
+      "after_sha256": "09173de634590e321e2f6018b009aeab86ec7e2a6f5ba1ade467b155b84b8ca0",
+      "line_endings_preserved": true
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "checked_at_utc": "2026-11-03T00:21:22.603093+00:00",
+  "adb_connected_devices": 0,
+  "android_emulator_found": false,
+  "avd_found": false,
+  "system_image_found": false,
+  "layoutlib_found": false,
+  "robolectric_cache_found": false,
+  "virtualbox": {
+    "name": "AppFlow",
+    "os": "Ubuntu (64-bit)",
+    "memory_mb": 4096,
+    "state": "poweroff"
+  },
+  "host_visible_ram_kib": 16586160,
+  "host_free_ram_kib": 558748,
+  "free_disk_bytes": {
+    "C": 7186927616,
+    "D": 36211818496
+  },
+  "best_available_route": "Connect a physical Android device over ADB; no zero-download Android runtime found",
+  "native_render_performed": false,
+  "new_tools_downloaded": false,
+  "vm_started": false,
+  "adb_mdns_services": 0
+}

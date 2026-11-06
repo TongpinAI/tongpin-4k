@@ -1,0 +1,21 @@
+{
+  "original_count": 11455,
+  "rebuilt_count": 11469,
+  "moved": {},
+  "added": {
+    "color/tp_bg": "0x7f0600aa",
+    "color/tp_on_primary": "0x7f0600ab",
+    "color/tp_outline": "0x7f0600ac",
+    "color/tp_pressed": "0x7f0600ad",
+    "color/tp_primary": "0x7f0600ae",
+    "color/tp_secondary": "0x7f0600e5",
+    "color/tp_surface": "0x7f0600e6",
+    "color/tp_text": "0x7f0600e7",
+    "drawable/tp_mark": "0x7f080215",
+    "drawable/tp_search_bg": "0x7f08021e",
+    "id/tp_brand_mark": "0x7f0a0bde",
+    "id/tp_default_quality": "0x7f0a0bdf",
+    "id/tp_splash_mark": "0x7f0a0be0",
+    "id/tp_splash_name": "0x7f0a0be1"
+  }
+}

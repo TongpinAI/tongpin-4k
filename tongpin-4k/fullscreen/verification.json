@@ -1,0 +1,56 @@
+{
+  "patched": true,
+  "files": [
+    {
+      "path": "smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity.smali",
+      "sha256": "ec20bc04562b45056cf75cecdfa059885cf2978b1576d381dcdd5bdf6374dd66"
+    },
+    {
+      "path": "smali_classes5/com/shenma/tvlauncher/phone/EmptyControlVideoView.smali",
+      "sha256": "97e564d94e9bc90013f15687dc1d1a38059ec655c7ca292c31c40944760bdcd8"
+    },
+    {
+      "path": "res/layout/phone_activity_video_detail_play.xml",
+      "sha256": "6e77904bf3de9d33065ac2a71571b8d8686f267eecbe9f306949a2bdb5ded4ee"
+    },
+    {
+      "path": "res/layout/mv_media_controler_phone.xml",
+      "sha256": "fe1c2a6ea02f944e146b1c374bf27479d3b514a80918cf56d09e88c0ee4d77cf"
+    },
+    {
+      "path": "res/layout/mv_media_play_top.xml",
+      "sha256": "024366e9b36233bf67cfcdaf77b617f9270ef7c20f035ef2de73b583bb648a50"
+    },
+    {
+      "path": "smali_classes5/com/shenma/tvlauncher/phone/PlayerViewportInsets.smali",
+      "sha256": "109e1fa321eb9dc3bad714029b821935af6fc133e391a65e20ce69a5c331901c"
+    }
+  ],
+  "passed": true,
+  "scale_selector_cases": {
+    "-1": 0,
+    "0": 0,
+    "1": 4,
+    "2": -4,
+    "9": 0
+  },
+  "checks": [
+    "Only full-screen methods changed; source selection/no-ads methods unchanged",
+    "A2 removes screen/native-dimension division and delegates bounded rotation/SAR-aware fitting to unchanged GSY MeasureHelper",
+    "Actual smali selector executed for five inputs",
+    "Internal render relayout is null guarded",
+    "Both physical and logical full-screen paths share bar/inset handling",
+    "Manual scale retained after preparation, rotation, and focus restore; global default restored on disposal",
+    "No runtime fixed 100/120dp controller override",
+    "48dp buttons and seek target fit measured 56/104dp bars",
+    "Binding IDs unchanged",
+    "All branch and exception/switch labels resolve",
+    "Shared GSY library unchanged"
+  ],
+  "limitations": [
+    "Combined build/decompilation remains for root task",
+    "No device/UI/video playback test performed",
+    "Full-screen safe-area padding may leave black edges around cutouts/system bars",
+    "Explicit manual fill crops; explicit manual stretch distorts; default remains contain"
+  ]
+}

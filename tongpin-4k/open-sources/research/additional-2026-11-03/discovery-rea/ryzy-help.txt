@@ -1,0 +1,467 @@
+如意资源站帮助中心
+Toggle navigation
+如意资源站
+帮助中心首页
+海洋CMS
+苹果V8
+苹果V10
+飞飞5.0
+飞飞3.4
+赤兔
+赞片CMS
+播放缓存
+APPjson接口
+欢迎来到【如意资源站】帮助中心
+我们不定期在此更新CMS应用如意资源的使用教程，只为给您更好的服务！
+注：主采集域名如果不能使用，请使用备用采集域名： 备用1：cj.rytvapi.com  备用2：bycj.rytvapi.com
+例如： https://cj.rytvapi.com/api.php/provide/vod/at/xml/
+本站采集接口，基本上可以通用所有CMS，本站独特提供下载资源，欢迎采集！
+综合资源：
+https://cj.rycjapi.com/api.php/provide/vod/at/xml/
+如意云资源：
+https://cj.rycjapi.com/api.php/provide/vod/from/ruyi/at/xml/
+如意m3u8资源：
+https://cj.rycjapi.com/api.php/provide/vod/from/rym3u8/at/xml/
+以下是，json接口！
+json接口地址：
+https://cj.rycjapi.com/api.php/provide/vod/?ac=list
+如意资源tg群：
+如意资源tg群
+如意资源备用tg群：
+如意资备用
+重要提示：
+请认真阅读下方的说明！
+本站图片地址后期将采用图床样式，可以调用， 采集的同时，也可以把图片下载到本地（推荐），以免杜绝日后出现类似图片失效的情况。
+在采集的时候如果出现xml出错，建议你从新再次进入采集列表，就能正常采集了。
+本站解释权归
+如意资源
+版权所有，如意资源网，内容填充
+SeaCms(海洋CMS)教程
+本站采集插件已经可以适配海洋CMS，支持M3U8在线播放，快速更新，稳定播放！
+本站备用采集地址: 备用1：cj.rytvapi.com  备用2：bycj.rytvapi.com
+如何使用如意资源站采集？
+请按以下步骤进行：依次点击
+【采集】-【资源库管理】
+，然后输入
+资源库名称：
+如意资源站:
+资源库地址：
+https://cj.rycjapi.com/api.php/seacms/vod/at/xml/
+如意m3u8地址：
+https://cj.rycjapi.com/api.php/seacms/vod/from/rym3u8/at/xml/
+如意云地址：
+https://cj.rycjapi.com/api.php/seacms/vod/from/ruyi/at/xml/
+点击
+【增加】
+按钮即可，具体操作如下图
+请按以下步骤进行：依次点击
+【首页】-【快捷菜单】
+，然后输入
+如意全部资源,admin_reslib.php?ac=list&rid=&url=https://cj.rycjapi.com/api.php/seacms/vod/at/xml/
+如意资源M3U8,admin_reslib.php?ac=list&rid=&url=https://cj.rycjapi.com/api.php/seacms/vod/from/rym3u8/at/xml/
+如意云资源,admin_reslib.php?ac=list&rid=&url=https://cj.rycjapi.com/api.php/seacms/vod/from/ruyi/at/xml/
+点击
+【修改】
+按钮即可，具体操作如下图
+刷新后，依次点击
+【首页】-【如意资源站采集】
+，即可看到
+资源库列表
+如下图：
+播放暂没有数据或无法播放？
+有的会员朋友采集资源后，播放片源没有自动选择对应的数据，这种情况通常是因为没有添加对应的播放器导致！
+需要先再网站后台添加对应的播放器，然后再安装对应的播放器文件，才可以实现播放，以rym3u8播放器为例。
+（还有一个ruyi播放器）
+请按以下步骤进行：依次点击
+【系统】-【播放来源管理】
+然后依次输入来源名称：
+如意m3u8
+后缀：
+rym3u8
+然后依次输入来源名称：
+如意云
+后缀：
+ruyi
+点击
+【保存】
+按钮即可，具体操作如下图
+此时因为我们添加了播放器，将不再提示暂没有数据，但是可能依旧不能播放，下载解析包替换
+js\player
+目录中的文件即可
+【8.6及以下版本】
+||
+【8.7及以上版本】
+如何采集下载资源
+打开
+include\collection.class.php
+，查找
+下载地址一
+（大概在61行左右）
+,上一行修改为
+                        if($video->dl->dd[$i]['flag']=='down'||$video->dl->dd[$i]['flag']=='http')
+如果需要替换下载地址一为其他,将其修改为自己想要的名称即可
+如下图
+下载暂没有数据？
+海洋默认会将采集到的所有数据都归类到【下载地址一】，如果出现下载暂没有数据，通常可能是您改动了下载来源的名字，如果想归类到其他下载来源，请参照如何采集下载资源
+MacCms8(苹果CMS)教程
+本站采集插件已经可以适配苹果CMS，支持M3U8在线播放，快速更新，稳定播放！
+本站备用采集地址:备用1：cj.rytvapi.com  备用2：bycj.rytvapi.com
+如何使用如意资源站采集？
+请按以下步骤进行：依次点击
+【首页】-【快捷菜单配置】
+，然后添加下面内容
+如意资综合,?m=collect-list-ac2--hour--xt-1-ct--group--flag-rycjapicom-apiurl-https://cj.rycjapi.com/api.php/provide/vod/at/xml/
+如意资源zm3u8,?m=collect-list-ac2--hour--xt-1-ct--group--flag-rycjapicom-apiurl-https://cj.rycjapi.com/api.php/provide/vod/from/rym3u8/at/xml/
+如意资源云,?m=collect-list-ac2--hour--xt-1-ct--group--flag-rycjapicom-apiurl-https://cj.rycjapi.com/api.php/provide/vod/from/ruyi/at/xml/
+点击
+【保存】
+按钮即可，具体操作如下图
+如何绑定分类
+首次使用，需要
+绑定分类
+，如下图
+点击采集提示404？？
+收到很多会员朋友反馈说采集提示404，文件路径：
+admin_maccj.php
+后分析代码发现是因为网址参数丢失导致
+请手动修改浏览器的网址，在
+admin/
+后面加上
+index.php?m=admin-index
+即可正常采集
+没有选中播放片源？？
+有的会员朋友采集资源后，播放片源没有自动选择对应的数据，这种情况通常是因为没有添加对应的播放器导致！
+需要先再网站后台添加对应的播放器，才可以实现播放，以rym3u8的资源为例
+（注意要导入2个文件）
+【点击下载播放器文件】
+添加播放器后需要点击右上角的清空缓存，至此，可以愉快的采集和播放了
+设置自动采集
+执行参数:
+collect-cj-ac2-day-hour-24-xt-1-ct--group--flag-rycjapicom-apiurl-https://cj.rycjapi.com/api.php/provide/vod/at/xml/
+设置自动采集请按照图片指引操作
+在宝塔上绑定此定时任务
+播放地址替换？？
+因和谐原因，一些域名备案被取消导致用户网站部分视频不可观看，我们会在第一时间替换上新的域名解决此问题
+给用户增加重新替换播放地址的麻烦对此我们深感抱歉!
+UPDATE {pre}vod SET d_playurl=REPLACE(d_playurl,
+                        '原始字符串', '替换成其他字符串')
+！！！请务必将sql语句中的字段填写正确，原始字符与替换字符请按照对应关系填写修改
+MacCms10(苹果CMS)教程
+本站采集插件已经可以适配苹果CMSV10，支持M3U8在线播放和云播，快速更新，稳定播放！
+本站备用采集地址: 备用1：cj.rytvapi.com  备用2：bycj.rytvapi.com
+如何使用如意资源站采集？
+请按以下步骤进行：依次点击
+【采集】-【自定义资源库】-【添加】
+，在弹出的对话框中填写：
+xml接口
+资源名称：
+如意资源综合
+，
+接口地址：https://cj.rycjapi.com/api.php/provide/vod/at/xml/
+接口类型：xml，资源类型：视频
+资源名称：
+如意m3u8
+，
+接口地址：https://cj.rycjapi.com/api.php/provide/vod/from/rym3u8/at/xml/
+接口类型：xml，资源类型：视频
+资源名称：
+如意云
+，
+接口地址：https://cj.rycjapi.com/api.php/provide/vod/from/ruyi/at/xml/
+接口类型：xml，资源类型：视频
+点击
+【保存】
+按钮即可，具体操作如下图
+【注意：】下面这步是采集，迅雷下载资源，不是采集在线播放的，采集在线播放请不要加。&ct=1
+                            这个下载，不然采集不到数据
+【注意：】
+资源名称：如意资源（下载），接口地址：https://cj.rycjapi.com/api.php/providedown/vod/at/xml/
+如意的下载资源添加采集
+【保存】
+按钮即可，具体操作如下图
+下载资源要在附加参数：
+填写上 &ct=1
+采集下载资源的要在系统设置一下？？
+记得在这里选上！
+没有选中播放片源？？
+有的会员朋友采集资源后，播放片源没有自动选择对应的数据，这种情况通常是因为没有添加对应的播放器导致！
+需要先再网站后台添加对应的播放器，才可以实现播放。下载文件解压后按下图操作
+【下载播放器文件】
+操作完成后点击后台右上角
+[清缓存]
+，此时再看数据，已经可以正确的选择播放器并且可正常播放了
+设置自动采集
+设置自动采集请按照图片指引操作
+在宝塔上绑定此定时任务
+后台自带解析口，不能播放请清除!!!
+清除后台自带解析口
+飞飞影视系统 5.0教程
+本站采集插件已经可以适配飞飞影视系统PHP版(PPVOD)完美版，支持M3U8在线播放，快速更新，稳定播放！
+本站备用采集地址: 备用1：cj.rytvapi.com  备用2：bycj.rytvapi.com
+【点击下载】
+飞飞5.0最新采集插件
+请按路径将其添加覆盖
+安装插件后如何采集？
+请按以下步骤进行：依次点击
+【采集管理】>【一键采集视频】 如下图
+如何增加对应播放器？
+修改
+Lib/Conf/config.php
+,在列表最后添加两行：
+'ruyi'=> array('36','如意云'),
+'rym3u8'=> array('37','如意m3u8'),
+其中36修改成你实际的顺序，按照上一个播放器的id增加就可以。
+添加播放器后点击右上角【清空缓存】，此时因为我们添加了播放器，后台会自动选中正确的播放片源
+无法采集多组播放数据？
+feifei5.0在技术测试时无法采集多组的播放地址，需要对系统文件做个小修改
+打开
+Lib\Action\Admin\XmlAction.class.php
+滚动至文件最后，修改
+xml_url_replace
+方法为下文
+public function xml_url_replace($playurl){
+		        $plays = explode('$$$',$playurl);
+		        $result = array();
+		        foreach($plays as $play){
+			        $array_url = array();
+			        $arr_ji = explode('#',str_replace('||','//',$play));
+                    foreach($arr_ji as $key=>$value){
+				        $urlji = explode('$',$value);
+				        if(count($urlji)==3){
+					        $array_url[$key] = $urlji[0].'$'.trim($urlji[1]);
+				        }else{
+					        $array_url[$key] = trim($urlji[0]);
+				        }
+			        }
+			        array_push($result,implode(chr(13),$array_url));
+		        }
+		        return implode('$$$',$result);
+	        }
+修改后结果请参考下图
+飞飞影视系统3.4教程
+本站xml接口适用于飞飞3.4或飞飞4，请站长根据自己的喜好选择使用
+本站备用采集地址: 备用1：cj.rytvapi.com  备用2：bycj.rytvapi.com
+如何配置安装采集？
+请按以下步骤进行：依次点击
+【采集】-【添加资源库】
+，然后依次输入
+HTTPS资源名称：
+如意资源站
+，
+接口地址：https://cj.rycjapi.com/api.php/provide/vod/at/xml/
+HTTPS资源名称：
+如意资源站(ruyi)
+，
+接口地址：https://cj.rycjapi.com/api.php/provide/vod/from/ruyi/at/xml/
+HTTPS资源名称：
+如意资源(rym3u8)
+，
+接口地址：https://cj.rycjapi.com/api.php/provide/vod/from/rym3u8/at/xml/
+点击
+【提交】
+按钮即可，具体操作如下图
+如何增加播放器？
+飞飞3.4
+请按以下步骤进行：依次点击
+【视频】-【播放器设置】
+，然后在【添加播放器来源】依次输入
+播放器名称：
+rym3u8
+播放器标志：
+rym3u8
+播放器名称：
+ruyi
+播放器标志：
+ruyi
+飞飞4.1
+请按以下步骤进行：依次点击
+【系统】-【播放来源】
+，然后在【添加播放器来源】依次输入
+播放器名称：
+rym3u8
+播放器标志：
+rym3u8
+播放器名称：
+ruyi
+播放器标志：
+ruyi
+点击
+【保存按钮】
+按钮即可
+添加播放器后点击右上角【清空缓存】，此时因为我们添加了播放器，后台会自动选中正确的播放片源
+另因为飞飞默认为云解析，可能不支持我们的资源，需要如下设置
+maxcms（马克思CMS）
+本站采集插件已经可以适配MaxCms4.0，支持M3U8在线播放，快速更新，稳定播放！
+如何使用如意资源站采集？
+第一步，下载所需插件
+【点击下载】
+，下载完成后上传文件到后台目录（默认为admin）
+之后请按以下步骤进行：依次点击
+【首页】-【快捷菜单】
+，然后增加一行
+如意资源站,admin_okzy.asp
+迅雷下载资源请
+，在增加一行
+如意资源迅雷资源,admin_okzydown.asp
+点击
+【修改】
+按钮即可，具体操作如下图
+如何增加ckm3u8播放器？
+第一个，修改
+admin\imgs\main.js
+,在列表最后添加两行：
+if(str.indexOf('ckm3u8')>-1)
+                            return "ckm3u8"
+if(str.indexOf('kuyun')>-1) return "kuyun"
+第二个，修改
+inc\playerKinds.xml
+,在列表最后添加两行：
+<player open="1" sort="0"
+                            flag="ckm3u8"
+                            des="ckm3u8"><intro><![CDATA[无需安装任何插件，即可快速播放]]></intro></player>
+<player open="1" sort="0" flag="kuyun"
+                            des="kuyun"><intro><![CDATA[需要下载先锋影音播放器]]></intro></player>
+此时因为我们添加了播放器，后台会自动选中正确的播放片源
+但是可能依旧不能播放，下载解析包替换
+player\playdy
+目录中的文件即可
+【点击下载】
+CtCms（赤兔CMS）
+本站采集插件拥有[赤兔CMS]所有，支持M3U8在线播放，快速更新，稳定播放！
+采集教程，测试更新中，还未完成。。。
+如何使用如意资源站采集？
+资源库名称：
+如意资源站-全网更新最快ryzyw.com
+如意资源网综合资源：
+https://cj.rycjapi.com/api.php/provide/vod/at/xml/
+如意资云：
+https://cj.rycjapi.com/api.php/provide/vod/from/ruyi/at/xml/
+如意m3u8：
+https://cj.rycjapi.com/api.php/provide/vod/from/rym3u8/at/xml/
+具体操作,如下图:
+【赤兔】
+下载完成后上传文件到网站根目录
+采集以前,请
+添加播放器
+采集方法:视频库管理->视频采集->如意资源站
+如何增加播放器？
+本站共有两个播放器,请复制下面的代码添加
+ruyi
+代码:<iframe
+                        src="{ctcms_path}packs/player/ruyi.html?url={url}"
+                        marginwidth="0" marginheight="0" border="0"
+                        scrolling="no"
+                        frameborder="0" topmargin="0" width="100%"
+                        height="100%"></iframe>
+rym3u8
+代码:<iframe
+                        src="{ctcms_path}packs/player/rym3u8.html?url={url}"
+                        marginwidth="0" marginheight="0" border="0"
+                        scrolling="no"
+                        frameborder="0" topmargin="0" width="100%"
+                        height="100%"></iframe>
+具体操作,如下图:
+此时因为我们添加了播放器，后台会自动选中正确的播放片源
+但是可能依旧不能播放，下载解析包放在
+网站根目录
+中即可
+【点击下载】
+播放器缓存加载设置
+此引导可为广大站长自由设置播放器缓存加载
+修改播放器缓存参数
+在网站目录中找到播放器Dplayer文件夹，找到hls.min.js文件并使用编辑器打开
+找到需要修改的三个参数并修改,具体操作流程如下图:
+填写完成保存
+app json接口
+本站独特提供下载资源
+app json接口参数
+1,视频列表地址 https://cj.rycjapi.com/api.php/provide/vod/?ac=list
+2,视频详情地址 https://cj.rycjapi.com/api.php/provide/vod/?ac=detail
+ZanPianCMS（赞片CMS）V9
+本站采集插件已经可以适配赞片CMS V9，支持M3U8在线播放，快速更新，稳定播放！
+本站备用采集地址: 备用1：cj.rytvapi.com  备用2：bycj.rytvapi.com
+如何使用如意资源站采集？
+资源库名称：
+如意资源站-全网更新最快ryzyw.com
+如意资源网综合资源：
+https://cj.rycjapi.com/api.php/provide/vod/at/xml/
+如意资云：
+https://cj.rycjapi.com/api.php/provide/vod/from/ruyi/at/xml/
+如意m3u8：
+https://cj.rycjapi.com/api.php/provide/vod/from/rym3u8/at/xml/
+请按照下图所示打开添加采集页面并添加采集api
+如意资源综合添加方法如下图：如意资源站-全网更新最快ryzyw.com
+填写完成后点击最下方的
+[确定]
+按钮即可
+继续添加播放器
+有的站长朋友采集资源后，播放片源没有自动选择对应的数据，这种情况通常是因为没有添加对应的播放器导致！
+需要先再网站后台添加对应的播放器，才可以实现播放,具体操作流程如下图:
+在弹出的窗口中,填写下方的信息
+播放器名称：如意m3u8 播放器标识：rym3u8
+解析地址： //ryplayer.com/?url=
+解析口前面不加http 是为了跟随网站而定，你网站是有ssl他有跟加上s没有，ssl的就不会加s
+另一个是
+播放器名称：如意云 播放器标识：ruyi
+解析地址：留空
+填写完成后点击最下方的
+[确定]
+按钮即可
+全部操作完成后点击
+[清空缓存]
+此时再看数据，已经可以正确的选择播放器并且可正常播放了
+DuoMiCms(多米CMS)教程
+本站采集插件已经可以适配多米CMS，支持M3U8在线播放，快速更新，稳定播放！
+本站备用采集地址: 备用1：cj.rytvapi.com  备用2：bycj.rytvapi.com
+如何使用如意资源站采集？
+如果您采用https协议，请把下方的http自动替换成https
+请按以下步骤进行：依次点击
+【采集】-【采集资源库管理】
+，然后依次输入
+资源库名称：
+如意资源站
+资源库地址：
+http://cj.okzy.tv/inc/ldg_sea.php
+资源库地址（ckm3u8）：
+http://cj.okzy.tv/inc/ldg_seackm3u8.php
+资源库地址（kuyun）：
+http://cj.okzy.tv/inc/ldg_seakuyun.php
+https播放地址:
+资源库地址：
+http://cj.okzy.tv/inc/ldg_seas.php
+资源库地址（ckm3u8）：
+http://cj.okzy.tv/inc/ldg_seackm3u8s.php
+资源库地址（kuyun）：
+http://cj.okzy.tv/inc/ldg_seakuyuns.php
+资源库名称：
+如意资源站迅雷下载资源
+资源库地址（迅雷资源）
+http://cj.okzy.tv/inc/apidown.php
+迅雷资源下载器默认就有，直接绑定采集就可以下载了。
+点击
+【增加】
+按钮即可，具体操作如下图
+需要采集时,依次点击
+【采集】-【采集资源库列表】-如意资源站
+具体操作如下图
+播放暂没有数据或无法播放？
+有的会员朋友采集资源后，播放片源没有自动选择对应的数据，这种情况通常是因为没有添加对应的播放器导致！
+需要先再网站后台添加对应的播放器，然后再安装对应的播放器文件，才可以实现播放。
+以ckm3u8播放器为例（
+还有一个kuyun播放器哟
+）
+请按以下步骤进行：依次点击
+【全局】-【播放来源】
+然后依次输入来源名称：
+ckm3u8
+后缀：
+ckm3u8
+点击
+【保存】
+按钮,提示成功后点击
+【更新】
+即可，具体操作如下图
+此时因为我们添加了播放器，将不再提示暂没有数据，但是可能依旧不能播放，下载解析包替换
+\player\html
+目录中的文件即可
+【点击下载】

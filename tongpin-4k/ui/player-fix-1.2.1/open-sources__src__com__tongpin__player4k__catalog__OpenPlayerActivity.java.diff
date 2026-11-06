@@ -1,0 +1,20 @@
+--- before/open-sources/src/com/tongpin/player4k/catalog/OpenPlayerActivity.java
++++ after/open-sources/src/com/tongpin/player4k/catalog/OpenPlayerActivity.java
+@@ -145,6 +145,7 @@
+             }
+         }
+         actual = player == null ? text(resolutionText(0, 0), 14, SECONDARY) : PlaybackResolution.badge(player);
++        actual.setVisibility(View.GONE);
+         if (player == null) body.addView(actual);
+         LinearLayout controls = new LinearLayout(this);
+         controls.setGravity(Gravity.CENTER_VERTICAL);
+@@ -237,7 +238,8 @@
+         if (destroying) return;
+         keepScreenOn(false);
+         if (fullscreen) leaveFullscreen();
+-        actual.setText(resolutionText(0, 0));
++        PlaybackResolution.reset(player);
++        actual.setVisibility(View.GONE);
+         error.setText(playbackErrorText(urls == null ? 0 : urls.length));
+         error.setVisibility(View.VISIBLE);
+         recovery.setVisibility(View.VISIBLE);

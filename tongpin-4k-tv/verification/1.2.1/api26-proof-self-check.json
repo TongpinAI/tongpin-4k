@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "fixture_type": "Synthetic API26 branches injected into a copy of prior actual player DEX text; no application executed",
+  "assertions": 3,
+  "accepted_guarded_closest": true,
+  "rejected_inverted_sdk_guard": true,
+  "rejected_wrong_mode": true,
+  "checker_sha256": "6cfc479818afab0473d5be256949083c0fc99c0ec2693b8bb7ae977c751f67e2",
+  "fixture_directory": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\\u6d4b\u8bd5\\tongpin-4k-tv\\verification\\1.2.1\\guard-fixture-c2kyfr9b"
+}

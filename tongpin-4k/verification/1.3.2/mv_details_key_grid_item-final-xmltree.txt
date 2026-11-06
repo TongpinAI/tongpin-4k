@@ -1,0 +1,21 @@
+N: android=http://schemas.android.com/apk/res/android (line=2)
+  E: RelativeLayout (line=2)
+    A: http://schemas.android.com/apk/res/android:layout_width(0x010100f4)=-1
+    A: http://schemas.android.com/apk/res/android:layout_height(0x010100f5)=-2
+      E: TextView (line=4)
+        A: http://schemas.android.com/apk/res/android:textSize(0x01010095)=14.000000sp
+        A: http://schemas.android.com/apk/res/android:textColor(0x01010098)=@0x7f0600e7
+        A: http://schemas.android.com/apk/res/android:ellipsize(0x010100ab)=3
+        A: http://schemas.android.com/apk/res/android:gravity(0x010100af)=0x00000011
+        A: http://schemas.android.com/apk/res/android:id(0x010100d0)=@0x7f0a035b
+        A: http://schemas.android.com/apk/res/android:background(0x010100d4)=@0x7f080731
+        A: http://schemas.android.com/apk/res/android:paddingLeft(0x010100d6)=4.000000dp
+        A: http://schemas.android.com/apk/res/android:paddingTop(0x010100d7)=8.000000dp
+        A: http://schemas.android.com/apk/res/android:paddingRight(0x010100d8)=4.000000dp
+        A: http://schemas.android.com/apk/res/android:paddingBottom(0x010100d9)=8.000000dp
+        A: http://schemas.android.com/apk/res/android:duplicateParentState(0x010100e9)=true
+        A: http://schemas.android.com/apk/res/android:layout_width(0x010100f4)=-1
+        A: http://schemas.android.com/apk/res/android:layout_height(0x010100f5)=-2
+        A: http://schemas.android.com/apk/res/android:layout_margin(0x010100f6)=@0x7f07021f
+        A: http://schemas.android.com/apk/res/android:minHeight(0x01010140)=48.000000dp
+        A: http://schemas.android.com/apk/res/android:maxLines(0x01010153)=2

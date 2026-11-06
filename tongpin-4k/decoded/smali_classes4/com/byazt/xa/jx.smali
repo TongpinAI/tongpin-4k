@@ -1,0 +1,127 @@
+.class public final Lcom/byazt/xa/jx;
+.super Ljava/lang/Object;
+
+
+# annotations
+.annotation runtime Lcom/byazt/kj/hp;
+    hp = {
+        0x0,
+        0x1,
+        0x530,
+        0x1e
+    }
+.end annotation
+
+
+# direct methods
+.method public static hp(Ljava/lang/String;D)D
+    .locals 0
+
+    if-nez p0, :cond_0
+
+    return-wide p1
+
+    .line 4
+    :cond_0
+    :try_start_0
+    invoke-static {p0}, Ljava/lang/Double;->parseDouble(Ljava/lang/String;)D
+
+    move-result-wide p0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return-wide p0
+
+    :catchall_0
+    return-wide p1
+.end method
+
+.method public static hp(Ljava/lang/String;F)F
+    .locals 0
+
+    if-nez p0, :cond_0
+
+    return p1
+
+    .line 1
+    :cond_0
+    :try_start_0
+    invoke-static {p0}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result p0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return p0
+
+    :catchall_0
+    return p1
+.end method
+
+.method public static hp(Ljava/lang/String;I)I
+    .locals 0
+
+    if-nez p0, :cond_0
+
+    return p1
+
+    .line 2
+    :cond_0
+    :try_start_0
+    invoke-static {p0}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result p0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    float-to-int p0, p0
+
+    return p0
+
+    :catchall_0
+    return p1
+.end method
+
+.method public static hp(Ljava/lang/String;J)J
+    .locals 0
+
+    if-nez p0, :cond_0
+
+    return-wide p1
+
+    .line 3
+    :cond_0
+    :try_start_0
+    invoke-static {p0}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+
+    move-result-wide p0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return-wide p0
+
+    :catchall_0
+    return-wide p1
+.end method
+
+.method public static hp(Ljava/lang/String;Z)Z
+    .locals 0
+
+    if-nez p0, :cond_0
+
+    return p1
+
+    .line 5
+    :cond_0
+    :try_start_0
+    invoke-static {p0}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
+
+    move-result p0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    return p0
+
+    :catchall_0
+    return p1
+.end method

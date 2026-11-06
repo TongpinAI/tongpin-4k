@@ -1,0 +1,170 @@
+[
+  {
+    "key": "lzzy-list",
+    "url": "https://cj.lziapi.com/api.php/provide/vod/?ac=detail&pg=1&pagesize=20",
+    "checked_at_utc": "2026-11-02T23:59:47.060382+00:00",
+    "status": 200,
+    "final_url": "https://cj.lziapi.com/api.php/provide/vod/?ac=detail&pg=1&pagesize=20",
+    "type": "application/json; charset=utf-8",
+    "bytes": 38024,
+    "code": 1,
+    "total": 162218,
+    "pagecount": 8111,
+    "items": 20,
+    "categories": [],
+    "samples": [
+      {
+        "id": 164866,
+        "name": "精神小妹竟是机甲高手",
+        "type": "AI漫剧",
+        "remarks": "已完结",
+        "from": "liangzi$$$lzm3u8",
+        "url_prefix": "第01集$https://lzv34.com/share/30b1b5b6990012b272d5251f6a31489c$$$第01集$https://lzv34.com/20261028/12837_577925d6/index.m3u8"
+      },
+      {
+        "id": 164865,
+        "name": "假结婚，真沦陷",
+        "type": "AI漫剧",
+        "remarks": "已完结",
+        "from": "liangzi$$$lzm3u8",
+        "url_prefix": "第01集$https://lzv34.com/share/4b4984066015df12cfc4e8f6d60b7147$$$第01集$https://lzv34.com/20261028/12836_232a7c5e/index.m3u8"
+      },
+      {
+        "id": 164864,
+        "name": "霍总，夫人又爆猛料了",
+        "type": "AI漫剧",
+        "remarks": "已完结",
+        "from": "liangzi$$$lzm3u8",
+        "url_prefix": "第01集$https://lzv34.com/share/dbf138511ed1d9278bde43cc0000e49a$$$第01集$https://lzv34.com/20261028/12835_fa67efc3/index.m3u8"
+      },
+      {
+        "id": 164863,
+        "name": "换嫁有喜，我家夫君妻管严",
+        "type": "AI漫剧",
+        "remarks": "已完结",
+        "from": "liangzi$$$lzm3u8",
+        "url_prefix": "第01集$https://lzv34.com/share/248eb1f330c4c4bfe26c51abda7ae68b$$$第01集$https://lzv34.com/20261028/12834_5b83ec87/index.m3u8"
+      },
+      {
+        "id": 164862,
+        "name": "虎婿下山第三季",
+        "type": "AI漫剧",
+        "remarks": "已完结",
+        "from": "liangzi$$$lzm3u8",
+        "url_prefix": "第01集$https://lzv34.com/share/af0a991f666ca273ed1d7e56e2f9e415$$$第01集$https://lzv34.com/20261028/12833_06ae8c6d/index.m3u8"
+      },
+      {
+        "id": 164861,
+        "name": "侯府嫡女昭雪录",
+        "type": "AI漫剧",
+        "remarks": "已完结",
+        "from": "liangzi$$$lzm3u8",
+        "url_prefix": "第01集$https://lzv34.com/share/1dfe257477e8cc749ac0a3bdcd98fca0$$$第01集$https://lzv34.com/20261028/12832_76e5f9b4/index.m3u8"
+      }
+    ],
+    "elapsed_s": 2.38
+  },
+  {
+    "key": "ffzy-list",
+    "url": "https://api.ffzyapi.com/api.php/provide/vod/?ac=detail&pg=1&pagesize=20",
+    "checked_at_utc": "2026-11-02T23:59:47.061391+00:00",
+    "status": 200,
+    "final_url": "https://api.ffzyapi.com/api.php/provide/vod/?ac=detail&pg=1&pagesize=20",
+    "type": "text/html;charset=utf-8",
+    "bytes": 189369,
+    "code": 1,
+    "total": 98910,
+    "pagecount": 4946,
+    "items": 20,
+    "categories": [],
+    "samples": [
+      {
+        "id": 99674,
+        "name": "魔法少女育成计划restart",
+        "type": "日韩动漫",
+        "remarks": "更新至第05集",
+        "from": "feifan$$$ffm3u8",
+        "url_prefix": "第01集$https://vip.ffzy-plays.com/share/925dde2b73fbe6cf603f82426b4b6623#第02集$https://vip.ffzy-plays.com/share/d597e048314596beebb1dba1248fc184#第03集$https://svip.feifei-pla"
+      },
+      {
+        "id": 100073,
+        "name": "暑假",
+        "type": "韩国剧",
+        "remarks": "更新至第03集",
+        "from": "feifan$$$ffm3u8",
+        "url_prefix": "第01集$https://vod.ffzy-bofang.com/share/55603a5f239e435c642244be3e891b85#第02集$https://vod.ffzy-bofang.com/share/8cb94e7a9661ea20b1293c589216d396#第03集$https://vod.ffzy-bofa"
+      },
+      {
+        "id": 8727,
+        "name": "综艺玩很大",
+        "type": "港台综艺",
+        "remarks": "更新至第20261101期",
+        "from": "feifan$$$ffm3u8",
+        "url_prefix": "20221105期$https://vod.feifei-kan.com/share/7cc532d783a7461f227a5da8ea80bfe1#20230415期$https://vip.ffzy-play5.com/share/ef3e86e4902558e3779ecc84d72a6d8c#20230422期$https://"
+      },
+      {
+        "id": 9795,
+        "name": "詹姆士出走料理",
+        "type": "港台综艺",
+        "remarks": "更新至第20261101期",
+        "from": "feifan$$$ffm3u8",
+        "url_prefix": "20221106期$https://vip.ffzy-play5.com/share/e8fd4a8a5bab2b3785d794ab51fef55c#20221113期$https://vip.ffzy-play5.com/share/878d5691c824ee2aaf770f7d36c151d6#20221127期$https://"
+      },
+      {
+        "id": 99672,
+        "name": "恋爱博士",
+        "type": "韩国剧",
+        "remarks": "更新至第09集",
+        "from": "feifan$$$ffm3u8",
+        "url_prefix": "第01集$https://vod.ffzy-bofang.com/share/74791edf1f8e8b8289a5067737630874#第02集$https://vod.ffzy-bofang.com/share/a928731e103dfc64c0027fa84709689e#第03集$https://vod.ffzy-bofa"
+      },
+      {
+        "id": 99931,
+        "name": "非常律师南田南",
+        "type": "日本剧",
+        "remarks": "更新至第03集",
+        "from": "feifan$$$ffm3u8",
+        "url_prefix": "第01集$https://super.ffzy-online6.com/share/ed59399fa7d4d21e6778667ff327ca47#第02集$https://super.ffzy-online6.com/share/fb24fdefb6d2dd80651f6c1a87bc0d7f#第03集$https://super.f"
+      }
+    ],
+    "elapsed_s": 2.45
+  },
+  {
+    "key": "lzzy-help",
+    "url": "https://www.lzizy.net/index.php/help.html",
+    "checked_at_utc": "2026-11-02T23:59:47.061391+00:00",
+    "status": 200,
+    "final_url": "https://www.lzizy.net/index.php/help.html",
+    "type": "text/html; charset=utf-8",
+    "bytes": 93967,
+    "usage_context": [
+      "分钟，URL 地址粘贴第 5 步的链接，添加后点「执行」验证 面板计划任务 → 访问URL 如果访问该链接提示缺少令牌（token），请到你的后台定时任务页面复制带令牌的完整链接再填入计划任务。 MacCMS v8 — 采集配置 苹果CMS v8 的资源库只支持 XML ，请使用下方 XML 接口。请仔细阅读下方说明，并开启图片同步到本地。 XML 采集接口 推荐 主",
+      "ms',maccms:'maccms',ctcms:'legacy',playercachetime:'legacy',appjson:'api',duomicms:'legacy',chshcms:'legacy',zanpiancms:'zanpian', feifei4:'ff50',feifei34:'ff50',feifei42:'ff50',feife"
+    ],
+    "elapsed_s": 2.58
+  },
+  {
+    "key": "ffzy-help",
+    "url": "https://ffzy5.tv/help/",
+    "checked_at_utc": "2026-11-02T23:59:47.062401+00:00",
+    "status": 200,
+    "final_url": "https://ffzy5.tv/help/",
+    "type": "text/html",
+    "bytes": 49724,
+    "usage_context": [
+      "') { $('#MeiSiCms').css(\"display\", \"block\"); } if (a[1] == 'APPjson') { $('#APPjson').css(\"display\", \"block\"); } } Toggle navigation 非凡资源站 帮助中心首页 海洋CMS 苹果V8 苹果V10 飞飞5.0 飞飞3.4 马克斯 --> ",
+      "s').css(\"display\", \"block\"); } if (a[1] == 'APPjson') { $('#APPjson').css(\"display\", \"block\"); } } Toggle navigation 非凡资源站 帮助中心首页 海洋CMS 苹果V8 苹果V10 飞飞5.0 飞飞3.4 马克斯 --> 赤兔 --> 程式 --> 多米",
+      "8 苹果V10 飞飞5.0 飞飞3.4 马克斯 --> 赤兔 --> 程式 --> 多米 --> 赞片CMS 播放缓存 APPjson接口 火车头（含小说图片) --> 问题留言 --> 欢迎来到【非凡资源站】帮助中心 我们不定期在此更新CMS应用非凡资源的使用教程，只为给您更好的服务！ --> 本站采集接口，基本上可以通用所有CMS，欢迎采集！ 非凡综合资源： ",
+      "文件夹，找到hls.min.js文件并使用编辑器打开 找到需要修改的三个参数并修改,具体操作流程如下图: 填写完成保存 app json接口 app json接口参数 1,视频列表地址 http://api.ffzyapi.com/api.php/provide/vod/?ac=list 2,视频详情地址 http://api.ffzyapi.com/api.ph",
+      "in.js文件并使用编辑器打开 找到需要修改的三个参数并修改,具体操作流程如下图: 填写完成保存 app json接口 app json接口参数 1,视频列表地址 http://api.ffzyapi.com/api.php/provide/vod/?ac=list 2,视频详情地址 http://api.ffzyapi.com/api.php/provide/v",
+      "ion: left -22px } .ydd-padding010 { padding: 0 10px } #yddWrapper { color: #252525; z-index: 10001; background: url(chrome-extension://eopjamdnofihpioajgfdikhhbobonhbb/ab20.png); } #y",
+      ": #4b7598 } #yddTopBorderlr { border-color: #f0f8fc } #yddWrapper .ydd-sp { background-image: url(chrome-extension://eopjamdnofihpioajgfdikhhbobonhbb/ydd-sprite.png) } #yddWrapper a, ",
+      "://eopjamdnofihpioajgfdikhhbobonhbb/ydd-sprite.png) } #yddWrapper a, #yddWrapper a:hover, #yddWrapper a:visited { color: #50799b } #yddWrapper .ydd-tabs { color: #959595 } .ydd-tabs, ",
+      "pioajgfdikhhbobonhbb/ydd-sprite.png) } #yddWrapper a, #yddWrapper a:hover, #yddWrapper a:visited { color: #50799b } #yddWrapper .ydd-tabs { color: #959595 } .ydd-tabs, .ydd-tab { back",
+      "ydd-sprite.png) } #yddWrapper a, #yddWrapper a:hover, #yddWrapper a:visited { color: #50799b } #yddWrapper .ydd-tabs { color: #959595 } .ydd-tabs, .ydd-tab { background: #fff; border-",
+      "per a:hover, #yddWrapper a:visited { color: #50799b } #yddWrapper .ydd-tabs { color: #959595 } .ydd-tabs, .ydd-tab { background: #fff; border-color: #d5e7f3 } #yddBottom { color: #363",
+      "border-color: #d5e7f3 } #yddBottom { color: #363636 } #yddWrapper { min-width: 250px; max-width: 400px; } "
+    ],
+    "elapsed_s": 1.97
+  }
+]

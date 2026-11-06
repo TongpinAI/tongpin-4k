@@ -1,0 +1,25 @@
+.class public interface abstract Lcom/byazt/av/kg;
+.super Ljava/lang/Object;
+
+
+# annotations
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "<V:",
+        "Ljava/lang/Object;",
+        ">",
+        "Ljava/lang/Object;"
+    }
+.end annotation
+
+
+# virtual methods
+.method public abstract l(Landroid/util/JsonReader;F)Ljava/lang/Object;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/util/JsonReader;",
+            "F)TV;"
+        }
+    .end annotation
+.end method

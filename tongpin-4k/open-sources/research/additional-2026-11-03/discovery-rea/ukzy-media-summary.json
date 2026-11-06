@@ -1,0 +1,154 @@
+{
+  "provider": {
+    "id": "ukzy",
+    "name": "U酷资源",
+    "kind": "maccms",
+    "api": "https://api.ukuapi88.com/api.php/provide/vod/",
+    "homepage": "https://ukuzy0.com/",
+    "help": "https://ukuzy0.com/help/"
+  },
+  "detail_requests": [
+    {
+      "url": "https://api.ukuapi88.com/api.php/provide/vod/?ac=detail&ids=73927",
+      "checked_utc": "2026-11-03T00:02:05.180158+00:00",
+      "authentication": "none",
+      "cookies": "none",
+      "status": 200,
+      "final_url": "https://api.ukuapi88.com/api.php/provide/vod/?ac=detail&ids=73927",
+      "content_type": "text/html;charset=utf-8",
+      "content_length": null,
+      "bytes": 8137,
+      "sha256": "3a781eaac5ae5c7da58abab18904ef97b434ff526b957ae41df12ff6ecdaade9",
+      "file": "ukzy-supplement-detail-current-tv.json",
+      "elapsed_ms": 6641,
+      "code": 1,
+      "msg": "数据列表",
+      "page": 1,
+      "pagecount": 1,
+      "limit": "20",
+      "total": 1,
+      "count": 1,
+      "safe_sample": [
+        {
+          "vod_id": 73927,
+          "vod_name": "伟大的长征",
+          "type_name": "国产剧",
+          "vod_remarks": "更新至43集",
+          "vod_time": "2026-11-02 20:37:50"
+        }
+      ]
+    },
+    {
+      "url": "https://api.ukuapi88.com/api.php/provide/vod/?ac=detail&ids=46777",
+      "checked_utc": "2026-11-03T00:02:28.439235+00:00",
+      "authentication": "none",
+      "cookies": "none",
+      "status": 200,
+      "final_url": "https://api.ukuapi88.com/api.php/provide/vod/?ac=detail&ids=46777",
+      "content_type": "text/html;charset=utf-8",
+      "content_length": null,
+      "bytes": 3708,
+      "sha256": "a8899f01c370a0ee1af1a209ff98374ce1b3a2e3c8e5be64dc2aa2776749a8f5",
+      "file": "ukzy-supplement-detail-film.json",
+      "elapsed_ms": 5453,
+      "code": 1,
+      "msg": "数据列表",
+      "page": 1,
+      "pagecount": 1,
+      "limit": "20",
+      "total": 1,
+      "count": 1,
+      "safe_sample": [
+        {
+          "vod_id": 46777,
+          "vod_name": "流浪地球",
+          "type_name": "科幻片",
+          "vod_remarks": "正片",
+          "vod_time": "2023-04-15 16:07:03"
+        }
+      ]
+    }
+  ],
+  "samples": [
+    {
+      "provider": "ukzy",
+      "episode": {
+        "name": "第01集",
+        "url": "https://ukzy.ukubf3.com/20261009/kCJyq0Kn/index.m3u8"
+      },
+      "requests": [
+        {
+          "url": "https://ukzy.ukubf3.com/20261009/kCJyq0Kn/index.m3u8",
+          "checked_utc": "2026-11-03T00:02:11.826698+00:00",
+          "authentication": "none",
+          "cookies": "none",
+          "error": "HTTPError: HTTP Error 403: Forbidden",
+          "elapsed_ms": 9969
+        }
+      ],
+      "observed_resolutions": [],
+      "manifest_get": "ordinary GET without Range/Referer/Cookie/auth",
+      "video_id": 73927,
+      "title": "伟大的长征",
+      "category": "国产剧",
+      "remarks": "更新至43集",
+      "line": "ukm3u8",
+      "episode_count": 43
+    },
+    {
+      "provider": "ukzy",
+      "episode": {
+        "name": "第43集",
+        "url": "https://ukzy.ukubf3.com/20261102/0O0oSFtf/index.m3u8"
+      },
+      "requests": [
+        {
+          "url": "https://ukzy.ukubf3.com/20261102/0O0oSFtf/index.m3u8",
+          "checked_utc": "2026-11-03T00:02:21.785375+00:00",
+          "authentication": "none",
+          "cookies": "none",
+          "error": "HTTPError: HTTP Error 403: Forbidden",
+          "elapsed_ms": 6656
+        }
+      ],
+      "observed_resolutions": [],
+      "manifest_get": "ordinary GET without Range/Referer/Cookie/auth",
+      "video_id": 73927,
+      "title": "伟大的长征",
+      "category": "国产剧",
+      "remarks": "更新至43集",
+      "line": "ukm3u8",
+      "episode_count": 43
+    },
+    {
+      "provider": "ukzy",
+      "episode": {
+        "name": "720P",
+        "url": "https://ukzyvod3.ukubf5.com/20230415/44YhYsDi/index.m3u8"
+      },
+      "requests": [
+        {
+          "url": "https://ukzyvod3.ukubf5.com/20230415/44YhYsDi/index.m3u8",
+          "checked_utc": "2026-11-03T00:02:33.904869+00:00",
+          "authentication": "none",
+          "cookies": "none",
+          "error": "HTTPError: HTTP Error 403: Forbidden",
+          "elapsed_ms": 8547
+        }
+      ],
+      "observed_resolutions": [],
+      "manifest_get": "ordinary GET without Range/Referer/Cookie/auth",
+      "video_id": 46777,
+      "title": "流浪地球",
+      "category": "科幻片",
+      "remarks": "正片",
+      "line": "ukm3u8",
+      "episode_count": 1
+    }
+  ],
+  "limits": [
+    "Small prefix and HLS checks do not prove decoding, full-length playback, absent burned-in ads, or universal location reachability.",
+    "Resolution is reported only if present in HLS metadata; names, labels, or bitrate are not treated as measured 4K.",
+    "No key requests, DRM/auth/geo bypass, parser-page execution, or production edits."
+  ]
+}

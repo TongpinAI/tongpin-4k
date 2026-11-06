@@ -1,0 +1,134 @@
+{
+  "ok": true,
+  "value": {
+    "evidence_id": "ev_e008c72669da3708a75e0fe110283f92dc3fe9896abe02ff9e9ebf22ec2d3f7e",
+    "subject": {
+      "name": "tongpin-4k-1.1.1.apk",
+      "digest": {
+        "sha256": "31b03d84a4249c13ccf0849eacb7e0e1373e437e013eb36060ff969019dad498"
+      },
+      "local_path": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\output\\tongpin-4k-1.1.1.apk",
+      "format": "apk",
+      "architecture": null
+    },
+    "provider": {
+      "id": "jadx",
+      "name": "JADX headless",
+      "version": "0.7.1"
+    },
+    "analysis_profile": null,
+    "predicate_type": "rea.analysis",
+    "operation": "inspect_android_method",
+    "parameters": {
+      "path": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\output\\tongpin-4k-1.1.1.apk",
+      "class_name": "com.tongpin.player4k.catalog.CatalogActivity",
+      "method_name": "bindEntry",
+      "overload_index": 0
+    },
+    "raw_result": {
+      "server": {
+        "name": "rea-jadx-bridge",
+        "version": "4"
+      },
+      "bridge_sha256": "a02b1ef0a4a40abd1ae310b9ee686ca163e0b59a3256df524c35b90ed17e9e63",
+      "jar_sha256": "6e5eacf500b64292bfb73c49797c1958f6ee44646e43e868039ae7feb573ff75",
+      "loaded": {
+        "state": "LOADED",
+        "apk_path": "C:\\Users\\ADMINI~1.DES\\AppData\\Local\\Temp\\rea-android-154e11aec2078573b91f2e1200c75abe\\target.apk",
+        "class_count": 23565,
+        "resource_count": 4005,
+        "threads": 1,
+        "resources": "full"
+      },
+      "calls": [
+        {
+          "operation": "rea_jvm_status",
+          "input": {},
+          "response": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"available_processors\":16,\"java_version\":\"25.0.4\",\"max_heap_bytes\":4294967296,\"metadata_scope\":\"parsed_members\",\"engine_reported_version\":\"0.7.1\"}"
+              }
+            ],
+            "isError": false
+          }
+        },
+        {
+          "operation": "get_class_summary",
+          "input": {
+            "class_name": "com.tongpin.player4k.catalog.CatalogActivity"
+          },
+          "response": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"name\":\"CatalogActivity\",\"inner_classes\":[\"com.tongpin.player4k.catalog.CatalogActivity.AnonymousClass1\",\"com.tongpin.player4k.catalog.CatalogActivity.AnonymousClass2\",\"com.tongpin.player4k.catalog.CatalogActivity.AnonymousClass3\",\"com.tongpin.player4k.catalog.CatalogActivity.AnonymousClass4\",\"com.tongpin.player4k.catalog.CatalogActivity.Holder\",\"com.tongpin.player4k.catalog.CatalogActivity.VideoAdapter\"],\"inner_class_count\":6,\"method_count\":58,\"methods\":[{\"def_pos\":0,\"signature\":\"\\u003cinit\\u003e(): void\",\"dex_descriptor\":\"()V\",\"is_constructor\":true,\"name\":\"\\u003cinit\\u003e\"},{\"def_pos\":0,\"signature\":\"access$100(com.tongpin.player4k.catalog.CatalogActivity): int\",\"dex_descriptor\":\"(Lcom/tongpin/player4k/catalog/CatalogActivity;)I\",\"is_constructor\":false,\"name\":\"access$100\"},{\"def_pos\":0,\"signature\":\"access$1000(com.tongpin.player4k.catalog.CatalogActivity): android.widget.LinearLayout\",\"dex_descriptor\":\"(Lcom/tongpin/player4k/catalog/CatalogActivity;)Landroid/widget/LinearLayout;\",\"is_constructor\":false,\"name\":\"access$1000\"},{\"def_pos\":0,\"signature\":\"access$102(com.tongpin.player4k.catalog.CatalogActivity, int): int\",\"dex_descriptor\":\"(Lcom/tongpin/player4k/catalog/CatalogActivity;I)I\",\"is_constructor\":false,\"name\":\"access$102\"},{\"def_pos\":0,\"signature\":\"access$1100(com.tongpin.player4k.catalog.CatalogActivity, java.lang.String, int, int): android.widget.TextView\",\"dex_descriptor\":\"(Lcom/tongpin/player4k/catalog/CatalogActivity;Ljava/lang/String;II)Landroid/widget/TextView;\",\"is_constructor\":false,\"name\":\"access$1100\"},{\"def_pos\":0,\"signature\":\"access$1200(com.tongpin.player4k.catalog.CatalogActivity, java.lang.String, android.widget.ImageView, java.lang.String): void\",\"dex_descriptor\":\"(Lcom/tongpin/player4k/catalog/CatalogActivity;Ljava/lang/String;Landroid/widget/ImageView;Ljava/lang/String;)V\",\"is_constructor\":false,\"name\":\"access$1200\"},{\"def_pos\":0,\"signature\":\"access$200(com.tongpin.player4k.catalog.CatalogActivity, int): void\",\"dex_descriptor\":\"(Lcom/tongpin/player4k/catalog/CatalogActivity;I)V\",\"is_constructor\":false,\"name\":\"access$200\"},{\"def_pos\":0,\"signature\":\"access$300(com.tongpin.player4k.catalog.CatalogApi$Stream): java.lang.String\",\"dex_descriptor\":\"(Lcom/tongpin/player4k/catalog/CatalogApi$Stream;)Ljava/lang/String;\",\"is_constructor\":false,\"name\":\"access$300\"},{\"def_pos\":0,\"signature\":\"access$400(com.tongpin.player4k.catalog.CatalogActivity, java.util.List): android.widget.ArrayAdapter\",\"dex_descriptor\":\"(Lcom/tongpin/player4k/catalog/CatalogActivity;Ljava/util/List;)Landroid/widget/ArrayAdapter;\",\"is_constructor\":false,\"name\":\"access$400\"},{\"def_pos\":0,\"signature\":\"access$500(com.tongpin.player4k.catalog.CatalogActivity, com.tongpin.player4k.catalog.CatalogApi$Detail, com.tongpin.player4k.catalog.CatalogApi$Episode): void\",\"dex_descriptor\":\"(Lcom/tongpin/player4k/catalog/CatalogActivity;Lcom/tongpin/player4k/catalog/CatalogApi$Detail;Lcom/tongpin/player4k/catalog/CatalogApi$Episode;)V\",\"is_constructor\":false,\"name\":\"access$500\"},{\"def_pos\":0,\"signature\":\"access$600(com.tongpin.player4k.catalog.CatalogActivity, int): int\",\"dex_descriptor\":\"(Lcom/tongpin/player4k/catalog/CatalogActivity;I)I\",\"is_constructor\":false,\"name\":\"access$600\"},{\"def_pos\":0,\"signature\":\"access$700(com.tongpin.player4k.catalog.CatalogActivity): java.util.ArrayList\",\"dex_descriptor\":\"(Lcom/tongpin/player4k/catalog/CatalogActivity;)Ljava/util/ArrayList;\",\"is_constructor\":false,\"name\":\"access$700\"},{\"def_pos\":0,\"signature\":\"access$800(com.tongpin.player4k.catalog.CatalogActivity): android.widget.LinearLayout\",\"dex_descriptor\":\"(Lcom/tongpin/player4k/catalog/CatalogActivity;)Landroid/widget/LinearLayout;\",\"is_constructor\":false,\"name\":\"access$800\"},{\"def_pos\":0,\"signature\":\"alive(): boolean\",\"dex_descriptor\":\"()Z\",\"is_constructor\":false,\"name\":\"alive\"},{\"def_pos\":0,\"signature\":\"attribution(com.tongpin.player4k.catalog.CatalogApi$Video): java.lang.String\",\"dex_descriptor\":\"(Lcom/tongpin/player4k/catalog/CatalogApi$Video;)Ljava/lang/String;\",\"is_constructor\":false,\"name\":\"attribution\"},{\"def_pos\":0,\"signature\":\"bindEntry(android.view.View): void\",\"dex_descriptor\":\"(Landroid/view/View;)V\",\"is_constructor\":false,\"name\":\"bindEntry\"},{\"def_pos\":0,\"signature\":\"buildScreen(): void\",\"dex_descriptor\":\"()V\",\"is_constructor\":false,\"name\":\"buildScreen\"},{\"def_pos\":0,\"signature\":\"button(java.lang.String, boolean): android.widget.Button\",\"dex_descriptor\":\"(Ljava/lang/String;Z)Landroid/widget/Button;\",\"is_constructor\":false,\"name\":\"button\"},{\"def_pos\":0,\"signature\":\"column(): android.widget.LinearLayout\",\"dex_descriptor\":\"()Landroid/widget/LinearLayout;\",\"is_constructor\":false,\"name\":\"column\"},{\"def_pos\":0,\"signature\":\"dp(int): int\",\"dex_descriptor\":\"(I)I\",\"is_constructor\":false,\"name\":\"dp\"},{\"def_pos\":0,\"signature\":\"httpUrl(java.lang.String): boolean\",\"dex_descriptor\":\"(Ljava/lang/String;)Z\",\"is_constructor\":false,\"name\":\"httpUrl\"},{\"def_pos\":0,\"signature\":\"label(java.lang.String, int, int): android.widget.TextView\",\"dex_descriptor\":\"(Ljava/lang/String;II)Landroid/widget/TextView;\",\"is_constructor\":false,\"name\":\"label\"},{\"def_pos\":0,\"signature\":\"lambda$bindEntry$0(android.view.View): void\",\"dex_descriptor\":\"(Landroid/view/View;)V\",\"is_constructor\":false,\"name\":\"lambda$bindEntry$0\"},{\"def_pos\":0,\"signature\":\"loadDetail(com.tongpin.player4k.catalog.CatalogApi$Video): void\",\"dex_descriptor\":\"(Lcom/tongpin/player4k/catalog/CatalogApi$Video;)V\",\"is_constructor\":false,\"name\":\"loadDetail\"},{\"def_pos\":0,\"signature\":\"loadPage(int): void\",\"dex_descriptor\":\"(I)V\",\"is_constructor\":false,\"name\":\"loadPage\"},{\"def_pos\":0,\"signature\":\"loadPoster(java.lang.String, android.widget.ImageView, java.lang.String): void\",\"dex_descriptor\":\"(Ljava/lang/String;Landroid/widget/ImageView;Ljava/lang/String;)V\",\"is_constructor\":false,\"name\":\"loadPoster\"},{\"def_pos\":0,\"signature\":\"m7090lambda$buildScreen$0$comtongpinplayer4kcatalogCatalogActivity(android.view.View): void\",\"dex_descriptor\":\"(Landroid/view/View;)V\",\"is_constructor\":false,\"name\":\"m7090lambda$buildScreen$0$comtongpinplayer4kcatalogCatalogActivity\"},{\"def_pos\":0,\"signature\":\"m7091lambda$buildScreen$1$comtongpinplayer4kcatalogCatalogActivity(android.view.View): void\",\"dex_descriptor\":\"(Landroid/view/View;)V\",\"is_constructor\":false,\"name\":\"m7091lambda$buildScreen$1$comtongpinplayer4kcatalogCatalogActivity\"},{\"def_pos\":0,\"signature\":\"m7092lambda$buildScreen$2$comtongpinplayer4kcatalogCatalogActivity(android.view.View): void\",\"dex_descriptor\":\"(Landroid/view/View;)V\",\"is_constructor\":false,\"name\":\"m7092lambda$buildScreen$2$comtongpinplayer4kcatalogCatalogActivity\"},{\"def_pos\":0,\"signature\":\"m7093lambda$buildScreen$3$comtongpinplayer4kcatalogCatalogActivity(android.widget.TextView, int, android.view.KeyEvent): boolean\",\"dex_descriptor\":\"(Landroid/widget/TextView;ILandroid/view/KeyEvent;)Z\",\"is_constructor\":false,\"name\":\"m7093lambda$buildScreen$3$comtongpinplayer4kcatalogCatalogActivity\"},{\"def_pos\":0,\"signature\":\"m7094lambda$buildScreen$4$comtongpinplayer4kcatalogCatalogActivity(android.view.View): void\",\"dex_descriptor\":\"(Landroid/view/View;)V\",\"is_constructor\":false,\"name\":\"m7094lambda$buildScreen$4$comtongpinplayer4kcatalogCatalogActivity\"},{\"def_pos\":0,\"signature\":\"m7095lambda$buildScreen$5$comtongpinplayer4kcatalogCatalogActivity(android.widget.AdapterView, android.view.View, int, long): void\",\"dex_descriptor\":\"(Landroid/widget/AdapterView;Landroid/view/View;IJ)V\",\"is_constructor\":false,\"name\":\"m7095lambda$buildScreen$5$comtongpinplayer4kcatalogCatalogActivity\"},{\"def_pos\":0,\"signature\":\"m7096lambda$buildScreen$6$comtongpinplayer4kcatalogCatalogActivity(android.view.View): void\",\"dex_descriptor\":\"(Landroid/view/View;)V\",\"is_constructor\":false,\"name\":\"m7096lambda$buildScreen$6$comtongpinplayer4kcatalogCatalogActivity\"},{\"def_pos\":0,\"signature\":\"m7097lambda$buildScreen$7$comtongpinplayer4kcatalogCatalogActivity(android.view.View): void\",\"dex_descriptor\":\"(Landroid/view/View;)V\",\"is_constructor\":false,\"name\":\"m7097lambda$buildScreen$7$comtongpinplayer4kcatalogCatalogActivity\"},{\"def_pos\":0,\"signature\":\"m7098lambda$loadDetail$0$comtongpinplayer4kcatalogCatalogActivity(com.tongpin.player4k.catalog.CatalogApi$Video, int): void\",\"dex_descriptor\":\"(Lcom/tongpin/player4k/catalog/CatalogApi$Video;I)V\",\"is_constructor\":false,\"name\":\"m7098lambda$loadDetail$0$comtongpinplayer4kcatalogCatalogActivity\"},{\"def_pos\":0,\"signature\":\"m7099lambda$loadDetail$1$comtongpinplayer4kcatalogCatalogActivity(int, com.tongpin.player4k.catalog.CatalogApi$Detail): void\",\"dex_descriptor\":\"(ILcom/tongpin/player4k/catalog/CatalogApi$Detail;)V\",\"is_constructor\":false,\"name\":\"m7099lambda$loadDetail$1$comtongpinplayer4kcatalogCatalogActivity\"},{\"def_pos\":0,\"signature\":\"m7100lambda$loadDetail$2$comtongpinplayer4kcatalogCatalogActivity(int): void\",\"dex_descriptor\":\"(I)V\",\"is_constructor\":false,\"name\":\"m7100lambda$loadDetail$2$comtongpinplayer4kcatalogCatalogActivity\"},{\"def_pos\":0,\"signature\":\"m7101lambda$loadPage$0$comtongpinplayer4kcatalogCatalogActivity(com.tongpin.player4k.catalog.CatalogApi$Provider, java.lang.String, int, int): void\",\"dex_descriptor\":\"(Lcom/tongpin/player4k/catalog/CatalogApi$Provider;Ljava/lang/String;II)V\",\"is_constructor\":false,\"name\":\"m7101lambda$loadPage$0$comtongpinplayer4kcatalogCatalogActivity\"},{\"def_pos\":0,\"signature\":\"m7102lambda$loadPage$1$comtongpinplayer4kcatalogCatalogActivity(int, com.tongpin.player4k.catalog.CatalogApi$Page): void\",\"dex_descriptor\":\"(ILcom/tongpin/player4k/catalog/CatalogApi$Page;)V\",\"is_constructor\":false,\"name\":\"m7102lambda$loadPage$1$comtongpinplayer4kcatalogCatalogActivity\"},{\"def_pos\":0,\"signature\":\"m7103lambda$loadPage$2$comtongpinplayer4kcatalogCatalogActivity(int): void\",\"dex_descriptor\":\"(I)V\",\"is_constructor\":false,\"name\":\"m7103lambda$loadPage$2$comtongpinplayer4kcatalogCatalogActivity\"},{\"def_pos\":0,\"signature\":\"m7104lambda$loadPoster$0$comtongpinplayer4kcatalogCatalogActivity(java.lang.String, android.widget.ImageView): void\",\"dex_descriptor\":\"(Ljava/lang/String;Landroid/widget/ImageView;)V\",\"is_constructor\":false,\"name\":\"m7104lambda$loadPoster$0$comtongpinplayer4kcatalogCatalogActivity\"},{\"def_pos\":0,\"signature\":\"m7105lambda$loadPoster$1$comtongpinplayer4kcatalogCatalogActivity(java.lang.String, android.widget.ImageView, android.graphics.Bitmap): void\",\"dex_descriptor\":\"(Ljava/lang/String;Landroid/widget/ImageView;Landroid/graphics/Bitmap;)V\",\"is_constructor\":false,\"name\":\"m7105lambda$loadPoster$1$comtongpinplayer4kcatalogCatalogActivity\"},{\"def_pos\":0,\"signature\":\"m7106lambda$onCreate$0$comtongpinplayer4kcatalogCatalogActivity(android.content.DialogInterface, int): void\",\"dex_descriptor\":\"(Landroid/content/DialogInterface;I)V\",\"is_constructor\":false,\"name\":\"m7106lambda$onCreate$0$comtongpinplayer4kcatalogCatalogActivity\"},{\"def_pos\":0,\"signature\":\"m7107lambda$onCreate$1$comtongpinplayer4kcatalogCatalogActivity(android.content.DialogInterface): void\",\"dex_descriptor\":\"(Landroid/content/DialogInterface;)V\",\"is_constructor\":false,\"name\":\"m7107lambda$onCreate$1$comtongpinplayer4kcatalogCatalogActivity\"},{\"def_pos\":0,\"signature\":\"m7108lambda$showSource$0$comtongpinplayer4kcatalogCatalogActivity(java.lang.String, android.content.DialogInterface, int): void\",\"dex_descriptor\":\"(Ljava/lang/String;Landroid/content/DialogInterface;I)V\",\"is_constructor\":false,\"name\":\"m7108lambda$showSource$0$comtongpinplayer4kcatalogCatalogActivity\"},{\"def_pos\":0,\"signature\":\"onBackPressed(): void\",\"dex_descriptor\":\"()V\",\"is_constructor\":false,\"name\":\"onBackPressed\"},{\"def_pos\":0,\"signature\":\"onCreate(android.os.Bundle): void\",\"dex_descriptor\":\"(Landroid/os/Bundle;)V\",\"is_constructor\":false,\"name\":\"onCreate\"},{\"def_pos\":0,\"signature\":\"onDestroy(): void\",\"dex_descriptor\":\"()V\",\"is_constructor\":false,\"name\":\"onDestroy\"},{\"def_pos\":0,\"signature\":\"onSaveInstanceState(android.os.Bundle): void\",\"dex_descriptor\":\"(Landroid/os/Bundle;)V\",\"is_constructor\":false,\"name\":\"onSaveInstanceState\"},{\"def_pos\":0,\"signature\":\"pickerAdapter(java.util.List\\u003cjava.lang.String\\u003e): android.widget.ArrayAdapter\\u003cjava.lang.String\\u003e\",\"dex_descriptor\":\"(Ljava/util/List;)Landroid/widget/ArrayAdapter;\",\"is_constructor\":false,\"name\":\"pickerAdapter\"},{\"def_pos\":0,\"signature\":\"play(com.tongpin.player4k.catalog.CatalogApi$Detail, com.tongpin.player4k.catalog.CatalogApi$Episode): void\",\"dex_descriptor\":\"(Lcom/tongpin/player4k/catalog/CatalogApi$Detail;Lcom/tongpin/player4k/catalog/CatalogApi$Episode;)V\",\"is_constructor\":false,\"name\":\"play\"},{\"def_pos\":0,\"signature\":\"quality(com.tongpin.player4k.catalog.CatalogApi$Stream): java.lang.String\",\"dex_descriptor\":\"(Lcom/tongpin/player4k/catalog/CatalogApi$Stream;)Ljava/lang/String;\",\"is_constructor\":false,\"name\":\"quality\"},{\"def_pos\":0,\"signature\":\"read(java.io.InputStream, int): byte[]\",\"dex_descriptor\":\"(Ljava/io/InputStream;I)[B\",\"is_constructor\":false,\"name\":\"read\"},{\"def_pos\":0,\"signature\":\"row(): android.widget.LinearLayout\",\"dex_descriptor\":\"()Landroid/widget/LinearLayout;\",\"is_constructor\":false,\"name\":\"row\"},{\"def_pos\":0,\"signature\":\"showDetail(com.tongpin.player4k.catalog.CatalogApi$Detail): void\",\"dex_descriptor\":\"(Lcom/tongpin/player4k/catalog/CatalogApi$Detail;)V\",\"is_constructor\":false,\"name\":\"showDetail\"},{\"def_pos\":0,\"signature\":\"showSource(): void\",\"dex_descriptor\":\"()V\",\"is_constructor\":false,\"name\":\"showSource\"},{\"def_pos\":0,\"signature\":\"submitSearch(): void\",\"dex_descriptor\":\"()V\",\"is_constructor\":false,\"name\":\"submitSearch\"},{\"def_pos\":0,\"signature\":\"updatePager(): void\",\"dex_descriptor\":\"()V\",\"is_constructor\":false,\"name\":\"updatePager\"}],\"fields\":[{\"type\":\"int\",\"name\":\"BG\",\"def_pos\":0},{\"type\":\"int\",\"name\":\"BLUE\",\"def_pos\":0},{\"type\":\"int\",\"name\":\"OUTLINE\",\"def_pos\":0},{\"type\":\"int\",\"name\":\"SECONDARY\",\"def_pos\":0},{\"type\":\"int\",\"name\":\"SURFACE\",\"def_pos\":0},{\"type\":\"int\",\"name\":\"TEXT\",\"def_pos\":0},{\"type\":\"com.tongpin.player4k.catalog.CatalogActivity$VideoAdapter\",\"name\":\"adapter\",\"def_pos\":0},{\"type\":\"android.widget.TextView\",\"name\":\"caption\",\"def_pos\":0},{\"type\":\"android.widget.LinearLayout\",\"name\":\"catalogScreen\",\"def_pos\":0},{\"type\":\"android.widget.FrameLayout\",\"name\":\"content\",\"def_pos\":0},{\"type\":\"com.tongpin.player4k.catalog.CatalogApi$Detail\",\"name\":\"detail\",\"def_pos\":0},{\"type\":\"java.util.concurrent.Future\\u003c?\\u003e\",\"name\":\"detailRequest\",\"def_pos\":0},{\"type\":\"android.widget.LinearLayout\",\"name\":\"detailScreen\",\"def_pos\":0},{\"type\":\"int\",\"name\":\"detailTicket\",\"def_pos\":0},{\"type\":\"boolean\",\"name\":\"hasMore\",\"def_pos\":0},{\"type\":\"android.widget.TextView\",\"name\":\"heading\",\"def_pos\":0},{\"type\":\"java.util.concurrent.ThreadPoolExecutor\",\"name\":\"images\",\"def_pos\":0},{\"type\":\"java.lang.String\",\"name\":\"keyword\",\"def_pos\":0},{\"type\":\"boolean\",\"name\":\"loading\",\"def_pos\":0},{\"type\":\"android.os.Handler\",\"name\":\"main\",\"def_pos\":0},{\"type\":\"android.widget.Button\",\"name\":\"next\",\"def_pos\":0},{\"type\":\"int\",\"name\":\"page\",\"def_pos\":0},{\"type\":\"android.widget.TextView\",\"name\":\"pageNumber\",\"def_pos\":0},{\"type\":\"java.util.concurrent.Future\\u003c?\\u003e\",\"name\":\"pageRequest\",\"def_pos\":0},{\"type\":\"int\",\"name\":\"pageTicket\",\"def_pos\":0},{\"type\":\"android.util.LruCache\\u003cjava.lang.String, android.graphics.Bitmap\\u003e\",\"name\":\"posters\",\"def_pos\":0},{\"type\":\"android.widget.Button\",\"name\":\"previous\",\"def_pos\":0},{\"type\":\"android.widget.ProgressBar\",\"name\":\"progress\",\"def_pos\":0},{\"type\":\"int\",\"name\":\"providerIndex\",\"def_pos\":0},{\"type\":\"java.util.List\\u003ccom.tongpin.player4k.catalog.CatalogApi$Provider\\u003e\",\"name\":\"providers\",\"def_pos\":0},{\"type\":\"java.util.concurrent.ExecutorService\",\"name\":\"requests\",\"def_pos\":0},{\"type\":\"android.widget.Button\",\"name\":\"retry\",\"def_pos\":0},{\"type\":\"android.widget.EditText\",\"name\":\"search\",\"def_pos\":0},{\"type\":\"android.widget.TextView\",\"name\":\"status\",\"def_pos\":0},{\"type\":\"java.util.ArrayList\\u003ccom.tongpin.player4k.catalog.CatalogApi$Video\\u003e\",\"name\":\"videos\",\"def_pos\":0}],\"field_count\":35,\"full_name\":\"com.tongpin.player4k.catalog.CatalogActivity\"}"
+              }
+            ],
+            "isError": false
+          }
+        },
+        {
+          "operation": "get_method_body",
+          "input": {
+            "class_name": "com.tongpin.player4k.catalog.CatalogActivity",
+            "method_name": "bindEntry",
+            "overload_index": 0,
+            "smali_fallback": true
+          },
+          "response": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"dex_descriptor\":\"(Landroid/view/View;)V\",\"overload_count\":1,\"method_name\":\"bindEntry\",\"overload_index\":0,\"full_name\":\"com.tongpin.player4k.catalog.CatalogActivity.bindEntry\",\"fell_back\":false,\"markers\":[],\"body\":\"    public static void bindEntry(View view) {\\r\\n        View viewFindViewWithTag \\u003d view.findViewWithTag(\\\"tp_public_catalog\\\");\\r\\n        if (viewFindViewWithTag !\\u003d null) {\\r\\n            viewFindViewWithTag.setOnClickListener(new View.OnClickListener() { // from class: com.tongpin.player4k.catalog.CatalogActivity$$ExternalSyntheticLambda0\\r\\n                @Override // android.view.View.OnClickListener\\r\\n                public final void onClick(View view2) {\\r\\n                    CatalogActivity.lambda$bindEntry$0(view2);\\r\\n                }\\r\\n            });\\r\\n        }\\r\\n    }\",\"mode\":\"java\",\"class_name\":\"com.tongpin.player4k.catalog.CatalogActivity\"}"
+              }
+            ],
+            "isError": false
+          }
+        }
+      ]
+    },
+    "normalized_result": {
+      "engine": {
+        "name": "jadx-headless-mcp",
+        "version": "0.7.1",
+        "artifact_sha256": "6e5eacf500b64292bfb73c49797c1958f6ee44646e43e868039ae7feb573ff75",
+        "source_revision": "5844800a486d2248fa949b74c9896285f5b54de2",
+        "worker_count": 1,
+        "heap_limit_mib": 4096
+      },
+      "class_name": "com.tongpin.player4k.catalog.CatalogActivity",
+      "method": {
+        "name": "bindEntry",
+        "reported_signature": "bindEntry(android.view.View): void",
+        "overload_index": 0,
+        "is_constructor": false,
+        "dex_descriptor": "(Landroid/view/View;)V"
+      },
+      "overload_count": 1,
+      "representation": "java",
+      "body_status": "available",
+      "fell_back": false,
+      "markers": [],
+      "source": {
+        "status": "complete",
+        "text": "    public static void bindEntry(View view) {\r\n        View viewFindViewWithTag = view.findViewWithTag(\"tp_public_catalog\");\r\n        if (viewFindViewWithTag != null) {\r\n            viewFindViewWithTag.setOnClickListener(new View.OnClickListener() { // from class: com.tongpin.player4k.catalog.CatalogActivity$$ExternalSyntheticLambda0\r\n                @Override // android.view.View.OnClickListener\r\n                public final void onClick(View view2) {\r\n                    CatalogActivity.lambda$bindEntry$0(view2);\r\n                }\r\n            });\r\n        }\r\n    }",
+        "reported_total_bytes": null
+      }
+    },
+    "confidence": "derived",
+    "authority": "shipped-artifact",
+    "environment": null,
+    "limitations": [
+      "Static decompiler observations do not establish runtime behavior; the APK is never executed.",
+      "Method signatures use provider display types; DEX prototypes come from frozen JADX metadata. Display names may be aliases, and overload indices are local to this engine and artifact.",
+      "Class inventories use parsed metadata before code generation, including synthetic members that may be omitted from decompiled source. Source positions remain unknown.",
+      "Incoming reference totals count JADX using nodes. Direct invoke entries within a using method report raw DEX code-unit offsets and method indexes, but coverage is limited to those nodes and directly matched invokes; it does not establish every possible dynamic or reflective call site.",
+      "Manifest summary fields are extracted by the upstream engine; decoded XML is retained for verification. APK signatures, split APKs, native libraries and Android runtime capture are not verified by this provider."
+    ],
+    "relationship_coverage": null,
+    "locations": [],
+    "evidence_links": []
+  }
+}

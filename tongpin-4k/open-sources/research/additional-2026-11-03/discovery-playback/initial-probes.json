@@ -1,0 +1,829 @@
+{
+  "checked_at": "2026-11-02T23:59:39.489153+00:00",
+  "providers": [
+    {
+      "id": "hongniu",
+      "api": "https://www.hongniuzy2.com/api.php/provide/vod/",
+      "help": {
+        "status": 200,
+        "bytes": 26923,
+        "content_type": "text/html",
+        "final_url": "https://www.hongniuzy2.com/help/",
+        "terms_snippets": [
+          "，可以调用， 采集的同时，也可以把图片下载到本地（推荐），以免杜绝日后出现类似图片失效的情况。 本站解释权归 红牛资源 版权所有，本资源站资源完全免费！ SeaCms(海洋CMS)教程 本站采集插件已经可以适配海洋CMS，支持M3U8在线播放的采集，快速更新，稳定播放！ 警告 海洋cms采集数据前请务必先添加好播放器 如何",
+          "据大部分会选中一个ydisk的播放器,用于官方云播 如果希望选中自己指定的播放器,需做如下更改 文件位置: ctcms\\apps\\controllers\\admin\\Caiji.php 搜索: if(!empty($purl)) ,找到如下代码 if($laiy==&#x27;ykyun&#x27;){ $purl_arr["
+        ]
+      },
+      "list": {
+        "status": 200,
+        "bytes": 6247,
+        "content_type": "text/html;charset=utf-8",
+        "final_url": "https://www.hongniuzy2.com/api.php/provide/vod/?ac=list",
+        "code": 1,
+        "total": 116634,
+        "limit": 20,
+        "classes": [
+          {
+            "type_id": 1,
+            "type_name": "电影"
+          },
+          {
+            "type_id": 2,
+            "type_name": "连续剧"
+          },
+          {
+            "type_id": 3,
+            "type_name": "综艺"
+          },
+          {
+            "type_id": 4,
+            "type_name": "动漫"
+          },
+          {
+            "type_id": 5,
+            "type_name": "动作片"
+          },
+          {
+            "type_id": 6,
+            "type_name": "喜剧片"
+          },
+          {
+            "type_id": 7,
+            "type_name": "爱情片"
+          },
+          {
+            "type_id": 8,
+            "type_name": "科幻片"
+          },
+          {
+            "type_id": 9,
+            "type_name": "恐怖片"
+          },
+          {
+            "type_id": 10,
+            "type_name": "剧情片"
+          },
+          {
+            "type_id": 11,
+            "type_name": "战争片"
+          },
+          {
+            "type_id": 12,
+            "type_name": "国产剧"
+          },
+          {
+            "type_id": 13,
+            "type_name": "港澳剧"
+          },
+          {
+            "type_id": 14,
+            "type_name": "日剧"
+          },
+          {
+            "type_id": 15,
+            "type_name": "欧美剧"
+          },
+          {
+            "type_id": 16,
+            "type_name": "台湾剧"
+          },
+          {
+            "type_id": 17,
+            "type_name": "泰剧"
+          },
+          {
+            "type_id": 18,
+            "type_name": "韩剧"
+          },
+          {
+            "type_id": 19,
+            "type_name": "纪录片"
+          },
+          {
+            "type_id": 20,
+            "type_name": "动漫电影"
+          },
+          {
+            "type_id": 21,
+            "type_name": "伦理片"
+          },
+          {
+            "type_id": 29,
+            "type_name": "体育赛事"
+          },
+          {
+            "type_id": 30,
+            "type_name": "短剧"
+          },
+          {
+            "type_id": 31,
+            "type_name": "预告片"
+          },
+          {
+            "type_id": 32,
+            "type_name": "足球"
+          },
+          {
+            "type_id": 33,
+            "type_name": "篮球"
+          },
+          {
+            "type_id": 34,
+            "type_name": "台球"
+          },
+          {
+            "type_id": 35,
+            "type_name": "其他赛事"
+          },
+          {
+            "type_id": 36,
+            "type_name": "中国动漫"
+          },
+          {
+            "type_id": 37,
+            "type_name": "日本动漫"
+          },
+          {
+            "type_id": 38,
+            "type_name": "欧美动漫"
+          },
+          {
+            "type_id": 39,
+            "type_name": "大陆综艺"
+          },
+          {
+            "type_id": 40,
+            "type_name": "日韩综艺"
+          },
+          {
+            "type_id": 41,
+            "type_name": "港台综艺"
+          },
+          {
+            "type_id": 42,
+            "type_name": "欧美综艺"
+          },
+          {
+            "type_id": 43,
+            "type_name": "古装仙侠"
+          },
+          {
+            "type_id": 44,
+            "type_name": "现代都市"
+          },
+          {
+            "type_id": 45,
+            "type_name": "穿越年代"
+          },
+          {
+            "type_id": 46,
+            "type_name": "言情总裁"
+          },
+          {
+            "type_id": 47,
+            "type_name": "重生民国"
+          },
+          {
+            "type_id": 48,
+            "type_name": "反转爽剧"
+          },
+          {
+            "type_id": 49,
+            "type_name": "脑洞悬疑"
+          },
+          {
+            "type_id": 50,
+            "type_name": "擦边短剧"
+          },
+          {
+            "type_id": 51,
+            "type_name": "AI漫剧"
+          }
+        ],
+        "sample": [
+          {
+            "vod_id": 197552,
+            "vod_name": "非常律师南田南",
+            "type_id": 14,
+            "type_name": "日剧",
+            "vod_remarks": "第3集",
+            "vod_play_from": "hnyun,hnm3u8"
+          },
+          {
+            "vod_id": 194596,
+            "vod_name": "生化危机：爆发夜2026",
+            "type_id": 9,
+            "type_name": "恐怖片",
+            "vod_remarks": "正片",
+            "vod_play_from": "hnyun,hnm3u8"
+          },
+          {
+            "vod_id": 197551,
+            "vod_name": "我的有罪之人",
+            "type_id": 18,
+            "type_name": "韩剧",
+            "vod_remarks": "第5集",
+            "vod_play_from": "hnyun,hnm3u8"
+          },
+          {
+            "vod_id": 196138,
+            "vod_name": "恋爱博士",
+            "type_id": 18,
+            "type_name": "韩剧",
+            "vod_remarks": "第9集",
+            "vod_play_from": "hnyun,hnm3u8"
+          },
+          {
+            "vod_id": 153366,
+            "vod_name": "小姐不熙娣2026",
+            "type_id": 41,
+            "type_name": "港台综艺",
+            "vod_remarks": "第261026期",
+            "vod_play_from": "hnyun,hnm3u8"
+          }
+        ]
+      }
+    },
+    {
+      "id": "guangsu",
+      "api": "https://api.guangsuapi.com/api.php/provide/vod/",
+      "help": {
+        "status": 200,
+        "bytes": 29681,
+        "content_type": "text/html",
+        "final_url": "https://www.guangsuzy.com/help/",
+        "terms_snippets": [
+          "/ QQ群：533577508 | 小飞机群： @GuangSuZY 高清画质 国内CDN 秒托秒播 高峰不卡 资源永久免费！ 重要提示： 请认真阅读下方的说明！如有不明白之处，请返回首页进群询问管理谢谢！ 本站图片地址后期将采用图床样式，可以调用， 采集的同时，也可以把图片下载到本地（推荐），以免杜绝日后出现类似图片失效",
+          "的情况。 本站解释权归 光速资源 版权所有，本资源站资源完全免费！ SeaCms(海洋CMS)教程 本站采集插件已经可以适配海洋CMS，支持M3U8在线播放的采集，快速更新，稳定播放！ 警告 海洋cms采集数据前请务必先添加好播放器 如何使用快捷菜单采集 请按以下",
+          "据大部分会选中一个ydisk的播放器,用于官方云播 如果希望选中自己指定的播放器,需做如下更改 文件位置: ctcms\\apps\\controllers\\admin\\Caiji.php 搜索: if(!empty($purl)) ,找到如下代码 if($laiy==&#x27;ykyun&#x27;){ $purl_arr[",
+          "ew URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);\";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.cre",
+          "yle.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEvent"
+        ]
+      },
+      "list": {
+        "status": 200,
+        "bytes": 7154,
+        "content_type": "text/html;charset=utf-8",
+        "final_url": "https://api.guangsuapi.com/api.php/provide/vod/?ac=list",
+        "code": 1,
+        "total": 117226,
+        "limit": "20",
+        "classes": [
+          {
+            "type_id": 1,
+            "type_pid": 0,
+            "type_name": "电影"
+          },
+          {
+            "type_id": 2,
+            "type_pid": 0,
+            "type_name": "电视剧"
+          },
+          {
+            "type_id": 3,
+            "type_pid": 0,
+            "type_name": "综艺"
+          },
+          {
+            "type_id": 4,
+            "type_pid": 0,
+            "type_name": "动漫"
+          },
+          {
+            "type_id": 6,
+            "type_pid": 1,
+            "type_name": "动作片"
+          },
+          {
+            "type_id": 7,
+            "type_pid": 1,
+            "type_name": "喜剧片"
+          },
+          {
+            "type_id": 8,
+            "type_pid": 1,
+            "type_name": "爱情片"
+          },
+          {
+            "type_id": 9,
+            "type_pid": 1,
+            "type_name": "科幻片"
+          },
+          {
+            "type_id": 10,
+            "type_pid": 1,
+            "type_name": "剧情片"
+          },
+          {
+            "type_id": 11,
+            "type_pid": 1,
+            "type_name": "恐怖片"
+          },
+          {
+            "type_id": 12,
+            "type_pid": 1,
+            "type_name": "战争片"
+          },
+          {
+            "type_id": 13,
+            "type_pid": 2,
+            "type_name": "大陆剧"
+          },
+          {
+            "type_id": 14,
+            "type_pid": 2,
+            "type_name": "欧美剧"
+          },
+          {
+            "type_id": 15,
+            "type_pid": 2,
+            "type_name": "港澳剧"
+          },
+          {
+            "type_id": 16,
+            "type_pid": 2,
+            "type_name": "韩剧"
+          },
+          {
+            "type_id": 20,
+            "type_pid": 1,
+            "type_name": "动漫电影"
+          },
+          {
+            "type_id": 21,
+            "type_pid": 2,
+            "type_name": "日剧"
+          },
+          {
+            "type_id": 22,
+            "type_pid": 2,
+            "type_name": "台湾剧"
+          },
+          {
+            "type_id": 23,
+            "type_pid": 2,
+            "type_name": "泰剧"
+          },
+          {
+            "type_id": 24,
+            "type_pid": 0,
+            "type_name": "记录片"
+          },
+          {
+            "type_id": 25,
+            "type_pid": 0,
+            "type_name": "伦理片"
+          },
+          {
+            "type_id": 30,
+            "type_pid": 0,
+            "type_name": "体育赛事"
+          },
+          {
+            "type_id": 31,
+            "type_pid": 0,
+            "type_name": "短剧"
+          },
+          {
+            "type_id": 32,
+            "type_pid": 0,
+            "type_name": "预告片"
+          },
+          {
+            "type_id": 33,
+            "type_pid": 30,
+            "type_name": "足球"
+          },
+          {
+            "type_id": 34,
+            "type_pid": 30,
+            "type_name": "篮球"
+          },
+          {
+            "type_id": 35,
+            "type_pid": 30,
+            "type_name": "台球"
+          },
+          {
+            "type_id": 36,
+            "type_pid": 30,
+            "type_name": "其他赛事"
+          },
+          {
+            "type_id": 37,
+            "type_pid": 3,
+            "type_name": "大陆综艺"
+          },
+          {
+            "type_id": 38,
+            "type_pid": 3,
+            "type_name": "日韩综艺"
+          },
+          {
+            "type_id": 39,
+            "type_pid": 3,
+            "type_name": "港台综艺"
+          },
+          {
+            "type_id": 40,
+            "type_pid": 3,
+            "type_name": "欧美综艺"
+          },
+          {
+            "type_id": 41,
+            "type_pid": 4,
+            "type_name": "中国动漫"
+          },
+          {
+            "type_id": 42,
+            "type_pid": 4,
+            "type_name": "日本动漫"
+          },
+          {
+            "type_id": 43,
+            "type_pid": 4,
+            "type_name": "欧美动漫"
+          },
+          {
+            "type_id": 44,
+            "type_pid": 31,
+            "type_name": "古装仙侠"
+          },
+          {
+            "type_id": 45,
+            "type_pid": 31,
+            "type_name": "现代都市"
+          },
+          {
+            "type_id": 46,
+            "type_pid": 31,
+            "type_name": "穿越年代"
+          },
+          {
+            "type_id": 47,
+            "type_pid": 31,
+            "type_name": "言情总裁"
+          },
+          {
+            "type_id": 48,
+            "type_pid": 31,
+            "type_name": "重生民国"
+          },
+          {
+            "type_id": 49,
+            "type_pid": 31,
+            "type_name": "反转爽剧"
+          },
+          {
+            "type_id": 50,
+            "type_pid": 31,
+            "type_name": "脑洞悬疑"
+          },
+          {
+            "type_id": 51,
+            "type_pid": 31,
+            "type_name": "擦边短剧"
+          },
+          {
+            "type_id": 52,
+            "type_pid": 31,
+            "type_name": "AI漫剧"
+          }
+        ],
+        "sample": [
+          {
+            "vod_id": 221676,
+            "vod_name": "我的有罪之人",
+            "type_id": 16,
+            "type_name": "韩剧",
+            "vod_remarks": "第5集",
+            "vod_play_from": "gsyun,gsm3u8"
+          },
+          {
+            "vod_id": 221677,
+            "vod_name": "非常律师南田南",
+            "type_id": 21,
+            "type_name": "日剧",
+            "vod_remarks": "第3集",
+            "vod_play_from": "gsyun,gsm3u8"
+          },
+          {
+            "vod_id": 218720,
+            "vod_name": "生化危机：爆发夜2026",
+            "type_id": 11,
+            "type_name": "恐怖片",
+            "vod_remarks": "正片",
+            "vod_play_from": "gsyun,gsm3u8"
+          },
+          {
+            "vod_id": 220263,
+            "vod_name": "恋爱博士",
+            "type_id": 16,
+            "type_name": "韩剧",
+            "vod_remarks": "第9集",
+            "vod_play_from": "gsyun,gsm3u8"
+          },
+          {
+            "vod_id": 177568,
+            "vod_name": "小姐不熙娣2026",
+            "type_id": 39,
+            "type_name": "港台综艺",
+            "vod_remarks": "第261026期",
+            "vod_play_from": "gsyun,gsm3u8"
+          }
+        ]
+      }
+    },
+    {
+      "id": "jinying",
+      "api": "https://jyzyapi.com/provide/vod/from/jinyingm3u8/at/json",
+      "help": {
+        "status": 200,
+        "bytes": 38833,
+        "content_type": "text/html; charset=utf-8",
+        "final_url": "https://www.jinyingzy.net/index.php/help",
+        "terms_snippets": [
+          "ay: block; } 金鹰资源全网首选: 目前最快速度，高清画质、热播影片、高峰不卡、国内CDN、秒拖秒播，资源永久免费！欢迎采集。 域名更新公告: 》〉》点击查看播放,图片域名替换公告《〈《 --> --> 采集教程---点击查看: 》〉》点击查看采集教程《〈《 m3u8解析接口: https://hd.iapijy",
+          "金鹰资源TG 交流群：https://t.me/jinyingzy 欢迎各位新老站长进群讨论反馈！ 郑重承诺: 资源永久免费,承诺绝不影响用户体验 首页 电视剧 韩剧 日剧 马泰剧 内地剧 欧美剧 香港剧 台湾剧 电影 恐怖片 动画片 剧情片 战争片 动作片 记录片 爱情片 喜剧片 科幻片 动漫 中国动漫 日本动漫 欧美动",
+          "://jyzyapi.com/provide/vod/from/jinyingyun/at/xml/ 金鹰资源m3u8 json采集接口 ：https://jyzyapi.com/provide/vod/from/jinyingm3u8/at/json 金鹰资源云播 json采集接口 ：https://jyzyapi.com/prov",
+          " 采集的同时，也可以把图片下载到本地（推荐），或者失效后替换图片域名。 本站解释权归&nbsp; 金鹰资源 &nbsp;版权所有，本资源站资源完全免费！ SeaCms(海洋CMS)教程 本站采集插件已经可以适配海洋CMS，支持M3U8在线播放的采集，快速更新，稳定播放！ 警告 海洋cms采集数据前请务必先添加好播放器 如何",
+          "://jyzyapi.com/provide/vod/from/jinyingyun/at/xml/ 金鹰资源m3u8 json采集接口：https://jyzyapi.com/provide/vod/from/jinyingm3u8/at/json 金鹰资源云播 json采集接口：https://jyzyapi.com/provid",
+          ")反馈客服检查接口是否有问题 &nbsp; (2)网络问题 &nbsp; (3)php curl扩展 &nbsp; 4.限制频率间隔多少？比较适宜？ 答：1秒以上都可以 &nbsp; 5.苹果 cms怎么设置自动播放下一集啊 答：添加播放器 我们只提供解析播放器 &nbsp; 6.搜索显示 API接口失败 答：后台搜索关闭，到"
+        ]
+      },
+      "list": {
+        "status": 200,
+        "bytes": 7136,
+        "content_type": "text/html;charset=utf-8",
+        "final_url": "https://jyzyapi.com/provide/vod/from/jinyingm3u8/at/json?ac=list",
+        "code": 1,
+        "total": 117212,
+        "limit": "20",
+        "classes": [
+          {
+            "type_id": 1,
+            "type_pid": 0,
+            "type_name": "电视剧"
+          },
+          {
+            "type_id": 2,
+            "type_pid": 0,
+            "type_name": "电影"
+          },
+          {
+            "type_id": 3,
+            "type_pid": 1,
+            "type_name": "欧美剧"
+          },
+          {
+            "type_id": 4,
+            "type_pid": 1,
+            "type_name": "香港剧"
+          },
+          {
+            "type_id": 5,
+            "type_pid": 1,
+            "type_name": "韩剧"
+          },
+          {
+            "type_id": 6,
+            "type_pid": 1,
+            "type_name": "日剧"
+          },
+          {
+            "type_id": 7,
+            "type_pid": 1,
+            "type_name": "马泰剧"
+          },
+          {
+            "type_id": 8,
+            "type_pid": 0,
+            "type_name": "伦理片"
+          },
+          {
+            "type_id": 9,
+            "type_pid": 2,
+            "type_name": "动作片"
+          },
+          {
+            "type_id": 10,
+            "type_pid": 2,
+            "type_name": "爱情片"
+          },
+          {
+            "type_id": 11,
+            "type_pid": 2,
+            "type_name": "喜剧片"
+          },
+          {
+            "type_id": 12,
+            "type_pid": 2,
+            "type_name": "科幻片"
+          },
+          {
+            "type_id": 13,
+            "type_pid": 2,
+            "type_name": "恐怖片"
+          },
+          {
+            "type_id": 14,
+            "type_pid": 2,
+            "type_name": "剧情片"
+          },
+          {
+            "type_id": 15,
+            "type_pid": 2,
+            "type_name": "战争片"
+          },
+          {
+            "type_id": 16,
+            "type_pid": 2,
+            "type_name": "记录片"
+          },
+          {
+            "type_id": 17,
+            "type_pid": 0,
+            "type_name": "动漫"
+          },
+          {
+            "type_id": 20,
+            "type_pid": 1,
+            "type_name": "内地剧"
+          },
+          {
+            "type_id": 23,
+            "type_pid": 2,
+            "type_name": "动画片"
+          },
+          {
+            "type_id": 24,
+            "type_pid": 17,
+            "type_name": "中国动漫"
+          },
+          {
+            "type_id": 25,
+            "type_pid": 17,
+            "type_name": "日本动漫"
+          },
+          {
+            "type_id": 26,
+            "type_pid": 17,
+            "type_name": "欧美动漫"
+          },
+          {
+            "type_id": 27,
+            "type_pid": 0,
+            "type_name": "综艺"
+          },
+          {
+            "type_id": 28,
+            "type_pid": 1,
+            "type_name": "台湾剧"
+          },
+          {
+            "type_id": 29,
+            "type_pid": 0,
+            "type_name": "体育赛事"
+          },
+          {
+            "type_id": 30,
+            "type_pid": 0,
+            "type_name": "短剧"
+          },
+          {
+            "type_id": 31,
+            "type_pid": 0,
+            "type_name": "预告片"
+          },
+          {
+            "type_id": 32,
+            "type_pid": 29,
+            "type_name": "足球"
+          },
+          {
+            "type_id": 33,
+            "type_pid": 29,
+            "type_name": "篮球"
+          },
+          {
+            "type_id": 34,
+            "type_pid": 29,
+            "type_name": "台球"
+          },
+          {
+            "type_id": 35,
+            "type_pid": 29,
+            "type_name": "其他赛事"
+          },
+          {
+            "type_id": 36,
+            "type_pid": 27,
+            "type_name": "大陆综艺"
+          },
+          {
+            "type_id": 37,
+            "type_pid": 27,
+            "type_name": "日韩综艺"
+          },
+          {
+            "type_id": 38,
+            "type_pid": 27,
+            "type_name": "港台综艺"
+          },
+          {
+            "type_id": 39,
+            "type_pid": 27,
+            "type_name": "欧美综艺"
+          },
+          {
+            "type_id": 40,
+            "type_pid": 30,
+            "type_name": "古装仙侠"
+          },
+          {
+            "type_id": 41,
+            "type_pid": 30,
+            "type_name": "现代都市"
+          },
+          {
+            "type_id": 42,
+            "type_pid": 30,
+            "type_name": "穿越年代"
+          },
+          {
+            "type_id": 43,
+            "type_pid": 30,
+            "type_name": "言情总裁"
+          },
+          {
+            "type_id": 44,
+            "type_pid": 30,
+            "type_name": "重生民国"
+          },
+          {
+            "type_id": 45,
+            "type_pid": 30,
+            "type_name": "反转爽剧"
+          },
+          {
+            "type_id": 46,
+            "type_pid": 30,
+            "type_name": "脑洞悬疑"
+          },
+          {
+            "type_id": 47,
+            "type_pid": 30,
+            "type_name": "擦边短剧"
+          },
+          {
+            "type_id": 48,
+            "type_pid": 30,
+            "type_name": "AI漫剧"
+          }
+        ],
+        "sample": [
+          {
+            "vod_id": 161632,
+            "vod_name": "我的有罪之人",
+            "type_id": 5,
+            "type_name": "韩剧",
+            "vod_remarks": "第5集",
+            "vod_play_from": "jinyingm3u8"
+          },
+          {
+            "vod_id": 161633,
+            "vod_name": "非常律师南田南",
+            "type_id": 6,
+            "type_name": "日剧",
+            "vod_remarks": "第3集",
+            "vod_play_from": "jinyingm3u8"
+          },
+          {
+            "vod_id": 158676,
+            "vod_name": "生化危机：爆发夜2026",
+            "type_id": 13,
+            "type_name": "恐怖片",
+            "vod_remarks": "正片",
+            "vod_play_from": "jinyingm3u8"
+          },
+          {
+            "vod_id": 160219,
+            "vod_name": "恋爱博士",
+            "type_id": 5,
+            "type_name": "韩剧",
+            "vod_remarks": "第9集",
+            "vod_play_from": "jinyingm3u8"
+          },
+          {
+            "vod_id": 117278,
+            "vod_name": "小姐不熙娣2026",
+            "type_id": 38,
+            "type_name": "港台综艺",
+            "vod_remarks": "第261026期",
+            "vod_play_from": "jinyingm3u8"
+          }
+        ]
+      }
+    }
+  ]
+}

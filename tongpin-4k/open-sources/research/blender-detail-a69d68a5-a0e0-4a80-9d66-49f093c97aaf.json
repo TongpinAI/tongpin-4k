@@ -1,0 +1,277 @@
+{
+  "id": 35054,
+  "uuid": "a69d68a5-a0e0-4a80-9d66-49f093c97aaf",
+  "shortUUID": "mziZQzmf95pGMSqk7BPZvi",
+  "url": "https://video.blender.org/videos/watch/a69d68a5-a0e0-4a80-9d66-49f093c97aaf",
+  "name": "Sprite Fright - Open Movie by Blender Studio",
+  "category": {
+    "id": null,
+    "label": "Unknown"
+  },
+  "licence": {
+    "id": null,
+    "label": "Unknown"
+  },
+  "language": {
+    "id": null,
+    "label": "Unknown"
+  },
+  "privacy": {
+    "id": 1,
+    "label": "Public"
+  },
+  "nsfw": false,
+  "nsfwFlags": 0,
+  "nsfwSummary": null,
+  "truncatedDescription": "Produced by Blender Studio. Made in Blender. Rated PG-13.\r\nGet the production files, assets and exclusive making-of videos by joining Blender Studio at https://studio.blender.org/films/sprite-fright",
+  "description": "Produced by Blender Studio. Made in Blender. Rated PG-13.\r\nGet the production files, assets and exclusive making-of videos by joining Blender Studio at https://studio.blender.org/films/sprite-fright",
+  "isLocal": true,
+  "duration": 630,
+  "aspectRatio": null,
+  "views": 2324,
+  "viewers": 0,
+  "downloads": 2376,
+  "likes": 24,
+  "dislikes": 0,
+  "thumbnailPath": "/lazy-static/thumbnails/2d32ff36-a56a-4493-872b-5dea70fc59ae.jpg",
+  "previewPath": "/lazy-static/thumbnails/ff105d09-ca07-4128-b5f7-6e25351bb899.jpg",
+  "thumbnails": [
+    {
+      "height": 122,
+      "width": 223,
+      "aspectRatio": "16:9",
+      "fileUrl": "https://video.blender.org/lazy-static/thumbnails/2d32ff36-a56a-4493-872b-5dea70fc59ae.jpg"
+    },
+    {
+      "height": 480,
+      "width": 850,
+      "aspectRatio": "16:9",
+      "fileUrl": "https://video.blender.org/lazy-static/thumbnails/ff105d09-ca07-4128-b5f7-6e25351bb899.jpg"
+    }
+  ],
+  "embedPath": "/videos/embed/mziZQzmf95pGMSqk7BPZvi",
+  "createdAt": "2021-10-31T01:02:27.247Z",
+  "updatedAt": "2026-11-02T11:50:43.876Z",
+  "publishedAt": "2021-10-31T01:44:46.154Z",
+  "originallyPublishedAt": "2021-10-28T22:00:00.000Z",
+  "isLive": false,
+  "account": {
+    "url": "https://video.blender.org/accounts/blender",
+    "name": "blender",
+    "host": "video.blender.org",
+    "avatars": [
+      {
+        "height": 48,
+        "width": 48,
+        "path": "/lazy-static/avatars/d81f71c9-cdd8-4c61-a0dd-75a9dfad8dc1.png",
+        "fileUrl": "https://video.blender.org/lazy-static/avatars/d81f71c9-cdd8-4c61-a0dd-75a9dfad8dc1.png",
+        "createdAt": "2026-05-24T11:32:01.734Z",
+        "updatedAt": "2026-05-24T11:32:01.734Z"
+      },
+      {
+        "height": 120,
+        "width": 120,
+        "path": "/lazy-static/avatars/07965da7-5723-40d6-9a61-c034d6ebeabd.png",
+        "fileUrl": "https://video.blender.org/lazy-static/avatars/07965da7-5723-40d6-9a61-c034d6ebeabd.png",
+        "createdAt": "2026-05-24T11:32:01.730Z",
+        "updatedAt": "2026-05-24T11:32:01.730Z"
+      },
+      {
+        "height": 600,
+        "width": 600,
+        "path": "/lazy-static/avatars/1485e2e7-71d0-4e6a-b56d-bf46b2ec40de.png",
+        "fileUrl": "https://video.blender.org/lazy-static/avatars/1485e2e7-71d0-4e6a-b56d-bf46b2ec40de.png",
+        "createdAt": "2026-05-24T11:32:01.724Z",
+        "updatedAt": "2026-05-24T11:32:01.724Z"
+      },
+      {
+        "height": 1500,
+        "width": 1500,
+        "path": "/lazy-static/avatars/b4d1c81e-bded-45e2-a569-413d391cdd82.png",
+        "fileUrl": "https://video.blender.org/lazy-static/avatars/b4d1c81e-bded-45e2-a569-413d391cdd82.png",
+        "createdAt": "2026-05-24T11:32:01.719Z",
+        "updatedAt": "2026-05-24T11:32:01.719Z"
+      }
+    ],
+    "id": 6,
+    "hostRedundancyAllowed": false,
+    "followingCount": 1,
+    "followersCount": 6383,
+    "createdAt": "2018-10-24T14:55:59.623Z",
+    "displayName": "Blender",
+    "description": "Blender is the free and open source 3D creation suite. \n\nIt supports the entirety of the 3D pipeline—modeling, rigging, animation, simulation, rendering, compositing and motion tracking, even video editing and game creation.  \n\nBlender is well suited to individuals and small studios who benefit from its unified pipeline and responsive development process.",
+    "updatedAt": "2022-12-19T21:05:12.414Z",
+    "userId": 4
+  },
+  "channel": {
+    "url": "https://video.blender.org/video-channels/blender_open_movies",
+    "name": "blender_open_movies",
+    "host": "video.blender.org",
+    "avatars": [
+      {
+        "height": 48,
+        "width": 48,
+        "path": "/lazy-static/avatars/f79d3ae7-86a8-4705-a9cf-75652312ed20.png",
+        "fileUrl": "https://video.blender.org/lazy-static/avatars/f79d3ae7-86a8-4705-a9cf-75652312ed20.png",
+        "createdAt": "2026-06-04T09:58:19.748Z",
+        "updatedAt": "2026-06-04T09:58:19.748Z"
+      },
+      {
+        "height": 120,
+        "width": 120,
+        "path": "/lazy-static/avatars/df50b04c-67e0-4317-822a-be1f1a2d85d3.png",
+        "fileUrl": "https://video.blender.org/lazy-static/avatars/df50b04c-67e0-4317-822a-be1f1a2d85d3.png",
+        "createdAt": "2026-06-04T09:58:19.735Z",
+        "updatedAt": "2026-06-04T09:58:19.735Z"
+      },
+      {
+        "height": 600,
+        "width": 600,
+        "path": "/lazy-static/avatars/0001ea1f-7c7b-45b3-8a15-004c6d0713bb.png",
+        "fileUrl": "https://video.blender.org/lazy-static/avatars/0001ea1f-7c7b-45b3-8a15-004c6d0713bb.png",
+        "createdAt": "2026-06-04T09:58:19.728Z",
+        "updatedAt": "2026-06-04T09:58:19.728Z"
+      },
+      {
+        "height": 1500,
+        "width": 1500,
+        "path": "/lazy-static/avatars/2676b86b-94a3-4692-9601-f4e41dcbf72f.png",
+        "fileUrl": "https://video.blender.org/lazy-static/avatars/2676b86b-94a3-4692-9601-f4e41dcbf72f.png",
+        "createdAt": "2026-06-04T09:58:19.710Z",
+        "updatedAt": "2026-06-04T09:58:19.710Z"
+      }
+    ],
+    "id": 9,
+    "hostRedundancyAllowed": false,
+    "followingCount": 0,
+    "followersCount": 485,
+    "createdAt": "2018-10-25T13:08:22.385Z",
+    "banners": [],
+    "displayName": "Blender Open Movies",
+    "description": "Official PeerTube channel with all iconic Blender Open Movies and behind-the-scenes content.\n\n**The Freedom to Create**",
+    "support": "Join the [Blender Development Fund](https://fund.blender.org/) and become a [Blender Studio subscriber](https://studio.blender.org/join).",
+    "publicEmail": null,
+    "isLocal": true,
+    "updatedAt": "2026-09-14T14:42:23.068Z",
+    "ownerAccount": {
+      "url": "https://video.blender.org/accounts/blender",
+      "name": "blender",
+      "host": "video.blender.org",
+      "avatars": [
+        {
+          "height": 48,
+          "width": 48,
+          "path": "/lazy-static/avatars/d81f71c9-cdd8-4c61-a0dd-75a9dfad8dc1.png",
+          "fileUrl": "https://video.blender.org/lazy-static/avatars/d81f71c9-cdd8-4c61-a0dd-75a9dfad8dc1.png",
+          "createdAt": "2026-05-24T11:32:01.734Z",
+          "updatedAt": "2026-05-24T11:32:01.734Z"
+        },
+        {
+          "height": 120,
+          "width": 120,
+          "path": "/lazy-static/avatars/07965da7-5723-40d6-9a61-c034d6ebeabd.png",
+          "fileUrl": "https://video.blender.org/lazy-static/avatars/07965da7-5723-40d6-9a61-c034d6ebeabd.png",
+          "createdAt": "2026-05-24T11:32:01.730Z",
+          "updatedAt": "2026-05-24T11:32:01.730Z"
+        },
+        {
+          "height": 600,
+          "width": 600,
+          "path": "/lazy-static/avatars/1485e2e7-71d0-4e6a-b56d-bf46b2ec40de.png",
+          "fileUrl": "https://video.blender.org/lazy-static/avatars/1485e2e7-71d0-4e6a-b56d-bf46b2ec40de.png",
+          "createdAt": "2026-05-24T11:32:01.724Z",
+          "updatedAt": "2026-05-24T11:32:01.724Z"
+        },
+        {
+          "height": 1500,
+          "width": 1500,
+          "path": "/lazy-static/avatars/b4d1c81e-bded-45e2-a569-413d391cdd82.png",
+          "fileUrl": "https://video.blender.org/lazy-static/avatars/b4d1c81e-bded-45e2-a569-413d391cdd82.png",
+          "createdAt": "2026-05-24T11:32:01.719Z",
+          "updatedAt": "2026-05-24T11:32:01.719Z"
+        }
+      ],
+      "id": 6,
+      "hostRedundancyAllowed": false,
+      "followingCount": 1,
+      "followersCount": 6383,
+      "createdAt": "2018-10-24T14:55:59.623Z",
+      "displayName": "Blender",
+      "description": "Blender is the free and open source 3D creation suite. \n\nIt supports the entirety of the 3D pipeline—modeling, rigging, animation, simulation, rendering, compositing and motion tracking, even video editing and game creation.  \n\nBlender is well suited to individuals and small studios who benefit from its unified pipeline and responsive development process.",
+      "updatedAt": "2022-12-19T21:05:12.414Z",
+      "userId": 4
+    }
+  },
+  "comments": 2,
+  "blacklisted": false,
+  "blacklistedReason": null,
+  "streamingPlaylists": [],
+  "files": [
+    {
+      "id": 613509,
+      "resolution": {
+        "id": 804,
+        "label": "1080p"
+      },
+      "width": 1920,
+      "height": 804,
+      "size": 110581245,
+      "fps": 24,
+      "torrentUrl": "https://video.blender.org/lazy-static/torrents/1b15d563-0df7-4376-b08f-d2c9319f2035-804.torrent",
+      "torrentDownloadUrl": "https://video.blender.org/download/torrents/1b15d563-0df7-4376-b08f-d2c9319f2035-804.torrent",
+      "fileUrl": "https://video.blender.org/object-storage/web_videos/a69d68a5-a0e0-4a80-9d66-49f093c97aaf-804.mp4",
+      "fileDownloadUrl": "https://video.blender.org/download/web-videos/a69d68a5-a0e0-4a80-9d66-49f093c97aaf-804.mp4",
+      "metadataUrl": "https://video.blender.org/api/v1/videos/a69d68a5-a0e0-4a80-9d66-49f093c97aaf/metadata/613509",
+      "hasAudio": true,
+      "hasVideo": true,
+      "storage": 1
+    },
+    {
+      "id": 613510,
+      "resolution": {
+        "id": 720,
+        "label": "720p"
+      },
+      "width": 1718,
+      "height": 720,
+      "size": 102392846,
+      "fps": 24,
+      "torrentUrl": "https://video.blender.org/lazy-static/torrents/a5babae3-1271-4741-a8f3-feddf8afe080-720.torrent",
+      "torrentDownloadUrl": "https://video.blender.org/download/torrents/a5babae3-1271-4741-a8f3-feddf8afe080-720.torrent",
+      "fileUrl": "https://video.blender.org/object-storage/web_videos/a69d68a5-a0e0-4a80-9d66-49f093c97aaf-720.mp4",
+      "fileDownloadUrl": "https://video.blender.org/download/web-videos/a69d68a5-a0e0-4a80-9d66-49f093c97aaf-720.mp4",
+      "metadataUrl": "https://video.blender.org/api/v1/videos/a69d68a5-a0e0-4a80-9d66-49f093c97aaf/metadata/613510",
+      "hasAudio": true,
+      "hasVideo": true,
+      "storage": 1
+    }
+  ],
+  "liveSchedules": [],
+  "support": "[Blender Studio Subscription](https://studio.blender.org/join/).\r\n\r\nSubscribe to access invaluable production knowledge from Blender Studio artists, while securing Blender's future. Inspect 3D processes, learn efficient workflows, and unlock inspiration. ",
+  "tags": [
+    "Fright",
+    "animation",
+    "blender",
+    "open movie",
+    "sprites"
+  ],
+  "commentsPolicy": {
+    "id": 1,
+    "label": "Enabled"
+  },
+  "downloadEnabled": true,
+  "waitTranscoding": false,
+  "inputFileUpdatedAt": null,
+  "state": {
+    "id": 1,
+    "label": "Published"
+  },
+  "trackerUrls": [
+    "https://video.blender.org/tracker/announce",
+    "wss://video.blender.org:443/tracker/socket"
+  ],
+  "embedPrivacyPolicy": {
+    "id": 1,
+    "label": "All allowed"
+  }
+}

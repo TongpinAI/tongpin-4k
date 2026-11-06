@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "production_scope": {
+    "modified": [
+      "src/com/tongpin/player4k/tv/TvPlayerActivity.java"
+    ],
+    "added": [
+      "src/com/tongpin/player4k/tv/TvPlaybackEngine.java"
+    ]
+  },
+  "source_sha256": {
+    "src/com/tongpin/player4k/tv/TvPlayerActivity.java": "51077a089f43cb4812b1a40506dde7a0d73c87bb78868f40ba937dbc20014a13",
+    "src/com/tongpin/player4k/tv/TvPlaybackEngine.java": "56430c7adcfb5859fc31b80e56f805f89870c58ac14dbca4853dfa9009e728d2"
+  },
+  "prior_activity_sha256": "be985f9bb5bd115d46c0b0a90af8935f4ea779c639255597ffbcd5eb912280d4",
+  "default": "System MediaPlayer retained on all SDKs",
+  "compatible": "Media3 1.10.1,API23+,decoder-init fallback enabled,software codec preferred when available; not guaranteed software-only",
+  "switch": "Explicit manual same-episode reprepare retains position and playWhenReady; no automatic cross-backend retry loops",
+  "policy_assertions": 253,
+  "native_test": false
+}

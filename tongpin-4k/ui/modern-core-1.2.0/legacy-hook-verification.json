@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "files": {
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/MainActivity.smali": {
+      "before_sha256": "1d3f445e5f4a3efb29e770bd026c1349f04f466dbef5746fc5ccba81cdd31b32",
+      "after_sha256": "f0df9c68d1d244e5b2b8986ddcebcd64fe0fdb485ef67dfed22a34cbd95aa7d4",
+      "modified_methods": [
+        "onCreate(Landroid/os/Bundle;)V"
+      ],
+      "only_added_static_style_hooks": true,
+      "register_locals_unchanged": true
+    },
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/SearchActivity.smali": {
+      "before_sha256": "55ec069521ea8b345cad7aff957af3344284c5275aeb97e7c3985b786553600c",
+      "after_sha256": "dadb7ceaf2131f1eae5026a180d3a146ed7548cad4809d829ad7a27f093524ba",
+      "modified_methods": [
+        "onCreate(Landroid/os/Bundle;)V",
+        "R()V"
+      ],
+      "only_added_static_style_hooks": true,
+      "register_locals_unchanged": true
+    },
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/HistoryCollectActivity.smali": {
+      "before_sha256": "e378d5bef18bdf96c0eba8102ed304694a0d79decc9989a0db789291a6e100c3",
+      "after_sha256": "8ded6f18b4c7a9bea7cfc0837a75cd51f3a53e8b2f395bd9976f660e085dce94",
+      "modified_methods": [
+        "onCreate(Landroid/os/Bundle;)V"
+      ],
+      "only_added_static_style_hooks": true,
+      "register_locals_unchanged": true
+    }
+  },
+  "scope": "Byte-exact restore after removing the presentation calls; Android not executed"
+}

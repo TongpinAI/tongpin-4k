@@ -1,0 +1,65 @@
+{
+  "version": "1.1.0",
+  "source": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\decoded\\assets\\tongpin_open_sources.json",
+  "destination": "assets/tongpin_open_sources.json",
+  "sha256": "f4d9810b075ca7a67d28b22bcb4aeef18d06a37f655c0fa074c5a7a4cbccd658",
+  "providers": [
+    {
+      "id": "mdzy",
+      "name": "魔都资源",
+      "kind": "maccms",
+      "api": "https://www.mdzyapi.com/api.php/provide/vod/",
+      "homepage": "https://mdzyapi.com/"
+    },
+    {
+      "id": "360zy",
+      "name": "360资源",
+      "kind": "maccms",
+      "api": "https://360zy.com/api.php/provide/vod/",
+      "homepage": "https://360zy.com/"
+    },
+    {
+      "id": "blender",
+      "name": "Blender开放电影",
+      "kind": "peertube",
+      "api": "https://video.blender.org/api/v1/video-channels/blender_open_movies/videos?sort=-publishedAt",
+      "homepage": "https://video.blender.org/video-channels/blender_open_movies"
+    },
+    {
+      "id": "ryzy",
+      "name": "如意资源",
+      "kind": "maccms",
+      "api": "https://cj.rycjapi.com/api.php/provide/vod/",
+      "homepage": "https://ryzyw.com/"
+    },
+    {
+      "id": "ikun",
+      "name": "iKun资源",
+      "kind": "maccms",
+      "api": "https://ikunzyapi.com/api.php/provide/vod/",
+      "homepage": "https://www.ikunzy.com/"
+    },
+    {
+      "id": "guangsu",
+      "name": "光速资源",
+      "kind": "maccms",
+      "api": "https://api.guangsuapi.com/api.php/provide/vod/",
+      "homepage": "https://www.guangsuzy.com/"
+    },
+    {
+      "id": "hongniu",
+      "name": "红牛资源",
+      "kind": "maccms",
+      "api": "https://www.hongniuzy2.com/api.php/provide/vod/",
+      "homepage": "https://www.hongniuzy2.com/"
+    },
+    {
+      "id": "jinying",
+      "name": "金鹰资源",
+      "kind": "maccms",
+      "api": "https://jyzyapi.com/provide/vod/from/jinyingm3u8/at/json",
+      "homepage": "https://www.jinyingzy.net/"
+    }
+  ],
+  "scope": "Exact approved mobile 8-provider bytes; no Java/phone modifications/network research"
+}

@@ -1,0 +1,21 @@
+.class public interface abstract Lcom/byazt/un/a$hp;
+.super Ljava/lang/Object;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/byazt/un/a;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x608
+    name = "hp"
+.end annotation
+
+
+# virtual methods
+.method public abstract hp(J)V
+.end method
+
+.method public abstract hp(Landroid/content/ContentValues;)V
+.end method

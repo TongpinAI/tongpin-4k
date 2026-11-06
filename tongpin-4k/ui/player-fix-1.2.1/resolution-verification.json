@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "production_assertions": 72,
+  "existing_player_validation_assertions": 12,
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/OpenPlayerActivity.java": "aa3789e2203e34de1311c7056eddfcced1a35c6b6958ebef2c2bbd55b2a98117",
+    "open-sources/src/com/tongpin/player4k/catalog/PlaybackResolution.java": "053602bf9af43ba6f503470c72717eee8e367545c9035b3c7ef4716100975f36",
+    "open-sources/src/com/tongpin/player4k/catalog/PhoneUi.java": "c331ba1765b7beacf23161aafde84eb904c5848a75ddfd61eb9719deaef31714",
+    "open-sources/tests/src/com/tongpin/player4k/catalog/PlaybackResolutionTest.java": "22855092f808edb217e43f37d1c9c7a4c99544bc4d3acb5877a8bd9adf4f5862",
+    "open-sources/toolchain/tests/com/tongpin/player4k/catalog/OpenPlayerValidationTest.java": "2fbbdb291ea2cde47e03782043f74dc49bb3c5becec30d3b29fb220e10a85731"
+  },
+  "android_jar": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\kanke-noads\\tools\\platform-35\\android.jar",
+  "compile_only_stub_jar": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\open-sources\\tests\\resolution-compile-only.jar",
+  "static_contracts": [
+    "same player-contained badge in normal/fullscreen",
+    "no stale outside-player label",
+    "current listener identity and real decoder getter ABI",
+    "500ms adaptive updates; first known size opens one absolute 3s window per reset; identical polls and adaptive changes never extend or redisplay it; detach clears",
+    "badge below existing legacy title/scale control row with 8dp clearance",
+    "2 legacy constructors plus original-super state reset; original code preserved"
+  ],
+  "activity_constructed": false,
+  "device_test": false,
+  "scope": "Formatter/state/ownership logic and source+ABI contracts only; native rendering/playback/fullscreen acceptance still pending"
+}

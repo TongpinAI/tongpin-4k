@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "assertions": 147,
+  "source_sha256": {
+    "src/com/tongpin/player4k/tv/CatalogApi.java": "29a1ddc2be33bcefe508bd234cec93b5227945d9f25373409e9e60ce3d41fb93",
+    "src/com/tongpin/player4k/tv/TvHomeActivity.java": "f841aff76bc432ecbde8c5a0fd9da2d901a595a9c3ec4fb16039cb62a24ede1c",
+    "src/com/tongpin/player4k/tv/TvLibraryStore.java": "a72e6295c542703f45321ba3d2b296392f19f3632727a64fd26a68dbb8a9b385",
+    "src/com/tongpin/player4k/tv/TvPlayerActivity.java": "65a9873a82bfb8df68f9745087cc6b3d802aacafc2e3efc2969a263c6215e0b1",
+    "src/com/tongpin/player4k/tv/TvPlayQueue.java": "a1d630ec5f52f53b725fc0e251871c7fc2de7934d8bca9ba0355dccab1ae35d7",
+    "src/com/tongpin/player4k/tv/TvUi.java": "3715754d451e64df7b104960f50d446530b1eb6ad141a7b92f932edbf1aac0b5",
+    "build/1.2.0/preflight/generated/com/tongpin/player4k/tv/R.java": "d16dc8dd2f4c63a0366f9c53819fd251bb2b8d37cc5c0c7faf32896e597c0242",
+    "tests/src/com/tongpin/player4k/tv/TvPlayerContractTest.java": "f7fcd4d2f95abf817fd00d098a0945f07ba782cd2334192ff6fd40268b1db897"
+  },
+  "java": "D:\\PyCharm\\PyCharm 2024.3.1.1\\jbr\\bin\\java.exe",
+  "android_jar": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\kanke-noads\\tools\\platform-35\\android.jar",
+  "android_jar_sha256": "4566663c3876e022b4fa4ced8c8697c4ab1688267f090114fd92d027b32e619b",
+  "method": "Actual TvPlayerActivity stream/URL/contain/resolution/3s badge/rate/resume/auto-next policies; actual full TV source graph and generated R compiled",
+  "api23_speed_guard": {
+    "outer": "TvPlayerActivity.applySpeed()V",
+    "guard": "Build.VERSION.SDK_INT >= 23",
+    "helper": "TvPlayerActivity$Api23.setSpeed(Landroid/media/MediaPlayer;F)V",
+    "higher_api_symbols": [
+      "android/media/PlaybackParams.<init>()V",
+      "android/media/PlaybackParams.setSpeed(F)Landroid/media/PlaybackParams;",
+      "android/media/PlaybackParams.setPitch(F)Landroid/media/PlaybackParams;",
+      "android/media/MediaPlayer.setPlaybackParams(Landroid/media/PlaybackParams;)V"
+    ],
+    "callers": "startWanted after audio focus and player.start, or chooseSpeed only when already playing"
+  },
+  "activity_constructed": false,
+  "media_player_constructed": false,
+  "device_test": false,
+  "scope": "Actual pure policies + full-source compilation + bounded lifecycle/API guard source contracts; no key/render/decoder/network/device acceptance"
+}

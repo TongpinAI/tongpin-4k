@@ -1,0 +1,78 @@
+{
+  "provider": "ikun",
+  "kind": "movie",
+  "vod_id": 70835,
+  "title": "茫然女王",
+  "type": "剧情片",
+  "updated": "2026-11-01 18:53:19",
+  "remarks": "正片",
+  "episode": "正片",
+  "episode_count": 1,
+  "selected_group": "ikm3u8",
+  "stream": {
+    "url": "https://bfikuncdn.com/20261101/nWFSMzAz/index.m3u8"
+  },
+  "probe_status": "dimensions_observed",
+  "requests": [
+    {
+      "url": "https://bfikuncdn.com/20261101/nWFSMzAz/index.m3u8",
+      "status": 200,
+      "type": "application/vnd.apple.mpegURL",
+      "content_range": null,
+      "declared_length": null,
+      "read_bytes": 119
+    },
+    {
+      "url": "https://bfikuncdn.com/20261101/nWFSMzAz/2250kb/hls/index.m3u8",
+      "status": 200,
+      "type": "application/vnd.apple.mpegURL",
+      "content_range": null,
+      "declared_length": null,
+      "read_bytes": 290877
+    },
+    {
+      "url": "https://kkzycdn.com:65/20261101/nWFSMzAz/2250kb/hls/1fzYIOzF.ts",
+      "status": 206,
+      "type": "video/mp2t",
+      "content_range": "bytes 0-122951/122952",
+      "declared_length": "122952",
+      "read_bytes": 122952
+    }
+  ],
+  "text_bytes": 290996,
+  "media_bytes": 122952,
+  "probe_budget_seconds": 10,
+  "max_hls_text_bytes": 2097152,
+  "observed_dimensions": [
+    {
+      "index": 0,
+      "codec_name": "h264",
+      "profile": "High",
+      "codec_type": "video",
+      "width": 1920,
+      "height": 1158,
+      "pix_fmt": "yuv420p"
+    }
+  ],
+  "master_declared_dimensions": [
+    {
+      "url": "https://bfikuncdn.com/20261101/nWFSMzAz/2250kb/hls/index.m3u8",
+      "width": 1920,
+      "height": 1158
+    }
+  ],
+  "elapsed_seconds": 5.437,
+  "chosen_variant": {
+    "url": "https://bfikuncdn.com/20261101/nWFSMzAz/2250kb/hls/index.m3u8",
+    "width": 1920,
+    "height": 1158,
+    "attributes": "#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2250000,RESOLUTION=1920x1158"
+  },
+  "first_segment_url": "https://kkzycdn.com:65/20261101/nWFSMzAz/2250kb/hls/1fzYIOzF.ts",
+  "header_sha256": "7752474c7dcf355bc68719a78f36d148336be662e6060db9b35effa8359e4b38",
+  "ffprobe_exit_code": 0,
+  "ffprobe_stderr": "",
+  "measurement": "bounded first MPEG-TS/media prefix",
+  "actual_2160p_observed": false,
+  "uhd_4k_width_observed": false
+}

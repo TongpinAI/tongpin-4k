@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "verdict": "clear: no source-level blocker found for the explicit decoder trial",
+  "reviewer": "independent read-only source review",
+  "source_sha256": {
+    "src/com/tongpin/player4k/tv/TvPlayerActivity.java": "51077a089f43cb4812b1a40506dde7a0d73c87bb78868f40ba937dbc20014a13",
+    "src/com/tongpin/player4k/tv/TvPlaybackEngine.java": "56430c7adcfb5859fc31b80e56f805f89870c58ac14dbca4853dfa9009e728d2"
+  },
+  "checks": [
+    "Default remains system MediaPlayer; compatible Media3 engine only reachable on API23+ through guarded nested class",
+    "Software codec is preferred with decoder-init fallback; labeling does not claim software-only",
+    "Prepared callback is emitted once; READY events and posted seek completion preserve the existing single-flight seek state",
+    "Released engine callbacks are suppressed and Activity candidate identity rejects stale callbacks",
+    "Manual switch preserves same-episode position, playWhenReady and speed; audio focus remains Activity-owned",
+    "No automatic backend restart or switching loop introduced"
+  ],
+  "limits": [
+    "No Android engine constructed during review",
+    "No TV decoder, remote focus, network, playback smoothness or installation validation"
+  ],
+  "production_files_modified": false
+}

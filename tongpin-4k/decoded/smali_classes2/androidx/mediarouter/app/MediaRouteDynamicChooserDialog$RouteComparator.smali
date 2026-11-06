@@ -1,0 +1,100 @@
+.class final Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog$RouteComparator;
+.super Ljava/lang/Object;
+.source "r8-map-id-4c0b28e571086534d372af241f48ba94b5a529610dacb5d0006953fc02fc614b"
+
+# interfaces
+.implements Ljava/util/Comparator;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x18
+    name = "RouteComparator"
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/Object;",
+        "Ljava/util/Comparator<",
+        "Landroidx/mediarouter/media/MediaRouter$RouteInfo;",
+        ">;"
+    }
+.end annotation
+
+
+# static fields
+.field public static final sInstance:Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog$RouteComparator;
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    .line 1
+    new-instance v0, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog$RouteComparator;
+
+    .line 2
+    .line 3
+    invoke-direct {v0}, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog$RouteComparator;-><init>()V
+
+    .line 4
+    .line 5
+    .line 6
+    sput-object v0, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog$RouteComparator;->sInstance:Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog$RouteComparator;
+
+    .line 7
+    .line 8
+    return-void
+.end method
+
+.method constructor <init>()V
+    .locals 0
+
+    .line 1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 2
+    .line 3
+    .line 4
+    return-void
+.end method
+
+
+# virtual methods
+.method public compare(Landroidx/mediarouter/media/MediaRouter$RouteInfo;Landroidx/mediarouter/media/MediaRouter$RouteInfo;)I
+    .locals 0
+
+    .line 2
+    invoke-virtual {p1}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->getName()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p2}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->getName()Ljava/lang/String;
+
+    move-result-object p2
+
+    invoke-virtual {p1, p2}, Ljava/lang/String;->compareToIgnoreCase(Ljava/lang/String;)I
+
+    move-result p1
+
+    return p1
+.end method
+
+.method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
+    .locals 0
+
+    .line 1
+    check-cast p1, Landroidx/mediarouter/media/MediaRouter$RouteInfo;
+
+    check-cast p2, Landroidx/mediarouter/media/MediaRouter$RouteInfo;
+
+    invoke-virtual {p0, p1, p2}, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog$RouteComparator;->compare(Landroidx/mediarouter/media/MediaRouter$RouteInfo;Landroidx/mediarouter/media/MediaRouter$RouteInfo;)I
+
+    move-result p1
+
+    return p1
+.end method

@@ -1,0 +1,17 @@
+{
+  "open-sources/integration/1.3.1.json": "c89e7e67112019e368540675e9009f565e27e40de3ac40c4ced89a2411956305",
+  "verification/1.3.1/apk-entry-diff.json": "5f86466a7a3b7a5a051a63e4c569c4465f298c08384f4da9da8210c94d6d0818",
+  "verification/1.3.1/build-result.json": "d78c05f62d1ccf61d93c62a55526c7eb715d9df3595df2babdfc0b56cbe27275",
+  "verification/1.3.1/final-framework-api-review.json": "335973afbba7b17dced474e0595a5f23c56fcb4e3f00ecac807ad41335d08116",
+  "verification/1.3.1/final-own-abi-check.json": "58b2c4e2cc40d79b2ea66033616d02daac3a51f8dd3481db112aedd6843eae50",
+  "verification/1.3.1/final-timer-proof.json": "9ad119c419683185cf03b33844f8e0f1a703f5054b6c50ca961a76a51c927a65",
+  "verification/1.3.1/frozen-inputs.json": "0e2ca7a612685ee9c20566abfda540f35987ec81f7c32fcd55b80d14f0d67ece",
+  "verification/1.3.1/integration-contract.json": "55c9689e53ba01cf28a5bc32f21e99b6f434ff834a80413299fe6a3c912d0649",
+  "verification/1.3.1/own-abi-check.json": "1cc061cf1fdfa4460aaa7504e075b1fae0c210fc12de0fdad3db019a60a7d78e",
+  "verification/1.3.1/polish-contract.json": "c088c4465092223fc2e3a5fd11eba75243b4afdb67fbaca8de6d2cd49891c660",
+  "verification/1.3.1/resource-build-timing.json": "01f3d3343dbf985d106f7b96c05978c932c67004802412577d504ed14c47f752",
+  "verification/1.3.1/resource-id-check.json": "01de3c865b334cc048ed128a3debbd26e96a6b911b1a6a1eab083756a3001e2c",
+  "verification/1.3.1/reviewed-framework-api.json": "37e93c6e057ca6733d61c05cfc138b34684a44f6e3d85bc9216106305cb4b867",
+  "verification/1.3.1/unchanged-dex-inputs.json": "435a44d361840b6aab262fd87639e729b1d923ab8260c43d84503d3df87c857c",
+  "verification/1.3.1/version-preparation.json": "27971ddf13f320ebf7a1869bbc732ed16bd4fb9d734a13ff38e8128bcecd79c9"
+}

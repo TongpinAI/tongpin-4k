@@ -1,0 +1,304 @@
+--- before/src/com/tongpin/player4k/tv/TvPlayerActivity.java
++++ after/src/com/tongpin/player4k/tv/TvPlayerActivity.java
+@@ -3,6 +3,7 @@
+ import android.app.Activity;
+ import android.app.AlertDialog;
+ import android.content.Intent;
++import android.content.res.ColorStateList;
+ import android.graphics.Color;
+ import android.graphics.Typeface;
+ import android.graphics.drawable.GradientDrawable;
+@@ -17,6 +18,7 @@
+ import android.text.TextUtils;
+ import android.view.Gravity;
+ import android.view.KeyEvent;
++import android.view.MotionEvent;
+ import android.view.SurfaceHolder;
+ import android.view.SurfaceView;
+ import android.view.View;
+@@ -25,6 +27,7 @@
+ import android.widget.FrameLayout;
+ import android.widget.HorizontalScrollView;
+ import android.widget.LinearLayout;
++import android.widget.SeekBar;
+ import android.widget.TextView;
+ import android.widget.Toast;
+ import java.io.ByteArrayOutputStream;
+@@ -52,7 +55,10 @@
+     private int[] widths, heights;
+     private String title, videoJson, episodeName, author, licence, queueToken;
+     private int selected, actualWidth, actualHeight;
+-    private long position, queuedSeek = -1L;
++    private long position, seekReadyAt, lastSeekKey = -1L;
++    private final TvSeekState seekState = new TvSeekState();
++    private SeekBar progress;
++    private final Runnable commitSeek = this::flushSeek;
+     private boolean valid, surfaceReady, foreground, prepared, seeking, playing;
+     private boolean playWhenReady = true, failed, completed, destroyed, retryFromStart;
+     private TvPlayQueue queue;
+@@ -64,7 +70,7 @@
+     private final Runnable hideResolution = () -> { if (actual != null) actual.setVisibility(View.GONE); };
+ 
+     private final Runnable hideControls = () -> {
+-        if (playing && !failed && qualityDialog == null) hideControls();
++        if (playing && !failed && qualityDialog == null && !seekState.active()) hideControls();
+     };
+     private final Runnable timeout = () -> {
+         if (!destroyed && player != null && (!prepared || seeking))
+@@ -196,6 +202,48 @@
+         controls.setBackgroundColor(TvUi.TEXT);
+         clock = TvUi.text(this, "00:00 / --:--", 16f, Color.WHITE);
+         controls.addView(clock);
++        progress = new SeekBar(this);
++        progress.setId(View.generateViewId());
++        progress.setContentDescription("播放进度，左右键每次调整10秒");
++        progress.setFocusable(true);
++        progress.setMinimumHeight(dp(48));
++        progress.setThumbTintList(ColorStateList.valueOf(Color.WHITE));
++        progress.setProgressTintList(ColorStateList.valueOf(Color.WHITE));
++        progress.setProgressBackgroundTintList(ColorStateList.valueOf(TvUi.SECONDARY));
++        progress.setBackgroundResource(R.drawable.tv_focus_dark);
++        progress.setPadding(dp(12), 0, dp(12), 0);
++        progress.setEnabled(false);
++        progress.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
++            public void onStartTrackingTouch(SeekBar bar) {
++                if (!canSeek()) return;
++                main.removeCallbacks(hideControls);
++                rememberPosition(); seekState.begin(position);
++            }
++            public void onProgressChanged(SeekBar bar, int value, boolean fromUser) {
++                if (!fromUser || !canSeek()) return;
++                long target = TvSeekState.clamp((long) value * 1000L, duration());
++                if (target < 0L) return;
++                if (seekState.dragging()) {
++                    seekState.preview(target); position = seekState.target(); updateClock();
++                } else requestSeek(target, true);
++            }
++            public void onStopTrackingTouch(SeekBar bar) {
++                seekState.end(); finishSeekInput();
++            }
++        });
++        progress.setOnTouchListener((view, event) -> {
++            if (event.getActionMasked() == MotionEvent.ACTION_CANCEL) {
++                seekState.cancel(); finishSeekInput();
++            }
++            return false;
++        });
++        progress.setOnKeyListener((view, key, event) -> {
++            if (key != KeyEvent.KEYCODE_DPAD_LEFT && key != KeyEvent.KEYCODE_DPAD_RIGHT) return false;
++            if (event.getAction() == KeyEvent.ACTION_DOWN && acceptSeekKey(event))
++                seekBy(key == KeyEvent.KEYCODE_DPAD_LEFT ? -10000L : 10000L);
++            return true;
++        });
++        controls.addView(progress, new LinearLayout.LayoutParams(-1, dp(48)));
+         LinearLayout row = new LinearLayout(this);
+         row.setOrientation(LinearLayout.HORIZONTAL);
+         previousButton = addButton(row, "上一集", () -> moveEpisode(-1));
+@@ -450,25 +498,23 @@
+                 long clamped = resumePosition(position, duration(), false);
+                 if (clamped != position) { position = clamped; saveProgress(); }
+                 updateNavigation();
+-                if (position > 0) seekTo(position); else startWanted();
++                if (position > 0) requestSeek(position, false); else startWanted();
+                 updateClock();
+             });
+             candidate.setOnSeekCompleteListener(mp -> {
+-                if (mp != player) return;
++                if (mp != player || !seeking || !seekState.inFlight()) return;
+                 seeking = false;
+                 main.removeCallbacks(timeout);
+-                if (queuedSeek >= 0L) {
+-                    long target = queuedSeek;
+-                    queuedSeek = -1L;
+-                    seekTo(target);
+-                    return;
+-                }
+-                rememberPosition();
+-                startWanted();
++                boolean last = seekState.complete(SystemClock.uptimeMillis());
++                rememberPosition(); updateClock();
++                if (last && !seekState.dragging()) startWanted();
++                else flushSeek();
+             });
+             candidate.setOnCompletionListener(mp -> {
+-                if (mp != player) return;
+-                completed = true; position = 0L; queuedSeek = -1L; playWhenReady = false; playing = false;
++                if (mp != player || seeking || seekState.dragging()
++                        || seekState.active() && seekState.target() < duration() - 1000L) return;
++                seekState.reset(); main.removeCallbacks(commitSeek);
++                completed = true; position = 0L; playWhenReady = false; playing = false;
+                 saveProgress(); resetResolution();
+                 screenOn(false);
+                 abandonAudio();
+@@ -504,7 +550,7 @@
+     }
+ 
+     private void startWanted() {
+-        if (player == null || !prepared || seeking || failed || !foreground) return;
++        if (player == null || !prepared || seeking || seekState.dragging() || failed || !foreground) return;
+         if (!playWhenReady) { status.setText("已暂停"); updatePlayButton(); return; }
+         try {
+             if (!audioFocusHeld && audio != null) {
+@@ -527,14 +573,14 @@
+ 
+     private void togglePlayback() {
+         if (!valid || failed) { if (failed) retryButton.requestFocus(); return; }
+-        if (playing || (!prepared && playWhenReady)) {
++        if (playing || (playWhenReady && (!prepared || seeking || seekState.active()))) {
+             playWhenReady = false;
+             waitingForFocus = false;
+             pausePlayback();
+             abandonAudio();
+         } else {
+             playWhenReady = true;
+-            if (completed) { completed = false; position = 0L; seekTo(0L); }
++            if (completed) { completed = false; position = 0L; requestSeek(0L, false); }
+             else if (player == null) prepare();
+             else startWanted();
+         }
+@@ -555,27 +601,69 @@
+     }
+ 
+     private void seekBy(long delta) {
+-        if (!prepared || player == null || failed) { showControls(true); return; }
+-        if (!seeking) rememberPosition();
+-        completed = false;
+-        seekTo(position + delta);
++        if (!canSeek()) { showControls(true); return; }
++        rememberPosition();
++        long base = seekState.active() ? seekState.target() : position;
++        requestSeek(TvSeekState.offset(base, delta, duration()), true);
+         showControls(false);
+     }
+ 
+     private void seekTo(long requested) {
+-        if (!prepared || player == null) return;
+-        long target = Math.max(0L, Math.min((long) Integer.MAX_VALUE, requested));
+-        int duration = duration();
+-        if (duration > 0) target = Math.min(target, Math.max(0, duration - 1));
+-        position = target;
+-        if (seeking) { queuedSeek = target; updateClock(); return; }
++        if (!prepared || player == null || !foreground) return;
+         seeking = true;
+         try {
+-            player.seekTo((int) target); // API21: the long/mode overload is API26+.
++            if (Build.VERSION.SDK_INT >= 26) Api26.seek(player, requested);
++            else player.seekTo((int) requested);
+             main.removeCallbacks(timeout);
+             main.postDelayed(timeout, 15000);
+             updateClock();
+         } catch (RuntimeException error) { fail("该线路无法定位到播放进度，可从头重试或选择其他画质。", true); }
++    }
++
++    private static final class Api26 {
++        static void seek(MediaPlayer player, long position) { player.seekTo(position, MediaPlayer.SEEK_CLOSEST); }
++    }
++
++    private boolean canSeek() { return prepared && player != null && foreground && !failed && duration() > 0; }
++
++    private void requestSeek(long requested, boolean debounce) {
++        if (!prepared || player == null || !foreground || failed || requested < 0) return;
++        int length = duration();
++        if (debounce && length <= 0) return;
++        long target = length > 0 ? TvSeekState.clamp(requested, length) : Math.min(Integer.MAX_VALUE, requested);
++        seekState.request(target); position = target; completed = false;
++        main.removeCallbacks(hideControls);
++        status.setText("正在定位 · " + time(target));
++        seekReadyAt = debounce ? SystemClock.uptimeMillis() + 200L : 0L;
++        main.removeCallbacks(commitSeek);
++        if (debounce) main.postDelayed(commitSeek, 200L); else flushSeek();
++        updateClock();
++    }
++
++    private void finishSeekInput() {
++        rememberPosition(); updateClock();
++        seekReadyAt = 0L; main.removeCallbacks(commitSeek); flushSeek();
++        scheduleHide();
++    }
++
++    private void flushSeek() {
++        if (!prepared || player == null || !foreground || failed || seekState.dragging()) return;
++        main.removeCallbacks(commitSeek);
++        long now = SystemClock.uptimeMillis(), delay = seekReadyAt - now;
++        if (delay > 0L) { main.postDelayed(commitSeek, delay); return; }
++        long target = seekState.take(now);
++        if (target >= 0L) seekTo(target);
++        else if (!seeking) startWanted();
++    }
++
++    private boolean acceptSeekKey(KeyEvent event) {
++        long now = SystemClock.uptimeMillis();
++        if (!acceptSeekRepeat(now, lastSeekKey, event.getRepeatCount())) return false;
++        lastSeekKey = now; return true;
++    }
++
++    static boolean acceptSeekRepeat(long now, long previous, int repeat) {
++        return repeat == 0 || previous < 0L || now - previous >= 150L;
+     }
+ 
+     private void chooseQuality() {
+@@ -654,8 +742,9 @@
+     }
+ 
+     private void rememberPosition() {
+-        if (player != null && prepared && !seeking && !completed) {
+-            try { position = Math.max(0L, player.getCurrentPosition()); } catch (RuntimeException ignored) { }
++        if (player != null && prepared && !completed) {
++            try { position = seekState.observe(Math.max(0L, player.getCurrentPosition()), SystemClock.uptimeMillis()); }
++            catch (RuntimeException ignored) { }
+         }
+     }
+ 
+@@ -670,6 +759,14 @@
+         int duration = duration();
+         if (clock != null) clock.setText(time(completed && duration > 0 ? duration : position)
+                 + " / " + (duration > 0 ? time(duration) : "--:--"));
++        if (progress != null) {
++            progress.setEnabled(canSeek());
++            if (!seekState.dragging()) {
++                progress.setMax(Math.max(1, duration / 1000));
++                progress.setKeyProgressIncrement(10);
++                progress.setProgress((int) Math.min(Integer.MAX_VALUE, position / 1000L));
++            }
++        }
+     }
+ 
+     private void updatePlayButton() {
+@@ -682,7 +779,8 @@
+         advancing = false;
+         MediaPlayer old = player;
+         player = null;
+-        prepared = false; seeking = false; queuedSeek = -1L; playing = false;
++        prepared = false; seeking = false; playing = false;
++        main.removeCallbacks(commitSeek); seekState.reset(); seekReadyAt = 0L; lastSeekKey = -1L;
+         resetResolution();
+         screenOn(false);
+         abandonAudio();
+@@ -764,22 +862,23 @@
+                 playWhenReady = false; waitingForFocus = false; pausePlayback(); abandonAudio(); showControls(true); return true;
+             case KeyEvent.KEYCODE_MEDIA_STOP:
+                 playWhenReady = false; pausePlayback(); abandonAudio(); position = 0L;
+-                if (prepared) seekTo(0L);
++                if (prepared) requestSeek(0L, false);
+                 showControls(true); return true;
+             case KeyEvent.KEYCODE_MEDIA_REWIND:
+             case KeyEvent.KEYCODE_MEDIA_FAST_FORWARD:
+-                if (event.getRepeatCount() == 0) seekBy(keyCode == KeyEvent.KEYCODE_MEDIA_REWIND ? -10000L : 10000L);
++                if (acceptSeekKey(event)) seekBy(keyCode == KeyEvent.KEYCODE_MEDIA_REWIND ? -10000L : 10000L);
+                 return true;
+             case KeyEvent.KEYCODE_DPAD_LEFT:
+             case KeyEvent.KEYCODE_DPAD_RIGHT:
+                 if (!controlsFocused()) {
+-                    if (event.getRepeatCount() == 0) seekBy(keyCode == KeyEvent.KEYCODE_DPAD_LEFT ? -10000L : 10000L);
++                    if (acceptSeekKey(event)) seekBy(keyCode == KeyEvent.KEYCODE_DPAD_LEFT ? -10000L : 10000L);
+                     return true;
+                 }
+                 break;
+             case KeyEvent.KEYCODE_DPAD_UP:
+             case KeyEvent.KEYCODE_DPAD_DOWN:
+-                showControls(!controlsFocused()); return true;
++                if (!controlsFocused()) { showControls(false); if (progress.isEnabled()) progress.requestFocus(); else playButton.requestFocus(); return true; }
++                break;
+             case KeyEvent.KEYCODE_DPAD_CENTER:
+             case KeyEvent.KEYCODE_ENTER:
+                 if (!controlsFocused()) { if (event.getRepeatCount() == 0) showControls(true); return true; }

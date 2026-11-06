@@ -1,0 +1,628 @@
+{
+  "passed": true,
+  "scope": "static integration contract only; no Android device/render/playback acceptance",
+  "checks": {
+    "player_layout_1320": {
+      "passed": true,
+      "baseline": "immutable1.3.1 report and source preimages",
+      "files": {
+        "resources": {
+          "decoded/res/layout/phone_activity_video_detail_play.xml": {
+            "before_sha256": "47ec11e69da1e519525638acbc12e916220049d89e4448277796bc1761572ff0",
+            "after_sha256": "841aaaa76b3aac04402be6d44bebd5fb02fa8414dc18bfda608774480af13640",
+            "bound_ids": 50,
+            "root_class_tag_preserved": true,
+            "constraint_siblings_valid": true
+          },
+          "decoded/res/layout/mv_details_key_grid_item.xml": {
+            "before_sha256": "d6a75cbd59aeaba428d3a8ccbf4d41c3adb263f08e56a3f93abe15f6736c1deb",
+            "after_sha256": "149cd4930a1e7636e92a04e988d4d85be2f1f75b9314162ef90a8322a07cc9f0",
+            "bound_ids": 1,
+            "root_class_tag_preserved": true,
+            "constraint_siblings_valid": true
+          }
+        },
+        "smali": {
+          "decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity.smali": {
+            "before_sha256": "e760146928ac2b233460623c3fc38e2a2ad07aab29f1fa849d9586a2e420470e",
+            "after_sha256": "48472d5d130f363900ed8ebe02f97bb54b00e92e1917f60567cf36a53bd68b79",
+            "modified_methods": [
+              "O1()V",
+              "onConfigurationChanged(Landroid/content/res/Configuration;)V"
+            ],
+            "added_methods": [
+              "configureEpisodeGrid()V"
+            ],
+            "required_final_invocations": {
+              "O1()V": [
+                "Landroidx/recyclerview/widget/GridLayoutManager;-><init>(Landroid/content/Context;I)V",
+                "Landroidx/recyclerview/widget/RecyclerView;->setAdapter(Landroidx/recyclerview/widget/RecyclerView$Adapter;)V",
+                "Landroidx/recyclerview/widget/RecyclerView;->setLayoutManager(Landroidx/recyclerview/widget/RecyclerView$LayoutManager;)V",
+                "Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->configureEpisodeGrid()V",
+                "Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->refreshEpisodeOrder()V",
+                "Lcom/shenma/tvlauncher/phone/base/BaseDbActivity;->getMDataBind()Landroidx/databinding/ViewDataBinding;",
+                "Lcom/shenma/tvlauncher/phone/r1;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+                "Lcom/shenma/tvlauncher/phone/s1;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+                "Lf6/g;-><init>(IIIILkotlin/jvm/internal/p;)V",
+                "Lf6/g;->h(Lkotlin/jvm/functions/Function2;)V"
+              ],
+              "onConfigurationChanged(Landroid/content/res/Configuration;)V": [
+                "Landroidx/appcompat/app/AppCompatActivity;->onConfigurationChanged(Landroid/content/res/Configuration;)V",
+                "Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->configureEpisodeGrid()V",
+                "Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->t1(I)V",
+                "Lkotlin/jvm/internal/y;->f(Ljava/lang/Object;Ljava/lang/String;)V"
+              ],
+              "configureEpisodeGrid()V": [
+                "Landroid/content/Context;->getResources()Landroid/content/res/Resources;",
+                "Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;",
+                "Landroidx/recyclerview/widget/GridLayoutManager;->setSpanCount(I)V",
+                "Landroidx/recyclerview/widget/RecyclerView;->getLayoutManager()Landroidx/recyclerview/widget/RecyclerView$LayoutManager;",
+                "Lcom/shenma/tvlauncher/phone/base/BaseDbActivity;->getMDataBind()Landroidx/databinding/ViewDataBinding;",
+                "Lcom/tongpin/player4k/catalog/PhoneUi;->episodeColumns(IF)I"
+              ]
+            }
+          }
+        }
+      },
+      "new_resources": {},
+      "new_own_sources": [],
+      "modified_own_sources": [
+        "com/tongpin/player4k/catalog/LegacyPlayerControls.java",
+        "com/tongpin/player4k/catalog/OpenPlayerActivity.java",
+        "com/tongpin/player4k/catalog/PhoneUi.java",
+        "com/tongpin/player4k/catalog/PlayerOptionsSheet.java"
+      ],
+      "review_reports": {
+        "ui/player-layout-1.3.2/controls-verification.json": "2de9e62edde5c2e9faf0f58427ef48ceb18cb4b73fd3140b39d5dcf4b411e55a",
+        "ui/player-layout-1.3.2/episode-verification.json": "4b7831c8d66cf805b065c07e99812bb6bc6229da3625502e72890456538d906b"
+      },
+      "native_runtime_verified": false
+    },
+    "player_polish_1310": {
+      "passed": true,
+      "baseline": "immutable1.3.0 report and source preimages",
+      "files": {
+        "resources": {
+          "decoded/res/layout/phone_activity_video_detail_play.xml": {
+            "before_sha256": "2505dd8efe736f418313f6ed234655e8b79ea648e26154271d2b7b1486a9a693",
+            "after_sha256": "47ec11e69da1e519525638acbc12e916220049d89e4448277796bc1761572ff0",
+            "bound_ids": 50,
+            "root_class_tag_preserved": true,
+            "constraint_siblings_valid": true
+          },
+          "decoded/res/layout/mv_media_controler_phone.xml": {
+            "before_sha256": "391b5260149bb7213f1a3a87e8602ae8c96e8de25d485e40eca8ed636692b334",
+            "after_sha256": "78ca62529180a7234422006c5e7540cfb429ae79edef750a82bcc609b22fbb4e",
+            "bound_ids": 11,
+            "root_class_tag_preserved": true,
+            "constraint_siblings_valid": true
+          },
+          "decoded/res/layout/item_juji_bottom.xml": {
+            "before_sha256": "2008e3d3d79b4bd626ba3ceb3e0db967a640c92b55e91504c7ac2faa6169a745",
+            "after_sha256": "2254402a7f8e7b24d5bf89a4608c92f753aac4188da7bf079d490f9a13db5080",
+            "bound_ids": 1,
+            "root_class_tag_preserved": true,
+            "constraint_siblings_valid": true
+          },
+          "decoded/res/layout/item_juji_gride.xml": {
+            "before_sha256": "fcb738324feaa5697de61e0520082d16dffc3097816e7d27fb552744c2ffa87a",
+            "after_sha256": "4f4d27af68ddb130ceb3275f5f568600ea94912aa4d845b707ed4396c5fb56f8",
+            "bound_ids": 1,
+            "root_class_tag_preserved": true,
+            "constraint_siblings_valid": true
+          }
+        },
+        "smali": {
+          "decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity.smali": {
+            "before_sha256": "5ac64b221a210d1c05f08af9c04e85639222143277410ba60525d1567bb46831",
+            "after_sha256": "e760146928ac2b233460623c3fc38e2a2ad07aab29f1fa849d9586a2e420470e",
+            "method": "public onWindowFocusChanged(Z)V",
+            "all_other_text_unchanged": true,
+            "modified_methods": [
+              "onWindowFocusChanged(Z)V"
+            ],
+            "required_final_invocations": {
+              "onWindowFocusChanged(Z)V": [
+                "Landroidx/appcompat/app/AppCompatActivity;->onWindowFocusChanged(Z)V",
+                "Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->applyFullscreenWindow(Z)V",
+                "Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->u1(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V"
+              ]
+            }
+          },
+          "decoded/smali_classes5/f6/g.smali": {
+            "before_sha256": "fc17301c09dcf879a1ce1f38b958b68e8ffec4aeac1904774bac1f4ac16460b2",
+            "after_sha256": "30f881d0988e6b21d772531a9f2c899353fd7fab4c80417850a07e5954575e29",
+            "method": "public c(Lf6/g$a;I)V",
+            "all_other_text_unchanged": true,
+            "modified_methods": [
+              "c(Lf6/g$a;I)V"
+            ],
+            "required_final_invocations": {
+              "c(Lf6/g$a;I)V": [
+                "Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I",
+                "Landroid/view/View;->getContext()Landroid/content/Context;",
+                "Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V",
+                "Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V",
+                "Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V",
+                "Landroid/widget/TextView;->setTextColor(I)V",
+                "Landroidx/core/content/ContextCompat;->getDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;",
+                "Lcom/shenma/tvlauncher/vod/domain/VodUrl;->getTitle()Ljava/lang/String;",
+                "Lcom/tongpin/player4k/catalog/PhoneUi;->episodeLabel(Ljava/lang/String;)Ljava/lang/String;",
+                "Lcom/tongpin/player4k/catalog/PhoneUi;->selectionColor(I)I",
+                "Lcom/tongpin/player4k/catalog/PhoneUi;->styleEpisodeBackground(Landroid/widget/TextView;I)V",
+                "Lf6/f;-><init>(Lf6/g;ILcom/shenma/tvlauncher/vod/domain/VodUrl;Lf6/g$a;)V",
+                "Lf6/g$a;->a()Landroid/widget/TextView;",
+                "Lf6/g;->episodePosition(I)I",
+                "Ljava/util/List;->get(I)Ljava/lang/Object;",
+                "Lkotlin/jvm/internal/y;->f(Ljava/lang/Object;Ljava/lang/String;)V"
+              ]
+            }
+          }
+        }
+      },
+      "new_resources": {
+        "drawable/tp_player_action_bg": "0x7f080751"
+      },
+      "new_own_sources": [
+        "com/tongpin/player4k/catalog/PlayerOptionsSheet.java"
+      ],
+      "native_runtime_verified": false
+    },
+    "player_controls_1300": {
+      "passed": true,
+      "baseline": "immutable signed1.2.1 contract and source hashes",
+      "smali": {
+        "decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity.smali": {
+          "before_sha256": "335cfda5fa42a1c111eb207b531ac0575a306044a61d2fff32bacc4dc22e3fbc",
+          "after_sha256": "5ac64b221a210d1c05f08af9c04e85639222143277410ba60525d1567bb46831",
+          "modified_methods": [
+            "I1()V",
+            "R1()V",
+            "Z2(ZZZ)V"
+          ],
+          "added_methods": [
+            "legacyEpisodeIndex()I",
+            "legacyEpisodeCount()I",
+            "legacyPlayEpisode(I)V",
+            "legacySeekBy(J)Z"
+          ],
+          "added_interfaces": [
+            "Lcom/tongpin/player4k/catalog/LegacyPlayerControls$Host;"
+          ],
+          "added_fields": [],
+          "unchanged_original_register_locals": true,
+          "byte_exact_121_restoration": true,
+          "required_final_invocations": {
+            "I1()V": [
+              "Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I",
+              "Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;",
+              "Landroid/widget/Toast;->show()V",
+              "Landroidx/lifecycle/LifecycleOwnerKt;->getLifecycleScope(Landroidx/lifecycle/LifecycleOwner;)Landroidx/lifecycle/LifecycleCoroutineScope;",
+              "Lcom/shenma/tvlauncher/entity/PlayerSource;->getList()Ljava/util/List;",
+              "Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity$c;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;Lcom/shenma/tvlauncher/vod/domain/VodUrl;Lq7/e;)V",
+              "Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->V2()V",
+              "Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->w1()V",
+              "Lcom/shenma/tvlauncher/phone/base/BaseActivity;->getTAG()Ljava/lang/String;",
+              "Lcom/shenma/tvlauncher/phone/base/BaseVmActivity;->getMViewModel()Lcom/shenma/tvlauncher/phone/base/BaseViewModel;",
+              "Lcom/shenma/tvlauncher/phone/viewmodel/a;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V",
+              "Lcom/shenma/tvlauncher/vod/domain/VideoDetailInfo;->getTitle()Ljava/lang/String;",
+              "Lcom/shenma/tvlauncher/vod/domain/VodUrl;->getTitle()Ljava/lang/String;",
+              "Lcom/shenma/tvlauncher/vod/domain/VodUrl;->getUrl()Ljava/lang/String;",
+              "Lcom/tongpin/player4k/catalog/LegacyPlayerControls;->bind(Landroid/app/Activity;Lcom/tongpin/player4k/catalog/LegacyPlayerControls$Host;)V",
+              "Lj8/b1;->c()Lj8/e2;",
+              "Lj8/i;->d(Lj8/n0;Lq7/i;Lj8/p0;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lj8/u1;",
+              "Ljava/lang/String;->valueOf(I)Ljava/lang/String;",
+              "Ljava/lang/StringBuilder;-><init>()V",
+              "Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;",
+              "Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;",
+              "Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;",
+              "Ljava/lang/StringBuilder;->toString()Ljava/lang/String;",
+              "Ljava/util/List;->get(I)Ljava/lang/Object;",
+              "Ljava/util/List;->isEmpty()Z",
+              "Ljava/util/List;->size()I",
+              "Lkotlin/jvm/internal/y;->e(Ljava/lang/Object;Ljava/lang/String;)V"
+            ],
+            "R1()V": [
+              "Landroid/view/GestureDetector;-><init>(Landroid/content/Context;Landroid/view/GestureDetector$OnGestureListener;)V",
+              "Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V",
+              "Landroid/widget/SeekBar;->setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V",
+              "Landroidx/lifecycle/LiveData;->observe(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Observer;)V",
+              "Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity$e;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+              "Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity$f;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+              "Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity$i;-><init>(Lkotlin/jvm/functions/Function1;)V",
+              "Lcom/shenma/tvlauncher/phone/base/BaseDbActivity;->getMDataBind()Landroidx/databinding/ViewDataBinding;",
+              "Lcom/shenma/tvlauncher/phone/base/BaseVmActivity;->getMViewModel()Lcom/shenma/tvlauncher/phone/base/BaseViewModel;",
+              "Lcom/shenma/tvlauncher/phone/f0;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+              "Lcom/shenma/tvlauncher/phone/g0;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+              "Lcom/shenma/tvlauncher/phone/h0;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+              "Lcom/shenma/tvlauncher/phone/i0;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+              "Lcom/shenma/tvlauncher/phone/j0;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+              "Lcom/shenma/tvlauncher/phone/k0;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+              "Lcom/shenma/tvlauncher/phone/l0;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+              "Lcom/shenma/tvlauncher/phone/m0;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+              "Lcom/shenma/tvlauncher/phone/n0;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+              "Lcom/shenma/tvlauncher/phone/o0;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+              "Lcom/shenma/tvlauncher/phone/q0;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+              "Lcom/shenma/tvlauncher/phone/r0;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+              "Lcom/shenma/tvlauncher/phone/s0;-><init>()V",
+              "Lcom/shenma/tvlauncher/phone/t0;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+              "Lcom/shenma/tvlauncher/phone/u0;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+              "Lcom/shenma/tvlauncher/phone/v0;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+              "Lcom/shenma/tvlauncher/phone/viewmodel/a;->c()Landroidx/lifecycle/MutableLiveData;",
+              "Lcom/shenma/tvlauncher/phone/viewmodel/a;->d()Landroidx/lifecycle/MutableLiveData;",
+              "Lcom/shenma/tvlauncher/phone/w0;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+              "Lcom/shenma/tvlauncher/phone/x0;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+              "Lcom/shenma/tvlauncher/phone/y0;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+              "Lcom/shenma/tvlauncher/phone/z0;-><init>(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+              "Lcom/tongpin/player4k/catalog/LegacyPlayerControls;->bind(Landroid/app/Activity;Lcom/tongpin/player4k/catalog/LegacyPlayerControls$Host;)V"
+            ],
+            "Z2(ZZZ)V": [
+              "Landroid/view/View;->isSelected()Z",
+              "Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z",
+              "Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z",
+              "Landroid/view/View;->setVisibility(I)V",
+              "Landroidx/databinding/ViewDataBinding;->getRoot()Landroid/view/View;",
+              "Lcom/shenma/tvlauncher/phone/base/BaseDbActivity;->getMDataBind()Landroidx/databinding/ViewDataBinding;",
+              "Lcom/tongpin/player4k/catalog/LegacyPlayerControls;->bind(Landroid/app/Activity;Lcom/tongpin/player4k/catalog/LegacyPlayerControls$Host;)V",
+              "Lkotlin/jvm/internal/y;->e(Ljava/lang/Object;Ljava/lang/String;)V"
+            ],
+            "legacyEpisodeIndex()I": [],
+            "legacyEpisodeCount()I": [
+              "Lcom/shenma/tvlauncher/entity/PlayerSource;->getList()Ljava/util/List;",
+              "Ljava/util/List;->get(I)Ljava/lang/Object;",
+              "Ljava/util/List;->size()I"
+            ],
+            "legacyPlayEpisode(I)V": [
+              "Lcom/shenma/tvlauncher/entity/PlayerSource;->getList()Ljava/util/List;",
+              "Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->P1(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;Lcom/shenma/tvlauncher/vod/domain/VodUrl;I)Lm7/f0;",
+              "Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->legacyEpisodeCount()I",
+              "Ljava/util/List;->get(I)Ljava/lang/Object;"
+            ],
+            "legacySeekBy(J)Z": [
+              "Lcom/shenma/tvlauncher/phone/base/BaseDbActivity;->getMDataBind()Landroidx/databinding/ViewDataBinding;",
+              "Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoPlayer;->getGSYVideoManager()Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoViewBridge;",
+              "Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->getCurrentState()I",
+              "Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->getDuration()J",
+              "Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoView;->seekTo(J)V",
+              "Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoViewBridge;->getCurrentPosition()J",
+              "Lcom/tongpin/player4k/catalog/LegacyPlayerControls;->seekTarget(JJJ)J"
+            ]
+          }
+        },
+        "decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity$n.smali": {
+          "before_sha256": "f59101cc9dffa3eaddc5d54ea4a73e7e6ebf63b75325565b62bdf0b7b5721471",
+          "after_sha256": "802ea3af14b8db8b90db2cf67040d85d69eb276e0fa763319d2d16996384ef30",
+          "modified_methods": [
+            "c(Ljava/lang/String;[Ljava/lang/Object;)V"
+          ],
+          "added_methods": [],
+          "added_interfaces": [],
+          "added_fields": [],
+          "unchanged_original_register_locals": true,
+          "byte_exact_121_restoration": true,
+          "required_final_invocations": {
+            "c(Ljava/lang/String;[Ljava/lang/Object;)V": [
+              "Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I",
+              "Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->I0(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)I",
+              "Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->Q0(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)Ljava/lang/String;",
+              "Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->S0(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V",
+              "Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->d1(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;I)V",
+              "Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->e1(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;I)V",
+              "Lcom/tongpin/player4k/catalog/LegacyPlayerControls;->autoNextEnabled(Landroid/content/Context;)Z",
+              "Ljava/lang/StringBuilder;-><init>()V",
+              "Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;",
+              "Ljava/lang/StringBuilder;->toString()Ljava/lang/String;",
+              "Lkotlin/jvm/internal/y;->f(Ljava/lang/Object;Ljava/lang/String;)V"
+            ]
+          }
+        }
+      },
+      "modified_own_sources": [
+        "com/tongpin/player4k/catalog/CatalogActivity.java",
+        "com/tongpin/player4k/catalog/OpenPlayerActivity.java"
+      ],
+      "new_own_sources": [
+        "com/tongpin/player4k/catalog/LegacyPlayerControls.java",
+        "com/tongpin/player4k/catalog/PlayQueue.java"
+      ],
+      "new_resources": [],
+      "native_runtime_verified": false
+    },
+    "player_fix_1201": {
+      "passed": true,
+      "baseline": "1.2.0 frozen reports, never rewritten",
+      "files": {
+        "decoded/res/layout/mv_media_controler_phone.xml": {
+          "before_sha256": "5fb4b45de6ce3b9ab7883a50336a932c2f0b218cda0f0568e66900d2ebe7e7d5",
+          "after_sha256": "391b5260149bb7213f1a3a87e8602ae8c96e8de25d485e40eca8ed636692b334",
+          "bound_ids": 11,
+          "root_class_tag_preserved": true,
+          "constraint_siblings_valid": true
+        },
+        "decoded/res/layout/mv_media_play_top.xml": {
+          "before_sha256": "05f82387658358ec865e10450c22e9715c81738f773e0de3f355d249c39c2cb3",
+          "after_sha256": "75687e6601694a307d14f94c41efbe0d034954ffc47da97d523e7c94db7f907c",
+          "bound_ids": 3,
+          "root_class_tag_preserved": true,
+          "constraint_siblings_valid": true
+        },
+        "decoded/res/layout/phone_activity_video_detail_play.xml": {
+          "before_sha256": "ad0b371caa17b1bdd29ce8f3035a5a1dc7ac985f626be0daf661956ecf97f560",
+          "after_sha256": "2505dd8efe736f418313f6ed234655e8b79ea648e26154271d2b7b1486a9a693",
+          "bound_ids": 50,
+          "root_class_tag_preserved": true,
+          "constraint_siblings_valid": true
+        },
+        "decoded/res/layout/video_layout_standard.xml": {
+          "before_sha256": "735dfb5038e358aa9e140e89c69c8af334007243638c2c763c2b6fee8ae43a9e",
+          "after_sha256": "db648c19ae65dec0ae9179ba2d44e56f39aadef742d1173e10448d76688749dc",
+          "bound_ids": 16,
+          "root_class_tag_preserved": true,
+          "constraint_siblings_valid": true
+        },
+        "decoded/smali_classes5/com/shenma/tvlauncher/phone/PlayerViewportInsets.smali": {
+          "before_sha256": "109e1fa321eb9dc3bad714029b821935af6fc133e391a65e20ce69a5c331901c",
+          "after_sha256": "720c2d825e23e460447547e58191ac2e52fb2fe682d54f1805116e44f2a95f3f",
+          "only_method": "public onApplyWindowInsets(Landroid/view/View;Landroidx/core/view/WindowInsetsCompat;)Landroidx/core/view/WindowInsetsCompat;",
+          "locals": 5,
+          "required_final_invocations": [
+            "Landroid/view/View;->setPadding(IIII)V",
+            "Landroidx/core/view/WindowInsetsCompat$Type;->displayCutout()I",
+            "Landroidx/core/view/WindowInsetsCompat$Type;->systemBars()I",
+            "Landroidx/core/view/WindowInsetsCompat;->getInsets(I)Landroidx/core/graphics/Insets;"
+          ]
+        },
+        "decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity.smali": {
+          "before_sha256": "b3c99f17e09a5a21b910b7bcb8eaacc13ca8c087b00b8596e9d521a2d3f72dfe",
+          "after_sha256": "335cfda5fa42a1c111eb207b531ac0575a306044a61d2fff32bacc4dc22e3fbc",
+          "only_method": "private final applyFullscreenWindow(Z)V",
+          "locals": 4,
+          "required_final_invocations": [
+            "Landroid/app/Activity;->getWindow()Landroid/view/Window;",
+            "Landroid/view/Window;->getDecorView()Landroid/view/View;",
+            "Landroid/view/Window;->setNavigationBarColor(I)V",
+            "Landroid/view/Window;->setStatusBarColor(I)V",
+            "Landroidx/core/view/ViewCompat;->requestApplyInsets(Landroid/view/View;)V",
+            "Landroidx/core/view/ViewCompat;->setOnApplyWindowInsetsListener(Landroid/view/View;Landroidx/core/view/OnApplyWindowInsetsListener;)V",
+            "Landroidx/core/view/WindowCompat;->getInsetsController(Landroid/view/Window;Landroid/view/View;)Landroidx/core/view/WindowInsetsControllerCompat;",
+            "Landroidx/core/view/WindowCompat;->setDecorFitsSystemWindows(Landroid/view/Window;Z)V",
+            "Landroidx/core/view/WindowInsetsCompat$Type;->systemBars()I",
+            "Landroidx/core/view/WindowInsetsControllerCompat;->hide(I)V",
+            "Landroidx/core/view/WindowInsetsControllerCompat;->setAppearanceLightNavigationBars(Z)V",
+            "Landroidx/core/view/WindowInsetsControllerCompat;->setAppearanceLightStatusBars(Z)V",
+            "Landroidx/core/view/WindowInsetsControllerCompat;->setSystemBarsBehavior(I)V",
+            "Landroidx/core/view/WindowInsetsControllerCompat;->show(I)V",
+            "Landroidx/databinding/ViewDataBinding;->getRoot()Landroid/view/View;",
+            "Lcom/shenma/tvlauncher/phone/PlayerViewportInsets;-><init>(ZLandroid/view/View;)V",
+            "Lcom/shenma/tvlauncher/phone/base/BaseDbActivity;->getMDataBind()Landroidx/databinding/ViewDataBinding;"
+          ]
+        },
+        "open-sources/src/com/tongpin/player4k/catalog/OpenPlayerActivity.java": {
+          "before_sha256": "12ce5ae0e9385258bb6cce520e7ea80221cca93e3f9b7ddc90c6c0215fddcb29",
+          "after_sha256": "aa3789e2203e34de1311c7056eddfcced1a35c6b6958ebef2c2bbd55b2a98117"
+        },
+        "open-sources/src/com/tongpin/player4k/catalog/PlaybackResolution.java": {
+          "before_sha256": "33ff91d3e523ec026d9cd28f552b379db1b96d44d0cd53a069121493dca92190",
+          "after_sha256": "053602bf9af43ba6f503470c72717eee8e367545c9035b3c7ef4716100975f36"
+        }
+      },
+      "layout_count": 4,
+      "native_methods": 2,
+      "own_source_changes": 2,
+      "new_resources": [],
+      "native_render_verified": false
+    },
+    "ui_1200": {
+      "passed": true,
+      "layout_count": 20,
+      "resources": {
+        "decoded/res/layout/phone_fragment_main.xml": {
+          "before_sha256": "ecf48abd745886750a1dd47d3632d436c46f1bf72b675981591a281dae0391d3",
+          "after_sha256": "9e0d10ea9a8b6dc296b13083768d4f688d3aa2bffe86242da373eab32ecea870",
+          "bound_ids": 6,
+          "root_class_tag_preserved": true,
+          "constraint_siblings_valid": true
+        },
+        "decoded/res/layout/phone_activity_main.xml": {
+          "before_sha256": "5638eec681709d421ea3d54f7a7a2a2f4703a21cc49c91046600e3d128969fcf",
+          "after_sha256": "946f7e13e755160a02ec9e03f452589ece5be53e8f03325781b3ec3d879bc9a1",
+          "bound_ids": 2,
+          "root_class_tag_preserved": true,
+          "constraint_siblings_valid": true
+        },
+        "decoded/res/layout/phone_fragment_mine.xml": {
+          "before_sha256": "f8086f8b7129eb3d7e5bbd2e7a49627ca304d475fbd5d741cc28033f933bb297",
+          "after_sha256": "9480be4c5ead6b14ffee49728b2a012df45ba8ceca8f00ba2ba179a6b5100c5d",
+          "bound_ids": 15,
+          "root_class_tag_preserved": true,
+          "constraint_siblings_valid": true
+        },
+        "decoded/res/layout/phone_activity_search.xml": {
+          "before_sha256": "98993a1efc0a84f11fa76c7857469d403342a37dcf4485aa22a3493bfc322f71",
+          "after_sha256": "9bb43dca78f5a27235b60646383c618b1fcd3602d13c4a49840ae7366a3e5bca",
+          "bound_ids": 6,
+          "root_class_tag_preserved": true,
+          "constraint_siblings_valid": true
+        },
+        "decoded/res/layout/phone_activity_history_collect.xml": {
+          "before_sha256": "639b422e0433f63ab49b1f87f0ee2ea34f78814c866795b6d409eba6f8051d8d",
+          "after_sha256": "f5367e493894896daf9cbb513b8791e5108e65213652b56a1117bd284b86c61a",
+          "bound_ids": 6,
+          "root_class_tag_preserved": true,
+          "constraint_siblings_valid": true
+        },
+        "decoded/res/layout/item_history_collect.xml": {
+          "before_sha256": "342412cdd63e39f3ec9e74dd55fa4176be92baa3097f0b5d94803b1f07a26f4a",
+          "after_sha256": "16fa04653bffa153acb4e5a0c3c5093dfa6973d99f9843d107568555e4259ca6",
+          "bound_ids": 2,
+          "root_class_tag_preserved": true,
+          "constraint_siblings_valid": true
+        },
+        "decoded/res/layout/item_history_collect_big.xml": {
+          "before_sha256": "ab63240a3781866392ef7992048d53bbd3ca9b1658328202368295c9c1755f1c",
+          "after_sha256": "1402bf849ae8c311ff2fcfb137372a34e1fc13ac6ab0a151a70f24d5436ecf60",
+          "bound_ids": 3,
+          "root_class_tag_preserved": true,
+          "constraint_siblings_valid": true
+        },
+        "decoded/res/layout/mv_type_details_item.xml": {
+          "before_sha256": "e598867bab5e9389ed815c0e1d3a0fca22c565b45ba9ddec6590a451f93ad72d",
+          "after_sha256": "e7b8fa61778d26b09118418e5a0f234a761e9183a1a8d9f15c7629e6d88c8998",
+          "bound_ids": 5,
+          "root_class_tag_preserved": true,
+          "constraint_siblings_valid": true
+        },
+        "decoded/res/layout/dialog_bottom_juji.xml": {
+          "before_sha256": "a38a08339586c4ef35cafe553c752c514217e28d870456bdf5b285542a864172",
+          "after_sha256": "ab05117cc505bc7411b912052582393c71a30c922888bd068ada7611dda8d1aa",
+          "bound_ids": 3,
+          "root_class_tag_preserved": true,
+          "constraint_siblings_valid": true
+        },
+        "decoded/res/layout/item_juji_bottom.xml": {
+          "before_sha256": "1f6c3a08b6bad9960cc6c448fd2a4a74b9e371f9845c2c2d740e1da086251643",
+          "after_sha256": "2008e3d3d79b4bd626ba3ceb3e0db967a640c92b55e91504c7ac2faa6169a745",
+          "bound_ids": 1,
+          "root_class_tag_preserved": true,
+          "constraint_siblings_valid": true
+        },
+        "decoded/res/layout/item_juji_gride.xml": {
+          "before_sha256": "532f7e3c797d0e51bb241e24139aedbb9e54b0f3aea8d9f94bfd1f8a5f3c604f",
+          "after_sha256": "fcb738324feaa5697de61e0520082d16dffc3097816e7d27fb552744c2ffa87a",
+          "bound_ids": 1,
+          "root_class_tag_preserved": true,
+          "constraint_siblings_valid": true
+        },
+        "decoded/res/layout/item_source.xml": {
+          "before_sha256": "e99083ded3da96b320e8cde766245842d8230327fffae7bab92706d527fd1d0d",
+          "after_sha256": "5901fb13545ea5f8571c7aff2f27aca0c3ba1d8c8757a26e0fd70af5d1e3b2d7",
+          "bound_ids": 2,
+          "root_class_tag_preserved": true,
+          "constraint_siblings_valid": true
+        },
+        "decoded/res/layout/mv_media_controler_phone.xml": {
+          "before_sha256": "fe1c2a6ea02f944e146b1c374bf27479d3b514a80918cf56d09e88c0ee4d77cf",
+          "after_sha256": "5fb4b45de6ce3b9ab7883a50336a932c2f0b218cda0f0568e66900d2ebe7e7d5",
+          "bound_ids": 11,
+          "root_class_tag_preserved": true,
+          "constraint_siblings_valid": true
+        },
+        "decoded/res/layout/mv_media_play_top.xml": {
+          "before_sha256": "024366e9b36233bf67cfcdaf77b617f9270ef7c20f035ef2de73b583bb648a50",
+          "after_sha256": "05f82387658358ec865e10450c22e9715c81738f773e0de3f355d249c39c2cb3",
+          "bound_ids": 3,
+          "root_class_tag_preserved": true,
+          "constraint_siblings_valid": true
+        },
+        "decoded/res/layout/phone_activity_video_detail_play.xml": {
+          "before_sha256": "b375c6808630233ebd05c22d71551eb959705bcfec5786dbd0e8a0d35250bd30",
+          "after_sha256": "ad0b371caa17b1bdd29ce8f3035a5a1dc7ac985f626be0daf661956ecf97f560",
+          "bound_ids": 50,
+          "root_class_tag_preserved": true,
+          "constraint_siblings_valid": true
+        },
+        "decoded/res/layout/popup_window_juji.xml": {
+          "before_sha256": "af5c2ec0e6843159ee95995806a4544b875624973737b4e302bdecbe99f27689",
+          "after_sha256": "3b71886fb358aeb848e7fd4f2b80f0aef4a6783f367ade37f15272b92bd7ce35",
+          "bound_ids": 5,
+          "root_class_tag_preserved": true,
+          "constraint_siblings_valid": true
+        },
+        "decoded/res/layout/popup_window_scale.xml": {
+          "before_sha256": "d103f4b0438d7f5e915e56e950647bb63241e60b6f76c8e1b13ffeadbfce8e11",
+          "after_sha256": "561f6aa64c814af551f116086136d536d83b05f6357788b94a9f46be95f1b5bc",
+          "bound_ids": 3,
+          "root_class_tag_preserved": true,
+          "constraint_siblings_valid": true
+        },
+        "decoded/res/layout/popup_window_skip.xml": {
+          "before_sha256": "9e5166a835f90073a66bf6574c40cdbcca182bb2ba2e93f7a363dfff568dc630",
+          "after_sha256": "0c03ed71c2a6374911161f88ff68ab013bfb61f4ba9cd21c086c57d73f8c325e",
+          "bound_ids": 9,
+          "root_class_tag_preserved": true,
+          "constraint_siblings_valid": true
+        },
+        "decoded/res/layout/popup_window_speed.xml": {
+          "before_sha256": "4dc06b12096bb7b7968497abe1dbf7aef05f85e409257ed2ee307466a6a4b027",
+          "after_sha256": "972dc71c9d28e5fc77170369a11c24621367e2484fda2960fae155c99fe12300",
+          "bound_ids": 6,
+          "root_class_tag_preserved": true,
+          "constraint_siblings_valid": true
+        },
+        "decoded/res/layout/video_layout_standard.xml": {
+          "before_sha256": "159c6ea37a5d24ad983114cc678a25d5ef6eaf09537d728f424773d7ca0c37fa",
+          "after_sha256": "735dfb5038e358aa9e140e89c69c8af334007243638c2c763c2b6fee8ae43a9e",
+          "bound_ids": 16,
+          "root_class_tag_preserved": true,
+          "constraint_siblings_valid": true
+        }
+      },
+      "style_source_sha256": "bd155441b3b6f633561e2d7c8cdfd721273ae5a30fda737c0602895f8dd6f996",
+      "new_resource_names": [
+        "style/TongpinCatalogTheme"
+      ],
+      "presentation_only_original_smali": {
+        "decoded/smali_classes5/f6/g.smali": "fc17301c09dcf879a1ce1f38b958b68e8ffec4aeac1904774bac1f4ac16460b2",
+        "decoded/smali_classes5/f6/m.smali": "b2862cfd0dd43ae7204d9a63412b1293e20ec107256b1d836246b5fbcebd8f00",
+        "decoded/smali_classes5/com/shenma/tvlauncher/phone/MainActivity.smali": "f0df9c68d1d244e5b2b8986ddcebcd64fe0fdb485ef67dfed22a34cbd95aa7d4",
+        "decoded/smali_classes5/com/shenma/tvlauncher/phone/SearchActivity.smali": "dadb7ceaf2131f1eae5026a180d3a146ed7548cad4809d829ad7a27f093524ba",
+        "decoded/smali_classes5/com/shenma/tvlauncher/phone/HistoryCollectActivity.smali": "8ded6f18b4c7a9bea7cfc0837a75cd51f3a53e8b2f395bd9976f660e085dce94"
+      },
+      "my_hidden_original_ids": [
+        "fl_ad",
+        "iv_gt",
+        "iv_settings",
+        "iv_user_icon",
+        "ll_msg",
+        "tv_empty_history",
+        "tv_sign",
+        "tv_user_name"
+      ],
+      "my_policy_hidden_ids": [
+        "fl_ad",
+        "iv_gt",
+        "iv_settings",
+        "iv_user_icon",
+        "ll_msg",
+        "tv_sign",
+        "tv_user_name"
+      ],
+      "template_byte_sync": true,
+      "native_render_verified": false
+    },
+    "decoded/res/layout/phone_fragment_main.xml": "original entry-layer attributes verified before modern UI; current binding/constraints/exact owner SHA verified separately",
+    "ui/templates/phone_fragment_main.xml": "original ID/type/root/tag retained; modern owner-approved template byte-matches deployed layout",
+    "layout_template_sync": "modern template and deployed public-catalog entry identical; old bindings and entry behavior retained",
+    "single_hook": "exactly one static call after super and before m(), locals=1 unchanged; entire e.smali otherwise identical",
+    "original_code": {
+      "snapshot_files": 42880,
+      "unchanged_files": 42868,
+      "allowed_modified_file": "decoded/smali_classes5/com/shenma/tvlauncher/phone/fragment/e.smali",
+      "allowed_modified_method": ".method public onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V",
+      "homepage_notice_disabled": true,
+      "additional_change": "decoded/smali_classes5/com/shenma/tvlauncher/phone/MainActivity.smali:Q()V only",
+      "legacy_113_exact_method_proofs": {
+        "decoded/smali_classes5/f6/g.smali": "30f881d0988e6b21d772531a9f2c899353fd7fab4c80417850a07e5954575e29",
+        "decoded/smali_classes5/h6/g0.smali": "df20dd559bc36e5d45b71a4529229c9f648c6e7297aa6d3e3d6bf81c36460b30",
+        "decoded/smali_classes5/h6/c.smali": "c57e64222bedd982d2a3aeb9f1ee47d1170678a33812f050f3e2cc71b1a44953",
+        "decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity.smali": "48472d5d130f363900ed8ebe02f97bb54b00e92e1917f60567cf36a53bd68b79",
+        "decoded/smali_classes5/com/shenma/tvlauncher/phone/EmptyControlVideoView.smali": "fbfefc39c46e65dde2007d7a6467d31cd330c7b7335146f28c2adc50ce4f44cd"
+      },
+      "ui_1200_exact_inverse_proofs": {
+        "decoded/smali_classes5/f6/g.smali": "fc17301c09dcf879a1ce1f38b958b68e8ffec4aeac1904774bac1f4ac16460b2",
+        "decoded/smali_classes5/f6/m.smali": "b2862cfd0dd43ae7204d9a63412b1293e20ec107256b1d836246b5fbcebd8f00",
+        "decoded/smali_classes5/com/shenma/tvlauncher/phone/MainActivity.smali": "f0df9c68d1d244e5b2b8986ddcebcd64fe0fdb485ef67dfed22a34cbd95aa7d4",
+        "decoded/smali_classes5/com/shenma/tvlauncher/phone/SearchActivity.smali": "dadb7ceaf2131f1eae5026a180d3a146ed7548cad4809d829ad7a27f093524ba",
+        "decoded/smali_classes5/com/shenma/tvlauncher/phone/HistoryCollectActivity.smali": "8ded6f18b4c7a9bea7cfc0837a75cd51f3a53e8b2f395bd9976f660e085dce94"
+      }
+    },
+    "manifest": "two internal framework Activity registrations plus verified release version change to 1.3.2/1320; all other original root attributes/package/permissions/components preserved",
+    "release_version": {
+      "version_name": "1.3.2",
+      "version_code": 1320,
+      "source": "build_tongpin.py",
+      "method": "AST literal_eval only; builder not executed"
+    },
+    "providers": "eight ordered HTTPS public endpoints with exact DTO fields, no credentials; original first three positions preserved"
+  }
+}

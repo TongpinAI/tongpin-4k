@@ -1,0 +1,136 @@
+{
+  "ok": true,
+  "value": {
+    "evidence_id": "ev_806d39e7ac96833e4bcc07d96d6e872d12e9b487a283c13b1156dab701f76bdd",
+    "subject": {
+      "name": "tongpin-4k-1.1.1.apk",
+      "digest": {
+        "sha256": "31b03d84a4249c13ccf0849eacb7e0e1373e437e013eb36060ff969019dad498"
+      },
+      "local_path": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\output\\tongpin-4k-1.1.1.apk",
+      "format": "apk",
+      "architecture": null
+    },
+    "provider": {
+      "id": "jadx",
+      "name": "JADX headless",
+      "version": "0.7.1"
+    },
+    "analysis_profile": null,
+    "predicate_type": "rea.analysis",
+    "operation": "inspect_android_method",
+    "parameters": {
+      "path": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\output\\tongpin-4k-1.1.1.apk",
+      "class_name": "com.shenma.tvlauncher.phone.SplashActivity.e.b",
+      "method_name": "invokeSuspend",
+      "overload_index": 0
+    },
+    "raw_result": {
+      "server": {
+        "name": "rea-jadx-bridge",
+        "version": "4"
+      },
+      "bridge_sha256": "a02b1ef0a4a40abd1ae310b9ee686ca163e0b59a3256df524c35b90ed17e9e63",
+      "jar_sha256": "6e5eacf500b64292bfb73c49797c1958f6ee44646e43e868039ae7feb573ff75",
+      "loaded": {
+        "state": "LOADED",
+        "apk_path": "C:\\Users\\ADMINI~1.DES\\AppData\\Local\\Temp\\rea-android-154e11aec2078573b91f2e1200c75abe\\target.apk",
+        "class_count": 23565,
+        "resource_count": 4005,
+        "threads": 1,
+        "resources": "full"
+      },
+      "calls": [
+        {
+          "operation": "rea_jvm_status",
+          "input": {},
+          "response": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"available_processors\":16,\"java_version\":\"25.0.4\",\"max_heap_bytes\":4294967296,\"metadata_scope\":\"parsed_members\",\"engine_reported_version\":\"0.7.1\"}"
+              }
+            ],
+            "isError": false
+          }
+        },
+        {
+          "operation": "get_class_summary",
+          "input": {
+            "class_name": "com.shenma.tvlauncher.phone.SplashActivity.e.b"
+          },
+          "response": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"name\":\"b\",\"inner_classes\":[],\"inner_class_count\":0,\"method_count\":5,\"methods\":[{\"def_pos\":0,\"signature\":\"\\u003cinit\\u003e(com.shenma.tvlauncher.phone.SplashActivity, q7.e): void\",\"dex_descriptor\":\"(Lcom/shenma/tvlauncher/phone/SplashActivity;Lq7/e;)V\",\"is_constructor\":true,\"name\":\"\\u003cinit\\u003e\"},{\"def_pos\":0,\"signature\":\"create(java.lang.Object, q7.e): q7.e\",\"dex_descriptor\":\"(Ljava/lang/Object;Lq7/e;)Lq7/e;\",\"is_constructor\":false,\"name\":\"create\"},{\"def_pos\":0,\"signature\":\"invoke(j8.n0, q7.e): java.lang.Object\",\"dex_descriptor\":\"(Lj8/n0;Lq7/e;)Ljava/lang/Object;\",\"is_constructor\":false,\"name\":\"invoke\"},{\"def_pos\":0,\"signature\":\"invoke(java.lang.Object, java.lang.Object): java.lang.Object\",\"dex_descriptor\":\"(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;\",\"is_constructor\":false,\"name\":\"invoke\"},{\"def_pos\":0,\"signature\":\"invokeSuspend(java.lang.Object): java.lang.Object\",\"dex_descriptor\":\"(Ljava/lang/Object;)Ljava/lang/Object;\",\"is_constructor\":false,\"name\":\"invokeSuspend\"}],\"fields\":[{\"type\":\"int\",\"name\":\"f35794b\",\"def_pos\":0},{\"type\":\"com.shenma.tvlauncher.phone.SplashActivity\",\"name\":\"f35795c\",\"def_pos\":0}],\"field_count\":2,\"full_name\":\"com.shenma.tvlauncher.phone.SplashActivity.e.b\"}"
+              }
+            ],
+            "isError": false
+          }
+        },
+        {
+          "operation": "get_method_body",
+          "input": {
+            "class_name": "com.shenma.tvlauncher.phone.SplashActivity.e.b",
+            "method_name": "invokeSuspend",
+            "overload_index": 0,
+            "smali_fallback": true
+          },
+          "response": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"dex_descriptor\":\"(Ljava/lang/Object;)Ljava/lang/Object;\",\"overload_count\":1,\"method_name\":\"invokeSuspend\",\"overload_index\":0,\"full_name\":\"com.shenma.tvlauncher.phone.SplashActivity.e.b.invokeSuspend\",\"fell_back\":true,\"markers\":[\"Code decompiled incorrectly, please refer to instructions dump\"],\"body\":\".method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;\\n    .registers 6\\n\\n    .line 1\\n    invoke-static {}, Lr7/b;-\\u003ee()Ljava/lang/Object;\\n\\n    .line 2\\n    .line 3\\n    .line 4\\n    move-result-object v0\\n\\n    .line 5\\n    iget v1, p0, Lcom/shenma/tvlauncher/phone/SplashActivity$e$b;-\\u003eb:I\\n\\n    .line 6\\n    .line 7\\n    const/4 v2, 0x2\\n\\n    .line 8\\n    const/4 v3, 0x1\\n\\n    .line 9\\n    if-eqz v1, :cond_1e\\n\\n    .line 10\\n    .line 11\\n    if-eq v1, v3, :cond_1a\\n\\n    .line 12\\n    .line 13\\n    if-ne v1, v2, :cond_12\\n\\n    .line 14\\n    .line 15\\n    invoke-static {p1}, Lm7/q;-\\u003eb(Ljava/lang/Object;)V\\n\\n    .line 16\\n    .line 17\\n    .line 18\\n    goto :goto_37\\n\\n    .line 19\\n    :cond_12\\n    new-instance p1, Ljava/lang/IllegalStateException;\\n\\n    .line 20\\n    .line 21\\n    const-string v0, \\\"call to \\\\\\u0027resume\\\\\\u0027 before \\\\\\u0027invoke\\\\\\u0027 with coroutine\\\"\\n\\n    .line 22\\n    .line 23\\n    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-\\u003e\\u003cinit\\u003e(Ljava/lang/String;)V\\n\\n    .line 24\\n    .line 25\\n    .line 26\\n    throw p1\\n\\n    .line 27\\n    :cond_1a\\n    invoke-static {p1}, Lm7/q;-\\u003eb(Ljava/lang/Object;)V\\n\\n    .line 28\\n    .line 29\\n    .line 30\\n    goto :goto_2c\\n\\n    .line 31\\n    :cond_1e\\n    invoke-static {p1}, Lm7/q;-\\u003eb(Ljava/lang/Object;)V\\n\\n    .line 32\\n    .line 33\\n    .line 34\\n    iget-object p1, p0, Lcom/shenma/tvlauncher/phone/SplashActivity$e$b;-\\u003ec:Lcom/shenma/tvlauncher/phone/SplashActivity;\\n\\n    .line 35\\n    .line 36\\n    iput v3, p0, Lcom/shenma/tvlauncher/phone/SplashActivity$e$b;-\\u003eb:I\\n\\n    .line 37\\n    .line 38\\n    invoke-static {p1, p0}, Lcom/shenma/tvlauncher/phone/SplashActivity;-\\u003eN(Lcom/shenma/tvlauncher/phone/SplashActivity;Lq7/e;)Ljava/lang/Object;\\n\\n    .line 39\\n    .line 40\\n    .line 41\\n    move-result-object p1\\n\\n    .line 42\\n    if-ne p1, v0, :cond_2c\\n\\n    .line 43\\n    .line 44\\n    goto :goto_36\\n\\n    .line 45\\n    :cond_2c\\n    :goto_2c\\n    iget-object p1, p0, Lcom/shenma/tvlauncher/phone/SplashActivity$e$b;-\\u003ec:Lcom/shenma/tvlauncher/phone/SplashActivity;\\n\\n    .line 46\\n    .line 47\\n    iput v2, p0, Lcom/shenma/tvlauncher/phone/SplashActivity$e$b;-\\u003eb:I\\n\\n    .line 48\\n    .line 49\\n    invoke-static {p1, p0}, Lcom/shenma/tvlauncher/phone/SplashActivity;-\\u003eS(Lcom/shenma/tvlauncher/phone/SplashActivity;Lq7/e;)Ljava/lang/Object;\\n\\n    .line 50\\n    .line 51\\n    .line 52\\n    move-result-object p1\\n\\n    .line 53\\n    if-ne p1, v0, :cond_37\\n\\n    .line 54\\n    .line 55\\n    :goto_36\\n    return-object v0\\n\\n    .line 56\\n    :cond_37\\n    :goto_37\\n    sget-object p1, Lm7/f0;-\\u003ea:Lm7/f0;\\n\\n    .line 57\\n    .line 58\\n    return-object p1\\n.end method\",\"mode\":\"smali\",\"class_name\":\"com.shenma.tvlauncher.phone.SplashActivity.e.b\"}"
+              }
+            ],
+            "isError": false
+          }
+        }
+      ]
+    },
+    "normalized_result": {
+      "engine": {
+        "name": "jadx-headless-mcp",
+        "version": "0.7.1",
+        "artifact_sha256": "6e5eacf500b64292bfb73c49797c1958f6ee44646e43e868039ae7feb573ff75",
+        "source_revision": "5844800a486d2248fa949b74c9896285f5b54de2",
+        "worker_count": 1,
+        "heap_limit_mib": 4096
+      },
+      "class_name": "com.shenma.tvlauncher.phone.SplashActivity.e.b",
+      "method": {
+        "name": "invokeSuspend",
+        "reported_signature": "invokeSuspend(java.lang.Object): java.lang.Object",
+        "overload_index": 0,
+        "is_constructor": false,
+        "dex_descriptor": "(Ljava/lang/Object;)Ljava/lang/Object;"
+      },
+      "overload_count": 1,
+      "representation": "smali",
+      "body_status": "available",
+      "fell_back": true,
+      "markers": [
+        "Code decompiled incorrectly, please refer to instructions dump"
+      ],
+      "source": {
+        "status": "complete",
+        "text": ".method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;\n    .registers 6\n\n    .line 1\n    invoke-static {}, Lr7/b;->e()Ljava/lang/Object;\n\n    .line 2\n    .line 3\n    .line 4\n    move-result-object v0\n\n    .line 5\n    iget v1, p0, Lcom/shenma/tvlauncher/phone/SplashActivity$e$b;->b:I\n\n    .line 6\n    .line 7\n    const/4 v2, 0x2\n\n    .line 8\n    const/4 v3, 0x1\n\n    .line 9\n    if-eqz v1, :cond_1e\n\n    .line 10\n    .line 11\n    if-eq v1, v3, :cond_1a\n\n    .line 12\n    .line 13\n    if-ne v1, v2, :cond_12\n\n    .line 14\n    .line 15\n    invoke-static {p1}, Lm7/q;->b(Ljava/lang/Object;)V\n\n    .line 16\n    .line 17\n    .line 18\n    goto :goto_37\n\n    .line 19\n    :cond_12\n    new-instance p1, Ljava/lang/IllegalStateException;\n\n    .line 20\n    .line 21\n    const-string v0, \"call to \\'resume\\' before \\'invoke\\' with coroutine\"\n\n    .line 22\n    .line 23\n    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V\n\n    .line 24\n    .line 25\n    .line 26\n    throw p1\n\n    .line 27\n    :cond_1a\n    invoke-static {p1}, Lm7/q;->b(Ljava/lang/Object;)V\n\n    .line 28\n    .line 29\n    .line 30\n    goto :goto_2c\n\n    .line 31\n    :cond_1e\n    invoke-static {p1}, Lm7/q;->b(Ljava/lang/Object;)V\n\n    .line 32\n    .line 33\n    .line 34\n    iget-object p1, p0, Lcom/shenma/tvlauncher/phone/SplashActivity$e$b;->c:Lcom/shenma/tvlauncher/phone/SplashActivity;\n\n    .line 35\n    .line 36\n    iput v3, p0, Lcom/shenma/tvlauncher/phone/SplashActivity$e$b;->b:I\n\n    .line 37\n    .line 38\n    invoke-static {p1, p0}, Lcom/shenma/tvlauncher/phone/SplashActivity;->N(Lcom/shenma/tvlauncher/phone/SplashActivity;Lq7/e;)Ljava/lang/Object;\n\n    .line 39\n    .line 40\n    .line 41\n    move-result-object p1\n\n    .line 42\n    if-ne p1, v0, :cond_2c\n\n    .line 43\n    .line 44\n    goto :goto_36\n\n    .line 45\n    :cond_2c\n    :goto_2c\n    iget-object p1, p0, Lcom/shenma/tvlauncher/phone/SplashActivity$e$b;->c:Lcom/shenma/tvlauncher/phone/SplashActivity;\n\n    .line 46\n    .line 47\n    iput v2, p0, Lcom/shenma/tvlauncher/phone/SplashActivity$e$b;->b:I\n\n    .line 48\n    .line 49\n    invoke-static {p1, p0}, Lcom/shenma/tvlauncher/phone/SplashActivity;->S(Lcom/shenma/tvlauncher/phone/SplashActivity;Lq7/e;)Ljava/lang/Object;\n\n    .line 50\n    .line 51\n    .line 52\n    move-result-object p1\n\n    .line 53\n    if-ne p1, v0, :cond_37\n\n    .line 54\n    .line 55\n    :goto_36\n    return-object v0\n\n    .line 56\n    :cond_37\n    :goto_37\n    sget-object p1, Lm7/f0;->a:Lm7/f0;\n\n    .line 57\n    .line 58\n    return-object p1\n.end method",
+        "reported_total_bytes": null
+      }
+    },
+    "confidence": "derived",
+    "authority": "shipped-artifact",
+    "environment": null,
+    "limitations": [
+      "Static decompiler observations do not establish runtime behavior; the APK is never executed.",
+      "Method signatures use provider display types; DEX prototypes come from frozen JADX metadata. Display names may be aliases, and overload indices are local to this engine and artifact.",
+      "Class inventories use parsed metadata before code generation, including synthetic members that may be omitted from decompiled source. Source positions remain unknown.",
+      "Incoming reference totals count JADX using nodes. Direct invoke entries within a using method report raw DEX code-unit offsets and method indexes, but coverage is limited to those nodes and directly matched invokes; it does not establish every possible dynamic or reflective call site.",
+      "Manifest summary fields are extracted by the upstream engine; decoded XML is retained for verification. APK signatures, split APKs, native libraries and Android runtime capture are not verified by this provider."
+    ],
+    "relationship_coverage": null,
+    "locations": [],
+    "evidence_links": []
+  }
+}

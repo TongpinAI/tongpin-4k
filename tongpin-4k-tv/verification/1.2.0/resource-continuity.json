@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "all_resource_ids_unchanged": true,
+  "previous_version": "1.1.0",
+  "r_java_sha256": "d16dc8dd2f4c63a0366f9c53819fd251bb2b8d37cc5c0c7faf32896e597c0242",
+  "resource_asset_files_checked": 10,
+  "only_resource_content_change": "version_name string1.1.0->1.2.0",
+  "inputs_equal_current_preflight": true
+}

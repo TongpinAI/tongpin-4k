@@ -1,0 +1,158 @@
+{
+  "passed": true,
+  "policy_assertions": 16,
+  "existing_resolution_assertions": 42,
+  "existing_stream_validation_assertions": 12,
+  "layouts": [
+    {
+      "path": "decoded/res/layout/dialog_bottom_juji.xml",
+      "original_id_type_count": 3,
+      "id_types_root_tag_preserved": true,
+      "constraint_targets_are_siblings": true
+    },
+    {
+      "path": "decoded/res/layout/item_juji_bottom.xml",
+      "original_id_type_count": 1,
+      "id_types_root_tag_preserved": true,
+      "constraint_targets_are_siblings": true
+    },
+    {
+      "path": "decoded/res/layout/item_juji_gride.xml",
+      "original_id_type_count": 1,
+      "id_types_root_tag_preserved": true,
+      "constraint_targets_are_siblings": true
+    },
+    {
+      "path": "decoded/res/layout/item_source.xml",
+      "original_id_type_count": 2,
+      "id_types_root_tag_preserved": true,
+      "constraint_targets_are_siblings": true
+    },
+    {
+      "path": "decoded/res/layout/mv_media_controler_phone.xml",
+      "original_id_type_count": 11,
+      "id_types_root_tag_preserved": true,
+      "constraint_targets_are_siblings": true
+    },
+    {
+      "path": "decoded/res/layout/mv_media_play_top.xml",
+      "original_id_type_count": 3,
+      "id_types_root_tag_preserved": true,
+      "constraint_targets_are_siblings": true
+    },
+    {
+      "path": "decoded/res/layout/phone_activity_video_detail_play.xml",
+      "original_id_type_count": 50,
+      "id_types_root_tag_preserved": true,
+      "constraint_targets_are_siblings": true
+    },
+    {
+      "path": "decoded/res/layout/popup_window_juji.xml",
+      "original_id_type_count": 5,
+      "id_types_root_tag_preserved": true,
+      "constraint_targets_are_siblings": true
+    },
+    {
+      "path": "decoded/res/layout/popup_window_scale.xml",
+      "original_id_type_count": 3,
+      "id_types_root_tag_preserved": true,
+      "constraint_targets_are_siblings": true
+    },
+    {
+      "path": "decoded/res/layout/popup_window_skip.xml",
+      "original_id_type_count": 9,
+      "id_types_root_tag_preserved": true,
+      "constraint_targets_are_siblings": true
+    },
+    {
+      "path": "decoded/res/layout/popup_window_speed.xml",
+      "original_id_type_count": 6,
+      "id_types_root_tag_preserved": true,
+      "constraint_targets_are_siblings": true
+    },
+    {
+      "path": "decoded/res/layout/video_layout_standard.xml",
+      "original_id_type_count": 16,
+      "id_types_root_tag_preserved": true,
+      "constraint_targets_are_siblings": true
+    }
+  ],
+  "changed_production_files": [
+    {
+      "path": "decoded/res/layout/dialog_bottom_juji.xml",
+      "sha256": "ab05117cc505bc7411b912052582393c71a30c922888bd068ada7611dda8d1aa"
+    },
+    {
+      "path": "decoded/res/layout/item_juji_bottom.xml",
+      "sha256": "2008e3d3d79b4bd626ba3ceb3e0db967a640c92b55e91504c7ac2faa6169a745"
+    },
+    {
+      "path": "decoded/res/layout/item_juji_gride.xml",
+      "sha256": "fcb738324feaa5697de61e0520082d16dffc3097816e7d27fb552744c2ffa87a"
+    },
+    {
+      "path": "decoded/res/layout/item_source.xml",
+      "sha256": "5901fb13545ea5f8571c7aff2f27aca0c3ba1d8c8757a26e0fd70af5d1e3b2d7"
+    },
+    {
+      "path": "decoded/res/layout/mv_media_controler_phone.xml",
+      "sha256": "5fb4b45de6ce3b9ab7883a50336a932c2f0b218cda0f0568e66900d2ebe7e7d5"
+    },
+    {
+      "path": "decoded/res/layout/mv_media_play_top.xml",
+      "sha256": "05f82387658358ec865e10450c22e9715c81738f773e0de3f355d249c39c2cb3"
+    },
+    {
+      "path": "decoded/res/layout/phone_activity_video_detail_play.xml",
+      "sha256": "ad0b371caa17b1bdd29ce8f3035a5a1dc7ac985f626be0daf661956ecf97f560"
+    },
+    {
+      "path": "decoded/res/layout/popup_window_juji.xml",
+      "sha256": "3b71886fb358aeb848e7fd4f2b80f0aef4a6783f367ade37f15272b92bd7ce35"
+    },
+    {
+      "path": "decoded/res/layout/popup_window_scale.xml",
+      "sha256": "561f6aa64c814af551f116086136d536d83b05f6357788b94a9f46be95f1b5bc"
+    },
+    {
+      "path": "decoded/res/layout/popup_window_skip.xml",
+      "sha256": "0c03ed71c2a6374911161f88ff68ab013bfb61f4ba9cd21c086c57d73f8c325e"
+    },
+    {
+      "path": "decoded/res/layout/popup_window_speed.xml",
+      "sha256": "972dc71c9d28e5fc77170369a11c24621367e2484fda2960fae155c99fe12300"
+    },
+    {
+      "path": "decoded/res/layout/video_layout_standard.xml",
+      "sha256": "735dfb5038e358aa9e140e89c69c8af334007243638c2c763c2b6fee8ae43a9e"
+    },
+    {
+      "path": "decoded/smali_classes5/f6/g.smali",
+      "sha256": "fc17301c09dcf879a1ce1f38b958b68e8ffec4aeac1904774bac1f4ac16460b2"
+    },
+    {
+      "path": "decoded/smali_classes5/f6/m.smali",
+      "sha256": "b2862cfd0dd43ae7204d9a63412b1293e20ec107256b1d836246b5fbcebd8f00"
+    },
+    {
+      "path": "open-sources/src/com/tongpin/player4k/catalog/OpenPlayerActivity.java",
+      "sha256": "12ce5ae0e9385258bb6cce520e7ea80221cca93e3f9b7ddc90c6c0215fddcb29"
+    }
+  ],
+  "selected_normal_focused_pressed_contrast": {
+    "brand_blue_on_white": 5.200922371630513,
+    "light_blue_on_dark": 9.780645312711549,
+    "brand_blue_on_pressed_light": 4.804388982715736,
+    "light_blue_on_pressed_dark": 7.547261046017303
+  },
+  "center_control_viewports_dp": {
+    "320": 192,
+    "360": 232,
+    "390": 262,
+    "600": 472
+  },
+  "device_test": false,
+  "font_scale_1_3_rendered": false,
+  "fullscreen_rendered": false,
+  "scope": "Actual pure recovery/choice/color policy, compiled source contracts, XML binding/constraint structure and normal/focused/pressed color math; native rendering/playback acceptance remains pending"
+}

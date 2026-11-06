@@ -1,0 +1,328 @@
+{
+  "id": 49,
+  "uuid": "64222c8a-c4c7-4b3b-9850-7fb2078edcf6",
+  "shortUUID": "dnayqfMS4PAE9pSZ3kyVUb",
+  "url": "https://video.blender.org/videos/watch/64222c8a-c4c7-4b3b-9850-7fb2078edcf6",
+  "name": "Glass Half - Blender animated cartoon",
+  "category": {
+    "id": 10,
+    "label": "Entertainment"
+  },
+  "licence": {
+    "id": 1,
+    "label": "Attribution"
+  },
+  "language": {
+    "id": null,
+    "label": "Unknown"
+  },
+  "privacy": {
+    "id": 1,
+    "label": "Public"
+  },
+  "nsfw": false,
+  "nsfwFlags": 0,
+  "nsfwSummary": null,
+  "truncatedDescription": "Two amateur art critics meet in a gallery and argue passionately about the pieces they see, until finally they find a piece on which they can agree...\r\n\r\nAll of the visuals of the film have been realized using Blender and other free/open source so...",
+  "description": "Two amateur art critics meet in a gallery and argue passionately about the pieces they see, until finally they find a piece on which they can agree...\r\n\r\nAll of the visuals of the film have been realized using Blender and other free/open source software, the film itself and all the assets are being released open and free as Creative Commons CC-BY.\r\n\r\nYou can support us by joining Blender Cloud, a monthly subscription that makes projects like this possible:\r\n\r\nhttps://cloud.blender.org/\r\n\r\nDirected by: Beorn Leonard\r\nProduced by: Ton Roosendaal, Blender Institute",
+  "isLocal": true,
+  "duration": 193,
+  "aspectRatio": null,
+  "views": 1328,
+  "viewers": 0,
+  "downloads": 1058,
+  "likes": 16,
+  "dislikes": 0,
+  "thumbnailPath": "/lazy-static/thumbnails/64222c8a-c4c7-4b3b-9850-7fb2078edcf6.jpg",
+  "previewPath": "/lazy-static/thumbnails/64222c8a-c4c7-4b3b-9850-7fb2078edcf6.jpg",
+  "thumbnails": [
+    {
+      "height": 110,
+      "width": 200,
+      "aspectRatio": "16:9",
+      "fileUrl": "https://video.blender.org/lazy-static/thumbnails/64222c8a-c4c7-4b3b-9850-7fb2078edcf6.jpg"
+    }
+  ],
+  "embedPath": "/videos/embed/dnayqfMS4PAE9pSZ3kyVUb",
+  "createdAt": "2018-10-25T13:10:33.450Z",
+  "updatedAt": "2026-11-02T12:20:43.755Z",
+  "publishedAt": "2018-10-26T22:11:40.162Z",
+  "originallyPublishedAt": null,
+  "isLive": false,
+  "account": {
+    "url": "https://video.blender.org/accounts/blender",
+    "name": "blender",
+    "host": "video.blender.org",
+    "avatars": [
+      {
+        "height": 48,
+        "width": 48,
+        "path": "/lazy-static/avatars/d81f71c9-cdd8-4c61-a0dd-75a9dfad8dc1.png",
+        "fileUrl": "https://video.blender.org/lazy-static/avatars/d81f71c9-cdd8-4c61-a0dd-75a9dfad8dc1.png",
+        "createdAt": "2026-05-24T11:32:01.734Z",
+        "updatedAt": "2026-05-24T11:32:01.734Z"
+      },
+      {
+        "height": 120,
+        "width": 120,
+        "path": "/lazy-static/avatars/07965da7-5723-40d6-9a61-c034d6ebeabd.png",
+        "fileUrl": "https://video.blender.org/lazy-static/avatars/07965da7-5723-40d6-9a61-c034d6ebeabd.png",
+        "createdAt": "2026-05-24T11:32:01.730Z",
+        "updatedAt": "2026-05-24T11:32:01.730Z"
+      },
+      {
+        "height": 600,
+        "width": 600,
+        "path": "/lazy-static/avatars/1485e2e7-71d0-4e6a-b56d-bf46b2ec40de.png",
+        "fileUrl": "https://video.blender.org/lazy-static/avatars/1485e2e7-71d0-4e6a-b56d-bf46b2ec40de.png",
+        "createdAt": "2026-05-24T11:32:01.724Z",
+        "updatedAt": "2026-05-24T11:32:01.724Z"
+      },
+      {
+        "height": 1500,
+        "width": 1500,
+        "path": "/lazy-static/avatars/b4d1c81e-bded-45e2-a569-413d391cdd82.png",
+        "fileUrl": "https://video.blender.org/lazy-static/avatars/b4d1c81e-bded-45e2-a569-413d391cdd82.png",
+        "createdAt": "2026-05-24T11:32:01.719Z",
+        "updatedAt": "2026-05-24T11:32:01.719Z"
+      }
+    ],
+    "id": 6,
+    "hostRedundancyAllowed": false,
+    "followingCount": 1,
+    "followersCount": 6383,
+    "createdAt": "2018-10-24T14:55:59.623Z",
+    "displayName": "Blender",
+    "description": "Blender is the free and open source 3D creation suite. \n\nIt supports the entirety of the 3D pipeline—modeling, rigging, animation, simulation, rendering, compositing and motion tracking, even video editing and game creation.  \n\nBlender is well suited to individuals and small studios who benefit from its unified pipeline and responsive development process.",
+    "updatedAt": "2022-12-19T21:05:12.414Z",
+    "userId": 4
+  },
+  "channel": {
+    "url": "https://video.blender.org/video-channels/blender_open_movies",
+    "name": "blender_open_movies",
+    "host": "video.blender.org",
+    "avatars": [
+      {
+        "height": 48,
+        "width": 48,
+        "path": "/lazy-static/avatars/f79d3ae7-86a8-4705-a9cf-75652312ed20.png",
+        "fileUrl": "https://video.blender.org/lazy-static/avatars/f79d3ae7-86a8-4705-a9cf-75652312ed20.png",
+        "createdAt": "2026-06-04T09:58:19.748Z",
+        "updatedAt": "2026-06-04T09:58:19.748Z"
+      },
+      {
+        "height": 120,
+        "width": 120,
+        "path": "/lazy-static/avatars/df50b04c-67e0-4317-822a-be1f1a2d85d3.png",
+        "fileUrl": "https://video.blender.org/lazy-static/avatars/df50b04c-67e0-4317-822a-be1f1a2d85d3.png",
+        "createdAt": "2026-06-04T09:58:19.735Z",
+        "updatedAt": "2026-06-04T09:58:19.735Z"
+      },
+      {
+        "height": 600,
+        "width": 600,
+        "path": "/lazy-static/avatars/0001ea1f-7c7b-45b3-8a15-004c6d0713bb.png",
+        "fileUrl": "https://video.blender.org/lazy-static/avatars/0001ea1f-7c7b-45b3-8a15-004c6d0713bb.png",
+        "createdAt": "2026-06-04T09:58:19.728Z",
+        "updatedAt": "2026-06-04T09:58:19.728Z"
+      },
+      {
+        "height": 1500,
+        "width": 1500,
+        "path": "/lazy-static/avatars/2676b86b-94a3-4692-9601-f4e41dcbf72f.png",
+        "fileUrl": "https://video.blender.org/lazy-static/avatars/2676b86b-94a3-4692-9601-f4e41dcbf72f.png",
+        "createdAt": "2026-06-04T09:58:19.710Z",
+        "updatedAt": "2026-06-04T09:58:19.710Z"
+      }
+    ],
+    "id": 9,
+    "hostRedundancyAllowed": false,
+    "followingCount": 0,
+    "followersCount": 485,
+    "createdAt": "2018-10-25T13:08:22.385Z",
+    "banners": [],
+    "displayName": "Blender Open Movies",
+    "description": "Official PeerTube channel with all iconic Blender Open Movies and behind-the-scenes content.\n\n**The Freedom to Create**",
+    "support": "Join the [Blender Development Fund](https://fund.blender.org/) and become a [Blender Studio subscriber](https://studio.blender.org/join).",
+    "publicEmail": null,
+    "isLocal": true,
+    "updatedAt": "2026-09-14T14:42:23.068Z",
+    "ownerAccount": {
+      "url": "https://video.blender.org/accounts/blender",
+      "name": "blender",
+      "host": "video.blender.org",
+      "avatars": [
+        {
+          "height": 48,
+          "width": 48,
+          "path": "/lazy-static/avatars/d81f71c9-cdd8-4c61-a0dd-75a9dfad8dc1.png",
+          "fileUrl": "https://video.blender.org/lazy-static/avatars/d81f71c9-cdd8-4c61-a0dd-75a9dfad8dc1.png",
+          "createdAt": "2026-05-24T11:32:01.734Z",
+          "updatedAt": "2026-05-24T11:32:01.734Z"
+        },
+        {
+          "height": 120,
+          "width": 120,
+          "path": "/lazy-static/avatars/07965da7-5723-40d6-9a61-c034d6ebeabd.png",
+          "fileUrl": "https://video.blender.org/lazy-static/avatars/07965da7-5723-40d6-9a61-c034d6ebeabd.png",
+          "createdAt": "2026-05-24T11:32:01.730Z",
+          "updatedAt": "2026-05-24T11:32:01.730Z"
+        },
+        {
+          "height": 600,
+          "width": 600,
+          "path": "/lazy-static/avatars/1485e2e7-71d0-4e6a-b56d-bf46b2ec40de.png",
+          "fileUrl": "https://video.blender.org/lazy-static/avatars/1485e2e7-71d0-4e6a-b56d-bf46b2ec40de.png",
+          "createdAt": "2026-05-24T11:32:01.724Z",
+          "updatedAt": "2026-05-24T11:32:01.724Z"
+        },
+        {
+          "height": 1500,
+          "width": 1500,
+          "path": "/lazy-static/avatars/b4d1c81e-bded-45e2-a569-413d391cdd82.png",
+          "fileUrl": "https://video.blender.org/lazy-static/avatars/b4d1c81e-bded-45e2-a569-413d391cdd82.png",
+          "createdAt": "2026-05-24T11:32:01.719Z",
+          "updatedAt": "2026-05-24T11:32:01.719Z"
+        }
+      ],
+      "id": 6,
+      "hostRedundancyAllowed": false,
+      "followingCount": 1,
+      "followersCount": 6383,
+      "createdAt": "2018-10-24T14:55:59.623Z",
+      "displayName": "Blender",
+      "description": "Blender is the free and open source 3D creation suite. \n\nIt supports the entirety of the 3D pipeline—modeling, rigging, animation, simulation, rendering, compositing and motion tracking, even video editing and game creation.  \n\nBlender is well suited to individuals and small studios who benefit from its unified pipeline and responsive development process.",
+      "updatedAt": "2022-12-19T21:05:12.414Z",
+      "userId": 4
+    }
+  },
+  "comments": 0,
+  "blacklisted": false,
+  "blacklistedReason": null,
+  "streamingPlaylists": [],
+  "files": [
+    {
+      "id": 61,
+      "resolution": {
+        "id": 1080,
+        "label": "1080p"
+      },
+      "width": 1920,
+      "height": 1080,
+      "size": 41836933,
+      "fps": 24,
+      "torrentUrl": "https://video.blender.org/lazy-static/torrents/50a70a20-a5e2-4341-93e1-a295afe6a4d3-1080.torrent",
+      "torrentDownloadUrl": "https://video.blender.org/download/torrents/50a70a20-a5e2-4341-93e1-a295afe6a4d3-1080.torrent",
+      "fileUrl": "https://video.blender.org/object-storage/web_videos/64222c8a-c4c7-4b3b-9850-7fb2078edcf6-1080.mp4",
+      "fileDownloadUrl": "https://video.blender.org/download/web-videos/64222c8a-c4c7-4b3b-9850-7fb2078edcf6-1080.mp4",
+      "metadataUrl": "https://video.blender.org/api/v1/videos/64222c8a-c4c7-4b3b-9850-7fb2078edcf6/metadata/61",
+      "hasAudio": true,
+      "hasVideo": true,
+      "storage": 1
+    },
+    {
+      "id": 282,
+      "resolution": {
+        "id": 720,
+        "label": "720p"
+      },
+      "width": 1280,
+      "height": 720,
+      "size": 26959910,
+      "fps": 24,
+      "torrentUrl": "https://video.blender.org/lazy-static/torrents/e8fcfd98-ff20-4e58-806e-0da8954ca54c-720.torrent",
+      "torrentDownloadUrl": "https://video.blender.org/download/torrents/e8fcfd98-ff20-4e58-806e-0da8954ca54c-720.torrent",
+      "fileUrl": "https://video.blender.org/object-storage/web_videos/64222c8a-c4c7-4b3b-9850-7fb2078edcf6-720.mp4",
+      "fileDownloadUrl": "https://video.blender.org/download/web-videos/64222c8a-c4c7-4b3b-9850-7fb2078edcf6-720.mp4",
+      "metadataUrl": "https://video.blender.org/api/v1/videos/64222c8a-c4c7-4b3b-9850-7fb2078edcf6/metadata/282",
+      "hasAudio": true,
+      "hasVideo": true,
+      "storage": 1
+    },
+    {
+      "id": 280,
+      "resolution": {
+        "id": 480,
+        "label": "480p"
+      },
+      "width": 852,
+      "height": 480,
+      "size": 17583910,
+      "fps": 24,
+      "torrentUrl": "https://video.blender.org/lazy-static/torrents/8bfb2f7a-893b-4a52-92a4-72dcd3ea5c3d-480.torrent",
+      "torrentDownloadUrl": "https://video.blender.org/download/torrents/8bfb2f7a-893b-4a52-92a4-72dcd3ea5c3d-480.torrent",
+      "fileUrl": "https://video.blender.org/object-storage/web_videos/64222c8a-c4c7-4b3b-9850-7fb2078edcf6-480.mp4",
+      "fileDownloadUrl": "https://video.blender.org/download/web-videos/64222c8a-c4c7-4b3b-9850-7fb2078edcf6-480.mp4",
+      "metadataUrl": "https://video.blender.org/api/v1/videos/64222c8a-c4c7-4b3b-9850-7fb2078edcf6/metadata/280",
+      "hasAudio": true,
+      "hasVideo": true,
+      "storage": 1
+    },
+    {
+      "id": 281,
+      "resolution": {
+        "id": 360,
+        "label": "360p"
+      },
+      "width": 640,
+      "height": 360,
+      "size": 13101109,
+      "fps": 24,
+      "torrentUrl": "https://video.blender.org/lazy-static/torrents/0b0669a3-ff8b-4435-8474-881ef61552db-360.torrent",
+      "torrentDownloadUrl": "https://video.blender.org/download/torrents/0b0669a3-ff8b-4435-8474-881ef61552db-360.torrent",
+      "fileUrl": "https://video.blender.org/object-storage/web_videos/64222c8a-c4c7-4b3b-9850-7fb2078edcf6-360.mp4",
+      "fileDownloadUrl": "https://video.blender.org/download/web-videos/64222c8a-c4c7-4b3b-9850-7fb2078edcf6-360.mp4",
+      "metadataUrl": "https://video.blender.org/api/v1/videos/64222c8a-c4c7-4b3b-9850-7fb2078edcf6/metadata/281",
+      "hasAudio": true,
+      "hasVideo": true,
+      "storage": 1
+    },
+    {
+      "id": 283,
+      "resolution": {
+        "id": 240,
+        "label": "240p"
+      },
+      "width": 426,
+      "height": 240,
+      "size": 8952140,
+      "fps": 24,
+      "torrentUrl": "https://video.blender.org/lazy-static/torrents/e952ea32-0eb1-4ddc-9466-90c07807b84c-240.torrent",
+      "torrentDownloadUrl": "https://video.blender.org/download/torrents/e952ea32-0eb1-4ddc-9466-90c07807b84c-240.torrent",
+      "fileUrl": "https://video.blender.org/object-storage/web_videos/64222c8a-c4c7-4b3b-9850-7fb2078edcf6-240.mp4",
+      "fileDownloadUrl": "https://video.blender.org/download/web-videos/64222c8a-c4c7-4b3b-9850-7fb2078edcf6-240.mp4",
+      "metadataUrl": "https://video.blender.org/api/v1/videos/64222c8a-c4c7-4b3b-9850-7fb2078edcf6/metadata/283",
+      "hasAudio": true,
+      "hasVideo": true,
+      "storage": 1
+    }
+  ],
+  "liveSchedules": [],
+  "support": "Join the [Blender Development Fund](https://fund.blender.org/) and become a [Blender Studio subscriber](https://studio.blender.org/join).",
+  "tags": [
+    "Animated Cartoon (TV Genre)",
+    "Animation (TV Genre)",
+    "Blender (Software)",
+    "Short Film (Film Genre)",
+    "open movie"
+  ],
+  "commentsPolicy": {
+    "id": 1,
+    "label": "Enabled"
+  },
+  "downloadEnabled": true,
+  "waitTranscoding": false,
+  "inputFileUpdatedAt": null,
+  "state": {
+    "id": 1,
+    "label": "Published"
+  },
+  "trackerUrls": [
+    "https://video.blender.org/tracker/announce",
+    "wss://video.blender.org:443/tracker/socket"
+  ],
+  "embedPrivacyPolicy": {
+    "id": 1,
+    "label": "All allowed"
+  }
+}

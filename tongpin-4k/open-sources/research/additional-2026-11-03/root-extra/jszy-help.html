@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <!-- globe plug -->
+<!--<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.min.js"></script>-->
+<script src="/static/js/jquery.3.6.1.min.js"></script>
+
+<link href="/static/css/home.css" rel="stylesheet" type="text/css" />
+<script src="/static/js/home.js"></script>
+
+<script>var maccms={"path":"","mid":"","aid":"","url":"www.jisuzy.com","wapurl":"www.jisuzy.com","mob_status":"0"};</script>
+
+<link href="/template/default/css/style.css" rel="stylesheet" type="text/css" />
+    <title>极速资源</title>
+    <meta name="keywords" content="极速资源采集站" />
+    <meta name="description" content="极速资源采集站 电影 电视剧 动漫 影视资源一网打尽" />
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .center-container {display: flex;justify-content: center;align-items: center;width: 100%;height: 100%;}
+        .tabs { display: flex; cursor: pointer; background-color: #fff; padding: 20px 20px 5px 20px;}
+        .tab { padding: 10px 20px;border: none; margin-right: 15px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); background-color: #fff; }
+        .tab.active { background-color: #00abf0; border-bottom: none; color: #FFFFFF}
+        .tab-content { display: none; padding: 0px 20px;  border-top: none; background-color: #fff;}
+        .tab-content.active { display: block; }
+    </style>
+</head>
+<body>
+<div class="homepage">
+    <div class="topbg">
+    <div class="card">
+        <div class="card-content">
+            <div class="card-content-h1">
+                <h2>极速资源公告</h2>
+            </div>
+            <div class="card-content-item">
+                <span>极速资源全网首选:</span>
+                <span class="card-content-link">高清画质、热播影片、高峰不卡、国内CDN、秒拖秒播，资源永久免费！欢迎采集。</span>
+            </div>
+            <hr/>
+            <div class="card-content-item">
+                <span style="font-size:20px">极速资源采集教程:</span>
+                <a target="_blank" href="/index.php/help/index.html" class="card-content-link" style="font-size:20px">》〉》点击查看采集教程《〈《</a>
+            </div>
+            <hr/>
+            <div class="card-content-item">
+                <span>M3U8播放器纯净解析接口:</span>
+                <a target="_blank" href="https://jisuzyjx.com/play/?url=" class="card-content-link">https://jisuzyjx.com/play/?url=</a>
+            </div>
+            <hr/>
+            <div class="card-content-item">
+                <span>备用纯净解析接口:</span>
+                <a target="_blank" href="https://jisuzyjiexi.com/play/?url=" class="card-content-link">https://jisuzyjiexi.com/play/?url=</a>
+            </div>
+            <hr/>
+            <div class="card-content-item">
+                <span>郑重承诺:</span>
+                <a target="_blank" href="" class="card-content-link">资源永久免费,承诺绝不影响用户体验</a>
+            </div>
+            <hr/>
+            <div class="card-content-item">
+                <span>永久官网:</span>
+                <a target="_blank" href="http://www.jisuzy.com" class="card-content-link">www.jisuzy.com</a> &nbsp;&nbsp;
+                 <a target="_blank" href="http://www.jisuzy.tv" class="card-content-link">www.jisuzy.tv</a>&nbsp;&nbsp;
+                 <a target="_blank" href="http://www.jisuziyuan.com" class="card-content-link">www.jisuziyuan.com</a>&nbsp;&nbsp;
+                 <a target="_blank" href="http://www.jszy666.com" class="card-content-link">www.jszy666.com</a>&nbsp;&nbsp;
+                 <a target="_blank" href="http://www.jszy333.com" class="card-content-link">www.jszy333.com</a>
+            </div>
+                <hr/>         
+            <div class="card-content-item" style="text-aline:center;">
+                 <!--<a target="_blank" href="http://i7q.cn/5x92Tl">-->
+                     <a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=7hzZ6_Xx9PAbUksPTM5pG5SLOwqP1DKD&jump_from=webapi&authKey=9PsnplftV1Ukr9LhetxpafJ+EVKI9Tfhx0uGlZmMqvNwYVqW3I1KOAqNnkj+YItq">
+                      <strong style="color:red"> 极速资源站长TG ： <a target="_blank" href="https://t.me/jisuziyuan777"> jisuziyuan777 </a>  &nbsp;&nbsp;&nbsp;&nbsp; 点击加入QQ群 </strong>
+                 </a> 
+   
+            </div>
+            <hr>
+                <div class="card-content-item" style="text-aline:center;">
+                 <a target="_blank" href="https://t.me/jisuziyuanzhan">
+                      <!--<strong> 极速资源飞机群 ： https://t.me/jisuziyuan </strong>-->
+                       <strong> 极速资源飞机群 ： https://t.me/jisuziyuanzhan </strong>
+                 </a> 
+   
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div >
+    <div class="top-center">
+        <a href="/"><img class="top-logo" src="/template/default/images/site_logo.png" alt="极速资源" /></a>
+        <div>
+
+        </div>
+        <div class="helpsearch">
+            <form method="get" action="/index.php/vod/search.html">
+                <div class="top-search">
+                    <img src="/template/default/images/search.png" />
+                    <input type="text" x-webkit-speech="" autocomplete="off" name="wd" id="wd" value=""
+                        class="search-text"
+                        onblur="if(this.value==''){ this.value='100万部影片任你搜索';this.style.color='#cfcdcd';}"
+                        onfocus="if(this.value=='100万部影片任你搜索'){this.value='';this.style.color='';}" 
+                        value="100万部影片任你搜索"
+                    >
+                    <button type="submit">搜索</button>
+                </div>
+            </form>
+            <div class="header_list">
+                <ul><li>今日更新：<span style="color:red;;font-weight: bold;">4</span></li>
+                    <li>本站总计：<span style="color:red;;font-weight: bold;">115560</span></li>
+                <li><a href="/index.php/help/index.html" target="_blank"><span style="color:red;">采集教程帮助中心</span></a></li>
+                <li><a href="/index.php/gbook/index.html" target="_blank"><span style="color:red;">留言求片</span></a></li>
+             </div>
+        </div>
+        <div class="linkimg">
+            <a target="_blank" href="https://t.me/jisuziyuanzhan">
+                <img border="0" src="/template/default/images/gotelegram.png" width="120"></a>
+            <a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=7hzZ6_Xx9PAbUksPTM5pG5SLOwqP1DKD&jump_from=webapi&authKey=9PsnplftV1Ukr9LhetxpafJ+EVKI9Tfhx0uGlZmMqvNwYVqW3I1KOAqNnkj+YItq">
+                <img border="0" src="/template/default/images/goqq.png" width="120"></a>
+        </div>
+       
+</div>
+
+<div class="naviga">
+    <ul class="naviga-content">
+        <li>
+            <a href="/">首页</a>
+        </li>
+                <li class="">
+            <a href="/index.php/vod/type/id/1.html?ac=detail" value="">
+                电视剧            </a>
+            <ul>
+                                <li>
+                    <a href="/index.php/vod/type/id/6.html?ac=detail">日剧</a>
+                </li>
+                                <li>
+                    <a href="/index.php/vod/type/id/7.html?ac=detail">马泰剧</a>
+                </li>
+                                <li>
+                    <a href="/index.php/vod/type/id/20.html?ac=detail">内地剧</a>
+                </li>
+                                <li>
+                    <a href="/index.php/vod/type/id/3.html?ac=detail">欧美剧</a>
+                </li>
+                                <li>
+                    <a href="/index.php/vod/type/id/4.html?ac=detail">香港剧</a>
+                </li>
+                                <li>
+                    <a href="/index.php/vod/type/id/5.html?ac=detail">韩剧</a>
+                </li>
+                                <li>
+                    <a href="/index.php/vod/type/id/28.html?ac=detail">台湾剧</a>
+                </li>
+                            </ul>
+        </li>
+                <li class="">
+            <a href="/index.php/vod/type/id/2.html?ac=detail" value="">
+                电影            </a>
+            <ul>
+                                <li>
+                    <a href="/index.php/vod/type/id/13.html?ac=detail">恐怖片</a>
+                </li>
+                                <li>
+                    <a href="/index.php/vod/type/id/23.html?ac=detail">动画片</a>
+                </li>
+                                <li>
+                    <a href="/index.php/vod/type/id/14.html?ac=detail">剧情片</a>
+                </li>
+                                <li>
+                    <a href="/index.php/vod/type/id/15.html?ac=detail">战争片</a>
+                </li>
+                                <li>
+                    <a href="/index.php/vod/type/id/9.html?ac=detail">动作片</a>
+                </li>
+                                <li>
+                    <a href="/index.php/vod/type/id/10.html?ac=detail">爱情片</a>
+                </li>
+                                <li>
+                    <a href="/index.php/vod/type/id/11.html?ac=detail">喜剧片</a>
+                </li>
+                                <li>
+                    <a href="/index.php/vod/type/id/12.html?ac=detail">科幻片</a>
+                </li>
+                                <li>
+                    <a href="/index.php/vod/type/id/16.html?ac=detail">记录片</a>
+                </li>
+                                <li>
+                    <a href="/index.php/vod/type/id/34.html?ac=detail">灾难片</a>
+                </li>
+                                <li>
+                    <a href="/index.php/vod/type/id/35.html?ac=detail">悬疑片</a>
+                </li>
+                                <li>
+                    <a href="/index.php/vod/type/id/36.html?ac=detail">犯罪片</a>
+                </li>
+                                <li>
+                    <a href="/index.php/vod/type/id/37.html?ac=detail">奇幻片</a>
+                </li>
+                            </ul>
+        </li>
+                <li class="">
+            <a href="/index.php/vod/type/id/17.html?ac=detail" value="">
+                动漫            </a>
+            <ul>
+                                <li>
+                    <a href="/index.php/vod/type/id/24.html?ac=detail">中国动漫</a>
+                </li>
+                                <li>
+                    <a href="/index.php/vod/type/id/25.html?ac=detail">日本动漫</a>
+                </li>
+                                <li>
+                    <a href="/index.php/vod/type/id/26.html?ac=detail">欧美动漫</a>
+                </li>
+                            </ul>
+        </li>
+                <li class="">
+            <a href="/index.php/vod/type/id/27.html?ac=detail" value="">
+                综艺            </a>
+            <ul>
+                                <li>
+                    <a href="/index.php/vod/type/id/30.html?ac=detail">大陆综艺</a>
+                </li>
+                                <li>
+                    <a href="/index.php/vod/type/id/31.html?ac=detail">日韩综艺</a>
+                </li>
+                                <li>
+                    <a href="/index.php/vod/type/id/32.html?ac=detail">港台综艺</a>
+                </li>
+                                <li>
+                    <a href="/index.php/vod/type/id/33.html?ac=detail">欧美综艺</a>
+                </li>
+                            </ul>
+        </li>
+                <li class="">
+            <a href="/index.php/vod/type/id/38.html?ac=detail" value="">
+                短剧            </a>
+            <ul>
+                                <li>
+                    <a href="/index.php/vod/type/id/45.html?ac=detail">古装仙侠</a>
+                </li>
+                                <li>
+                    <a href="/index.php/vod/type/id/46.html?ac=detail">现代都市</a>
+                </li>
+                                <li>
+                    <a href="/index.php/vod/type/id/47.html?ac=detail">穿越年代</a>
+                </li>
+                                <li>
+                    <a href="/index.php/vod/type/id/48.html?ac=detail">言情总裁</a>
+                </li>
+                                <li>
+                    <a href="/index.php/vod/type/id/50.html?ac=detail">反转爽剧</a>
+                </li>
+                                <li>
+                    <a href="/index.php/vod/type/id/49.html?ac=detail">重生民国</a>
+                </li>
+                                <li>
+                    <a href="/index.php/vod/type/id/52.html?ac=detail">脑洞悬疑</a>
+                </li>
+                                <li>
+                    <a href="/index.php/vod/type/id/53.html?ac=detail">擦边短剧</a>
+                </li>
+                                <li>
+                    <a href="/index.php/vod/type/id/54.html?ac=detail">AI漫剧</a>
+                </li>
+                            </ul>
+        </li>
+                <li class="">
+            <a href="/index.php/vod/type/id/8.html?ac=detail" value="">
+                伦理片            </a>
+            <ul>
+                            </ul>
+        </li>
+                <li class="">
+            <a href="/index.php/vod/type/id/29.html?ac=detail" value="">
+                体育赛事            </a>
+            <ul>
+                                <li>
+                    <a href="/index.php/vod/type/id/40.html?ac=detail">足球</a>
+                </li>
+                                <li>
+                    <a href="/index.php/vod/type/id/41.html?ac=detail">篮球</a>
+                </li>
+                                <li>
+                    <a href="/index.php/vod/type/id/42.html?ac=detail">台球</a>
+                </li>
+                                <li>
+                    <a href="/index.php/vod/type/id/43.html?ac=detail">其他赛事</a>
+                </li>
+                            </ul>
+        </li>
+                <li class="">
+            <a href="/index.php/vod/type/id/39.html?ac=detail" value="">
+                预告片            </a>
+            <ul>
+                            </ul>
+        </li>
+            </ul>
+</div>
+
+
+
+    <div class="main">
+        <div class="content">
+            <div class="center-container">
+                <div class="tabs">
+                                            <div class="tab active" data-tab="tab1">帮助中心</div>
+                                            <div class="tab " data-tab="tab2">海洋CMS</div>
+                                            <div class="tab " data-tab="tab3">苹果CMS</div>
+                                            <div class="tab " data-tab="tab4">飞飞CMS</div>
+                                            <div class="tab " data-tab="tab5">赞片CMS</div>
+                                            <div class="tab " data-tab="tab6">APP JSON接口</div>
+                                            <div class="tab " data-tab="tab7">FAQ</div>
+                                    </div>
+
+            </div>
+        <div class="center-container">
+            <div class="tabs" >
+                                    <div class="tab-content active" id="tab1"><h3 style="text-align:center"><span style="font-size:20px">基础接口地址：</span></h3>
+
+<p style="text-align:center"><span style="font-size:20px">标准采集地址:&nbsp;<code>https://jszyapi.com/api.php/provide/vod</code></span></p>
+
+<p style="text-align:center"><span style="font-size:20px">xml数据格式:&nbsp;<code>https://jszyapi.com/api.php/provide/vod/at/xml</code></span></p>
+
+<p style="text-align:center"><span style="font-size:20px">json数据格式:&nbsp;<code>https://jszyapi.com/api.php/provide/vod/at/json</code></span></p>
+
+<hr />
+<p style="text-align:center">&nbsp;</p>
+
+<h3 style="text-align:center"><span style="font-size:20px">(极速云) jsyun</span></h3>
+
+<p style="text-align:center"><span style="font-size:20px">xml数据格式:&nbsp;<code>https://jszyapi.com/api.php/provide/vod/from/jsyun/at/xml</code></span></p>
+
+<p style="text-align:center"><span style="font-size:20px">json数据格式:&nbsp;<code>https://jszyapi.com/api.php/provide/vod/from/jsyun/at/json</code></span></p>
+
+<hr />
+<p style="text-align:center">&nbsp;</p>
+
+<h3 style="text-align:center"><span style="font-size:20px">(极速m3u8) jsm3u8</span></h3>
+
+<p style="text-align:center"><span style="font-size:20px">xml数据格式:&nbsp;<code>https://jszyapi.com/api.php/provide/vod/from/jsm3u8/at/xml</code></span></p>
+
+<p style="text-align:center"><span style="font-size:20px">json数据格式:&nbsp;<code>https://jszyapi.com/api.php/provide/vod/from/jsm3u8/at/json</code></span></p>
+</div>
+                                    <div class="tab-content " id="tab2"><p style="text-align:center"><span style="font-size:28px"><strong>👇👇👇👇👇</strong><a href="https://jisuzy.com/help/static/seacms/play.zip"><strong>!!首先添加播放器再尝试采集 点我下载播放器文件</strong></a><strong>👆👆👆👆👆</strong></span></p>
+
+<h1 style="text-align:center"><span style="font-size:24px">1.添加采集地址 老版本海洋cms接口如下 新版本使用帮助中心通用地址</span></h1>
+
+<h3 style="text-align:center"><span style="font-size:16px">(极速云) jsyun</span></h3>
+
+<p style="text-align:center"><span style="font-size:16px">xml数据格式:&nbsp;<code>https://jszyapi.com/api.php/provide/vod/from/jsyun/at/xmlsea</code></span></p>
+
+<h3 style="text-align:center"><span style="font-size:16px">(极速m3u8) jsm3u8</span></h3>
+
+<p style="text-align:center"><span style="font-size:16px">xml数据格式:&nbsp;<code>https://jszyapi.com/api.php/provide/vod/from/jsm3u8/at/xmlsea</code></span></p>
+
+<p style="text-align:center"><img src="/help/static/seacms/1.png" style="height:389px; width:1000px" /></p>
+
+<h1 style="text-align:center"><span style="font-size:24px">2.绑定系统分类</span></h1>
+
+<p style="text-align:center"><img src="/help/static/seacms/2.png" style="height:386px; width:1000px" /><img src="/help/static/seacms/3.png" style="height:401px; width:1000px" /></p>
+
+<h1 style="text-align:center"><span style="font-size:24px">3.导入播放器</span></h1>
+
+<h3 style="text-align:center">后缀为jsm3u8</h3>
+
+<p style="text-align:center"><img src="/help/static/seacms/4.png" style="height:545px; width:1000px" /></p>
+
+<h1 style="text-align:center">可以开始采集了！</h1>
+</div>
+                                    <div class="tab-content " id="tab3"><p style="text-align:center"><span style="font-size:28px"><strong>👇👇👇👇👇</strong><a href="https://jisuzy.com/help/static/maccms/play.zip"><strong>!!首先添加播放器再尝试采集 点击下载播放器文件</strong></a><strong>👆👆👆👆👆</strong></span></p>
+
+<h1 style="text-align:center">1.添加采集地址</h1>
+
+<h3 style="text-align:center">采集地址见帮助中心</h3>
+
+<p style="text-align:center"><img src="/help/static/maccms/1.png" style="height:503px; width:1000px" /></p>
+
+<h1 style="text-align:center">2.绑定系统分类</h1>
+
+<p style="text-align:center"><img src="/help/static/maccms/2.png" style="height:258px; width:1000px" /><img src="/help/static/maccms/3.png" style="height:382px; width:1000px" /></p>
+
+<h1 style="text-align:center">3.导入播放器</h1>
+
+<p style="text-align:center"><img src="/help/static/maccms/4.png" style="height:411px; width:1000px" /></p>
+
+<h1 style="text-align:center">可以开始采集了！</h1>
+</div>
+                                    <div class="tab-content " id="tab4"><p style="text-align:center"><span style="font-size:22px">飞飞cms采集接口;<code>https://jszyapi.com/api.php/provide/vod/from/jsm3u8/at/xml</code></span></p>
+
+<p style="text-align:center"><span style="font-size:22px">播放器标识 jsm3u8</span></p>
+
+<p style="text-align:center"><span style="font-size:22px">播放器解析地址 https://jsjiexi.com/play/?url=</span></p>
+
+<p style="text-align:center"><span style="font-size:22px">还是不行,可下载播放器替换Public\player目录中的文件即可</span></p>
+
+<p style="text-align:center"><span style="font-size:22px"><a href="https://jisuzy.com/help/static/feifei3.4.zip"><strong>点击下载播放器文件</strong></a></span></p>
+</div>
+                                    <div class="tab-content " id="tab5"><p><span style="font-size:22px">赞片cms采集接口;<code>https://jszyapi.com/api.php/provide/vod/from/jsm3u8/at/xml</code></span></p>
+
+<p><span style="font-size:22px">播放器标识 jsm3u8</span></p>
+
+<p><span style="font-size:22px">播放器解析地址 https://jsjiexi.com/play/?url=</span></p>
+</div>
+                                    <div class="tab-content " id="tab6"><p><span style="font-size:20px">视频列表:&nbsp;<span style="color:#e74c3c"><code>https://jszyapi.com/api.php/provide/vod/?ac=videolist</code></span></span></p>
+
+<p><span style="font-size:16px">可用于获取分类、列表和详情</span></p>
+
+<p><span style="font-size:16px">ac：模式（videolist或detail详细模式），为空＝列表标准模式</span></p>
+
+<p><span style="font-size:16px">ids: 影片id，多个使用,隔开</span></p>
+
+<p><span style="font-size:16px">t: 类型</span></p>
+
+<p><span style="font-size:16px">h：最近多少小时内</span></p>
+
+<p><span style="font-size:16px">pg: 页数</span></p>
+
+<p><span style="font-size:16px">wd：搜索like</span></p>
+
+<p><span style="font-size:16px">at：输出格式，可选xml</span></p>
+
+<p><span style="font-size:16px"># 取最新列表带分类</span></p>
+
+<p><span style="font-size:16px">/api.php/provide/vod/</span></p>
+
+<p><span style="font-size:16px"># 取详细列表不带分类</span></p>
+
+<p><span style="font-size:16px">/api.php/provide/vod/?ac=videolist</span></p>
+
+<p><span style="font-size:16px"># 取特定分类</span></p>
+
+<p><span style="font-size:16px">/api.php/provide/vod/?ac=videolist&amp;t=2</span></p>
+
+<p><span style="font-size:16px"># 取某影片数据</span></p>
+
+<p><span style="font-size:16px">/api.php/provide/vod/?ac=videolist&amp;ids=33317</span></p>
+</div>
+                                    <div class="tab-content " id="tab7"><p style="text-align:center"><span style="font-size:28px">常见问题</span></p>
+
+<p>&nbsp;<span style="font-size:16px">&nbsp;1.保存图片到本地</span></p>
+
+<p><span style="font-size:16px">&nbsp; <span style="color:#e74c3c">答：系统-附件参数配置-保存方式：选择保存本地-保存</span></span></p>
+
+<p><span style="font-size:16px">&nbsp; 2.播放器添加不显示</span></p>
+
+<p><span style="font-size:16px">&nbsp;&nbsp;<span style="color:#e74c3c">答：到官网下载播放器文件-CMS后台点击视频-播放器-导入-选择刚刚下载的播放器文件(txt)-保存，右上角清理缓存(执行任何操作建议都缓存一下)</span></span></p>
+
+<p><span style="font-size:16px">&nbsp; 3.API接口失败</span></p>
+
+<p><span style="color:#e74c3c"><span style="font-size:16px">&nbsp; 答：(1)反馈客服检查接口是否有问题</span></span></p>
+
+<p><span style="color:#e74c3c"><span style="font-size:16px">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;(2)网络问题</span></span></p>
+
+<p><span style="color:#e74c3c"><span style="font-size:16px">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;(3)php curl扩展</span></span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="font-size:16px">&nbsp; 4.限制频率间隔多少？比较适宜？</span></p>
+
+<p><span style="font-size:16px">&nbsp;&nbsp;<span style="color:#e74c3c">答：1秒以上都可以</span></span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="font-size:16px">&nbsp; 5.苹果cms怎么设置自动播放下一集啊</span></p>
+
+<p><span style="font-size:16px">&nbsp;<span style="color:#e74c3c"> 答：添加播放器&nbsp;我们只提供解析播放器</span></span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="font-size:16px">&nbsp; 6.搜索显示API接口失败</span></p>
+
+<p><span style="font-size:16px">&nbsp; <span style="color:#e74c3c">答：后台搜索关闭，到官网手动复制播放链接添加该视频</span></span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="font-size:16px">&nbsp; 7.为什么后台关闭搜索</span></p>
+
+<p><span style="font-size:16px">&nbsp; <span style="color:#e74c3c">答：防止被恶意攻击</span></span></p>
+
+<p>&nbsp;</p>
+
+<p><span style="font-size:16px">&nbsp; 8.播放失败</span></p>
+
+<p><span style="color:#e74c3c"><span style="font-size:16px">&nbsp; 答：(1)看下配置，云播和M3U8是否都不行</span></span></p>
+
+<p><span style="color:#e74c3c"><span style="font-size:16px">&nbsp; &nbsp; &nbsp; （2）强制播放器只能使用m3u8,云播自带播放器，要把云播的强制播放器关掉</span></span></p>
+</div>
+                            </div>
+        </div>
+
+        </div>
+    </div>
+    <script>
+        $(document).ready(function(){
+            $('.tab').on('click', function(){
+                var tabId = $(this).data('tab');
+
+                $('.tab').removeClass('active');
+                $(this).addClass('active');
+
+                $('.tab-content').removeClass('active');
+                $('#' + tabId).addClass('active');
+            });
+        });
+    </script>
+    <!-- 底部截取标签-->
+<div class="chat">
+     <a class="chat-item" href="#">
+          <img  class="chat-img" src="/template/default/images/returntop.png">
+     </a>
+</div>
+
+<div class="foot">
+     <ul class="foot-info">
+          <li>本网站所有内容均收集于互联网各种视频网站，本站不会保存,复制,传播任何资源。本站不负任何法律责任。</li>
+          <li>如果侵犯了您的权益，请通知我们，我们会第一时间及时删除侵权内容，请在下载测试后24小时内删除,谢谢合作！</li>
+          <li>请支持正版！</li>
+
+          <li>Copyright ©2023 All Rights Reserved
+               <a href="http://www.jisuzy.com" target="_blank">极速资源网 www.jisuzy.com</a>
+          </li>
+     </ul>
+</div>
+
+<script>
+    function copy(text) {
+        var input = $('<input>')
+            .val(text)
+            .appendTo('body')
+            .css('position', 'fixed')
+            .css('left', '-9999px')
+            .css('top', '-9999px');
+        input.select();
+        document.execCommand('copy');
+        input.remove();
+    }
+</script>
+<script src="/static/js/tj.js"></script>
+</div>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a5471d874aa73870',t:'MTc5MzY2NDIwMA=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a5471d874aa73870',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+
+</html>

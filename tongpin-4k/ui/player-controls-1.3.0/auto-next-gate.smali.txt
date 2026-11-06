@@ -1,0 +1,6 @@
+    iget-object v0, p0, Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity$n;->b:Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;
+    invoke-static {v0}, Lcom/tongpin/player4k/catalog/LegacyPlayerControls;->autoNextEnabled(Landroid/content/Context;)Z
+    move-result v0
+    if-nez v0, :legacy_auto_next_enabled
+    return-void
+    :legacy_auto_next_enabled

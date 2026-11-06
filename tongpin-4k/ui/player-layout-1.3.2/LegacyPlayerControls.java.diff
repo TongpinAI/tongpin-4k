@@ -1,0 +1,14 @@
+--- before/open-sources/src/com/tongpin/player4k/catalog/LegacyPlayerControls.java
++++ after/open-sources/src/com/tongpin/player4k/catalog/LegacyPlayerControls.java
+@@ -110,8 +110,9 @@
+         }
+         labels.add("自动连播：" + (autoNextEnabled(activity) ? "开" : "关")); enabled.add(true); actions.add(8);
+         boolean[] availability = new boolean[enabled.size()];
+-        for (int i = 0; i < availability.length; i++) availability[i] = enabled.get(i);
+-        PlayerOptionsSheet.show(activity, "播放设置", labels.toArray(new String[0]), availability, (dialog, index) -> {
++        int[] kinds = new int[actions.size()];
++        for (int i = 0; i < availability.length; i++) { availability[i] = enabled.get(i); kinds[i] = actions.get(i); }
++        PlayerOptionsSheet.show(activity, "播放设置", labels.toArray(new String[0]), availability, kinds, autoNextEnabled(activity), (dialog, index) -> {
+             int action = actions.get(index);
+             if (action == 8) {
+                 activity.getSharedPreferences(PREFERENCES, Context.MODE_PRIVATE).edit()

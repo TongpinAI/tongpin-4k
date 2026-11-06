@@ -1,0 +1,84 @@
+{
+  "passed": true,
+  "baseline": "1.2.0 frozen reports, never rewritten",
+  "files": {
+    "decoded/res/layout/mv_media_controler_phone.xml": {
+      "before_sha256": "5fb4b45de6ce3b9ab7883a50336a932c2f0b218cda0f0568e66900d2ebe7e7d5",
+      "after_sha256": "391b5260149bb7213f1a3a87e8602ae8c96e8de25d485e40eca8ed636692b334",
+      "bound_ids": 11,
+      "root_class_tag_preserved": true,
+      "constraint_siblings_valid": true
+    },
+    "decoded/res/layout/mv_media_play_top.xml": {
+      "before_sha256": "05f82387658358ec865e10450c22e9715c81738f773e0de3f355d249c39c2cb3",
+      "after_sha256": "75687e6601694a307d14f94c41efbe0d034954ffc47da97d523e7c94db7f907c",
+      "bound_ids": 3,
+      "root_class_tag_preserved": true,
+      "constraint_siblings_valid": true
+    },
+    "decoded/res/layout/phone_activity_video_detail_play.xml": {
+      "before_sha256": "ad0b371caa17b1bdd29ce8f3035a5a1dc7ac985f626be0daf661956ecf97f560",
+      "after_sha256": "2505dd8efe736f418313f6ed234655e8b79ea648e26154271d2b7b1486a9a693",
+      "bound_ids": 50,
+      "root_class_tag_preserved": true,
+      "constraint_siblings_valid": true
+    },
+    "decoded/res/layout/video_layout_standard.xml": {
+      "before_sha256": "735dfb5038e358aa9e140e89c69c8af334007243638c2c763c2b6fee8ae43a9e",
+      "after_sha256": "db648c19ae65dec0ae9179ba2d44e56f39aadef742d1173e10448d76688749dc",
+      "bound_ids": 16,
+      "root_class_tag_preserved": true,
+      "constraint_siblings_valid": true
+    },
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/PlayerViewportInsets.smali": {
+      "before_sha256": "109e1fa321eb9dc3bad714029b821935af6fc133e391a65e20ce69a5c331901c",
+      "after_sha256": "720c2d825e23e460447547e58191ac2e52fb2fe682d54f1805116e44f2a95f3f",
+      "only_method": "public onApplyWindowInsets(Landroid/view/View;Landroidx/core/view/WindowInsetsCompat;)Landroidx/core/view/WindowInsetsCompat;",
+      "locals": 5,
+      "required_final_invocations": [
+        "Landroid/view/View;->setPadding(IIII)V",
+        "Landroidx/core/view/WindowInsetsCompat$Type;->displayCutout()I",
+        "Landroidx/core/view/WindowInsetsCompat$Type;->systemBars()I",
+        "Landroidx/core/view/WindowInsetsCompat;->getInsets(I)Landroidx/core/graphics/Insets;"
+      ]
+    },
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity.smali": {
+      "before_sha256": "b3c99f17e09a5a21b910b7bcb8eaacc13ca8c087b00b8596e9d521a2d3f72dfe",
+      "after_sha256": "335cfda5fa42a1c111eb207b531ac0575a306044a61d2fff32bacc4dc22e3fbc",
+      "only_method": "private final applyFullscreenWindow(Z)V",
+      "locals": 4,
+      "required_final_invocations": [
+        "Landroid/app/Activity;->getWindow()Landroid/view/Window;",
+        "Landroid/view/Window;->getDecorView()Landroid/view/View;",
+        "Landroid/view/Window;->setNavigationBarColor(I)V",
+        "Landroid/view/Window;->setStatusBarColor(I)V",
+        "Landroidx/core/view/ViewCompat;->requestApplyInsets(Landroid/view/View;)V",
+        "Landroidx/core/view/ViewCompat;->setOnApplyWindowInsetsListener(Landroid/view/View;Landroidx/core/view/OnApplyWindowInsetsListener;)V",
+        "Landroidx/core/view/WindowCompat;->getInsetsController(Landroid/view/Window;Landroid/view/View;)Landroidx/core/view/WindowInsetsControllerCompat;",
+        "Landroidx/core/view/WindowCompat;->setDecorFitsSystemWindows(Landroid/view/Window;Z)V",
+        "Landroidx/core/view/WindowInsetsCompat$Type;->systemBars()I",
+        "Landroidx/core/view/WindowInsetsControllerCompat;->hide(I)V",
+        "Landroidx/core/view/WindowInsetsControllerCompat;->setAppearanceLightNavigationBars(Z)V",
+        "Landroidx/core/view/WindowInsetsControllerCompat;->setAppearanceLightStatusBars(Z)V",
+        "Landroidx/core/view/WindowInsetsControllerCompat;->setSystemBarsBehavior(I)V",
+        "Landroidx/core/view/WindowInsetsControllerCompat;->show(I)V",
+        "Landroidx/databinding/ViewDataBinding;->getRoot()Landroid/view/View;",
+        "Lcom/shenma/tvlauncher/phone/PlayerViewportInsets;-><init>(ZLandroid/view/View;)V",
+        "Lcom/shenma/tvlauncher/phone/base/BaseDbActivity;->getMDataBind()Landroidx/databinding/ViewDataBinding;"
+      ]
+    },
+    "open-sources/src/com/tongpin/player4k/catalog/PlaybackResolution.java": {
+      "before_sha256": "33ff91d3e523ec026d9cd28f552b379db1b96d44d0cd53a069121493dca92190",
+      "after_sha256": "053602bf9af43ba6f503470c72717eee8e367545c9035b3c7ef4716100975f36"
+    },
+    "open-sources/src/com/tongpin/player4k/catalog/OpenPlayerActivity.java": {
+      "before_sha256": "12ce5ae0e9385258bb6cce520e7ea80221cca93e3f9b7ddc90c6c0215fddcb29",
+      "after_sha256": "aa3789e2203e34de1311c7056eddfcced1a35c6b6958ebef2c2bbd55b2a98117"
+    }
+  },
+  "layout_count": 4,
+  "native_methods": 2,
+  "own_source_changes": 2,
+  "new_resources": [],
+  "native_render_verified": false
+}

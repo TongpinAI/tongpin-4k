@@ -1,0 +1,99 @@
+.class public abstract Lcom/anythink/rewardvideo/api/ATRewardVideoAutoEventListener;
+.super Ljava/lang/Object;
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 0
+
+    .line 1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 2
+    .line 3
+    .line 4
+    return-void
+.end method
+
+
+# virtual methods
+.method public onAgainReward(Lcom/anythink/core/api/ATAdInfo;)V
+    .locals 0
+
+    .line 1
+    return-void
+.end method
+
+.method public onAgainRewardFailed(Lcom/anythink/core/api/ATAdInfo;)V
+    .locals 0
+
+    .line 1
+    return-void
+.end method
+
+.method public onDeeplinkCallback(Lcom/anythink/core/api/ATAdInfo;Z)V
+    .locals 0
+
+    .line 1
+    return-void
+.end method
+
+.method public onDownloadConfirm(Landroid/content/Context;Lcom/anythink/core/api/ATAdInfo;Lcom/anythink/core/api/ATNetworkConfirmInfo;)V
+    .locals 0
+
+    .line 1
+    return-void
+.end method
+
+.method public abstract onReward(Lcom/anythink/core/api/ATAdInfo;)V
+.end method
+
+.method public onRewardFailed(Lcom/anythink/core/api/ATAdInfo;)V
+    .locals 0
+
+    .line 1
+    return-void
+.end method
+
+.method public onRewardedVideoAdAgainPlayClicked(Lcom/anythink/core/api/ATAdInfo;)V
+    .locals 0
+
+    .line 1
+    return-void
+.end method
+
+.method public onRewardedVideoAdAgainPlayEnd(Lcom/anythink/core/api/ATAdInfo;)V
+    .locals 0
+
+    .line 1
+    return-void
+.end method
+
+.method public onRewardedVideoAdAgainPlayFailed(Lcom/anythink/core/api/AdError;Lcom/anythink/core/api/ATAdInfo;)V
+    .locals 0
+
+    .line 1
+    return-void
+.end method
+
+.method public onRewardedVideoAdAgainPlayStart(Lcom/anythink/core/api/ATAdInfo;)V
+    .locals 0
+
+    .line 1
+    return-void
+.end method
+
+.method public abstract onRewardedVideoAdClosed(Lcom/anythink/core/api/ATAdInfo;)V
+.end method
+
+.method public abstract onRewardedVideoAdPlayClicked(Lcom/anythink/core/api/ATAdInfo;)V
+.end method
+
+.method public abstract onRewardedVideoAdPlayEnd(Lcom/anythink/core/api/ATAdInfo;)V
+.end method
+
+.method public abstract onRewardedVideoAdPlayFailed(Lcom/anythink/core/api/AdError;Lcom/anythink/core/api/ATAdInfo;)V
+.end method
+
+.method public abstract onRewardedVideoAdPlayStart(Lcom/anythink/core/api/ATAdInfo;)V
+.end method

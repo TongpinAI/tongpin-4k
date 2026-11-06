@@ -1,0 +1,184 @@
+--- before/open-sources/src/com/tongpin/player4k/catalog/PlaybackResolution.java
++++ after/open-sources/src/com/tongpin/player4k/catalog/PlaybackResolution.java
+@@ -3,6 +3,7 @@
+ import android.content.Context;
+ import android.graphics.Color;
+ import android.graphics.drawable.GradientDrawable;
++import android.os.SystemClock;
+ import android.text.TextUtils;
+ import android.view.Gravity;
+ import android.view.View;
+@@ -13,7 +14,7 @@
+ 
+ /** Decoded dimensions only: no source labels, names, URLs, or manifest estimates. */
+ public final class PlaybackResolution {
+-    private static final String TAG = "tp_current_decoded_resolution";
++    private static final long SHOW_MS = 3000L;
+     private PlaybackResolution() {}
+ 
+     /** Safe from both legacy constructors, including the separate fullscreen clone. */
+@@ -22,71 +23,81 @@
+         FrameLayout host = (FrameLayout) view;
+         Context context = host.getContext();
+         TextView badge = new TextView(context);
+-        badge.setTag(TAG);
+         badge.setText(resolutionText(0, 0));
+         badge.setTextColor(Color.WHITE);
+-        badge.setTextSize(14);
+-        badge.setMaxLines(2);
++        badge.setTextSize(13);
++        badge.setSingleLine(true);
+         badge.setEllipsize(TextUtils.TruncateAt.END);
+         badge.setGravity(Gravity.CENTER);
+         badge.setPadding(dp(context, 8), dp(context, 5), dp(context, 8), dp(context, 5));
+         badge.setClickable(false);
+         badge.setFocusable(false);
+         badge.setLongClickable(false);
++        badge.setVisibility(View.GONE);
+         GradientDrawable background = new GradientDrawable();
+         background.setColor(0xdd172c42);
+         background.setCornerRadius(dp(context, 6));
+         badge.setBackground(background);
+         FrameLayout.LayoutParams layout = new FrameLayout.LayoutParams(-2, -2, Gravity.TOP | Gravity.END);
+-        layout.topMargin = dp(context, 64); // clear the existing 56dp title/scale control row
++        layout.topMargin = dp(context, 64); // clear the title/control row
+         layout.rightMargin = dp(context, 12);
++        Monitor monitor = new Monitor((GSYBaseVideoPlayer) view, badge);
++        badge.setTag(monitor);
+         host.addView(badge, layout);
+-        Monitor monitor = new Monitor((GSYBaseVideoPlayer) view, badge);
+         host.addOnAttachStateChangeListener(monitor);
+         host.addOnLayoutChangeListener(monitor);
+         if (host.isAttachedToWindow()) monitor.start();
+     }
+ 
+-    public static TextView badge(View view) { attach(view); return find(view); }
++    public static TextView badge(View view) {
++        attach(view);
++        Monitor monitor = find(view);
++        return monitor == null ? null : monitor.badge;
++    }
+ 
+     /** Used by prepared/fullscreen callbacks; periodic refresh handles adaptive changes. */
+     public static void refresh(View view) {
+-        TextView badge = find(view);
+-        if (badge != null && view instanceof GSYBaseVideoPlayer) update((GSYBaseVideoPlayer) view, badge);
++        Monitor monitor = find(view);
++        if (monitor != null) update(monitor);
+     }
+ 
+     /** Called after legacy setStateAndUi; does not attach during superclass construction. */
+     public static void stateChanged(View view, int state) {
+-        TextView badge = find(view);
+-        if (badge == null) return;
+-        if (!decodedState(state)) badge.setText(state == 1 ? "当前画质：检测中" : resolutionText(0, 0));
+-        else refresh(view);
+-        badge.setVisibility(View.VISIBLE);
+-        badge.bringToFront();
++        Monitor monitor = find(view);
++        if (monitor == null) return;
++        if (!decodedState(state)) monitor.clear();
++        else update(monitor);
+     }
+ 
+     public static void reset(View view) {
+-        TextView badge = find(view);
+-        if (badge != null) badge.setText("当前画质：检测中");
++        Monitor monitor = find(view);
++        if (monitor != null) monitor.clear();
+         if (view instanceof GSYBaseVideoPlayer) {
+             try {
+                 GSYBaseVideoPlayer current = ((GSYBaseVideoPlayer) view).getCurrentPlayer();
+                 if (current != null && current != view) {
+-                    TextView full = find(current);
+-                    if (full != null) full.setText("当前画质：检测中");
++                    Monitor full = find(current);
++                    if (full != null) full.clear();
+                 }
+             } catch (RuntimeException | LinkageError unavailable) { /* remains unknown */ }
+         }
+     }
+ 
+-    private static TextView find(View view) {
+-        if (view == null) return null;
+-        View found = view.findViewWithTag(TAG);
+-        return found instanceof TextView ? (TextView) found : null;
++    private static Monitor find(View view) {
++        if (!(view instanceof FrameLayout)) return null;
++        FrameLayout host = (FrameLayout) view;
++        for (int i = 0; i < host.getChildCount(); i++) {
++            Object tag = host.getChildAt(i).getTag();
++            if (tag instanceof Monitor && ((Monitor) tag).host == view) return (Monitor) tag;
++        }
++        return null;
+     }
+ 
+-    private static void update(GSYBaseVideoPlayer host, TextView badge) {
++    private static void update(Monitor monitor) {
++        GSYBaseVideoPlayer host = monitor.host;
++        TextView badge = monitor.badge;
+         String text = resolutionText(0, 0);
++        int width = 0, height = 0;
+         if (host.getWindowVisibility() == View.VISIBLE && host.isShown()) {
+             try {
+                 GSYBaseVideoPlayer current = host.getCurrentPlayer();
+@@ -94,16 +105,28 @@
+                 int state = current.getCurrentState();
+                 GSYVideoViewBridge manager = current.getGSYVideoManager();
+                 boolean owned = manager != null && (Object) manager.listener() == current;
+-                int width = owned && decodedState(state) ? manager.getVideoWidth() : 0;
+-                int height = owned && decodedState(state) ? manager.getVideoHeight() : 0;
++                width = owned && decodedState(state) ? manager.getVideoWidth() : 0;
++                height = owned && decodedState(state) ? manager.getVideoHeight() : 0;
+                 text = decodedText(state, width, height, owned);
+             } catch (RuntimeException | LinkageError unavailable) { /* never substitute advertised quality */ }
+         }
+         if (!text.contentEquals(badge.getText())) badge.setText(text);
++        long now = SystemClock.uptimeMillis();
++        monitor.showUntil = badgeDeadline(now, monitor.showUntil, width, height);
+         if (host.getWidth() > 0)
+             badge.setMaxWidth(Math.max(1, host.getWidth() - host.getPaddingLeft() - host.getPaddingRight() - dp(host.getContext(), 24)));
+-        badge.setVisibility(View.VISIBLE);
+-        badge.bringToFront(); // independent of GSY's auto-hidden top/bottom controls
++        boolean visible = badgeVisible(now, monitor.showUntil, width, height);
++        badge.setVisibility(visible ? View.VISIBLE : View.GONE);
++        if (visible) badge.bringToFront();
++    }
++
++    static long badgeDeadline(long now, long previous, int width, int height) {
++        if (width <= 0 || height <= 0) return previous;
++        return previous == 0L ? now + SHOW_MS : previous;
++    }
++
++    static boolean badgeVisible(long now, long deadline, int width, int height) {
++        return width > 0 && height > 0 && now < deadline;
+     }
+ 
+     static boolean decodedState(int state) { return state == 2 || state == 3 || state == 5 || state == 6; }
+@@ -131,17 +154,23 @@
+     private static final class Monitor implements Runnable, View.OnAttachStateChangeListener, View.OnLayoutChangeListener {
+         private final GSYBaseVideoPlayer host;
+         private final TextView badge;
++        private long showUntil;
+         Monitor(GSYBaseVideoPlayer host, TextView badge) { this.host = host; this.badge = badge; }
++        void clear() {
++            showUntil = 0L;
++            badge.setText(resolutionText(0, 0));
++            badge.setVisibility(View.GONE);
++        }
+         void start() { host.removeCallbacks(this); run(); }
+         @Override public void run() {
+             if (!host.isAttachedToWindow()) return;
+-            update(host, badge);
++            update(this);
+             host.postDelayed(this, 500);
+         }
+         @Override public void onViewAttachedToWindow(View view) { start(); }
+-        @Override public void onViewDetachedFromWindow(View view) { host.removeCallbacks(this); }
++        @Override public void onViewDetachedFromWindow(View view) { host.removeCallbacks(this); clear(); }
+         @Override public void onLayoutChange(View v, int l, int t, int r, int b, int ol, int ot, int or, int ob) {
+-            if (r - l != or - ol || b - t != ob - ot) update(host, badge);
++            if (r - l != or - ol || b - t != ob - ot) update(this);
+         }
+     }
+ }

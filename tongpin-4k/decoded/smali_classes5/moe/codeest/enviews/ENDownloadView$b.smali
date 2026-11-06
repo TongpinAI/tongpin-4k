@@ -1,0 +1,66 @@
+.class Lmoe/codeest/enviews/ENDownloadView$b;
+.super Landroid/animation/AnimatorListenerAdapter;
+.source "r8-map-id-4c0b28e571086534d372af241f48ba94b5a529610dacb5d0006953fc02fc614b"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lmoe/codeest/enviews/ENDownloadView;->k()V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x0
+    name = null
+.end annotation
+
+
+# instance fields
+.field final synthetic b:Lmoe/codeest/enviews/ENDownloadView;
+
+
+# direct methods
+.method constructor <init>(Lmoe/codeest/enviews/ENDownloadView;)V
+    .locals 0
+
+    .line 1
+    iput-object p1, p0, Lmoe/codeest/enviews/ENDownloadView$b;->b:Lmoe/codeest/enviews/ENDownloadView;
+
+    .line 2
+    .line 3
+    invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
+
+    .line 4
+    .line 5
+    .line 6
+    return-void
+.end method
+
+
+# virtual methods
+.method public onAnimationEnd(Landroid/animation/Animator;)V
+    .locals 1
+
+    .line 1
+    iget-object p1, p0, Lmoe/codeest/enviews/ENDownloadView$b;->b:Lmoe/codeest/enviews/ENDownloadView;
+
+    .line 2
+    .line 3
+    const/4 v0, 0x1
+
+    .line 4
+    invoke-static {p1, v0}, Lmoe/codeest/enviews/ENDownloadView;->c(Lmoe/codeest/enviews/ENDownloadView;I)I
+
+    .line 5
+    .line 6
+    .line 7
+    iget-object p1, p0, Lmoe/codeest/enviews/ENDownloadView$b;->b:Lmoe/codeest/enviews/ENDownloadView;
+
+    .line 8
+    .line 9
+    invoke-static {p1}, Lmoe/codeest/enviews/ENDownloadView;->d(Lmoe/codeest/enviews/ENDownloadView;)V
+
+    .line 10
+    .line 11
+    .line 12
+    return-void
+.end method

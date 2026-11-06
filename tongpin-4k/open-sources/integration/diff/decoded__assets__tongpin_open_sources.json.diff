@@ -1,0 +1,28 @@
+--- before/decoded/assets/tongpin_open_sources.json
++++ after/decoded/assets/tongpin_open_sources.json
+@@ -0,0 +1,25 @@
++{
++  "providers": [
++    {
++      "id": "mdzy",
++      "name": "魔都资源",
++      "kind": "maccms",
++      "api": "https://www.mdzyapi.com/api.php/provide/vod/",
++      "homepage": "https://mdzyapi.com/"
++    },
++    {
++      "id": "360zy",
++      "name": "360资源",
++      "kind": "maccms",
++      "api": "https://360zy.com/api.php/provide/vod/",
++      "homepage": "https://360zy.com/"
++    },
++    {
++      "id": "blender",
++      "name": "Blender开放电影",
++      "kind": "peertube",
++      "api": "https://video.blender.org/api/v1/video-channels/blender_open_movies/videos?sort=-publishedAt",
++      "homepage": "https://video.blender.org/video-channels/blender_open_movies"
++    }
++  ]
++}

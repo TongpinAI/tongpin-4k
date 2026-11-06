@@ -1,0 +1,35 @@
+.class public final Landroidx/media3/cast/R$string;
+.super Ljava/lang/Object;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroidx/media3/cast/R;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "string"
+.end annotation
+
+
+# static fields
+.field public static media_route_button_connected:I = 0x7f1301f6
+
+.field public static media_route_button_connecting:I = 0x7f1301f7
+
+.field public static media_route_button_disconnected:I = 0x7f1301f8
+
+
+# direct methods
+.method private constructor <init>()V
+    .locals 0
+
+    .line 1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 2
+    .line 3
+    .line 4
+    return-void
+.end method

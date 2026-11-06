@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "apk_sha256": "36afc75c61b0575142a7d719f22355f3cfc9b87270176b974ad993d2861730b5",
+  "downloads_hash_identical": true,
+  "production_inputs_match_frozen": true,
+  "all_prior132_release_evidence_unchanged": true,
+  "prior_evidence_count": 16,
+  "first4_dex_unchanged": true,
+  "source_registry_unchanged": true,
+  "all_compiled_layouts_unchanged": true,
+  "new_resource_ids": false,
+  "native_seek_hooks": {
+    "user_preview_returns_before_automatic_logic": true,
+    "tracking_begin_and_single_finish_hooks": true,
+    "poll_deferred_before_progress_update": true,
+    "swipe_uses_transaction_helper": true
+  },
+  "seek_state_methods_verified": 15,
+  "device_tested": false,
+  "changed_apk_entries": [
+    "AndroidManifest.xml",
+    "META-INF/MANIFEST.MF",
+    "META-INF/TONGPIN4.RSA",
+    "META-INF/TONGPIN4.SF",
+    "classes5.dex",
+    "resources.arsc"
+  ]
+}

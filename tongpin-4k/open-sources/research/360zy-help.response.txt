@@ -1,0 +1,673 @@
+<!doctype html>
+<html lang="zh-CN">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="format-detection" content="telephone=no" />
+		<title>360èµæº</title>
+		<script src="/template/360zy.com/js/sweetalert.min.js"></script>
+		<script type="text/javascript" src="/template/360zy.com/js/jquery-2.2.1.min.js"></script>
+		<script type="text/javascript" src="/template/360zy.com/js/bootstrap.js"></script>
+		<link href="/template/360zy.com/css/bootstrap.css" rel="stylesheet" type="text/css" />
+		<link href="/template/360zy.com/css/pub.css" rel="stylesheet" type="text/css" />
+		<link href="/template/360zy.com/css/course.css" rel="stylesheet" type="text/css" />
+		<link href="//unpkg.com/layui@2.9.3/dist/css/layui.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="index col">
+			<div class="indextop">
+				<div class="close"><img src="/template/360zy.com/picture/icon_guanbi@2x.png" /></div>
+				<div class="notice row justify-content-md-center">
+					<div class="noticeimg col-xl-1 col-lg-1 col-md-4 col-sm-12"><img
+							src="/template/360zy.com/picture/notice.png" />
+						<p style="color:#ffffff;font-weight:800;">å¬åéç¥</p>
+					</div>
+					<div class="noticetext">
+						<div class="row linktext">
+							<p>360èµæºå¨ç½é¦éï¼é«æ¸ç»è´¨ãç­æ­å½±çãé«å³°ä¸å¡ãåå½ä¼åCDNãç§æç§æ­ï¼èµæºæ°¸ä¹åè´¹ï¼æ¬¢è¿ééã</p>
+						</div>
+						<div class="row linktext">
+							<p style="color: #ff0a3b">ååæ´æ°å¬åï¼</p><a href="https://360zy.com/360zy/gonggao.html"
+								style="color: blanchedalmond;margin-top:auto;margin-bottom:auto"><span>>>></span>ååå¤±ææ¿æ¢è®°å½--è¯·ç¹å»è¿å¥æ¥ç<span>&lt;&lt;&lt;</span></a>
+						</div>
+						<div class="row">
+							<div class="linkitem"> æ¸©é¦¨æç¤ºï¼ æ¬ç«å°é¢å¯ä»¥ééä½¿ç¨ï¼ä½è¯·èªè¡å¤ä»½å°é¢ï¼ä»¥æç»æ¥ååºç°ç±»ä¼¼å°é¢å¤±æçæåµã </div>
+						</div>
+						<div class="row">
+                        <div class="linkitem" style="font-size:22px;margin-top: 5px;">
+                            ä¸»åå 
+                            <a href="https://360zy.com" target="_blank" style="font-size:22px">360zy.com</a> &nbsp;
+                            <a style="font-size:22px" target="_blank" href="https://360zy.net">360zy.net</a> &nbsp;
+                            <a href="https://360zy.vip" target="_blank" style="font-size:22px">360zy.vip</a> &nbsp;
+                            <a style="font-size:22px" target="_blank" href="https://360zy.top">360zy.top</a> &nbsp;
+                            <a href="https://360zy.tv" target="_blank" style="font-size:22px">360zy.tv</a> &nbsp;
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="linkitem" style="font-size:22px; margin-top: 5px;">
+                            å¤ç¨åå ï¼</br>
+                            <a style="font-size:22px" target="_blank" href="https://360zy1.com">360zy1.com</a>&nbsp;
+                            <a style="font-size:22px" target="_blank" href="https://360zy2.com">360zy2.com</a>&nbsp;
+                            <a style="font-size:22px" target="_blank" href="https://360zy3.com">360zy3.com</a>&nbsp;
+                            <a style="font-size:22px" target="_blank" href="https://360zy4.com">360zy4.com</a>&nbsp;
+                            <a style="font-size:22px" target="_blank" href="https://360zy5.com">360zy5.com</a></br>&nbsp;
+                            <a style="font-size:22px" target="_blank" href="https://360zy6.com">360zy6.com</a>&nbsp;
+                            <a style="font-size:22px" target="_blank" href="https://360zy7.com">360zy7.com</a>&nbsp;
+                            <a style="font-size:22px" target="_blank" href="https://360zy8.com">360zy8.com</a>&nbsp;
+                            <a style="font-size:22px" target="_blank" href="https://360zy9.com">360zy9.com</a>&nbsp;
+                            <a style="font-size:22px" target="_blank" href="https://360zy10.com">360zy10.com</a>&nbsp;
+                            
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="linkitem" style="font-size:22px; margin-top: 5px;">
+                            âtelegramäº¤æµç¾¤ï¼
+                            <a style="font-size:22px" target="_blank" href="https://t.me/sllzyz">https://t.me/sllzyz</a> &nbsp;
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="linkitem" style="font-size:22px; margin-top: 5px;">
+                            ðæ¼ç¤ºç«ï¼
+                            <a style="font-size:22px" target="_blank" href="https://www.360aikan.com/">https://www.360aikan.com</a> &nbsp;
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="linkitem" style="font-size:22px; margin-top: 5px;">
+                            ðè¹æcmsæ¥å£ï¼
+                            <a style="font-size:22px" target="_blank" href="https://360zyzz.com/api.php/provide/vod">https://360zyzz.com/api.php/provide/vod</a> &nbsp;
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="linkitem" style="font-size:22px; margin-top: 5px;">
+                            ðæµ·æ´cmsæ¥å£ï¼
+                            <a style="font-size:22px" target="_blank" href="https://360zyzz.com/api.php/seaxml/vod/at/xml">https://360zyzz.com/api.php/seaxml/vod/at/xml</a> &nbsp;
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="linkitem" style="font-size:22px; margin-top: 5px;">
+                            æ´å¤æ¥å£ð
+                            <a style="font-size:22px" target="_blank" href="https://www.360zy.com/360zy/help.html">https://www.360zy.com/360zy/help.html</a> &nbsp;
+                        </div>
+                    </div>
+                    <hr/>
+                    <div class="row">
+                        <div class="linkitem" style="font-size:22px; margin-top: 5px;">
+                            ð¦å¼¹å¹è§£ææ­æ¾å¨ï¼æ å¹¿å  å¨±ä¹ä¸ç¨ï¼ï¼
+                            <a style="font-size:22px" target="_blank" href="https://www.360jiexi.com/player/?url= ">https://www.360jiexi.com/player/?url= </a> &nbsp;
+                        </div>
+                    </div>
+                    <hr/>
+                    <div class="row">
+                        <div class="linkitem" style="font-size:22px; margin-top: 5px;">
+                            ð¦å¼¹å¹è§£ææ­æ¾å¨2ï¼
+                            <a style="font-size:22px" target="_blank" href="https://zyjiexi.com/player/?url= ">https://zyjiexi.com/player/?url= </a> &nbsp;
+                        </div>
+                    </div>
+                    <hr/>
+                    <div class="row">
+                        <div class="linkitem" style="font-size:22px; margin-top: 5px;">
+                            ð<span style="color:yellow;">ç¦å©èµå©ä¸ç¨æ­æ¾å¨ï¼</span>
+                            <a style="font-size:22px" target="_blank" href="https://bofang.360jiexi.com/?url= ">https://bofang.360jiexi.com/?url= </a> &nbsp;
+                        </div>
+                    </div>
+                    <hr/>
+                    <!--<div class="row">
+                        <div class="linkitem" style="font-size:22px; margin-top: 5px;">
+                            ðæ­æ¾å¨è®¡è´¹ç³»ç»ï¼ééå¤å®¶èµæºç«ä¹è½è·å¾æ¶çï¼ç¹å»è®¿é®ï¼ð<a style="font-size:22px" target="_blank" href="https://www.360zy.com/">www.360zy.com</a></div>-->
+						</div><br />
+					</div>
+				</div>
+			</div>
+			<div class="logotop">
+				<div class="container">
+					<div class="logo">
+						<div class="logoimg col-xl-2 col-lg-2 col-md-4 col-sm-11"><a href="/"><img
+									src="/logo.png" /></a></div>
+						<div class="logonav">
+							<div class="logonavbar">
+								<div class="nav-item">
+									<div class="nav-link"><a href="/">é¦é¡µ</a></div>
+								</div>
+								<div class="nav-item">
+									<div class="nav-link"><a href="/vodtype/1.html">çµå½±</a><img
+											src="/template/360zy.com/picture/icon_xiala@2x.png" /></div>
+									<div class="nav-drop">
+										<div class="dropitem"><a class="dropdown-item" href="/vodtype/6.html">å¨ä½ç</a>
+										</div>
+										<div class="dropitem"><a class="dropdown-item" href="/vodtype/7.html">åå§ç</a>
+										</div>
+										<div class="dropitem"><a class="dropdown-item" href="/vodtype/8.html">ç±æç</a>
+										</div>
+										<div class="dropitem"><a class="dropdown-item" href="/vodtype/9.html">ç§å¹»ç</a>
+										</div>
+										<div class="dropitem"><a class="dropdown-item" href="/vodtype/10.html">ææç</a>
+										</div>
+										<div class="dropitem"><a class="dropdown-item" href="/vodtype/11.html">å§æç</a>
+										</div>
+										<div class="dropitem"><a class="dropdown-item" href="/vodtype/12.html">æäºç</a>
+										</div>
+										<div class="dropitem"><a class="dropdown-item" href="/vodtype/13.html">ææç</a>
+										</div>
+										<div class="dropitem"><a class="dropdown-item" href="/vodtype/14.html">å®¶åº­ç</a>
+										</div>
+										<div class="dropitem"><a class="dropdown-item" href="/vodtype/15.html">å¤è£ç</a>
+										</div>
+										<div class="dropitem"><a class="dropdown-item" href="/vodtype/16.html">åå²ç</a>
+										</div>
+										<div class="dropitem"><a class="dropdown-item" href="/vodtype/17.html">æ¬çç</a>
+										</div>
+										<div class="dropitem"><a class="dropdown-item" href="/vodtype/18.html">ç¯ç½ªç</a>
+										</div>
+										<div class="dropitem"><a class="dropdown-item" href="/vodtype/19.html">ç¾é¾ç</a>
+										</div>
+										<div class="dropitem"><a class="dropdown-item" href="/vodtype/20.html">è®°å½ç</a>
+										</div>
+										<div class="dropitem"><a class="dropdown-item" href="/vodtype/21.html">ç­ç</a>
+										</div>
+										<div class="dropitem"><a class="dropdown-item" href="/vodtype/22.html">å¨ç»ç</a>
+										</div>
+									</div>
+								</div>
+								<div class="nav-item">
+									<div class="nav-link"><a href="/vodtype/2.html">è¿ç»­å§</a><img
+											src="/template/360zy.com/picture/icon_xiala@2x.png" /></div>
+									<div class="nav-drop">
+										<div class="dropitem"><a class="dropdown-item" href="/vodtype/23.html">å½äº§å§</a>
+										</div>
+										<div class="dropitem"><a class="dropdown-item" href="/vodtype/24.html">é¦æ¸¯å§</a>
+										</div>
+										<div class="dropitem"><a class="dropdown-item" href="/vodtype/25.html">é©å½å§</a>
+										</div>
+										<div class="dropitem"><a class="dropdown-item" href="/vodtype/26.html">æ¬§ç¾å§</a>
+										</div>
+										<div class="dropitem"><a class="dropdown-item" href="/vodtype/27.html">å°æ¹¾å§</a>
+										</div>
+										<div class="dropitem"><a class="dropdown-item" href="/vodtype/28.html">æ¥æ¬å§</a>
+										</div>
+										<div class="dropitem"><a class="dropdown-item" href="/vodtype/29.html">æµ·å¤å§</a>
+										</div>
+										<div class="dropitem"><a class="dropdown-item" href="/vodtype/30.html">æ³°å½å§</a>
+										</div>
+									</div>
+								</div>
+								<div class="nav-item">
+									<div class="nav-link"><a href="/vodtype/3.html">ç»¼èº</a><img
+											src="/template/360zy.com/picture/icon_xiala@2x.png" /></div>
+									<div class="nav-drop">
+										<div class="dropitem"><a class="dropdown-item" href="/vodtype/31.html">å¤§éç»¼èº</a>
+										</div>
+										<div class="dropitem"><a class="dropdown-item" href="/vodtype/32.html">æ¸¯å°ç»¼èº</a>
+										</div>
+										<div class="dropitem"><a class="dropdown-item" href="/vodtype/33.html">æ¥é©ç»¼èº</a>
+										</div>
+										<div class="dropitem"><a class="dropdown-item" href="/vodtype/34.html">æ¬§ç¾ç»¼èº</a>
+										</div>
+									</div>
+								</div>
+								<div class="nav-item">
+									<div class="nav-link"><a href="/vodtype/4.html">å¨æ¼«</a><img
+											src="/template/360zy.com/picture/icon_xiala@2x.png" /></div>
+									<div class="nav-drop">
+										<div class="dropitem"><a class="dropdown-item" href="/vodtype/35.html">å½äº§å¨æ¼«</a>
+										</div>
+										<div class="dropitem"><a class="dropdown-item" href="/vodtype/36.html">æ¬§ç¾å¨æ¼«</a>
+										</div>
+										<div class="dropitem"><a class="dropdown-item" href="/vodtype/37.html">æ¥æ¬å¨æ¼«</a>
+										</div>
+									</div>
+								</div>
+								<div class="nav-item">
+									<div class="nav-link"><a href="/vodtype/5.html">ä¼¦çç</a><img
+											src="/template/360zy.com/picture/icon_xiala@2x.png" /></div>
+									<div class="nav-drop"></div>
+								</div>
+								<div class="nav-item">
+									<div class="nav-link"><a href="/vodtype/40.html">ä½è²</a><img
+											src="/template/360zy.com/picture/icon_xiala@2x.png" /></div>
+									<div class="nav-drop">
+										<div class="dropitem"><a class="dropdown-item" href="/vodtype/41.html">è¶³ç</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="btn justify-content-center"><a href="https://360zy.com/360zy/help.html"><button
+									type="button" class="btn btn-primary">ðééæç¨</button></a><a
+								href="https://360zy.com/index.php/gbook"><button type="button"
+									class="btn btn-success">ð¨æ±çå¿åº</button></a><a target="_blank"
+								href="/360zy/fuli.html"><button type="button"
+									class="btn btn-warning">ðç¦å©èµå©</button></a></div>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div class="tablecount row">
+					<div class="tabletitle col">
+						<h1>ééæç¨</h1>
+					</div>
+					<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+						<div class="tabs row">
+							<div class="tab active">å¸®å©ä¸­å¿</div>
+							<div class="tab">ç±å½±CMS</div>
+							<div class="tab">è¹æCMS</div>
+							<div class="tab">æµ·æ´CMS</div>
+							<div class="tab">é£é£CMS</div>
+							<div class="tab">èµ¤åCMS</div>
+							<div class="tab">é®é¢æç¨</div>
+							<div class="tab">å¶ä»</div>
+						</div>
+						<div class="count">
+						    
+							<div class="info row" style="display: block;"><h1 style="color:red;">ééååæ·»å æ­æ¾å¨ï¼å¦åééåæ æ°æ®</h1><h1 style="color:red;">ééååæ·»å æ­æ¾å¨ï¼å¦åééåæ æ°æ®</h1><h1 style="color:red;">ééååæ·»å æ­æ¾å¨ï¼å¦åééåæ æ°æ®</h1>
+								<h1>åºç¡æ¥å£å°åï¼ï¼é»è®¤ééå°åï¼</h1><br />
+								<p>æ åééå°å:<code>https://360zyzz.com/api.php/provide/vod</code></p><br />
+								<p>xmlæ°æ®æ ¼å¼:<code>https://360zyzz.com/api.php/provide/vod/at/xml</code></p><br />
+								<p>jsonæ°æ®æ ¼å¼:<code>https://360zyzz.com/api.php/provide/vod/at/json</code></p><br />
+								<hr>
+								<h1>360m3u8</h1><br />
+								<p>xmlæ°æ®æ ¼å¼:<code>https://360zyzz.com/api.php/provide/vod/from/360m3u8/at/xml</code></p>
+								<br />
+								<p>jsonæ°æ®æ ¼å¼:<code>https://360zyzz.com/api.php/provide/vod/from/360m3u8/at/json</code>
+								</p><br />
+								<hr><strong>è§£æå°å:<code>https://www.360jiexi.com/player/?url=</code></strong>
+								<hr>
+							</div>
+							<div class="info row">
+							    <h1 style="color:red;">ééååæ·»å æ­æ¾å¨ï¼å¦åééåæ æ°æ®</h1><h1 style="color:red;">ééååæ·»å æ­æ¾å¨ï¼å¦åééåæ æ°æ®</h1><h1 style="color:red;">ééååæ·»å æ­æ¾å¨ï¼å¦åééåæ æ°æ®</h1>
+								<h2>ç±å½±cmsééæç¨ãå¾ççä¸æ¸ç¹å»æ¾å¤§ã</h2></br>
+								<h1>â æ·»å ç«ç¹ãæ·»å æ¥å£åä¸å®è¦åæ·»å ç«ç¹ã</h1>
+								<p><img src="/360zy/img/1.png"
+										class="jiaocheng layui-upload-img" onclick="previewImg(this)" alt="..."></p>
+								</br>
+								<h1>â¡æ·»å ééæ¥å£</h1>
+								<h1>ééæ¥æºï¼è¹æCMSV10</h1>
+								<h1>èµæºå°åï¼https://360zyzz.com/api.php/provide/vod</h1>
+								<h1>æ¥å£ç±»åï¼JSON</h1>
+								<p><img src="/360zy/img/2.png"
+										class="jiaocheng layui-upload-img" onclick="previewImg(this)" alt="..."></p>
+								</br>
+								<h1>â¢ééæ¥å£ç»å®ç«ç¹</h1>
+								<p><img src="/360zy/img/3.png"
+										class="jiaocheng layui-upload-img" onclick="previewImg(this)" alt="..."></p>
+								</br>
+								<h1>â£è¿å¥æ¥å£ï¼ç»å®åç±»ï¼å¼å§éé</h1>
+								<p><img src="/360zy/img/4.png"
+										class="jiaocheng layui-upload-img" onclick="previewImg(this)" alt="..."></p>
+								</br>
+							</div>
+							<div class="info row">
+								<ul class="list-unstyled">
+									<li>
+									    <h1 style="color:red;">ééååæ·»å æ­æ¾å¨ï¼å¦åééåæ æ°æ®</h1><h1 style="color:red;">ééååæ·»å æ­æ¾å¨ï¼å¦åééåæ æ°æ®</h1><h1 style="color:red;">ééååæ·»å æ­æ¾å¨ï¼å¦åééåæ æ°æ®</h1>
+									    
+									    <h1>åºç¡æ¥å£å°åï¼ï¼é»è®¤ééå°åï¼</h1><br />
+								<p>æ åééå°å:<code>https://360zyzz.com/api.php/provide/vod</code></p><br />
+								<p>xmlæ°æ®æ ¼å¼:<code>https://360zyzz.com/api.php/provide/vod/at/xml</code></p><br />
+								<p>jsonæ°æ®æ ¼å¼:<code>https://360zyzz.com/api.php/provide/vod/at/json</code></p><br />
+								<hr>
+										<h2>è¹æcmsééæç¨ãå¾ççä¸æ¸ç¹å»æ¾å¤§ã</h2></br>
+										<ul>
+											<li>
+												<p>è¯·æ³¨æå¦æä½ éæ©<strong>xml</strong>æ°æ®ï¼ä¸å®è¦æ·»å åæ°<code>&ct=xml</code></p>
+											</li>
+											<li>
+												<p><img src="/template/360zy.com/images/mac-course.png"
+														class="jiaocheng layui-upload-img" onclick="previewImg(this)"
+														alt="..."></p>
+												<p>ç¹å»å¾çæ¾å¤§æ¥ç</p>
+											</li>
+										</ul>
+									</li>
+									<hr>
+									<li>
+										<h1>æ·»å æ­æ¾å¨æä»¶</h1>
+										<ul>
+											<li>
+												<p>é¦åä¸è½½æ­æ¾å¨æä»¶<a href="/maccms.zip"><font size="5" color="#ff0000"><b>ç¹å»ä¸è½½æ­æ¾å¨æä»¶</b></font></a></p>	
+											</li>
+											<li>
+												<p>æç§ä¸å¾å¯¼å¥å°æ­æ¾å¨å¯¼å¥å°ä½ çç³»ç»</p>
+											</li>
+											<li>
+												<p><img src="/template/360zy.com/images/mac-player.png"
+														class="jiaocheng layui-upload-img" onclick="previewImg(this)"
+														alt="..."></p>
+												<p>ç¹å»å¾çæ¾å¤§æ¥ç</p>
+											</li>
+										</ul>
+									</li>
+									<hr>
+									<li>
+										<p>å°è¯ééæ°æ®ï¼ç¶åå¨ä½ çç½ç«éªè¯æ°æ®æ¯å¦æ­£å¸¸ã</p>
+									</li><strong>æ³¨æï¼ å¦ææ¨æä»»ä½é®é¢å¯ä»¥å¨æä»¬çtelegram @sllzyz ç¾¤éæé®ï¼æä»¬ä¼å°½å¿«å¸®æ¨è§£ç­ã</strong>
+								</ul>
+							</div>
+							<div class="info row">
+								<ul class="list-unstyled">
+									<li>
+									    <h1 style="color:red;">ééååæ·»å æ­æ¾å¨ï¼å¦åééåæ æ°æ®</h1><h1 style="color:red;">ééååæ·»å æ­æ¾å¨ï¼å¦åééåæ æ°æ®</h1><h1 style="color:red;">ééååæ·»å æ­æ¾å¨ï¼å¦åééåæ æ°æ®</h1>
+										<h2>æµ·æ´cmsééæç¨ãå¾ççä¸æ¸ç¹å»æ¾å¤§ã</h2></br>
+										<ul>
+											<li>
+												<p>èµæºåºåç§°ï¼<code>360èµæº</code></p>
+											</li>
+											<li>
+												<p>èµæºåºå°åï¼<code></code>https://360zyzz.com/api.php/seaxml/vod/at/xml</code>
+												</p>
+											</li>
+											<li>
+												<p>èµæºåºä»ç»ï¼<code>360èµæº 360zy.net 360èµæºé£æºç¾¤ @sllzyz</code></p>
+											</li>
+											<li>
+												<p><img src="/template/360zy.com/images/seacms-zy.png"
+														class="jiaocheng layui-upload-img" onclick="previewImg(this)"
+														alt="..."></p>
+												<p>ç¹å»å¾çæ¾å¤§æ¥ç</p>
+											</li>
+										</ul>
+									</li>
+									<hr>
+									<li>
+										<h1>æ·»å æ­æ¾æ¥æº</h1>
+										<ul>
+											<li>
+												<p>é¦åä¸è½½æ­æ¾å¨æä»¶<a href="/seacms.zip">ç¹å»ä¸è½½æ­æ¾å¨æä»¶</a></p>
+											</li>
+											<li>
+												<p>æç§ä¸å¾å¯¼å¥å°æ­æ¾å¨å¯¼å¥å°ä½ çç³»ç»</p>
+											</li>
+											<li>
+												<p><img src="/template/360zy.com/images/seacms-player.png"
+														class="jiaocheng layui-upload-img" onclick="previewImg(this)"
+														alt="..."></p>
+												<p>ç¹å»å¾çæ¾å¤§æ¥ç</p>
+											</li>
+										</ul>
+									</li>
+									<hr>
+									<li>
+										<h1>ç»å®åç±»</h1>
+										<ul>
+											<li>
+												<p><img src="/template/360zy.com/images/seacms-bd.png"
+														class="jiaocheng layui-upload-img" onclick="previewImg(this)"
+														alt="..."></p>
+												<p>ç¹å»å¾çæ¾å¤§æ¥ç</p>
+											</li>
+										</ul>
+									</li>
+									<hr>
+									<li>
+										<p>å°è¯ééæ°æ®ï¼ç¶åå¨ä½ çç½ç«éªè¯æ°æ®æ¯å¦æ­£å¸¸ã</p>
+									</li><strong>æ³¨æï¼ å¦ææ¨æä»»ä½é®é¢å¯ä»¥å¨æä»¬çtelegram @sllzyz ç¾¤éæé®ï¼æä»¬ä¼å°½å¿«å¸®æ¨è§£ç­ã</strong>
+								</ul>
+							</div>
+							<div class="info row">
+								<ul class="list-unstyled">
+									<li>
+									    <h1 style="color:red;">ééååæ·»å æ­æ¾å¨ï¼å¦åééåæ æ°æ®</h1><h1 style="color:red;">ééååæ·»å æ­æ¾å¨ï¼å¦åééåæ æ°æ®</h1><h1 style="color:red;">ééååæ·»å æ­æ¾å¨ï¼å¦åééåæ æ°æ®</h1>
+										<h2>é£é£cmsééæç¨ãå¾ççä¸æ¸ç¹å»æ¾å¤§ã</h2></br>
+										<ul>
+											<li>
+												<p>èµæºåºåç§°ï¼<code>360èµæº</code></p>
+											</li>
+											<li>
+												<p>èµæºåºå°åï¼<code>https://360zyzz.com/api.php/provide/vod/at/xml/</code>
+												</p>
+											</li>
+											<li>
+												<p><img src="/template/360zy.com/images/feifei-zy.png"
+														class="jiaocheng layui-upload-img" onclick="previewImg(this)"
+														alt="..."></p>
+												<p>ç¹å»å¾çæ¾å¤§æ¥ç</p>
+											</li>
+										</ul>
+									</li>
+									<hr>
+									<li>
+										<h1>æ·»å æ­æ¾å¨</h1>
+										<ul>
+											<li>
+												<p>é¦åä¸è½½æ­æ¾å¨æä»¶<a href="/feifei.zip">ç¹å»ä¸è½½æ­æ¾å¨æä»¶</a></p>
+											</li>
+											<li>
+												<p>ä¸ä¼ è³ä½ çç½ç«ç®å½<code>Public\player</code>ä¸­</p>
+											</li>
+											<li>
+												<p>æç§ä¸è·¯åéç½®å°ä½ çç³»ç»ä¸­</p>
+											</li>
+											<li>
+												<p><img src="/template/360zy.com/images/feifei-player.png"
+														class="jiaocheng layui-upload-img" onclick="previewImg(this)"
+														alt="..."></p>
+												<p>ç¹å»å¾çæ¾å¤§æ¥ç</p>
+											</li>
+										</ul>
+									</li>
+									<hr>
+									<li>
+										<p>å°è¯ééæ°æ®ï¼ç¶åå¨ä½ çç½ç«éªè¯æ°æ®æ¯å¦æ­£å¸¸ã</p>
+									</li><strong>æ³¨æï¼ å¦ææ¨æä»»ä½é®é¢å¯ä»¥å¨æä»¬çtelegram @sllzyz ç¾¤éæé®ï¼æä»¬ä¼å°½å¿«å¸®æ¨è§£ç­ã</strong>
+								</ul>
+							</div>
+							<div class="info row">
+								<ul class="list-unstyled">
+									<li>
+									    <h1 style="color:red;">ééååæ·»å æ­æ¾å¨ï¼å¦åééåæ æ°æ®</h1><h1 style="color:red;">ééååæ·»å æ­æ¾å¨ï¼å¦åééåæ æ°æ®</h1><h1 style="color:red;">ééååæ·»å æ­æ¾å¨ï¼å¦åééåæ æ°æ®</h1>
+										<h2>èµ¤åcmsééæç¨ãå¾ççä¸æ¸ç¹å»æ¾å¤§ã</h2></br>
+										<ul>
+											<li>
+												<p>èµæºåºåç§°ï¼<code>360èµæº</code></p>
+											</li>
+											<li>
+												<p>èµæºåºå°åï¼<code>https://360zyzz.com/api.php/provide/vod/at/xml/</code>
+												</p>
+											</li>
+											<li>
+												<p><img src="/template/360zy.com/images/ct1.png"
+														class="jiaocheng layui-upload-img" onclick="previewImg(this)"
+														alt="..."></p>
+												<p>ç¹å»å¾çæ¾å¤§æ¥ç</p>
+											</li>
+										</ul>
+									</li>
+									<hr>
+									<li>
+										<h1>æ·»å æ­æ¾å¨</h1>
+										<ul>
+											<li>
+												<p>é¦åä¸è½½æ­æ¾å¨æä»¶<a href="/ct.zip">ç¹å»ä¸è½½æ­æ¾å¨æä»¶</a></p>
+											</li>
+											<li>
+												<p>ä¸ä¼ è³ä½ çç½ç«ç®å½<code>Public\player</code>ä¸­</p>
+											</li>
+											<li>
+												<p>æç§ä¸è·¯åéç½®å°ä½ çç³»ç»ä¸­</p>
+											</li>
+											<li>
+												<p><img src="/template/360zy.com/images/ct2.png"
+														class="jiaocheng layui-upload-img" onclick="previewImg(this)"
+														alt="..."></p>
+												<p>ç¹å»å¾çæ¾å¤§æ¥ç</p>
+											</li>
+										</ul>
+									</li>
+									<hr>
+									<li>
+										<p>å°è¯ééæ°æ®ï¼ç¶åå¨ä½ çç½ç«éªè¯æ°æ®æ¯å¦æ­£å¸¸ã</p>
+									</li><strong>æ³¨æï¼ å¦ææ¨æä»»ä½é®é¢å¯ä»¥å¨æä»¬çtelegram @sllzyz ç¾¤éæé®ï¼æä»¬ä¼å°½å¿«å¸®æ¨è§£ç­ã</strong>
+								</ul>
+							</div>
+							<div class="info row">
+								<h1>è¹æcmsééæ¥éå¤çæ¹æ³</h1>
+								<hr />
+								<ul>
+									<li>
+										<p>1ï¼æ°å®è£çè¹æCMSå¨ééæ¶ä¼éå°ééæ¥éçæåµ,å¦ä¸å¾æç¤º!</p>
+									</li>
+									<li>
+										<p><img src="/template/360zy.com/images/1212.png"
+												class="jiaocheng layui-upload-img" onclick="previewImg(this)" alt="...">
+										</p>
+									</li>
+									<li>
+										<p>ä¸è¬æ¥éåºæ¬æ¯è¯­è¨(vod_lang)åå°å(vod_area)ä¸¤ä¸ªå­æ®µééçæ°æ®è¶è¿äºæ°æ®è¡¨å­æ®µçç±»åé¿åº¦éå¶</p>
+									</li>
+									<li>
+										<p><strong>alter table {pre}vod modify column vod_lang varchar(255)</strong></p>
+									</li>
+									<li>
+										<p><strong>alter table {pre}vod modify column vod_area varchar(255)</strong></p>
+									</li>
+									<li>
+										<p>2ï¼è§£å³æ¹æ³ï¼æ ¹æ®ä¿å­æç¤ºéæ©æ§è¡ä¸é¢ç»åºç2ç§å¯¹åºsqlè¯­å¥æ§è¡ãSQLåå«å¨ä¸å¾æç¤ºå°æ¹åç¬æ§è¡</p>
+									</li>
+									<li>
+										<p><img src="/template/360zy.com/images/2121.png"
+												class="jiaocheng layui-upload-img" onclick="previewImg(this)" alt="...">
+										</p>
+									</li>
+								</ul>
+							</div>
+							<div class="info row">
+								<p><strong>è¯·å¨ç¾¤é@ææ¯äººåï¼æä»¬ä¼ç»ä½ æå¤§çå¸®å©ã</strong></p>
+								<hr />
+							</div>
+						</div>
+						<div class="between">
+							<p class="col-xl-6 col-lg-6 col-md-6 col-sm-6">å°é£æºç¾¤ï¼<a
+									href="https://t.me/sllzyz">https://t.me/sllzyz</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			function previewImg(obj) {
+				var img = new Image();
+				img.src = obj.src;
+				var height = img.height,
+					width = img.width;
+				if (img.height > 800) {
+					height = '800px';
+					width = (800 / (img.height)) * (img.width);
+				}
+				var imgHtml = "<img src='" + obj.src + "' height='" + height + "' width='" + width + "' />";
+				layer.open({
+					type: 1,
+					offset: 'auto',
+					area: [width, 'auto'],
+					shadeClose: true,
+					scrollbar: false,
+					title: "å¾çé¢è§",
+					content: imgHtml,
+					cancel: function() {}
+				});
+			}
+		</script>
+		<script src="https://www.layuicdn.com/layui/layui.js" charset="utf-8"></script>
+		<div class="contact">
+			<div class="contactitem"><a href="https://t.me/sllzyz"><img
+						src="/template/360zy.com/picture/telegram-logo.png" />
+					<p>@sllzyz</p>
+					<h3>ç¹å»å å¥æä»¬</h3>
+				</a></div>
+			<div class="contactitem" style="display:none;"><a href="https://360zy.com/360zy/weixin.html"><img
+						src="/template/360zy.com/picture/weixin.jpg" />
+					<h3>ç¹å»æ¥çäºç»´ç </h3>
+				</a></div>
+		</div>
+		<div class="bottomcount">
+			<div class="bottomleft row justify-content-md-center">
+				<div class="col-md-8 col-sm-10">
+					<p>æ¬ç«ææåå®¹åæ¥èªäºèç½ï¼æ¬ç«ä¸ä¼ä¿å­ãå¤å¶æä¼ æ­ä»»ä½è§é¢æä»¶</p>
+					<p>å¦ææ¬ç«é¨ååå®¹ä¾µç¯æ¨ççæ,è¯·éç¥æä»¬ï¼æä»¬ä¼åæ¶å é¤ä¾µæåå®¹ï¼è°¢è°¢åä½</p>
+					<p>è¯·æ¯æè´­ä¹°æ­£çï¼åé¦é®ç®±ï¼360zy@qq.com</p>
+					<p> 360èµæº Copyright Â©2018-2023 All Rights Reserved </p>
+				</div>
+				<!--<div class="bottomlist col-xl-2 col-lg-2 col-md-3 col-sm-11">
+					<p>èç³»æä»¬ï¼ç»äºä½ æå¤§çæ¯æ</p>
+					<div class="contactlist">
+						<div class="listitem m-0"><img src="/template/360zy.com/picture/telegram.png" /></div>
+						<div class="listitem m-0"><img src="/template/360zy.com/picture/qq-group.png" /></div>
+					</div>
+				</div>
+			</div>
+		</div>-->
+		<script>
+			$(document).ready(function() {
+				var dropdownLi = $(".nav-item");
+				dropdownLi.mouseover(function() {
+					$(this).children(".nav-drop").show();
+					$(this).siblings().children(".nav-drop").hide();
+				});
+				dropdownLi.mouseout(function() {
+					$(this).children(".nav-drop").hide();
+				});
+				$(".close").click(function() {
+					$(".indextop").hide();
+				});
+			});
+			$(document).ready(function() {
+				$(".tabs .tab").click(function() {
+					$(this).addClass("active");
+					$(this).siblings().removeClass("active");
+					let index = $(this).index();
+					$(".count .info").eq(index).show();
+					$(".count .info").eq(index).siblings().hide();
+				});
+				$(".close").click(function() {
+					$(".indextop").hide();
+				});
+			});
+		</script>
+		<!--<script type="text/javascript">
+			layui.use(['layer', 'form'], function() {
+				var layer = layui.layer,
+					form = layui.form;
+				layer.open({
+					type: 1,
+					title: false,
+					closeBtn: 0,
+					anim: 4,
+					area: ['820px', '590px'],
+					skin: 'layui-layer-nobg',
+					shadeClose: true,
+					content: $('#tong'),
+					btn: ['é©¬ä¸èµé±', 'æµè§æ¬ç«'],
+					btnAlign: 'c',
+					shade: 0,
+					id: 'LAY_layuipro',
+					yes: function(index, layero) {
+						var btn = layero.find('.layui-layer-btn');
+						btn.find('.layui-layer-btn0').attr({
+							href: 'https://360zy.com/',
+							target: '_blank'
+						});
+					},
+					btn2: function(index, layero) {}
+				});
+			});
+		</script>-->
+		<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+		<script>
+			LA.init({
+				id: "KDcEwSKpHNAbNT7O",
+				ck: "KDcEwSKpHNAbNT7O"
+			})
+		</script>
+		<script>
+			$(document).ready(function() {
+				$(".tabs .tab").click(function() {
+					$(this).addClass("active");
+					$(this).siblings().removeClass("active");
+					let index = $(this).index();
+					$(".count .info").eq(index).show();
+					$(".count .info").eq(index).siblings().hide();
+				});
+				$(".close").click(function() {
+					$(".indextop").hide();
+				});
+			});
+		</script>
+	</body>
+</html>

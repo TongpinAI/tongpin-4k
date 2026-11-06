@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "version": "1.1.1",
+  "version_code": 1101,
+  "apk": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Downloads\\tongpin-4k-1.1.1.apk",
+  "sha256": "31b03d84a4249c13ccf0849eacb7e0e1373e437e013eb36060ff969019dad498",
+  "rea_methods": 31,
+  "home_announcement_entry": "MainActivity.Q()V empty",
+  "public_catalog_asset_unchanged": true,
+  "only_home_notice_method_changed_in_MainActivity": true,
+  "device_ui_verified": false
+}

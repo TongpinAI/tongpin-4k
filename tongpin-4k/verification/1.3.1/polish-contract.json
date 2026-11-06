@@ -1,0 +1,90 @@
+{
+  "passed": true,
+  "baseline": "immutable1.3.0 report and source preimages",
+  "files": {
+    "resources": {
+      "decoded/res/layout/phone_activity_video_detail_play.xml": {
+        "before_sha256": "2505dd8efe736f418313f6ed234655e8b79ea648e26154271d2b7b1486a9a693",
+        "after_sha256": "47ec11e69da1e519525638acbc12e916220049d89e4448277796bc1761572ff0",
+        "bound_ids": 50,
+        "root_class_tag_preserved": true,
+        "constraint_siblings_valid": true
+      },
+      "decoded/res/layout/mv_media_controler_phone.xml": {
+        "before_sha256": "391b5260149bb7213f1a3a87e8602ae8c96e8de25d485e40eca8ed636692b334",
+        "after_sha256": "78ca62529180a7234422006c5e7540cfb429ae79edef750a82bcc609b22fbb4e",
+        "bound_ids": 11,
+        "root_class_tag_preserved": true,
+        "constraint_siblings_valid": true
+      },
+      "decoded/res/layout/item_juji_bottom.xml": {
+        "before_sha256": "2008e3d3d79b4bd626ba3ceb3e0db967a640c92b55e91504c7ac2faa6169a745",
+        "after_sha256": "2254402a7f8e7b24d5bf89a4608c92f753aac4188da7bf079d490f9a13db5080",
+        "bound_ids": 1,
+        "root_class_tag_preserved": true,
+        "constraint_siblings_valid": true
+      },
+      "decoded/res/layout/item_juji_gride.xml": {
+        "before_sha256": "fcb738324feaa5697de61e0520082d16dffc3097816e7d27fb552744c2ffa87a",
+        "after_sha256": "4f4d27af68ddb130ceb3275f5f568600ea94912aa4d845b707ed4396c5fb56f8",
+        "bound_ids": 1,
+        "root_class_tag_preserved": true,
+        "constraint_siblings_valid": true
+      }
+    },
+    "smali": {
+      "decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity.smali": {
+        "before_sha256": "5ac64b221a210d1c05f08af9c04e85639222143277410ba60525d1567bb46831",
+        "after_sha256": "e760146928ac2b233460623c3fc38e2a2ad07aab29f1fa849d9586a2e420470e",
+        "method": "public onWindowFocusChanged(Z)V",
+        "all_other_text_unchanged": true,
+        "modified_methods": [
+          "onWindowFocusChanged(Z)V"
+        ],
+        "required_final_invocations": {
+          "onWindowFocusChanged(Z)V": [
+            "Landroidx/appcompat/app/AppCompatActivity;->onWindowFocusChanged(Z)V",
+            "Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->applyFullscreenWindow(Z)V",
+            "Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;->u1(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;)V"
+          ]
+        }
+      },
+      "decoded/smali_classes5/f6/g.smali": {
+        "before_sha256": "fc17301c09dcf879a1ce1f38b958b68e8ffec4aeac1904774bac1f4ac16460b2",
+        "after_sha256": "30f881d0988e6b21d772531a9f2c899353fd7fab4c80417850a07e5954575e29",
+        "method": "public c(Lf6/g$a;I)V",
+        "all_other_text_unchanged": true,
+        "modified_methods": [
+          "c(Lf6/g$a;I)V"
+        ],
+        "required_final_invocations": {
+          "c(Lf6/g$a;I)V": [
+            "Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I",
+            "Landroid/view/View;->getContext()Landroid/content/Context;",
+            "Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V",
+            "Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V",
+            "Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V",
+            "Landroid/widget/TextView;->setTextColor(I)V",
+            "Landroidx/core/content/ContextCompat;->getDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;",
+            "Lcom/shenma/tvlauncher/vod/domain/VodUrl;->getTitle()Ljava/lang/String;",
+            "Lcom/tongpin/player4k/catalog/PhoneUi;->episodeLabel(Ljava/lang/String;)Ljava/lang/String;",
+            "Lcom/tongpin/player4k/catalog/PhoneUi;->selectionColor(I)I",
+            "Lcom/tongpin/player4k/catalog/PhoneUi;->styleEpisodeBackground(Landroid/widget/TextView;I)V",
+            "Lf6/f;-><init>(Lf6/g;ILcom/shenma/tvlauncher/vod/domain/VodUrl;Lf6/g$a;)V",
+            "Lf6/g$a;->a()Landroid/widget/TextView;",
+            "Lf6/g;->episodePosition(I)I",
+            "Ljava/util/List;->get(I)Ljava/lang/Object;",
+            "Lkotlin/jvm/internal/y;->f(Ljava/lang/Object;Ljava/lang/String;)V"
+          ]
+        }
+      }
+    }
+  },
+  "new_resources": {
+    "drawable/tp_player_action_bg": "0x7f080751"
+  },
+  "new_own_sources": [
+    "com/tongpin/player4k/catalog/PlayerOptionsSheet.java"
+  ],
+  "native_runtime_verified": false
+}

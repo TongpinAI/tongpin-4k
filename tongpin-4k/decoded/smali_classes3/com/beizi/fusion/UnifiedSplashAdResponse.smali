@@ -1,0 +1,20 @@
+.class public interface abstract Lcom/beizi/fusion/UnifiedSplashAdResponse;
+.super Ljava/lang/Object;
+.source "r8-map-id-4c0b28e571086534d372af241f48ba94b5a529610dacb5d0006953fc02fc614b"
+
+
+# virtual methods
+.method public abstract getElements()Ljava/lang/String;
+.end method
+
+.method public abstract getIconUrl()Ljava/lang/String;
+.end method
+
+.method public abstract getImageUrl()Ljava/lang/String;
+.end method
+
+.method public abstract getTextUrl()Ljava/lang/String;
+.end method
+
+.method public abstract isDownloadApp()Z
+.end method

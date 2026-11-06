@@ -1,0 +1,33 @@
+{
+  "passed": true,
+  "verdict": "clear",
+  "review_type": "Independent read-only TV seek state, integration and native API source review; report-only write",
+  "source_sha256": {
+    "src/com/tongpin/player4k/tv/TvPlayerActivity.java": "be985f9bb5bd115d46c0b0a90af8935f4ea779c639255597ffbcd5eb912280d4",
+    "src/com/tongpin/player4k/tv/TvSeekState.java": "9fe01ce88f12e525cca5a6f8be29bc0e3873f1005daefbdd9cfad7248ddc11b4"
+  },
+  "blockers": [],
+  "findings": [
+    "One native request remains in flight; accumulated remote intent is stored separately from decoder position and only the newest queued request survives.",
+    "Drag preview issues no native request; release dispatches the latest target, while cancel restores the pre-drag intent and flushes any legitimate queued request.",
+    "Native completion during preview does not finalize preview or overwrite its target; bounded four-second settling holds the requested display then returns to actual decoder time.",
+    "Manual operations reject invalid duration/target; release, background, episode and quality transitions reset pending input and remove callbacks.",
+    "Paused seek retains playWhenReady false; source callback ownership and generation checks retain existing lifecycle and auto-next boundaries.",
+    "D-pad up/down can reach the native progress bar and return to the existing action row; left/right on the bar uses 10-second coalesced input instead of native percent steps.",
+    "White thumb and filled track remain visible on the inherited dark/focused-blue background; the bar preserves a 48dp target.",
+    "Native completion cannot auto-advance while dragging or while a pending earlier seek has priority.",
+    "API26 seekTo(long,SEEK_CLOSEST) is isolated behind the version guard; API21 compatibility call and existing API23 speed guard are retained."
+  ],
+  "official_api_sources": [
+    {
+      "url": "https://developer.android.com/reference/android/media/MediaPlayer#seekTo(long,%20int)",
+      "facts": "Long/mode overload and SEEK_CLOSEST require API26; legacy int overload uses previous sync frame; closest frame may have larger decoding overhead."
+    }
+  ],
+  "device_test": false,
+  "native_input_test": false,
+  "remaining_risks": [
+    "No TV or emulator validated focus navigation, touch cancellation, actual seek latency, buffering or decoder precision.",
+    "Older Android systems retain key-frame-limited positioning; closest-frame mode can require extra decoding and is not a guarantee of faster seeking."
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "min_sdk": 21,
+  "higher_api_references": [
+    {
+      "kind": "class",
+      "owner": "android/media/PlaybackParams",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/MediaPlayer;",
+      "member": "setPlaybackParams(Landroid/media/PlaybackParams;)V",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/PlaybackParams;",
+      "member": "<init>()V",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/PlaybackParams;",
+      "member": "setPitch(F)Landroid/media/PlaybackParams;",
+      "since": 23
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/media/PlaybackParams;",
+      "member": "setSpeed(F)Landroid/media/PlaybackParams;",
+      "since": 23
+    }
+  ],
+  "passed": false,
+  "scope": "DEX class/method/field references, including inherited platform members; SDK_INT guards require manual review",
+  "method_reference_count": 915,
+  "field_reference_count": 346
+}

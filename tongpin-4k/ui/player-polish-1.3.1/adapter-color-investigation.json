@@ -1,0 +1,39 @@
+{
+  "status": "NO_ADAPTER_PATCH",
+  "production_files_modified": [],
+  "reviewed_production_sha256": {
+    "decoded/smali_classes5/f6/g.smali": "fc17301c09dcf879a1ce1f38b958b68e8ffec4aeac1904774bac1f4ac16460b2",
+    "decoded/smali_classes5/f6/m.smali": "b2862cfd0dd43ae7204d9a63412b1293e20ec107256b1d836246b5fbcebd8f00"
+  },
+  "reviewed_phone_ui_sha256": "c331ba1765b7beacf23161aafde84eb904c5848a75ddfd61eb9719deaef31714",
+  "selected_palette_from_source_and_130_dex": {
+    "light_f_0": {
+      "foreground": "#226CC7",
+      "background": "#FFFFFF"
+    },
+    "dark_f_nonzero": {
+      "foreground": "#BDD8FF",
+      "background": "#172C42"
+    }
+  },
+  "typed_call_audit": [
+    "g.c full bind: selected color p2 is reloaded int f from original adapter p0; background mode is the same f",
+    "g.d payload true: selected color p2 is reloaded int f; false payload uses mode0 #333333 or dark #99ffffff",
+    "g.e click: int f saved in local v0 before p0 becomes TextView; p1 receives saved int v0 for selectionColor",
+    "m.b selected source/count: int f reloaded into v0; both selectionColor calls use that unchanged int; foreground/backdrop modes agree"
+  ],
+  "blank_chip_diagnosis": "No reachable white-on-white selected-color branch was found. g.c binds VodUrl.getTitle directly with no empty/whitespace fallback; runtime label data is unavailable, so an empty label is plausible but unverified.",
+  "aspect_focus_readonly": {
+    "false_focus": "onWindowFocusChanged(false) unconditionally sets global GSY showType0",
+    "manual_selection": "A2 -> setViewportScale changes global type0/4/-4",
+    "true_focus": "u1 reads retained H.d() selection and calls A2 to restore it",
+    "conclusion": "Transient reset while focusable menu/Dialog is open is source-supported; persistent reset after dismissal is not established.",
+    "minimal_root_owned_proposal": "Remove only false-focus const0 + setShowType pair; preserve early return, true-focus inset/u1 restoration and onPause/onDestroy cleanup.",
+    "activity_modified": false
+  },
+  "limits": [
+    "User screenshot was inspected; no runtime VodUrl title/value dump was available.",
+    "This investigation does not establish native rendering/state acceptance or that the first label is empty."
+  ],
+  "adapter_patch_not_warranted": true
+}

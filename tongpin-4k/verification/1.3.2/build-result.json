@@ -1,0 +1,427 @@
+{
+  "apk": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\output\\tongpin-4k-1.3.2.apk",
+  "downloads_copy": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Downloads\\tongpin-4k-1.3.2.apk",
+  "size_bytes": 76988981,
+  "sha256": "93b75fe98303a24336c87f4c944f56afe0aef0afc64f4d18965a34c268e9093c",
+  "package_name": "com.tongpin.player4k",
+  "label": "同频4K",
+  "version_name": "1.3.2",
+  "version_code": 1320,
+  "signing_certificate_sha256": "b18aa044eef475e78a95908796475d50d5be998de39c42ffa58ef2a395b57b11",
+  "debuggable": false,
+  "retained_resource_ids": 11455,
+  "new_resource_count": 16,
+  "v1_v2_v3_verified": true,
+  "retained_brand_resource_ids": 14,
+  "own_code": {
+    "added_class_count": 95,
+    "added_classes": [
+      "Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda0;",
+      "Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda10;",
+      "Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda11;",
+      "Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda12;",
+      "Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda13;",
+      "Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda14;",
+      "Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda15;",
+      "Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda16;",
+      "Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda17;",
+      "Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda18;",
+      "Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda19;",
+      "Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda1;",
+      "Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda20;",
+      "Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda21;",
+      "Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda22;",
+      "Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda23;",
+      "Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda24;",
+      "Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda25;",
+      "Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda2;",
+      "Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda3;",
+      "Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda4;",
+      "Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda5;",
+      "Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda6;",
+      "Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda7;",
+      "Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda8;",
+      "Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda9;",
+      "Lcom/tongpin/player4k/catalog/CatalogActivity$1;",
+      "Lcom/tongpin/player4k/catalog/CatalogActivity$2;",
+      "Lcom/tongpin/player4k/catalog/CatalogActivity$3;",
+      "Lcom/tongpin/player4k/catalog/CatalogActivity$4;",
+      "Lcom/tongpin/player4k/catalog/CatalogActivity$5;",
+      "Lcom/tongpin/player4k/catalog/CatalogActivity$Holder;",
+      "Lcom/tongpin/player4k/catalog/CatalogActivity$VideoAdapter;",
+      "Lcom/tongpin/player4k/catalog/CatalogActivity;",
+      "Lcom/tongpin/player4k/catalog/CatalogApi$CatalogException;",
+      "Lcom/tongpin/player4k/catalog/CatalogApi$Detail;",
+      "Lcom/tongpin/player4k/catalog/CatalogApi$Episode;",
+      "Lcom/tongpin/player4k/catalog/CatalogApi$Line;",
+      "Lcom/tongpin/player4k/catalog/CatalogApi$Page;",
+      "Lcom/tongpin/player4k/catalog/CatalogApi$Provider;",
+      "Lcom/tongpin/player4k/catalog/CatalogApi$Stream;",
+      "Lcom/tongpin/player4k/catalog/CatalogApi$Video;",
+      "Lcom/tongpin/player4k/catalog/CatalogApi;",
+      "Lcom/tongpin/player4k/catalog/LegacyEpisodeOrder$$ExternalSyntheticLambda0;",
+      "Lcom/tongpin/player4k/catalog/LegacyEpisodeOrder$$ExternalSyntheticLambda1;",
+      "Lcom/tongpin/player4k/catalog/LegacyEpisodeOrder;",
+      "Lcom/tongpin/player4k/catalog/LegacyPlayerControls$$ExternalSyntheticLambda0;",
+      "Lcom/tongpin/player4k/catalog/LegacyPlayerControls$$ExternalSyntheticLambda1;",
+      "Lcom/tongpin/player4k/catalog/LegacyPlayerControls$$ExternalSyntheticLambda2;",
+      "Lcom/tongpin/player4k/catalog/LegacyPlayerControls$$ExternalSyntheticLambda3;",
+      "Lcom/tongpin/player4k/catalog/LegacyPlayerControls$Host;",
+      "Lcom/tongpin/player4k/catalog/LegacyPlayerControls;",
+      "Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda0;",
+      "Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda10;",
+      "Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda11;",
+      "Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda12;",
+      "Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda13;",
+      "Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda14;",
+      "Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda15;",
+      "Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda16;",
+      "Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda17;",
+      "Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda18;",
+      "Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda19;",
+      "Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda1;",
+      "Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda2;",
+      "Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda3;",
+      "Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda4;",
+      "Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda5;",
+      "Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda6;",
+      "Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda7;",
+      "Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda8;",
+      "Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda9;",
+      "Lcom/tongpin/player4k/catalog/OpenPlayerActivity$AspectBox;",
+      "Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks$$ExternalSyntheticLambda0;",
+      "Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks$$ExternalSyntheticLambda1;",
+      "Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks$$ExternalSyntheticLambda2;",
+      "Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks$$ExternalSyntheticLambda3;",
+      "Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks$$ExternalSyntheticLambda4;",
+      "Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks$$ExternalSyntheticLambda5;",
+      "Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks$$ExternalSyntheticLambda6;",
+      "Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks;",
+      "Lcom/tongpin/player4k/catalog/OpenPlayerActivity;",
+      "Lcom/tongpin/player4k/catalog/PhoneUi$$ExternalSyntheticLambda0;",
+      "Lcom/tongpin/player4k/catalog/PhoneUi;",
+      "Lcom/tongpin/player4k/catalog/PlayQueue;",
+      "Lcom/tongpin/player4k/catalog/PlaybackResolution$Monitor;",
+      "Lcom/tongpin/player4k/catalog/PlaybackResolution;",
+      "Lcom/tongpin/player4k/catalog/PlayerOptionsSheet$$ExternalSyntheticLambda0;",
+      "Lcom/tongpin/player4k/catalog/PlayerOptionsSheet$$ExternalSyntheticLambda1;",
+      "Lcom/tongpin/player4k/catalog/PlayerOptionsSheet$$ExternalSyntheticLambda2;",
+      "Lcom/tongpin/player4k/catalog/PlayerOptionsSheet$$ExternalSyntheticLambda3;",
+      "Lcom/tongpin/player4k/catalog/PlayerOptionsSheet$$ExternalSyntheticLambda4;",
+      "Lcom/tongpin/player4k/catalog/PlayerOptionsSheet$1;",
+      "Lcom/tongpin/player4k/catalog/PlayerOptionsSheet$Panel;",
+      "Lcom/tongpin/player4k/catalog/PlayerOptionsSheet;"
+    ],
+    "removed_class_count": 0,
+    "code_namespace_baseline": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\output\\tongpin-4k-1.0.1.apk",
+    "release_diff_baseline": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\output\\tongpin-4k-1.3.1.apk",
+    "retained_own_class_count": 94,
+    "own_class_count": 95,
+    "class_definitions_unchanged_from_previous": false,
+    "original_non_own_class_definitions_unchanged": true,
+    "new_own_class_count": 95,
+    "old_own_classes_removed": [],
+    "own_classes_added_from_previous": [
+      "Lcom/tongpin/player4k/catalog/PlayerOptionsSheet$$ExternalSyntheticLambda4;"
+    ],
+    "first_four_dex_unchanged_from_previous": true,
+    "classes5_changed_from_previous": true,
+    "all_five_dex_unchanged_from_previous": false,
+    "public_sources_asset_unchanged": true,
+    "java_recompiled": true,
+    "classes5_method_ids": 55682,
+    "stage_dex_sha256": "7702d485747d42ed022dfa75c0e35f2938efb6fd7cb8eae0756731667425cf56",
+    "source_sha256": {
+      "com/tongpin/player4k/catalog/CatalogActivity.java": "9401c0f31d0684716bbf42df9863c4936f0e29053c2a30cbd192b29377108e0b",
+      "com/tongpin/player4k/catalog/CatalogApi.java": "bde2ffbf12c6008f751db263852125f1fb50dbe8d7b0cf3852c4e4d4d3df5193",
+      "com/tongpin/player4k/catalog/LegacyEpisodeOrder.java": "f9b4ecc8d3bb318991fd25c99cf10dfd88c183511047d83bb6715bc51b3ea66f",
+      "com/tongpin/player4k/catalog/LegacyPlayerControls.java": "6bfe3cc7b00d0fd384a29f4159f990047fc3bbed0eff41cdcfa6e16fadb2e88f",
+      "com/tongpin/player4k/catalog/OpenPlayerActivity.java": "25c64ae3b1aad4f5e62e313730e7f1ab765a978ad7dd6c1b187ea270aa14178d",
+      "com/tongpin/player4k/catalog/PhoneUi.java": "8d8e39fea8e3b5c2e7e15301014e54ba55294713a28ee22600056a04e0b9fe8a",
+      "com/tongpin/player4k/catalog/PlaybackResolution.java": "053602bf9af43ba6f503470c72717eee8e367545c9035b3c7ef4716100975f36",
+      "com/tongpin/player4k/catalog/PlayerOptionsSheet.java": "9057f86c24db4d4a874f6f4c33bbc87874a711ed2d6c88147a7be8b3efc1aa03",
+      "com/tongpin/player4k/catalog/PlayQueue.java": "4243c5837fe4067e9606085852e7fb168d97775329c3490dd15f618ef82fb241"
+    },
+    "stubs_or_host_json_added": false
+  },
+  "provider_authorities": [
+    "com.tongpin.player4k.DcProvider",
+    "com.tongpin.player4k.TTFileProvider",
+    "com.tongpin.player4k.TTMultiProvider",
+    "com.tongpin.player4k.adFileProvider",
+    "com.tongpin.player4k.androidx-startup",
+    "com.tongpin.player4k.anythink.initatprovider",
+    "com.tongpin.player4k.bytedance.android.openliveplugin.process.server.LiveServerManager",
+    "com.tongpin.player4k.bz.fileprovider",
+    "com.tongpin.player4k.fileprovider",
+    "com.tongpin.player4k.gdt.fileprovider",
+    "com.tongpin.player4k.pangle.fileprovider",
+    "com.tongpin.player4k.pangle.provider.proxy.main",
+    "com.tongpin.player4k.pangle.servermanager.bytelive.com.byted.live.lite",
+    "com.tongpin.player4k.pangle.servermanager.downloader.com.byted.live.lite",
+    "com.tongpin.player4k.pangle.servermanager.downloader.com.bytedance.sdk.openadsdk.adhost",
+    "com.tongpin.player4k.pangle.servermanager.main",
+    "com.tongpin.player4k.pangle.servermanager.push.com.byted.live.lite",
+    "com.tongpin.player4k.sdm.fileProvider",
+    "com.tongpin.player4k.sdm.initatprovider"
+  ],
+  "custom_permissions": [
+    "com.tongpin.player4k.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION",
+    "com.tongpin.player4k.openadsdk.permission.TT_PANGOLIN"
+  ],
+  "native_libraries": [
+    {
+      "path": "lib/arm64-v8a/libBZDevInfo.so",
+      "data_offset": 38584320,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/libPglbizssdk_ml.so",
+      "data_offset": 47742976,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/libalivcffmpeg.so",
+      "data_offset": 34766848,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/libandroidx.graphics.path.so",
+      "data_offset": 37814272,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/libavmdl_lite.so",
+      "data_offset": 37830656,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/libdcrypto.so",
+      "data_offset": 38912000,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/libijkffmpeg.so",
+      "data_offset": 39272448,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/libijkplayer.so",
+      "data_offset": 45875200,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/libijksdl.so",
+      "data_offset": 46432256,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/libimagepipeline.so",
+      "data_offset": 46809088,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/libnative-filters.so",
+      "data_offset": 46825472,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/libnative-imagetranscoder.so",
+      "data_offset": 46858240,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/libpanglearmor.so",
+      "data_offset": 47448064,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/libpangleflipped.so",
+      "data_offset": 47726592,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/libplt-base.so",
+      "data_offset": 48873472,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/librtmp-jni.so",
+      "data_offset": 49250304,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/libsaasCorePlayer.so",
+      "data_offset": 49364992,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/libsaasDownloader.so",
+      "data_offset": 56803328,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/libsgcore.so",
+      "data_offset": 57098240,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/libti-monitor.so",
+      "data_offset": 57196544,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/libtobEmbedEncrypt.so",
+      "data_offset": 57327616,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/libtt_ugen_layout.so",
+      "data_offset": 58900480,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/libttmplayer_lite.so",
+      "data_offset": 57393152,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/arm64-v8a/libverbanr.so",
+      "data_offset": 59342848,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/armeabi-v7a/libBZDevInfo.so",
+      "data_offset": 62144512,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/armeabi-v7a/libalivcffmpeg.so",
+      "data_offset": 59719680,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/armeabi-v7a/libandroidx.graphics.path.so",
+      "data_offset": 62128128,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/armeabi-v7a/libdcrypto.so",
+      "data_offset": 62357504,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/armeabi-v7a/libijkffmpeg.so",
+      "data_offset": 62586880,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/armeabi-v7a/libijkplayer.so",
+      "data_offset": 68485120,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/armeabi-v7a/libijksdl.so",
+      "data_offset": 68861952,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/armeabi-v7a/libimagepipeline.so",
+      "data_offset": 69189632,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/armeabi-v7a/libnative-filters.so",
+      "data_offset": 69206016,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/armeabi-v7a/libnative-imagetranscoder.so",
+      "data_offset": 69222400,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/armeabi-v7a/libpangleflipped.so",
+      "data_offset": 69566464,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/armeabi-v7a/libplt-base.so",
+      "data_offset": 69582848,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/armeabi-v7a/librtmp-jni.so",
+      "data_offset": 69844992,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/armeabi-v7a/libsaasCorePlayer.so",
+      "data_offset": 69943296,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/armeabi-v7a/libsaasDownloader.so",
+      "data_offset": 75448320,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/armeabi-v7a/libsgcore.so",
+      "data_offset": 75628544,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/armeabi-v7a/libti-monitor.so",
+      "data_offset": 75759616,
+      "alignment_16kb": true
+    },
+    {
+      "path": "lib/armeabi-v7a/libverbanr.so",
+      "data_offset": 75841536,
+      "alignment_16kb": true
+    }
+  ],
+  "untouched_dex": [
+    {
+      "folder": "smali",
+      "files": 9357,
+      "tree_sha256": "bde8046d96ae3e97b190c1374ae66cf3d08dcf9bdc9da6b11cfa74866a9a55c3",
+      "dex": "classes.dex",
+      "dex_sha256": "02ce604e358253d4e2c4f776e9f5682da084eecf1930443f9d0d9e9df2a037ee"
+    },
+    {
+      "folder": "smali_classes2",
+      "files": 9225,
+      "tree_sha256": "4d726b7844fad9de3ead3d9e84a067c656fc509b79196e703e524834b9f920f2",
+      "dex": "classes2.dex",
+      "dex_sha256": "e648c78f4cc3a41b146840a65b6de2fcdd3487f42429ebd8e55c8edb85c8b4f0"
+    },
+    {
+      "folder": "smali_classes3",
+      "files": 8155,
+      "tree_sha256": "411e4ae54366dc88ae051ea10d874088416f64ea6faae2bbdb94270b83be3025",
+      "dex": "classes3.dex",
+      "dex_sha256": "25d4d1f8fc9450119fc8db09036d9642311fb9398783485e52046197fdc936e8"
+    },
+    {
+      "folder": "smali_classes4",
+      "files": 7561,
+      "tree_sha256": "db9b5a87b781a786599daac99735a80e7137035155d26939f320ca97875bc62e",
+      "dex": "classes4.dex",
+      "dex_sha256": "551c8f962806f0943e27dc4ad9e4853bb4dffab053be26355bc1953ec29fb598"
+    }
+  ],
+  "classes5_rebuilt": true,
+  "release_kind": "code-and-ui",
+  "code_reused_from": null,
+  "final_ui_dex_proof": {
+    "passed": true,
+    "classes5_sha256": "3449a7f8772fcaec3daa7fbb8e509b75b0270399884e058b8eb7ce016ebc25fd",
+    "own_class_count": 95,
+    "abi_invocations": 1385,
+    "reviewed_guarded_api_references": 25,
+    "timer_dex_verified": true,
+    "native_render_verified": false
+  },
+  "device_tested": false
+}

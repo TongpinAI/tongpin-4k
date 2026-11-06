@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "review_type": "Read-only documentation/source consistency review; report-only write",
+  "documentation_sha256": {
+    "PRODUCT.md": "24b31408d2ddab64984d8eb8cdbe3b277c84ef9653aed0cf62034961e4ea4c3c",
+    "DESIGN.md": "6733b3c9685e7342ab3c466b366628628b8005c4bf1ead906188a5f01ab549d2",
+    ".impeccable/design.json": "b04bcac82f8a7e602766ac2553c8a0be56a7e0fd7ec6cc734a6963eed7156321",
+    ".impeccable/surfaces/android.md": "ee511760112f2cec873f314b197be066448f26314ac978d4e62683e3b73178fc"
+  },
+  "facts_checked": [
+    "Current source version 1.3.2 / code1320 matches build configuration; no APK/native execution conclusion inferred.",
+    "Legacy grid uses remaining detail height; adaptive2-6 columns,14sp,two lines,minimum48dp; handled configuration changes update columns.",
+    "Settings use explicit semantic groups with original action indices; shortcut pairs collapse vertically with width/font policy.",
+    "Native auto-next Switch initializes from current preference before listener and remains open; other actions dismiss first.",
+    "Settings actions/header keep48dp minimum height;75% available-height cap is applied once and content is scrollable.",
+    "No new resource IDs: public.xml exactly matches1.3.1 snapshot.",
+    "All historical evidence references remain and current referenced files exist.",
+    "Pinned visual identity, phone-only scope and no new runtime dependencies retained.",
+    "Four documents explicitly preserve non-native validation boundary; no rendered Android acceptance claimed.",
+    "Evidence table delimiter and selected-identity wording match current implementation."
+  ],
+  "production_review_hashes_matched": true,
+  "device_test": false,
+  "native_measurement_test": false
+}

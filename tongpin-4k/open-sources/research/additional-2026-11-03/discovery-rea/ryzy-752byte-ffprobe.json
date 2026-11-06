@@ -1,0 +1,149 @@
+[
+  {
+    "file": "ryzy-current-tv-first-segment-prefix.bin",
+    "bytes": 752,
+    "exit": 0,
+    "ffprobe": {
+      "programs": [
+        {
+          "streams": [
+            {
+              "index": 0,
+              "codec_name": "h264",
+              "codec_type": "video",
+              "width": 0,
+              "height": 0,
+              "r_frame_rate": "90000/1"
+            },
+            {
+              "index": 1,
+              "codec_name": "aac",
+              "codec_type": "audio",
+              "sample_rate": "0",
+              "channels": 0,
+              "r_frame_rate": "0/0"
+            }
+          ]
+        }
+      ],
+      "stream_groups": [],
+      "streams": [
+        {
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 0,
+          "height": 0,
+          "r_frame_rate": "90000/1"
+        },
+        {
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "0",
+          "channels": 0,
+          "r_frame_rate": "0/0"
+        }
+      ]
+    },
+    "stderr": "[h264 @ 00000000007052c0] SEI type 5 size 748 truncated at 101\n[h264 @ 00000000007052c0] missing picture in access unit with size 157\n[h264 @ 00000000007052c0] SEI type 5 size 748 truncated at 100\n[h264 @ 00000000007052c0] no frame!\n"
+  },
+  {
+    "file": "ryzy-current-tv-last-segment-prefix.bin",
+    "bytes": 752,
+    "exit": 0,
+    "ffprobe": {
+      "programs": [
+        {
+          "streams": [
+            {
+              "index": 0,
+              "codec_name": "h264",
+              "codec_type": "video",
+              "width": 0,
+              "height": 0,
+              "r_frame_rate": "90000/1"
+            },
+            {
+              "index": 1,
+              "codec_name": "aac",
+              "codec_type": "audio",
+              "sample_rate": "0",
+              "channels": 0,
+              "r_frame_rate": "0/0"
+            }
+          ]
+        }
+      ],
+      "stream_groups": [],
+      "streams": [
+        {
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 0,
+          "height": 0,
+          "r_frame_rate": "90000/1"
+        },
+        {
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "0",
+          "channels": 0,
+          "r_frame_rate": "0/0"
+        }
+      ]
+    },
+    "stderr": "[h264 @ 00000000007d54c0] SEI type 5 size 748 truncated at 101\n[h264 @ 00000000007d54c0] missing picture in access unit with size 157\n[h264 @ 00000000007d54c0] SEI type 5 size 748 truncated at 100\n[h264 @ 00000000007d54c0] no frame!\n"
+  },
+  {
+    "file": "ryzy-film-first-segment-prefix.bin",
+    "bytes": 752,
+    "exit": 0,
+    "ffprobe": {
+      "programs": [
+        {
+          "streams": [
+            {
+              "index": 0,
+              "codec_name": "h264",
+              "codec_type": "video",
+              "width": 1920,
+              "height": 756,
+              "r_frame_rate": "48/1"
+            },
+            {
+              "index": 1,
+              "codec_name": "aac",
+              "codec_type": "audio",
+              "sample_rate": "0",
+              "channels": 0,
+              "r_frame_rate": "0/0"
+            }
+          ]
+        }
+      ],
+      "stream_groups": [],
+      "streams": [
+        {
+          "index": 0,
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1920,
+          "height": 756,
+          "r_frame_rate": "48/1"
+        },
+        {
+          "index": 1,
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "0",
+          "channels": 0,
+          "r_frame_rate": "0/0"
+        }
+      ]
+    },
+    "stderr": "[h264 @ 00000000006d66c0] error while decoding MB 53 0, bytestream -12\n"
+  }
+]

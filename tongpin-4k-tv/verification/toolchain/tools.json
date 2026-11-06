@@ -1,0 +1,48 @@
+{
+  "java": {
+    "path": "D:\\PyCharm\\PyCharm 2024.3.1.1\\jbr\\bin\\java.exe",
+    "bytes": 34144,
+    "sha256": "b92c103456881317af7ac5a87acaa4f90cb8278380dc6ec6b7af15c91c664ea3"
+  },
+  "aapt2": {
+    "path": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\kanke-noads\\tools\\build-tools-35.0.1\\aapt2.exe",
+    "bytes": 4740704,
+    "sha256": "90481d1cbee3a170007701363391059ac3f9f22c4a4916b0423d591a22ac22d6"
+  },
+  "zipalign": {
+    "path": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\kanke-noads\\tools\\build-tools-35.0.1\\zipalign.exe",
+    "bytes": 818784,
+    "sha256": "526ab698b9f57053d90e3241434c30b7e4c95c5cfe2764c67e96fb7adf35a89a"
+  },
+  "apksigner": {
+    "path": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\kanke-noads\\tools\\build-tools-35.0.1\\lib\\apksigner.jar",
+    "bytes": 1074241,
+    "sha256": "00ef9948f843fe395d2440ae3ef41405b8040a6d5d46493bd1902ac0ee6deae7"
+  },
+  "d8": {
+    "path": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\kanke-noads\\tools\\build-tools-35.0.1\\lib\\d8.jar",
+    "bytes": 16614740,
+    "sha256": "305622ad00535684534eb8f742cbf5e628a9abc09d8ea4d39d1babb95bf0cee5"
+  },
+  "core_lambda_compile_only": {
+    "path": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\kanke-noads\\tools\\build-tools-35.0.1\\core-lambda-stubs.jar",
+    "bytes": 15149,
+    "sha256": "c8a21e0e653227d1fce74bd547c9e7278e17c016c405aa8e1f6c313b192ade31"
+  },
+  "android_jar": {
+    "path": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\kanke-noads\\tools\\platform-35\\android.jar",
+    "bytes": 27092450,
+    "sha256": "4566663c3876e022b4fa4ced8c8697c4ab1688267f090114fd92d027b32e619b"
+  },
+  "api_versions": {
+    "path": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\kanke-noads\\tools\\platform-35\\data\\api-versions.xml",
+    "bytes": 5523007,
+    "sha256": "74573d56d0712739b4763d2a5db64acfe309f3c098a6135257572f1f5302dbcf"
+  },
+  "official_sources": {
+    "build_tools": "https://dl.google.com/android/repository/build-tools_r35.0.1_windows.zip",
+    "platform": "https://dl.google.com/android/repository/platform-35_r02.zip",
+    "platform_zip_publisher_sha1": "0bb560a90a7a2cbd0dd8348224d518b638fe7949",
+    "build_tools_zip_publisher_sha1": "1cbfa5564b62504a1111352edda35914cf723a20"
+  }
+}

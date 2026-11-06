@@ -1,0 +1,134 @@
+{
+  "ok": true,
+  "value": {
+    "evidence_id": "ev_9e2af65a9c019300adfeaace00b90418b9e34699ce58f98e853205c85d4a8ea2",
+    "subject": {
+      "name": "tongpin-4k-1.1.1.apk",
+      "digest": {
+        "sha256": "31b03d84a4249c13ccf0849eacb7e0e1373e437e013eb36060ff969019dad498"
+      },
+      "local_path": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\output\\tongpin-4k-1.1.1.apk",
+      "format": "apk",
+      "architecture": null
+    },
+    "provider": {
+      "id": "jadx",
+      "name": "JADX headless",
+      "version": "0.7.1"
+    },
+    "analysis_profile": null,
+    "predicate_type": "rea.analysis",
+    "operation": "inspect_android_method",
+    "parameters": {
+      "path": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\output\\tongpin-4k-1.1.1.apk",
+      "class_name": "com.tongpin.player4k.catalog.CatalogApi",
+      "method_name": "fetchPage",
+      "overload_index": 0
+    },
+    "raw_result": {
+      "server": {
+        "name": "rea-jadx-bridge",
+        "version": "4"
+      },
+      "bridge_sha256": "a02b1ef0a4a40abd1ae310b9ee686ca163e0b59a3256df524c35b90ed17e9e63",
+      "jar_sha256": "6e5eacf500b64292bfb73c49797c1958f6ee44646e43e868039ae7feb573ff75",
+      "loaded": {
+        "state": "LOADED",
+        "apk_path": "C:\\Users\\ADMINI~1.DES\\AppData\\Local\\Temp\\rea-android-154e11aec2078573b91f2e1200c75abe\\target.apk",
+        "class_count": 23565,
+        "resource_count": 4005,
+        "threads": 1,
+        "resources": "full"
+      },
+      "calls": [
+        {
+          "operation": "rea_jvm_status",
+          "input": {},
+          "response": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"available_processors\":16,\"java_version\":\"25.0.4\",\"max_heap_bytes\":4294967296,\"metadata_scope\":\"parsed_members\",\"engine_reported_version\":\"0.7.1\"}"
+              }
+            ],
+            "isError": false
+          }
+        },
+        {
+          "operation": "get_class_summary",
+          "input": {
+            "class_name": "com.tongpin.player4k.catalog.CatalogApi"
+          },
+          "response": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"name\":\"CatalogApi\",\"inner_classes\":[\"com.tongpin.player4k.catalog.CatalogApi.CatalogException\",\"com.tongpin.player4k.catalog.CatalogApi.Detail\",\"com.tongpin.player4k.catalog.CatalogApi.Episode\",\"com.tongpin.player4k.catalog.CatalogApi.Line\",\"com.tongpin.player4k.catalog.CatalogApi.Page\",\"com.tongpin.player4k.catalog.CatalogApi.Provider\",\"com.tongpin.player4k.catalog.CatalogApi.Stream\",\"com.tongpin.player4k.catalog.CatalogApi.Video\"],\"inner_class_count\":8,\"method_count\":40,\"methods\":[{\"def_pos\":0,\"signature\":\"\\u003cclinit\\u003e(): void\",\"dex_descriptor\":\"()V\",\"is_constructor\":false,\"name\":\"\\u003cclinit\\u003e\"},{\"def_pos\":0,\"signature\":\"\\u003cinit\\u003e(): void\",\"dex_descriptor\":\"()V\",\"is_constructor\":true,\"name\":\"\\u003cinit\\u003e\"},{\"def_pos\":0,\"signature\":\"array(org.json.JSONObject, java.lang.String, int): org.json.JSONArray\",\"dex_descriptor\":\"(Lorg/json/JSONObject;Ljava/lang/String;I)Lorg/json/JSONArray;\",\"is_constructor\":false,\"name\":\"array\"},{\"def_pos\":0,\"signature\":\"bestStream(java.util.List\\u003ccom.tongpin.player4k.catalog.CatalogApi$Stream\\u003e): int\",\"dex_descriptor\":\"(Ljava/util/List;)I\",\"is_constructor\":false,\"name\":\"bestStream\"},{\"def_pos\":0,\"signature\":\"better(com.tongpin.player4k.catalog.CatalogApi$Stream, com.tongpin.player4k.catalog.CatalogApi$Stream): boolean\",\"dex_descriptor\":\"(Lcom/tongpin/player4k/catalog/CatalogApi$Stream;Lcom/tongpin/player4k/catalog/CatalogApi$Stream;)Z\",\"is_constructor\":false,\"name\":\"better\"},{\"def_pos\":0,\"signature\":\"checkMac(org.json.JSONObject): void\",\"dex_descriptor\":\"(Lorg/json/JSONObject;)V\",\"is_constructor\":false,\"name\":\"checkMac\"},{\"def_pos\":0,\"signature\":\"checkPeerTube(org.json.JSONObject): void\",\"dex_descriptor\":\"(Lorg/json/JSONObject;)V\",\"is_constructor\":false,\"name\":\"checkPeerTube\"},{\"def_pos\":0,\"signature\":\"deniedCategories(org.json.JSONObject): java.util.Set\\u003cjava.lang.String\\u003e\",\"dex_descriptor\":\"(Lorg/json/JSONObject;)Ljava/util/Set;\",\"is_constructor\":false,\"name\":\"deniedCategories\"},{\"def_pos\":0,\"signature\":\"dimension(org.json.JSONObject, java.lang.String): int\",\"dex_descriptor\":\"(Lorg/json/JSONObject;Ljava/lang/String;)I\",\"is_constructor\":false,\"name\":\"dimension\"},{\"def_pos\":0,\"signature\":\"failure(java.lang.String): java.io.IOException\",\"dex_descriptor\":\"(Ljava/lang/String;)Ljava/io/IOException;\",\"is_constructor\":false,\"name\":\"failure\"},{\"def_pos\":0,\"signature\":\"fetchDetail(com.tongpin.player4k.catalog.CatalogApi$Video): com.tongpin.player4k.catalog.CatalogApi$Detail\",\"dex_descriptor\":\"(Lcom/tongpin/player4k/catalog/CatalogApi$Video;)Lcom/tongpin/player4k/catalog/CatalogApi$Detail;\",\"is_constructor\":false,\"name\":\"fetchDetail\"},{\"def_pos\":0,\"signature\":\"fetchPage(com.tongpin.player4k.catalog.CatalogApi$Provider, java.lang.String, int): com.tongpin.player4k.catalog.CatalogApi$Page\",\"dex_descriptor\":\"(Lcom/tongpin/player4k/catalog/CatalogApi$Provider;Ljava/lang/String;I)Lcom/tongpin/player4k/catalog/CatalogApi$Page;\",\"is_constructor\":false,\"name\":\"fetchPage\"},{\"def_pos\":0,\"signature\":\"get(java.lang.String): java.lang.String\",\"dex_descriptor\":\"(Ljava/lang/String;)Ljava/lang/String;\",\"is_constructor\":false,\"name\":\"get\"},{\"def_pos\":0,\"signature\":\"http(java.lang.String): java.lang.String\",\"dex_descriptor\":\"(Ljava/lang/String;)Ljava/lang/String;\",\"is_constructor\":false,\"name\":\"http\"},{\"def_pos\":0,\"signature\":\"macVideo(com.tongpin.player4k.catalog.CatalogApi$Provider, org.json.JSONObject): com.tongpin.player4k.catalog.CatalogApi$Video\",\"dex_descriptor\":\"(Lcom/tongpin/player4k/catalog/CatalogApi$Provider;Lorg/json/JSONObject;)Lcom/tongpin/player4k/catalog/CatalogApi$Video;\",\"is_constructor\":false,\"name\":\"macVideo\"},{\"def_pos\":0,\"signature\":\"media(java.lang.String): java.lang.String\",\"dex_descriptor\":\"(Ljava/lang/String;)Ljava/lang/String;\",\"is_constructor\":false,\"name\":\"media\"},{\"def_pos\":0,\"signature\":\"nonNegative(org.json.JSONObject, java.lang.String, long): long\",\"dex_descriptor\":\"(Lorg/json/JSONObject;Ljava/lang/String;J)J\",\"is_constructor\":false,\"name\":\"nonNegative\"},{\"def_pos\":0,\"signature\":\"object(java.lang.String): org.json.JSONObject\",\"dex_descriptor\":\"(Ljava/lang/String;)Lorg/json/JSONObject;\",\"is_constructor\":false,\"name\":\"object\"},{\"def_pos\":0,\"signature\":\"optionalArray(org.json.JSONObject, java.lang.String, int): org.json.JSONArray\",\"dex_descriptor\":\"(Lorg/json/JSONObject;Ljava/lang/String;I)Lorg/json/JSONArray;\",\"is_constructor\":false,\"name\":\"optionalArray\"},{\"def_pos\":0,\"signature\":\"parameters(java.lang.String, java.lang.String[][]): java.lang.String\",\"dex_descriptor\":\"(Ljava/lang/String;[[Ljava/lang/String;)Ljava/lang/String;\",\"is_constructor\":false,\"name\":\"parameters\"},{\"def_pos\":0,\"signature\":\"parseDetail(com.tongpin.player4k.catalog.CatalogApi$Video, java.lang.String): com.tongpin.player4k.catalog.CatalogApi$Detail\",\"dex_descriptor\":\"(Lcom/tongpin/player4k/catalog/CatalogApi$Video;Ljava/lang/String;)Lcom/tongpin/player4k/catalog/CatalogApi$Detail;\",\"is_constructor\":false,\"name\":\"parseDetail\"},{\"def_pos\":0,\"signature\":\"parsePage(com.tongpin.player4k.catalog.CatalogApi$Provider, java.lang.String, java.lang.String, int): com.tongpin.player4k.catalog.CatalogApi$Page\",\"dex_descriptor\":\"(Lcom/tongpin/player4k/catalog/CatalogApi$Provider;Ljava/lang/String;Ljava/lang/String;I)Lcom/tongpin/player4k/catalog/CatalogApi$Page;\",\"is_constructor\":false,\"name\":\"parsePage\"},{\"def_pos\":0,\"signature\":\"parseProviders(java.lang.String): java.util.List\\u003ccom.tongpin.player4k.catalog.CatalogApi$Provider\\u003e\",\"dex_descriptor\":\"(Ljava/lang/String;)Ljava/util/List;\",\"is_constructor\":false,\"name\":\"parseProviders\"},{\"def_pos\":0,\"signature\":\"path(java.lang.String): java.lang.String\",\"dex_descriptor\":\"(Ljava/lang/String;)Ljava/lang/String;\",\"is_constructor\":false,\"name\":\"path\"},{\"def_pos\":0,\"signature\":\"peerDetail(com.tongpin.player4k.catalog.CatalogApi$Video, org.json.JSONObject): com.tongpin.player4k.catalog.CatalogApi$Detail\",\"dex_descriptor\":\"(Lcom/tongpin/player4k/catalog/CatalogApi$Video;Lorg/json/JSONObject;)Lcom/tongpin/player4k/catalog/CatalogApi$Detail;\",\"is_constructor\":false,\"name\":\"peerDetail\"},{\"def_pos\":0,\"signature\":\"peerPage(com.tongpin.player4k.catalog.CatalogApi$Provider, org.json.JSONObject, java.lang.String, int): com.tongpin.player4k.catalog.CatalogApi$Page\",\"dex_descriptor\":\"(Lcom/tongpin/player4k/catalog/CatalogApi$Provider;Lorg/json/JSONObject;Ljava/lang/String;I)Lcom/tongpin/player4k/catalog/CatalogApi$Page;\",\"is_constructor\":false,\"name\":\"peerPage\"},{\"def_pos\":0,\"signature\":\"peerStream(org.json.JSONObject, java.lang.String): com.tongpin.player4k.catalog.CatalogApi$Stream\",\"dex_descriptor\":\"(Lorg/json/JSONObject;Ljava/lang/String;)Lcom/tongpin/player4k/catalog/CatalogApi$Stream;\",\"is_constructor\":false,\"name\":\"peerStream\"},{\"def_pos\":0,\"signature\":\"peerVideo(com.tongpin.player4k.catalog.CatalogApi$Provider, org.json.JSONObject): com.tongpin.player4k.catalog.CatalogApi$Video\",\"dex_descriptor\":\"(Lcom/tongpin/player4k/catalog/CatalogApi$Provider;Lorg/json/JSONObject;)Lcom/tongpin/player4k/catalog/CatalogApi$Video;\",\"is_constructor\":false,\"name\":\"peerVideo\"},{\"def_pos\":0,\"signature\":\"plain(java.lang.String, int): java.lang.String\",\"dex_descriptor\":\"(Ljava/lang/String;I)Ljava/lang/String;\",\"is_constructor\":false,\"name\":\"plain\"},{\"def_pos\":0,\"signature\":\"publicPeer(org.json.JSONObject): boolean\",\"dex_descriptor\":\"(Lorg/json/JSONObject;)Z\",\"is_constructor\":false,\"name\":\"publicPeer\"},{\"def_pos\":0,\"signature\":\"query(java.lang.String): java.lang.String\",\"dex_descriptor\":\"(Ljava/lang/String;)Ljava/lang/String;\",\"is_constructor\":false,\"name\":\"query\"},{\"def_pos\":0,\"signature\":\"relative(java.lang.String, java.lang.String): java.lang.String\",\"dex_descriptor\":\"(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;\",\"is_constructor\":false,\"name\":\"relative\"},{\"def_pos\":0,\"signature\":\"requirePage(int): void\",\"dex_descriptor\":\"(I)V\",\"is_constructor\":false,\"name\":\"requirePage\"},{\"def_pos\":0,\"signature\":\"requireProvider(com.tongpin.player4k.catalog.CatalogApi$Provider): void\",\"dex_descriptor\":\"(Lcom/tongpin/player4k/catalog/CatalogApi$Provider;)V\",\"is_constructor\":false,\"name\":\"requireProvider\"},{\"def_pos\":0,\"signature\":\"requireVideo(com.tongpin.player4k.catalog.CatalogApi$Video): void\",\"dex_descriptor\":\"(Lcom/tongpin/player4k/catalog/CatalogApi$Video;)V\",\"is_constructor\":false,\"name\":\"requireVideo\"},{\"def_pos\":0,\"signature\":\"split(java.lang.String, java.lang.String, int): java.lang.String[]\",\"dex_descriptor\":\"(Ljava/lang/String;Ljava/lang/String;I)[Ljava/lang/String;\",\"is_constructor\":false,\"name\":\"split\"},{\"def_pos\":0,\"signature\":\"supported(com.tongpin.player4k.catalog.CatalogApi$Provider): boolean\",\"dex_descriptor\":\"(Lcom/tongpin/player4k/catalog/CatalogApi$Provider;)Z\",\"is_constructor\":false,\"name\":\"supported\"},{\"def_pos\":0,\"signature\":\"text(org.json.JSONObject, java.lang.String, int): java.lang.String\",\"dex_descriptor\":\"(Lorg/json/JSONObject;Ljava/lang/String;I)Ljava/lang/String;\",\"is_constructor\":false,\"name\":\"text\"},{\"def_pos\":0,\"signature\":\"unsafe(org.json.JSONObject, java.util.Set\\u003cjava.lang.String\\u003e): boolean\",\"dex_descriptor\":\"(Lorg/json/JSONObject;Ljava/util/Set;)Z\",\"is_constructor\":false,\"name\":\"unsafe\"},{\"def_pos\":0,\"signature\":\"validVideo(com.tongpin.player4k.catalog.CatalogApi$Video): boolean\",\"dex_descriptor\":\"(Lcom/tongpin/player4k/catalog/CatalogApi$Video;)Z\",\"is_constructor\":false,\"name\":\"validVideo\"}],\"fields\":[{\"type\":\"int\",\"name\":\"MAX_ITEMS\",\"def_pos\":0},{\"type\":\"int\",\"name\":\"MAX_JSON_BYTES\",\"def_pos\":0},{\"type\":\"int\",\"name\":\"MAX_LINES\",\"def_pos\":0},{\"type\":\"int\",\"name\":\"MAX_STREAMS\",\"def_pos\":0},{\"type\":\"java.util.regex.Pattern\",\"name\":\"MEDIA_PATH\",\"def_pos\":0},{\"type\":\"int\",\"name\":\"PAGE_SIZE\",\"def_pos\":0},{\"type\":\"java.util.regex.Pattern\",\"name\":\"UNSAFE_CATEGORY\",\"def_pos\":0}],\"field_count\":7,\"full_name\":\"com.tongpin.player4k.catalog.CatalogApi\"}"
+              }
+            ],
+            "isError": false
+          }
+        },
+        {
+          "operation": "get_method_body",
+          "input": {
+            "class_name": "com.tongpin.player4k.catalog.CatalogApi",
+            "method_name": "fetchPage",
+            "overload_index": 0,
+            "smali_fallback": true
+          },
+          "response": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\"dex_descriptor\":\"(Lcom/tongpin/player4k/catalog/CatalogApi$Provider;Ljava/lang/String;I)Lcom/tongpin/player4k/catalog/CatalogApi$Page;\",\"overload_count\":1,\"method_name\":\"fetchPage\",\"overload_index\":0,\"full_name\":\"com.tongpin.player4k.catalog.CatalogApi.fetchPage\",\"fell_back\":false,\"markers\":[],\"body\":\"    public static Page fetchPage(Provider provider, String str, int i9) throws IOException {\\r\\n        boolean z9;\\r\\n        requireProvider(provider);\\r\\n        String strQuery \\u003d query(str);\\r\\n        requirePage(i9);\\r\\n        if (\\\"maccms\\\".equals(provider.kind)) {\\r\\n            return parsePage(provider, get(parameters(provider.api, new String[][]{new String[]{\\\"ac\\\", \\\"detail\\\"}, new String[]{\\\"pg\\\", Integer.toString(i9)}, new String[]{\\\"pagesize\\\", Integer.toString(20)}, new String[]{\\\"wd\\\", strQuery}, new String[]{\\\"ids\\\", null}})), strQuery, i9);\\r\\n        }\\r\\n        JSONArray jSONArray \\u003d new JSONArray();\\r\\n        long jNonNegative \\u003d -1;\\r\\n        int length \\u003d 0;\\r\\n        int i10 \\u003d 0;\\r\\n        while (true) {\\r\\n            if (length \\u003c 1000 \\u0026\\u0026 i10 \\u003c 10) {\\r\\n                JSONObject jSONObjectObject \\u003d object(get(parameters(provider.api, new String[][]{new String[]{TtmlNode.START, Integer.toString(length)}, new String[]{\\\"count\\\", \\\"100\\\"}})));\\r\\n                checkPeerTube(jSONObjectObject);\\r\\n                JSONArray jSONArrayArray \\u003d array(jSONObjectObject, \\\"data\\\", 1000);\\r\\n                if (jNonNegative \\u003c 0) {\\r\\n                    jNonNegative \\u003d nonNegative(jSONObjectObject, \\\"total\\\", jSONArrayArray.length());\\r\\n                }\\r\\n                if (jNonNegative \\u003e 1000 || jSONArray.length() + jSONArrayArray.length() \\u003e 1000) {\\r\\n                    throw failure(\\\"片库列表超过支持范围\\\");\\r\\n                }\\r\\n                for (int i11 \\u003d 0; i11 \\u003c jSONArrayArray.length(); i11++) {\\r\\n                    jSONArray.put(jSONArrayArray.opt(i11));\\r\\n                }\\r\\n                length +\\u003d jSONArrayArray.length();\\r\\n                if (jSONArrayArray.length() !\\u003d 0 \\u0026\\u0026 length \\u003c jNonNegative) {\\r\\n                    i10++;\\r\\n                } else {\\r\\n                    z9 \\u003d true;\\r\\n                }\\r\\n            } else {\\r\\n                z9 \\u003d false;\\r\\n            }\\r\\n            if (!z9) {\\r\\n                throw failure(\\\"片库列表超过支持范围\\\");\\r\\n            }\\r\\n            try {\\r\\n                JSONObject jSONObject \\u003d new JSONObject();\\r\\n                jSONObject.put(\\\"total\\\", jSONArray.length());\\r\\n                jSONObject.put(\\\"data\\\", jSONArray);\\r\\n                return peerPage(provider, jSONObject, strQuery, i9);\\r\\n            } catch (JSONException e10) {\\r\\n                throw failure(\\\"片库数据格式错误\\\");\\r\\n            }\\r\\n        }\\r\\n    }\",\"mode\":\"java\",\"class_name\":\"com.tongpin.player4k.catalog.CatalogApi\"}"
+              }
+            ],
+            "isError": false
+          }
+        }
+      ]
+    },
+    "normalized_result": {
+      "engine": {
+        "name": "jadx-headless-mcp",
+        "version": "0.7.1",
+        "artifact_sha256": "6e5eacf500b64292bfb73c49797c1958f6ee44646e43e868039ae7feb573ff75",
+        "source_revision": "5844800a486d2248fa949b74c9896285f5b54de2",
+        "worker_count": 1,
+        "heap_limit_mib": 4096
+      },
+      "class_name": "com.tongpin.player4k.catalog.CatalogApi",
+      "method": {
+        "name": "fetchPage",
+        "reported_signature": "fetchPage(com.tongpin.player4k.catalog.CatalogApi$Provider, java.lang.String, int): com.tongpin.player4k.catalog.CatalogApi$Page",
+        "overload_index": 0,
+        "is_constructor": false,
+        "dex_descriptor": "(Lcom/tongpin/player4k/catalog/CatalogApi$Provider;Ljava/lang/String;I)Lcom/tongpin/player4k/catalog/CatalogApi$Page;"
+      },
+      "overload_count": 1,
+      "representation": "java",
+      "body_status": "available",
+      "fell_back": false,
+      "markers": [],
+      "source": {
+        "status": "complete",
+        "text": "    public static Page fetchPage(Provider provider, String str, int i9) throws IOException {\r\n        boolean z9;\r\n        requireProvider(provider);\r\n        String strQuery = query(str);\r\n        requirePage(i9);\r\n        if (\"maccms\".equals(provider.kind)) {\r\n            return parsePage(provider, get(parameters(provider.api, new String[][]{new String[]{\"ac\", \"detail\"}, new String[]{\"pg\", Integer.toString(i9)}, new String[]{\"pagesize\", Integer.toString(20)}, new String[]{\"wd\", strQuery}, new String[]{\"ids\", null}})), strQuery, i9);\r\n        }\r\n        JSONArray jSONArray = new JSONArray();\r\n        long jNonNegative = -1;\r\n        int length = 0;\r\n        int i10 = 0;\r\n        while (true) {\r\n            if (length < 1000 && i10 < 10) {\r\n                JSONObject jSONObjectObject = object(get(parameters(provider.api, new String[][]{new String[]{TtmlNode.START, Integer.toString(length)}, new String[]{\"count\", \"100\"}})));\r\n                checkPeerTube(jSONObjectObject);\r\n                JSONArray jSONArrayArray = array(jSONObjectObject, \"data\", 1000);\r\n                if (jNonNegative < 0) {\r\n                    jNonNegative = nonNegative(jSONObjectObject, \"total\", jSONArrayArray.length());\r\n                }\r\n                if (jNonNegative > 1000 || jSONArray.length() + jSONArrayArray.length() > 1000) {\r\n                    throw failure(\"片库列表超过支持范围\");\r\n                }\r\n                for (int i11 = 0; i11 < jSONArrayArray.length(); i11++) {\r\n                    jSONArray.put(jSONArrayArray.opt(i11));\r\n                }\r\n                length += jSONArrayArray.length();\r\n                if (jSONArrayArray.length() != 0 && length < jNonNegative) {\r\n                    i10++;\r\n                } else {\r\n                    z9 = true;\r\n                }\r\n            } else {\r\n                z9 = false;\r\n            }\r\n            if (!z9) {\r\n                throw failure(\"片库列表超过支持范围\");\r\n            }\r\n            try {\r\n                JSONObject jSONObject = new JSONObject();\r\n                jSONObject.put(\"total\", jSONArray.length());\r\n                jSONObject.put(\"data\", jSONArray);\r\n                return peerPage(provider, jSONObject, strQuery, i9);\r\n            } catch (JSONException e10) {\r\n                throw failure(\"片库数据格式错误\");\r\n            }\r\n        }\r\n    }",
+        "reported_total_bytes": null
+      }
+    },
+    "confidence": "derived",
+    "authority": "shipped-artifact",
+    "environment": null,
+    "limitations": [
+      "Static decompiler observations do not establish runtime behavior; the APK is never executed.",
+      "Method signatures use provider display types; DEX prototypes come from frozen JADX metadata. Display names may be aliases, and overload indices are local to this engine and artifact.",
+      "Class inventories use parsed metadata before code generation, including synthetic members that may be omitted from decompiled source. Source positions remain unknown.",
+      "Incoming reference totals count JADX using nodes. Direct invoke entries within a using method report raw DEX code-unit offsets and method indexes, but coverage is limited to those nodes and directly matched invokes; it does not establish every possible dynamic or reflective call site.",
+      "Manifest summary fields are extracted by the upstream engine; decoded XML is retained for verification. APK signatures, split APKs, native libraries and Android runtime capture are not verified by this provider."
+    ],
+    "relationship_coverage": null,
+    "locations": [],
+    "evidence_links": []
+  }
+}

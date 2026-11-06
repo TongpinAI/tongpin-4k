@@ -1,0 +1,8 @@
+{
+  "artifact": "org.json:json:20260719",
+  "source_url": "https://repo.maven.apache.org/maven2/org/json/json/20260719/json-20260719.jar",
+  "upstream": "https://github.com/stleary/JSON-java",
+  "sha256": "c243f45f9590c12694a4142ed3f07fc70dfb71e4daebd05ae234bf92a2da92a6",
+  "bytes": 90031,
+  "scope": "host JVM fixture tests only; Android uses built-in org.json; do not include this JAR in APK"
+}

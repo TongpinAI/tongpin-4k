@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "apk": "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\output\\tongpin-4k-1.1.2.apk",
+  "sha256": "bf37ead56fb984f385f8463b256c2f81b15916e1704923640c948551f4a76b07",
+  "original_binding_ids": 15,
+  "hidden_entries": [
+    "iv_user_icon",
+    "tv_user_name",
+    "iv_settings",
+    "tv_sign",
+    "ll_msg",
+    "iv_gt",
+    "fl_ad"
+  ],
+  "initial_visible_texts": [
+    "观看历史",
+    "全部",
+    "我的",
+    "我的收藏"
+  ],
+  "history_and_favorites_visible": true,
+  "method": "official aapt2 binary XML dump",
+  "device_ui_verified": false
+}

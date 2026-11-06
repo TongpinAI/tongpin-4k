@@ -1,0 +1,50 @@
+{
+  "passed": true,
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/LegacySeekState.java": "b689197479729830ad43c575f3a06de34dbe3310fb129407eba1717c72dfb28a"
+  },
+  "smali": {
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity.smali": {
+      "before_sha256": "48472d5d130f363900ed8ebe02f97bb54b00e92e1917f60567cf36a53bd68b79",
+      "after_sha256": "6fcff911d9beb134bed06dc97966640bee265e260fa419335f5d8457a6a27710",
+      "modified_methods": [
+        "A1(FFZ)V",
+        "I1()V",
+        "T1(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;Lcom/shenma/tvlauncher/domain/Json;)Lm7/f0;",
+        "Y2()V",
+        "onPause()V",
+        "onTouchEvent(Landroid/view/MotionEvent;)Z"
+      ],
+      "added_methods": [
+        "dispatchTouchEvent(Landroid/view/MotionEvent;)Z",
+        "seekAutomatic(I)Z",
+        "seekBegin(I)V",
+        "seekCancel()V",
+        "seekCommit(J)V",
+        "seekDefer(J)Z",
+        "seekFinish()V",
+        "seekPlayer()Lcom/shenma/tvlauncher/phone/EmptyControlVideoView;",
+        "seekPreview(I)V",
+        "seekReset()V",
+        "seekShow()V",
+        "seekState()Lcom/tongpin/player4k/catalog/LegacySeekState;",
+        "seekSwipe(FZ)V"
+      ],
+      "exact_other_bytes_unchanged": true
+    },
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity$f.smali": {
+      "before_sha256": "09dea92d90c11f6f7bb50814e975fab06ddd560e03b59c5b6362f5321797a7fd",
+      "after_sha256": "1171a30ff99378c1ae18c2e39ce63b65f92d9844ea87429219f13902df2abab5",
+      "modified_methods": [
+        "onProgressChanged(Landroid/widget/SeekBar;IZ)V",
+        "onStartTrackingTouch(Landroid/widget/SeekBar;)V",
+        "onStopTrackingTouch(Landroid/widget/SeekBar;)V"
+      ],
+      "added_methods": [],
+      "exact_other_bytes_unchanged": true
+    }
+  },
+  "regression_assertions": 42,
+  "evidence": "Actual production pure state compiled; exact smali before bytes outside explicit fields/methods preserved; no Android objects constructed",
+  "device_test": false
+}

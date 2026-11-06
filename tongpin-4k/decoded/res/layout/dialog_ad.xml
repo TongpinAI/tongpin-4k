@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_gravity="center" android:orientation="vertical" android:background="@color/transparent" android:layout_width="@dimen/dp_310" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:gravity="center" android:id="@id/fl_ad" android:background="@drawable/bg_round_dialog" android:padding="@dimen/dp_8" android:layout_width="@dimen/dp_310" android:layout_height="wrap_content" android:minHeight="@dimen/dp_200" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    <ImageView android:textSize="@dimen/sp_20" android:textColor="@color/white" android:gravity="center" android:id="@id/close" android:layout_width="@dimen/dp_30" android:layout_height="@dimen/dp_30" android:layout_marginBottom="@dimen/dp_12" android:src="@drawable/icon_close_circle" app:layout_constraintBottom_toTopOf="@id/fl_ad" app:layout_constraintEnd_toEndOf="@id/fl_ad" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,4 @@
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Actual CatalogActivity.displayEpisodes assertions passed: 10
+Actual PhoneUi inset/palette/grid assertions passed: 26
