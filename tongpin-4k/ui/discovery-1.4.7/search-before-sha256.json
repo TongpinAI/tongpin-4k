@@ -1,0 +1,8 @@
+{
+  "baseline_version": "1.4.6",
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogTitleOrder.java": "bae3398167b1214955888afb17d483e84e9903f59d369ce9f406807be5b56df6",
+    "open-sources/src/com/tongpin/player4k/catalog/AllCatalogSearch.java": "746f5a2ce5f0c6916d6b0f4b583b620303cf06b8dc04361f0526a123013291c7",
+    "open-sources/src/com/tongpin/player4k/catalog/PhoneSourcePicker.java": "38a7785c449987acaf869d52a4d67e600c9e769f3ea30e2e9cdcf13bad05f3a8"
+  }
+}

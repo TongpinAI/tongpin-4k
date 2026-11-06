@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "frozen_input_sha256": "2deb58962ff7fac216a05ae2cdf84e9ce18bab8929be5a0b67cf1d244ea2fda4",
+  "actual_input_count": 43,
+  "formal_gate_passed": true,
+  "device_tested": false
+}

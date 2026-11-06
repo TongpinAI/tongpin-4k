@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "version": "1.4.1",
+  "previous_version": "1.4.0",
+  "scope": "Recommendation metadata and browse-only work ordering; two existing production sources only. No extra network requests, new runtime dependencies, registry/player/UI edits or browse scheduler changes.",
+  "source_sha256": {
+    "src/com/tongpin/player4k/tv/CatalogApi.java": "e91b684100d722a1ac54d12c338ae211787eccd0e5ed4deee7d74e4ac7802c6b",
+    "src/com/tongpin/player4k/tv/UnifiedCatalogPolicy.java": "286948b737fe12ef35a67321e693e68cf49d69a03b1b7356420050d8a5502f66"
+  },
+  "before_source_sha256": {
+    "src/com/tongpin/player4k/tv/CatalogApi.java": "33410bf75cae6a3d903c85e6e3e9deda2adad6f2cfb6ec2f55fa5c2ce6c39f04",
+    "src/com/tongpin/player4k/tv/UnifiedCatalogPolicy.java": "35f3ceaf09155951eefe8f64fa064bf215833fd484124347c638f01e45af45a6"
+  },
+  "unchanged_browse_sha256": {
+    "src/com/tongpin/player4k/tv/UnifiedCatalogBrowse.java": "04241abaa1664f7ec2141ce738fb53296b6d3abac73bcb6231c34ad659b58caf"
+  },
+  "test_report": "ui/discovery-1.4.1/recommendation-tests/verification.json",
+  "test_report_sha256": "e8eaea5217819cb97840713974c80465602d35eb276fe070d117e7e61efef799",
+  "test_source_sha256": {
+    "ui/discovery-1.4.1/recommendation-tests/run.py": "d3297682fe812cda081cd7b975b078198ebe7a9cd0b6b913564d7ba0da06a248",
+    "ui/discovery-1.4.1/recommendation-tests/RecentCatalogTest.java": "3a25e4e72d91d38e38c1bb6b876a1de088f483a89eb9eb964de116efbcb37fc1"
+  },
+  "new_assertions_per_app": 104,
+  "retained_assertions_per_app": 140,
+  "public_metadata_audit_sha256": "993cf6270653e09be136ca17949c19944ad0ccbdaeece5a7420e6a198ba9ff3e",
+  "source_diff_sha256": "19704bb990cb57c8d952a85174143dccdbb92765d8f52df60228c679b9113113",
+  "no_media_fetched": true,
+  "no_device_validation": true,
+  "primary_source_preference_unchanged": true,
+  "search_natural_order_unchanged": true
+}

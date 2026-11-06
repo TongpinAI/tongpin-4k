@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "version": "1.4.7",
+  "sha256": "62ae25d76dc22dc008310e4711787ec2496173d021a3c8ad4d949cb7d1704bc9",
+  "bytes": 77120053,
+  "frozen_inputs_sha256": "14985707fd1e48c91c3116564665fdfaa61d47df3f34ec195b0e21dffa4bcdb4",
+  "all_current41_java_sources_match_frozen": true,
+  "before_java_preimages_equal_published146_integration": true,
+  "provider_count": 28,
+  "provider_asset_sha256": "9793756bfa35672f9c2645cd981dce4e23431be664ebceb71e6f2b05966b3e05",
+  "final_dex_and_abi_proof": {
+    "passed": true,
+    "classes5_sha256": "15c365f8fc654519863d51fb8d645299135522f728ba7fea942a6f4609572d60",
+    "own_class_count": 362,
+    "abi_invocations": 4768,
+    "reviewed_guarded_api_references": 25,
+    "timer_dex_verified": true,
+    "native_session_bindings_verified": true,
+    "native_field_accesses_checked": 112,
+    "native_session_overrides_checked": 20,
+    "native_render_verified": false
+  },
+  "actual_six_apk_entry_delta_only": true,
+  "canonical_stage_dex_retained": true,
+  "published146_resource_ids_preserved": true,
+  "new_resources": {},
+  "downloads_identical": true,
+  "device_tested": false
+}

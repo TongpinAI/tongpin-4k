@@ -1,6 +1,6 @@
 # 电视端构建输入与导出范围
 
-当前源码为 **同频4K TV1.4.0 / versionCode1400**，包名`com.tongpin.player4k.tv`，最低API21；Media3兼容后端仅在API23及以上进入。统一来源、分页搜索换源和直播策略见`ui/unified-library-1.3.4`，自动选源及互审见`ui/auto-source-1.3.5`，历史全库片名搜索见`ui/global-search-1.3.7`，统一首页历史见`ui/unified-library-1.3.8`，加载优化历史见`ui/startup-performance-1.3.9`，本轮界面见`ui/unslop-1.4.0`，最终DEX、签名和API门控证据见`verification/1.4.0`。
+当前源码为 **同频4K TV1.4.1 / versionCode1401**，包名`com.tongpin.player4k.tv`，最低API21；Media3兼容后端仅在API23及以上进入。统一来源、分页搜索换源和直播策略见`ui/unified-library-1.3.4`，自动选源及互审见`ui/auto-source-1.3.5`，历史全库片名搜索见`ui/global-search-1.3.7`，统一首页历史见`ui/unified-library-1.3.8`，加载优化历史见`ui/startup-performance-1.3.9`，界面历史见`ui/unslop-1.4.0`，本轮推荐与搜索见`ui/discovery-1.4.1`，最终DEX、签名和API门控证据见`verification/1.4.1`。
 
 ## 已保存内容
 
@@ -49,3 +49,6 @@ build/resource-check/generated/com/tongpin/player4k/tv/R.java
 
 
 140仍31份Java，只改3份UI Java及2份UI XML。旧30个资源ID保留，仅新增`style/TongpinPlayerTheme`、`style/TongpinPlayerDialogTheme`，Media3闭包与API21／23边界保持。本轮额外保存精确文本`build/1.3.9/resource-ids.txt`作为资源连续性输入，和`build/1.4.0/ui-resource/generated/com/tongpin/player4k/tv/R.java`作为真实AAPT生成的主机测试输入。其余build缓存不提交。包随`v1.4.6`交付；源码、尺寸模型、回调原文与独审在`ui/unslop-1.4.0/`。矩阵采用声明的字体包络，实际布局用TextView行高，均不替代真机遥控、视觉或播放验证。
+
+
+141仍31份生产Java，仅改7份目录／搜索文件；沿用140全部32个资源ID、播放核心与Media3锁定闭包。资源连续性精确文本输入`build/1.4.0/resource-ids.txt`随仓库保留；本轮不新增R夹具或资源。未连接真机。

@@ -125,10 +125,10 @@
         }
     .end annotation
 
-    .line 233
+    .line 250
     nop
 
-    .line 234
+    .line 251
     const/4 v0, 0x0
 
     move v1, v0
@@ -146,12 +146,12 @@
 
     if-ge v1, v5, :cond_b
 
-    .line 235
+    .line 252
     invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
 
     move-result v5
 
-    .line 236
+    .line 253
     const/16 v6, 0x22
 
     const/4 v7, 0x1
@@ -180,7 +180,7 @@
 
     goto :goto_2
 
-    .line 237
+    .line 254
     :cond_2
     if-ne v5, v6, :cond_3
 
@@ -188,7 +188,7 @@
 
     goto :goto_2
 
-    .line 238
+    .line 255
     :cond_3
     const/16 v6, 0x5b
 
@@ -202,7 +202,7 @@
 
     goto :goto_1
 
-    .line 239
+    .line 256
     :cond_4
     const/16 v6, 0x5d
 
@@ -227,7 +227,7 @@
 
     throw p0
 
-    .line 238
+    .line 255
     :cond_8
     :goto_1
     add-int/lit8 v3, v3, 0x1
@@ -236,14 +236,14 @@
 
     if-gt v3, v5, :cond_a
 
-    .line 234
+    .line 251
     :cond_9
     :goto_2
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 238
+    .line 255
     :cond_a
     new-instance p0, Ljava/io/IOException;
 
@@ -251,16 +251,16 @@
 
     throw p0
 
-    .line 241
+    .line 258
     :cond_b
     if-nez v2, :cond_c
 
     if-nez v3, :cond_c
 
-    .line 242
+    .line 259
     return-void
 
-    .line 241
+    .line 258
     :cond_c
     new-instance p0, Ljava/io/IOException;
 
@@ -284,7 +284,7 @@
         }
     .end annotation
 
-    .line 222
+    .line 239
     const/4 v0, 0x0
 
     if-eqz p1, :cond_3
@@ -303,7 +303,7 @@
 
     goto :goto_0
 
-    .line 223
+    .line 240
     :cond_0
     invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -362,11 +362,11 @@
 
     return p0
 
-    .line 224
+    .line 241
     :cond_2
     return v0
 
-    .line 222
+    .line 239
     :cond_3
     :goto_0
     return v0
@@ -813,7 +813,7 @@
         }
     .end annotation
 
-    .line 184
+    .line 186
     const-string v0, "provider"
 
     const/16 v1, 0x80
@@ -830,7 +830,7 @@
 
     move-result-object v2
 
-    .line 185
+    .line 187
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object p1
@@ -875,11 +875,11 @@
     :cond_1
     const/4 v4, 0x0
 
-    .line 186
+    .line 188
     :goto_0
     if-eqz v4, :cond_7
 
-    .line 187
+    .line 189
     new-instance p1, Lcom/tongpin/player4k/catalog/CatalogApi$Video;
 
     invoke-direct {p1}, Lcom/tongpin/player4k/catalog/CatalogApi$Video;-><init>()V
@@ -904,7 +904,7 @@
 
     iput-object v2, p1, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->title:Ljava/lang/String;
 
-    .line 188
+    .line 190
     iget-object v2, p1, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->id:Ljava/lang/String;
 
     invoke-virtual {v2}, Ljava/lang/String;->isEmpty()Z
@@ -925,7 +925,7 @@
 
     if-nez v2, :cond_6
 
-    .line 189
+    .line 191
     const-string v2, "subtitle"
 
     const/16 v6, 0x1000
@@ -944,7 +944,7 @@
 
     iput-object v2, p1, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->poster:Ljava/lang/String;
 
-    .line 190
+    .line 192
     const-string v2, "sourceUrl"
 
     invoke-static {p0, v2, v3}, Lcom/tongpin/player4k/catalog/CatalogPreviewCache;->field(Lorg/json/JSONObject;Ljava/lang/String;I)Ljava/lang/String;
@@ -969,7 +969,7 @@
 
     iput-object v2, p1, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->area:Ljava/lang/String;
 
-    .line 191
+    .line 193
     const-string v2, "author"
 
     invoke-static {p0, v2, v5}, Lcom/tongpin/player4k/catalog/CatalogPreviewCache;->field(Lorg/json/JSONObject;Ljava/lang/String;I)Ljava/lang/String;
@@ -986,7 +986,47 @@
 
     iput-object v2, p1, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->licence:Ljava/lang/String;
 
-    .line 192
+    .line 194
+    const-string v2, "publishedAtMs"
+
+    const-wide v6, 0x3bb2cc3d800L
+
+    invoke-static {p0, v2, v6, v7}, Lcom/tongpin/player4k/catalog/CatalogPreviewCache;->optionalCount(Lorg/json/JSONObject;Ljava/lang/String;J)J
+
+    move-result-wide v2
+
+    iput-wide v2, p1, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->publishedAtMs:J
+
+    .line 195
+    const-string v2, "updatedAtMs"
+
+    invoke-static {p0, v2, v6, v7}, Lcom/tongpin/player4k/catalog/CatalogPreviewCache;->optionalCount(Lorg/json/JSONObject;Ljava/lang/String;J)J
+
+    move-result-wide v2
+
+    iput-wide v2, p1, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->updatedAtMs:J
+
+    .line 196
+    const-string v2, "weeklyHits"
+
+    const-wide v6, 0xe8d4a51000L
+
+    invoke-static {p0, v2, v6, v7}, Lcom/tongpin/player4k/catalog/CatalogPreviewCache;->optionalCount(Lorg/json/JSONObject;Ljava/lang/String;J)J
+
+    move-result-wide v2
+
+    iput-wide v2, p1, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->weeklyHits:J
+
+    .line 197
+    const-string v2, "monthlyHits"
+
+    invoke-static {p0, v2, v6, v7}, Lcom/tongpin/player4k/catalog/CatalogPreviewCache;->optionalCount(Lorg/json/JSONObject;Ljava/lang/String;J)J
+
+    move-result-wide v2
+
+    iput-wide v2, p1, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->monthlyHits:J
+
+    .line 198
     const-string v2, "categoryId"
 
     invoke-static {p0, v2, v1}, Lcom/tongpin/player4k/catalog/CatalogPreviewCache;->field(Lorg/json/JSONObject;Ljava/lang/String;I)Ljava/lang/String;
@@ -1003,7 +1043,7 @@
 
     iput-object v2, p1, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->categoryName:Ljava/lang/String;
 
-    .line 193
+    .line 199
     const-string v2, "categoryLabel"
 
     invoke-static {p0, v2, v5}, Lcom/tongpin/player4k/catalog/CatalogPreviewCache;->field(Lorg/json/JSONObject;Ljava/lang/String;I)Ljava/lang/String;
@@ -1012,14 +1052,14 @@
 
     iput-object v2, p1, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->categoryLabel:Ljava/lang/String;
 
-    .line 194
+    .line 200
     const-string v2, "categories"
 
     invoke-virtual {p0, v2}, Lorg/json/JSONObject;->getJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
 
     move-result-object v2
 
-    .line 195
+    .line 201
     invoke-virtual {v2}, Lorg/json/JSONArray;->length()I
 
     move-result v3
@@ -1028,12 +1068,12 @@
 
     if-gt v3, v6, :cond_5
 
-    .line 196
+    .line 202
     new-instance v3, Ljava/util/ArrayList;
 
     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
-    .line 197
+    .line 203
     const/4 v7, 0x0
 
     :goto_1
@@ -1043,12 +1083,12 @@
 
     if-ge v7, v8, :cond_2
 
-    .line 198
+    .line 204
     invoke-virtual {v2, v7}, Lorg/json/JSONArray;->getJSONObject(I)Lorg/json/JSONObject;
 
     move-result-object v8
 
-    .line 199
+    .line 205
     new-instance v9, Lcom/tongpin/player4k/catalog/CatalogCategories$Category;
 
     invoke-static {v8, v0, v1}, Lcom/tongpin/player4k/catalog/CatalogPreviewCache;->field(Lorg/json/JSONObject;Ljava/lang/String;I)Ljava/lang/String;
@@ -1077,12 +1117,12 @@
 
     invoke-virtual {v3, v9}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 197
+    .line 203
     add-int/lit8 v7, v7, 0x1
 
     goto :goto_1
 
-    .line 201
+    .line 207
     :cond_2
     invoke-virtual {v3}, Ljava/util/ArrayList;->isEmpty()Z
 
@@ -1102,7 +1142,7 @@
 
     iput-object v0, p1, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->categoryCatalog:Lcom/tongpin/player4k/catalog/CatalogCategories;
 
-    .line 202
+    .line 208
     :cond_3
     invoke-static {p1}, Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy;->category(Lcom/tongpin/player4k/catalog/CatalogApi$Video;)Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;
 
@@ -1124,10 +1164,10 @@
 
     if-eqz p0, :cond_4
 
-    .line 203
+    .line 209
     return-object p1
 
-    .line 202
+    .line 208
     :cond_4
     new-instance p0, Ljava/io/IOException;
 
@@ -1137,7 +1177,7 @@
 
     throw p0
 
-    .line 195
+    .line 201
     :cond_5
     new-instance p0, Ljava/io/IOException;
 
@@ -1147,7 +1187,7 @@
 
     throw p0
 
-    .line 188
+    .line 190
     :cond_6
     new-instance p0, Ljava/io/IOException;
 
@@ -1157,7 +1197,7 @@
 
     throw p0
 
-    .line 186
+    .line 188
     :cond_7
     new-instance p0, Ljava/io/IOException;
 
@@ -1596,9 +1636,43 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->author:Ljava/lang/String;
+    iget-wide v3, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->publishedAtMs:J
 
     .line 166
+    const-string v1, "publishedAtMs"
+
+    invoke-virtual {v0, v1, v3, v4}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
+
+    move-result-object v0
+
+    const-string v1, "updatedAtMs"
+
+    iget-wide v3, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->updatedAtMs:J
+
+    invoke-virtual {v0, v1, v3, v4}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
+
+    move-result-object v0
+
+    iget-wide v3, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->weeklyHits:J
+
+    .line 167
+    const-string v1, "weeklyHits"
+
+    invoke-virtual {v0, v1, v3, v4}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
+
+    move-result-object v0
+
+    const-string v1, "monthlyHits"
+
+    iget-wide v3, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->monthlyHits:J
+
+    invoke-virtual {v0, v1, v3, v4}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->author:Ljava/lang/String;
+
+    .line 168
     const-string v3, "author"
 
     invoke-virtual {v0, v3, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
@@ -1623,7 +1697,7 @@
 
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->categoryName:Ljava/lang/String;
 
-    .line 167
+    .line 169
     const-string v3, "categoryName"
 
     invoke-virtual {v0, v3, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
@@ -1638,7 +1712,7 @@
 
     move-result-object v0
 
-    .line 168
+    .line 170
     invoke-static {p0}, Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy;->category(Lcom/tongpin/player4k/catalog/CatalogApi$Video;)Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;
 
     move-result-object v1
@@ -1653,12 +1727,12 @@
 
     move-result-object v0
 
-    .line 169
+    .line 171
     new-instance v1, Lorg/json/JSONArray;
 
     invoke-direct {v1}, Lorg/json/JSONArray;-><init>()V
 
-    .line 170
+    .line 172
     iget-object v3, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->categoryCatalog:Lcom/tongpin/player4k/catalog/CatalogCategories;
 
     if-eqz v3, :cond_2
@@ -1677,12 +1751,12 @@
 
     if-eqz v3, :cond_2
 
-    .line 171
+    .line 173
     new-instance v3, Ljava/util/HashMap;
 
     invoke-direct {v3}, Ljava/util/HashMap;-><init>()V
 
-    .line 172
+    .line 174
     iget-object v4, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->categoryCatalog:Lcom/tongpin/player4k/catalog/CatalogCategories;
 
     invoke-virtual {v4}, Lcom/tongpin/player4k/catalog/CatalogCategories;->categories()Ljava/util/List;
@@ -1712,7 +1786,7 @@
 
     goto :goto_0
 
-    .line 173
+    .line 175
     :cond_0
     new-instance v4, Ljava/util/HashSet;
 
@@ -1726,7 +1800,7 @@
 
     check-cast p0, Lcom/tongpin/player4k/catalog/CatalogCategories$Category;
 
-    .line 174
+    .line 176
     :goto_1
     if-eqz p0, :cond_2
 
@@ -1746,7 +1820,7 @@
 
     if-ge v5, v6, :cond_2
 
-    .line 175
+    .line 177
     new-instance v5, Lorg/json/JSONObject;
 
     invoke-direct {v5}, Lorg/json/JSONObject;-><init>()V
@@ -1767,7 +1841,7 @@
 
     iget-object v6, p0, Lcom/tongpin/player4k/catalog/CatalogCategories$Category;->name:Ljava/lang/String;
 
-    .line 176
+    .line 178
     const-string v7, "name"
 
     invoke-virtual {v5, v7, v6}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
@@ -1782,10 +1856,10 @@
 
     move-result-object v5
 
-    .line 175
+    .line 177
     invoke-virtual {v1, v5}, Lorg/json/JSONArray;->put(Ljava/lang/Object;)Lorg/json/JSONArray;
 
-    .line 177
+    .line 179
     iget-boolean v5, p0, Lcom/tongpin/player4k/catalog/CatalogCategories$Category;->parentKnown:Z
 
     if-eqz v5, :cond_1
@@ -1805,7 +1879,7 @@
 
     goto :goto_1
 
-    .line 180
+    .line 182
     :cond_2
     const-string p0, "categories"
 
@@ -1824,12 +1898,12 @@
         }
     .end annotation
 
-    .line 228
+    .line 245
     invoke-virtual {p0, p1}, Lorg/json/JSONObject;->get(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object p0
 
-    .line 229
+    .line 246
     instance-of p1, p0, Ljava/lang/String;
 
     if-eqz p1, :cond_0
@@ -1842,10 +1916,10 @@
 
     if-gt p1, p2, :cond_0
 
-    .line 230
+    .line 247
     return-object p0
 
-    .line 229
+    .line 246
     :cond_0
     new-instance p0, Ljava/io/IOException;
 
@@ -2010,6 +2084,97 @@
     return-object v0
 .end method
 
+.method private static optionalCount(Lorg/json/JSONObject;Ljava/lang/String;J)J
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .line 214
+    invoke-virtual {p0, p1}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const-wide/16 p0, 0x0
+
+    return-wide p0
+
+    .line 215
+    :cond_0
+    invoke-virtual {p0, p1}, Lorg/json/JSONObject;->opt(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    .line 216
+    instance-of p1, p0, Ljava/lang/Number;
+
+    const-string v0, "Invalid preview count"
+
+    if-eqz p1, :cond_2
+
+    invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string v1, "[0-9]{1,18}"
+
+    invoke-virtual {p1, v1}, Ljava/lang/String;->matches(Ljava/lang/String;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_2
+
+    .line 218
+    :try_start_0
+    invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-static {p0}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+
+    move-result-wide p0
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 219
+    cmp-long p2, p0, p2
+
+    if-gtz p2, :cond_1
+
+    .line 220
+    return-wide p0
+
+    .line 219
+    :cond_1
+    new-instance p0, Ljava/io/IOException;
+
+    invoke-direct {p0, v0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+
+    .line 218
+    :catch_0
+    move-exception p0
+
+    new-instance p0, Ljava/io/IOException;
+
+    invoke-direct {p0, v0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+
+    .line 216
+    :cond_2
+    new-instance p0, Ljava/io/IOException;
+
+    invoke-direct {p0, v0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+.end method
+
 .method private static registryKey(Ljava/util/List;)Ljava/lang/String;
     .locals 6
     .annotation system Ldalvik/annotation/Signature;
@@ -2028,12 +2193,12 @@
         }
     .end annotation
 
-    .line 207
+    .line 224
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    .line 208
+    .line 225
     invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object p0
@@ -2099,7 +2264,7 @@
 
     goto :goto_0
 
-    .line 209
+    .line 226
     :cond_0
     invoke-static {v0}, Ljava/util/Collections;->sort(Ljava/util/List;)V
 
@@ -2109,7 +2274,7 @@
 
     move-result-object p0
 
-    .line 210
+    .line 227
     invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -2141,13 +2306,13 @@
 
     goto :goto_1
 
-    .line 211
+    .line 228
     :cond_1
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 212
+    .line 229
     invoke-virtual {p0}, Ljava/security/MessageDigest;->digest()[B
 
     move-result-object p0
@@ -2183,7 +2348,7 @@
 
     goto :goto_2
 
-    .line 213
+    .line 230
     :cond_2
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -2195,7 +2360,7 @@
 .method private static size(Lorg/json/JSONObject;)I
     .locals 1
 
-    .line 226
+    .line 243
     invoke-virtual {p0}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
 
     move-result-object p0
@@ -2222,7 +2387,7 @@
         }
     .end annotation
 
-    .line 217
+    .line 234
     const/4 v0, 0x0
 
     if-eqz p0, :cond_4
@@ -2237,7 +2402,7 @@
 
     goto :goto_0
 
-    .line 218
+    .line 235
     :cond_0
     invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -2273,13 +2438,13 @@
     :cond_2
     return v0
 
-    .line 219
+    .line 236
     :cond_3
     const/4 p0, 0x1
 
     return p0
 
-    .line 217
+    .line 234
     :cond_4
     :goto_0
     return v0

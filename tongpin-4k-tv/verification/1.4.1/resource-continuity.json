@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "old_ids_retained": 21,
+  "new_library_resources": {
+    "com.tongpin.player4k.tv:string/exo_download_removing": "0x7f03000a",
+    "com.tongpin.player4k.tv:string/exo_download_paused_for_network": "0x7f030008",
+    "com.tongpin.player4k.tv:string/exo_download_paused": "0x7f030007",
+    "com.tongpin.player4k.tv:string/exo_download_paused_for_wifi": "0x7f030009",
+    "com.tongpin.player4k.tv:string/exo_download_notification_channel_name": "0x7f030006",
+    "com.tongpin.player4k.tv:string/exo_download_failed": "0x7f030005",
+    "com.tongpin.player4k.tv:string/exo_download_downloading": "0x7f030004",
+    "com.tongpin.player4k.tv:string/exo_download_completed": "0x7f030002",
+    "com.tongpin.player4k.tv:string/exo_download_description": "0x7f030003",
+    "com.tongpin.player4k.tv:style/TongpinPlayerDialogTheme": "0x7f040001",
+    "com.tongpin.player4k.tv:style/TongpinPlayerTheme": "0x7f040002"
+  }
+}

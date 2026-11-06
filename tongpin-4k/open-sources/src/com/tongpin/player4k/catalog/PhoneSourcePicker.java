@@ -76,13 +76,18 @@ final class PhoneSourcePicker {
             }
             return result;
         }, result -> {
-            List<Video> choices = result.items;
+            boolean titleSearch = provider.supportsSearch && !CatalogApi.liveProvider(provider)
+                    && keyword != null && !keyword.trim().isEmpty();
+            List<Video> choices = titleSearch
+                    ? CatalogTitleOrder.sortedCopy(CatalogTitleOrder.matchingTitles(result.items, keyword)) : result.items;
             if (choices.isEmpty()) {
                 AlertDialog.Builder empty = new AlertDialog.Builder(host).setTitle("此页没有匹配内容")
                         .setMessage(provider.supportsSearch ? "可以修改名称，或返回切换片源。" : "此来源不支持搜索，可按实际分类和页码浏览。")
                         .setNeutralButton("其他片源", (d, w) -> show()).setNegativeButton("取消", (d, w) -> close());
                 if (provider.supportsSearch) empty.setPositiveButton("修改搜索", (d, w) -> editSearch(provider, keyword));
                 else if (result.categories != null && !result.categories.isEmpty()) empty.setPositiveButton("选择分类", (d, w) -> categories(provider, result.categories, category));
+                if (titleSearch && result.hasMore)
+                    empty.setNeutralButton("下一页", (d, w) -> browse(provider, keyword, page + 1, category));
                 show(empty.create());
                 return;
             }

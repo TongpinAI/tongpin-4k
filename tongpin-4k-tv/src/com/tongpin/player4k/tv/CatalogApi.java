@@ -13,6 +13,10 @@ import java.net.URI;
 import java.net.URL;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -55,6 +59,8 @@ public final class CatalogApi {
         public String id = "", title = "", subtitle = "", poster = "", sourceUrl = "";
         public String description = "", author = "", licence = "", year = "", area = "";
         public String categoryId = "", categoryName = "", categoryLabel = "未分类";
+        /** Source-declared metadata only; zero means absent/invalid, never an inferred count/date. */
+        public long publishedAtMs, updatedAtMs, weeklyHits, monthlyHits;
         CatalogCategories categoryCatalog;
         public Video() {}
     }
@@ -561,6 +567,8 @@ public final class CatalogApi {
         video.author = text(item.optJSONObject("account"), "displayName", 512);
         if (video.author.isEmpty()) video.author = text(item.optJSONObject("channel"), "displayName", 512);
         video.licence = text(item.optJSONObject("licence"), "label", 512);
+        // PeerTube publishedAt is an upload/publication date, not the film's release date.
+        video.updatedAtMs = metadataDate(text(item, "updatedAt", 128));
         return video;
     }
 
@@ -575,6 +583,10 @@ public final class CatalogApi {
         video.poster = relative(provider.api, text(item, "vod_pic", 8192));
         video.description = plain(text(item, "vod_content", 32768), 32768);
         video.year = plain(text(item, "vod_year", 64), 64);
+        video.publishedAtMs = metadataDate(text(item, "vod_pubdate", 128));
+        video.updatedAtMs = metadataDate(text(item, "vod_time", 128));
+        video.weeklyHits = metadataHits(item, "vod_hits_week");
+        video.monthlyHits = metadataHits(item, "vod_hits_month");
         video.area = plain(text(item, "vod_area", 256), 256);
         video.author = plain(text(item, "vod_director", 512), 512);
         video.licence = plain(text(item, "licence", 512), 512);
@@ -789,6 +801,48 @@ public final class CatalogApi {
         } catch (NumberFormatException e) {
             return fallback;
         }
+    }
+
+    private static long metadataHits(JSONObject item, String key) {
+        long value = nonNegative(item, key, 0);
+        return value <= 1_000_000_000_000L ? value : 0;
+    }
+
+    /** Directory dates are not ingestion dates. Unzoned declarations use UTC for stable ordering. */
+    static long metadataDate(String input) {
+        if (input == null) return 0;
+        String value = input.trim();
+        if (value.matches("[0-9]{10}|[0-9]{13}")) {
+            try {
+                long time = Long.parseLong(value);
+                if (value.length() == 10) time *= 1000;
+                return time > 0 && time <= 4_102_444_800_000L ? time : 0;
+            } catch (NumberFormatException invalid) { return 0; }
+        }
+        // Common MacCMS declarations append a release territory, e.g. 2026-10-26(日本).
+        value = value.replaceFirst("[（(].*$", "").trim();
+        if (!value.matches("[0-9]{4}-[0-9]{2}-[0-9]{2}(?:[ T][0-9]{2}:[0-9]{2}:[0-9]{2}(?:\\.[0-9]{1,3})?(?:Z|[+-][0-9]{2}:?[0-9]{2})?)?")) return 0;
+        value = value.replace('T', ' ').replaceFirst("Z$", "+0000")
+                .replaceFirst("([+-][0-9]{2}):([0-9]{2})$", "$1$2");
+        int decimal = value.indexOf('.');
+        if (decimal >= 0) {
+            int end = decimal + 1;
+            while (end < value.length() && Character.isDigit(value.charAt(end))) end++;
+            String fraction = value.substring(decimal + 1, end);
+            while (fraction.length() < 3) fraction += "0";
+            value = value.substring(0, decimal + 1) + fraction + value.substring(end);
+        }
+        String pattern = value.length() == 10 ? "yyyy-MM-dd" : "yyyy-MM-dd HH:mm:ss"
+                + (decimal >= 0 ? ".SSS" : "") + (value.matches(".*[+-][0-9]{4}$") ? "Z" : "");
+        SimpleDateFormat format = new SimpleDateFormat(pattern, Locale.ROOT);
+        format.setLenient(false); format.setTimeZone(TimeZone.getTimeZone("UTC"));
+        ParsePosition position = new ParsePosition(0);
+        Date parsed = format.parse(value, position);
+        if (parsed != null && position.getIndex() == value.length()) {
+            long time = parsed.getTime();
+            return time > 0 && time <= 4_102_444_800_000L ? time : 0;
+        }
+        return 0;
     }
 
     private static String[] split(String input, String delimiter, int max) throws IOException {

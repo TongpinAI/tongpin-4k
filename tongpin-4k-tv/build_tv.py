@@ -31,9 +31,9 @@ if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
 
 ROOT = Path(__file__).resolve().parent
-VERSION = "1.4.0"
-VERSION_CODE = 1400
-PREVIOUS_VERSION = "1.3.9"
+VERSION = "1.4.1"
+VERSION_CODE = 1401
+PREVIOUS_VERSION = "1.4.0"
 PROVIDER_SHA256 = "9793756bfa35672f9c2645cd981dce4e23431be664ebceb71e6f2b05966b3e05"
 PROVIDER_IDS = ['mdzy', '360zy', 'blender', 'ryzy', 'ikun', 'guangsu', 'hongniu', 'jinying', 'huya', 'bfzy', 'qiyi', '360zyzz', 'dandan', 'dazhong', 'feifan', 'hhzy', 'jszy', 'longma', 'maotai', 'maoyan', 'public_live', 'public_live_clun', 'subo', 'taopian', 'wsyzy', 'xigua', 'xinlang', 'yinghua']
 PACKAGE = "com.tongpin.player4k.tv"
@@ -222,7 +222,7 @@ def manifest_contract():
 
 def provider_contract():
     path = ROOT / "assets/tongpin_open_sources.json"
-    assert {p.relative_to(ROOT / "assets").as_posix() for p in (ROOT / "assets").rglob("*") if p.is_file()} == ({"tongpin_open_sources.json", "third_party_licenses/media3_1_10_1.txt"} if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7", "1.3.8", "1.3.9", "1.4.0"} else {"tongpin_open_sources.json"})
+    assert {p.relative_to(ROOT / "assets").as_posix() for p in (ROOT / "assets").rglob("*") if p.is_file()} == ({"tongpin_open_sources.json", "third_party_licenses/media3_1_10_1.txt"} if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7", "1.3.8", "1.3.9", "1.4.0", "1.4.1"} else {"tongpin_open_sources.json"})
     providers = json.loads(path.read_text(encoding="utf-8"))["providers"]
     assert [p["id"] for p in providers] == PROVIDER_IDS
     for provider in providers:
@@ -1042,6 +1042,9 @@ def main():
     unified_home_release_contract(snapshot, promotion=not args.preflight)
     startup_performance_release_contract(snapshot, promotion=not args.preflight)
     unslop_release_contract(snapshot, promotion=not args.preflight)
+    if VERSION == "1.4.1":
+        from discovery_release_contract import verify
+        verify(ROOT, snapshot, promotion=not args.preflight)
     write_json(VERIFY / "input-hashes.json", snapshot)
     build = WORK / "build" / VERSION / "preflight" if args.preflight else WORK / "build" / VERSION
     build.mkdir(parents=True, exist_ok=True)
@@ -1053,7 +1056,7 @@ def main():
     run([bt / "aapt2.exe", "compile", "--dir", WORK / "res", "-o", build / "resources.zip"])
     runtime_jars=[];runtime_lock=None
     extra=[]
-    if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7", "1.3.8", "1.3.9", "1.4.0"}:
+    if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7", "1.3.8", "1.3.9", "1.4.0", "1.4.1"}:
         runtime_lock,library_archives,library_packages=media3_runtime.resources(ROOT,build,WORK,bt,run)
         runtime_jars=[WORK/artifact["jar"] for artifact in runtime_lock["artifacts"] if artifact["class_count"]]
         for archive in library_archives:extra += ["-R",archive]
@@ -1064,11 +1067,11 @@ def main():
          build / "resources.zip"]+extra+["-A", WORK / "assets", "--java", build / "generated",
          "--min-sdk-version", MIN_API, "--target-sdk-version", TARGET_API,
          "--version-code", VERSION_CODE, "--version-name", VERSION, "-o", build / "resources.ap_"])
-    if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7", "1.3.8", "1.3.9", "1.4.0"}:
+    if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7", "1.3.8", "1.3.9", "1.4.0", "1.4.1"}:
         parse=lambda path:dict(re.findall(r"([^\s]+) = (0x[0-9a-f]+)",Path(path).read_text()))
         old_ids=parse(ROOT/"verification/1.3.0/stable-resource-ids.txt");new_ids=parse(build/"resource-ids.txt")
         assert all(new_ids.get(name)==value for name,value in old_ids.items())
-        if VERSION in {"1.3.4", "1.3.5", "1.3.6", "1.3.7", "1.3.8", "1.3.9", "1.4.0"}:
+        if VERSION in {"1.3.4", "1.3.5", "1.3.6", "1.3.7", "1.3.8", "1.3.9", "1.4.0", "1.4.1"}:
             previous_ids = parse(ROOT/("build/"+PREVIOUS_VERSION+"/resource-ids.txt"))
             if VERSION == "1.4.0":
                 assert all(new_ids.get(name) == value for name,value in previous_ids.items()), "Old TV resource ID changed"
@@ -1106,7 +1109,7 @@ def main():
         declared, types = dex_contents(dex.read_bytes())
         definitions += declared
         references.update(types)
-    if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7", "1.3.8", "1.3.9", "1.4.0"}:
+    if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7", "1.3.8", "1.3.9", "1.4.0", "1.4.1"}:
         write_json(VERIFY/"runtime-abi.json",media3_runtime.dependency_abi(ROOT,dexes,definitions))
     else:
         assert all(c.startswith("Lcom/tongpin/") for c in definitions), "Runtime third-party class found"
@@ -1122,20 +1125,20 @@ def main():
     api_report = ApiDatabase(TOOLS_REAL / "platform-35/data/api-versions.xml").audit(dexes, MIN_API)
     write_json(VERIFY / "min-api-audit-raw.json", api_report)
     if not api_report["passed"]:
-        assert VERSION in {"1.2.0", "1.2.1", "1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7", "1.3.8", "1.3.9", "1.4.0"} and MIN_API == 21, "Review version-specific API guard support"
+        assert VERSION in {"1.2.0", "1.2.1", "1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7", "1.3.8", "1.3.9", "1.4.0", "1.4.1"} and MIN_API == 21, "Review version-specific API guard support"
         proof_classes, proof_smali = build / "api-proof-tools", build / "api-proof-smali"
         fresh_directory(proof_classes)
         fresh_directory(proof_smali)
         apktool = TOOLS / "apktool_3.0.3.jar"
         run([JAVA, "-Duser.language=en", "com.sun.tools.javac.Main", "--release", "8", "-Xlint:-options",
              "-classpath", apktool, "-d", proof_classes,
-             WORK / ("verification/toolchain/InspectTvBackend130.java" if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7", "1.3.8", "1.3.9", "1.4.0"} else "verification/toolchain/InspectTvSeek121.java" if VERSION == "1.2.1" else "verification/toolchain/InspectTvSpeedGuards.java")])
+             WORK / ("verification/toolchain/InspectTvBackend130.java" if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7", "1.3.8", "1.3.9", "1.4.0", "1.4.1"} else "verification/toolchain/InspectTvSeek121.java" if VERSION == "1.2.1" else "verification/toolchain/InspectTvSpeedGuards.java")])
         for dex in dexes:
             run([JAVA, "-cp", str(apktool) + os.pathsep + str(proof_classes),
-                 "InspectTvBackend130" if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7", "1.3.8", "1.3.9", "1.4.0"} else "InspectTvSeek121" if VERSION == "1.2.1" else "InspectTvSpeedGuards", dex, proof_smali], capture_name="api23-disassembly.log")
-        api_report = approve_backend(proof_smali,snapshot) if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7", "1.3.8", "1.3.9", "1.4.0"} else (approve_seek_apis if VERSION == "1.2.1" else approve_api23_speed)(api_report, proof_smali, snapshot)
-        if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7", "1.3.8", "1.3.9", "1.4.0"}:write_json(VERIFY/"media3-backend-guard.json",api_report["guarded_media3_backend"])
-        if VERSION in {"1.2.1","1.3.0","1.3.1","1.3.2","1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7", "1.3.8", "1.3.9", "1.4.0"}:
+                 "InspectTvBackend130" if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7", "1.3.8", "1.3.9", "1.4.0", "1.4.1"} else "InspectTvSeek121" if VERSION == "1.2.1" else "InspectTvSpeedGuards", dex, proof_smali], capture_name="api23-disassembly.log")
+        api_report = approve_backend(proof_smali,snapshot) if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7", "1.3.8", "1.3.9", "1.4.0", "1.4.1"} else (approve_seek_apis if VERSION == "1.2.1" else approve_api23_speed)(api_report, proof_smali, snapshot)
+        if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7", "1.3.8", "1.3.9", "1.4.0", "1.4.1"}:write_json(VERIFY/"media3-backend-guard.json",api_report["guarded_media3_backend"])
+        if VERSION in {"1.2.1","1.3.0","1.3.1","1.3.2","1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7", "1.3.8", "1.3.9", "1.4.0", "1.4.1"}:
             write_json(VERIFY / "api26-seek-guard.json", api_report["guarded_api26_seek"])
         write_json(VERIFY / "api23-speed-guard.json", api_report["guarded_api23_speed"])
     write_json(VERIFY / "min-api-audit.json", api_report)
@@ -1151,7 +1154,7 @@ def main():
     with zipfile.ZipFile(build / "resources.ap_") as source, zipfile.ZipFile(build / "unsigned.apk", "w") as dest:
         for entry in source.infolist():
             dest.writestr(entry, source.read(entry.filename))
-        if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7", "1.3.8", "1.3.9", "1.4.0"}:
+        if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7", "1.3.8", "1.3.9", "1.4.0", "1.4.1"}:
             for name,data in media3_runtime.jar_resources(ROOT):
                 assert name not in dest.namelist(), "Runtime resource collision: "+name
                 dest.writestr(name,data)
@@ -1207,7 +1210,7 @@ def main():
               "guarded_media3_backend": "guarded_media3_backend" in api_report,
               "provider_count":len(PROVIDER_IDS), "previous_version":PREVIOUS_VERSION,
               "same_previous_package_certificate":True,
-              "source_scope": "Own com.tongpin Java plus pinned official Media3 runtime closure" if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7", "1.3.8", "1.3.9", "1.4.0"} else "Only own com.tongpin Java and own resources; Android framework runtime",
+              "source_scope": "Own com.tongpin Java plus pinned official Media3 runtime closure" if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7", "1.3.8", "1.3.9", "1.4.0", "1.4.1"} else "Only own com.tongpin Java and own resources; Android framework runtime",
               "runtime_tested": False, "elapsed_seconds": round(time.time() - started, 2)}
     write_json(VERIFY / "result.json", result)
     if not args.no_download_copy:

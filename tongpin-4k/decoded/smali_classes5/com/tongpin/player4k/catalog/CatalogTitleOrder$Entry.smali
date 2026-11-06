@@ -28,10 +28,10 @@
 .method constructor <init>(Lcom/tongpin/player4k/catalog/CatalogApi$Video;)V
     .locals 1
 
-    .line 38
+    .line 60
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 39
+    .line 61
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogTitleOrder$Entry;->video:Lcom/tongpin/player4k/catalog/CatalogApi$Video;
 
     if-nez p1, :cond_0
@@ -50,7 +50,7 @@
 
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogTitleOrder$Entry;->original:Ljava/lang/String;
 
-    .line 40
+    .line 62
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogTitleOrder$Entry;->original:Ljava/lang/String;
 
     invoke-static {v0}, Lcom/tongpin/player4k/catalog/CatalogTitleOrder;->key(Ljava/lang/String;)Ljava/lang/String;
@@ -65,6 +65,6 @@
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogTitleOrder$Entry;->identity:Ljava/lang/String;
 
-    .line 41
+    .line 63
     return-void
 .end method

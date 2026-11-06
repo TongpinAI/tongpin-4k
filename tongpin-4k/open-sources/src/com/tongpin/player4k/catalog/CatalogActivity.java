@@ -620,7 +620,7 @@ public final class CatalogActivity extends Activity {
             } else restoreSearchAnchor(anchor);
         } else if (savedSearchAnchor != null) restoreSearchAnchor(savedSearchAnchor);
         savedSearchAnchor = null;
-        caption.setText(homeTab.label + " · " + snapshot.totalSources + "个影视片库");
+        caption.setText(homeTab.label + " · 近期热播推荐 · " + snapshot.totalSources + "个影视片库");
         status.setText(showingPreview ? previewStatus(snapshot) : browseStatus(snapshot));
         progress.setVisibility(snapshot.loading ? View.VISIBLE : View.GONE);
         retry.setText(snapshot.projectionFailed ? "重试" : "重试失败"); retry.setEnabled(!snapshot.loading);

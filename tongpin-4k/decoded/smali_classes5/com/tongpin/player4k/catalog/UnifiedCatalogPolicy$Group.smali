@@ -49,32 +49,32 @@
         }
     .end annotation
 
-    .line 32
+    .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 33
+    .line 35
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Group;->key:Ljava/lang/String;
 
-    .line 34
+    .line 36
     new-instance p1, Ljava/util/ArrayList;
 
     invoke-direct {p1, p2}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    .line 35
+    .line 37
     new-instance p2, Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Group$$ExternalSyntheticLambda0;
 
     invoke-direct {p2}, Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Group$$ExternalSyntheticLambda0;-><init>()V
 
     invoke-static {p1, p2}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
 
-    .line 36
+    .line 38
     invoke-static {p1}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
 
     move-result-object p2
 
     iput-object p2, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Group;->alternatives:Ljava/util/List;
 
-    .line 37
+    .line 39
     const/4 p2, 0x0
 
     invoke-virtual {p1, p2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -83,7 +83,7 @@
 
     check-cast p2, Lcom/tongpin/player4k/catalog/CatalogApi$Video;
 
-    .line 38
+    .line 40
     invoke-virtual {p1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object p1
@@ -112,7 +112,7 @@
 
     goto :goto_0
 
-    .line 39
+    .line 41
     :cond_1
     iput-object p2, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Group;->primary:Lcom/tongpin/player4k/catalog/CatalogApi$Video;
 
@@ -128,7 +128,7 @@
 
     iput p1, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Group;->declaredEpisodes:I
 
-    .line 40
+    .line 42
     iget p1, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Group;->qualityTier:I
 
     if-nez p1, :cond_2
@@ -143,14 +143,14 @@
     :goto_1
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Group;->qualityEvidence:Ljava/lang/String;
 
-    .line 41
+    .line 43
     return-void
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;Ljava/util/List;Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$1;)V
     .locals 0
 
-    .line 26
+    .line 28
     invoke-direct {p0, p1, p2}, Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Group;-><init>(Ljava/lang/String;Ljava/util/List;)V
 
     return-void
@@ -159,7 +159,7 @@
 .method static synthetic lambda$new$0(Lcom/tongpin/player4k/catalog/CatalogApi$Video;Lcom/tongpin/player4k/catalog/CatalogApi$Video;)I
     .locals 0
 
-    .line 35
+    .line 37
     invoke-static {p0}, Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy;->identity(Lcom/tongpin/player4k/catalog/CatalogApi$Video;)Ljava/lang/String;
 
     move-result-object p0
@@ -180,20 +180,20 @@
 .method public contains(Lcom/tongpin/player4k/catalog/CatalogApi$Video;)Z
     .locals 3
 
-    .line 43
+    .line 45
     const/4 v0, 0x0
 
     if-nez p1, :cond_0
 
     return v0
 
-    .line 44
+    .line 46
     :cond_0
     invoke-static {p1}, Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy;->identity(Lcom/tongpin/player4k/catalog/CatalogApi$Video;)Ljava/lang/String;
 
     move-result-object p1
 
-    .line 45
+    .line 47
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Group;->alternatives:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
@@ -227,7 +227,7 @@
 
     return p1
 
-    .line 46
+    .line 48
     :cond_2
     return v0
 .end method

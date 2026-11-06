@@ -30,7 +30,7 @@
     .line 0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/PhoneSourcePicker$$ExternalSyntheticLambda27;->f$0:Lcom/tongpin/player4k/catalog/PhoneSourcePicker;
 
-    invoke-virtual {v0, p1, p2}, Lcom/tongpin/player4k/catalog/PhoneSourcePicker;->lambda$editSearch$0$com-tongpin-player4k-catalog-PhoneSourcePicker(Landroid/content/DialogInterface;I)V
+    invoke-virtual {v0, p1, p2}, Lcom/tongpin/player4k/catalog/PhoneSourcePicker;->lambda$show$1$com-tongpin-player4k-catalog-PhoneSourcePicker(Landroid/content/DialogInterface;I)V
 
     return-void
 .end method

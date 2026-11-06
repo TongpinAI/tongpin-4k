@@ -33,15 +33,23 @@
 
 .field public licence:Ljava/lang/String;
 
+.field public monthlyHits:J
+
 .field public poster:Ljava/lang/String;
 
 .field public provider:Lcom/tongpin/player4k/catalog/CatalogApi$Provider;
+
+.field public publishedAtMs:J
 
 .field public sourceUrl:Ljava/lang/String;
 
 .field public subtitle:Ljava/lang/String;
 
 .field public title:Ljava/lang/String;
+
+.field public updatedAtMs:J
+
+.field public weeklyHits:J
 
 .field public year:Ljava/lang/String;
 
@@ -50,10 +58,10 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 58
+    .line 64
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 54
+    .line 58
     const-string v0, ""
 
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->id:Ljava/lang/String;
@@ -66,7 +74,7 @@
 
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->sourceUrl:Ljava/lang/String;
 
-    .line 55
+    .line 59
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->description:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->author:Ljava/lang/String;
@@ -77,7 +85,7 @@
 
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->area:Ljava/lang/String;
 
-    .line 56
+    .line 60
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->categoryId:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->categoryName:Ljava/lang/String;
@@ -86,6 +94,6 @@
 
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->categoryLabel:Ljava/lang/String;
 
-    .line 58
+    .line 64
     return-void
 .end method

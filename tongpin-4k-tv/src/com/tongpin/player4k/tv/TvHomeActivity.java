@@ -635,7 +635,7 @@ public final class TvHomeActivity extends Activity {
                 || !snapshot.loading && snapshot.groups != lastSavedBrowseGroups)) {
             lastSavedBrowseGroups = snapshot.groups; previewCache.save(providers, snapshot.tab, snapshot.groups);
         }
-        String text = selectedTab.label + " · " + snapshot.totalSources + "个影视库 · 本批返回" + snapshot.batchReturned + "/" + snapshot.batchTotal
+        String text = selectedTab.label + " · 近期热播推荐 · " + snapshot.totalSources + "个影视库 · 本批返回" + snapshot.batchReturned + "/" + snapshot.batchTotal
                 + " · 当前待回" + snapshot.pending + (snapshot.failedSources > 0 ? " · " + snapshot.failedSources + "源待重试" : "");
         if (snapshot.groups.isEmpty() && !shown.isEmpty()) text = "上次片库 · " + text + (snapshot.loading ? " · 后台更新中" : " · 可刷新更新");
         if (snapshot.projecting) text += " · 正在整理影片";

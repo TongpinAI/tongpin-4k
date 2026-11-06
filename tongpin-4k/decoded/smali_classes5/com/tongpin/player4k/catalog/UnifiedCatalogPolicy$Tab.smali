@@ -50,7 +50,7 @@
 .method private static synthetic $values()[Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;
     .locals 8
 
-    .line 20
+    .line 22
     sget-object v0, Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;->RECOMMEND:Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;
 
     sget-object v1, Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;->MOVIE:Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;
@@ -77,7 +77,7 @@
 .method static constructor <clinit>()V
     .locals 4
 
-    .line 21
+    .line 23
     new-instance v0, Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;
 
     const/4 v1, 0x0
@@ -138,7 +138,7 @@
 
     sput-object v0, Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;->ANIME:Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;
 
-    .line 22
+    .line 24
     new-instance v0, Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;
 
     const/4 v1, 0x5
@@ -175,7 +175,7 @@
 
     sput-object v0, Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;->KIDS:Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;
 
-    .line 20
+    .line 22
     invoke-static {}, Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;->$values()[Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;
 
     move-result-object v0
@@ -208,7 +208,7 @@
         }
     .end annotation
 
-    .line 24
+    .line 26
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     iput-object p3, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;->label:Ljava/lang/String;
@@ -227,7 +227,7 @@
         }
     .end annotation
 
-    .line 20
+    .line 22
     const-class v0, Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -242,7 +242,7 @@
 .method public static values()[Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;
     .locals 1
 
-    .line 20
+    .line 22
     sget-object v0, Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;->$VALUES:[Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;
 
     invoke-virtual {v0}, [Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;->clone()Ljava/lang/Object;

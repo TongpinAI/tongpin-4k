@@ -9,11 +9,17 @@
 # instance fields
 .field public final synthetic f$0:Lcom/tongpin/player4k/catalog/PhoneSourcePicker;
 
-.field public final synthetic f$1:Ljava/util/List;
+.field public final synthetic f$1:Lcom/tongpin/player4k/catalog/CatalogApi$Provider;
+
+.field public final synthetic f$2:Ljava/lang/String;
+
+.field public final synthetic f$3:I
+
+.field public final synthetic f$4:Lcom/tongpin/player4k/catalog/CatalogCategories$Selection;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/tongpin/player4k/catalog/PhoneSourcePicker;Ljava/util/List;)V
+.method public synthetic constructor <init>(Lcom/tongpin/player4k/catalog/PhoneSourcePicker;Lcom/tongpin/player4k/catalog/CatalogApi$Provider;Ljava/lang/String;ILcom/tongpin/player4k/catalog/CatalogCategories$Selection;)V
     .locals 0
 
     .line 0
@@ -21,7 +27,13 @@
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/PhoneSourcePicker$$ExternalSyntheticLambda16;->f$0:Lcom/tongpin/player4k/catalog/PhoneSourcePicker;
 
-    iput-object p2, p0, Lcom/tongpin/player4k/catalog/PhoneSourcePicker$$ExternalSyntheticLambda16;->f$1:Ljava/util/List;
+    iput-object p2, p0, Lcom/tongpin/player4k/catalog/PhoneSourcePicker$$ExternalSyntheticLambda16;->f$1:Lcom/tongpin/player4k/catalog/CatalogApi$Provider;
+
+    iput-object p3, p0, Lcom/tongpin/player4k/catalog/PhoneSourcePicker$$ExternalSyntheticLambda16;->f$2:Ljava/lang/String;
+
+    iput p4, p0, Lcom/tongpin/player4k/catalog/PhoneSourcePicker$$ExternalSyntheticLambda16;->f$3:I
+
+    iput-object p5, p0, Lcom/tongpin/player4k/catalog/PhoneSourcePicker$$ExternalSyntheticLambda16;->f$4:Lcom/tongpin/player4k/catalog/CatalogCategories$Selection;
 
     return-void
 .end method
@@ -29,14 +41,24 @@
 
 # virtual methods
 .method public final onClick(Landroid/content/DialogInterface;I)V
-    .locals 2
+    .locals 7
 
     .line 0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/PhoneSourcePicker$$ExternalSyntheticLambda16;->f$0:Lcom/tongpin/player4k/catalog/PhoneSourcePicker;
 
-    iget-object v1, p0, Lcom/tongpin/player4k/catalog/PhoneSourcePicker$$ExternalSyntheticLambda16;->f$1:Ljava/util/List;
+    iget-object v1, p0, Lcom/tongpin/player4k/catalog/PhoneSourcePicker$$ExternalSyntheticLambda16;->f$1:Lcom/tongpin/player4k/catalog/CatalogApi$Provider;
 
-    invoke-virtual {v0, v1, p1, p2}, Lcom/tongpin/player4k/catalog/PhoneSourcePicker;->lambda$browse$6$com-tongpin-player4k-catalog-PhoneSourcePicker(Ljava/util/List;Landroid/content/DialogInterface;I)V
+    iget-object v2, p0, Lcom/tongpin/player4k/catalog/PhoneSourcePicker$$ExternalSyntheticLambda16;->f$2:Ljava/lang/String;
+
+    iget v3, p0, Lcom/tongpin/player4k/catalog/PhoneSourcePicker$$ExternalSyntheticLambda16;->f$3:I
+
+    iget-object v4, p0, Lcom/tongpin/player4k/catalog/PhoneSourcePicker$$ExternalSyntheticLambda16;->f$4:Lcom/tongpin/player4k/catalog/CatalogCategories$Selection;
+
+    move-object v5, p1
+
+    move v6, p2
+
+    invoke-virtual/range {v0 .. v6}, Lcom/tongpin/player4k/catalog/PhoneSourcePicker;->lambda$browse$6$com-tongpin-player4k-catalog-PhoneSourcePicker(Lcom/tongpin/player4k/catalog/CatalogApi$Provider;Ljava/lang/String;ILcom/tongpin/player4k/catalog/CatalogCategories$Selection;Landroid/content/DialogInterface;I)V
 
     return-void
 .end method

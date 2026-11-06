@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "assertions": 37,
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogTitleOrder.java": "10c4f74322315555fd4ba7bdc86004a0feb44b6736906d9a23614c222952ea62",
+    "open-sources/src/com/tongpin/player4k/catalog/AllCatalogSearch.java": "2bd45b6b7163491f72e38697bda5383ac93ede8fc0a8b9d5d9df872193839407",
+    "open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogPolicy.java": "680daa5a27e20b90755c7075150676884ba9d004a61e16a170cfeda6cfac9630",
+    "open-sources/src/com/tongpin/player4k/catalog/AutoSourcePolicy.java": "ce4fd68b0e2f3f0ed9eed19bd15868bc71e3e9c3dfb3394c384e0e4aa2bc1e87",
+    "open-sources/src/com/tongpin/player4k/catalog/CrossSourcePolicy.java": "f443a406641ec8e8ed8d891642afb7da8a046bb5213faddf40e37158afab195c",
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogApi.java": "d3139e76422d9dd9b0b8daa7dfba1ccebac21e3c0d4dfa21cacdfac4043e5c46",
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogCategories.java": "3c368a9e8ebbfbcf15e8426b1cdacfd0e3289efdfeb1f887569840528425f03b",
+    "open-sources/src/com/tongpin/player4k/catalog/MacCmsXml.java": "5ca12bf836e1c8e10c8efd06d0054e0ce25c8c63c707f7513e77eddccf5b8f68",
+    "open-sources/src/com/tongpin/player4k/catalog/TvBoxJson.java": "4fe2bf0bdaf94a431a5ddc6514eb51a37d668006b608659a1cf16fd558faab24",
+    "open-sources/src/com/tongpin/player4k/catalog/M3uCatalog.java": "710daeaabe91bab03e078106de0b4cdd5d1b852cbdb4c7992ed0b2e3626ead51",
+    "open-sources/src/com/tongpin/player4k/catalog/PhoneSourcePicker.java": "ab30c86b8f6be64f2f55a1b1fab7544d11cf757f3ad5f1fd1228e25ff23338fa"
+  },
+  "original_report": "tongpin-4k/ui/discovery-1.4.7/search-tests/verification.json",
+  "original_report_sha256": "d6d16616b8eda07b1d179b42eb56e6cf32bcebbebcc5de1f4af334c264ee4d5a",
+  "native_device_tested": false
+}

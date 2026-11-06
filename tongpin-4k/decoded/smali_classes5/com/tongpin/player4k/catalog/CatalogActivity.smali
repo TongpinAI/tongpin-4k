@@ -1525,7 +1525,7 @@
 
     move-result-object v0
 
-    const-string v3, " \u00b7 "
+    const-string v3, " \u00b7 \u8fd1\u671f\u70ed\u64ad\u63a8\u8350 \u00b7 "
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

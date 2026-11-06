@@ -15,6 +15,28 @@ public final class CatalogTitleOrder {
     private static final Pattern ORDINAL = Pattern.compile("第([零〇一二两兩三四五六七八九十百千万]{1,32})([季部集])");
     private CatalogTitleOrder() { }
 
+    /** Only a contiguous title match; no descriptions, cast names or ordinal substitutions. */
+    public static boolean matchesTitle(String title, String query) {
+        String needle = searchKey(query);
+        return !needle.isEmpty() && searchKey(title).contains(needle);
+    }
+
+    public static List<Video> matchingTitles(List<Video> source, String query) {
+        ArrayList<Video> result = new ArrayList<Video>();
+        for (Video video : source) if (video != null && matchesTitle(video.title, query)) result.add(video);
+        return Collections.unmodifiableList(result);
+    }
+
+    private static String searchKey(String title) {
+        String normalized = Normalizer.normalize(text(title), Normalizer.Form.NFKC).toLowerCase(Locale.ROOT);
+        StringBuilder compact = new StringBuilder();
+        for (int i = 0; i < normalized.length(); i++) {
+            char c = normalized.charAt(i);
+            if (!Character.isWhitespace(c) && !Character.isSpaceChar(c)) compact.append(c);
+        }
+        return compact.toString();
+    }
+
     public static String identity(Video video) {
         if (video == null) return "";
         Provider provider = video.provider;

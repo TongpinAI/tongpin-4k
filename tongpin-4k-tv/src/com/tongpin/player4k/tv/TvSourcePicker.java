@@ -119,7 +119,9 @@ final class TvSourcePicker {
         final boolean live=CatalogApi.liveProvider(provider);
         request(ticket,"正在读取" + provider.name + " · 第" + page + "页…",
                 () -> CatalogApi.fetchPage(provider,keyword,page),found -> {
-            List<Video> items=found.items;
+            boolean titleSearch=provider.supportsSearch && !live && keyword!=null && !keyword.trim().isEmpty();
+            List<Video> items=titleSearch
+                    ? CatalogTitleOrder.sortedCopy(CatalogTitleOrder.matchingTitles(found.items,keyword)) : found.items;
             if (items.isEmpty()) {
                 AlertDialog.Builder empty = new AlertDialog.Builder(activity).setTitle(live ? "未找到频道" : "未找到影片")
                         .setMessage("可以修改搜索名称，或尝试其他来源。")
@@ -127,6 +129,8 @@ final class TvSourcePicker {
                         .setNegativeButton("取消",(dialog,which) -> cancel());
                 if(provider.supportsSearch) empty.setPositiveButton("修改搜索",(dialog,which) -> main.post(() -> editSearch(ticket,provider,keyword)));
                 else empty.setMessage("该片库本页没有内容，可返回来源重新浏览。");
+                if(titleSearch && found.hasMore)
+                    empty.setNeutralButton("下一页",(dialog,which) -> main.post(() -> browse(ticket,provider,keyword,page+1)));
                 display(empty.create()); return;
             }
             String[] labels = new String[items.size()];

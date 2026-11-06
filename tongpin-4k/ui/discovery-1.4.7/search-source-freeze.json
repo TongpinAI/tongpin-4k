@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "source_ready": true,
+  "workspace_sources": true,
+  "scope": "Only title-query filtering in two shared title/search helpers and two platform source pickers; provider browsing/live and natural comparator/cursor/network/projection/best-source policy remain original.",
+  "source_sha256": {
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/CatalogTitleOrder.java": "10c4f74322315555fd4ba7bdc86004a0feb44b6736906d9a23614c222952ea62",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/AllCatalogSearch.java": "2bd45b6b7163491f72e38697bda5383ac93ede8fc0a8b9d5d9df872193839407",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/PhoneSourcePicker.java": "ab30c86b8f6be64f2f55a1b1fab7544d11cf757f3ad5f1fd1228e25ff23338fa",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/CatalogTitleOrder.java": "f0bed14db3eff3a7480c6feb103b8d704e9a8845ae6e70dacf0e9e9781f5577f",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/AllCatalogSearch.java": "d4dcdef0003a7cbc3a2d6d65bce86f0918a7607a01307127c65a13273a4093c1",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/TvSourcePicker.java": "8f2bb64e1e3f37e47391f5eda2768b5cbea6711bc7ee4226279bf14db3d86c0e"
+  },
+  "evidence_sha256": {
+    "tongpin-4k/ui/discovery-1.4.7/search-before-sha256.json": "41ef9002b3ef6ba2c0043f8b8797651824c666090cba9d8ba167a9272cfa8137",
+    "tongpin-4k-tv/ui/discovery-1.4.1/search-before-sha256.json": "3ea0304731995f9090237aacadec74ec2200b61645407bab4c7ec3f46bcda519",
+    "tongpin-4k/ui/discovery-1.4.7/search-tests/TitleSearchTest.java": "113d696713a0f45eab4c61ad20f4264b4da5307426a3f50a4897ea0878b92107",
+    "tongpin-4k/ui/discovery-1.4.7/search-tests/run.py": "dfc8744996c7a32549a6f736befe2716137e771c6d3d5698e2378f841ae8f932",
+    "tongpin-4k/ui/discovery-1.4.7/search-tests/verification.json": "d6d16616b8eda07b1d179b42eb56e6cf32bcebbebcc5de1f4af334c264ee4d5a"
+  },
+  "assertions": {
+    "phone": 37,
+    "tv": 37
+  },
+  "query_only_exact_inverse_verified": true,
+  "actual_production_models_compiled": true,
+  "production_classes_per_app": 10,
+  "compile_stubs_used": false,
+  "device_tested": false,
+  "network_tested": false,
+  "picker_views_executed": false,
+  "matching_rule": "NFKC + Locale.ROOT case folding + remove Unicode whitespace on both title/query, then nonempty continuous title inclusion; no descriptions/author/cast and no Chinese-ordinal substitution.",
+  "ordering_rule": "Existing natural title order and stable source/video identity; group same-work policy unchanged."
+}

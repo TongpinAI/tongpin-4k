@@ -1,0 +1,68 @@
+{
+  "passed": true,
+  "verdict": "clear: exact147 discovery-only scope, retained146 UI/player/native/resources/stubs and final11 tools",
+  "source_sha256": {
+    "open-sources/integration/check_timer_dex_1470.py": "6697c90fd63d8628ab504da960f02ed762b064c613fc42302058ed0dbeb3ed79",
+    "verification/1.4.7/proof-tools/DisassembleOwn1470.class": "afc869d26bbf41f6d1e08ff71799e83400e03b3aaae4be778e79ea8d3408ec60",
+    "open-sources/toolchain/check_framework_api.py": "91209f30753abd8ea244655bd98762d4e0590c173dae2e842367d82559a61905",
+    "open-sources/integration/integrate_1_4_7.py": "f6f082d0b446d6a2fb90dd6cdf32fd70c2ac5b4dbfb32785b7656ecb964e854a",
+    "build_tongpin.py": "29cfe2628c16546e342d951d12f5f071b270d1665f3bc694532f5ec5a9be5b00",
+    "open-sources/toolchain/compile_java_to_smali.py": "b1b855f38294ecb7d392980b917f8fa17eaae77496c3bd1fcd961e557574cc9c",
+    "open-sources/integration/audit_final_ui_api_1470.py": "2ccec9bc6c309ce8d599aa7440d7605ce5423f6e935ff90e1fdc1e249151617f",
+    "open-sources/integration/check_native_bindings_1410.py": "9a69cd89a30993ac4ca4beaa7a8d1d7d0e1b981edbb2f2f62740f955c6a9d93c",
+    "open-sources/integration/DisassembleOwn1470.java": "e1844809d5cb83d70a0d54200505449bba12112eda2d16b6553b81972c21f3e1",
+    "open-sources/integration/assert_contract.py": "dab8cb44f74884b220f4e1d60670ea124c7d7530e28962103d9f2b66b02f5711",
+    "open-sources/integration/ui_1470_contract.py": "e9128d5be721e93edb7089e0005bad1c5495cc4e5d670ba2774e1a869f59db21"
+  },
+  "reviewed_frozen_input_sha256": "ef7e2b21f38344ca83fea0f0e7d2128839c9239453dbb236e404ff3627322ba0",
+  "readonly_guard_sha256": {
+    "before-sha256.json": "69cf622076b9fb3ff46a3b389423b933086feb5c33b893cd97bb7a691ed78a87",
+    "baseline146-native-resource-sha256.json": "e565b077e63376dedb3663631085f12dca83dbb577978cc81131d4a36e48e011",
+    "prior146-evidence-sha256.json": "5876ac470c9d03f48e24e5b890c948712073f2c792f621db8d2a3546221ebc69"
+  },
+  "gate_tests": {
+    "path": "ui/discovery-1.4.7/builder-gate-review-tests.json",
+    "sha256": "220fc5f9cc8954c3803f9fe98881b8702a1f2fbe3ac15a056d955023d645504c",
+    "cases": 27,
+    "actual_full_preflight_positive": 1,
+    "in_memory_rejections": 16,
+    "previous_resource_guard_cases": 6,
+    "production_or_frozen_files_modified": false
+  },
+  "scope": {
+    "modified_java": [
+      "com/tongpin/player4k/catalog/AllCatalogSearch.java",
+      "com/tongpin/player4k/catalog/CatalogActivity.java",
+      "com/tongpin/player4k/catalog/CatalogApi.java",
+      "com/tongpin/player4k/catalog/CatalogPreviewCache.java",
+      "com/tongpin/player4k/catalog/CatalogTitleOrder.java",
+      "com/tongpin/player4k/catalog/PhoneSourcePicker.java",
+      "com/tongpin/player4k/catalog/UnifiedCatalogPolicy.java"
+    ],
+    "added_java": [],
+    "java_sources": 41,
+    "fresh_own_dex_classes": 362,
+    "canonical_stage_dex_sha256": "de2d0fc97f9522e7780ff34fe8a17ab4b88abb7afebbddec21e1b2c648fbee65",
+    "native_baseline_entries": 12691,
+    "compile_stub_changes": 0,
+    "resource_additions": 0,
+    "resource_ids_retained": 11473,
+    "provider_count": 28,
+    "provider_asset_sha256": "9793756bfa35672f9c2645cd981dce4e23431be664ebceb71e6f2b05966b3e05"
+  },
+  "checks": [
+    "Actual ui_1470_contract.verify(False) passed against current41sources,18unchanged stubs,146 native/resource/asset inventory,321 logic assertions and canonical362-class r2 stage. No Java/D8 or application execution was repeated.",
+    "Build driver AST precisely reverses to146 after release routing substitutions and replacing only the reviewed resource policy with146 original; new resource policy forbids all additions and moved/removed prior IDs.",
+    "assert_contract adds one exact147 early branch; all historical dispatch and contracts remain byte-identical.",
+    "Integrator retains actual APK method and field/inheritance resolvers,17 native proof classes, member checks and full-stage replacement; deltas are release routing/r2 stage/previous146 namespace and empty new-resource list.",
+    "Native-binding checker1410,Java compiler and framework API scanner remain byte-identical to146; API and disassembler readers differ only release names, timer additionally canonical r2 and honest scope metadata.",
+    "Owner and exact7changed source coverage, current41source graph, unchanged style/stub/native/28registry, immutable146 evidence and stage source/DEX/smali maps are pinned.",
+    "16 coherent in-memory negatives rejected missing tool/test/source/owner/preimage/native pins, incorrect stage/changedstub/resource scope, failed-but-clear review with matching altered pin and missing formal independent coverage.",
+    "Actual previous_resource_delta exercised all11473 prior IDs: unchanged success; moved or removed IDs,added style,nonempty permission and empty baseline fail.",
+    "DisassembleOwn1470.java independently compiled with actual JDK --release8 and actual apktool dependency; class bytes exactly match pinned proof reader."
+  ],
+  "independently_compiled_proof_class_sha256": "afc869d26bbf41f6d1e08ff71799e83400e03b3aaae4be778e79ea8d3408ec60",
+  "device_tested": false,
+  "apk_signed_or_application_executed_during_review": false,
+  "limitations": "Host tool/source/contract/resource evidence; no connected device or native performance/rendering validation."
+}

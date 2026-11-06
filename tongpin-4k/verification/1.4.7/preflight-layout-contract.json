@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "scope": "147 discovery-only; retain146 UI/player/native/resources and all prior IDs",
+  "files": {
+    "resources": {},
+    "smali": {}
+  },
+  "new_resources": [],
+  "java_source_count": 41,
+  "provider_count": 28,
+  "checks": {
+    "native146_unchanged": true,
+    "version_only_resource_metadata": true,
+    "exact7discovery_sources": true,
+    "source_stubs_tests_and_reviews": true,
+    "published146_evidence_unchanged": true,
+    "canonical_stage_dex": true
+  },
+  "device_tested": false
+}

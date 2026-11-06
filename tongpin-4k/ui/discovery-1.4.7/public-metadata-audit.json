@@ -1,0 +1,188 @@
+{
+  "passed": true,
+  "scope": "One bounded public metadata directory request per9 representative providers. Seven success, two connection failures. No media/playlist/image/script requests, accounts or protected APIs. This is not a complete provider survey or an authoritative popularity chart.",
+  "at_utc": "2026-11-06T19:31:45.712237+00:00",
+  "sources": [
+    {
+      "id": "mdzy",
+      "kind": "maccms",
+      "http": 200,
+      "rows": 5,
+      "seconds": 2.12,
+      "keys": [
+        "vod_hits",
+        "vod_hits_day",
+        "vod_hits_month",
+        "vod_hits_week",
+        "vod_pubdate",
+        "vod_time",
+        "vod_time_add",
+        "vod_time_hits",
+        "vod_time_make",
+        "vod_year"
+      ],
+      "nonzero_period_samples": {
+        "vod_hits_week": 0,
+        "vod_hits_month": 0
+      }
+    },
+    {
+      "id": "360zy",
+      "kind": "maccms",
+      "http": 200,
+      "rows": 5,
+      "seconds": 2.16,
+      "keys": [
+        "vod_hits",
+        "vod_hits_day",
+        "vod_hits_month",
+        "vod_hits_week",
+        "vod_pubdate",
+        "vod_time",
+        "vod_time_add",
+        "vod_time_hits",
+        "vod_time_make",
+        "vod_year"
+      ],
+      "nonzero_period_samples": {
+        "vod_hits_week": 0,
+        "vod_hits_month": 0
+      }
+    },
+    {
+      "id": "blender",
+      "kind": "peertube",
+      "http": 200,
+      "rows": 5,
+      "seconds": 2.23,
+      "keys": [
+        "createdAt",
+        "originallyPublishedAt",
+        "publishedAt",
+        "updatedAt",
+        "views"
+      ],
+      "nonzero_period_samples": {
+        "vod_hits_week": 0,
+        "vod_hits_month": 0
+      }
+    },
+    {
+      "id": "ryzy",
+      "kind": "maccms",
+      "seconds": 2.14,
+      "keys": [],
+      "failure_type": "ConnectionError",
+      "nonzero_period_samples": {
+        "vod_hits_week": 0,
+        "vod_hits_month": 0
+      }
+    },
+    {
+      "id": "ikun",
+      "kind": "maccms",
+      "seconds": 1.11,
+      "keys": [],
+      "failure_type": "ConnectionError",
+      "nonzero_period_samples": {
+        "vod_hits_week": 0,
+        "vod_hits_month": 0
+      }
+    },
+    {
+      "id": "jinying",
+      "kind": "maccms",
+      "http": 200,
+      "rows": 5,
+      "seconds": 1.83,
+      "keys": [
+        "vod_hits",
+        "vod_hits_day",
+        "vod_hits_month",
+        "vod_hits_week",
+        "vod_pubdate",
+        "vod_time",
+        "vod_time_add",
+        "vod_time_hits",
+        "vod_time_make",
+        "vod_year"
+      ],
+      "nonzero_period_samples": {
+        "vod_hits_week": 5,
+        "vod_hits_month": 5
+      }
+    },
+    {
+      "id": "huya",
+      "kind": "maccms",
+      "http": 200,
+      "rows": 5,
+      "seconds": 2.36,
+      "keys": [
+        "vod_hits",
+        "vod_hits_day",
+        "vod_hits_month",
+        "vod_hits_week",
+        "vod_pubdate",
+        "vod_time",
+        "vod_time_add",
+        "vod_time_hits",
+        "vod_time_make",
+        "vod_year"
+      ],
+      "nonzero_period_samples": {
+        "vod_hits_week": 5,
+        "vod_hits_month": 5
+      }
+    },
+    {
+      "id": "bfzy",
+      "kind": "maccms",
+      "http": 200,
+      "rows": 5,
+      "seconds": 1.58,
+      "keys": [
+        "vod_hits",
+        "vod_hits_day",
+        "vod_hits_month",
+        "vod_hits_week",
+        "vod_pubdate",
+        "vod_time",
+        "vod_time_add",
+        "vod_time_hits",
+        "vod_time_make",
+        "vod_year"
+      ],
+      "nonzero_period_samples": {
+        "vod_hits_week": 4,
+        "vod_hits_month": 4
+      }
+    },
+    {
+      "id": "taopian",
+      "kind": "tvbox_json",
+      "http": 200,
+      "rows": 30,
+      "seconds": 2.62,
+      "keys": [
+        "vod_hits",
+        "vod_pubdate",
+        "vod_time",
+        "vod_year"
+      ],
+      "nonzero_period_samples": {
+        "vod_hits_week": 0,
+        "vod_hits_month": 0
+      }
+    }
+  ],
+  "conclusions": [
+    "MacCMS detail pages can expose vod_pubdate/vod_year/vod_time and period hits, but field presence does not prove real audience measurement.",
+    "Some successful sample pages contain all-zero period counters; other providers declare nonzero but inconsistent total/week/month values. Use only provider-local period percentile among fetched candidates, never cross-site raw counts or a claim of verified hot charts.",
+    "vod_time is directory update time; vod_time_add is ingestion and is not used. Old-film update alone cannot qualify as a recent release.",
+    "PeerTube publication/upload date and total views are not film release or weekly popularity; only updatedAt is retained.",
+    "No additional recommendation HTTP requests or undocumented server sorting parameters were added."
+  ],
+  "official_schema_reference": "https://github.com/magicblack/maccms10/blob/master/application/api/controller/Provide.php",
+  "runtime_shortcut": "A verified whole-site or independent popularity feed is required before promoting this reference signal into an authoritative hot chart."
+}

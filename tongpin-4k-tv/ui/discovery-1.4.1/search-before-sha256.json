@@ -1,0 +1,8 @@
+{
+  "baseline_version": "1.4.0",
+  "source_sha256": {
+    "src/com/tongpin/player4k/tv/CatalogTitleOrder.java": "b9056c7cfd2cd6ec1a6573e67fb9a25a31051b126d88d6ff830702176a63885f",
+    "src/com/tongpin/player4k/tv/AllCatalogSearch.java": "5857a906f787ee95e3efee3361d7246457d05a335dc363f42971c361b804caf4",
+    "src/com/tongpin/player4k/tv/TvSourcePicker.java": "ddd12050595300d4739e507b8705515b16bf98af55c23553f20e0ddf11c4f79a"
+  }
+}

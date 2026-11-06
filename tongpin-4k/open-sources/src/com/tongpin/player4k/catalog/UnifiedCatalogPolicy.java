@@ -3,6 +3,8 @@ package com.tongpin.player4k.catalog;
 import com.tongpin.player4k.catalog.CatalogApi.Video;
 import java.text.Normalizer;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.TimeZone;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
@@ -180,6 +182,9 @@ public final class UnifiedCatalogPolicy {
         return -identity(a).compareTo(identity(b));
     }
     public static List<Group> project(List<Video> videos, boolean naturalName) {
+        return project(videos, naturalName, System.currentTimeMillis());
+    }
+    static List<Group> project(List<Video> videos, boolean naturalName, long nowMs) {
         if (videos == null || videos.isEmpty()) return Collections.emptyList();
         LinkedHashMap<String, ArrayList<Video>> buckets = new LinkedHashMap<String, ArrayList<Video>>();
         Set<String> seen = new HashSet<String>();
@@ -200,9 +205,96 @@ public final class UnifiedCatalogPolicy {
             for (Group g : result) { primary.add(g.primary); byPrimary.put(identity(g.primary), g); }
             result.clear();
             for (Video v : CatalogTitleOrder.sortedCopy(primary)) result.add(byPrimary.get(identity(v)));
+        } else {
+            orderDiscovery(result, nowMs);
         }
         return Collections.unmodifiableList(result);
     }
+    private static final long DAY_MS = 86_400_000L;
+    private static final Pattern ONGOING = Pattern.compile(
+            "(?:(?:更新(?:至|到)?|更至|连载至|連載至)\\s*(?:第\\s*)?[0-9]{1,5}\\s*集|连载中|連載中|更新中)");
+    private static final Pattern ENDED = Pattern.compile("完结|完結|大结局|大結局");
+    private static final class DiscoveryRank {
+        final int recent, heat;
+        final long updated, published;
+        DiscoveryRank(Video v, int year, long now, int heat) {
+            updated = validTime(v.updatedAtMs, now);
+            published = validTime(v.publishedAtMs, now);
+            String declared = uniqueYear(v);
+            int releaseYear = declared.isEmpty() ? 0 : Integer.parseInt(declared);
+            String remarks = normalized(v.subtitle);
+            boolean active = ONGOING.matcher(remarks).find() && !ENDED.matcher(remarks).find()
+                    && !COMPLETE.matcher(remarks).find() && updated > 0 && now - updated <= 30 * DAY_MS;
+            // An old film newly re-indexed is not a recent release. Ongoing older series are eligible.
+            boolean released = published > 0 && now - published <= 90 * DAY_MS
+                    && (releaseYear == 0 || releaseYear >= year - 1 && releaseYear <= year);
+            recent = active || released ? 3 : releaseYear >= year - 1 && releaseYear <= year ? 2
+                    : releaseYear == 0 ? 1 : 0;
+            this.heat = heat;
+        }
+    }
+    private static long validTime(long time, long now) {
+        return time > 0 && time <= 4_102_444_800_000L && time <= now ? time : 0;
+    }
+    private static long hits(long count) { return count > 0 && count <= 1_000_000_000_000L ? count : 0; }
+    private static String providerKey(Video v) { return text(v.provider.id) + '\0' + text(v.provider.api); }
+    private static int compareDiscovery(DiscoveryRank a, DiscoveryRank b) {
+        int c = Integer.compare(a.recent, b.recent); if (c != 0) return c;
+        c = Integer.compare(a.heat, b.heat); if (c != 0) return c;
+        c = Long.compare(a.updated, b.updated); if (c != 0) return c;
+        return Long.compare(a.published, b.published);
+    }
+    /**
+     * Source-declared period hits are only comparable within that provider and period among
+     * the candidates already fetched. This is a local recommendation signal, not a global chart.
+     * shortcut: a verified whole-site/independent popularity feed is needed before claiming a hot chart.
+     * No extra requests or player/source preference changes are made here.
+     */
+    private static void orderDiscovery(List<Group> groups, long now) {
+        Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"), Locale.ROOT);
+        calendar.setTimeInMillis(now); int year = calendar.get(Calendar.YEAR);
+        Map<String, ArrayList<Video>> sources = new LinkedHashMap<String, ArrayList<Video>>();
+        for (Group g : groups) for (Video v : g.alternatives) {
+            String key = providerKey(v); ArrayList<Video> rows = sources.get(key);
+            if (rows == null) { rows = new ArrayList<Video>(); sources.put(key, rows); }
+            rows.add(v);
+        }
+        Map<String, Integer> heat = new LinkedHashMap<String, Integer>();
+        for (ArrayList<Video> rows : sources.values()) {
+            ArrayList<Long> week = new ArrayList<Long>(), month = new ArrayList<Long>();
+            for (Video v : rows) {
+                if (hits(v.weeklyHits) > 0) week.add(v.weeklyHits);
+                if (hits(v.monthlyHits) > 0) month.add(v.monthlyHits);
+            }
+            boolean weekly = week.size() >= 2;
+            List<Long> values = weekly ? week : month;
+            if (values.size() < 2) continue;
+            Collections.sort(values);
+            for (Video v : rows) {
+                long count = hits(weekly ? v.weeklyHits : v.monthlyHits);
+                if (count == 0) continue;
+                int low = 0, high = values.size();
+                while (low < high) { int mid = (low + high) >>> 1;
+                    if (values.get(mid) < count) low = mid + 1; else high = mid; }
+                heat.put(identity(v), low * 1000 / (values.size() - 1));
+            }
+        }
+        Map<String, DiscoveryRank> ranks = new LinkedHashMap<String, DiscoveryRank>();
+        for (Group g : groups) {
+            DiscoveryRank best = null;
+            for (Video v : g.alternatives) {
+                Integer h = heat.get(identity(v));
+                DiscoveryRank rank = new DiscoveryRank(v, year, now, h == null ? -1 : h);
+                if (best == null || compareDiscovery(rank, best) > 0) best = rank;
+            }
+            ranks.put(g.key, best);
+        }
+        Collections.sort(groups, (a, b) -> {
+            int c = compareDiscovery(ranks.get(a.key), ranks.get(b.key));
+            return c == 0 ? a.key.compareTo(b.key) : -c;
+        });
+    }
+
     /** Minimal declared ancestors, so a root and its descendants do not repeat the same query. */
     public static List<CatalogCategories.Selection> selections(CatalogCategories catalog, Tab tab) {
         if (catalog == null || tab == null || tab == Tab.RECOMMEND) return Collections.emptyList();

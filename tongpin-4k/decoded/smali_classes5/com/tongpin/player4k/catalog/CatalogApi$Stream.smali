@@ -28,16 +28,16 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 90
+    .line 96
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 88
+    .line 94
     const-string v0, ""
 
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Stream;->url:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Stream;->label:Ljava/lang/String;
 
-    .line 90
+    .line 96
     return-void
 .end method

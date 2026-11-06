@@ -1,0 +1,13 @@
+# Recent catalogue recommendation metadata
+
+Browse-only ordering prefers a declared release within 90 days, or an explicitly ongoing series updated within 30 days. An unambiguous current/previous release year is the next fallback; unknown release metadata stays unknown, and an old film newly indexed is not promoted as a new release. Future dates cannot establish recentness. Unzoned directory timestamps use UTC for deterministic ordering; this can defer a just-updated unzoned row during its first UTC hours.
+
+Positive weekly counters are ranked only against already-fetched positive candidates from the same provider/API. At least two are required; otherwise monthly counters are used, also requiring two. Missing/invalid counters do not invent a rank. These are source declarations, not a verified global chart or complete provider-wide rankings. Updates break remaining ties. `vod_time_add`, daily hits, total hits, PeerTube uploads and views do not substitute for film release or periodic popularity. PeerTube only contributes its declared `updatedAt`.
+
+The stable group identity, classification and alternatives remain intact. Inside a work, the existing 4K / declared episode coverage / watermark-label preference is unchanged. Natural title sorting is preserved for search. `UnifiedCatalogBrowse` stays byte-identical; its existing background projection and fair provider/category paging deliver the new browse order without extra HTTP requests or main-thread sorting.
+
+Four optional nonnegative long fields are added to `CatalogApi.Video`: `publishedAtMs`, `updatedAtMs`, `weeklyHits`, `monthlyHits`; zero means missing/invalid. Dates are bounded to 2100-01-01 and period counts to 10^12. JSON date strings/seconds/milliseconds and numeric/string integer count fields use the actual production parser. Calendar-only `vod_year` is not converted into a made-up release day. PeerTube publication/upload timestamps are not film release dates.
+
+Tests compile the actual eleven production catalogue classes with the existing org.json test library: 104 new deterministic-clock/parser assertions plus the retained 79 catalogue and 61 background/fairness/cancellation assertions per app. No media, Android views or devices are used. The separate public audit makes only nine bounded directory requests, seven successful, and retains metadata field statistics without stream URLs or full film lists.
+
+shortcut: an independently verified or whole-site popularity feed is needed before claiming a true hot chart. This release deliberately uses available metadata without delaying first content with extra requests. Player, registry, UI and transport concurrency/timeouts are outside this owner's scope.

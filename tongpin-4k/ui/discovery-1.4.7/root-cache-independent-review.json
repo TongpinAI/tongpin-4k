@@ -1,0 +1,58 @@
+{
+  "passed": true,
+  "verdict": "clear",
+  "workspace_sources": true,
+  "source_sha256": {
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/CatalogPreviewCache.java": "b285f1c8b6d2541af72f267662584641aa89862fdd3be164f0e8d914f5b6de3a",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/CatalogActivity.java": "963b1a14f1c675051d314e2fc52607b7331f6400d2c293e9afcbd21b523e5b3e",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/CatalogPreviewCache.java": "e5753a2046c6f47f40286ac90a246411ba65857c7bdd36525f871180b49693e2",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/TvHomeActivity.java": "07925b97ea8e592eb1076d5b8d2628259f82ea887ed32dbd57918b4a2d0ff292"
+  },
+  "scope": "Independent review of root-owned two metadata preview codecs and two browse-caption literals only. Four optional fields, schema1 backwards compatibility and strict Number/nonnegative bounded parsing. No playback/network/scheduling or UI-structure changes.",
+  "checks": {
+    "full_class_inverse_to_published_before": [
+      {
+        "source": "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/CatalogPreviewCache.java",
+        "before_sha256": "8e9e4c8d5cb777be2804045665f5340140ff7ccabe3216a16d32131b2bd193b0",
+        "inverse_raw_bytes_exact": true
+      },
+      {
+        "source": "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/CatalogActivity.java",
+        "before_sha256": "f8526272455fad6fd1c582fc4406595a8858aae8148d7fe032d556e846bbc80e",
+        "inverse_raw_bytes_exact": true
+      },
+      {
+        "source": "tongpin-4k-tv/src/com/tongpin/player4k/tv/CatalogPreviewCache.java",
+        "before_sha256": "d88233373946b37e178e2dc4f1c0344eb330c333bbaac31f68cdfe25b93d6c2b",
+        "inverse_raw_bytes_exact": true
+      },
+      {
+        "source": "tongpin-4k-tv/src/com/tongpin/player4k/tv/TvHomeActivity.java",
+        "before_sha256": "a3bc0018018d48806eb49e04d11887c8578bb3b405bd96a2d45c5c8182aff09e",
+        "inverse_raw_bytes_exact": true
+      }
+    ],
+    "cache_package_only_equal": true,
+    "new_optional_fields": [
+      "publishedAtMs",
+      "updatedAtMs",
+      "weeklyHits",
+      "monthlyHits"
+    ],
+    "legacy_schema1_missing_fields_remain_zero": true,
+    "date_maximum": 4102444800000,
+    "count_maximum": 1000000000000,
+    "rejects_null_string_decimal_boolean_negative_overflow": true,
+    "no_new_stream_or_account_data": true,
+    "cache_registry_category_key_ttl_limits_unchanged": true,
+    "caption_only_changes_two": true
+  },
+  "independent_test_report": "tongpin-4k/ui/discovery-1.4.7/cache-tests/independent-verification.json",
+  "independent_test_report_sha256": "7af00b5a19b3c4a2e91762ca598cfc9e91766ee872611aa323e63a3916755d62",
+  "actual_workspace_production_sources_pinned": 20,
+  "assertions_per_app": 40,
+  "author_test_source_sha256": "8bd1bea1b8f5e45328beefbdc7c2abd0507a4f36b79e74cbb5db3f84f0021826",
+  "author_runner_sha256": "12d910473f2e3f1d8f8886d4d05077c238ea3b7071241960fecaea3d28bfa06c",
+  "runner_method": "Exact author-runner execution with report filename redirected only; actual production codec/models compiled for both packages with Android SDK35 compile symbols and no executed Android stub I/O.",
+  "no_device_validation": true
+}

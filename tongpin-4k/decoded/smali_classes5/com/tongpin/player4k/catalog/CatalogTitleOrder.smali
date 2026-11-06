@@ -64,7 +64,7 @@
 .method public static compare(Lcom/tongpin/player4k/catalog/CatalogApi$Video;Lcom/tongpin/player4k/catalog/CatalogApi$Video;)I
     .locals 1
 
-    .line 53
+    .line 75
     new-instance v0, Lcom/tongpin/player4k/catalog/CatalogTitleOrder$Entry;
 
     invoke-direct {v0, p0}, Lcom/tongpin/player4k/catalog/CatalogTitleOrder$Entry;-><init>(Lcom/tongpin/player4k/catalog/CatalogApi$Video;)V
@@ -83,7 +83,7 @@
 .method private static compareEntries(Lcom/tongpin/player4k/catalog/CatalogTitleOrder$Entry;Lcom/tongpin/player4k/catalog/CatalogTitleOrder$Entry;)I
     .locals 2
 
-    .line 56
+    .line 78
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogTitleOrder$Entry;->key:Ljava/lang/String;
 
     iget-object v1, p1, Lcom/tongpin/player4k/catalog/CatalogTitleOrder$Entry;->key:Ljava/lang/String;
@@ -92,7 +92,7 @@
 
     move-result v0
 
-    .line 57
+    .line 79
     if-nez v0, :cond_0
 
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogTitleOrder$Entry;->identity:Ljava/lang/String;
@@ -103,7 +103,7 @@
 
     move-result v0
 
-    .line 58
+    .line 80
     :cond_0
     if-nez v0, :cond_1
 
@@ -115,7 +115,7 @@
 
     move-result v0
 
-    .line 59
+    .line 81
     :cond_1
     return v0
 .end method
@@ -123,69 +123,69 @@
 .method private static digit(C)I
     .locals 0
 
-    .line 82
+    .line 104
     sparse-switch p0, :sswitch_data_0
 
-    .line 93
+    .line 115
     const/4 p0, -0x1
 
     return p0
 
-    .line 87
+    .line 109
     :sswitch_0
     const/4 p0, 0x4
 
     return p0
 
-    .line 89
+    .line 111
     :sswitch_1
     const/4 p0, 0x6
 
     return p0
 
-    .line 91
+    .line 113
     :sswitch_2
     const/16 p0, 0x8
 
     return p0
 
-    .line 88
+    .line 110
     :sswitch_3
     const/4 p0, 0x5
 
     return p0
 
-    .line 92
+    .line 114
     :sswitch_4
     const/16 p0, 0x9
 
     return p0
 
-    .line 85
+    .line 107
     :sswitch_5
     const/4 p0, 0x2
 
     return p0
 
-    .line 86
+    .line 108
     :sswitch_6
     const/4 p0, 0x3
 
     return p0
 
-    .line 90
+    .line 112
     :sswitch_7
     const/4 p0, 0x7
 
     return p0
 
-    .line 84
+    .line 106
     :sswitch_8
     const/4 p0, 0x1
 
     return p0
 
-    .line 83
+    .line 105
     :sswitch_9
     const/4 p0, 0x0
 
@@ -214,18 +214,18 @@
 .method public static identity(Lcom/tongpin/player4k/catalog/CatalogApi$Video;)Ljava/lang/String;
     .locals 4
 
-    .line 19
+    .line 41
     if-nez p0, :cond_0
 
     const-string p0, ""
 
     return-object p0
 
-    .line 20
+    .line 42
     :cond_0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->provider:Lcom/tongpin/player4k/catalog/CatalogApi$Provider;
 
-    .line 21
+    .line 43
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -278,7 +278,7 @@
 
     iget-object p0, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->id:Ljava/lang/String;
 
-    .line 22
+    .line 44
     invoke-static {p0}, Lcom/tongpin/player4k/catalog/CatalogTitleOrder;->text(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
@@ -291,7 +291,7 @@
 
     move-result-object p0
 
-    .line 21
+    .line 43
     return-object p0
 .end method
 
@@ -308,7 +308,7 @@
         }
     .end annotation
 
-    .line 26
+    .line 48
     const/4 v0, -0x1
 
     if-eqz p0, :cond_4
@@ -323,11 +323,11 @@
 
     goto :goto_1
 
-    .line 27
+    .line 49
     :cond_0
     nop
 
-    .line 28
+    .line 50
     const/4 v1, 0x0
 
     move v2, v0
@@ -355,26 +355,26 @@
 
     if-eqz v3, :cond_2
 
-    .line 29
+    .line 51
     if-ltz v2, :cond_1
 
     return v0
 
-    .line 30
+    .line 52
     :cond_1
     move v2, v1
 
-    .line 28
+    .line 50
     :cond_2
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 32
+    .line 54
     :cond_3
     return v2
 
-    .line 26
+    .line 48
     :cond_4
     :goto_1
     return v0
@@ -383,7 +383,7 @@
 .method static key(Ljava/lang/String;)Ljava/lang/String;
     .locals 4
 
-    .line 65
+    .line 87
     invoke-static {p0}, Lcom/tongpin/player4k/catalog/CatalogTitleOrder;->text(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
@@ -400,12 +400,12 @@
 
     move-result-object p0
 
-    .line 66
+    .line 88
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 67
+    .line 89
     const/4 v1, 0x0
 
     :goto_0
@@ -415,12 +415,12 @@
 
     if-ge v1, v2, :cond_1
 
-    .line 68
+    .line 90
     invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
 
     move-result v2
 
-    .line 69
+    .line 91
     invoke-static {v2}, Ljava/lang/Character;->isWhitespace(C)Z
 
     move-result v3
@@ -435,13 +435,13 @@
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 67
+    .line 89
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 71
+    .line 93
     :cond_1
     sget-object p0, Lcom/tongpin/player4k/catalog/CatalogTitleOrder;->ORDINAL:Ljava/util/regex/Pattern;
 
@@ -449,12 +449,12 @@
 
     move-result-object p0
 
-    .line 72
+    .line 94
     new-instance v0, Ljava/lang/StringBuffer;
 
     invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
 
-    .line 73
+    .line 95
     :goto_1
     invoke-virtual {p0}, Ljava/util/regex/Matcher;->find()Z
 
@@ -462,7 +462,7 @@
 
     if-eqz v1, :cond_3
 
-    .line 74
+    .line 96
     const/4 v1, 0x1
 
     invoke-virtual {p0, v1}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
@@ -473,7 +473,7 @@
 
     move-result-object v1
 
-    .line 75
+    .line 97
     if-nez v1, :cond_2
 
     invoke-virtual {p0}, Ljava/util/regex/Matcher;->group()Ljava/lang/String;
@@ -518,15 +518,114 @@
 
     invoke-virtual {p0, v0, v1}, Ljava/util/regex/Matcher;->appendReplacement(Ljava/lang/StringBuffer;Ljava/lang/String;)Ljava/util/regex/Matcher;
 
-    .line 76
+    .line 98
     goto :goto_1
 
-    .line 77
+    .line 99
     :cond_3
     invoke-virtual {p0, v0}, Ljava/util/regex/Matcher;->appendTail(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;
 
-    .line 78
+    .line 100
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static matchesTitle(Ljava/lang/String;Ljava/lang/String;)Z
+    .locals 1
+
+    .line 20
+    invoke-static {p1}, Lcom/tongpin/player4k/catalog/CatalogTitleOrder;->searchKey(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p1
+
+    .line 21
+    invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    invoke-static {p0}, Lcom/tongpin/player4k/catalog/CatalogTitleOrder;->searchKey(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {p0, p1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
+    return p0
+.end method
+
+.method public static matchingTitles(Ljava/util/List;Ljava/lang/String;)Ljava/util/List;
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List<",
+            "Lcom/tongpin/player4k/catalog/CatalogApi$Video;",
+            ">;",
+            "Ljava/lang/String;",
+            ")",
+            "Ljava/util/List<",
+            "Lcom/tongpin/player4k/catalog/CatalogApi$Video;",
+            ">;"
+        }
+    .end annotation
+
+    .line 25
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    .line 26
+    invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object p0
+
+    :cond_0
+    :goto_0
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/tongpin/player4k/catalog/CatalogApi$Video;
+
+    if-eqz v1, :cond_0
+
+    iget-object v2, v1, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->title:Ljava/lang/String;
+
+    invoke-static {v2, p1}, Lcom/tongpin/player4k/catalog/CatalogTitleOrder;->matchesTitle(Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto :goto_0
+
+    .line 27
+    :cond_1
+    invoke-static {v0}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
 
     move-result-object p0
 
@@ -536,14 +635,14 @@
 .method static natural(Ljava/lang/String;Ljava/lang/String;)I
     .locals 9
 
-    .line 127
+    .line 149
     const/4 v0, 0x0
 
     move v1, v0
 
     move v2, v1
 
-    .line 128
+    .line 150
     :goto_0
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
@@ -557,7 +656,7 @@
 
     if-ge v2, v3, :cond_8
 
-    .line 129
+    .line 151
     invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
 
     move-result v3
@@ -566,7 +665,7 @@
 
     move-result v4
 
-    .line 130
+    .line 152
     const/16 v5, 0x30
 
     if-lt v3, v5, :cond_6
@@ -579,10 +678,10 @@
 
     if-gt v4, v6, :cond_6
 
-    .line 131
+    .line 153
     move v3, v1
 
-    .line 132
+    .line 154
     :goto_1
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
@@ -606,7 +705,7 @@
 
     goto :goto_1
 
-    .line 133
+    .line 155
     :cond_0
     move v4, v2
 
@@ -633,7 +732,7 @@
 
     goto :goto_2
 
-    .line 134
+    .line 156
     :cond_1
     :goto_3
     if-ge v1, v3, :cond_2
@@ -648,7 +747,7 @@
 
     goto :goto_3
 
-    .line 135
+    .line 157
     :cond_2
     :goto_4
     if-ge v2, v4, :cond_3
@@ -663,7 +762,7 @@
 
     goto :goto_4
 
-    .line 136
+    .line 158
     :cond_3
     sub-int v5, v3, v1
 
@@ -673,7 +772,7 @@
 
     move-result v6
 
-    .line 137
+    .line 159
     if-nez v6, :cond_4
 
     move v7, v0
@@ -701,24 +800,24 @@
 
     goto :goto_5
 
-    .line 138
+    .line 160
     :cond_4
     if-eqz v6, :cond_5
 
     return v6
 
-    .line 139
+    .line 161
     :cond_5
     nop
 
-    .line 140
+    .line 162
     move v1, v3
 
     move v2, v4
 
     goto :goto_6
 
-    .line 141
+    .line 163
     :cond_6
     if-eq v3, v4, :cond_7
 
@@ -726,17 +825,17 @@
 
     return v3
 
-    .line 142
+    .line 164
     :cond_7
     add-int/lit8 v1, v1, 0x1
 
     add-int/lit8 v2, v2, 0x1
 
-    .line 144
+    .line 166
     :goto_6
     goto/16 :goto_0
 
-    .line 145
+    .line 167
     :cond_8
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
@@ -760,7 +859,7 @@
 .method private static ordinal(Ljava/lang/String;)Ljava/lang/String;
     .locals 17
 
-    .line 98
+    .line 120
     move-object/from16 v0, p0
 
     const/16 v1, 0x5341
@@ -808,18 +907,18 @@
     :goto_0
     const/4 v2, 0x1
 
-    .line 99
+    .line 121
     :goto_1
     const/4 v8, 0x0
 
     if-nez v2, :cond_4
 
-    .line 100
+    .line 122
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 101
+    .line 123
     nop
 
     :goto_2
@@ -848,7 +947,7 @@
 
     goto :goto_2
 
-    .line 102
+    .line 124
     :cond_3
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -856,14 +955,14 @@
 
     return-object v0
 
-    .line 104
+    .line 126
     :cond_4
     nop
 
-    .line 105
+    .line 127
     nop
 
-    .line 106
+    .line 128
     const/16 v2, 0x2710
 
     const/4 v9, -0x1
@@ -887,7 +986,7 @@
 
     if-ge v10, v6, :cond_10
 
-    .line 107
+    .line 129
     invoke-virtual {v0, v10}, Ljava/lang/String;->charAt(I)C
 
     move-result v6
@@ -896,30 +995,30 @@
 
     move-result v16
 
-    .line 108
+    .line 130
     if-ltz v16, :cond_6
 
-    .line 109
+    .line 131
     if-lez v13, :cond_5
 
     return-object v8
 
-    .line 110
+    .line 132
     :cond_5
     move/from16 v13, v16
 
     goto :goto_5
 
-    .line 112
+    .line 134
     :cond_6
     if-ne v6, v3, :cond_9
 
-    .line 113
+    .line 135
     if-eqz v14, :cond_7
 
     return-object v8
 
-    .line 114
+    .line 136
     :cond_7
     invoke-static {v7, v13}, Ljava/lang/Math;->max(II)I
 
@@ -927,7 +1026,7 @@
 
     add-int/2addr v12, v6
 
-    .line 115
+    .line 137
     if-nez v12, :cond_8
 
     const/4 v12, 0x1
@@ -935,10 +1034,10 @@
     :cond_8
     mul-int/lit16 v11, v12, 0x2710
 
-    .line 116
+    .line 138
     nop
 
-    .line 117
+    .line 139
     move v15, v2
 
     move v12, v7
@@ -949,7 +1048,7 @@
 
     goto :goto_5
 
-    .line 119
+    .line 141
     :cond_9
     if-ne v6, v1, :cond_a
 
@@ -974,7 +1073,7 @@
     :cond_c
     move v6, v9
 
-    .line 120
+    .line 142
     :goto_4
     if-lez v6, :cond_f
 
@@ -982,7 +1081,7 @@
 
     goto :goto_6
 
-    .line 121
+    .line 143
     :cond_d
     if-gez v13, :cond_e
 
@@ -997,18 +1096,18 @@
 
     move v13, v9
 
-    .line 106
+    .line 128
     :goto_5
     add-int/lit8 v10, v10, 0x1
 
     goto :goto_3
 
-    .line 120
+    .line 142
     :cond_f
     :goto_6
     return-object v8
 
-    .line 123
+    .line 145
     :cond_10
     add-int/2addr v11, v12
 
@@ -1025,6 +1124,76 @@
     return-object v0
 .end method
 
+.method private static searchKey(Ljava/lang/String;)Ljava/lang/String;
+    .locals 4
+
+    .line 31
+    invoke-static {p0}, Lcom/tongpin/player4k/catalog/CatalogTitleOrder;->text(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p0
+
+    sget-object v0, Ljava/text/Normalizer$Form;->NFKC:Ljava/text/Normalizer$Form;
+
+    invoke-static {p0, v0}, Ljava/text/Normalizer;->normalize(Ljava/lang/CharSequence;Ljava/text/Normalizer$Form;)Ljava/lang/String;
+
+    move-result-object p0
+
+    sget-object v0, Ljava/util/Locale;->ROOT:Ljava/util/Locale;
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+
+    move-result-object p0
+
+    .line 32
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    .line 33
+    const/4 v1, 0x0
+
+    :goto_0
+    invoke-virtual {p0}, Ljava/lang/String;->length()I
+
+    move-result v2
+
+    if-ge v1, v2, :cond_1
+
+    .line 34
+    invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
+
+    move-result v2
+
+    .line 35
+    invoke-static {v2}, Ljava/lang/Character;->isWhitespace(C)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    invoke-static {v2}, Ljava/lang/Character;->isSpaceChar(C)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    .line 33
+    :cond_0
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    .line 37
+    :cond_1
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method public static sortedCopy(Ljava/util/List;)Ljava/util/List;
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
@@ -1039,12 +1208,12 @@
         }
     .end annotation
 
-    .line 45
+    .line 67
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    .line 46
+    .line 68
     invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object p0
@@ -1070,7 +1239,7 @@
 
     goto :goto_0
 
-    .line 47
+    .line 69
     :cond_0
     new-instance p0, Lcom/tongpin/player4k/catalog/CatalogTitleOrder$$ExternalSyntheticLambda0;
 
@@ -1078,12 +1247,12 @@
 
     invoke-static {v0, p0}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
 
-    .line 48
+    .line 70
     new-instance p0, Ljava/util/ArrayList;
 
     invoke-direct {p0}, Ljava/util/ArrayList;-><init>()V
 
-    .line 49
+    .line 71
     invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -1107,7 +1276,7 @@
 
     goto :goto_1
 
-    .line 50
+    .line 72
     :cond_1
     invoke-static {p0}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
 
@@ -1119,7 +1288,7 @@
 .method private static text(Ljava/lang/String;)Ljava/lang/String;
     .locals 0
 
-    .line 62
+    .line 84
     if-nez p0, :cond_0
 
     const-string p0, ""

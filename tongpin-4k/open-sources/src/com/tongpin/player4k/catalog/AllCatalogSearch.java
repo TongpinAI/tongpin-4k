@@ -185,6 +185,7 @@ public final class AllCatalogSearch implements AutoCloseable {
         for (Video video : page.items) {
             if (!belongs(cursor, video)) continue;
             ids.add(video.id);
+            if (!CatalogTitleOrder.matchesTitle(video.title, h.query)) continue;
             String key = cursor.identity + '\0' + video.id;
             if (h.seen.contains(key)) continue;
             if (h.items.size() >= MAX_RESULTS) { h.limited = true; continue; }

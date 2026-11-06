@@ -163,6 +163,8 @@ public final class CatalogPreviewCache implements AutoCloseable {
         JSONObject out = new JSONObject().put("provider", v.provider.id).put("api", v.provider.api)
                 .put("id", v.id).put("title", v.title).put("subtitle", v.subtitle).put("poster", v.poster)
                 .put("sourceUrl", v.sourceUrl).put("year", v.year).put("area", v.area)
+                .put("publishedAtMs", v.publishedAtMs).put("updatedAtMs", v.updatedAtMs)
+                .put("weeklyHits", v.weeklyHits).put("monthlyHits", v.monthlyHits)
                 .put("author", v.author).put("licence", v.licence).put("categoryId", v.categoryId)
                 .put("categoryName", v.categoryName).put("categoryLabel", v.categoryLabel)
                 .put("family", UnifiedCatalogPolicy.category(v).name());
@@ -189,6 +191,10 @@ public final class CatalogPreviewCache implements AutoCloseable {
         v.subtitle = field(item, "subtitle", 4096); v.poster = field(item, "poster", 8192);
         v.sourceUrl = field(item, "sourceUrl", 8192); v.year = field(item, "year", 128); v.area = field(item, "area", 512);
         v.author = field(item, "author", 512); v.licence = field(item, "licence", 512);
+        v.publishedAtMs = optionalCount(item, "publishedAtMs", 4102444800000L);
+        v.updatedAtMs = optionalCount(item, "updatedAtMs", 4102444800000L);
+        v.weeklyHits = optionalCount(item, "weeklyHits", 1_000_000_000_000L);
+        v.monthlyHits = optionalCount(item, "monthlyHits", 1_000_000_000_000L);
         v.categoryId = field(item, "categoryId", 128); v.categoryName = field(item, "categoryName", 512);
         v.categoryLabel = field(item, "categoryLabel", 512);
         JSONArray nodes = item.getJSONArray("categories");
@@ -201,6 +207,17 @@ public final class CatalogPreviewCache implements AutoCloseable {
         if (!declared.isEmpty()) v.categoryCatalog = new CatalogCategories(source.id, declared, Collections.<String>emptySet());
         if (!UnifiedCatalogPolicy.category(v).name().equals(field(item, "family", 32))) throw new IOException("Preview classification changed");
         return v;
+    }
+
+    private static long optionalCount(JSONObject item, String name, long maximum) throws IOException {
+        // Old previews lack ranking metadata; keep them usable until the fresh catalogue arrives.
+        if (!item.has(name)) return 0;
+        Object value = item.opt(name);
+        if (!(value instanceof Number) || !value.toString().matches("[0-9]{1,18}")) throw new IOException("Invalid preview count");
+        long number;
+        try { number = Long.parseLong(value.toString()); } catch (NumberFormatException invalid) { throw new IOException("Invalid preview count"); }
+        if (number > maximum) throw new IOException("Invalid preview count");
+        return number;
     }
 
     private static String registryKey(List<Provider> providers) throws Exception {

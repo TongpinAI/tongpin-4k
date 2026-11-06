@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "verdict": "clear pending actual final freeze verification",
+  "source_sha256": {
+    "build_tv.py": "7af64102b0c9b6cd6e4aa37611f1ec6b915c12ad11b15c885ceb0e995c631130",
+    "discovery_release_contract.py": "4c1a561ca623c1e5c22e2664cf05f037b804aa42f2d4de879e4449ec75be2e7b"
+  },
+  "complete_140_builder_ast_inverse_verified": true,
+  "mock_gate_checks": {
+    "virtual_preflight_positive": "passed",
+    "virtual_formal_positive": "passed",
+    "missing_promotion_authorization": "rejected",
+    "unexpected_resource_change": "rejected",
+    "missing_snapshot_pin": "rejected",
+    "stale_snapshot_pin": "rejected",
+    "empty_prior_index_even_with_resealed_hash": "rejected",
+    "missing_mandatory_report": "rejected",
+    "missing_tool_pin": "rejected",
+    "missing_all_test_pins": "rejected",
+    "substituted_test_does_not_satisfy_minimum_count": "rejected"
+  },
+  "mock_filesystem_only": true,
+  "real_freeze_checked": false,
+  "real_build_executed": false,
+  "runner_sha256": "b227093d7f15035131e5ba0b530cd35a8795226dd3f4a23d1f5cd3d8226b0661"
+}

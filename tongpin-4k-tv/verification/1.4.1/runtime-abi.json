@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "pinned_runtime_artifacts": 19,
+  "pinned_runtime_classes": 5114,
+  "resolved_nonframework_method_references": 50367,
+  "resolved_nonframework_field_references": 20134,
+  "unresolved": [],
+  "guava_platform_internal_methods_verified_against_android23": [
+    "Lsun/misc/Unsafe;->arrayBaseOffset(Ljava/lang/Class;)I",
+    "Lsun/misc/Unsafe;->arrayIndexScale(Ljava/lang/Class;)I",
+    "Lsun/misc/Unsafe;->compareAndSwapInt(Ljava/lang/Object;JII)Z",
+    "Lsun/misc/Unsafe;->compareAndSwapLong(Ljava/lang/Object;JJJ)Z",
+    "Lsun/misc/Unsafe;->compareAndSwapObject(Ljava/lang/Object;JLjava/lang/Object;Ljava/lang/Object;)Z",
+    "Lsun/misc/Unsafe;->getLong(Ljava/lang/Object;J)J",
+    "Lsun/misc/Unsafe;->getObject(Ljava/lang/Object;J)Ljava/lang/Object;",
+    "Lsun/misc/Unsafe;->getUnsafe()Lsun/misc/Unsafe;",
+    "Lsun/misc/Unsafe;->objectFieldOffset(Ljava/lang/reflect/Field;)J",
+    "Lsun/misc/Unsafe;->putLong(Ljava/lang/Object;JJ)V",
+    "Lsun/misc/Unsafe;->putObject(Ljava/lang/Object;JLjava/lang/Object;)V"
+  ],
+  "library_min_sdk": 23,
+  "scope": "Actual complete DEX runtime class closure and nonframework method inheritance; framework internal guards rely on official pinned libraries and isolated consumer boundary",
+  "runtime_tested": false
+}

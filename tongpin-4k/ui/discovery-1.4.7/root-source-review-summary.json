@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "counts": {
+    "phone": {
+      "search": 37,
+      "recommendation": 244,
+      "cache": 40
+    },
+    "tv": {
+      "search": 37,
+      "recommendation": 244,
+      "cache": 40
+    }
+  },
+  "both_apps_changed_java": 14,
+  "new_dependencies": 0,
+  "new_player_code": 0,
+  "device_tested": false
+}

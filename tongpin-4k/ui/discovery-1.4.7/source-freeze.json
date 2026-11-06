@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "version": "1.4.7",
+  "previous_version": "1.4.6",
+  "scope": "Recommendation metadata and browse-only work ordering; two existing production sources only. No extra network requests, new runtime dependencies, registry/player/UI edits or browse scheduler changes.",
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogApi.java": "d3139e76422d9dd9b0b8daa7dfba1ccebac21e3c0d4dfa21cacdfac4043e5c46",
+    "open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogPolicy.java": "680daa5a27e20b90755c7075150676884ba9d004a61e16a170cfeda6cfac9630"
+  },
+  "before_source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogApi.java": "9e99cf63272fc2b42aa75d8de6094f2ab9b356270dd3f13254c7601826f9e959",
+    "open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogPolicy.java": "3e51355d6dc1530e2a63fa40ac89b2d91c25e9532141a442569db64d008cf9aa"
+  },
+  "unchanged_browse_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogBrowse.java": "2ab605e7a828d794019e03e5eddf9479dad780af8eef5ee29d20219e51b44ba3"
+  },
+  "test_report": "ui/discovery-1.4.7/recommendation-tests/verification.json",
+  "test_report_sha256": "c3bcf1a0a047c07b869ca37bdd9546f63bb3717e5460de0ae2da848871e1a271",
+  "test_source_sha256": {
+    "ui/discovery-1.4.7/recommendation-tests/run.py": "d3297682fe812cda081cd7b975b078198ebe7a9cd0b6b913564d7ba0da06a248",
+    "ui/discovery-1.4.7/recommendation-tests/RecentCatalogTest.java": "7d9737394c40230d90fadbdc4e41ac70a63bb4403250b9e4f7fe03d42aae3ccb"
+  },
+  "new_assertions_per_app": 104,
+  "retained_assertions_per_app": 140,
+  "public_metadata_audit_sha256": "993cf6270653e09be136ca17949c19944ad0ccbdaeece5a7420e6a198ba9ff3e",
+  "source_diff_sha256": "7f6eccd7dc9c48f58732858ce87a0553303b09395762ea0d747ce60c8f7f5597",
+  "no_media_fetched": true,
+  "no_device_validation": true,
+  "primary_source_preference_unchanged": true,
+  "search_natural_order_unchanged": true
+}

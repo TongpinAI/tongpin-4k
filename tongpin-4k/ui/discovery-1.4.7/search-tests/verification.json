@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "assertions": {
+    "phone": 37,
+    "tv": 37
+  },
+  "workspace_sources": true,
+  "source_sha256": {
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/CatalogTitleOrder.java": "10c4f74322315555fd4ba7bdc86004a0feb44b6736906d9a23614c222952ea62",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/AllCatalogSearch.java": "2bd45b6b7163491f72e38697bda5383ac93ede8fc0a8b9d5d9df872193839407",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogPolicy.java": "680daa5a27e20b90755c7075150676884ba9d004a61e16a170cfeda6cfac9630",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/AutoSourcePolicy.java": "ce4fd68b0e2f3f0ed9eed19bd15868bc71e3e9c3dfb3394c384e0e4aa2bc1e87",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/CrossSourcePolicy.java": "f443a406641ec8e8ed8d891642afb7da8a046bb5213faddf40e37158afab195c",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/CatalogApi.java": "d3139e76422d9dd9b0b8daa7dfba1ccebac21e3c0d4dfa21cacdfac4043e5c46",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/CatalogCategories.java": "3c368a9e8ebbfbcf15e8426b1cdacfd0e3289efdfeb1f887569840528425f03b",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/MacCmsXml.java": "5ca12bf836e1c8e10c8efd06d0054e0ce25c8c63c707f7513e77eddccf5b8f68",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/TvBoxJson.java": "4fe2bf0bdaf94a431a5ddc6514eb51a37d668006b608659a1cf16fd558faab24",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/M3uCatalog.java": "710daeaabe91bab03e078106de0b4cdd5d1b852cbdb4c7992ed0b2e3626ead51",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/PhoneSourcePicker.java": "ab30c86b8f6be64f2f55a1b1fab7544d11cf757f3ad5f1fd1228e25ff23338fa",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/CatalogTitleOrder.java": "f0bed14db3eff3a7480c6feb103b8d704e9a8845ae6e70dacf0e9e9781f5577f",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/AllCatalogSearch.java": "d4dcdef0003a7cbc3a2d6d65bce86f0918a7607a01307127c65a13273a4093c1",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/UnifiedCatalogPolicy.java": "286948b737fe12ef35a67321e693e68cf49d69a03b1b7356420050d8a5502f66",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/AutoSourcePolicy.java": "ca0f1a207816bbc010a5ef7df7545d62acf9ce51d27cafbf9edc7a8df4cefeb5",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/CrossSourcePolicy.java": "10f4440f3970a3f3bd233548496ea98680dfbd0ed8eb8d7018d3df1e96108bc3",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/CatalogApi.java": "e91b684100d722a1ac54d12c338ae211787eccd0e5ed4deee7d74e4ac7802c6b",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/CatalogCategories.java": "94ad50088414706688648027634e6acd76fc52214bac47dcf29d1d2e9e86ae8a",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/MacCmsXml.java": "74ccc2ea09021a677a39e11e38017ebfa31a79a35cfda90793da425e364d41be",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/TvBoxJson.java": "5299156e9e08c5a1633a7fd4666682d2a801c1435e35cc1a663303f5e811817a",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/M3uCatalog.java": "82ef4af6c0046df839aca596ede569b4ba9585b6b1aeb7a1d3851bf784eed281",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/TvSourcePicker.java": "8f2bb64e1e3f37e47391f5eda2768b5cbea6711bc7ee4226279bf14db3d86c0e"
+  },
+  "query_only_exact_inverse": {
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/CatalogTitleOrder.java": true,
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/AllCatalogSearch.java": true,
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/PhoneSourcePicker.java": true,
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/CatalogTitleOrder.java": true,
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/AllCatalogSearch.java": true,
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/TvSourcePicker.java": true
+  },
+  "test_source_sha256": "113d696713a0f45eab4c61ad20f4264b4da5307426a3f50a4897ea0878b92107",
+  "runner_sha256": "dfc8744996c7a32549a6f736befe2716137e771c6d3d5698e2378f841ae8f932",
+  "actual_catalog_api_and_models_compiled": true,
+  "production_classes_per_app": 10,
+  "compile_stubs_used": false,
+  "device_tested": false,
+  "network_tested": false,
+  "picker_views_executed": false,
+  "scope": "Title-only NFKC/case/whitespace-normalized continuous inclusion; natural season order, source identities and best-source groups; raw paging/fingerprint, 3000 irrelevant rows not consuming result cap, empty-page continuation, repeat-stop, retry and canceled query isolation. Both actual shared packages and real API/models compiled without Android stubs; picker query-only exact inverse checked, UI not executed."
+}

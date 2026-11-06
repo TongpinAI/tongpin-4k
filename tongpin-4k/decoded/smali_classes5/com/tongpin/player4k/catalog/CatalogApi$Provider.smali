@@ -32,10 +32,10 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 42
+    .line 46
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 40
+    .line 44
     const-string v0, ""
 
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Provider;->id:Ljava/lang/String;
@@ -48,22 +48,22 @@
 
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Provider;->homepage:Ljava/lang/String;
 
-    .line 41
+    .line 45
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Provider;->supportsSearch:Z
 
-    .line 42
+    .line 46
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
 
-    .line 43
+    .line 47
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 40
+    .line 44
     const-string v0, ""
 
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Provider;->id:Ljava/lang/String;
@@ -76,26 +76,26 @@
 
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Provider;->homepage:Ljava/lang/String;
 
-    .line 41
+    .line 45
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Provider;->supportsSearch:Z
 
-    .line 44
+    .line 48
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Provider;->id:Ljava/lang/String;
 
-    .line 45
+    .line 49
     iput-object p2, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Provider;->name:Ljava/lang/String;
 
-    .line 46
+    .line 50
     iput-object p3, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Provider;->kind:Ljava/lang/String;
 
-    .line 47
+    .line 51
     iput-object p4, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Provider;->api:Ljava/lang/String;
 
-    .line 48
+    .line 52
     iput-object p5, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Provider;->homepage:Ljava/lang/String;
 
-    .line 49
+    .line 53
     return-void
 .end method

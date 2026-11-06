@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "verdict": "clear: discovery-only changes retain title identity, native player and asynchronous browse contracts",
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/AllCatalogSearch.java": "2bd45b6b7163491f72e38697bda5383ac93ede8fc0a8b9d5d9df872193839407",
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogActivity.java": "963b1a14f1c675051d314e2fc52607b7331f6400d2c293e9afcbd21b523e5b3e",
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogApi.java": "d3139e76422d9dd9b0b8daa7dfba1ccebac21e3c0d4dfa21cacdfac4043e5c46",
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogPreviewCache.java": "b285f1c8b6d2541af72f267662584641aa89862fdd3be164f0e8d914f5b6de3a",
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogTitleOrder.java": "10c4f74322315555fd4ba7bdc86004a0feb44b6736906d9a23614c222952ea62",
+    "open-sources/src/com/tongpin/player4k/catalog/PhoneSourcePicker.java": "ab30c86b8f6be64f2f55a1b1fab7544d11cf757f3ad5f1fd1228e25ff23338fa",
+    "open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogPolicy.java": "680daa5a27e20b90755c7075150676884ba9d004a61e16a170cfeda6cfac9630"
+  },
+  "resource_sha256": {
+    "decoded/res/values/tp_player_style.xml": "848d7f1802d9c35a2b059400a94cce4aef4dcfb569198fc51eeace8fe0514c59"
+  },
+  "owner_freeze_sha256": "580a8c54bbd249517ee1bfcae6d4c5ea661966dadb23fec2e776a325a5def728",
+  "assertions_total": 321,
+  "cross_review_sha256": "96fbe09024d226e531f647c9ceaef65461079ae83aabbcb273726a44815cb303",
+  "review": "Root reviewed search filtering after raw page fingerprints, strict contiguous title normalization, empty-page continuation and unchanged natural comparator. Root reviewed bounded actual metadata parsers and provider-local period percentile ordering with a single projection clock; grouping, source quality preference and browse request scheduling retain their original logic. Cache/caption changes received a separate agent review; actual metadata-only codec tests preserve old preview behavior and reject malformed new fields.",
+  "ranking_limit": "Period heat is declared by providers and relative only to candidates already fetched; missing signals use recent release/ongoing/year/update evidence, not a verified all-site popularity chart.",
+  "native_device_tested": false,
+  "android_views_executed": false
+}

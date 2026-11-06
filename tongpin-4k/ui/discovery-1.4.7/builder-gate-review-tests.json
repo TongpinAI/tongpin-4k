@@ -1,0 +1,153 @@
+{
+  "passed": true,
+  "case_count": 27,
+  "cases": [
+    {
+      "name": "actual_current_full_preflight",
+      "passed": true,
+      "seconds": 3.563
+    },
+    {
+      "name": "formal_without_promotion",
+      "passed": true,
+      "rejected": "Formal integration requires completed review promotion"
+    },
+    {
+      "name": "missing_tool_pin",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "missing_test_runner_pin",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "extra_modified_source",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "new_class_not_approved",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "missing_current_java_pin",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "wrong_canonical_stage_dex",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "wrong_stage_smali_pin",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "missing_owner_coverage",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "resource_change_not_approved",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "new_style_not_approved",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "changed_compile_stub",
+      "passed": true,
+      "rejected": "147 changes no compile stubs"
+    },
+    {
+      "name": "wrong_preimage_index_pin",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "native_inventory_entry_missing_matching_pin",
+      "passed": true,
+      "rejected": "Native/resource/asset inventory changed"
+    },
+    {
+      "name": "failed_review_clear_text_matching_pin",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "formal_without_independent_tool_coverage",
+      "passed": true,
+      "rejected": "Missing independent source/tool review coverage"
+    },
+    {
+      "name": "build_driver_ast_inverse_except_version_routes_and_zero_resource_guard",
+      "passed": true
+    },
+    {
+      "name": "assert_dispatch_exact_added147_branch",
+      "passed": true
+    },
+    {
+      "name": "all11473_previous_resources_no_additions_positive",
+      "passed": true
+    },
+    {
+      "name": "old_id_moved",
+      "passed": true
+    },
+    {
+      "name": "old_id_removed",
+      "passed": true
+    },
+    {
+      "name": "extra_style_rejected",
+      "passed": true
+    },
+    {
+      "name": "nonempty_allowed_list_rejected",
+      "passed": true
+    },
+    {
+      "name": "empty_previous_rejected",
+      "passed": true
+    },
+    {
+      "name": "native_compiler_framework_and_final_reader_algorithms_retained",
+      "passed": true
+    },
+    {
+      "name": "independent_proof_reader_compile_byte_equal",
+      "passed": true
+    }
+  ],
+  "reviewed_main_sha256": "ef7e2b21f38344ca83fea0f0e7d2128839c9239453dbb236e404ff3627322ba0",
+  "source_sha256": {
+    "open-sources/integration/check_timer_dex_1470.py": "6697c90fd63d8628ab504da960f02ed762b064c613fc42302058ed0dbeb3ed79",
+    "verification/1.4.7/proof-tools/DisassembleOwn1470.class": "afc869d26bbf41f6d1e08ff71799e83400e03b3aaae4be778e79ea8d3408ec60",
+    "open-sources/toolchain/check_framework_api.py": "91209f30753abd8ea244655bd98762d4e0590c173dae2e842367d82559a61905",
+    "open-sources/integration/integrate_1_4_7.py": "f6f082d0b446d6a2fb90dd6cdf32fd70c2ac5b4dbfb32785b7656ecb964e854a",
+    "build_tongpin.py": "29cfe2628c16546e342d951d12f5f071b270d1665f3bc694532f5ec5a9be5b00",
+    "open-sources/toolchain/compile_java_to_smali.py": "b1b855f38294ecb7d392980b917f8fa17eaae77496c3bd1fcd961e557574cc9c",
+    "open-sources/integration/audit_final_ui_api_1470.py": "2ccec9bc6c309ce8d599aa7440d7605ce5423f6e935ff90e1fdc1e249151617f",
+    "open-sources/integration/check_native_bindings_1410.py": "9a69cd89a30993ac4ca4beaa7a8d1d7d0e1b981edbb2f2f62740f955c6a9d93c",
+    "open-sources/integration/DisassembleOwn1470.java": "e1844809d5cb83d70a0d54200505449bba12112eda2d16b6553b81972c21f3e1",
+    "open-sources/integration/assert_contract.py": "dab8cb44f74884b220f4e1d60670ea124c7d7530e28962103d9f2b66b02f5711",
+    "open-sources/integration/ui_1470_contract.py": "e9128d5be721e93edb7089e0005bad1c5495cc4e5d670ba2774e1a869f59db21"
+  },
+  "frozen_and_production_modified": false,
+  "proof_class_sha256": "afc869d26bbf41f6d1e08ff71799e83400e03b3aaae4be778e79ea8d3408ec60",
+  "source_guard_inputs": {
+    "before-sha256.json": "69cf622076b9fb3ff46a3b389423b933086feb5c33b893cd97bb7a691ed78a87",
+    "baseline146-native-resource-sha256.json": "e565b077e63376dedb3663631085f12dca83dbb577978cc81131d4a36e48e011",
+    "prior146-evidence-sha256.json": "5876ac470c9d03f48e24e5b890c948712073f2c792f621db8d2a3546221ebc69"
+  },
+  "device_tested": false
+}
