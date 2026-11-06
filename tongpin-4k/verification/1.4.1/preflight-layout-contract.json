@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "scope": "141 own playback epoch/checkpoint repair; native140 and registry untouched",
+  "files": {
+    "resources": {},
+    "smali": {}
+  },
+  "new_resources": {},
+  "java_source_count": 33,
+  "provider_count": 28,
+  "checks": {
+    "native140_unchanged": true,
+    "version_only_resources": true,
+    "private_epochs_and_actual_native_bindings": true,
+    "source_stubs_tests_and_reviews": true,
+    "published140_evidence_unchanged": true,
+    "canonical_stage_dex": true
+  },
+  "device_tested": false
+}

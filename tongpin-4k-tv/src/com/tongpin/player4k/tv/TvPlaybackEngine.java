@@ -70,13 +70,14 @@ interface TvPlaybackEngine {
             });
         }
         public void setOnPreparedListener(Prepared l) { player.setOnPreparedListener(l == null ? null : p -> {
+            if (released || p != player) return;
             refreshTracks(); l.call(this);
             if (!released && subtitles != null) subtitles.tracks(this,tracks);
         }); }
-        public void setOnVideoSizeChangedListener(Size l) { player.setOnVideoSizeChangedListener(l == null ? null : (p,w,h) -> l.call(this,w,h)); }
-        public void setOnSeekCompleteListener(Seek l) { player.setOnSeekCompleteListener(l == null ? null : p -> l.call(this)); }
-        public void setOnCompletionListener(Completion l) { player.setOnCompletionListener(l == null ? null : p -> l.call(this)); }
-        public void setOnErrorListener(Error l) { player.setOnErrorListener(l == null ? null : (p,w,e) -> l.call(this,w,e)); }
+        public void setOnVideoSizeChangedListener(Size l) { player.setOnVideoSizeChangedListener(l == null ? null : (p,w,h) -> { if (!released && p == player) l.call(this,w,h); }); }
+        public void setOnSeekCompleteListener(Seek l) { player.setOnSeekCompleteListener(l == null ? null : p -> { if (!released && p == player) l.call(this); }); }
+        public void setOnCompletionListener(Completion l) { player.setOnCompletionListener(l == null ? null : p -> { if (!released && p == player) l.call(this); }); }
+        public void setOnErrorListener(Error l) { player.setOnErrorListener(l == null ? null : (p,w,e) -> released || p != player || l.call(this,w,e)); }
         public void setSubtitleListener(Subtitles l) { subtitles=l; }
         public List<SubtitleTrack> getSubtitleTracks() { return tracks; }
         private void refreshTracks() {
@@ -143,7 +144,8 @@ interface TvPlaybackEngine {
             private Error error;
             private Subtitles subtitles;
             private List<SubtitleTrack> tracks = Collections.emptyList();
-            private boolean preparedSent, pendingSeek, released;
+            private boolean preparedSent, released;
+            private final TvSeekReceipt seekReceipt = new TvSeekReceipt();
 
             CompatibleEngine(Context context) {
                 androidx.media3.exoplayer.DefaultRenderersFactory renderers =
@@ -177,33 +179,44 @@ interface TvPlaybackEngine {
             public void setAudioStreamType(int stream) { }
             public void setDisplay(SurfaceHolder holder) { player.setVideoSurfaceHolder(holder); }
             public void setDataSource(String url) {
-                preparedSent=false; pendingSeek=false;
+                preparedSent=false; seekReceipt.reset();
                 player.setMediaItem(androidx.media3.common.MediaItem.fromUri(url));
             }
             public void prepareAsync() { player.prepare(); }
             public void start() { player.play(); }
             public void pause() { player.pause(); }
             public void release() {
-                released=true; pendingSeek=false; subtitles=null; tracks=Collections.emptyList(); main.removeCallbacksAndMessages(null);
+                released=true; seekReceipt.reset(); subtitles=null; tracks=Collections.emptyList(); main.removeCallbacksAndMessages(null);
                 player.removeListener(this); player.release();
             }
             public void setVolume(float left,float right) { player.setVolume(Math.max(0f,Math.min(1f,(left+right)/2f))); }
             public void setSpeed(float speed) { player.setPlaybackSpeed(speed); }
             public void seekTo(long position) {
-                pendingSeek=true; player.seekTo(position);
-                main.post(this::finishReadySeek);
+                final long ticket = seekReceipt.begin(position);
+                if (player.getPlaybackState() == androidx.media3.common.Player.STATE_READY)
+                    seekReceipt.alreadyAt(player.getCurrentPosition(), player.getDuration());
+                player.seekTo(Math.max(0L, position));
+                main.post(() -> { if (seekReceipt.current(ticket)) finishReadySeek(); });
             }
             private void finishReadySeek() {
-                if (!released && pendingSeek && player.getPlaybackState()==androidx.media3.common.Player.STATE_READY) finishSeek();
+                if (released) return;
+                int state = player.getPlaybackState();
+                if (seekReceipt.complete(state == androidx.media3.common.Player.STATE_READY
+                        || state == androidx.media3.common.Player.STATE_ENDED,
+                        player.getCurrentPosition(), player.getDuration()) && seek != null) seek.call(this);
             }
-            private void finishSeek() {
-                if (!pendingSeek) return;
-                pendingSeek=false;
-                if (seek!=null) seek.call(this);
+            @Override public void onPositionDiscontinuity(androidx.media3.common.Player.PositionInfo oldPosition,
+                    androidx.media3.common.Player.PositionInfo newPosition, int reason) {
+                if (released) return;
+                if (reason == androidx.media3.common.Player.DISCONTINUITY_REASON_SEEK
+                        || reason == androidx.media3.common.Player.DISCONTINUITY_REASON_SEEK_ADJUSTMENT) {
+                    seekReceipt.acknowledge(newPosition.positionMs, player.getDuration());
+                    finishReadySeek();
+                }
             }
             public int getCurrentPosition() { return time(player.getCurrentPosition()); }
             public int getDuration() { return time(player.getDuration()); }
-            private int time(long value) { return (int) Math.min(Integer.MAX_VALUE,Math.max(0,value)); }
+            private int time(long value) { return value < 0L ? -1 : (int) Math.min(Integer.MAX_VALUE,value); }
             public int getVideoWidth() { return player.getVideoSize().width; }
             public int getVideoHeight() { return player.getVideoSize().height; }
             @Override public void onVideoSizeChanged(androidx.media3.common.VideoSize value) {
@@ -240,7 +253,7 @@ interface TvPlaybackEngine {
                     preparedSent=true;
                     if (prepared!=null) prepared.call(this);
                 } else if (state==androidx.media3.common.Player.STATE_ENDED) {
-                    finishSeek();
+                    finishReadySeek();
                     if (!released && completion!=null) completion.call(this);
                 }
             }

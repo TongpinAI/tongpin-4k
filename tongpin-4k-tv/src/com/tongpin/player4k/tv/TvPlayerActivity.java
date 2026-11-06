@@ -163,6 +163,7 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
                 failed = saved.getBoolean("failed", false);
                 completed = saved.getBoolean("completed", false);
                 retryFromStart = saved.getBoolean("retry_from_start", false);
+                knownDuration = Math.max(0, saved.getInt("known_duration", 0));
             }
             if (Build.VERSION.SDK_INT < 23) speed = 1f;
             if (live()) { position = 0L; completed = false; }
@@ -422,24 +423,19 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
         long carried = position;
         boolean wanted = playWhenReady;
         String oldToken = queueToken;
-        String previousUrl = urls[selected];
-        CatalogApi.Episode target = next.episodes.get(index);
-        int targetStream = CatalogApi.bestStream(target.streams);
-        boolean keepPlayer = !failed && carryPosition && player != null && prepared
-                && targetStream >= 0 && previousUrl.equals(target.streams.get(targetStream).url);
-        if (!keepPlayer) releasePlayer();
+        releasePlayer();
         queue = next; queueToken = token; readEpisode(index);
         if (manual) { autoSourceState.enter(queue, episodeName, live()); autoSourceState.manual(); }
         else autoSourceState.replaced(queue, episodeName);
         position = sourcePosition(next.video.provider.kind, carryPosition, carried, carryPosition ? 0L : restoredProgress());
-        if (!keepPlayer) knownDuration = 0;
+        if (!carryPosition) knownDuration = 0;
         failed = completed = retryFromStart = false;
         playWhenReady = wanted;
         heading.setText(title); updateQualityButton(); updateNavigation();
         retryButton.setVisibility(View.GONE); playButton.setEnabled(true);
         getIntent().putExtra("queue_token", token).putExtra("queue_index", index).putExtra("resume_ms", position);
         if (oldToken != null && !oldToken.equals(token)) TvPlayQueue.delete(this, oldToken);
-        if (!keepPlayer) prepare();
+        prepare();
         showControls(true); updateResult();
     }
 
@@ -553,6 +549,7 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
         speedButton.setEnabled(!live() && Build.VERSION.SDK_INT >= 23);
         autoButton.setText("连播 · " + (autoNext() ? "开" : "关"));
         autoButton.setEnabled(!live());
+        retryButton.setEnabled(!busy());
         seekBackButton.setEnabled(!live()); seekForwardButton.setEnabled(!live());
     }
 
@@ -779,19 +776,22 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
                 public void unavailable(TvPlaybackEngine mp,String reason) { if (mp==player && !destroyed) { subtitleError=reason; updateSubtitle(""); } }
             });
             candidate.setOnVideoSizeChangedListener((mp, w, h) -> {
-                if (mp != player) return;
+                if (mp != player || generation != playbackGeneration) return;
                 updateResolution(w, h);
             });
             candidate.setOnPreparedListener(mp -> {
-                if (mp != player || !foreground || !surfaceReady) return;
+                if (mp != player || generation != playbackGeneration || !foreground || !surfaceReady) return;
                 prepared = true;
                 main.removeCallbacks(timeout);
                 try {
                     updateResolution(mp.getVideoWidth(), mp.getVideoHeight());
                 } catch (RuntimeException unavailable) { fail("无法读取视频信息，请重试或选择其他画质。", false); return; }
                 playButton.setEnabled(true);
-                retryButton.setVisibility(View.GONE);
-                long clamped = resumePosition(position, duration(), false);
+                retryButton.setText("重新加载"); retryButton.setVisibility(View.VISIBLE);
+                int preparedDuration = 0;
+                try { preparedDuration = mp.getDuration(); } catch (RuntimeException unavailable) { }
+                knownDuration = TvPlaybackClock.duration(knownDuration, preparedDuration);
+                long clamped = TvPlaybackClock.preparedPosition(position, preparedDuration);
                 if (clamped != position) { position = clamped; saveProgress(); }
                 updateNavigation();
                 if (position > 0) requestSeek(position, false); else startWanted();
@@ -799,7 +799,7 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
                 compareAutomaticSource(false);
             });
             candidate.setOnSeekCompleteListener(mp -> {
-                if (mp != player || !seeking || !seekState.inFlight()) return;
+                if (mp != player || generation != playbackGeneration || !seeking || !seekState.inFlight()) return;
                 seeking = false;
                 main.removeCallbacks(timeout);
                 boolean last = seekState.complete(SystemClock.uptimeMillis());
@@ -808,7 +808,7 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
                 else flushSeek();
             });
             candidate.setOnCompletionListener(mp -> {
-                if (mp != player || seeking || seekState.dragging()
+                if (mp != player || generation != playbackGeneration || seeking || seekState.dragging()
                         || seekState.active() && seekState.target() < duration() - 1000L) return;
                 endHoldSpeed(false); updateSubtitle("");
                 seekState.reset(); main.removeCallbacks(commitSeek);
@@ -834,7 +834,7 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
                 }
             });
             candidate.setOnErrorListener((mp, what, extra) -> {
-                if (mp == player) fail("视频无法播放，可能是链接失效、网络错误或设备不支持该格式。", false);
+                if (mp == player && generation == playbackGeneration) fail("视频无法播放，可能是链接失效、网络错误或设备不支持该格式。", false);
                 return true;
             });
             candidate.setDataSource(urls[selected]);
@@ -912,8 +912,7 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
         seeking = true;
         try {
             player.seekTo(requested);
-            main.removeCallbacks(timeout);
-            main.postDelayed(timeout, 15000);
+            if (seeking) { main.removeCallbacks(timeout); main.postDelayed(timeout, 15000); }
             updateClock();
         } catch (RuntimeException error) { fail("该线路无法定位到播放进度，可从头重试或选择其他画质。", true); }
     }
@@ -980,7 +979,6 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
         qualityDialog = new AlertDialog.Builder(this).setTitle("选择解码方式")
                 .setSingleChoiceItems(new String[]{"系统解码（默认）", "兼容解码（软件优先，支持时自动回退）"}, decoderMode, (dialog, which) -> {
                     dialog.dismiss();
-                    if (which == decoderMode && !failed) return;
                     rememberPosition(); saveProgress();
                     boolean resume = playWhenReady;
                     releasePlayer();
@@ -1010,10 +1008,9 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
                     .setSingleChoiceItems(choices, selected, (dialog, which) -> {
                         dialog.dismiss();
                         autoSourceState.manual(); updateQualityButton();
-                        if (which == selected && !failed) return;
                         rememberPosition();
                         saveProgress();
-                        boolean resume = playWhenReady || failed;
+                        boolean resume = playWhenReady;
                         releasePlayer();
                         selected = which; failed = false; completed = false; retryFromStart = false;
                         playWhenReady = resume;
@@ -1046,12 +1043,12 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
     }
 
     private void retry() {
-        if (!valid) return;
+        if (!valid || busy()) return;
         cancelAutomaticSource();
         rememberPosition();
         releasePlayer();
         if (retryFromStart) position = 0L;
-        failed = false; completed = false; retryFromStart = false; playWhenReady = true;
+        failed = false; completed = false; retryFromStart = false;
         retryButton.setText("重试"); retryButton.setVisibility(View.GONE); playButton.setEnabled(true);
         prepare();
         showControls(true);
@@ -1084,7 +1081,7 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
     private void rememberPosition() {
         if (live()) { position = 0L; return; }
         if (player != null && prepared && !completed) {
-            try { position = seekState.observe(Math.max(0L, player.getCurrentPosition()), SystemClock.uptimeMillis()); }
+            try { position = TvPlaybackClock.position(position, seekState.observe(player.getCurrentPosition(), SystemClock.uptimeMillis())); }
             catch (RuntimeException ignored) { }
         }
     }
@@ -1092,9 +1089,9 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
     private int duration() {
         if (live()) return 0;
         if (player != null && prepared) {
-            try { knownDuration = Math.max(0, player.getDuration()); return knownDuration; } catch (RuntimeException ignored) { }
+            try { knownDuration = TvPlaybackClock.duration(knownDuration, player.getDuration()); return knownDuration; } catch (RuntimeException ignored) { }
         }
-        return 0;
+        return knownDuration;
     }
 
     private void updateClock() {
@@ -1303,6 +1300,7 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
         saved.putBoolean("play_when_ready", playWhenReady); saved.putBoolean("failed", failed);
         saved.putBoolean("completed", completed); saved.putBoolean("retry_from_start", retryFromStart);
         saved.putInt("queue_index", episodeIndex); saved.putFloat("speed", speed);
+        saved.putInt("known_duration", knownDuration);
         saved.putBoolean("auto_source_manual", autoSourceState.pinned());
         saved.putBoolean("auto_source_initial_used", autoSourceState.initialUsed());
         saved.putBoolean("auto_source_failure_used", autoSourceState.failureUsed());

@@ -36,7 +36,7 @@
 
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks$$ExternalSyntheticLambda1;->f$1:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks;->lambda$o$0$com-tongpin-player4k-catalog-OpenPlayerActivity$PlayerCallbacks(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks;->lambda$paused$0$com-tongpin-player4k-catalog-OpenPlayerActivity$PlayerCallbacks(Ljava/lang/String;)V
 
     return-void
 .end method

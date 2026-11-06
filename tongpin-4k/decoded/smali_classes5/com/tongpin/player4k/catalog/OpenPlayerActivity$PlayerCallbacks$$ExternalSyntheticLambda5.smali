@@ -9,11 +9,15 @@
 # instance fields
 .field public final synthetic f$0:Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks;
 
-.field public final synthetic f$1:Ljava/lang/String;
+.field public final synthetic f$1:I
+
+.field public final synthetic f$2:I
+
+.field public final synthetic f$3:I
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks;Ljava/lang/String;)V
+.method public synthetic constructor <init>(Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks;III)V
     .locals 0
 
     .line 0
@@ -21,7 +25,11 @@
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks$$ExternalSyntheticLambda5;->f$0:Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks;
 
-    iput-object p2, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks$$ExternalSyntheticLambda5;->f$1:Ljava/lang/String;
+    iput p2, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks$$ExternalSyntheticLambda5;->f$1:I
+
+    iput p3, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks$$ExternalSyntheticLambda5;->f$2:I
+
+    iput p4, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks$$ExternalSyntheticLambda5;->f$3:I
 
     return-void
 .end method
@@ -29,14 +37,18 @@
 
 # virtual methods
 .method public final run()V
-    .locals 2
+    .locals 4
 
     .line 0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks$$ExternalSyntheticLambda5;->f$0:Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks;
 
-    iget-object v1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks$$ExternalSyntheticLambda5;->f$1:Ljava/lang/String;
+    iget v1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks$$ExternalSyntheticLambda5;->f$1:I
 
-    invoke-virtual {v0, v1}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks;->lambda$d$0$com-tongpin-player4k-catalog-OpenPlayerActivity$PlayerCallbacks(Ljava/lang/String;)V
+    iget v2, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks$$ExternalSyntheticLambda5;->f$2:I
+
+    iget v3, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks$$ExternalSyntheticLambda5;->f$3:I
+
+    invoke-virtual {v0, v1, v2, v3}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks;->lambda$c$1$com-tongpin-player4k-catalog-OpenPlayerActivity$PlayerCallbacks(III)V
 
     return-void
 .end method

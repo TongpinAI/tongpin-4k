@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "verdict": "clear: emitted private-session native bindings and release/fullscreen/error routing match the bundled GSY ABI",
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/OwnSessionPlayer.java": "b2f32e61d14f2780b13e632101c24d207ed31cd9fc6e0d8cad846f67a55d5de0",
+    "open-sources/src/com/tongpin/player4k/catalog/DecoderPolicy.java": "2661861317545198218759d274c128b790b8044715d26150eebcceedd1537944"
+  },
+  "workspace_sources": false,
+  "device_tested": false,
+  "stage_directory": "open-sources/staging-1.4.1-r1",
+  "stage_compile_report_sha256": "a12c685771aa6577e821ccf618adccd4f9724d55d63fd568d670c8de519e6345",
+  "stage_dex_sha256": "6251084a8141526164afb35ed3d5916501c1713590b72833e15f320c4d570d34",
+  "evidence_sha256": {
+    "ui/playback-fix-1.4.1/native-stage-binding-check.json": "b480218130de569a6e682490578324fa69bf427a00d094a71302e6341c674687",
+    "ui/playback-fix-1.4.1/native-binding-checker-tests.json": "60564dfd81de384240af72f14ae256c37aba5a6336b5280f86a29e558fea8b82",
+    "ui/playback-fix-1.4.1/native-abi-contract.json": "f605e6e36e51810091d9d5181d13521bc185a89560c6805341d6136e5b208492",
+    "open-sources/integration/check_native_bindings_1410.py": "9a69cd89a30993ac4ca4beaa7a8d1d7d0e1b981edbb2f2f62740f955c6a9d93c"
+  },
+  "checks": {
+    "all_field_accesses": 112,
+    "native_field_accesses": 15,
+    "all_method_invocations": 123,
+    "native_method_invocations": 64,
+    "overrides": 20,
+    "negative_checker_cases": 9
+  },
+  "notes": [
+    "Exact protected b field descriptor is k6.b$j; emitted calls use its public Handler ancestor, not the inaccessible concrete class.",
+    "The old epoch nulls listeners/cancels its queues before enqueueing release; it never clears the release message afterward.",
+    "Fullscreen reflection has public Context and Context/boxed Boolean constructors; manager sharing precedes super.cloneParams, and synchronous normalization closes old native orientation/HUD/pause-cover references.",
+    "Decoder errors are posted to the private epoch View listener with delivery-time closed/terminal guards. Base manager smart-codec rebuild is not invoked; View ignored +/-38 behavior is retained and genuine state7 freezes the checkpoint.",
+    "This is source/emitted-DEX inspection and checker regression evidence; it does not establish device decoding or screenshot reproduction."
+  ]
+}

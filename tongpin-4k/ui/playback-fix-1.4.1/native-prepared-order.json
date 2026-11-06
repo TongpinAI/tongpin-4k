@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "native_sha256": "b53a6775af840e4feb215cf082ff44dc33f104ae3dc8b737e91b5ad64b02175b",
+  "native_path": "decoded/smali_classes5/com/shuyu/gsyvideoplayer/video/base/GSYVideoView.smali",
+  "caller_sha256": "96a7d15de1c11dd9d0e78ec58226dce0ebb307e2f5a6c0653e7d75051dce4003",
+  "native_callback_runs_while_state1_before_native_start": true,
+  "single_view_post_after_native_callback": true,
+  "prepared_generation_allows_buffering_without_retry_loop": true,
+  "commit_still_refuses_buffering": true,
+  "generation_url_foreground_and_cancellation_guards": true,
+  "same_decoder_resume_does_not_repeat_native_saved_position_seek": true,
+  "stable_ready_attaches_subtitles": true,
+  "explicit_current_restore_clamps_without_history_completion": true,
+  "device_tested": false
+}

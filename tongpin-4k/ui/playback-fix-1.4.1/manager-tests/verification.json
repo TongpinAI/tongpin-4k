@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "assertions": 18,
+  "source_sha256": {
+    "open-sources/tests/fixtures/playback141/android/os/Handler.java": "238a9d347076571df808a265d3f383e346da0fec00b18a5eb3a02134a393bc91",
+    "open-sources/tests/fixtures/playback141/android/os/SystemClock.java": "169797ecb3b769874fabbe6e064948acbceb797ebb128453d9f60eef8506a675",
+    "open-sources/tests/fixtures/playback141/k6/b.java": "7430a1c09a5137cd82aac14997756602ae6846efeef5bd22e40d799ebc403aad",
+    "open-sources/tests/src/com/tongpin/player4k/catalog/OwnEpochManagerTest.java": "ef13e22011d8bf035d6e203dbd73e3167998901ff293e1f6e004edf0f2819996",
+    "open-sources/src/com/tongpin/player4k/catalog/OwnSessionPlayer.java": "b2f32e61d14f2780b13e632101c24d207ed31cd9fc6e0d8cad846f67a55d5de0",
+    "open-sources/src/com/tongpin/player4k/catalog/PlaybackSession.java": "7be1384fc5c872075b15b15f1cd5dd52f2f321552ea357af4a97ea169e8631e1",
+    "open-sources/src/com/tongpin/player4k/catalog/DecoderPolicy.java": "2661861317545198218759d274c128b790b8044715d26150eebcceedd1537944"
+  },
+  "actual_owned_manager_executed": true,
+  "native_boundary_is_host_fake": true,
+  "android_handler_is_host_fake": true,
+  "activity_constructed": false,
+  "device_tested": false,
+  "cases": [
+    "raw native clocks returned unchanged; checkpoint survives zero",
+    "ignored38/-38 do not lock session",
+    "no private smart same-manager rebuild",
+    "only confirmed View error freezes checkpoint",
+    "old command/event queues cleared before exactly one release",
+    "closed manager never rebinds listener",
+    "old late callbacks cannot hit replacement",
+    "decoder completion is terminal before posted UI completion"
+  ]
+}

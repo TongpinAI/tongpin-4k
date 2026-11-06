@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "factory": [
+    "Lcom/tongpin/player4k/tv/TvPlaybackEngine$-CC;",
+    "create(Landroid/content/Context;I)Lcom/tongpin/player4k/tv/TvPlaybackEngine;"
+  ],
+  "sdk_branch_checks": {
+    "21": {
+      "guarded_call_reachable": false,
+      "legacy_call_reachable": false
+    },
+    "22": {
+      "guarded_call_reachable": false,
+      "legacy_call_reachable": false
+    },
+    "23": {
+      "guarded_call_reachable": true,
+      "legacy_call_reachable": false
+    },
+    "25": {
+      "guarded_call_reachable": true,
+      "legacy_call_reachable": false
+    },
+    "26": {
+      "guarded_call_reachable": true,
+      "legacy_call_reachable": false
+    },
+    "35": {
+      "guarded_call_reachable": true,
+      "legacy_call_reachable": false
+    }
+  },
+  "all_media3_references_isolated": true,
+  "software_selector_verified": true
+}

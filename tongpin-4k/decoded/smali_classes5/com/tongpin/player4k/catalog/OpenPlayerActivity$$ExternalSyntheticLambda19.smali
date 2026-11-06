@@ -3,7 +3,7 @@
 .source "D8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/concurrent/Executor;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
@@ -24,13 +24,13 @@
 
 
 # virtual methods
-.method public final execute(Ljava/lang/Runnable;)V
+.method public final run()V
     .locals 1
 
     .line 0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda19;->f$0:Lcom/tongpin/player4k/catalog/OpenPlayerActivity;
 
-    invoke-virtual {v0, p1}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->lambda$onCreate$0$com-tongpin-player4k-catalog-OpenPlayerActivity(Ljava/lang/Runnable;)V
+    invoke-static {v0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->$r8$lambda$I2b4WZP18n9Bq8CWvPz0z8OlM3k(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;)V
 
     return-void
 .end method

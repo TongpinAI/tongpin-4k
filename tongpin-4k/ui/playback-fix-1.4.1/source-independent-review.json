@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "verdict": "clear: explicit reload owns a new decoder epoch and preserves valid checkpoint without accepting stale callbacks",
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/OpenPlayerActivity.java": "96a7d15de1c11dd9d0e78ec58226dce0ebb307e2f5a6c0653e7d75051dce4003",
+    "open-sources/src/com/tongpin/player4k/catalog/PlaybackSession.java": "7be1384fc5c872075b15b15f1cd5dd52f2f321552ea357af4a97ea169e8631e1"
+  },
+  "reviewed_paths": [
+    "playAt/replacement",
+    "same-episode manual and automatic source changes",
+    "failed/retry",
+    "saveProgress and live exclusion",
+    "pause/resume and prepared readiness",
+    "completion and pending automatic cancellation"
+  ],
+  "independent_checkpoints_assertions": 30,
+  "full_graph_source_hashes_verified": 33,
+  "checks": [
+    "Transient zero/unknown native clock does not erase a positive checkpoint; explicit seek0 remains supported.",
+    "Source changes read the actual current checkpoint, retain pause intent and speed, and replace a used decoder even when URL is unchanged.",
+    "Retired owner plus generation and URL guards reject stale callbacks; retry uses the same fresh-session path.",
+    "Ready actions require actual native ready/paused state; subtitles attach after readiness, and current restore clamps without applying history completion policy.",
+    "Normal automatic candidates cannot revive completed/failed epochs; only bounded explicit error recovery accepts failed checkpoints.",
+    "Same-core foreground resume does not repeat native saved-position seek; live playback remains without VOD checkpoint."
+  ],
+  "owner_test_assertions": 551,
+  "device_tested": false,
+  "activity_constructed": false,
+  "limitations": [
+    "Host checkpoint execution and source review do not establish native hardware playback or identify the screenshot blur origin."
+  ]
+}

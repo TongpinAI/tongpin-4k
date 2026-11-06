@@ -57,9 +57,10 @@ public final class OpenPlayerActivity extends Activity {
     private String[] urls, labels;
     private int[] widths, heights;
     private int selected;
-    private StandardGSYVideoPlayer player;
+    private OwnSessionPlayer player;
+    private AspectBox playerBox;
     private OrientationUtils orientation;
-    private TextView actual, error, heading, credits, automaticStatus;
+    private TextView actual, error, heading, credits, automaticStatus, restoring;
     private Button quality, lower;
     private LinearLayout recovery;
     private boolean fullscreen, foreground = true, resumeAfterPause, destroying;
@@ -84,6 +85,8 @@ public final class OpenPlayerActivity extends Activity {
     private final Runnable applyAutomatic = this::applyAutomatic;
     private Runnable preparedAutomaticStart;
     private int automaticPreparedGeneration = -1;
+    private int readyAppliedGeneration = -1, failedGeneration = -1;
+    private boolean restoreFullscreen;
 
     @Override protected void onCreate(Bundle state) {
         super.onCreate(state);
@@ -191,7 +194,7 @@ public final class OpenPlayerActivity extends Activity {
             try {
                 DecoderPolicy.select(this, true);
                 GSYVideoType.setShowType(aspect);
-                player = new StandardGSYVideoPlayer(this);
+                player = new OwnSessionPlayer(this);
                 player.setIsTouchWiget(true);
                 player.setIsTouchWigetFull(true);
                 player.setNeedLockFull(true);
@@ -199,10 +202,10 @@ public final class OpenPlayerActivity extends Activity {
                 player.setShowFullAnimation(false);
                 orientation = new OrientationUtils(this, player);
                 orientation.setEnable(false);
-                AspectBox box = new AspectBox();
-                box.setBackgroundColor(0xff000000);
-                box.addView(player, new FrameLayout.LayoutParams(-1, -1));
-                body.addView(box, new LinearLayout.LayoutParams(-1, -2));
+                playerBox = new AspectBox();
+                playerBox.setBackgroundColor(0xff000000);
+                playerBox.addView(player, new FrameLayout.LayoutParams(-1, -1));
+                body.addView(playerBox, new LinearLayout.LayoutParams(-1, -2));
                 player.getFullscreenButton().setOnClickListener(view -> enterFullscreen());
                 player.getBackButton().setOnClickListener(view -> onBackPressed());
                 sizeControls(player);
@@ -235,6 +238,7 @@ public final class OpenPlayerActivity extends Activity {
         information.setPadding(dp(16), 0, dp(16), 0);
         automaticStatus = text(live() ? "直播 · 实时播放" : autoSession.manual() ? "本集保持手动选择" : "自动选源 · 4K优先，其次1080p", 13, SECONDARY);
         information.addView(automaticStatus);
+        restoring = text("", 13, SECONDARY); restoring.setVisibility(View.GONE); information.addView(restoring);
         information.addView(error);
         information.addView(recovery);
         credits = text(credit, 14, SECONDARY); credits.setVisibility(credit.isEmpty() ? View.GONE : View.VISIBLE);
@@ -253,9 +257,9 @@ public final class OpenPlayerActivity extends Activity {
     private void play(int index, boolean keepPosition) {
         if (player == null || destroying || index < 0 || index >= urls.length) return;
         if (keepPosition) {
-            long current = Math.max(0, player.getCurrentPlayer().getCurrentPositionWhenPlaying());
-            if (current > 0) position = current;
+            rememberPosition();
         } else position = 0;
+        pauseOnPrepared = !playWanted();
         playAt(index, position);
     }
 
@@ -267,6 +271,7 @@ public final class OpenPlayerActivity extends Activity {
         position = carryPosition(live(), false, resumeAt);
         transitioning = true;
         ++playGeneration;
+        final int generation = playGeneration;
         updateNavigation();
         selected = index;
         error.setVisibility(View.GONE);
@@ -275,19 +280,75 @@ public final class OpenPlayerActivity extends Activity {
         quality.setText(hasQualityChoices(urls) ? "画质 · " + qualityLabel(index) : "单一播放线路");
         quality.setContentDescription(hasQualityChoices(urls) ? "选择播放画质，当前选项：" + qualityLabel(index) : "此集仅提供一个播放选项，实际画质见画面内尺寸");
         try {
-            GSYBaseVideoPlayer current = player.getCurrentPlayer();
-            current.release();
             DecoderPolicy.select(this, true); decoderReloadPending = false;
-            current.setVideoAllCallBack(new PlayerCallbacks(playGeneration));
+            if (player.used() || player.failedEpoch()) replacePlayer();
+            final OwnSessionPlayer owner = player;
+            final String url = urls[index];
+            player.configure(position, live(), new OwnSessionPlayer.Events() {
+                public void state(OwnSessionPlayer source, int state) {
+                    owner.post(() -> {
+                        if (!ownsEpoch(owner, source, generation, url)) return;
+                        if (state == 2 || state == 5) automaticAfterPrepared(generation, url);
+                        else if (state == 7) failed();
+                    });
+                }
+                public void restart(OwnSessionPlayer source) {
+                    owner.post(() -> {
+                        if (ownsEpoch(owner, source, generation, url)) play(selected, true);
+                    });
+                }
+            });
+            GSYBaseVideoPlayer current = player.getCurrentPlayer();
+            current.setVideoAllCallBack(new PlayerCallbacks(playGeneration, owner));
             if (!current.setUp(urls[index], false, title)) {
                 failed();
                 return;
             }
             current.setSeekOnStart(position);
+            autoPlayIntent = !pauseOnPrepared;
+            restoring.setText(position > 0L ? "正在恢复至 " + clockLabel(position) + "…" : "正在准备当前选集…");
+            restoring.setVisibility(View.VISIBLE);
             current.startPlayLogic();
         } catch (RuntimeException | LinkageError unsupported) {
             failed();
         }
+    }
+
+    private boolean ownsEpoch(OwnSessionPlayer owner, OwnSessionPlayer source, int generation, String url) {
+        return !destroying && player == owner && owner.sameEpoch(source) && generation == playGeneration
+                && urls != null && selected >= 0 && selected < urls.length && urls[selected].equals(url);
+    }
+    private void replacePlayer() {
+        OwnSessionPlayer old = player;
+        restoreFullscreen |= fullscreen || old.getCurrentPlayer() != old;
+        if (orientation != null) { orientation.setEnable(false); orientation.releaseListener(); }
+        old.retire(); fullscreen = false; normalSystemBars();
+        playerBox.removeView(old);
+        player = new OwnSessionPlayer(this);
+        player.setIsTouchWiget(!live()); player.setIsTouchWigetFull(!live());
+        player.setNeedLockFull(true); player.setRotateViewAuto(true); player.setShowFullAnimation(false);
+        orientation = new OrientationUtils(this, player); orientation.setEnable(false);
+        playerBox.addView(player, new FrameLayout.LayoutParams(-1, -1));
+        player.getFullscreenButton().setOnClickListener(view -> enterFullscreen());
+        player.getBackButton().setOnClickListener(view -> onBackPressed());
+        sizeControls(player);
+        actual = PlaybackResolution.badge(player); actual.setVisibility(View.GONE);
+    }
+    private void rememberPosition() {
+        if (player == null || live()) { if (live()) position = 0L; return; }
+        try { player.getCurrentPlayer().getCurrentPositionWhenPlaying(); }
+        catch (RuntimeException | LinkageError unavailable) { }
+        position = player.checkpoint().position();
+    }
+    private boolean playWanted() {
+        if (player == null) return autoPlayIntent;
+        int state = player.getCurrentPlayer().getCurrentState();
+        return state == 2 || state == 3 || state == 5 ? LegacySourceBridge.wantsPlay(player.getCurrentPlayer()) : autoPlayIntent;
+    }
+    static String clockLabel(long milliseconds) {
+        long seconds = Math.max(0L, milliseconds) / 1000L;
+        return seconds >= 3600L ? String.format(Locale.ROOT, "%d:%02d:%02d", seconds / 3600L, seconds / 60L % 60L, seconds % 60L)
+                : String.format(Locale.ROOT, "%02d:%02d", seconds / 60L, seconds % 60L);
     }
 
     private void chooseQuality() {
@@ -353,8 +414,7 @@ public final class OpenPlayerActivity extends Activity {
         if (live()) { position = 0L; return; }
         try {
             GSYBaseVideoPlayer current = player.getCurrentPlayer();
-            long actualPosition = current.getCurrentPositionWhenPlaying();
-            if (actualPosition > 0) position = actualPosition;
+            rememberPosition();
             long saved = resumePosition(position, current.getDuration(), completed);
             String key = queue.progressKey(episodeIndex);
             SharedPreferences prefs = getSharedPreferences("tongpin_progress", MODE_PRIVATE);
@@ -545,10 +605,13 @@ public final class OpenPlayerActivity extends Activity {
     }
 
     private void failed() {
-        if (destroying) return;
+        if (destroying || failedGeneration == playGeneration) return;
+        failedGeneration = playGeneration;
+        rememberPosition();
         boolean recover = autoSession.failureAllowed(SystemClock.uptimeMillis());
         if (!recover) autoSession.suppressFailure();
         HoldSpeedControls.reset(this); SubtitleControls.stateChanged(player, 7);
+        player.failEpoch();
         transitioning = false;
         updateNavigation();
         keepScreenOn(false);
@@ -558,6 +621,8 @@ public final class OpenPlayerActivity extends Activity {
         error.setText(playbackErrorText(urls == null ? 0 : urls.length));
         error.setVisibility(View.VISIBLE);
         recovery.setVisibility(View.VISIBLE);
+        restoring.setVisibility(View.GONE);
+        if (position > 0L) error.append(" 已保留 " + clockLabel(position) + "，重试或换源后继续。");
         cancelAutomatic();
         if (recover) startAutomatic(true);
     }
@@ -595,7 +660,7 @@ public final class OpenPlayerActivity extends Activity {
         fullscreen = false;
         try {
             if (orientation != null) orientation.backToProtVideo();
-            k6.c.C(this);
+            if (player != null) player.window();
         } catch (RuntimeException | LinkageError cleanupFailed) {
             Toast.makeText(this, "全屏不可用，请返回片库重试", Toast.LENGTH_SHORT).show();
             finish();
@@ -624,7 +689,7 @@ public final class OpenPlayerActivity extends Activity {
         HoldSpeedControls.reset(this);
         autoSession.quiet(SystemClock.uptimeMillis(), 1500L);
         if (orientation != null) orientation.backToProtVideo();
-        k6.c.C(this);
+        if (player != null) player.window();
         fullscreen = false;
         SubtitleControls.attach(player);
         normalSystemBars();
@@ -632,7 +697,7 @@ public final class OpenPlayerActivity extends Activity {
 
     @Override public void onBackPressed() {
         if (fullscreen) leaveFullscreen();
-        else if (!k6.c.C(this)) super.onBackPressed();
+        else if (player == null || !player.window()) super.onBackPressed();
     }
 
     @Override public void onConfigurationChanged(Configuration config) {
@@ -666,13 +731,17 @@ public final class OpenPlayerActivity extends Activity {
         super.onResume();
         foreground = true;
         if (player != null && resumeAfterPause) {
-            player.getCurrentPlayer().onVideoResume();
+            // The same decoder retains its position; native's saved mCurrentPosition may still be zero during restore.
+            player.getCurrentPlayer().onVideoResume(false);
             keepScreenOn(true);
             if (orientation != null) orientation.setEnable(true);
         }
         resumeAfterPause = false;
         if (player != null) SubtitleControls.resume(this, player);
-        if (player != null) startAutomatic(player.getCurrentPlayer().getCurrentState() == 7);
+        if (player != null) {
+            if (player.getCurrentPlayer().getCurrentState() == 7) startAutomatic(true);
+            else if (automaticPreparedGeneration == playGeneration) automaticAfterPrepared(playGeneration, urls[selected]);
+        }
     }
 
     @Override protected void onDestroy() {
@@ -683,7 +752,7 @@ public final class OpenPlayerActivity extends Activity {
         if (isFinishing()) saveProgress(false);
         destroying = true;
         keepScreenOn(false);
-        if (player != null) k6.c.E();
+        if (player != null) player.retire();
         if (orientation != null) orientation.releaseListener();
         GSYVideoType.setShowType(GSYVideoType.SCREEN_TYPE_DEFAULT);
         if (isFinishing() && queueToken != null) PlayQueue.delete(this, queueToken);
@@ -709,8 +778,7 @@ public final class OpenPlayerActivity extends Activity {
         autoSession.touch(false, SystemClock.uptimeMillis());
         cancelAutomatic();
         if (player != null) {
-            long current = player.getCurrentPlayer().getCurrentPositionWhenPlaying();
-            if (current > 0) position = resumePosition(current, player.getCurrentPlayer().getDuration(), false);
+            rememberPosition();
         }
         state.putInt("queue_index", episodeIndex); state.putInt("selected", selected);
         state.putLong("position", live() ? 0L : position); state.putFloat("speed", speed); state.putInt("aspect", aspect);
@@ -765,8 +833,9 @@ public final class OpenPlayerActivity extends Activity {
                     if (destroying || !foreground || token != sourceGeneration || playback != playGeneration) {
                         PlayQueue.delete(this, nextToken); return;
                     }
-                    final boolean paused = !LegacySourceBridge.wantsPlay(player.getCurrentPlayer());
-                    long currentPosition = player.getCurrentPlayer().getCurrentPositionWhenPlaying();
+                    final boolean paused = !playWanted();
+                    rememberPosition();
+                    long currentPosition = position;
                     boolean targetLive = CatalogApi.liveProvider(nextQueue.video == null ? null : nextQueue.video.provider);
                     long resume = sameEpisode ? carryPosition(live(), targetLive, currentPosition > 0 ? currentPosition : position) : -1L;
                     saveProgress(false);
@@ -828,6 +897,7 @@ public final class OpenPlayerActivity extends Activity {
     private void startAutomatic(boolean failure) {
         if (destroying || !foreground || player == null || queue == null || queue.video == null || live()
                 || autoSelector == null || providers.isEmpty()) return;
+        if (!player.checkpoint().permitsAutomatic(failure)) return;
         int state = player.getCurrentPlayer().getCurrentState();
         if (failure ? state != 7 : !AutoSourceSession.preparedReady(state, automaticPreparedGeneration == playGeneration)) return;
         final long ticket = autoSession.begin(failure);
@@ -861,7 +931,7 @@ public final class OpenPlayerActivity extends Activity {
                             preparingSource = preparingAutomatic = false;
                             if (sourceWriteOwner == writeOwner) sourceWriteOwner = null;
                             pendingAuto = new PendingAuto(result, chosen, saved, original, originalEpisode, generation,
-                                    ticket, SystemClock.uptimeMillis() + 15000L);
+                                    ticket, SystemClock.uptimeMillis() + 15000L, failure);
                             applyAutomatic();
                         });
                     } catch (Exception unavailable) {
@@ -890,11 +960,39 @@ public final class OpenPlayerActivity extends Activity {
                         || selected >= urls.length || !urls[selected].equals(url)) { preparedAutomaticStart = null; return; }
                 int state = player.getCurrentPlayer().getCurrentState();
                 preparedAutomaticStart = null;
+                if (automaticPreparedGeneration == generation && (state == 2 || state == 5)) readyPlayback(generation, url);
                 if (AutoSourceSession.preparedReady(state, automaticPreparedGeneration == generation)) startAutomatic(false);
             }
         };
         // Native onPrepared invokes i while still preparing; View.post runs after its state transition.
         player.post(preparedAutomaticStart);
+    }
+
+    private void readyPlayback(final int generation, final String url) {
+        if (destroying || !foreground || generation != playGeneration || player.checkpoint().terminal()) return;
+        GSYBaseVideoPlayer current = player.getCurrentPlayer();
+        if (current.getCurrentState() != 2 && current.getCurrentState() != 5) return;
+        // First subtitle attach must follow the actual native state transition, not callback i(state1).
+        SubtitleControls.attach(player);
+        if (readyAppliedGeneration == generation) return;
+        readyAppliedGeneration = generation;
+        transitioning = false; updateNavigation(); applySpeed();
+        long target = PlaybackSession.clamp(position, current.getDuration());
+        if (target != position) { position = target; current.seekTo(target); }
+        boolean paused = pauseOnPrepared || !autoPlayIntent; pauseOnPrepared = false;
+        if (paused) current.onVideoPause();
+        restoring.setVisibility(View.GONE);
+        keepScreenOn(!paused); orientation.setEnable(true);
+        showDimensions();
+        final OwnSessionPlayer owner = player;
+        player.postDelayed(() -> { if (!destroying && generation == playGeneration && player == owner) showDimensions(); }, 500L);
+        if (restoreFullscreen) {
+            restoreFullscreen = false;
+            player.post(() -> {
+                if (!destroying && foreground && player == owner && generation == playGeneration
+                        && urls != null && selected < urls.length && urls[selected].equals(url)) enterFullscreen();
+            });
+        }
     }
 
     private void scheduleAutomatic() {
@@ -910,6 +1008,7 @@ public final class OpenPlayerActivity extends Activity {
         if (destroying || !foreground || autoHandle == null || !autoHandle.isCurrent()
                 || choice.playback != playGeneration || !autoSession.current(choice.ticket, choice.origin, choice.episode)
                 || now >= choice.expiry) { cancelAutomatic(); return; }
+        if (!player.checkpoint().permitsAutomatic(choice.recovery)) { cancelAutomatic(); return; }
         if (!autoSession.canCommit(choice.ticket, queue, episodeIndex, now, foreground, transitioning,
                 player.getCurrentPlayer().getCurrentState())) { scheduleAutomatic(); return; }
         int[] decoded = automaticDimensions();
@@ -917,9 +1016,9 @@ public final class OpenPlayerActivity extends Activity {
             cancelAutomatic(); automaticStatus.setText("保留当前片源 · 已有可用画质"); return;
         }
         GSYBaseVideoPlayer current = player.getCurrentPlayer();
-        boolean wanted = current.getCurrentState() == 7 ? autoPlayIntent : LegacySourceBridge.wantsPlay(current);
-        long actualPosition = Math.max(0L, current.getCurrentPositionWhenPlaying());
-        long resume = actualPosition > 0 ? actualPosition : position;
+        boolean wanted = playWanted();
+        rememberPosition();
+        long resume = position;
         saveProgress(false);
         String oldToken = queueToken;
         pendingAuto = null; player.removeCallbacks(applyAutomatic);
@@ -974,10 +1073,12 @@ public final class OpenPlayerActivity extends Activity {
         final String token;
         final int episode, playback;
         final long ticket, expiry;
+        final boolean recovery;
         PendingAuto(AutoSourceSelector.Recommendation result, PlayQueue queue, String token, PlayQueue origin,
-                    int episode, int playback, long ticket, long expiry) {
+                    int episode, int playback, long ticket, long expiry, boolean recovery) {
             this.result = result; this.queue = queue; this.token = token; this.origin = origin;
             this.episode = episode; this.playback = playback; this.ticket = ticket; this.expiry = expiry;
+            this.recovery = recovery;
         }
     }
 
@@ -1057,35 +1158,26 @@ public final class OpenPlayerActivity extends Activity {
     // The bundled VideoAllCallBack was renamed by R8; these names match its shipped ABI.
     private final class PlayerCallbacks implements m6.h {
         private final int generation;
-        PlayerCallbacks(int generation) { this.generation = generation; }
+        private final OwnSessionPlayer owner;
+        PlayerCallbacks(int generation, OwnSessionPlayer owner) { this.generation = generation; this.owner = owner; }
         private boolean current(String url) {
-            return !destroying && generation == playGeneration && urls != null && selected >= 0
+            return !destroying && player == owner && generation == playGeneration && urls != null && selected >= 0
                     && selected < urls.length && urls[selected].equals(url);
         }
         public void i(String url, Object... args) { runOnUiThread(() -> {
             if (!current(url)) return;
             automaticPreparedGeneration = generation;
-            transitioning = false; updateNavigation(); applySpeed();
-            if (foreground) SubtitleControls.attach(player);
-            long resume = resumePosition(position, player.getCurrentPlayer().getDuration(), false);
-            if (resume != position) { position = resume; player.getCurrentPlayer().seekTo(resume); saveProgress(true); }
-            showDimensions();
-            player.postDelayed(() -> showDimensions(), 500);
-            boolean paused = pauseOnPrepared; pauseOnPrepared = false;
-            if (foreground) autoPlayIntent = !paused;
-            if (!foreground || paused) player.getCurrentPlayer().onVideoPause();
-            keepScreenOn(foreground && !paused);
-            orientation.setEnable(foreground);
+            if (!foreground || pauseOnPrepared || !autoPlayIntent) player.getCurrentPlayer().onVideoPause();
             automaticAfterPrepared(generation, url);
         }); }
-        public void d(String url, Object... args) { runOnUiThread(() -> { if (current(url)) failed(); }); }
+        public void d(String url, Object... args) { owner.post(() -> { if (current(url)) failed(); }); }
         public void f(String url, Object... args) { runOnUiThread(() -> {
-            if (destroying) return;
+            if (!current(url)) return;
             HoldSpeedControls.reset(OpenPlayerActivity.this);
             fullscreen = false; orientation.backToProtVideo(); SubtitleControls.attach(player); normalSystemBars();
         }); }
         public void u(String url, Object... args) { runOnUiThread(() -> {
-            if (!destroying) {
+            if (current(url)) {
                 try { prepareFullscreen(player.getCurrentPlayer()); }
                 catch (RuntimeException | LinkageError unavailable) { fullscreenFailed(); }
             }
@@ -1108,11 +1200,13 @@ public final class OpenPlayerActivity extends Activity {
                         expectedEpisode, episodeIndex, queue.episodes.size())) changeEpisode(next); else updateNavigation();
             });
         }); }
-        public void l(String url, Object... args) { HoldSpeedControls.reset(OpenPlayerActivity.this); if (current(url)) SubtitleControls.stateChanged(player, 0); keepScreenOn(false); }
-        public void j(String url, Object... args) { HoldSpeedControls.reset(OpenPlayerActivity.this); if (current(url) && foreground) { autoPlayIntent = false; SubtitleControls.stateChanged(player, 5); } keepScreenOn(false); }
-        public void w(String url, Object... args) { HoldSpeedControls.reset(OpenPlayerActivity.this); if (current(url) && foreground) { autoPlayIntent = false; SubtitleControls.stateChanged(player, 5); } keepScreenOn(false); }
-        public void o(String url, Object... args) { keepScreenOn(foreground); player.post(() -> { if (current(url)) { if (foreground) { autoPlayIntent = true; SubtitleControls.attach(player); } applyPendingDecoder(); } }); }
-        public void v(String url, Object... args) { keepScreenOn(foreground); player.post(() -> { if (current(url)) { if (foreground) { autoPlayIntent = true; SubtitleControls.attach(player); } applyPendingDecoder(); } }); }
+        public void l(String url, Object... args) { runOnUiThread(() -> { if (current(url)) { HoldSpeedControls.reset(OpenPlayerActivity.this); SubtitleControls.stateChanged(player, 0); keepScreenOn(false); } }); }
+        public void j(String url, Object... args) { paused(url); }
+        public void w(String url, Object... args) { paused(url); }
+        private void paused(String url) { runOnUiThread(() -> { if (current(url)) { HoldSpeedControls.reset(OpenPlayerActivity.this); if (foreground) { autoPlayIntent = false; SubtitleControls.stateChanged(player, 5); } keepScreenOn(false); } }); }
+        public void o(String url, Object... args) { resumed(url); }
+        public void v(String url, Object... args) { resumed(url); }
+        private void resumed(String url) { runOnUiThread(() -> { if (!current(url)) return; keepScreenOn(foreground); player.post(() -> { if (current(url)) { if (foreground) { autoPlayIntent = true; SubtitleControls.attach(player); } applyPendingDecoder(); } }); }); }
         public void a(String url, Object... args) {}
         public void b(String url, Object... args) {}
         public void e(String url, Object... args) {}

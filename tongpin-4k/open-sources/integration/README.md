@@ -1,3 +1,11 @@
+# Current integration: 1.4.1 / 1410
+
+Playback reload uses an app-owned GSY subclass and a private manager for each decoder epoch; no inherited native smali is patched. `ui_1410_contract.py` permits exactly two modified and two added own sources, six changed compile-only declarations and one new declaration, version-only resources and the unchanged28-provider registry. It pins the signed140 r2 APK, historical evidence, fresh33-Java stage, host/native-boundary tests, actual native field/override checker, guarded SDK APIs and independent source/tool reviews. Formal promotion requires all reviews; `verify(promotion=False)` permits an unpromoted read-only preflight. Canonical decoder DEX: `open-sources/staging-1.4.1-r1/own-classes.dex`.
+
+The previous sections are historical documentation.
+
+---
+
 # Current integration: 1.4.0 / 1400
 
 The current release changes only own catalogue/player Java and version metadata. The 139 native smali, resources (except the exact version string), launcher and28-provider asset remain pinned. `ui_1400_contract.py` checks the139 APK hash, bounded native/resource inventory, exact two changed and three new own Java files, owner/independent review hashes, canonical fresh staging DEX, actual bundled ABI, guarded framework API references and unchanged139 evidence. Formal integration requires `promotion_ready=true`; no device acceptance is implied. The new integration entry is `integrate_1_4_0.py` and evidence is `verification/1.4.0/`.

@@ -1,0 +1,42 @@
+{
+  "passed": true,
+  "version_name": "1.4.1",
+  "version_code": 1410,
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/OpenPlayerActivity.java": "96a7d15de1c11dd9d0e78ec58226dce0ebb307e2f5a6c0653e7d75051dce4003",
+    "open-sources/src/com/tongpin/player4k/catalog/DecoderPolicy.java": "2661861317545198218759d274c128b790b8044715d26150eebcceedd1537944",
+    "open-sources/src/com/tongpin/player4k/catalog/OwnSessionPlayer.java": "b2f32e61d14f2780b13e632101c24d207ed31cd9fc6e0d8cad846f67a55d5de0",
+    "open-sources/src/com/tongpin/player4k/catalog/PlaybackSession.java": "7be1384fc5c872075b15b15f1cd5dd52f2f321552ea357af4a97ea169e8631e1"
+  },
+  "stub_sha256": {
+    "open-sources/toolchain/stubs/com/shuyu/gsyvideoplayer/player/IjkPlayerManager.java": "4df97c8bac7a5d08b6e7326a4b89bc712673adc1ec92e45c32a87570707b7b6a",
+    "open-sources/toolchain/stubs/com/shuyu/gsyvideoplayer/player/IPlayerManager.java": "c5d45c40f2b7dc484e7297f47eeed63f0858411a84771ff6443b9e7eefac1c48",
+    "open-sources/toolchain/stubs/com/shuyu/gsyvideoplayer/player/PlayerFactory.java": "6b7a03399536f022bdd8e46f8a34de35407004800f969721fb3052938dcd607a",
+    "open-sources/toolchain/stubs/com/shuyu/gsyvideoplayer/utils/GSYVideoType.java": "9c19f3330671f13d2b46351c5f744f435d5e35879ccd428916ad31bd97c85847",
+    "open-sources/toolchain/stubs/com/shuyu/gsyvideoplayer/utils/OrientationUtils.java": "141c865aa84202cb0dd692e1f392ca75b84840bd1e8390c9340b950bb5464daf",
+    "open-sources/toolchain/stubs/com/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer.java": "041f529dcf7e2c659efe64837e9f14ce22e1bd4b3d0cac22b4743393afb977a0",
+    "open-sources/toolchain/stubs/com/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer.java": "cfa50f3b1c0cf0fd7e14238c3a5750c3ef7cb3ba61ac37ac74ddb7874d323704",
+    "open-sources/toolchain/stubs/com/shuyu/gsyvideoplayer/video/base/GSYTextureRenderView.java": "f438a02157ab163fba92b004b8fe78fa357ce32356b167dc9facb11593cfa48d",
+    "open-sources/toolchain/stubs/com/shuyu/gsyvideoplayer/video/base/GSYVideoControlView.java": "b7e1f059067e484fa710492424cc4e14fd98253ca88bb404ab8cf0de1de11f56",
+    "open-sources/toolchain/stubs/com/shuyu/gsyvideoplayer/video/base/GSYVideoView.java": "bf969b8b09c2ae696e9052c704f977ec77a2a6dc615763f1d72588bf05ce8d89",
+    "open-sources/toolchain/stubs/com/shuyu/gsyvideoplayer/video/base/GSYVideoViewBridge.java": "bb0698aa17be8a4b7b18fe7d4231c657b3b4969096cb8f64e9b1a71fe051eadd",
+    "open-sources/toolchain/stubs/k6/b.java": "8e338a2c189d3b86f3aad539405f1607ef560fac2cbc1f9a1acfc0c4c1f91048",
+    "open-sources/toolchain/stubs/k6/c.java": "63bab928293ca0a4024a6e341758fbca39d94466fb955b40cd345c3867b4f431",
+    "open-sources/toolchain/stubs/m6/a.java": "0cc446a7af044dbc769ed4f222e9b3ba77eba90db8fa3a8fa127ca3c361f853f",
+    "open-sources/toolchain/stubs/m6/h.java": "aabd677594713f692896acf4f6a99033cd7c48bd33ecda671f3cea36b54abdaa",
+    "open-sources/toolchain/stubs/n6/c.java": "6d3d40901c468daf3a61d764c73e0fd272e6de6559358d98e4949e03654dcd9e",
+    "open-sources/toolchain/stubs/tv/danmaku/ijk/media/exo2/Exo2PlayerManager.java": "c3be876ba6a22cbdc3a4e733fb773db6346702b3bf9f5fc5c13b70380b9157b5",
+    "open-sources/toolchain/stubs/tv/danmaku/ijk/media/player/IMediaPlayer.java": "1cb7f8d780e2c2fade139bc391f4f4d595261e22e4175c1bd36dc2183ab36bb5"
+  },
+  "tests": {
+    "ui/playback-fix-1.4.1/tests/verification.json": "8b377690b886d3eceb842f522e6fb04b5a36b4cafc1430ec6ebc0b08e22cd78b",
+    "ui/playback-fix-1.4.1/manager-tests/verification.json": "9b603630a3c985254ea115d48acb3f02e558043f66c6aa99cde28171278d9a6c",
+    "ui/playback-fix-1.4.1/native-prepared-order.json": "aa16c72aa4f15d02a55d6c6116f8614aa64fea4b0582e1e0778e12c477fc0dcf"
+  },
+  "host_assertions": 551,
+  "all33_java_compiled": true,
+  "native_core_untouched": true,
+  "provider_registry_untouched": true,
+  "source_order_rules_untouched": true,
+  "device_tested": false
+}

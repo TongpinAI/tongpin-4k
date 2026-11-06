@@ -30,7 +30,7 @@
     .line 0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda20;->f$0:Lcom/tongpin/player4k/catalog/OpenPlayerActivity;
 
-    invoke-virtual {v0, p1, p2}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->lambda$onCreate$1$com-tongpin-player4k-catalog-OpenPlayerActivity(Landroid/view/View;Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
+    invoke-virtual {v0, p1, p2}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->lambda$prepareFullscreen$0$com-tongpin-player4k-catalog-OpenPlayerActivity(Landroid/view/View;Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
 
     move-result-object p1
 

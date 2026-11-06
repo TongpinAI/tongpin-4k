@@ -1,0 +1,44 @@
+{
+  "passed": true,
+  "verdict": "clear",
+  "source_sha256": {
+    "build_tongpin.py": "c583177d7902ff0eeccfdbab7f00f9128a2f47b1d6c9b367f5632eb8741eaf78",
+    "open-sources/integration/DisassembleOwn1410.java": "fbe5cd77f80adeac708d2f46c3bfa2f4fb1be7f68efdfcbb6f7f3d35b7d53981",
+    "open-sources/integration/assert_contract.py": "28083030ebb06c4c7f31224f2750b478ae797e25becd88dc74851f839a73394b",
+    "open-sources/integration/audit_final_ui_api_1410.py": "4a0004d654866b6e3685e6b5b44a5bcd88dcfb277e408eca621fedf21b312460",
+    "open-sources/integration/check_native_bindings_1410.py": "9a69cd89a30993ac4ca4beaa7a8d1d7d0e1b981edbb2f2f62740f955c6a9d93c",
+    "open-sources/integration/check_timer_dex_1410.py": "e04dff24351c6767510fa14936ac609a13bca580f70a0fcf83923788781941a8",
+    "open-sources/integration/integrate_1_4_1.py": "3ada1df15494b8fa269974ef668722f232fedf593fd0a758b70d0ca3e707f422",
+    "open-sources/integration/ui_1410_contract.py": "2aeb6033551060a5b1690d7066dbce1f8ca587e62249404b64fd90ab6fa05286",
+    "open-sources/toolchain/check_framework_api.py": "91209f30753abd8ea244655bd98762d4e0590c173dae2e842367d82559a61905",
+    "open-sources/toolchain/compile_java_to_smali.py": "b1b855f38294ecb7d392980b917f8fa17eaae77496c3bd1fcd961e557574cc9c",
+    "verification/1.4.1/proof-tools/DisassembleOwn1410.class": "99a4c1a1f1c3265eb2c35552320a3b556c595faf28f03acaf6c4762e21e3afdd"
+  },
+  "main_freeze_sha256_at_review": "155d7d72164604811f3374ae9f6caa990b00fae32321e381d5eca81db883a3b8",
+  "evidence": {
+    "ui/playback-fix-1.4.1/builder-gate-review-tests.py": "71940f6517690483666e179ac18f23ded011d407becee72242d532a66be2ef66",
+    "ui/playback-fix-1.4.1/builder-gate-review-tests.json": "cff9075fbe00d382bdefc97f2b6e6fb07793ba8c09d50ac65e4b53d1674ae9fe",
+    "ui/playback-fix-1.4.1/builder-native-checker-review-tests.json": "c61d061e4d68652ebbfce64da16ec506bdd7ed21f9e09d1da3762ba9b2ecc960",
+    "ui/playback-fix-1.4.1/native-binding-checker-tests.py": "abad3fdbc1e6e11ab5dab82365bf5d87a5d4ec4b23017fb9fb2cfcde9f668864",
+    "ui/playback-fix-1.4.1/native-binding-checker-tests.json": "60564dfd81de384240af72f14ae256c37aba5a6336b5280f86a29e558fea8b82"
+  },
+  "checks": [
+    "Actual verify(promotion=False) passes with current33Java/281-class canonical DEX, all native/resource/asset140 baselines, version-only XML, six changed/one new compile stub, four-source owner coverage and pinned test/stage evidence.",
+    "Nine in-memory negatives reject missing/wrong required pins, wrong previous stage, partial stage class map, unreviewed formal promotion and missing tool review coverage. Production/freeze files were not changed.",
+    "New native-binding checker independently read: exact descriptors, hierarchy, member visibility/static flags, protected receiver proofs, super receiver and override legality, and public Context/boxed-Boolean fullscreen constructors are checked against bundled native smali.",
+    "Ten author fixtures independently rerun in temporary output; an extra wrong invoke-super receiver is rejected. Canonical final281-class stage rechecked live:112field accesses,123invocations,20overrides, exact stage-own file hashes.",
+    "Canonical own DEX parsed as data: all281class descriptors match frozen own smali map and contain no compiled stub classes.",
+    "Integration mutation remains limited to the checked own namespace; native binding recheck is called for both stage and final reader. Final method equality/timer/decoder/native-hook/API guard readers retained; full final-Dex binding report is required by build_tongpin before success.",
+    "Published140 evidence retained; final signing uses default promotion=True gate after caller/source/tool reports are pinned."
+  ],
+  "negative_case_count": 9,
+  "native_binding_fixture_cases": 11,
+  "canonical_stage_dex_sha256": "6251084a8141526164afb35ed3d5916501c1713590b72833e15f320c4d570d34",
+  "fresh_java_source_count": 33,
+  "fresh_own_class_count": 281,
+  "scope": "Independent review of the eleven141 build/integration/proof tools only. Root owns caller/checkpoint source review; native agent owns session-view/decoder source review. Native binding checker algorithm and fixtures were independently reviewed here because its author cannot self-review it.",
+  "limitations": "The native binding checker is a narrow symbolic/access/linear receiver analysis, not a general Dalvik CFG/type verifier; real SDK/D8 compilation and final DEX whole-method/API comparisons remain required.",
+  "production_or_freeze_mutated": false,
+  "device_tested": false,
+  "runtime_playback_tested": false
+}

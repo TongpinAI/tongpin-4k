@@ -1,0 +1,104 @@
+{
+  "passed": true,
+  "checker_sha256": "9a69cd89a30993ac4ca4beaa7a8d1d7d0e1b981edbb2f2f62740f955c6a9d93c",
+  "author_fixture_source_sha256": "abad3fdbc1e6e11ab5dab82365bf5d87a5d4ec4b23017fb9fb2cfcde9f668864",
+  "author_fixture_cases_independently_rerun": 10,
+  "author_fixture_results": [
+    {
+      "name": "real native positive binding fixture",
+      "passed": true
+    },
+    {
+      "name": "wrong handler field descriptor",
+      "passed": true,
+      "rejection": "('com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager', '<init>()V', 'com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager', 'b:Landroid/os/Handler;', 'unresolved exact field descriptor')"
+    },
+    {
+      "name": "instance field accessed as static",
+      "passed": true,
+      "rejection": "('sget-object', 'com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager', 'b:Lk6/b$j;', 'field static mismatch')"
+    },
+    {
+      "name": "private native field",
+      "passed": true,
+      "rejection": "('com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager', 'k6/b', 'private member')"
+    },
+    {
+      "name": "protected field through base-typed receiver",
+      "passed": true,
+      "rejection": "('com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager', 'k6/b', 'Lk6/b;', 'unproven protected receiver')"
+    },
+    {
+      "name": "package-private handler invoke owner",
+      "passed": true,
+      "rejection": "('com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager', 'k6/b$j', 'inaccessible invoke class')"
+    },
+    {
+      "name": "instance method invoked statically",
+      "passed": true,
+      "rejection": "('invoke-static', 'k6/b', 'w(Ljava/util/List;)V', 'method static mismatch')"
+    },
+    {
+      "name": "narrowed public override",
+      "passed": true,
+      "rejection": "('com/tongpin/player4k/catalog/OwnSessionPlayer', 'getGSYVideoManager()Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoViewBridge;', 'narrows public override')"
+    },
+    {
+      "name": "missing boxed-Boolean reflection constructor",
+      "passed": true,
+      "rejection": "('fullscreen reflection', '<init>(Landroid/content/Context;Ljava/lang/Boolean;)V')"
+    },
+    {
+      "name": "nonpublic boxed-Boolean reflection constructor",
+      "passed": true,
+      "rejection": "('fullscreen reflection', '<init>(Landroid/content/Context;Ljava/lang/Boolean;)V')"
+    }
+  ],
+  "extra_invalid_super_receiver_rejected": "('com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager', 'getDuration()J', 'invalid super receiver')",
+  "actual_preflight_stage_binding": {
+    "passed": true,
+    "checked_field_accesses": 112,
+    "checked_invocations": 123,
+    "checked_overrides": 20,
+    "checked_native_field_accesses": 15,
+    "checked_native_invocations": 64,
+    "own_smali_sha256": {
+      "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager$$ExternalSyntheticLambda0.smali": "5cb59600de514610e59f119a2ee5d3cd28eccf0bb820c95d363c4534005d5aea",
+      "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager.smali": "5d43067bae5e320fe2bbeea2f33244bc4c271023576dfde208b672bd4ebb6f83",
+      "com/tongpin/player4k/catalog/OwnSessionPlayer$Events.smali": "b5241d9dba78a58ec5b019c1d32b2249aea6e101e5678a1ecbebbbfc58838cd6",
+      "com/tongpin/player4k/catalog/OwnSessionPlayer.smali": "c1056472b6d12bfab59f583c417028bca5f68bb3000fb477ee414da5774c74ee",
+      "com/tongpin/player4k/catalog/DecoderPolicy.smali": "7b288bc48fef7bdbe8d9f1f850bd154b85436e2f13aa30b6877ef8d4c683702b"
+    },
+    "native_source_sha256": {
+      "decoded/smali_classes5/com/shuyu/gsyvideoplayer/player/PlayerFactory.smali": "e3c68d3c81a76572b65d6559c96ca81a502d704d11d81501e1e7c11dc61e4554",
+      "decoded/smali_classes5/com/shuyu/gsyvideoplayer/utils/GSYAudioFocusManager$GSYAudioFocusListener.smali": "0b763c35f8747919b94d089d5c027dff7d6fac7505ccd9edee8364ea0a2a83c9",
+      "decoded/smali_classes5/com/shuyu/gsyvideoplayer/utils/GSYVideoType.smali": "eb97eacd6bf627b206e6f481d91438bbd92552c98834b2c26c97677d0f8f4bc6",
+      "decoded/smali_classes5/com/shuyu/gsyvideoplayer/utils/MeasureHelper$MeasureFormVideoParamsListener.smali": "6465bb791fbc62a4050d6445459d83c984fd9196b82e668e40f4eccdbacb8513",
+      "decoded/smali_classes5/com/shuyu/gsyvideoplayer/utils/OrientationUtils.smali": "887c7cd2d33467555419c8b1074dbef915ddfbff9684ba3f3f92ac89abfc0d5a",
+      "decoded/smali_classes5/com/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer.smali": "56a9dbc948f5f44f32f917e30bc34d4d898978a70219816c7bd47aab7503ac64",
+      "decoded/smali_classes5/com/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer.smali": "751cf22a1bc89ebfa2be9162f0543f59089f081063884a571bdbcbf29809deaa",
+      "decoded/smali_classes5/com/shuyu/gsyvideoplayer/video/base/GSYTextureRenderView.smali": "25ebd9450e808cc423a5a787284531c64a9208a645f8cc0dc094790bc1dc18ea",
+      "decoded/smali_classes5/com/shuyu/gsyvideoplayer/video/base/GSYVideoControlView.smali": "35d5bbf1226201cc9955764ad61bf50bdb8bec57660e307915d0f2f71e064f59",
+      "decoded/smali_classes5/com/shuyu/gsyvideoplayer/video/base/GSYVideoPlayer.smali": "626060259b92ec643f90919e2a8eada9ef4a0b900befa6bd81fe35ced30b8c64",
+      "decoded/smali_classes5/com/shuyu/gsyvideoplayer/video/base/GSYVideoView.smali": "b53a6775af840e4feb215cf082ff44dc33f104ae3dc8b737e91b5ad64b02175b",
+      "decoded/smali_classes5/com/shuyu/gsyvideoplayer/video/base/GSYVideoViewBridge.smali": "c3dc4667e4a93d6cf785e031bae35df5b1584927c7f1036ef6296e999a94eafb",
+      "decoded/smali_classes5/k6/b$j.smali": "5abf693b14382c1aa0631cc3c61b2e12d37a63a1033467f69cc8d22a726e8d33",
+      "decoded/smali_classes5/k6/b.smali": "5d2d7dc92adc33b5e354e5acdee719f94461bed059fdfad0ec1e113f6adc93d7",
+      "decoded/smali_classes5/k6/c.smali": "44409b93da6c037df28a7ab12dc669e4fadfe8acc6bf3651b3156b826f388834",
+      "decoded/smali_classes5/l6/b$a.smali": "bef1ace402001a4bc2d54d899e979e20c270dbc978dab10d6233a1c08b07b2e6",
+      "decoded/smali_classes5/m6/a.smali": "7cc2ce91b2818e60052c15b263a21404a578b8ffdaea56c4b8e604ba43b5ecda",
+      "decoded/smali_classes5/n6/c.smali": "0ce8d2b52f40fc9eb3abffe73b9fd016a6d25a5326e149c909e5ed6e34545cc8",
+      "decoded/smali_classes5/s6/c.smali": "826d3c207a8112178b99bebb6516419578b3fe531d1210e0c8b5b71405e2ac0c",
+      "decoded/smali_classes5/tv/danmaku/ijk/media/player/IMediaPlayer$OnBufferingUpdateListener.smali": "89f04d2d24806e4aa337454853986d848ab9c780bb99b087c85d2dd44a0dd33b",
+      "decoded/smali_classes5/tv/danmaku/ijk/media/player/IMediaPlayer$OnCompletionListener.smali": "192d8f99b84e13eb37ddff0b78ba42e4612df9310f4f96fc7ffef867833e72e5",
+      "decoded/smali_classes5/tv/danmaku/ijk/media/player/IMediaPlayer$OnErrorListener.smali": "e9dcb8b20766202599bf7cb2bc5610b82ef885146ec3cc652da6fc54093ac5f7",
+      "decoded/smali_classes5/tv/danmaku/ijk/media/player/IMediaPlayer$OnInfoListener.smali": "317864f75d054f17752aedc94cb6b0eb0a3c5fa167f74adec6279c2261ec49ae",
+      "decoded/smali_classes5/tv/danmaku/ijk/media/player/IMediaPlayer$OnPreparedListener.smali": "ea600468edd739cff3366357bac989abbcc0b219e1db7caa5ac0107a8dc1bd77",
+      "decoded/smali_classes5/tv/danmaku/ijk/media/player/IMediaPlayer$OnSeekCompleteListener.smali": "41a7260ac5130592cb4a9bd460ef58d4a7d60854d59f0e6828dfa591b746b216",
+      "decoded/smali_classes5/tv/danmaku/ijk/media/player/IMediaPlayer$OnVideoSizeChangedListener.smali": "616300dfc3bf7fde980bd165fa448e1d0d69020b759c574eb84ad01ea3c8d457"
+    }
+  },
+  "scope": "Independent algorithm/fixture replay and actual emitted native-session binding; final main-stage/pin gates reviewed separately. Real SDK compiler/final-Dex method comparison remain required; this narrow checker is not a general control-flow/Dex verifier.",
+  "production_files_mutated": false,
+  "device_tested": false
+}

@@ -1,0 +1,52 @@
+{
+  "passed": true,
+  "verdict": "clear: bounded TV136 build/version gate; 4 changed prior inputs plus 2 new helpers; no signing or device test by reviewer",
+  "source_sha256": {
+    "build_tv.py": "8f36f6b99154e93952a91999156a24f0e1c9e293e8d49c26e65db31d7587bfbe"
+  },
+  "reviewed_before_sha256": "3ab0125651f68fd2501ca30ce3722df00cfe29bd3a4eb8268651b10263e2eee7",
+  "reviewed_freeze_sha256": "d43057159d543cef4587f1e6ecb4d4b64eece74fc603203f5a160abef5efec06",
+  "input_count": 36,
+  "cases": [
+    {
+      "name": "current 36-input preflight contract",
+      "passed": true
+    },
+    {
+      "name": "unapproved final promotion",
+      "passed": true,
+      "rejection": ""
+    },
+    {
+      "name": "empty snapshot index set",
+      "passed": true,
+      "rejection": ""
+    },
+    {
+      "name": "wrong pinned snapshot hash",
+      "passed": true,
+      "rejection": "Snapshot index changed: before-snapshot.json"
+    },
+    {
+      "name": "missing owner freeze coverage",
+      "passed": true,
+      "rejection": "Changed source lacks owner freeze coverage"
+    },
+    {
+      "name": "wrong input digest",
+      "passed": true,
+      "rejection": "Inputs differ from reviewed playback-fix freeze"
+    },
+    {
+      "name": "final source reviews without builder review",
+      "passed": true,
+      "rejection": "Final source/tooling independent reviews are incomplete"
+    }
+  ],
+  "device_tested": false,
+  "review_notes": [
+    "Provider IDs/order and registry digest unchanged; Media3 closure, API21 guards and existing resource IDs retained.",
+    "Version-only inverse resource/manifest checks and exact changed/add input sets are enforced.",
+    "Promotion requires independent coverage of all four changed/new Java files and build_tv.py; owner and prior evidence bytes are hash checked."
+  ]
+}

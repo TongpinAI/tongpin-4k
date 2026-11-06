@@ -1,0 +1,58 @@
+{
+  "passed": true,
+  "scope": "checker regression fixtures against actual bundled native declarations; not production DEX/device",
+  "checker_sha256": "9a69cd89a30993ac4ca4beaa7a8d1d7d0e1b981edbb2f2f62740f955c6a9d93c",
+  "test_source_sha256": "abad3fdbc1e6e11ab5dab82365bf5d87a5d4ec4b23017fb9fb2cfcde9f668864",
+  "assertions": 10,
+  "cases": [
+    {
+      "name": "real native positive binding fixture",
+      "passed": true
+    },
+    {
+      "name": "wrong handler field descriptor",
+      "passed": true,
+      "rejection": "('com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager', '<init>()V', 'com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager', 'b:Landroid/os/Handler;', 'unresolved exact field descriptor')"
+    },
+    {
+      "name": "instance field accessed as static",
+      "passed": true,
+      "rejection": "('sget-object', 'com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager', 'b:Lk6/b$j;', 'field static mismatch')"
+    },
+    {
+      "name": "private native field",
+      "passed": true,
+      "rejection": "('com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager', 'k6/b', 'private member')"
+    },
+    {
+      "name": "protected field through base-typed receiver",
+      "passed": true,
+      "rejection": "('com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager', 'k6/b', 'Lk6/b;', 'unproven protected receiver')"
+    },
+    {
+      "name": "package-private handler invoke owner",
+      "passed": true,
+      "rejection": "('com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager', 'k6/b$j', 'inaccessible invoke class')"
+    },
+    {
+      "name": "instance method invoked statically",
+      "passed": true,
+      "rejection": "('invoke-static', 'k6/b', 'w(Ljava/util/List;)V', 'method static mismatch')"
+    },
+    {
+      "name": "narrowed public override",
+      "passed": true,
+      "rejection": "('com/tongpin/player4k/catalog/OwnSessionPlayer', 'getGSYVideoManager()Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoViewBridge;', 'narrows public override')"
+    },
+    {
+      "name": "missing boxed-Boolean reflection constructor",
+      "passed": true,
+      "rejection": "('fullscreen reflection', '<init>(Landroid/content/Context;Ljava/lang/Boolean;)V')"
+    },
+    {
+      "name": "nonpublic boxed-Boolean reflection constructor",
+      "passed": true,
+      "rejection": "('fullscreen reflection', '<init>(Landroid/content/Context;Ljava/lang/Boolean;)V')"
+    }
+  ]
+}

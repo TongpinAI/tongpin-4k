@@ -1,0 +1,656 @@
+--- 140/open-sources/src/com/tongpin/player4k/catalog/OpenPlayerActivity.java
++++ 141/open-sources/src/com/tongpin/player4k/catalog/OpenPlayerActivity.java
+@@ -57,9 +57,10 @@
+     private String[] urls, labels;
+     private int[] widths, heights;
+     private int selected;
+-    private StandardGSYVideoPlayer player;
++    private OwnSessionPlayer player;
++    private AspectBox playerBox;
+     private OrientationUtils orientation;
+-    private TextView actual, error, heading, credits, automaticStatus;
++    private TextView actual, error, heading, credits, automaticStatus, restoring;
+     private Button quality, lower;
+     private LinearLayout recovery;
+     private boolean fullscreen, foreground = true, resumeAfterPause, destroying;
+@@ -84,6 +85,8 @@
+     private final Runnable applyAutomatic = this::applyAutomatic;
+     private Runnable preparedAutomaticStart;
+     private int automaticPreparedGeneration = -1;
++    private int readyAppliedGeneration = -1, failedGeneration = -1;
++    private boolean restoreFullscreen;
+ 
+     @Override protected void onCreate(Bundle state) {
+         super.onCreate(state);
+@@ -191,7 +194,7 @@
+             try {
+                 DecoderPolicy.select(this, true);
+                 GSYVideoType.setShowType(aspect);
+-                player = new StandardGSYVideoPlayer(this);
++                player = new OwnSessionPlayer(this);
+                 player.setIsTouchWiget(true);
+                 player.setIsTouchWigetFull(true);
+                 player.setNeedLockFull(true);
+@@ -199,10 +202,10 @@
+                 player.setShowFullAnimation(false);
+                 orientation = new OrientationUtils(this, player);
+                 orientation.setEnable(false);
+-                AspectBox box = new AspectBox();
+-                box.setBackgroundColor(0xff000000);
+-                box.addView(player, new FrameLayout.LayoutParams(-1, -1));
+-                body.addView(box, new LinearLayout.LayoutParams(-1, -2));
++                playerBox = new AspectBox();
++                playerBox.setBackgroundColor(0xff000000);
++                playerBox.addView(player, new FrameLayout.LayoutParams(-1, -1));
++                body.addView(playerBox, new LinearLayout.LayoutParams(-1, -2));
+                 player.getFullscreenButton().setOnClickListener(view -> enterFullscreen());
+                 player.getBackButton().setOnClickListener(view -> onBackPressed());
+                 sizeControls(player);
+@@ -235,6 +238,7 @@
+         information.setPadding(dp(16), 0, dp(16), 0);
+         automaticStatus = text(live() ? "直播 · 实时播放" : autoSession.manual() ? "本集保持手动选择" : "自动选源 · 4K优先，其次1080p", 13, SECONDARY);
+         information.addView(automaticStatus);
++        restoring = text("", 13, SECONDARY); restoring.setVisibility(View.GONE); information.addView(restoring);
+         information.addView(error);
+         information.addView(recovery);
+         credits = text(credit, 14, SECONDARY); credits.setVisibility(credit.isEmpty() ? View.GONE : View.VISIBLE);
+@@ -253,9 +257,9 @@
+     private void play(int index, boolean keepPosition) {
+         if (player == null || destroying || index < 0 || index >= urls.length) return;
+         if (keepPosition) {
+-            long current = Math.max(0, player.getCurrentPlayer().getCurrentPositionWhenPlaying());
+-            if (current > 0) position = current;
++            rememberPosition();
+         } else position = 0;
++        pauseOnPrepared = !playWanted();
+         playAt(index, position);
+     }
+ 
+@@ -267,6 +271,7 @@
+         position = carryPosition(live(), false, resumeAt);
+         transitioning = true;
+         ++playGeneration;
++        final int generation = playGeneration;
+         updateNavigation();
+         selected = index;
+         error.setVisibility(View.GONE);
+@@ -275,19 +280,75 @@
+         quality.setText(hasQualityChoices(urls) ? "画质 · " + qualityLabel(index) : "单一播放线路");
+         quality.setContentDescription(hasQualityChoices(urls) ? "选择播放画质，当前选项：" + qualityLabel(index) : "此集仅提供一个播放选项，实际画质见画面内尺寸");
+         try {
++            DecoderPolicy.select(this, true); decoderReloadPending = false;
++            if (player.used() || player.failedEpoch()) replacePlayer();
++            final OwnSessionPlayer owner = player;
++            final String url = urls[index];
++            player.configure(position, live(), new OwnSessionPlayer.Events() {
++                public void state(OwnSessionPlayer source, int state) {
++                    owner.post(() -> {
++                        if (!ownsEpoch(owner, source, generation, url)) return;
++                        if (state == 2 || state == 5) automaticAfterPrepared(generation, url);
++                        else if (state == 7) failed();
++                    });
++                }
++                public void restart(OwnSessionPlayer source) {
++                    owner.post(() -> {
++                        if (ownsEpoch(owner, source, generation, url)) play(selected, true);
++                    });
++                }
++            });
+             GSYBaseVideoPlayer current = player.getCurrentPlayer();
+-            current.release();
+-            DecoderPolicy.select(this, true); decoderReloadPending = false;
+-            current.setVideoAllCallBack(new PlayerCallbacks(playGeneration));
++            current.setVideoAllCallBack(new PlayerCallbacks(playGeneration, owner));
+             if (!current.setUp(urls[index], false, title)) {
+                 failed();
+                 return;
+             }
+             current.setSeekOnStart(position);
++            autoPlayIntent = !pauseOnPrepared;
++            restoring.setText(position > 0L ? "正在恢复至 " + clockLabel(position) + "…" : "正在准备当前选集…");
++            restoring.setVisibility(View.VISIBLE);
+             current.startPlayLogic();
+         } catch (RuntimeException | LinkageError unsupported) {
+             failed();
+         }
++    }
++
++    private boolean ownsEpoch(OwnSessionPlayer owner, OwnSessionPlayer source, int generation, String url) {
++        return !destroying && player == owner && owner.sameEpoch(source) && generation == playGeneration
++                && urls != null && selected >= 0 && selected < urls.length && urls[selected].equals(url);
++    }
++    private void replacePlayer() {
++        OwnSessionPlayer old = player;
++        restoreFullscreen |= fullscreen || old.getCurrentPlayer() != old;
++        if (orientation != null) { orientation.setEnable(false); orientation.releaseListener(); }
++        old.retire(); fullscreen = false; normalSystemBars();
++        playerBox.removeView(old);
++        player = new OwnSessionPlayer(this);
++        player.setIsTouchWiget(!live()); player.setIsTouchWigetFull(!live());
++        player.setNeedLockFull(true); player.setRotateViewAuto(true); player.setShowFullAnimation(false);
++        orientation = new OrientationUtils(this, player); orientation.setEnable(false);
++        playerBox.addView(player, new FrameLayout.LayoutParams(-1, -1));
++        player.getFullscreenButton().setOnClickListener(view -> enterFullscreen());
++        player.getBackButton().setOnClickListener(view -> onBackPressed());
++        sizeControls(player);
++        actual = PlaybackResolution.badge(player); actual.setVisibility(View.GONE);
++    }
++    private void rememberPosition() {
++        if (player == null || live()) { if (live()) position = 0L; return; }
++        try { player.getCurrentPlayer().getCurrentPositionWhenPlaying(); }
++        catch (RuntimeException | LinkageError unavailable) { }
++        position = player.checkpoint().position();
++    }
++    private boolean playWanted() {
++        if (player == null) return autoPlayIntent;
++        int state = player.getCurrentPlayer().getCurrentState();
++        return state == 2 || state == 3 || state == 5 ? LegacySourceBridge.wantsPlay(player.getCurrentPlayer()) : autoPlayIntent;
++    }
++    static String clockLabel(long milliseconds) {
++        long seconds = Math.max(0L, milliseconds) / 1000L;
++        return seconds >= 3600L ? String.format(Locale.ROOT, "%d:%02d:%02d", seconds / 3600L, seconds / 60L % 60L, seconds % 60L)
++                : String.format(Locale.ROOT, "%02d:%02d", seconds / 60L, seconds % 60L);
+     }
+ 
+     private void chooseQuality() {
+@@ -353,8 +414,7 @@
+         if (live()) { position = 0L; return; }
+         try {
+             GSYBaseVideoPlayer current = player.getCurrentPlayer();
+-            long actualPosition = current.getCurrentPositionWhenPlaying();
+-            if (actualPosition > 0) position = actualPosition;
++            rememberPosition();
+             long saved = resumePosition(position, current.getDuration(), completed);
+             String key = queue.progressKey(episodeIndex);
+             SharedPreferences prefs = getSharedPreferences("tongpin_progress", MODE_PRIVATE);
+@@ -545,10 +605,13 @@
+     }
+ 
+     private void failed() {
+-        if (destroying) return;
++        if (destroying || failedGeneration == playGeneration) return;
++        failedGeneration = playGeneration;
++        rememberPosition();
+         boolean recover = autoSession.failureAllowed(SystemClock.uptimeMillis());
+         if (!recover) autoSession.suppressFailure();
+         HoldSpeedControls.reset(this); SubtitleControls.stateChanged(player, 7);
++        player.failEpoch();
+         transitioning = false;
+         updateNavigation();
+         keepScreenOn(false);
+@@ -558,6 +621,8 @@
+         error.setText(playbackErrorText(urls == null ? 0 : urls.length));
+         error.setVisibility(View.VISIBLE);
+         recovery.setVisibility(View.VISIBLE);
++        restoring.setVisibility(View.GONE);
++        if (position > 0L) error.append(" 已保留 " + clockLabel(position) + "，重试或换源后继续。");
+         cancelAutomatic();
+         if (recover) startAutomatic(true);
+     }
+@@ -595,7 +660,7 @@
+         fullscreen = false;
+         try {
+             if (orientation != null) orientation.backToProtVideo();
+-            k6.c.C(this);
++            if (player != null) player.window();
+         } catch (RuntimeException | LinkageError cleanupFailed) {
+             Toast.makeText(this, "全屏不可用，请返回片库重试", Toast.LENGTH_SHORT).show();
+             finish();
+@@ -624,7 +689,7 @@
+         HoldSpeedControls.reset(this);
+         autoSession.quiet(SystemClock.uptimeMillis(), 1500L);
+         if (orientation != null) orientation.backToProtVideo();
+-        k6.c.C(this);
++        if (player != null) player.window();
+         fullscreen = false;
+         SubtitleControls.attach(player);
+         normalSystemBars();
+@@ -632,7 +697,7 @@
+ 
+     @Override public void onBackPressed() {
+         if (fullscreen) leaveFullscreen();
+-        else if (!k6.c.C(this)) super.onBackPressed();
++        else if (player == null || !player.window()) super.onBackPressed();
+     }
+ 
+     @Override public void onConfigurationChanged(Configuration config) {
+@@ -666,13 +731,17 @@
+         super.onResume();
+         foreground = true;
+         if (player != null && resumeAfterPause) {
+-            player.getCurrentPlayer().onVideoResume();
++            // The same decoder retains its position; native's saved mCurrentPosition may still be zero during restore.
++            player.getCurrentPlayer().onVideoResume(false);
+             keepScreenOn(true);
+             if (orientation != null) orientation.setEnable(true);
+         }
+         resumeAfterPause = false;
+         if (player != null) SubtitleControls.resume(this, player);
+-        if (player != null) startAutomatic(player.getCurrentPlayer().getCurrentState() == 7);
++        if (player != null) {
++            if (player.getCurrentPlayer().getCurrentState() == 7) startAutomatic(true);
++            else if (automaticPreparedGeneration == playGeneration) automaticAfterPrepared(playGeneration, urls[selected]);
++        }
+     }
+ 
+     @Override protected void onDestroy() {
+@@ -683,7 +752,7 @@
+         if (isFinishing()) saveProgress(false);
+         destroying = true;
+         keepScreenOn(false);
+-        if (player != null) k6.c.E();
++        if (player != null) player.retire();
+         if (orientation != null) orientation.releaseListener();
+         GSYVideoType.setShowType(GSYVideoType.SCREEN_TYPE_DEFAULT);
+         if (isFinishing() && queueToken != null) PlayQueue.delete(this, queueToken);
+@@ -709,8 +778,7 @@
+         autoSession.touch(false, SystemClock.uptimeMillis());
+         cancelAutomatic();
+         if (player != null) {
+-            long current = player.getCurrentPlayer().getCurrentPositionWhenPlaying();
+-            if (current > 0) position = resumePosition(current, player.getCurrentPlayer().getDuration(), false);
++            rememberPosition();
+         }
+         state.putInt("queue_index", episodeIndex); state.putInt("selected", selected);
+         state.putLong("position", live() ? 0L : position); state.putFloat("speed", speed); state.putInt("aspect", aspect);
+@@ -765,8 +833,9 @@
+                     if (destroying || !foreground || token != sourceGeneration || playback != playGeneration) {
+                         PlayQueue.delete(this, nextToken); return;
+                     }
+-                    final boolean paused = !LegacySourceBridge.wantsPlay(player.getCurrentPlayer());
+-                    long currentPosition = player.getCurrentPlayer().getCurrentPositionWhenPlaying();
++                    final boolean paused = !playWanted();
++                    rememberPosition();
++                    long currentPosition = position;
+                     boolean targetLive = CatalogApi.liveProvider(nextQueue.video == null ? null : nextQueue.video.provider);
+                     long resume = sameEpisode ? carryPosition(live(), targetLive, currentPosition > 0 ? currentPosition : position) : -1L;
+                     saveProgress(false);
+@@ -828,6 +897,7 @@
+     private void startAutomatic(boolean failure) {
+         if (destroying || !foreground || player == null || queue == null || queue.video == null || live()
+                 || autoSelector == null || providers.isEmpty()) return;
++        if (!player.checkpoint().permitsAutomatic(failure)) return;
+         int state = player.getCurrentPlayer().getCurrentState();
+         if (failure ? state != 7 : !AutoSourceSession.preparedReady(state, automaticPreparedGeneration == playGeneration)) return;
+         final long ticket = autoSession.begin(failure);
+@@ -861,7 +931,7 @@
+                             preparingSource = preparingAutomatic = false;
+                             if (sourceWriteOwner == writeOwner) sourceWriteOwner = null;
+                             pendingAuto = new PendingAuto(result, chosen, saved, original, originalEpisode, generation,
+-                                    ticket, SystemClock.uptimeMillis() + 15000L);
++                                    ticket, SystemClock.uptimeMillis() + 15000L, failure);
+                             applyAutomatic();
+                         });
+                     } catch (Exception unavailable) {
+@@ -890,11 +960,39 @@
+                         || selected >= urls.length || !urls[selected].equals(url)) { preparedAutomaticStart = null; return; }
+                 int state = player.getCurrentPlayer().getCurrentState();
+                 preparedAutomaticStart = null;
++                if (automaticPreparedGeneration == generation && (state == 2 || state == 5)) readyPlayback(generation, url);
+                 if (AutoSourceSession.preparedReady(state, automaticPreparedGeneration == generation)) startAutomatic(false);
+             }
+         };
+         // Native onPrepared invokes i while still preparing; View.post runs after its state transition.
+         player.post(preparedAutomaticStart);
++    }
++
++    private void readyPlayback(final int generation, final String url) {
++        if (destroying || !foreground || generation != playGeneration || player.checkpoint().terminal()) return;
++        GSYBaseVideoPlayer current = player.getCurrentPlayer();
++        if (current.getCurrentState() != 2 && current.getCurrentState() != 5) return;
++        // First subtitle attach must follow the actual native state transition, not callback i(state1).
++        SubtitleControls.attach(player);
++        if (readyAppliedGeneration == generation) return;
++        readyAppliedGeneration = generation;
++        transitioning = false; updateNavigation(); applySpeed();
++        long target = PlaybackSession.clamp(position, current.getDuration());
++        if (target != position) { position = target; current.seekTo(target); }
++        boolean paused = pauseOnPrepared || !autoPlayIntent; pauseOnPrepared = false;
++        if (paused) current.onVideoPause();
++        restoring.setVisibility(View.GONE);
++        keepScreenOn(!paused); orientation.setEnable(true);
++        showDimensions();
++        final OwnSessionPlayer owner = player;
++        player.postDelayed(() -> { if (!destroying && generation == playGeneration && player == owner) showDimensions(); }, 500L);
++        if (restoreFullscreen) {
++            restoreFullscreen = false;
++            player.post(() -> {
++                if (!destroying && foreground && player == owner && generation == playGeneration
++                        && urls != null && selected < urls.length && urls[selected].equals(url)) enterFullscreen();
++            });
++        }
+     }
+ 
+     private void scheduleAutomatic() {
+@@ -910,6 +1008,7 @@
+         if (destroying || !foreground || autoHandle == null || !autoHandle.isCurrent()
+                 || choice.playback != playGeneration || !autoSession.current(choice.ticket, choice.origin, choice.episode)
+                 || now >= choice.expiry) { cancelAutomatic(); return; }
++        if (!player.checkpoint().permitsAutomatic(choice.recovery)) { cancelAutomatic(); return; }
+         if (!autoSession.canCommit(choice.ticket, queue, episodeIndex, now, foreground, transitioning,
+                 player.getCurrentPlayer().getCurrentState())) { scheduleAutomatic(); return; }
+         int[] decoded = automaticDimensions();
+@@ -917,9 +1016,9 @@
+             cancelAutomatic(); automaticStatus.setText("保留当前片源 · 已有可用画质"); return;
+         }
+         GSYBaseVideoPlayer current = player.getCurrentPlayer();
+-        boolean wanted = current.getCurrentState() == 7 ? autoPlayIntent : LegacySourceBridge.wantsPlay(current);
+-        long actualPosition = Math.max(0L, current.getCurrentPositionWhenPlaying());
+-        long resume = actualPosition > 0 ? actualPosition : position;
++        boolean wanted = playWanted();
++        rememberPosition();
++        long resume = position;
+         saveProgress(false);
+         String oldToken = queueToken;
+         pendingAuto = null; player.removeCallbacks(applyAutomatic);
+@@ -974,10 +1073,12 @@
+         final String token;
+         final int episode, playback;
+         final long ticket, expiry;
++        final boolean recovery;
+         PendingAuto(AutoSourceSelector.Recommendation result, PlayQueue queue, String token, PlayQueue origin,
+-                    int episode, int playback, long ticket, long expiry) {
++                    int episode, int playback, long ticket, long expiry, boolean recovery) {
+             this.result = result; this.queue = queue; this.token = token; this.origin = origin;
+             this.episode = episode; this.playback = playback; this.ticket = ticket; this.expiry = expiry;
++            this.recovery = recovery;
+         }
+     }
+ 
+@@ -1057,35 +1158,26 @@
+     // The bundled VideoAllCallBack was renamed by R8; these names match its shipped ABI.
+     private final class PlayerCallbacks implements m6.h {
+         private final int generation;
+-        PlayerCallbacks(int generation) { this.generation = generation; }
++        private final OwnSessionPlayer owner;
++        PlayerCallbacks(int generation, OwnSessionPlayer owner) { this.generation = generation; this.owner = owner; }
+         private boolean current(String url) {
+-            return !destroying && generation == playGeneration && urls != null && selected >= 0
++            return !destroying && player == owner && generation == playGeneration && urls != null && selected >= 0
+                     && selected < urls.length && urls[selected].equals(url);
+         }
+         public void i(String url, Object... args) { runOnUiThread(() -> {
+             if (!current(url)) return;
+             automaticPreparedGeneration = generation;
+-            transitioning = false; updateNavigation(); applySpeed();
+-            if (foreground) SubtitleControls.attach(player);
+-            long resume = resumePosition(position, player.getCurrentPlayer().getDuration(), false);
+-            if (resume != position) { position = resume; player.getCurrentPlayer().seekTo(resume); saveProgress(true); }
+-            showDimensions();
+-            player.postDelayed(() -> showDimensions(), 500);
+-            boolean paused = pauseOnPrepared; pauseOnPrepared = false;
+-            if (foreground) autoPlayIntent = !paused;
+-            if (!foreground || paused) player.getCurrentPlayer().onVideoPause();
+-            keepScreenOn(foreground && !paused);
+-            orientation.setEnable(foreground);
++            if (!foreground || pauseOnPrepared || !autoPlayIntent) player.getCurrentPlayer().onVideoPause();
+             automaticAfterPrepared(generation, url);
+         }); }
+-        public void d(String url, Object... args) { runOnUiThread(() -> { if (current(url)) failed(); }); }
++        public void d(String url, Object... args) { owner.post(() -> { if (current(url)) failed(); }); }
+         public void f(String url, Object... args) { runOnUiThread(() -> {
+-            if (destroying) return;
++            if (!current(url)) return;
+             HoldSpeedControls.reset(OpenPlayerActivity.this);
+             fullscreen = false; orientation.backToProtVideo(); SubtitleControls.attach(player); normalSystemBars();
+         }); }
+         public void u(String url, Object... args) { runOnUiThread(() -> {
+-            if (!destroying) {
++            if (current(url)) {
+                 try { prepareFullscreen(player.getCurrentPlayer()); }
+                 catch (RuntimeException | LinkageError unavailable) { fullscreenFailed(); }
+             }
+@@ -1108,11 +1200,13 @@
+                         expectedEpisode, episodeIndex, queue.episodes.size())) changeEpisode(next); else updateNavigation();
+             });
+         }); }
+-        public void l(String url, Object... args) { HoldSpeedControls.reset(OpenPlayerActivity.this); if (current(url)) SubtitleControls.stateChanged(player, 0); keepScreenOn(false); }
+-        public void j(String url, Object... args) { HoldSpeedControls.reset(OpenPlayerActivity.this); if (current(url) && foreground) { autoPlayIntent = false; SubtitleControls.stateChanged(player, 5); } keepScreenOn(false); }
+-        public void w(String url, Object... args) { HoldSpeedControls.reset(OpenPlayerActivity.this); if (current(url) && foreground) { autoPlayIntent = false; SubtitleControls.stateChanged(player, 5); } keepScreenOn(false); }
+-        public void o(String url, Object... args) { keepScreenOn(foreground); player.post(() -> { if (current(url)) { if (foreground) { autoPlayIntent = true; SubtitleControls.attach(player); } applyPendingDecoder(); } }); }
+-        public void v(String url, Object... args) { keepScreenOn(foreground); player.post(() -> { if (current(url)) { if (foreground) { autoPlayIntent = true; SubtitleControls.attach(player); } applyPendingDecoder(); } }); }
++        public void l(String url, Object... args) { runOnUiThread(() -> { if (current(url)) { HoldSpeedControls.reset(OpenPlayerActivity.this); SubtitleControls.stateChanged(player, 0); keepScreenOn(false); } }); }
++        public void j(String url, Object... args) { paused(url); }
++        public void w(String url, Object... args) { paused(url); }
++        private void paused(String url) { runOnUiThread(() -> { if (current(url)) { HoldSpeedControls.reset(OpenPlayerActivity.this); if (foreground) { autoPlayIntent = false; SubtitleControls.stateChanged(player, 5); } keepScreenOn(false); } }); }
++        public void o(String url, Object... args) { resumed(url); }
++        public void v(String url, Object... args) { resumed(url); }
++        private void resumed(String url) { runOnUiThread(() -> { if (!current(url)) return; keepScreenOn(foreground); player.post(() -> { if (current(url)) { if (foreground) { autoPlayIntent = true; SubtitleControls.attach(player); } applyPendingDecoder(); } }); }); }
+         public void a(String url, Object... args) {}
+         public void b(String url, Object... args) {}
+         public void e(String url, Object... args) {}
+--- 140/open-sources/src/com/tongpin/player4k/catalog/DecoderPolicy.java
++++ 141/open-sources/src/com/tongpin/player4k/catalog/DecoderPolicy.java
+@@ -43,6 +43,17 @@
+         if (useExo(mode(context), exoRoute)) PlayerFactory.setPlayManager(Exo2PlayerManager.class);
+         else PlayerFactory.setPlayManager(IjkPlayerManager.class);
+     }
++    /** Apply the same existing decoder options to a private playback epoch. */
++    static void configureFor(Context context, k6.b manager) {
++        int codec = codecValue(mode(context));
++        ArrayList<n6.c> options = new ArrayList<>();
++        options.add(new n6.c(4, "framedrop", 50));
++        options.add(new n6.c(4, "enable-accurate-seek", 1));
++        for (String key : CODECS) options.add(new n6.c(4, key, codec));
++        options.add(new n6.c(2, "skip_loop_filter", 48));
++        options.add(new n6.c(1, "dns_cache_clear", 1));
++        manager.w(options);
++    }
+     public static void choose(Activity activity, Runnable changed) {
+         if (activity.isFinishing() || activity.isDestroyed()) return;
+         new AlertDialog.Builder(activity).setTitle("解码方式")
+--- 140/open-sources/src/com/tongpin/player4k/catalog/OwnSessionPlayer.java
++++ 141/open-sources/src/com/tongpin/player4k/catalog/OwnSessionPlayer.java
+@@ -0,0 +1,154 @@
++package com.tongpin.player4k.catalog;
++
++import android.content.Context;
++import android.os.Handler;
++import android.os.SystemClock;
++import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer;
++import com.shuyu.gsyvideoplayer.video.base.GSYBaseVideoPlayer;
++import com.shuyu.gsyvideoplayer.video.base.GSYVideoViewBridge;
++import tv.danmaku.ijk.media.player.IMediaPlayer;
++
++/** A fresh view/manager per actual prepare; fullscreen shares only this decoder epoch. */
++public final class OwnSessionPlayer extends StandardGSYVideoPlayer {
++    interface Events {
++        void state(OwnSessionPlayer player, int state);
++        void restart(OwnSessionPlayer player);
++    }
++    private EpochManager manager;
++    private Events events;
++    private boolean retired;
++
++    public OwnSessionPlayer(Context context) { super(context); }
++    public OwnSessionPlayer(Context context, Boolean full) { super(context, full); }
++
++    private EpochManager epoch() {
++        if (manager == null) manager = new EpochManager(getContext());
++        return manager;
++    }
++    void configure(long resume, boolean live, Events events) {
++        this.events = events; epoch().clock.seed(resume, live);
++    }
++    PlaybackSession checkpoint() { return epoch().clock; }
++    boolean used() { return manager != null && manager.started; }
++    boolean owns(OwnSessionPlayer other) { return other != null && manager != null && other.manager == manager && !retired && !manager.closed; }
++    boolean sameEpoch(OwnSessionPlayer other) { return other != null && manager != null && other.manager == manager && !retired; }
++    boolean failedEpoch() { return manager != null && manager.clock.failedOrClosed(); }
++
++    @Override public GSYVideoViewBridge getGSYVideoManager() { return epoch(); }
++    @Override protected void releaseVideos() { if (manager != null) manager.releaseMediaPlayer(); }
++    @Override protected boolean backFromFull(Context context) { return window(); }
++    @Override protected void cloneParams(GSYBaseVideoPlayer from, GSYBaseVideoPlayer to) {
++        OwnSessionPlayer source = (OwnSessionPlayer) from, target = (OwnSessionPlayer) to;
++        EpochManager shared = source.epoch();
++        if (target.manager != null && target.manager != shared) target.manager.close();
++        target.manager = shared; target.events = source.events;
++        super.cloneParams(from, to);
++    }
++    @Override protected void prepareVideo() {
++        EpochManager current = epoch();
++        if (retired) return;
++        if (current.started || current.closed) {
++            if (events != null) events.restart(this);
++            return;
++        }
++        current.started = true;
++        super.prepareVideo();
++    }
++    @Override protected void setStateAndUi(int state) {
++        super.setStateAndUi(state);
++        if (state == 7 && manager != null) manager.clock.failed();
++        if (!retired && events != null && manager != null && !manager.closed) events.state(this, state);
++    }
++
++    /** No Handler-delayed fullscreen return may restore this view after its replacement. */
++    boolean window() {
++        GSYBaseVideoPlayer active = getCurrentPlayer();
++        if (active == this) return false;
++        cleanTransient();
++        if (active instanceof OwnSessionPlayer) ((OwnSessionPlayer) active).cleanTransient();
++        setShowFullAnimation(false);
++        backToNormal();
++        return true;
++    }
++    private void cleanTransient() {
++        setKeepScreenOn(false);
++        if (mInnerHandler != null) mInnerHandler.removeCallbacksAndMessages(null);
++        if (mOrientationUtils != null) { mOrientationUtils.setEnable(false); mOrientationUtils.releaseListener(); mOrientationUtils = null; }
++        dismissBrightnessDialog(); dismissProgressDialog(); dismissVolumeDialog();
++        mFullPauseBitmap = null;
++    }
++    void failEpoch() {
++        GSYBaseVideoPlayer active = getCurrentPlayer();
++        if (active instanceof OwnSessionPlayer) ((OwnSessionPlayer) active).setStateAndUi(7);
++        if (manager != null) manager.close();
++    }
++    void retire() {
++        if (retired) return;
++        OwnSessionPlayer active = getCurrentPlayer() instanceof OwnSessionPlayer ? (OwnSessionPlayer) getCurrentPlayer() : this;
++        events = null; active.events = null;
++        setVideoAllCallBack(null); active.setVideoAllCallBack(null);
++        window();
++        cleanTransient(); active.cleanTransient();
++        retired = true; active.retired = true;
++        if (manager != null) manager.close();
++        active.release();
++        if (active != this) release();
++        if (mTextureViewContainer != null) mTextureViewContainer.removeAllViews();
++        if (active != this && active.mTextureViewContainer != null) active.mTextureViewContainer.removeAllViews();
++    }
++
++    /** The shipped singleton does not retain decoder identity in posted events. Never reuse it here. */
++    static final class EpochManager extends k6.b {
++        final PlaybackSession clock = new PlaybackSession();
++        volatile boolean closed;
++        boolean started;
++        EpochManager(Context context) {
++            super(); l(); m(context); DecoderPolicy.configureFor(context, this);
++        }
++        void close() {
++            if (closed) return;
++            closed = true; clock.close();
++            super.setListener(null); super.setLastListener(null);
++            if (d != null) d.removeCallbacksAndMessages(null);
++            // b's actual descriptor is k6.b$j, not Handler; invoke only its public ancestor API.
++            Handler commands = b;
++            if (commands != null) commands.removeCallbacksAndMessages(null);
++            super.releaseMediaPlayer();
++        }
++        @Override public m6.a listener() { return closed ? null : super.listener(); }
++        @Override public m6.a lastListener() { return closed ? null : super.lastListener(); }
++        @Override public void setListener(m6.a listener) { if (!closed || listener == null) super.setListener(listener); }
++        @Override public void setLastListener(m6.a listener) { if (!closed || listener == null) super.setLastListener(listener); }
++        @Override public long getCurrentPosition() {
++            long actual = super.getCurrentPosition();
++            if (!closed) clock.observePosition(actual, SystemClock.uptimeMillis());
++            return actual;
++        }
++        @Override public long getDuration() {
++            long actual = super.getDuration();
++            if (!closed) clock.observeDuration(actual);
++            return actual;
++        }
++        @Override public void seekTo(long requested) {
++            if (closed || !clock.seekable()) return;
++            clock.observeDuration(super.getDuration());
++            super.seekTo(clock.seek(requested, SystemClock.uptimeMillis()));
++        }
++        @Override public void onPrepared(IMediaPlayer player) { if (!closed && !clock.terminal()) super.onPrepared(player); }
++        @Override public boolean onError(IMediaPlayer player, int what, int extra) {
++            if (closed || clock.terminal()) return true;
++            // Keep the existing View's ignored-error semantics, but never rebuild a hidden core in this epoch.
++            d.post(() -> {
++                if (closed || clock.terminal()) return;
++                m6.a target = listener();
++                if (target != null) target.onError(what, extra);
++            });
++            return true;
++        }
++        @Override public void onCompletion(IMediaPlayer player) { if (!closed && !clock.terminal()) { clock.complete(); super.onCompletion(player); } }
++        @Override public void onSeekComplete(IMediaPlayer player) { if (!closed && !clock.terminal()) { clock.seekComplete(super.getCurrentPosition(), SystemClock.uptimeMillis()); super.onSeekComplete(player); } }
++        @Override public void onBufferingUpdate(IMediaPlayer player, int percent) { if (!closed && !clock.terminal()) super.onBufferingUpdate(player, percent); }
++        @Override public boolean onInfo(IMediaPlayer player, int what, int extra) { return !closed && !clock.terminal() && super.onInfo(player, what, extra); }
++        @Override public void onVideoSizeChanged(IMediaPlayer player, int width, int height, int sarNum, int sarDen) { if (!closed && !clock.terminal()) super.onVideoSizeChanged(player, width, height, sarNum, sarDen); }
++    }
++}
+--- 140/open-sources/src/com/tongpin/player4k/catalog/PlaybackSession.java
++++ 141/open-sources/src/com/tongpin/player4k/catalog/PlaybackSession.java
+@@ -0,0 +1,55 @@
++package com.tongpin.player4k.catalog;
++
++/** One decoder epoch's memory checkpoint. Native clocks are observed, never rewritten. */
++final class PlaybackSession {
++    private long position, duration, pendingSeek = -1L, seekDeadline;
++    private boolean closed, failed, completed, live, seekAcknowledged;
++
++    synchronized void seed(long resume, boolean live) {
++        this.live = live; position = live ? 0L : Math.max(0L, resume);
++        duration = 0L; pendingSeek = -1L; completed = failed = false;
++        seekAcknowledged = false;
++    }
++    synchronized void observePosition(long actual, long now) {
++        observePosition(actual, now, true);
++    }
++    private void observePosition(long actual, long now, boolean allowSettledClock) {
++        if (closed || failed || completed || live || actual < 0L) return;
++        if (pendingSeek >= 0L) {
++            if (pendingSeek == 0L && actual != 0L && !seekAcknowledged) return;
++            boolean settled = allowSettledClock && now >= seekDeadline && actual > 0L && (pendingSeek > 0L || seekAcknowledged);
++            if (Math.abs(actual - pendingSeek) > 1500L && !settled) return;
++            pendingSeek = -1L;
++        }
++        if (actual > 0L || position == 0L) position = actual;
++    }
++    synchronized void observeDuration(long actual) { if (!closed && !failed && !completed && !live && actual > 0L) duration = actual; }
++    synchronized long seek(long requested, long now) {
++        if (closed || live) return 0L;
++        position = clamp(requested, duration); pendingSeek = position; completed = false;
++        seekAcknowledged = false;
++        seekDeadline = now > Long.MAX_VALUE - 4000L ? Long.MAX_VALUE : now + 4000L;
++        return position;
++    }
++    synchronized void seekComplete(long actual, long now) {
++        if (!closed && !failed && !completed) {
++            seekAcknowledged = true;
++            // An uncorrelated completion alone never releases a distant latest target.
++            observePosition(actual, now, false);
++        }
++    }
++    synchronized long position() { return live ? 0L : position; }
++    synchronized long duration() { return live ? 0L : duration; }
++    synchronized void failed() { failed = true; }
++    synchronized void complete() { completed = true; position = 0L; pendingSeek = -1L; }
++    synchronized boolean failedOrClosed() { return failed || closed; }
++    synchronized boolean completed() { return completed; }
++    synchronized boolean terminal() { return failed || closed || completed; }
++    synchronized boolean permitsAutomatic(boolean recovery) { return !completed && (recovery || !failed && !closed); }
++    synchronized boolean seekable() { return !live && !failed && !closed && !completed; }
++    synchronized void close() { closed = true; }
++    static long clamp(long position, long duration) {
++        long positive = Math.max(0L, position);
++        return duration > 0L ? Math.min(positive, duration - 1L) : positive;
++    }
++}

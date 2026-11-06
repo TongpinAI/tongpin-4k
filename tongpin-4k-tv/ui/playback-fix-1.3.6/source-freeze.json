@@ -1,0 +1,38 @@
+{
+  "passed": true,
+  "version": "1.3.6",
+  "version_code": 1306,
+  "source_sha256": {
+    "src/com/tongpin/player4k/tv/TvPlayerActivity.java": "1106f55a50122c188524f41166512e5af9b4783194bc12a15877ba8d5ebbfde9",
+    "src/com/tongpin/player4k/tv/TvPlaybackEngine.java": "d2db4899b70e31d70c9484913cf8c8bf93fd577af61ce1135e2782cc5b4f62bb",
+    "src/com/tongpin/player4k/tv/TvPlaybackClock.java": "9eb707090d0094782a5fbff7da90eb488fdef75ef77687437b1044302f97b813",
+    "src/com/tongpin/player4k/tv/TvSeekReceipt.java": "129e155b4f5097d4031950dec42e0516ffe3c4635af11ca44ff49761a283e2c5"
+  },
+  "reports": {
+    "ui/playback-fix-1.3.6/verification.json": "f25ce562578fd364c559643bec9d34906afc3480469c0feb232a5673129e91e2",
+    "ui/playback-fix-1.3.6/source-tests.log": "7ea093b4286c220dd2871cdfccba32c6f60a7554234efcefaf0bed42948d25c9",
+    "ui/playback-fix-1.3.6/tests/verify_sources.py": "6b38309c1b1797a6b629dc029455be4dc171b34b0fdec51226e2982433676445"
+  },
+  "assertions_total": 431,
+  "full_java_source_count": 24,
+  "modified_sources": [
+    "src/com/tongpin/player4k/tv/TvPlayerActivity.java",
+    "src/com/tongpin/player4k/tv/TvPlaybackEngine.java"
+  ],
+  "new_sources": [
+    "src/com/tongpin/player4k/tv/TvPlaybackClock.java",
+    "src/com/tongpin/player4k/tv/TvSeekReceipt.java"
+  ],
+  "shared_selector_and_registry_changed": false,
+  "same_url_explicit_switch_uses_fresh_engine": true,
+  "manual_same_quality_decoder_can_reload": true,
+  "reload_action_available_when_prepared": true,
+  "nonpositive_clock_does_not_erase_resume_checkpoint": true,
+  "explicit_zero_target_remains_valid": true,
+  "media3_seek_requires_target_acknowledgement_and_ready_position": true,
+  "old_engine_callbacks_rejected_by_instance_generation_and_release": true,
+  "no_periodic_restarts": true,
+  "scope": "TV reload and checkpoint/seek lifecycle only; no source-priority or playback-core default policy changes. Deterministic source/control paths and pure state reproduced; device freeze itself not reproduced without TV.",
+  "device_tested": false,
+  "session_carry_clamps_to_new_duration_without_history_near_end_reset": true
+}

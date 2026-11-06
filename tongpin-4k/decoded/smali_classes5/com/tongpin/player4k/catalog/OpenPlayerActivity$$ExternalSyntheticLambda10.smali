@@ -9,13 +9,23 @@
 # instance fields
 .field public final synthetic f$0:Lcom/tongpin/player4k/catalog/OpenPlayerActivity;
 
-.field public final synthetic f$1:I
+.field public final synthetic f$1:Ljava/lang/Object;
 
-.field public final synthetic f$2:Ljava/lang/Object;
+.field public final synthetic f$2:I
+
+.field public final synthetic f$3:I
+
+.field public final synthetic f$4:Ljava/lang/String;
+
+.field public final synthetic f$5:Lcom/tongpin/player4k/catalog/PlayQueue;
+
+.field public final synthetic f$6:Z
+
+.field public final synthetic f$7:I
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;ILjava/lang/Object;)V
+.method public synthetic constructor <init>(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;Ljava/lang/Object;IILjava/lang/String;Lcom/tongpin/player4k/catalog/PlayQueue;ZI)V
     .locals 0
 
     .line 0
@@ -23,9 +33,19 @@
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda10;->f$0:Lcom/tongpin/player4k/catalog/OpenPlayerActivity;
 
-    iput p2, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda10;->f$1:I
+    iput-object p2, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda10;->f$1:Ljava/lang/Object;
 
-    iput-object p3, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda10;->f$2:Ljava/lang/Object;
+    iput p3, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda10;->f$2:I
+
+    iput p4, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda10;->f$3:I
+
+    iput-object p5, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda10;->f$4:Ljava/lang/String;
+
+    iput-object p6, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda10;->f$5:Lcom/tongpin/player4k/catalog/PlayQueue;
+
+    iput-boolean p7, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda10;->f$6:Z
+
+    iput p8, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda10;->f$7:I
 
     return-void
 .end method
@@ -33,16 +53,26 @@
 
 # virtual methods
 .method public final run()V
-    .locals 3
+    .locals 8
 
     .line 0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda10;->f$0:Lcom/tongpin/player4k/catalog/OpenPlayerActivity;
 
-    iget v1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda10;->f$1:I
+    iget-object v1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda10;->f$1:Ljava/lang/Object;
 
-    iget-object v2, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda10;->f$2:Ljava/lang/Object;
+    iget v2, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda10;->f$2:I
 
-    invoke-virtual {v0, v1, v2}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->lambda$switchSource$2$com-tongpin-player4k-catalog-OpenPlayerActivity(ILjava/lang/Object;)V
+    iget v3, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda10;->f$3:I
+
+    iget-object v4, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda10;->f$4:Ljava/lang/String;
+
+    iget-object v5, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda10;->f$5:Lcom/tongpin/player4k/catalog/PlayQueue;
+
+    iget-boolean v6, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda10;->f$6:Z
+
+    iget v7, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda10;->f$7:I
+
+    invoke-virtual/range {v0 .. v7}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->lambda$switchSource$1$com-tongpin-player4k-catalog-OpenPlayerActivity(Ljava/lang/Object;IILjava/lang/String;Lcom/tongpin/player4k/catalog/PlayQueue;ZI)V
 
     return-void
 .end method

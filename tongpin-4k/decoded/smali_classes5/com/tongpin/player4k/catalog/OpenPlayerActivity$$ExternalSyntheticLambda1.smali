@@ -9,9 +9,13 @@
 # instance fields
 .field public final synthetic f$0:Lcom/tongpin/player4k/catalog/OpenPlayerActivity;
 
+.field public final synthetic f$1:I
+
+.field public final synthetic f$2:Lcom/tongpin/player4k/catalog/OwnSessionPlayer;
+
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;)V
+.method public synthetic constructor <init>(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;ILcom/tongpin/player4k/catalog/OwnSessionPlayer;)V
     .locals 0
 
     .line 0
@@ -19,18 +23,26 @@
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda1;->f$0:Lcom/tongpin/player4k/catalog/OpenPlayerActivity;
 
+    iput p2, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda1;->f$1:I
+
+    iput-object p3, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda1;->f$2:Lcom/tongpin/player4k/catalog/OwnSessionPlayer;
+
     return-void
 .end method
 
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 3
 
     .line 0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda1;->f$0:Lcom/tongpin/player4k/catalog/OpenPlayerActivity;
 
-    invoke-static {v0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->$r8$lambda$tNjMCyfAnM1ujX_rVXuY3jz7pHY(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;)V
+    iget v1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda1;->f$1:I
+
+    iget-object v2, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda1;->f$2:Lcom/tongpin/player4k/catalog/OwnSessionPlayer;
+
+    invoke-virtual {v0, v1, v2}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->lambda$readyPlayback$0$com-tongpin-player4k-catalog-OpenPlayerActivity(ILcom/tongpin/player4k/catalog/OwnSessionPlayer;)V
 
     return-void
 .end method

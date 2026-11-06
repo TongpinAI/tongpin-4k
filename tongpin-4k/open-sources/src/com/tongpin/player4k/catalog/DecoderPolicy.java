@@ -43,6 +43,17 @@ public final class DecoderPolicy {
         if (useExo(mode(context), exoRoute)) PlayerFactory.setPlayManager(Exo2PlayerManager.class);
         else PlayerFactory.setPlayManager(IjkPlayerManager.class);
     }
+    /** Apply the same existing decoder options to a private playback epoch. */
+    static void configureFor(Context context, k6.b manager) {
+        int codec = codecValue(mode(context));
+        ArrayList<n6.c> options = new ArrayList<>();
+        options.add(new n6.c(4, "framedrop", 50));
+        options.add(new n6.c(4, "enable-accurate-seek", 1));
+        for (String key : CODECS) options.add(new n6.c(4, key, codec));
+        options.add(new n6.c(2, "skip_loop_filter", 48));
+        options.add(new n6.c(1, "dns_cache_clear", 1));
+        manager.w(options);
+    }
     public static void choose(Activity activity, Runnable changed) {
         if (activity.isFinishing() || activity.isDestroyed()) return;
         new AlertDialog.Builder(activity).setTitle("解码方式")

@@ -1,0 +1,475 @@
+--- before/build_tv.py
++++ build_tv.py
+@@ -31,9 +31,9 @@
+     sys.stdout.reconfigure(encoding="utf-8")
+ 
+ ROOT = Path(__file__).resolve().parent
+-VERSION = "1.3.5"
+-VERSION_CODE = 1305
+-PREVIOUS_VERSION = "1.3.4"
++VERSION = "1.3.6"
++VERSION_CODE = 1306
++PREVIOUS_VERSION = "1.3.5"
+ PROVIDER_SHA256 = "9793756bfa35672f9c2645cd981dce4e23431be664ebceb71e6f2b05966b3e05"
+ PROVIDER_IDS = ['mdzy', '360zy', 'blender', 'ryzy', 'ikun', 'guangsu', 'hongniu', 'jinying', 'huya', 'bfzy', 'qiyi', '360zyzz', 'dandan', 'dazhong', 'feifan', 'hhzy', 'jszy', 'longma', 'maotai', 'maoyan', 'public_live', 'public_live_clun', 'subo', 'taopian', 'wsyzy', 'xigua', 'xinlang', 'yinghua']
+ PACKAGE = "com.tongpin.player4k.tv"
+@@ -222,7 +222,7 @@
+ 
+ def provider_contract():
+     path = ROOT / "assets/tongpin_open_sources.json"
+-    assert {p.relative_to(ROOT / "assets").as_posix() for p in (ROOT / "assets").rglob("*") if p.is_file()} == ({"tongpin_open_sources.json", "third_party_licenses/media3_1_10_1.txt"} if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5"} else {"tongpin_open_sources.json"})
++    assert {p.relative_to(ROOT / "assets").as_posix() for p in (ROOT / "assets").rglob("*") if p.is_file()} == ({"tongpin_open_sources.json", "third_party_licenses/media3_1_10_1.txt"} if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6"} else {"tongpin_open_sources.json"})
+     providers = json.loads(path.read_text(encoding="utf-8"))["providers"]
+     assert [p["id"] for p in providers] == PROVIDER_IDS
+     for provider in providers:
+@@ -524,6 +524,76 @@
+     assert digest(ROOT / "build/1.3.4/resource-ids.txt") == frozen["previous_resource_ids_sha256"]
+ 
+ 
++def playback_fix_release_contract(snapshot, *, promotion=True):
++    if VERSION != "1.3.6":
++        return
++    frozen = json.loads((ROOT / "verification/1.3.6/frozen-inputs.json").read_text(encoding="utf-8"))
++    assert frozen["source_ready"] and (not promotion or frozen["final_promotion_authorized"])
++    normalized = {name.replace("\\", "/"): value for name, value in snapshot.items()}
++    assert normalized == frozen["input_sha256"], "Inputs differ from reviewed playback-fix freeze"
++    here = ROOT / "ui/playback-fix-1.3.6"
++    assert set(frozen["snapshot_indexes"]) == {"before-snapshot.json", "prior-evidence-sha256.json"}
++    for name, expected in frozen["snapshot_indexes"].items():
++        assert digest(here / name) == expected, "Snapshot index changed: " + name
++    owner_sources, reviewed_sources = set(), set()
++    builder_reviewed = False
++    for group in ["owner_freeze_reports", "review_reports"]:
++        for name, expected in frozen[group].items():
++            path = ROOT / name
++            report = json.loads(path.read_text(encoding="utf-8"))
++            assert digest(path) == expected and any(report.get(k) is True for k in ["passed", "source_ready", "frozen"]), name
++            if group == "owner_freeze_reports":
++                base = ROOT.parent if report.get("workspace_sources") else ROOT
++                assert all(digest(base / rel) == value for rel, value in report["source_sha256"].items()), name
++                for rel in report["source_sha256"]:
++                    source = (base / rel).resolve()
++                    if source.is_relative_to((ROOT / "src").resolve()): owner_sources.add(source.relative_to(ROOT.resolve()).as_posix())
++    for name, expected in frozen["independent_reviews"].items():
++        path = ROOT / name
++        report = json.loads(path.read_text(encoding="utf-8"))
++        assert digest(path) == expected and report["verdict"].startswith("clear"), name
++        base = ROOT.parent if report.get("workspace_sources") else ROOT
++        assert all(digest(base / rel) == value for rel, value in report["source_sha256"].items()), name
++        for rel in report["source_sha256"]:
++            source = (base / rel).resolve()
++            if source.is_relative_to((ROOT / "src").resolve()): reviewed_sources.add(source.relative_to(ROOT.resolve()).as_posix())
++            if source == (ROOT / "build_tv.py").resolve(): builder_reviewed = True
++    prior = json.loads((here / "prior-evidence-sha256.json").read_text(encoding="utf-8"))
++    assert all(digest(ROOT / name) == value for name, value in prior.items()), "Published135 evidence changed"
++    old = json.loads((ROOT / "verification/1.3.5/input-hashes.json").read_text(encoding="utf-8"))
++    old = {name.replace("\\", "/"): value for name, value in old.items()}
++    before = json.loads((here / "before-snapshot.json").read_text(encoding="utf-8"))
++    assert set(before) == set(old) | {"build_tv.py"}
++    assert all(digest(here / "before" / name) == value for name, value in before.items()), "Before snapshot bytes changed"
++    assert all(before.get(name) == value for name, value in old.items())
++    changed = {"AndroidManifest.xml", "res/values/strings.xml", "src/com/tongpin/player4k/tv/TvPlayerActivity.java", "src/com/tongpin/player4k/tv/TvPlaybackEngine.java"}
++    added = {"src/com/tongpin/player4k/tv/" + name + ".java"
++             for name in ["TvPlaybackClock", "TvSeekReceipt"]}
++    assert {name for name in old if normalized.get(name) != old[name]} == changed
++    assert set(normalized) - set(old) == added and not set(old) - set(normalized)
++    production = {name for name in changed | added if name.startswith("src/")}
++    assert production <= owner_sources, "Changed source lacks owner freeze coverage"
++    if promotion:
++        assert production <= reviewed_sources and builder_reviewed, "Final source/tooling independent reviews are incomplete"
++    # Only the version value changes in the complete manifest/string resource bytes.
++    for name, replacements in {
++            "AndroidManifest.xml": [(b'android:versionCode="1306"', b'android:versionCode="1305"'),
++                                    (b'android:versionName="1.3.6"', b'android:versionName="1.3.5"')],
++            "res/values/strings.xml": [(b'<string name="version_name">1.3.6</string>',
++                                       b'<string name="version_name">1.3.5</string>')]}.items():
++        value = (ROOT / name).read_bytes()
++        for new, previous in replacements:
++            assert value.count(new) == 1, name
++            value = value.replace(new, previous)
++        assert value == (here / "before" / name).read_bytes(), name
++    registry = json.loads((ROOT / "assets/tongpin_open_sources.json").read_text(encoding="utf-8"))["providers"]
++    baseline = json.loads((here / "before/assets/tongpin_open_sources.json").read_text(encoding="utf-8"))["providers"]
++    assert registry == baseline, "Automatic source release changed provider registry"
++    assert digest(ROOT / "output/tongpin-4k-tv-1.3.5.apk") == "e1935264301e29bca058e86de63f97b119cdb2fbcbfc189fa9289cfcff6b835d"
++    assert digest(ROOT / "third-party/media3-1.10.1/runtime-lock.json") == frozen["runtime_lock_sha256"]
++    assert digest(ROOT / "build/1.3.5/resource-ids.txt") == frozen["previous_resource_ids_sha256"]
++
++
+ def main():
+     global LOG, VERIFY
+     parser = argparse.ArgumentParser()
+@@ -570,6 +640,7 @@
+     episode_status_release_contract(snapshot)
+     unified_library_release_contract(snapshot, promotion=not args.preflight)
+     automatic_source_release_contract(snapshot, promotion=not args.preflight)
++    playback_fix_release_contract(snapshot, promotion=not args.preflight)
+     write_json(VERIFY / "input-hashes.json", snapshot)
+     build = WORK / "build" / VERSION / "preflight" if args.preflight else WORK / "build" / VERSION
+     build.mkdir(parents=True, exist_ok=True)
+@@ -581,7 +652,7 @@
+     run([bt / "aapt2.exe", "compile", "--dir", WORK / "res", "-o", build / "resources.zip"])
+     runtime_jars=[];runtime_lock=None
+     extra=[]
+-    if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5"}:
++    if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6"}:
+         runtime_lock,library_archives,library_packages=media3_runtime.resources(ROOT,build,WORK,bt,run)
+         runtime_jars=[WORK/artifact["jar"] for artifact in runtime_lock["artifacts"] if artifact["class_count"]]
+         for archive in library_archives:extra += ["-R",archive]
+@@ -592,11 +663,11 @@
+          build / "resources.zip"]+extra+["-A", WORK / "assets", "--java", build / "generated",
+          "--min-sdk-version", MIN_API, "--target-sdk-version", TARGET_API,
+          "--version-code", VERSION_CODE, "--version-name", VERSION, "-o", build / "resources.ap_"])
+-    if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5"}:
++    if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6"}:
+         parse=lambda path:dict(re.findall(r"([^\s]+) = (0x[0-9a-f]+)",Path(path).read_text()))
+         old_ids=parse(ROOT/"verification/1.3.0/stable-resource-ids.txt");new_ids=parse(build/"resource-ids.txt")
+         assert all(new_ids.get(name)==value for name,value in old_ids.items())
+-        if VERSION in {"1.3.4", "1.3.5"}:
++        if VERSION in {"1.3.4", "1.3.5", "1.3.6"}:
+             assert new_ids == parse(ROOT/("build/"+PREVIOUS_VERSION+"/resource-ids.txt")), "Release changed TV resource IDs"
+         write_json(VERIFY/"resource-continuity.json",{"passed":True,"old_ids_retained":len(old_ids),
+                    "new_library_resources":{k:v for k,v in new_ids.items() if k not in old_ids}})
+@@ -627,7 +698,7 @@
+         declared, types = dex_contents(dex.read_bytes())
+         definitions += declared
+         references.update(types)
+-    if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5"}:
++    if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6"}:
+         write_json(VERIFY/"runtime-abi.json",media3_runtime.dependency_abi(ROOT,dexes,definitions))
+     else:
+         assert all(c.startswith("Lcom/tongpin/") for c in definitions), "Runtime third-party class found"
+@@ -643,20 +714,20 @@
+     api_report = ApiDatabase(TOOLS_REAL / "platform-35/data/api-versions.xml").audit(dexes, MIN_API)
+     write_json(VERIFY / "min-api-audit-raw.json", api_report)
+     if not api_report["passed"]:
+-        assert VERSION in {"1.2.0", "1.2.1", "1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5"} and MIN_API == 21, "Review version-specific API guard support"
++        assert VERSION in {"1.2.0", "1.2.1", "1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6"} and MIN_API == 21, "Review version-specific API guard support"
+         proof_classes, proof_smali = build / "api-proof-tools", build / "api-proof-smali"
+         fresh_directory(proof_classes)
+         fresh_directory(proof_smali)
+         apktool = TOOLS / "apktool_3.0.3.jar"
+         run([JAVA, "-Duser.language=en", "com.sun.tools.javac.Main", "--release", "8", "-Xlint:-options",
+              "-classpath", apktool, "-d", proof_classes,
+-             WORK / ("verification/toolchain/InspectTvBackend130.java" if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5"} else "verification/toolchain/InspectTvSeek121.java" if VERSION == "1.2.1" else "verification/toolchain/InspectTvSpeedGuards.java")])
++             WORK / ("verification/toolchain/InspectTvBackend130.java" if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6"} else "verification/toolchain/InspectTvSeek121.java" if VERSION == "1.2.1" else "verification/toolchain/InspectTvSpeedGuards.java")])
+         for dex in dexes:
+             run([JAVA, "-cp", str(apktool) + os.pathsep + str(proof_classes),
+-                 "InspectTvBackend130" if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5"} else "InspectTvSeek121" if VERSION == "1.2.1" else "InspectTvSpeedGuards", dex, proof_smali], capture_name="api23-disassembly.log")
+-        api_report = approve_backend(proof_smali,snapshot) if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5"} else (approve_seek_apis if VERSION == "1.2.1" else approve_api23_speed)(api_report, proof_smali, snapshot)
+-        if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5"}:write_json(VERIFY/"media3-backend-guard.json",api_report["guarded_media3_backend"])
+-        if VERSION in {"1.2.1","1.3.0","1.3.1","1.3.2","1.3.3", "1.3.4", "1.3.5"}:
++                 "InspectTvBackend130" if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6"} else "InspectTvSeek121" if VERSION == "1.2.1" else "InspectTvSpeedGuards", dex, proof_smali], capture_name="api23-disassembly.log")
++        api_report = approve_backend(proof_smali,snapshot) if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6"} else (approve_seek_apis if VERSION == "1.2.1" else approve_api23_speed)(api_report, proof_smali, snapshot)
++        if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6"}:write_json(VERIFY/"media3-backend-guard.json",api_report["guarded_media3_backend"])
++        if VERSION in {"1.2.1","1.3.0","1.3.1","1.3.2","1.3.3", "1.3.4", "1.3.5", "1.3.6"}:
+             write_json(VERIFY / "api26-seek-guard.json", api_report["guarded_api26_seek"])
+         write_json(VERIFY / "api23-speed-guard.json", api_report["guarded_api23_speed"])
+     write_json(VERIFY / "min-api-audit.json", api_report)
+@@ -672,7 +743,7 @@
+     with zipfile.ZipFile(build / "resources.ap_") as source, zipfile.ZipFile(build / "unsigned.apk", "w") as dest:
+         for entry in source.infolist():
+             dest.writestr(entry, source.read(entry.filename))
+-        if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5"}:
++        if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6"}:
+             for name,data in media3_runtime.jar_resources(ROOT):
+                 assert name not in dest.namelist(), "Runtime resource collision: "+name
+                 dest.writestr(name,data)
+@@ -728,7 +799,7 @@
+               "guarded_media3_backend": "guarded_media3_backend" in api_report,
+               "provider_count":len(PROVIDER_IDS), "previous_version":PREVIOUS_VERSION,
+               "same_previous_package_certificate":True,
+-              "source_scope": "Own com.tongpin Java plus pinned official Media3 runtime closure" if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5"} else "Only own com.tongpin Java and own resources; Android framework runtime",
++              "source_scope": "Own com.tongpin Java plus pinned official Media3 runtime closure" if VERSION in {"1.3.0", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6"} else "Only own com.tongpin Java and own resources; Android framework runtime",
+               "runtime_tested": False, "elapsed_seconds": round(time.time() - started, 2)}
+     write_json(VERIFY / "result.json", result)
+     if not args.no_download_copy:
+--- before/AndroidManifest.xml
++++ AndroidManifest.xml
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.tongpin.player4k.tv" android:versionCode="1305" android:versionName="1.3.5">
++<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.tongpin.player4k.tv" android:versionCode="1306" android:versionName="1.3.6">
+     <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="33" />
+     <uses-permission android:name="android.permission.INTERNET" />
+     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+--- before/res/values/strings.xml
++++ res/values/strings.xml
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <resources>
+     <string name="app_name">同频4K TV</string>
+-    <string name="version_name">1.3.5</string>
++    <string name="version_name">1.3.6</string>
+ </resources>
+--- before/src/com/tongpin/player4k/tv/TvPlayerActivity.java
++++ src/com/tongpin/player4k/tv/TvPlayerActivity.java
+@@ -163,6 +163,7 @@
+                 failed = saved.getBoolean("failed", false);
+                 completed = saved.getBoolean("completed", false);
+                 retryFromStart = saved.getBoolean("retry_from_start", false);
++                knownDuration = Math.max(0, saved.getInt("known_duration", 0));
+             }
+             if (Build.VERSION.SDK_INT < 23) speed = 1f;
+             if (live()) { position = 0L; completed = false; }
+@@ -422,24 +423,19 @@
+         long carried = position;
+         boolean wanted = playWhenReady;
+         String oldToken = queueToken;
+-        String previousUrl = urls[selected];
+-        CatalogApi.Episode target = next.episodes.get(index);
+-        int targetStream = CatalogApi.bestStream(target.streams);
+-        boolean keepPlayer = !failed && carryPosition && player != null && prepared
+-                && targetStream >= 0 && previousUrl.equals(target.streams.get(targetStream).url);
+-        if (!keepPlayer) releasePlayer();
++        releasePlayer();
+         queue = next; queueToken = token; readEpisode(index);
+         if (manual) { autoSourceState.enter(queue, episodeName, live()); autoSourceState.manual(); }
+         else autoSourceState.replaced(queue, episodeName);
+         position = sourcePosition(next.video.provider.kind, carryPosition, carried, carryPosition ? 0L : restoredProgress());
+-        if (!keepPlayer) knownDuration = 0;
++        if (!carryPosition) knownDuration = 0;
+         failed = completed = retryFromStart = false;
+         playWhenReady = wanted;
+         heading.setText(title); updateQualityButton(); updateNavigation();
+         retryButton.setVisibility(View.GONE); playButton.setEnabled(true);
+         getIntent().putExtra("queue_token", token).putExtra("queue_index", index).putExtra("resume_ms", position);
+         if (oldToken != null && !oldToken.equals(token)) TvPlayQueue.delete(this, oldToken);
+-        if (!keepPlayer) prepare();
++        prepare();
+         showControls(true); updateResult();
+     }
+ 
+@@ -553,6 +549,7 @@
+         speedButton.setEnabled(!live() && Build.VERSION.SDK_INT >= 23);
+         autoButton.setText("连播 · " + (autoNext() ? "开" : "关"));
+         autoButton.setEnabled(!live());
++        retryButton.setEnabled(!busy());
+         seekBackButton.setEnabled(!live()); seekForwardButton.setEnabled(!live());
+     }
+ 
+@@ -779,19 +776,22 @@
+                 public void unavailable(TvPlaybackEngine mp,String reason) { if (mp==player && !destroyed) { subtitleError=reason; updateSubtitle(""); } }
+             });
+             candidate.setOnVideoSizeChangedListener((mp, w, h) -> {
+-                if (mp != player) return;
++                if (mp != player || generation != playbackGeneration) return;
+                 updateResolution(w, h);
+             });
+             candidate.setOnPreparedListener(mp -> {
+-                if (mp != player || !foreground || !surfaceReady) return;
++                if (mp != player || generation != playbackGeneration || !foreground || !surfaceReady) return;
+                 prepared = true;
+                 main.removeCallbacks(timeout);
+                 try {
+                     updateResolution(mp.getVideoWidth(), mp.getVideoHeight());
+                 } catch (RuntimeException unavailable) { fail("无法读取视频信息，请重试或选择其他画质。", false); return; }
+                 playButton.setEnabled(true);
+-                retryButton.setVisibility(View.GONE);
+-                long clamped = resumePosition(position, duration(), false);
++                retryButton.setText("重新加载"); retryButton.setVisibility(View.VISIBLE);
++                int preparedDuration = 0;
++                try { preparedDuration = mp.getDuration(); } catch (RuntimeException unavailable) { }
++                knownDuration = TvPlaybackClock.duration(knownDuration, preparedDuration);
++                long clamped = TvPlaybackClock.preparedPosition(position, preparedDuration);
+                 if (clamped != position) { position = clamped; saveProgress(); }
+                 updateNavigation();
+                 if (position > 0) requestSeek(position, false); else startWanted();
+@@ -799,7 +799,7 @@
+                 compareAutomaticSource(false);
+             });
+             candidate.setOnSeekCompleteListener(mp -> {
+-                if (mp != player || !seeking || !seekState.inFlight()) return;
++                if (mp != player || generation != playbackGeneration || !seeking || !seekState.inFlight()) return;
+                 seeking = false;
+                 main.removeCallbacks(timeout);
+                 boolean last = seekState.complete(SystemClock.uptimeMillis());
+@@ -808,7 +808,7 @@
+                 else flushSeek();
+             });
+             candidate.setOnCompletionListener(mp -> {
+-                if (mp != player || seeking || seekState.dragging()
++                if (mp != player || generation != playbackGeneration || seeking || seekState.dragging()
+                         || seekState.active() && seekState.target() < duration() - 1000L) return;
+                 endHoldSpeed(false); updateSubtitle("");
+                 seekState.reset(); main.removeCallbacks(commitSeek);
+@@ -834,7 +834,7 @@
+                 }
+             });
+             candidate.setOnErrorListener((mp, what, extra) -> {
+-                if (mp == player) fail("视频无法播放，可能是链接失效、网络错误或设备不支持该格式。", false);
++                if (mp == player && generation == playbackGeneration) fail("视频无法播放，可能是链接失效、网络错误或设备不支持该格式。", false);
+                 return true;
+             });
+             candidate.setDataSource(urls[selected]);
+@@ -912,8 +912,7 @@
+         seeking = true;
+         try {
+             player.seekTo(requested);
+-            main.removeCallbacks(timeout);
+-            main.postDelayed(timeout, 15000);
++            if (seeking) { main.removeCallbacks(timeout); main.postDelayed(timeout, 15000); }
+             updateClock();
+         } catch (RuntimeException error) { fail("该线路无法定位到播放进度，可从头重试或选择其他画质。", true); }
+     }
+@@ -980,7 +979,6 @@
+         qualityDialog = new AlertDialog.Builder(this).setTitle("选择解码方式")
+                 .setSingleChoiceItems(new String[]{"系统解码（默认）", "兼容解码（软件优先，支持时自动回退）"}, decoderMode, (dialog, which) -> {
+                     dialog.dismiss();
+-                    if (which == decoderMode && !failed) return;
+                     rememberPosition(); saveProgress();
+                     boolean resume = playWhenReady;
+                     releasePlayer();
+@@ -1010,10 +1008,9 @@
+                     .setSingleChoiceItems(choices, selected, (dialog, which) -> {
+                         dialog.dismiss();
+                         autoSourceState.manual(); updateQualityButton();
+-                        if (which == selected && !failed) return;
+                         rememberPosition();
+                         saveProgress();
+-                        boolean resume = playWhenReady || failed;
++                        boolean resume = playWhenReady;
+                         releasePlayer();
+                         selected = which; failed = false; completed = false; retryFromStart = false;
+                         playWhenReady = resume;
+@@ -1046,12 +1043,12 @@
+     }
+ 
+     private void retry() {
+-        if (!valid) return;
++        if (!valid || busy()) return;
+         cancelAutomaticSource();
+         rememberPosition();
+         releasePlayer();
+         if (retryFromStart) position = 0L;
+-        failed = false; completed = false; retryFromStart = false; playWhenReady = true;
++        failed = false; completed = false; retryFromStart = false;
+         retryButton.setText("重试"); retryButton.setVisibility(View.GONE); playButton.setEnabled(true);
+         prepare();
+         showControls(true);
+@@ -1084,7 +1081,7 @@
+     private void rememberPosition() {
+         if (live()) { position = 0L; return; }
+         if (player != null && prepared && !completed) {
+-            try { position = seekState.observe(Math.max(0L, player.getCurrentPosition()), SystemClock.uptimeMillis()); }
++            try { position = TvPlaybackClock.position(position, seekState.observe(player.getCurrentPosition(), SystemClock.uptimeMillis())); }
+             catch (RuntimeException ignored) { }
+         }
+     }
+@@ -1092,9 +1089,9 @@
+     private int duration() {
+         if (live()) return 0;
+         if (player != null && prepared) {
+-            try { knownDuration = Math.max(0, player.getDuration()); return knownDuration; } catch (RuntimeException ignored) { }
+-        }
+-        return 0;
++            try { knownDuration = TvPlaybackClock.duration(knownDuration, player.getDuration()); return knownDuration; } catch (RuntimeException ignored) { }
++        }
++        return knownDuration;
+     }
+ 
+     private void updateClock() {
+@@ -1303,6 +1300,7 @@
+         saved.putBoolean("play_when_ready", playWhenReady); saved.putBoolean("failed", failed);
+         saved.putBoolean("completed", completed); saved.putBoolean("retry_from_start", retryFromStart);
+         saved.putInt("queue_index", episodeIndex); saved.putFloat("speed", speed);
++        saved.putInt("known_duration", knownDuration);
+         saved.putBoolean("auto_source_manual", autoSourceState.pinned());
+         saved.putBoolean("auto_source_initial_used", autoSourceState.initialUsed());
+         saved.putBoolean("auto_source_failure_used", autoSourceState.failureUsed());
+--- before/src/com/tongpin/player4k/tv/TvPlaybackEngine.java
++++ src/com/tongpin/player4k/tv/TvPlaybackEngine.java
+@@ -70,13 +70,14 @@
+             });
+         }
+         public void setOnPreparedListener(Prepared l) { player.setOnPreparedListener(l == null ? null : p -> {
++            if (released || p != player) return;
+             refreshTracks(); l.call(this);
+             if (!released && subtitles != null) subtitles.tracks(this,tracks);
+         }); }
+-        public void setOnVideoSizeChangedListener(Size l) { player.setOnVideoSizeChangedListener(l == null ? null : (p,w,h) -> l.call(this,w,h)); }
+-        public void setOnSeekCompleteListener(Seek l) { player.setOnSeekCompleteListener(l == null ? null : p -> l.call(this)); }
+-        public void setOnCompletionListener(Completion l) { player.setOnCompletionListener(l == null ? null : p -> l.call(this)); }
+-        public void setOnErrorListener(Error l) { player.setOnErrorListener(l == null ? null : (p,w,e) -> l.call(this,w,e)); }
++        public void setOnVideoSizeChangedListener(Size l) { player.setOnVideoSizeChangedListener(l == null ? null : (p,w,h) -> { if (!released && p == player) l.call(this,w,h); }); }
++        public void setOnSeekCompleteListener(Seek l) { player.setOnSeekCompleteListener(l == null ? null : p -> { if (!released && p == player) l.call(this); }); }
++        public void setOnCompletionListener(Completion l) { player.setOnCompletionListener(l == null ? null : p -> { if (!released && p == player) l.call(this); }); }
++        public void setOnErrorListener(Error l) { player.setOnErrorListener(l == null ? null : (p,w,e) -> released || p != player || l.call(this,w,e)); }
+         public void setSubtitleListener(Subtitles l) { subtitles=l; }
+         public List<SubtitleTrack> getSubtitleTracks() { return tracks; }
+         private void refreshTracks() {
+@@ -143,7 +144,8 @@
+             private Error error;
+             private Subtitles subtitles;
+             private List<SubtitleTrack> tracks = Collections.emptyList();
+-            private boolean preparedSent, pendingSeek, released;
++            private boolean preparedSent, released;
++            private final TvSeekReceipt seekReceipt = new TvSeekReceipt();
+ 
+             CompatibleEngine(Context context) {
+                 androidx.media3.exoplayer.DefaultRenderersFactory renderers =
+@@ -177,33 +179,44 @@
+             public void setAudioStreamType(int stream) { }
+             public void setDisplay(SurfaceHolder holder) { player.setVideoSurfaceHolder(holder); }
+             public void setDataSource(String url) {
+-                preparedSent=false; pendingSeek=false;
++                preparedSent=false; seekReceipt.reset();
+                 player.setMediaItem(androidx.media3.common.MediaItem.fromUri(url));
+             }
+             public void prepareAsync() { player.prepare(); }
+             public void start() { player.play(); }
+             public void pause() { player.pause(); }
+             public void release() {
+-                released=true; pendingSeek=false; subtitles=null; tracks=Collections.emptyList(); main.removeCallbacksAndMessages(null);
++                released=true; seekReceipt.reset(); subtitles=null; tracks=Collections.emptyList(); main.removeCallbacksAndMessages(null);
+                 player.removeListener(this); player.release();
+             }
+             public void setVolume(float left,float right) { player.setVolume(Math.max(0f,Math.min(1f,(left+right)/2f))); }
+             public void setSpeed(float speed) { player.setPlaybackSpeed(speed); }
+             public void seekTo(long position) {
+-                pendingSeek=true; player.seekTo(position);
+-                main.post(this::finishReadySeek);
++                final long ticket = seekReceipt.begin(position);
++                if (player.getPlaybackState() == androidx.media3.common.Player.STATE_READY)
++                    seekReceipt.alreadyAt(player.getCurrentPosition(), player.getDuration());
++                player.seekTo(Math.max(0L, position));
++                main.post(() -> { if (seekReceipt.current(ticket)) finishReadySeek(); });
+             }
+             private void finishReadySeek() {
+-                if (!released && pendingSeek && player.getPlaybackState()==androidx.media3.common.Player.STATE_READY) finishSeek();
+-            }
+-            private void finishSeek() {
+-                if (!pendingSeek) return;
+-                pendingSeek=false;
+-                if (seek!=null) seek.call(this);
++                if (released) return;
++                int state = player.getPlaybackState();
++                if (seekReceipt.complete(state == androidx.media3.common.Player.STATE_READY
++                        || state == androidx.media3.common.Player.STATE_ENDED,
++                        player.getCurrentPosition(), player.getDuration()) && seek != null) seek.call(this);
++            }
++            @Override public void onPositionDiscontinuity(androidx.media3.common.Player.PositionInfo oldPosition,
++                    androidx.media3.common.Player.PositionInfo newPosition, int reason) {
++                if (released) return;
++                if (reason == androidx.media3.common.Player.DISCONTINUITY_REASON_SEEK
++                        || reason == androidx.media3.common.Player.DISCONTINUITY_REASON_SEEK_ADJUSTMENT) {
++                    seekReceipt.acknowledge(newPosition.positionMs, player.getDuration());
++                    finishReadySeek();
++                }
+             }
+             public int getCurrentPosition() { return time(player.getCurrentPosition()); }
+             public int getDuration() { return time(player.getDuration()); }
+-            private int time(long value) { return (int) Math.min(Integer.MAX_VALUE,Math.max(0,value)); }
++            private int time(long value) { return value < 0L ? -1 : (int) Math.min(Integer.MAX_VALUE,value); }
+             public int getVideoWidth() { return player.getVideoSize().width; }
+             public int getVideoHeight() { return player.getVideoSize().height; }
+             @Override public void onVideoSizeChanged(androidx.media3.common.VideoSize value) {
+@@ -240,7 +253,7 @@
+                     preparedSent=true;
+                     if (prepared!=null) prepared.call(this);
+                 } else if (state==androidx.media3.common.Player.STATE_ENDED) {
+-                    finishSeek();
++                    finishReadySeek();
+                     if (!released && completion!=null) completion.call(this);
+                 }
+             }

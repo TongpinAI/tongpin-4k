@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "frozen_inputs_sha256": "1a8dc268bd02c30632a165ffa4e0f514a16b61fd1fab41e98004399371482e5f",
+  "builder_sha256": "8f36f6b99154e93952a91999156a24f0e1c9e293e8d49c26e65db31d7587bfbe",
+  "input_count": 36,
+  "all_inputs_unchanged_after_preflight": true,
+  "final_promotion_authorized": true,
+  "independent_reviews": {
+    "ui/playback-fix-1.3.6/source-independent-review.json": "85525e019ad7ba28621cce892c928b795742dfd5a77195cd26e1802bf42156ae",
+    "ui/playback-fix-1.3.6/builder-independent-review.json": "1b3ba4a6b149999aa92eab9ab70c94432b4c710c956fdb6499b9cd0e210bd2fe"
+  },
+  "device_tested": false
+}

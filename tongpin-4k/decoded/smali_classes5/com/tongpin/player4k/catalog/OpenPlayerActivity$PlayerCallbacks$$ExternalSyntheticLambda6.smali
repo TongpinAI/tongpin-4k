@@ -9,9 +9,11 @@
 # instance fields
 .field public final synthetic f$0:Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks;
 
+.field public final synthetic f$1:Ljava/lang/String;
+
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks;)V
+.method public synthetic constructor <init>(Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks;Ljava/lang/String;)V
     .locals 0
 
     .line 0
@@ -19,18 +21,22 @@
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks$$ExternalSyntheticLambda6;->f$0:Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks;
 
+    iput-object p2, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks$$ExternalSyntheticLambda6;->f$1:Ljava/lang/String;
+
     return-void
 .end method
 
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 2
 
     .line 0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks$$ExternalSyntheticLambda6;->f$0:Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks;
 
-    invoke-virtual {v0}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks;->lambda$u$0$com-tongpin-player4k-catalog-OpenPlayerActivity$PlayerCallbacks()V
+    iget-object v1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks$$ExternalSyntheticLambda6;->f$1:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$PlayerCallbacks;->lambda$d$0$com-tongpin-player4k-catalog-OpenPlayerActivity$PlayerCallbacks(Ljava/lang/String;)V
 
     return-void
 .end method

@@ -3,7 +3,7 @@
 .source "D8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/tongpin/player4k/catalog/PhoneSourcePicker$Selection;
+.implements Landroid/content/DialogInterface$OnClickListener;
 
 
 # instance fields
@@ -24,13 +24,13 @@
 
 
 # virtual methods
-.method public final selected(Lcom/tongpin/player4k/catalog/CatalogApi$Detail;Lcom/tongpin/player4k/catalog/CatalogApi$Line;IZ)V
+.method public final onClick(Landroid/content/DialogInterface;I)V
     .locals 1
 
     .line 0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda7;->f$0:Lcom/tongpin/player4k/catalog/OpenPlayerActivity;
 
-    invoke-static {v0, p1, p2, p3, p4}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->$r8$lambda$EBd403yEnXX3DtOPSZEXRRW_vBY(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;Lcom/tongpin/player4k/catalog/CatalogApi$Detail;Lcom/tongpin/player4k/catalog/CatalogApi$Line;IZ)V
+    invoke-virtual {v0, p1, p2}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->lambda$moreControls$0$com-tongpin-player4k-catalog-OpenPlayerActivity(Landroid/content/DialogInterface;I)V
 
     return-void
 .end method

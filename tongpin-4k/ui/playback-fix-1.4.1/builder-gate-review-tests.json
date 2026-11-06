@@ -1,0 +1,104 @@
+{
+  "passed": true,
+  "main_freeze_sha256_at_review": "155d7d72164604811f3374ae9f6caa990b00fae32321e381d5eca81db883a3b8",
+  "source_sha256": {
+    "open-sources/integration/DisassembleOwn1410.java": "fbe5cd77f80adeac708d2f46c3bfa2f4fb1be7f68efdfcbb6f7f3d35b7d53981",
+    "open-sources/integration/check_native_bindings_1410.py": "9a69cd89a30993ac4ca4beaa7a8d1d7d0e1b981edbb2f2f62740f955c6a9d93c",
+    "open-sources/integration/integrate_1_4_1.py": "3ada1df15494b8fa269974ef668722f232fedf593fd0a758b70d0ca3e707f422",
+    "open-sources/toolchain/compile_java_to_smali.py": "b1b855f38294ecb7d392980b917f8fa17eaae77496c3bd1fcd961e557574cc9c",
+    "open-sources/integration/assert_contract.py": "28083030ebb06c4c7f31224f2750b478ae797e25becd88dc74851f839a73394b",
+    "build_tongpin.py": "c583177d7902ff0eeccfdbab7f00f9128a2f47b1d6c9b367f5632eb8741eaf78",
+    "verification/1.4.1/proof-tools/DisassembleOwn1410.class": "99a4c1a1f1c3265eb2c35552320a3b556c595faf28f03acaf6c4762e21e3afdd",
+    "open-sources/toolchain/check_framework_api.py": "91209f30753abd8ea244655bd98762d4e0590c173dae2e842367d82559a61905",
+    "open-sources/integration/check_timer_dex_1410.py": "e04dff24351c6767510fa14936ac609a13bca580f70a0fcf83923788781941a8",
+    "open-sources/integration/ui_1410_contract.py": "2aeb6033551060a5b1690d7066dbce1f8ca587e62249404b64fd90ab6fa05286",
+    "open-sources/integration/audit_final_ui_api_1410.py": "4a0004d654866b6e3685e6b5b44a5bcd88dcfb277e408eca621fedf21b312460"
+  },
+  "actual_preflight_contract": {
+    "passed": true,
+    "scope": "141 own playback epoch/checkpoint repair; native140 and registry untouched",
+    "files": {
+      "resources": {},
+      "smali": {}
+    },
+    "new_resources": {},
+    "java_source_count": 33,
+    "provider_count": 28,
+    "checks": {
+      "native140_unchanged": true,
+      "version_only_resources": true,
+      "private_epochs_and_actual_native_bindings": true,
+      "source_stubs_tests_and_reviews": true,
+      "published140_evidence_unchanged": true,
+      "canonical_stage_dex": true
+    },
+    "device_tested": false
+  },
+  "negative_cases": [
+    {
+      "name": "Formal promotion blocked while flag false",
+      "rejected": true,
+      "reason": "Formal integration requires completed review promotion"
+    },
+    {
+      "name": "Promotion without independent tool coverage",
+      "rejected": true,
+      "reason": "Missing independent source/tool review coverage"
+    },
+    {
+      "name": "Missing required native-binding evidence pin",
+      "rejected": true,
+      "reason": ""
+    },
+    {
+      "name": "Missing native checker tool pin",
+      "rejected": true,
+      "reason": ""
+    },
+    {
+      "name": "Wrong native checker tool hash",
+      "rejected": true,
+      "reason": "Changed141 tooling: open-sources/integration/check_native_bindings_1410.py"
+    },
+    {
+      "name": "Missing canonical own DEX hash",
+      "rejected": true,
+      "reason": "'stage_dex_sha256'"
+    },
+    {
+      "name": "Wrong canonical own DEX hash",
+      "rejected": true,
+      "reason": ""
+    },
+    {
+      "name": "Incomplete fresh-stage own class map",
+      "rejected": true,
+      "reason": ""
+    },
+    {
+      "name": "Previous140 stage cannot satisfy141 gate",
+      "rejected": true,
+      "reason": ""
+    }
+  ],
+  "fresh_dex_class_descriptors_verified": 281,
+  "fresh_stage_source_count": 33,
+  "canonical_dex_sha256": "6251084a8141526164afb35ed3d5916501c1713590b72833e15f320c4d570d34",
+  "actual_final_stage_native_binding": {
+    "checked_field_accesses": 112,
+    "checked_invocations": 123,
+    "checked_overrides": 20,
+    "checked_native_field_accesses": 15,
+    "checked_native_invocations": 64,
+    "own_smali_sha256": {
+      "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager$$ExternalSyntheticLambda0.smali": "5cb59600de514610e59f119a2ee5d3cd28eccf0bb820c95d363c4534005d5aea",
+      "com/tongpin/player4k/catalog/OwnSessionPlayer$EpochManager.smali": "6e45d3b18f888324673fddef9fdd09fa870fe70959b8d057b2a949530e4d8276",
+      "com/tongpin/player4k/catalog/OwnSessionPlayer$Events.smali": "b5241d9dba78a58ec5b019c1d32b2249aea6e101e5678a1ecbebbbfc58838cd6",
+      "com/tongpin/player4k/catalog/OwnSessionPlayer.smali": "3058824ea8df1bc1afe061e19b29a10f77377c4e866aa465117ff149a5abbf65",
+      "com/tongpin/player4k/catalog/DecoderPolicy.smali": "7b288bc48fef7bdbe8d9f1f850bd154b85436e2f13aa30b6877ef8d4c683702b"
+    }
+  },
+  "in_memory_negative_cases_only": true,
+  "production_or_freeze_mutated": false,
+  "device_tested": false
+}
