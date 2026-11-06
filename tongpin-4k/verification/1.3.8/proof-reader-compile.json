@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "reader_source_sha256": "e3e64d910360f5271567d6d4967fb992913d5a608feda6875623b3b89d4e27fd",
+  "compiled_reader_sha256": "5f53f1c2439da7e9e1321f6c7ab7b76efff94c376d6b7f5a17c37b5eb3fee32f",
+  "application_code_executed": false,
+  "native_classes": 17,
+  "own_classes": 157
+}

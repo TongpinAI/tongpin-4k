@@ -429,33 +429,10 @@
 
     if-eqz p0, :score_done
 
-    if-nez p1, :score_text
-
-    const-string p1, ""
-
-    :score_text
-    invoke-virtual {p1}, Ljava/lang/String;->trim()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-virtual {p0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    const-string v0, "[\\s\\p{Z}]*"
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->matches(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-eqz v0, :score_visible
+    const-string v0, ""
+    invoke-virtual {p0, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     const/16 v0, 0x8
-
-    goto :score_visibility
-
-    :score_visible
-    const/4 v0, 0x0
-
-    :score_visibility
     invoke-virtual {p0, v0}, Landroid/view/View;->setVisibility(I)V
 
     :score_done

@@ -15,7 +15,7 @@
 - 保留历史发布证据；源码或构建输入变化时创建新的版本与校验记录，不把旧报告改成“通过”来替代本次检查。
 - 真机测试与主机静态测试分别说明。未在设备上验证时直接注明，不把编译通过写成播放流畅度通过。
 
-当前手机源码1.3.7、电视源码1.3.3。历史 `run_decoder_tests.py` 会写入旧134／130目录，不能在发布工作树里直接运行；旧报告是增量合同输入。
+当前手机源码1.3.8、电视源码1.3.3。历史 `run_decoder_tests.py` 会写入旧134／130目录，不能在发布工作树里直接运行；旧报告是增量合同输入。
 
 有独立输出参数的分类检查可从手机目录写入新的工作目录：
 
@@ -23,7 +23,7 @@
 python open-sources/tests/run_category_tests.py --output ../tmp/category-check-pr
 ```
 
-本轮筛选和两端集数检查可从手机工程目录执行，使用全新的外部输出目录，不覆盖发布证据：
+保留的筛选和两端集数检查可从手机工程目录执行，使用全新的外部输出目录，不覆盖发布证据：
 
 ```powershell
 python open-sources/tests/run_native_browse_137_tests.py --output ../tmp/native-browse-pr
@@ -31,6 +31,12 @@ python open-sources/tests/run_episode_summary_tests.py --output ../tmp/episode-s
 ```
 
 原播放器的136／132检查入口会写固定版本路径；涉及播放器变更时应在独立工作副本中按新版本流程建立检查入口和报告。不要在发布工作树直接重跑并提交覆盖旧134、135、136或TV130、131、132证据的结果。
+
+1.3.8评分审查脚本 `ui/poster-score-1.3.8/review_score.py` 会写固定的138独立审查报告，只在独立工作副本按新版本流程运行，不覆盖或提交已发布证据。`builder-review-tests.py` 只做读取和进程内负向检查，允许在手机目录运行：
+
+```powershell
+python ui/poster-score-1.3.8/builder-review-tests.py
+```
 
 这些是主机策略、真实源码编译及静态检查；不代替手机触摸、电视遥控、字幕渲染或持续播放验证。
 

@@ -103,44 +103,50 @@ def check():
     checks = {}
     live_overrides, incremental_projections = {}, {}
     excluded134, excluded135, excluded136, excluded137 = set(), set(), set(), set()
-    if release_version()[0] == "1.3.7":
+    if release_version()[0] == "1.3.8":
+        from ui_1380_contract import verify as verify_ui_1380
+        live_overrides, incremental_projections, badge_report = verify_ui_1380()
+        checks["poster_score_1380"] = badge_report
+    if release_version()[0] in {"1.3.7", "1.3.8"}:
         from ui_1370_contract import verify as verify_ui_1370, OWN_NEW as OWN_NEW_1370
-        live_overrides, incremental_projections, native_report = verify_ui_1370()
+        old_overrides, old_projections, native_report = verify_ui_1370(live_overrides)
+        live_overrides = {**live_overrides, **old_overrides}
+        incremental_projections = {**incremental_projections, **old_projections}
         checks["native_home_1370"] = native_report
         excluded137 = OWN_NEW_1370
-    if release_version()[0] in {"1.3.6", "1.3.7"}:
+    if release_version()[0] in {"1.3.6", "1.3.7", "1.3.8"}:
         from ui_1360_contract import verify as verify_ui_1360, OWN_NEW as OWN_NEW_1360
         old_overrides, old_projections, player_report = verify_ui_1360(live_overrides, excluded137)
         live_overrides = {**live_overrides, **old_overrides}
         incremental_projections = {**incremental_projections, **old_projections}
         checks["player_catalog_1360"] = player_report
         excluded136 = OWN_NEW_1360
-    if release_version()[0] in {"1.3.5", "1.3.6", "1.3.7"}:
+    if release_version()[0] in {"1.3.5", "1.3.6", "1.3.7", "1.3.8"}:
         from ui_1350_contract import verify as verify_ui_1350, OWN_NEW as OWN_NEW_1350
         old_overrides, old_projections, content_report = verify_ui_1350(live_overrides, excluded136 | excluded137)
         live_overrides = {**live_overrides, **old_overrides}
         incremental_projections = {**incremental_projections, **old_projections}
         checks["content_1350"] = content_report
         excluded135 = OWN_NEW_1350
-    if release_version()[0] in {"1.3.4", "1.3.5", "1.3.6", "1.3.7"}:
+    if release_version()[0] in {"1.3.4", "1.3.5", "1.3.6", "1.3.7", "1.3.8"}:
         from ui_1340_contract import verify as verify_ui_1340, OWN_NEW as OWN_NEW_1340
         old_overrides, old_projections, decoder_report = verify_ui_1340(live_overrides, excluded135 | excluded136 | excluded137)
         live_overrides = {**live_overrides, **old_overrides}
         incremental_projections = {**incremental_projections, **old_projections}
         checks["decoder_1340"] = decoder_report
         excluded134 = OWN_NEW_1340
-    if release_version()[0] in {"1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7"}:
+    if release_version()[0] in {"1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7", "1.3.8"}:
         from ui_1330_contract import verify as verify_ui_1330, OWN_NEW as OWN_NEW_1330
         old_overrides, old_projections, seek_report = verify_ui_1330(live_overrides, excluded134 | excluded135 | excluded136 | excluded137)
         live_overrides = {**live_overrides, **old_overrides}
         incremental_projections = {**incremental_projections, **old_projections}
         checks["player_seek_1330"] = seek_report
-    if release_version()[0] in {"1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7"}:
+    if release_version()[0] in {"1.3.2", "1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7", "1.3.8"}:
         from ui_1320_contract import verify as verify_ui_1320
         from ui_1310_contract import verify as verify_ui_1310, OWN_NEW
         from ui_1300_contract import verify as verify_ui_1300
         from ui_1201_contract import verify as verify_ui_1201
-        excluded = (OWN_NEW_1330 if release_version()[0] in {"1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7"} else set()) | excluded134 | excluded135 | excluded136 | excluded137
+        excluded = (OWN_NEW_1330 if release_version()[0] in {"1.3.3", "1.3.4", "1.3.5", "1.3.6", "1.3.7", "1.3.8"} else set()) | excluded134 | excluded135 | excluded136 | excluded137
         old_overrides, old_projections, layout_report = verify_ui_1320(live_overrides, excluded)
         live_overrides = {**live_overrides, **old_overrides}
         incremental_projections = {**incremental_projections, **old_projections}
@@ -316,7 +322,7 @@ def check():
                                  "source":"build_tongpin.py", "method":"AST literal_eval only; builder not executed"}
 
     providers = json.loads(text(ROOT / ASSET))
-    if version_name in {"1.3.6", "1.3.7"}:
+    if version_name in {"1.3.6", "1.3.7", "1.3.8"}:
         from ui_1360_contract import validate_registry
         validate_registry(providers)
         assert providers["providers"][:len(PROVIDERS["providers"])] == PROVIDERS["providers"]

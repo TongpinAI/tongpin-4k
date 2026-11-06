@@ -1,0 +1,56 @@
+{
+  "passed": true,
+  "verdict": "clear: bounded138score method, immutable137code reuse, explicit historical projection and12in-memory negative checks passed",
+  "scope": "Builder and release tooling only; score functionality has a separate independent review. No package build/sign/promotion or application execution by this reviewer.",
+  "source_sha256": {
+    "build_tongpin.py": "cddce4ac756d4608ffcee49f38321de618ee35221fe762431eefb82a080afdde",
+    "open-sources/integration/assert_contract.py": "ee463b7344132ec36a1a30e61e102f1a8968a8439b5025bcb09a695e6fd8dea9",
+    "open-sources/integration/ui_1370_contract.py": "a257813e4d5b1c1eed65df5ffdc843deecd32cd82769d5199f5cb41a1d287f84",
+    "open-sources/integration/ui_1380_contract.py": "f377982d14c96abd06e53fb6fa7167d5309b94950dd9fcb26315626d06001e1e",
+    "open-sources/integration/integrate_1_3_8.py": "4d32cacbd6e16a5d8a8798fa0dbaaa529cdc4590bd673c78c62aa9b6d3a89e6c",
+    "open-sources/integration/DisassembleOwn1380.java": "e3e64d910360f5271567d6d4967fb992913d5a608feda6875623b3b89d4e27fd",
+    "open-sources/integration/audit_final_ui_api_1380.py": "9cb86ae81f0f0a36ab4e841eafd189b43b595d9157b68b8fcf1cf86528092310",
+    "open-sources/integration/check_timer_dex_1380.py": "3ac6e7a802472449ec4ddb8191063edc37defb34646a62f2a9e3bc6a37ef9e5b"
+  },
+  "test_script": "ui/poster-score-1.3.8/builder-review-tests.py",
+  "test_script_sha256": "0c62bb883c0475ca62f6c39b3c1575d63519fcb28b3542217ebf7fb98ff6ef5a",
+  "snapshot_indexes_sha256": {
+    "before-snapshot.json": "81e0c102505f60fad07514408e88778a17f1b218a35e7bdd5f532c848b87dccb",
+    "unchanged137-inputs.json": "3c2b2b42600fd0fd4040847ac2eddeb5bc0d516f7c462093234eec2376106e10",
+    "prior-evidence-sha256.json": "31a50731a719c56465681e890bdaf4ca5a3337746985967ef7bdce35d1935049"
+  },
+  "own_source_count": 21,
+  "reused_own_class_count": 157,
+  "java_recompiled": false,
+  "native_file_count": 1,
+  "native_modified_methods": [
+    "i6.e.bindScore(TextView,String)"
+  ],
+  "legacy_proof_class_count": 17,
+  "default137_gate_preserved": true,
+  "explicit137_projection_passed": true,
+  "historical_contract_report_inspected_passed": true,
+  "negative_cases_rejected": [
+    "wrong source digest",
+    "extra native method",
+    "wrong native preimage",
+    "new native field",
+    "resource change",
+    "owner report mismatch",
+    "missing snapshot index pin",
+    "tampered before-snapshot index bytes",
+    "tampered unchanged137-inputs index bytes",
+    "tampered prior-evidence index bytes",
+    "tampered native before file bytes",
+    "tampered reused own smali bytes"
+  ],
+  "review_notes": [
+    "Compared new build entry against exact137 before bytes: version138/1380/previous137, versioned proof dispatch and correct code_reused_from reporting only. Signing, APK delta, native libraries and resource identity checks remain.",
+    "138 gate admits only bindScore in i6/e with exact137 whole-class inverse. Three snapshot indexes are hash-pinned before parsing, and the native before file is anchored to published137 postimage.",
+    "Own21Java hashes, complete157class namespace,137stage source/dex identity and11source registry remain exact. Integrator no longer deletes or recompiles the reused namespace.",
+    "137 adapter preserves all original checks by default and reads only explicit verified snapshots when138 supplies them; default137 rejects138 bytes, explicit projection passes.",
+    "Final reader still covers157own and17legacy classes. API and instruction checks reuse reviewed137own stage, retain inherited135/136/137 hooks and add138bindScore. No runtime UI/playback claim."
+  ],
+  "device_tested": false,
+  "production_or_prior_evidence_mutated_by_review": false
+}

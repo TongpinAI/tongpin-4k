@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "source_ready": true,
+  "source_sha256": {
+    "decoded/smali_classes5/i6/e.smali": "c9b762d128d95681b89db9f3f6c6af7a53f54ddf856f98f2af206d2c763a5762"
+  },
+  "native_modified_methods": {
+    "decoded/smali_classes5/i6/e.smali": [
+      "bindScore(Landroid/widget/TextView;Ljava/lang/String;)V"
+    ]
+  },
+  "before_sha256": "75ffbe36bb5a51e6faab81beee82f928048973e9fb87ac995031bb6deaf2b848",
+  "exact_whole_class_preimage_recovered": true,
+  "java_sources_changed": false,
+  "resources_changed": false,
+  "device_tested": false,
+  "scope": "Hide every native poster rating corner consistently; shared home/category/search binder clears stale recycled text and sets GONE."
+}

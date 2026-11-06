@@ -14,18 +14,19 @@ ADDED={BROWSE:{"onDestroyView()V"},SCROLL:set(),POSTER:set(),SEARCH:set()}
 ASSET="decoded/assets/tongpin_open_sources.json";METHOD=re.compile(rb"^\.method[^\n]*\n.*?^\.end method",re.M|re.S)
 def sha(raw):return hashlib.sha256(raw).hexdigest()
 def methods(raw):return {m[0].splitlines()[0].rsplit(b" ",1)[1].decode():m[0] for m in METHOD.finditer(raw)}
-def verify():
+def verify(live_overrides=None):
+ def live(relative):return Path((live_overrides or {}).get(relative,ROOT/relative))
  freeze=json.loads((VERIFY/"frozen-inputs.json").read_text(encoding="utf-8"));assert freeze["source_ready"]
  for rel,digest in freeze["review_reports"].items():
   raw=(ROOT/rel).read_bytes();assert sha(raw)==digest and json.loads(raw)["passed"],rel
  for rel,digest in freeze["owner_freeze_reports"].items():
   raw=(ROOT/rel).read_bytes();report=json.loads(raw);assert sha(raw)==digest and any(report.get(k) is True for k in ["passed","source_ready","frozen"]),rel
-  for path,expected in report["source_sha256"].items():assert sha((ROOT/path).read_bytes())==expected,path
+  for path,expected in report["source_sha256"].items():assert sha(live(path).read_bytes())==expected,path
  reviewed=freeze["independent_review"];raw=(ROOT/reviewed["path"]).read_bytes();review=json.loads(raw)
  assert sha(raw)==reviewed["sha256"] and review["verdict"].startswith("clear")
  expected_reviewed={"open-sources/src/"+n for n in OWN_CHANGED|OWN_NEW}|set(MODIFIED)
  assert set(review["source_sha256"])==expected_reviewed
- for rel,digest in review["source_sha256"].items():assert sha((ROOT/rel).read_bytes())==digest,rel
+ for rel,digest in review["source_sha256"].items():assert sha(live(rel).read_bytes())==digest,rel
  for rel,digest in json.loads((HERE/"prior-evidence-sha256.json").read_text(encoding="utf-8")).items():assert sha((ROOT/rel).read_bytes())==digest,"Prior136 evidence changed: "+rel
  baseline=json.loads((ROOT/"open-sources/integration/1.3.6.json").read_text(encoding="utf-8"));release=json.loads((ROOT/"verification/1.3.6/build-result.json").read_text(encoding="utf-8"))
  assert sha((ROOT/"output/tongpin-4k-1.3.6.apk").read_bytes())==release["sha256"]
@@ -38,7 +39,7 @@ def verify():
  assert freeze["resources"]=={} and freeze["new_resource_names"]=={} and set(freeze["smali"])==set(MODIFIED)
  overrides,projections,records={},{},{"resources":{},"smali":{}}
  for rel,expected in MODIFIED.items():
-  proof=freeze["smali"][rel];before=ROOT/proof["before_path"];old,current=before.read_bytes(),(ROOT/rel).read_bytes()
+  proof=freeze["smali"][rel];before=ROOT/proof["before_path"];old,current=before.read_bytes(),live(rel).read_bytes()
   assert sha(old)==anchors[rel]==snapshot[rel]==proof["before_sha256"] and sha(current)==proof["after_sha256"],rel
   a,b=methods(old),methods(current);changed={k for k in a.keys()&b.keys() if a[k]!=b[k]}
   assert changed==expected==set(proof["modified_methods"]) and b.keys()-a.keys()==ADDED[rel]==set(proof["added_methods"]),rel
@@ -52,12 +53,12 @@ def verify():
  assert {p.relative_to(ROOT/"open-sources/src").as_posix() for p in (ROOT/"open-sources/src").rglob("*.java")}==set(freeze["source_sha256"])
  changed=set()
  for name,digest in freeze["source_sha256"].items():
-  rel="open-sources/src/"+name;assert sha((ROOT/rel).read_bytes())==digest,rel
+  rel="open-sources/src/"+name;assert sha(live(rel).read_bytes())==digest,rel
   if name in OWN_NEW:assert name not in baseline["source_sha256"]
   elif digest!=baseline["source_sha256"][name]:
    changed.add(name);before=HERE/"before"/rel;assert sha(before.read_bytes())==baseline["source_sha256"][name]==snapshot[rel];overrides[rel]=before
  assert changed==OWN_CHANGED
- assert sha((ROOT/ASSET).read_bytes())==baseline["provider_asset_sha256"]==snapshot[ASSET]
+ assert sha(live(ASSET).read_bytes())==baseline["provider_asset_sha256"]==snapshot[ASSET]
  assert (ROOT/"decoded/res/values/public.xml").read_bytes()==(ROOT/"ui/player-layout-1.3.2/before/decoded/res/values/public.xml").read_bytes()
  result={"passed":True,"files":records,"new_resources":{},"new_own_sources":sorted(OWN_NEW),"modified_own_sources":sorted(OWN_CHANGED),"provider_registry_unchanged":True,"prior_release_evidence_unchanged":True,"native_runtime_verified":False}
  return overrides,projections,result

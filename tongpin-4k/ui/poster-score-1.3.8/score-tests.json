@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "actual_smali_interpreted_cases": 50,
+  "reused_interpreter": "ui/poster-badge-1.3.5/verify.py",
+  "interpreter_source_sha256": "12eeb7063a8a7022660c390777b0f5f606b22466a41927aeae58defa9831dbce",
+  "harness_functions_only_loaded": true,
+  "old_suite_or_old_outputs_executed": false,
+  "scope": "Actual new helper instructions executed on host model for visible/invisible/gone stale views, valid/missing/zero ratings, null TextView and repeated recycling.",
+  "device_tested": false,
+  "source_sha256": {
+    "decoded/smali_classes5/i6/e.smali": "c9b762d128d95681b89db9f3f6c6af7a53f54ddf856f98f2af206d2c763a5762"
+  }
+}

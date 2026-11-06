@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "files": {
+    "resources": {},
+    "smali": {
+      "decoded/smali_classes5/i6/e.smali": {
+        "before_path": "ui/poster-score-1.3.8/before/decoded/smali_classes5/i6/e.smali",
+        "before_sha256": "75ffbe36bb5a51e6faab81beee82f928048973e9fb87ac995031bb6deaf2b848",
+        "after_sha256": "c9b762d128d95681b89db9f3f6c6af7a53f54ddf856f98f2af206d2c763a5762",
+        "modified_methods": [
+          "bindScore(Landroid/widget/TextView;Ljava/lang/String;)V"
+        ],
+        "added_methods": [],
+        "added_fields": [],
+        "required_final_invocations": {
+          "bindScore(Landroid/widget/TextView;Ljava/lang/String;)V": [
+            "Landroid/view/View;->setVisibility(I)V",
+            "Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V"
+          ]
+        },
+        "exact_preimage_recovered": true
+      }
+    }
+  },
+  "new_resources": {},
+  "new_own_sources": [],
+  "modified_own_sources": [],
+  "java_recompiled": false,
+  "own_namespace_reused_from": "1.3.7",
+  "own_class_count": 157,
+  "provider_registry_unchanged": true,
+  "prior_release_evidence_unchanged": true,
+  "native_runtime_verified": false
+}

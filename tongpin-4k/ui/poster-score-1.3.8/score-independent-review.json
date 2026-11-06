@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "verdict": "clear after independent actual-smali execution, exact class inverse and caller/resource review",
+  "source_sha256": {
+    "decoded/smali_classes5/i6/e.smali": "c9b762d128d95681b89db9f3f6c6af7a53f54ddf856f98f2af206d2c763a5762"
+  },
+  "before_sha256": "75ffbe36bb5a51e6faab81beee82f928048973e9fb87ac995031bb6deaf2b848",
+  "changed_methods": [
+    "bindScore(Landroid/widget/TextView;Ljava/lang/String;)V"
+  ],
+  "all_other_methods_byte_identical": true,
+  "exact_whole_class_preimage_recovered": true,
+  "search_binder_unchanged_sha256": "3d18f4d98844a2cdf6c3f91c60a0df3d33346c72685f5e001a7d31265c0f8098",
+  "poster_repair_and_click_binding_unchanged": true,
+  "own_java_source_files_unchanged": 21,
+  "actual_score_writers": [
+    {
+      "path": "decoded/smali_classes5/i6/e.smali",
+      "method": "e(Li6/e$c;I)V",
+      "calls_shared_helper": true
+    },
+    {
+      "path": "decoded/smali_classes5/com/shenma/tvlauncher/phone/SearchActivity$c.smali",
+      "method": "n(Lme/jingbin/library/adapter/b;Lcom/shenma/tvlauncher/vod/domain/VodDataInfo;I)V",
+      "calls_shared_helper": true
+    }
+  ],
+  "grid_score_default_visibility": "gone",
+  "recommendation_score_remnants": [
+    {
+      "path": "decoded/res/layout/item_recommend.xml",
+      "sha256": "5ac21a765a2e5c9aeafb2afdc8c1917f11a10cb37da79b6d8b164f5380e5bc41",
+      "state": "inert empty unbound TextView; no text or background"
+    },
+    {
+      "path": "decoded/res/layout/mv_video_details_recommend_item.xml",
+      "sha256": "8deb7587583613fb6adf2d067503ee3388b63366e2100e98f7e2085e1050d099",
+      "state": "inert empty unbound TextView; no text or background"
+    }
+  ],
+  "public_catalog_and_tv_dedicated_score_ui": false,
+  "native_score_sorting_retained": "评分最高/scoredesc is an existing sorting option, not a poster score badge",
+  "device_tested": false,
+  "test_report_sha256": "809c3ad9ad51489f93f40f4dce600bb92e0df1826215240f9549a4be300b26ec"
+}

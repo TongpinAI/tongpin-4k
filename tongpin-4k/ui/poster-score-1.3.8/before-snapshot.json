@@ -1,0 +1,18 @@
+{
+  "build_tongpin.py": "deb38d5118d7f3f719b3e3ef308f87ecd5205ba0f74752392e5f5079e221521e",
+  "open-sources/integration/assert_contract.py": "b4c37f6c19b867c5644664222250b7cc8a5fa1ca2121775945c05d9b4c72171f",
+  "open-sources/integration/ui_1370_contract.py": "c94dfcdd708683f2e357922b620da61bf008d61d54687fc11c22377b7bd2c502",
+  "decoded/AndroidManifest.xml": "dc5b2b6dbabf99cac8654f7d5586e07a7928ec3a8fc2f97b2ee35993fde19611",
+  "decoded/apktool.yml": "182609c5d131f103f7e59348cdd1f89d1d1215d100725edbbe120fe8ee397bf8",
+  "decoded/res/values/strings.xml": "9af2fdedc243f18efe03a0959e618677f964c8dca7b4841670f57ba7712625c0",
+  "decoded/smali_classes5/i6/e.smali": "75ffbe36bb5a51e6faab81beee82f928048973e9fb87ac995031bb6deaf2b848",
+  "decoded/res/layout/item_recommend.xml": "5ac21a765a2e5c9aeafb2afdc8c1917f11a10cb37da79b6d8b164f5380e5bc41",
+  "decoded/res/layout/item_recommend_banner.xml": "a8c4fa9c6c1e957ee64a73557231c5134e99179c159119d172d5de88091d67f0",
+  "decoded/res/layout/item_recommend_title.xml": "a1dd92e1410a7fb5f49230c9837ee0aa0b7c083160cd63de7fedfe3f81cb359f",
+  "decoded/res/layout/layout_recommend.xml": "f2b1b24d3645b98502d937f73266729dfa06c8209124ff56605d8f6807921cd5",
+  "decoded/res/layout/layout_recommends.xml": "e5ba553ccac349acfe6096b5c5ac88c169a1bdf7071cc22f52efb26961ea472a",
+  "decoded/res/layout/mv_type_details_item.xml": "90dc024086899f34648f40dff3c718af4988383a07b75a68d78ed4d8de07d681",
+  "decoded/res/layout/mv_video_details_recommend.xml": "a22c9bc5dea2922029b053f92f1693db2baabfb04a24824c9b33ae75100b75ed",
+  "decoded/res/layout/mv_video_details_recommend_item.xml": "8deb7587583613fb6adf2d067503ee3388b63366e2100e98f7e2085e1050d099",
+  "decoded/smali_classes5/com/shenma/tvlauncher/phone/SearchActivity$c.smali": "3d18f4d98844a2cdf6c3f91c60a0df3d33346c72685f5e001a7d31265c0f8098"
+}

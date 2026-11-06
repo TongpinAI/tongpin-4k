@@ -1,6 +1,6 @@
 # 同频4K
 
-手机端与电视端的项目归档，当前手机版本 **1.3.7 / 1370**，电视版本 **1.3.3 / 1303**。
+手机端与电视端的项目归档，当前手机版本 **1.3.8 / 1380**，电视版本 **1.3.3 / 1303**。
 
 ## 参与开发
 
@@ -20,7 +20,7 @@
 
 ## 安装包与构建输入
 
-`v1.3.7` Release 保存手机1.3.7、TV1.3.3安装包；`v1.3.6`保存上一版安装包、1.3.5／TV1.3.1基线包及完整Android工具v2归档；`backup-2026-11-06`保留更早的构建合同所需基线APK。安装包不放入Git源码历史。
+`v1.3.8` Release 保存手机1.3.8安装包；`v1.3.7` 保存手机1.3.7、TV1.3.3安装包；`v1.3.6`保存上一版安装包、1.3.5／TV1.3.1基线包及完整Android工具v2归档；`backup-2026-11-06`保留更早的构建合同所需基线APK。安装包不放入Git源码历史。
 
 在仓库根目录用已登录的 GitHub CLI 下载附件后恢复：
 
@@ -28,6 +28,7 @@
 gh release download backup-2026-11-06 --dir artifacts
 gh release download v1.3.6 --dir artifacts
 gh release download v1.3.7 --dir artifacts
+gh release download v1.3.8 --dir artifacts
 python scripts/restore_artifacts.py --download-dir artifacts --check-only
 python scripts/restore_artifacts.py --download-dir artifacts
 ```
@@ -64,3 +65,7 @@ python scripts/restore_artifacts.py --download-dir artifacts
 两端的集数同时区分最高集号和实际可选正片数。例如某线路列到177集但缺第8、39集时，显示“更新至第177集 · 可选175集”；陪看、彩蛋、人物志等另计。
 
 手机原图加载失败后才后台尝试补图，先查同一原记录的最新封面，再以同名、年份、类型和长简介严格匹配已有配置来源。补图有并发、读入、图片尺寸及缓存上限；无法可靠确认的海报继续使用占位。未连接设备执行触摸、遥控或持续播放验收。
+
+## 1.3.8 修复
+
+手机首页、分类页和搜索结果统一移除海报右上角的评分角标；评分数据与按评分排序保留。电视端没有该评分角标，维持1.3.3。共享绑定器的50项检查以及最终APK的DEX、资源ID和签名检查通过，未连接设备进行真机验收。

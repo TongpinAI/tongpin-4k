@@ -1,0 +1,37 @@
+{
+  "passed": true,
+  "apk_sha256": "532c6f3810df6c284f273e4f4ba32bb2e6fab67054f80828e003f922debf8475",
+  "downloads_sha256": "532c6f3810df6c284f273e4f4ba32bb2e6fab67054f80828e003f922debf8475",
+  "size_bytes": 77021749,
+  "own_class_count": 157,
+  "actual_final_abi_invocations": 2600,
+  "own_methods_verified": 882,
+  "scoped_native_method_proof_records": 35,
+  "unique_scoped_native_methods": 32,
+  "new_native_modified_methods": [
+    "i6/e.bindScore(TextView,String)"
+  ],
+  "java_recompiled": false,
+  "own_namespace_reused_from": "1.3.7",
+  "own_namespace_smali_hashes_unchanged": true,
+  "provider_count": 11,
+  "asset_sha256": "7e6a9616a36c68788500c68b313265bda50e28efe7af695cc9b368f89078aa1d",
+  "original_and_added_resource_ids_retained": true,
+  "native_libraries_retained": 42,
+  "first_four_dex_unchanged": true,
+  "all_frozen_source_and_review_hashes_unchanged": true,
+  "prior_137_evidence_unchanged": true,
+  "prior_137_evidence_files": 51,
+  "signature_v1_v2_v3": true,
+  "apk_entry_delta": [
+    "AndroidManifest.xml",
+    "META-INF/MANIFEST.MF",
+    "META-INF/TONGPIN4.RSA",
+    "META-INF/TONGPIN4.SF",
+    "classes5.dex",
+    "resources.arsc"
+  ],
+  "source_freeze_sha256": "cf24806c6b4b4a7697c109f565fb525eeb2c404e00e3036d5bf4fa866a6414e3",
+  "build_result_sha256": "60cba46f019b8ddbb19052f9958e21435644a1ecf152bbafde6c33bbaba02cc9",
+  "device_tested": false
+}
