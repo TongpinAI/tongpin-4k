@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "sdk_branch_checks": {
+    "21": {
+      "guarded_call_reachable": false,
+      "legacy_call_reachable": true
+    },
+    "22": {
+      "guarded_call_reachable": false,
+      "legacy_call_reachable": true
+    },
+    "23": {
+      "guarded_call_reachable": false,
+      "legacy_call_reachable": true
+    },
+    "25": {
+      "guarded_call_reachable": false,
+      "legacy_call_reachable": true
+    },
+    "26": {
+      "guarded_call_reachable": true,
+      "legacy_call_reachable": false
+    },
+    "35": {
+      "guarded_call_reachable": true,
+      "legacy_call_reachable": false
+    }
+  },
+  "seek_mode": 3
+}

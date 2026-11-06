@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "verdict": "clear: global title lookup is separated from browsing and retains provider-aware results, cursors and focus",
+  "source_sha256": {
+    "src/com/tongpin/player4k/tv/TvHomeActivity.java": "2b2dbb0a58a44981f11c069f242d3d7df837ed7ca97552fff3562b1023c90942",
+    "src/com/tongpin/player4k/tv/AllCatalogSearch.java": "a7d6485531517de9bf7bee288d5694f514a41760a0540beb98f4c72909ffee3d"
+  },
+  "tests_sha256": "7b851e3bb39dfcde81b84c21e68ade8e360ed8e8749b73206be419c47426ebb3",
+  "independent_ui_assertions": 22,
+  "all25_production_source_hashes_verified": true,
+  "shared_helper_package_only_equal": true,
+  "reviewed_paths": [
+    "submit/loadPage mode and browse context",
+    "source-scoped live channel search",
+    "incremental snapshots and separate retry/more",
+    "detail and background pause/resume",
+    "provider/id result identity and returned focus",
+    "destruction and keyword invalidation"
+  ],
+  "notes": [
+    "Main handler delivery is asynchronous; callbacks re-read the active handle snapshot and reject old query, background and detail views.",
+    "Each source keeps its own cursor; failed-page retries preserve successful results and cancellation only resumes interrupted requests.",
+    "Real provider identity reaches cards, detail and playback; category identifiers are not sent to global search.",
+    "Aggregate results are bounded and limits explicit; source and category browsing, local history/favorites and live channel queries remain available.",
+    "The home only pauses background search on detail/background and does not change the playback core, 4K ranking or provider registry."
+  ],
+  "device_tested": false,
+  "activity_constructed": false,
+  "media_requested": false
+}

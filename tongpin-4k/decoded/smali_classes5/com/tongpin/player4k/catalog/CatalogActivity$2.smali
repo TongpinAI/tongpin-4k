@@ -33,7 +33,7 @@
         }
     .end annotation
 
-    .line 212
+    .line 226
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$2;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -55,14 +55,14 @@
         }
     .end annotation
 
-    .line 215
+    .line 229
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$2;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
     invoke-static {p1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$000(Lcom/tongpin/player4k/catalog/CatalogActivity;)Z
 
     move-result p1
 
-    if-nez p1, :cond_2
+    if-nez p1, :cond_3
 
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$2;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
@@ -74,13 +74,13 @@
 
     move-result p1
 
-    if-ne p3, p1, :cond_2
+    if-ne p3, p1, :cond_3
 
-    if-ltz p3, :cond_2
+    if-ltz p3, :cond_3
 
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$2;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
-    .line 216
+    .line 230
     invoke-static {p1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$200(Lcom/tongpin/player4k/catalog/CatalogActivity;)Ljava/util/ArrayList;
 
     move-result-object p1
@@ -93,7 +93,7 @@
 
     goto :goto_0
 
-    .line 217
+    .line 231
     :cond_0
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$2;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
@@ -107,10 +107,26 @@
 
     check-cast p1, Ljava/lang/String;
 
-    .line 218
+    .line 232
     iget-object p2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$2;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
     invoke-static {p2}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$300(Lcom/tongpin/player4k/catalog/CatalogActivity;)Ljava/lang/String;
+
+    move-result-object p2
+
+    invoke-virtual {p2}, Ljava/lang/String;->isEmpty()Z
+
+    move-result p2
+
+    if-nez p2, :cond_1
+
+    return-void
+
+    .line 233
+    :cond_1
+    iget-object p2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$2;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
+
+    invoke-static {p2}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$400(Lcom/tongpin/player4k/catalog/CatalogActivity;)Ljava/lang/String;
 
     move-result-object p2
 
@@ -118,30 +134,30 @@
 
     move-result p2
 
-    if-nez p2, :cond_1
+    if-nez p2, :cond_2
 
     iget-object p2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$2;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
-    invoke-static {p2, p1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$302(Lcom/tongpin/player4k/catalog/CatalogActivity;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p2, p1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$402(Lcom/tongpin/player4k/catalog/CatalogActivity;Ljava/lang/String;)Ljava/lang/String;
 
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$2;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
     const-string p2, ""
 
-    invoke-static {p1, p2}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$402(Lcom/tongpin/player4k/catalog/CatalogActivity;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p1, p2}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$502(Lcom/tongpin/player4k/catalog/CatalogActivity;Ljava/lang/String;)Ljava/lang/String;
 
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$2;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
     const/4 p2, 0x1
 
-    invoke-static {p1, p2}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$500(Lcom/tongpin/player4k/catalog/CatalogActivity;I)V
+    invoke-static {p1, p2}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$600(Lcom/tongpin/player4k/catalog/CatalogActivity;I)V
 
-    .line 219
-    :cond_1
+    .line 234
+    :cond_2
     return-void
 
-    .line 216
-    :cond_2
+    .line 230
+    :cond_3
     :goto_0
     return-void
 .end method
@@ -156,6 +172,6 @@
         }
     .end annotation
 
-    .line 213
+    .line 227
     return-void
 .end method

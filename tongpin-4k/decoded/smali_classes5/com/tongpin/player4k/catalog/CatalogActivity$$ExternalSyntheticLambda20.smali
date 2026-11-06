@@ -3,17 +3,25 @@
 .source "D8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
 .field public final synthetic f$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
-.field public final synthetic f$1:Z
+.field public final synthetic f$1:Landroid/widget/Spinner;
+
+.field public final synthetic f$2:Lcom/tongpin/player4k/catalog/CatalogApi$Detail;
+
+.field public final synthetic f$3:Landroid/widget/TextView;
+
+.field public final synthetic f$4:Landroid/widget/Button;
+
+.field public final synthetic f$5:Landroid/widget/GridView;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/tongpin/player4k/catalog/CatalogActivity;Z)V
+.method public synthetic constructor <init>(Lcom/tongpin/player4k/catalog/CatalogActivity;Landroid/widget/Spinner;Lcom/tongpin/player4k/catalog/CatalogApi$Detail;Landroid/widget/TextView;Landroid/widget/Button;Landroid/widget/GridView;)V
     .locals 0
 
     .line 0
@@ -21,22 +29,38 @@
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda20;->f$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
-    iput-boolean p2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda20;->f$1:Z
+    iput-object p2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda20;->f$1:Landroid/widget/Spinner;
+
+    iput-object p3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda20;->f$2:Lcom/tongpin/player4k/catalog/CatalogApi$Detail;
+
+    iput-object p4, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda20;->f$3:Landroid/widget/TextView;
+
+    iput-object p5, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda20;->f$4:Landroid/widget/Button;
+
+    iput-object p6, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda20;->f$5:Landroid/widget/GridView;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onClick(Landroid/content/DialogInterface;I)V
-    .locals 2
+.method public final run()V
+    .locals 6
 
     .line 0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda20;->f$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
-    iget-boolean v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda20;->f$1:Z
+    iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda20;->f$1:Landroid/widget/Spinner;
 
-    invoke-virtual {v0, v1, p1, p2}, Lcom/tongpin/player4k/catalog/CatalogActivity;->lambda$showLibrary$1$com-tongpin-player4k-catalog-CatalogActivity(ZLandroid/content/DialogInterface;I)V
+    iget-object v2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda20;->f$2:Lcom/tongpin/player4k/catalog/CatalogApi$Detail;
+
+    iget-object v3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda20;->f$3:Landroid/widget/TextView;
+
+    iget-object v4, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda20;->f$4:Landroid/widget/Button;
+
+    iget-object v5, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda20;->f$5:Landroid/widget/GridView;
+
+    invoke-virtual/range {v0 .. v5}, Lcom/tongpin/player4k/catalog/CatalogActivity;->lambda$showDetail$3$com-tongpin-player4k-catalog-CatalogActivity(Landroid/widget/Spinner;Lcom/tongpin/player4k/catalog/CatalogApi$Detail;Landroid/widget/TextView;Landroid/widget/Button;Landroid/widget/GridView;)V
 
     return-void
 .end method

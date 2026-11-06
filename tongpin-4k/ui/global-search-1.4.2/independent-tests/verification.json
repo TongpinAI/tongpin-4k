@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "assertions": 27,
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/AllCatalogSearch.java": "958b52a63c23daa192714471a35a2f13acd1154cf1e7e137791eb91c58247794",
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogApi.java": "9e99cf63272fc2b42aa75d8de6094f2ab9b356270dd3f13254c7601826f9e959",
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogCategories.java": "3c368a9e8ebbfbcf15e8426b1cdacfd0e3289efdfeb1f887569840528425f03b",
+    "open-sources/src/com/tongpin/player4k/catalog/MacCmsXml.java": "5ca12bf836e1c8e10c8efd06d0054e0ce25c8c63c707f7513e77eddccf5b8f68",
+    "open-sources/src/com/tongpin/player4k/catalog/TvBoxJson.java": "4fe2bf0bdaf94a431a5ddc6514eb51a37d668006b608659a1cf16fd558faab24",
+    "open-sources/src/com/tongpin/player4k/catalog/M3uCatalog.java": "710daeaabe91bab03e078106de0b4cdd5d1b852cbdb4c7992ed0b2e3626ead51"
+  },
+  "test_source_sha256": "5572be30b0c043f78ced32ecc37d5fe256316e86c48d8682ad1f6bc758730b35",
+  "runner_sha256": "ba42bd3d9ee94aea5a79418956e3f23a49277774f6d221bdbedb8ac4f906a7db",
+  "actual_catalog_api_and_models_compiled": true,
+  "compile_stubs_used": false,
+  "device_tested": false,
+  "network_tested": false,
+  "scope": "Independent fake-backend tests of actual shared search helper: page2 retry, canceled round/resume, stale queued query delivery, all24 under2000 limit, raw empty/repeated pages; JDK only."
+}

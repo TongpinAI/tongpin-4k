@@ -3,15 +3,17 @@
 .source "D8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/widget/TextView$OnEditorActionListener;
+.implements Landroid/content/DialogInterface$OnClickListener;
 
 
 # instance fields
 .field public final synthetic f$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
+.field public final synthetic f$1:Z
+
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/tongpin/player4k/catalog/CatalogActivity;)V
+.method public synthetic constructor <init>(Lcom/tongpin/player4k/catalog/CatalogActivity;Z)V
     .locals 0
 
     .line 0
@@ -19,20 +21,22 @@
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda24;->f$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
+    iput-boolean p2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda24;->f$1:Z
+
     return-void
 .end method
 
 
 # virtual methods
-.method public final onEditorAction(Landroid/widget/TextView;ILandroid/view/KeyEvent;)Z
-    .locals 1
+.method public final onClick(Landroid/content/DialogInterface;I)V
+    .locals 2
 
     .line 0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda24;->f$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
-    invoke-virtual {v0, p1, p2, p3}, Lcom/tongpin/player4k/catalog/CatalogActivity;->lambda$buildScreen$3$com-tongpin-player4k-catalog-CatalogActivity(Landroid/widget/TextView;ILandroid/view/KeyEvent;)Z
+    iget-boolean v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda24;->f$1:Z
 
-    move-result p1
+    invoke-virtual {v0, v1, p1, p2}, Lcom/tongpin/player4k/catalog/CatalogActivity;->lambda$showLibrary$1$com-tongpin-player4k-catalog-CatalogActivity(ZLandroid/content/DialogInterface;I)V
 
-    return p1
+    return-void
 .end method

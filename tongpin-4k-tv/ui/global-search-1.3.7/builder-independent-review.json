@@ -1,0 +1,68 @@
+{
+  "passed": true,
+  "verdict": "clear: TV137 gate admits only Home/global-search helper and version metadata with preserved playback/runtime boundary",
+  "source_sha256": {
+    "build_tv.py": "c857c2729f437d3b70b5c80dbdec6ecc403c32f343326b1f94dcc5c508eaa156"
+  },
+  "reviewed_freeze_sha256": "2407d416d63cff181ba11505e32131e870525c8d36f9f73a0ee1f2c3d64fe079",
+  "input_count": 37,
+  "cases": [
+    {
+      "name": "actual37-input preflight boundary",
+      "passed": true
+    },
+    {
+      "name": "formal promotion not authorized",
+      "passed": true,
+      "rejection": ""
+    },
+    {
+      "name": "missing exact snapshot indexes",
+      "passed": true,
+      "rejection": ""
+    },
+    {
+      "name": "wrong prior evidence index pin",
+      "passed": true,
+      "rejection": "Snapshot index changed: prior-evidence-sha256.json"
+    },
+    {
+      "name": "missing owner source coverage",
+      "passed": true,
+      "rejection": "Changed source lacks owner freeze coverage"
+    },
+    {
+      "name": "wrong manifest input digest",
+      "passed": true,
+      "rejection": "Inputs differ from reviewed global-search freeze"
+    },
+    {
+      "name": "unexpected input name",
+      "passed": true,
+      "rejection": "Inputs differ from reviewed global-search freeze"
+    },
+    {
+      "name": "missing final independent coverage",
+      "passed": true,
+      "rejection": "Final source/tooling independent reviews are incomplete"
+    },
+    {
+      "name": "wrong Media3 lock pin",
+      "passed": true,
+      "rejection": ""
+    },
+    {
+      "name": "wrong prior resource ID pin",
+      "passed": true,
+      "rejection": ""
+    }
+  ],
+  "notes": [
+    "Actual preflight contract and nine in-memory reject cases executed; production/freeze files were not mutated.",
+    "All prior136 inputs remain fixed except Home and version-only manifest/strings; the single new helper is explicitly covered by owner and independent source review.",
+    "Runtime closure, API21 guards, resource IDs, provider data, old APK digest and published evidence retain their existing checks.",
+    "137 is included in the existing official Media3/runtime and guarded backend paths; no new dependency or signing policy."
+  ],
+  "device_tested": false,
+  "signing_executed": false
+}

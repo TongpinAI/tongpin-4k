@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "verdict": "clear: provider-scoped global search, cumulative pagination/cancellation and phone caller lifecycle reviewed; final captions corrected",
+  "workspace_sources": true,
+  "source_sha256": {
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/AllCatalogSearch.java": "958b52a63c23daa192714471a35a2f13acd1154cf1e7e137791eb91c58247794",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/CatalogActivity.java": "bb568f5ab024b6c23ae9d79e4cbce329e4ae4fc3d8dd13989f2e4fb062dabe62",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/AllCatalogSearch.java": "a7d6485531517de9bf7bee288d5694f514a41760a0540beb98f4c72909ffee3d"
+  },
+  "device_tested": false,
+  "network_tested_by_reviewer": false,
+  "owner_freeze_sha256": "df3e1a1174b018111250a8b7e0eca38a0a332b22f88f6934694e4af922f2eb29",
+  "shared_freeze_sha256": "73618609973a989fd92a4684a88a1c2b78966e8cdef00a794717eda8c738b949",
+  "evidence_sha256": {
+    "tongpin-4k/ui/global-search-1.4.2/tests/verification.json": "c8c0219aa98ac3c11f805d9d1ff6987fe514d3ce954bbae28f33c58b858342fe",
+    "tongpin-4k/ui/global-search-1.4.2/independent-tests/verification.json": "deb0f7097ee4f98a9c5d1e602eb0680693905263597b3269d657add7084a1cf0",
+    "tongpin-4k/ui/global-search-1.4.2/independent-tests/IndependentSearchTest.java": "5572be30b0c043f78ced32ecc37d5fe256316e86c48d8682ad1f6bc758730b35",
+    "tongpin-4k/ui/global-search-1.4.2/independent-tests/run.py": "ba42bd3d9ee94aea5a79418956e3f23a49277774f6d221bdbedb8ac4f906a7db"
+  },
+  "independent_assertions": 27,
+  "owner_assertions": 597,
+  "package_only_shared_equal": true,
+  "review_notes": [
+    "Only eligible searchable VOD providers participate; M3U/live and browse-only entries are explicitly excluded from the searchable count. The default API backend always supplies category=null.",
+    "One bounded worker pool schedules all24 configured eligible sources in the initial batch; subsequent batches request only remaining source cursors. Successful cursors advance, failed pages remain retryable, canceled unfinished requests resume without rescanning successful providers, and stale rounds/keywords cannot append results.",
+    "Results retain provider identity and source-local IDs. Same IDs across different providers remain separate; phone cards always display the actual provider name, and detail fetches use the selected Video provider.",
+    "Filtered empty raw pages preserve hasMore; repeated nonempty pages stop explicitly. The 2000-item cap is visible and does not skip tail providers in the current batch.",
+    "Phone delivery uses asynchronous main.post. Page/detail tickets, cancelRound, foreground/detail guards and close() isolate delayed replies; returning from details resumes cached unfinished search. Separate live-channel search remains available.",
+    "The final caption correctly distinguishes all-source failure from no matches and does not offer an impossible failed-source retry after the visible result cap.",
+    "Independent tests compile the actual helper plus actual CatalogApi/models and format/category helpers with the JDK, without compile stubs or real network. Full34-Java SDK compilation and597 owner assertions provide complementary caller evidence; no real-device rendering or playback claim is made."
+  ]
+}

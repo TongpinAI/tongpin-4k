@@ -1,0 +1,37 @@
+{
+  "passed": true,
+  "version": "1.3.7",
+  "version_code": 1307,
+  "bytes": 7740224,
+  "sha256": "74215343f0ff7e5151f7a03e260df1370a81207bbd0bec89eb342c90777a56f3",
+  "downloads_sha256": "74215343f0ff7e5151f7a03e260df1370a81207bbd0bec89eb342c90777a56f3",
+  "certificate_sha256": "c6977a378251b81f1dc7f9564d5c7817f4620f54f2f2ec3befe7bfdf13fffe89",
+  "same_previous_package_certificate": true,
+  "frozen_inputs_sha256": "2e1055b9d31d60889563c3c767ef5144b6e6a5d9f5d1a5781505badf59cb7766",
+  "source_owner_review_tooling_pins_unchanged": true,
+  "source_input_count": 37,
+  "published136_evidence_unchanged": true,
+  "resource_id_count": 30,
+  "all_previous_resource_ids_unchanged": true,
+  "provider_count": 28,
+  "provider_asset_sha256": "9793756bfa35672f9c2645cd981dce4e23431be664ebceb71e6f2b05966b3e05",
+  "provider_asset_bytes_unchanged_from136": true,
+  "zip_entry_names_unchanged": true,
+  "changed_zip_entries": [
+    "AndroidManifest.xml",
+    "META-INF/MANIFEST.MF",
+    "META-INF/TONGPIN4.RSA",
+    "META-INF/TONGPIN4.SF",
+    "classes.dex",
+    "resources.arsc"
+  ],
+  "final_dex_names": [
+    "classes.dex"
+  ],
+  "final_class_count": 6322,
+  "final_dex_equals_api_audited_bytes": true,
+  "min21_runtime_abi_api23_speed_api26_seek_media3_guards_passed": true,
+  "no_native_libraries": true,
+  "device_tested": false,
+  "runtime_playback_tested": false
+}

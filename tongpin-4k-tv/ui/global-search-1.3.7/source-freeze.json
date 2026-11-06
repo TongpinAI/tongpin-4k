@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "frozen": true,
+  "source_sha256": {
+    "src/com/tongpin/player4k/tv/TvHomeActivity.java": "2b2dbb0a58a44981f11c069f242d3d7df837ed7ca97552fff3562b1023c90942",
+    "src/com/tongpin/player4k/tv/AllCatalogSearch.java": "a7d6485531517de9bf7bee288d5694f514a41760a0540beb98f4c72909ffee3d"
+  },
+  "tests": "ui/global-search-1.3.7/verification.json",
+  "tests_sha256": "7b851e3bb39dfcde81b84c21e68ade8e360ed8e8749b73206be419c47426ebb3",
+  "shared_helper_author": "phone owner /root/poster_badge_fix; package-only mirror of AllCatalogSearch.java; shared scheduler tests independently reviewed separately",
+  "scope": "Single global VOD keyword box; separate source/category/page browse context and live channel search; helper session paging/partial results; lifecycle interruption resumes unfinished cursors; provider-aware stable result focus. No player, registry or playback policy changes.",
+  "device_tested": false
+}

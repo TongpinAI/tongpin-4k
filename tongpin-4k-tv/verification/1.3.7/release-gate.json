@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "version": "1.3.7",
+  "frozen_inputs_sha256": "2e1055b9d31d60889563c3c767ef5144b6e6a5d9f5d1a5781505badf59cb7766",
+  "builder_sha256": "c857c2729f437d3b70b5c80dbdec6ecc403c32f343326b1f94dcc5c508eaa156",
+  "input_count": 37,
+  "source_review_sha256": "85d8fa6a2897f2a7d476e80bfaa86bbc48b8b7e362d1345591b1e68f9e97ae38",
+  "builder_review_sha256": "b4b91942607c76f39b8abbe5af45d62de7fde69d409d8aed74911e7bed5e60f8",
+  "signed_build_authorized": true,
+  "validation_phase": "Read-only independent reader while formal build is active; formal builder also validates this exact gate at entry. First auxiliary import required project sys.path; no source/freeze change.",
+  "device_tested": false
+}

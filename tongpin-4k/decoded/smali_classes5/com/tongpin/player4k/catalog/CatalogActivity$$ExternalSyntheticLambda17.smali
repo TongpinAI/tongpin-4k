@@ -3,17 +3,17 @@
 .source "D8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
 .field public final synthetic f$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
-.field public final synthetic f$1:Ljava/lang/Runnable;
+.field public final synthetic f$1:I
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/tongpin/player4k/catalog/CatalogActivity;Ljava/lang/Runnable;)V
+.method public synthetic constructor <init>(Lcom/tongpin/player4k/catalog/CatalogActivity;I)V
     .locals 0
 
     .line 0
@@ -21,22 +21,22 @@
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda17;->f$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
-    iput-object p2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda17;->f$1:Ljava/lang/Runnable;
+    iput p2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda17;->f$1:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onClick(Landroid/view/View;)V
+.method public final run()V
     .locals 2
 
     .line 0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda17;->f$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
-    iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda17;->f$1:Ljava/lang/Runnable;
+    iget v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda17;->f$1:I
 
-    invoke-virtual {v0, v1, p1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->lambda$showDetail$5$com-tongpin-player4k-catalog-CatalogActivity(Ljava/lang/Runnable;Landroid/view/View;)V
+    invoke-virtual {v0, v1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->lambda$play$2$com-tongpin-player4k-catalog-CatalogActivity(I)V
 
     return-void
 .end method

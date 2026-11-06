@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "workspace_sources": true,
+  "source_sha256": {
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/AllCatalogSearch.java": "958b52a63c23daa192714471a35a2f13acd1154cf1e7e137791eb91c58247794",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/AllCatalogSearch.java": "a7d6485531517de9bf7bee288d5694f514a41760a0540beb98f4c72909ffee3d"
+  },
+  "test_report": "tongpin-4k/ui/global-search-1.4.2/independent-tests/verification.json",
+  "test_report_sha256": "deb0f7097ee4f98a9c5d1e602eb0680693905263597b3269d657add7084a1cf0",
+  "scheduler_assertions": 27,
+  "package_only_equal": true,
+  "device_tested": false,
+  "evidence_scope": "Actual production helper independent scheduler tests; no phone caller/full-graph dependency"
+}

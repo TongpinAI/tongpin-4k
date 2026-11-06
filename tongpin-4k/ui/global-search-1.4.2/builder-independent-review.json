@@ -1,0 +1,39 @@
+{
+  "passed": true,
+  "verdict": "clear: default all-library search is bounded to CatalogActivity/new shared coordinator with unchanged141 playback/native/source registry; exact11tool final DEX/API/native binding proofs remain enforced",
+  "source_sha256": {
+    "open-sources/toolchain/compile_java_to_smali.py": "b1b855f38294ecb7d392980b917f8fa17eaae77496c3bd1fcd961e557574cc9c",
+    "open-sources/integration/audit_final_ui_api_1420.py": "df5566bdd2e18e46f870514e441c11a5fcc4a6547dd96bb54900891fd971d375",
+    "verification/1.4.2/proof-tools/DisassembleOwn1420.class": "166dda111c75f0af48f17721ff00fa1835a007ce49ad2fa50394ca216bd3e563",
+    "open-sources/integration/assert_contract.py": "21476639b7c659989cb8a1efcfb94ed30e0595e350b58d0c41772cd387d2d4c6",
+    "open-sources/integration/integrate_1_4_2.py": "10c13498f88fa9a5919e2c2a1399df3331507c6c5be386fa9b06e4db3e6121c6",
+    "open-sources/integration/check_timer_dex_1420.py": "d1b24100bc4cd163c83cc1eb0f6ed66bd55c47f34046e5e3f448acf0adc317ee",
+    "open-sources/toolchain/check_framework_api.py": "91209f30753abd8ea244655bd98762d4e0590c173dae2e842367d82559a61905",
+    "open-sources/integration/DisassembleOwn1420.java": "c47362740ae18e52cd61a9440c77efbd15be295a4e0ca42be5fc4fefed5f0a67",
+    "open-sources/integration/check_native_bindings_1410.py": "9a69cd89a30993ac4ca4beaa7a8d1d7d0e1b981edbb2f2f62740f955c6a9d93c",
+    "open-sources/integration/ui_1420_contract.py": "3df92d68f4f4a835d13ae6cb593991f2e0e33c6e00b3118b49914978281d3723",
+    "build_tongpin.py": "b2e2f7607fbc3830eb5a1d4063f7b63169e3f7022d0a2ab869b5686f97fcb4c1"
+  },
+  "reviewed_main_freeze_sha256": "fad6a9af5a170625023d791515a018213dd6d2c427fa378e73b4ac16c11803e2",
+  "gate_test_report": "ui/global-search-1.4.2/builder-gate-review-tests.json",
+  "gate_test_report_sha256": "f0ad1bf0c74382d96f243676cfcbbd5b4a4da17ad66265ee395999684b147b0f",
+  "checks": [
+    "Actual complete verify(promotion=False) succeeds against immutable34-source/297-class r3 stage.",
+    "Ten in-memory malformed-freeze/phase checks reject unauthorized promotion, absent independent tool coverage, missing native/shared evidence, missing/wrong native checker pin, absent/wrong canonicalDEX pin, incomplete stage map and previous141 stage.",
+    "Manifest/XML inverse preserves published141 launcher and components; all native/resource/asset inventory and bytes unchanged except exactversion values.",
+    "Exactly CatalogActivity changed and AllCatalogSearch added; all141 player/session/decoder/subtitle/queue and28source registry source bytes retained.",
+    "Fresh canonical ownDEX descriptors independently parsed as data:297unique own classes match frozen fullsmali map; no compile stubs packaged.",
+    "Reviewed final reader includes every own class and17legacy classes; final opcode/register/method equivalence, timer/native helper proof, actualAPK ABI, field/access/native binding and official framework API guards remain active.",
+    "Native-binding checker is byte-identical to independently reviewed141 implementation; actual297-class r3 binding verification independently rerun. It remains a symbolic/access/linear receiver checker rather than a completeDalvik verifier.",
+    "Top-level assert_contract dispatches directly to142 gate, preserving historical141 evidence; preimages, prior141 evidence, source/stub/tests/tools/stage/dex pins checked."
+  ],
+  "negative_case_count": 10,
+  "fresh_java_source_count": 34,
+  "fresh_own_dex_class_count": 297,
+  "canonical_dex_sha256": "963e8de0ec62b4b4750ba8631e8af3f9ca1b451314235b579f6b8194799c0d38",
+  "prior_native_checker_review": "ui/playback-fix-1.4.1/builder-independent-review.json",
+  "prior_native_checker_review_sha256": "ffaeb106c16d3b2e8ed6f330aa93c88d157627b371a07f74094b31a2943bc01c",
+  "production_or_freeze_mutated": false,
+  "device_tested": false,
+  "runtime_playback_tested": false
+}

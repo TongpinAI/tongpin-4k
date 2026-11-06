@@ -89,6 +89,12 @@ public final class CatalogActivity extends Activity {
     private LinearLayout sourceChips;
     private PhoneSourcePicker sourcePicker;
     private boolean foreground, bridgePending;
+    private AllCatalogSearch allSearch;
+    private AllCatalogSearch.Handle searchHandle;
+    private boolean readingDetail;
+    private String channelQuery = "";
+    private View browseSourceRow, browseChips, browseCategoryRow;
+    private Button channelSearch;
 
     public static void openSourceSwitch(Activity host, String title, String episodeLabel, String year,
                                         String category, String description, long position, float speed, boolean playing) {
@@ -136,12 +142,14 @@ public final class CatalogActivity extends Activity {
             providerIndex = Math.max(0, Math.min(saved.getInt("provider"), providers.size() - 1));
             page = Math.max(1, saved.getInt("page", 1));
             keyword = saved.getString("keyword", "");
+            channelQuery = saved.getString("channelQuery", "");
             if (providers.get(providerIndex).id.equals(saved.getString("categoryProvider", "")))
                 pendingCategoryId = saved.getString("category", "");
         } else {
             String preferred = getSharedPreferences("tongpin_ui", MODE_PRIVATE).getString("home_provider", "");
             for (int i = 0; i < providers.size(); i++) if (providers.get(i).id.equals(preferred)) providerIndex = i;
         }
+        allSearch = new AllCatalogSearch(main::post);
         buildScreen();
         loadPage(page);
         if (getIntent().getBooleanExtra("source_switch", false)) {
@@ -179,23 +187,25 @@ public final class CatalogActivity extends Activity {
         ArrayList<String> names = new ArrayList<>();
         for (Provider provider : providers) names.add(provider.name);
         picker.setAdapter(pickerAdapter(names));
-        picker.setContentDescription("选择片库");
+        picker.setContentDescription("选择浏览来源，片名搜索自动查询全部可搜索片库");
         picker.setSelection(providerIndex);
         LinearLayout sourceRow = row();
         sourceRow.setBackground(PhoneUi.background(this, PhoneUi.TONAL, 16));
         sourceRow.setPadding(dp(12), dp(4), dp(8), dp(4));
-        sourceRow.addView(label("片源", 14, TEXT), new LinearLayout.LayoutParams(dp(48), dp(48)));
+        sourceRow.addView(label("浏览来源", 14, TEXT), new LinearLayout.LayoutParams(dp(72), dp(48)));
         picker.setBackgroundTintList(ColorStateList.valueOf(BLUE));
         picker.setPopupBackgroundDrawable(PhoneUi.background(this, SURFACE, 16));
         sourceRow.addView(picker, new LinearLayout.LayoutParams(0, dp(48), 1));
         LinearLayout.LayoutParams pickerLayout = new LinearLayout.LayoutParams(-1, -2);
         pickerLayout.setMargins(dp(16), 0, dp(16), dp(4));
         catalogScreen.addView(sourceRow, pickerLayout);
+        browseSourceRow = sourceRow;
         HorizontalScrollView sources = new HorizontalScrollView(this);
         sources.setHorizontalScrollBarEnabled(false);
         sourceChips = row(); sourceChips.setPadding(dp(16), 0, dp(16), dp(4));
         sources.addView(sourceChips, new HorizontalScrollView.LayoutParams(-2, -2));
         catalogScreen.addView(sources, new LinearLayout.LayoutParams(-1, -2));
+        browseChips = sources;
         renderSourceChips();
         caption = label("", 13, SECONDARY);
         caption.setMaxLines(2);
@@ -208,6 +218,10 @@ public final class CatalogActivity extends Activity {
         categoryPicker.setContentDescription("按当前片库的来源分类浏览");
         categoryRow.addView(categoryPicker, new LinearLayout.LayoutParams(0, dp(48), 1));
         catalogScreen.addView(categoryRow);
+        browseCategoryRow = categoryRow;
+        channelSearch = button("搜索频道", false);
+        channelSearch.setOnClickListener(view -> searchChannels());
+        categoryRow.addView(channelSearch, new LinearLayout.LayoutParams(-2, dp(48)));
         renderCategories();
         categoryPicker.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override public void onNothingSelected(AdapterView<?> parent) { }
@@ -215,6 +229,7 @@ public final class CatalogActivity extends Activity {
                 if (bindingCategories || position != categoryPicker.getSelectedItemPosition()
                         || position < 0 || position >= categoryOptions.size()) return;
                 String selected = categoryOptions.get(position);
+                if (!keyword.isEmpty()) return;
                 if (!categoryId.equals(selected)) { categoryId = selected; pendingCategoryId = ""; loadPage(1); }
             }
         });
@@ -224,15 +239,15 @@ public final class CatalogActivity extends Activity {
         search.setTextSize(16);
         search.setTextColor(TEXT);
         search.setHintTextColor(SECONDARY);
-        search.setHint("搜索当前片库");
-        search.setContentDescription("影片或剧集名称");
+        search.setHint("搜索全部影视片库");
+        search.setContentDescription("在全部可搜索点播库中搜索影片或剧集名称");
         search.setSingleLine(true);
         search.setBackground(PhoneUi.background(this, SURFACE, 16));
         search.setPadding(dp(16), 0, dp(16), 0);
         search.setImeOptions(EditorInfo.IME_ACTION_SEARCH);
         search.setText(keyword);
         searchRow.addView(search, new LinearLayout.LayoutParams(0, dp(56), 1));
-        Button submit = button("搜索", true); searchSubmit = submit;
+        Button submit = button("搜索全库", true); searchSubmit = submit;
         submit.setMinWidth(dp(72));
         LinearLayout.LayoutParams submitLayout = new LinearLayout.LayoutParams(-2, dp(48));
         submitLayout.setMargins(dp(12), 0, 0, 0);
@@ -253,8 +268,11 @@ public final class CatalogActivity extends Activity {
         status.setPadding(dp(8), 0, dp(8), 0);
         state.addView(status, new LinearLayout.LayoutParams(0, -2, 1));
         retry = button("重试", false);
-        retry.setOnClickListener(view -> loadPage(page));
-        state.addView(retry, new LinearLayout.LayoutParams(dp(64), dp(48)));
+        retry.setOnClickListener(view -> {
+            if (!keyword.isEmpty() && searchHandle != null) allSearch.retryFailed(searchHandle);
+            else loadPage(page);
+        });
+        state.addView(retry, new LinearLayout.LayoutParams(dp(96), dp(48)));
         catalogScreen.addView(state, new LinearLayout.LayoutParams(-1, -2));
         ListView list = new ListView(this);
         list.setBackgroundColor(SURFACE);
@@ -268,7 +286,7 @@ public final class CatalogActivity extends Activity {
         pager.setPadding(dp(16), dp(4), dp(16), dp(4));
         previous = button("上一页", false);
         PhoneUi.styleButton(previous, PhoneUi.TONAL_BUTTON);
-        previous.setOnClickListener(view -> loadPage(page - 1));
+        previous.setOnClickListener(view -> { if (!keyword.isEmpty()) returnToBrowse(); else loadPage(page - 1); });
         previous.setMinWidth(dp(96));
         pager.addView(previous, new LinearLayout.LayoutParams(-2, dp(48)));
         pageNumber = label("", 14, SECONDARY);
@@ -276,10 +294,15 @@ public final class CatalogActivity extends Activity {
         pager.addView(pageNumber, new LinearLayout.LayoutParams(0, dp(48), 1));
         next = button("下一页", false);
         PhoneUi.styleButton(next, PhoneUi.TONAL_BUTTON);
-        next.setOnClickListener(view -> loadPage(page + 1));
+        next.setOnClickListener(view -> {
+            if (!keyword.isEmpty() && searchHandle != null) allSearch.loadMore(searchHandle);
+            else loadPage(page + 1);
+        });
         next.setMinWidth(dp(96));
         pager.addView(next, new LinearLayout.LayoutParams(-2, dp(48)));
         catalogScreen.addView(pager);
+        // A title search is the primary homepage action; source/category controls are browsing tools.
+        catalogScreen.removeView(searchRow); catalogScreen.addView(searchRow, 0);
         setContentView(root);
         PhoneUi.installInsets(this, root);
         updateSearchSupport();
@@ -287,32 +310,38 @@ public final class CatalogActivity extends Activity {
             @Override public void onNothingSelected(AdapterView<?> parent) { }
             @Override public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (providerIndex != position) {
-                    providerIndex = position; categoryCatalog = null; categoryId = ""; pendingCategoryId = "";
-                    getSharedPreferences("tongpin_ui", MODE_PRIVATE).edit().putString("home_provider", providers.get(position).id).apply();
-                    renderSourceChips();
-                    updateSearchSupport();
-                    renderCategories(); loadPage(1);
+                    browseProvider(position);
                 }
             }
         });
     }
 
     private void updateSearchSupport() {
-        boolean enabled = providers.get(providerIndex).supportsSearch;
-        if (!enabled) { keyword = ""; search.setText(""); }
-        search.setEnabled(enabled); searchSubmit.setEnabled(enabled);
-        search.setHint(enabled ? "搜索当前片库" : "此来源不支持搜索，请使用分类浏览");
+        boolean browsing = keyword.isEmpty();
+        search.setEnabled(true); searchSubmit.setEnabled(true); search.setHint("搜索全部影视片库");
+        for (View row : new View[]{browseSourceRow, browseChips, browseCategoryRow})
+            if (row != null) row.setVisibility(browsing ? View.VISIBLE : View.GONE);
+        if (categoryPicker != null) categoryPicker.setEnabled(browsing && categoryOptions.size() > 1);
+        if (channelSearch != null) channelSearch.setVisibility(browsing && CatalogApi.liveProvider(providers.get(providerIndex)) ? View.VISIBLE : View.GONE);
+    }
+
+    private void browseProvider(int index) {
+        cancelGlobalSearch(); keyword = ""; search.setText(""); channelQuery = "";
+        providerIndex = index; categoryCatalog = null; categoryId = ""; pendingCategoryId = "";
+        getSharedPreferences("tongpin_ui", MODE_PRIVATE).edit().putString("home_provider", providers.get(index).id).apply();
+        if (providerPicker.getSelectedItemPosition() != index) providerPicker.setSelection(index);
+        renderSourceChips(); updateSearchSupport(); renderCategories(); loadPage(1);
     }
 
     private void renderSourceChips() {
         if (sourceChips == null) return;
         sourceChips.removeAllViews();
-        Button all = button("全部片源 · " + providers.size(), false);
+        Button all = button("浏览来源 · " + providers.size(), false);
         all.setOnClickListener(v -> {
             String[] labels = new String[providers.size()];
             for (int i = 0; i < labels.length; i++) labels[i] = providers.get(i).name;
             new AlertDialog.Builder(this).setTitle("选择首页片源").setSingleChoiceItems(labels, providerIndex, (dialog, index) -> {
-                dialog.dismiss(); providerPicker.setSelection(index);
+                dialog.dismiss(); browseProvider(index);
             }).setNegativeButton("关闭", null).show();
         });
         sourceChips.addView(all, new LinearLayout.LayoutParams(-2, dp(44)));
@@ -320,7 +349,7 @@ public final class CatalogActivity extends Activity {
             final int index = i;
             Button chip = button(providers.get(i).name, i == providerIndex);
             chip.setContentDescription(providers.get(i).name + (i == providerIndex ? "，当前片源" : "，切换此片源"));
-            chip.setOnClickListener(v -> providerPicker.setSelection(index));
+            chip.setOnClickListener(v -> browseProvider(index));
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(-2, dp(44)); params.leftMargin = dp(8);
             sourceChips.addView(chip, params);
         }
@@ -339,22 +368,109 @@ public final class CatalogActivity extends Activity {
         int selected = categoryOptions.indexOf(categoryId);
         categoryPicker.setAdapter(pickerAdapter(labels));
         categoryPicker.setSelection(Math.max(0, selected), false);
-        categoryPicker.setEnabled(categoryOptions.size() > 1);
+        categoryPicker.setEnabled(keyword.isEmpty() && categoryOptions.size() > 1);
         bindingCategories = false;
     }
 
     private void submitSearch() {
-        if (!providers.get(providerIndex).supportsSearch) {
-            Toast.makeText(this, "此来源不支持搜索，请使用分类浏览", Toast.LENGTH_SHORT).show(); return;
-        }
-        keyword = search.getText().toString().trim();
+        String query = search.getText().toString().trim();
+        if (query.length() > 200) { Toast.makeText(this, "请输入200字以内的片名", Toast.LENGTH_SHORT).show(); return; }
+        keyword = query;
         InputMethodManager keyboard = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
         if (keyboard != null) keyboard.hideSoftInputFromWindow(search.getWindowToken(), 0);
-        loadPage(1);
+        if (keyword.isEmpty()) returnToBrowse(); else startGlobalSearch();
+    }
+
+    private void cancelGlobalSearch() {
+        if (searchHandle != null) searchHandle.cancel();
+        searchHandle = null;
+    }
+
+    private void startGlobalSearch() {
+        final int ticket = ++pageTicket;
+        ++detailTicket; readingDetail = false;
+        if (pageRequest != null) pageRequest.cancel(true);
+        if (detailRequest != null) detailRequest.cancel(true);
+        cancelGlobalSearch();
+        loading = true; hasMore = false;
+        images.getQueue().clear(); videos.clear(); adapter.notifyDataSetChanged();
+        updateSearchSupport();
+        caption.setText("片名搜索 · 正在查询全部可搜索点播库");
+        status.setText("正在搜索，各来源结果将陆续显示…");
+        progress.setVisibility(View.VISIBLE); retry.setVisibility(View.GONE);
+        final String query = keyword;
+        searchHandle = allSearch.start(providers, query, (handle, snapshot) -> {
+            if (!alive() || ticket != pageTicket || !handle.isCurrent() || !keyword.equals(snapshot.query)) return;
+            applyGlobalSnapshot(handle, snapshot);
+        });
+        updatePager();
+    }
+
+    private void applyGlobalSnapshot(AllCatalogSearch.Handle handle, AllCatalogSearch.Snapshot snapshot) {
+        if (handle != searchHandle || !handle.isCurrent()) return;
+        videos.clear(); videos.addAll(snapshot.items); adapter.notifyDataSetChanged();
+        loading = snapshot.loading; hasMore = snapshot.hasMore;
+        // Returning search packets cannot dismiss a detail or replace its loading/error state.
+        if (!foreground || readingDetail || detail != null) return;
+        caption.setText("片名搜索 · " + snapshot.totalSources + "个可搜索点播库 · "
+                + snapshot.skippedBrowseOnly + "个仅浏览、" + snapshot.skippedLive + "个直播来源不参与");
+        status.setText(globalStatus(snapshot));
+        progress.setVisibility(snapshot.loading ? View.VISIBLE : View.GONE);
+        retry.setText("重试失败"); retry.setEnabled(!snapshot.loading);
+        retry.setVisibility(snapshot.failedSources > 0 && !snapshot.limited ? View.VISIBLE : View.GONE);
+        updatePager();
+    }
+
+    private void restoreGlobalSearch() {
+        if (!foreground || detail != null || readingDetail || keyword.isEmpty() || searchHandle == null || !searchHandle.isCurrent()) return;
+        applyGlobalSnapshot(searchHandle, searchHandle.snapshot());
+        allSearch.resume(searchHandle);
+    }
+
+    private void returnToBrowse() {
+        cancelGlobalSearch(); keyword = ""; search.setText("");
+        updateSearchSupport(); loadPage(page);
+    }
+
+    static String globalStatus(AllCatalogSearch.Snapshot snapshot) {
+        String text;
+        if (snapshot.limited) text = "结果较多，已显示" + snapshot.items.size() + "条，请细化片名";
+        else if (snapshot.loading) text = "正在搜索 · 本批已完成 " + snapshot.batchReturned + "/" + snapshot.batchTotal
+                + " 个库 · 已显示 " + snapshot.items.size() + " 条";
+        else if (snapshot.canResume) text = "搜索已暂停 · 已显示 " + snapshot.items.size() + " 条，可继续未完成来源";
+        else if (snapshot.items.isEmpty()) text = snapshot.successfulSources == 0 && snapshot.failedSources > 0
+                ? "暂未收到可用响应，请重试失败来源"
+                : snapshot.hasMore ? "本批暂无匹配，可加载更多" : "已响应来源暂无匹配，请调整片名";
+        else text = "已显示 " + snapshot.items.size() + " 条 · 选择影片查看选集";
+        if (snapshot.limited && snapshot.loading) text += " · 仍在完成本批来源";
+        if (snapshot.failedSources > 0) text += " · " + snapshot.failedSources + " 个库暂未返回"
+                + (snapshot.limited ? "，请细化片名重新搜索" : "，可重试失败来源");
+        if (snapshot.repeatStoppedSources > 0) text += " · " + snapshot.repeatStoppedSources + " 个库分页重复，已停止追加";
+        return text;
+    }
+
+    static String browseQuery(Provider provider, String query) {
+        return CatalogApi.liveProvider(provider) && query != null ? query.trim() : "";
+    }
+
+    private void searchChannels() {
+        Provider provider = providers.get(providerIndex);
+        if (!keyword.isEmpty() || !CatalogApi.liveProvider(provider)) return;
+        EditText input = new EditText(this); input.setSingleLine(true); input.setText(channelQuery);
+        input.setHint("搜索当前直播频道");
+        new AlertDialog.Builder(this).setTitle("搜索频道 · " + provider.name).setView(input)
+                .setPositiveButton("搜索频道", (dialog, which) -> {
+                    String query = input.getText().toString().trim();
+                    if (query.length() > 200) { Toast.makeText(this, "请输入200字以内的频道名", Toast.LENGTH_SHORT).show(); return; }
+                    channelQuery = query; loadPage(1);
+                }).setNeutralButton("全部频道", (dialog, which) -> { channelQuery = ""; loadPage(1); })
+                .setNegativeButton("取消", null).show();
     }
 
     private void loadPage(int requestedPage) {
         if (requestedPage < 1 || providers == null) return;
+        if (!keyword.isEmpty()) { startGlobalSearch(); return; }
+        cancelGlobalSearch(); updateSearchSupport();
         final int ticket = ++pageTicket;
         ++detailTicket;
         if (pageRequest != null) pageRequest.cancel(true);
@@ -367,14 +483,14 @@ public final class CatalogActivity extends Activity {
         adapter.notifyDataSetChanged();
         Provider provider = providers.get(providerIndex);
         final CatalogCategories.Selection category = categoryCatalog == null ? null : categoryCatalog.select(categoryId);
-        caption.setText(!provider.supportsSearch ? "此来源仅支持分类浏览 · 可使用分类和翻页选择影片" : CatalogApi.liveProvider(provider) ? "直播频道 · 不保存播放进度 · 清晰度以实际画面为准" : "peertube".equals(provider.kind)
+        caption.setText(!provider.supportsSearch ? "此来源仅支持浏览；上方片名搜索仍查询全部可搜索片库" : CatalogApi.liveProvider(provider) ? "直播频道 · 可用“搜索频道”筛选 · 不保存播放进度" : "peertube".equals(provider.kind)
             ? "Blender 开放电影 · 部分影片提供 4K 版本"
             : "电影与剧集 · 播放时显示实际分辨率");
         status.setText("正在载入 " + provider.name + "…");
         progress.setVisibility(View.VISIBLE);
         retry.setVisibility(View.GONE);
         updatePager();
-        final String query = keyword;
+        final String query = browseQuery(provider, channelQuery);
         pageRequest = requests.submit(() -> {
             try {
                 Page result = CatalogApi.fetchPage(provider, query, requestedPage, category);
@@ -426,12 +542,23 @@ public final class CatalogActivity extends Activity {
     }
 
     private void updatePager() {
+        if (!keyword.isEmpty() && searchHandle != null) {
+            AllCatalogSearch.Snapshot snapshot = searchHandle.snapshot();
+            previous.setText("返回浏览"); previous.setEnabled(true);
+            next.setText(snapshot.canResume ? "继续搜索" : "加载更多");
+            next.setEnabled(!snapshot.loading && (snapshot.canResume || !snapshot.limited && snapshot.hasMore));
+            pageNumber.setText("已显示 " + snapshot.items.size() + " 条");
+            return;
+        }
+        previous.setText("上一页"); next.setText("下一页"); retry.setText("重试");
         previous.setEnabled(!loading && page > 1);
         next.setEnabled(!loading && hasMore);
         pageNumber.setText("第 " + page + " 页");
     }
 
     private void loadDetail(Video video) {
+        if (searchHandle != null) allSearch.cancelRound(searchHandle);
+        readingDetail = true;
         final int ticket = ++detailTicket;
         if (detailRequest != null) detailRequest.cancel(true);
         progress.setVisibility(View.VISIBLE);
@@ -442,9 +569,10 @@ public final class CatalogActivity extends Activity {
                 Detail result = CatalogApi.fetchDetail(video);
                 main.post(() -> {
                     if (!alive() || ticket != detailTicket) return;
-                    progress.setVisibility(View.GONE);
+                    readingDetail = false; progress.setVisibility(View.GONE);
                     status.setText("本页 " + videos.size() + " 部 · 选择影片查看选集");
                     if (result.lines.isEmpty()) {
+                        restoreGlobalSearch();
                         new AlertDialog.Builder(this).setTitle("暂时没有可用选集")
                             .setMessage("来源没有返回可直接播放的线路。请换一部影片或切换片库。")
                             .setPositiveButton("知道了", null).show();
@@ -453,7 +581,8 @@ public final class CatalogActivity extends Activity {
             } catch (Exception error) {
                 main.post(() -> {
                     if (!alive() || ticket != detailTicket) return;
-                    progress.setVisibility(View.GONE);
+                    readingDetail = false; progress.setVisibility(View.GONE);
+                    restoreGlobalSearch();
                     status.setText("选集读取失败，点影片可重试，也可以切换片库");
                 });
             }
@@ -605,6 +734,7 @@ public final class CatalogActivity extends Activity {
     }
 
     private void play(Detail value, Episode episode) {
+        if (searchHandle != null) allSearch.cancelRound(searchHandle);
         int best = CatalogApi.bestStream(episode.streams);
         if (best < 0) { Toast.makeText(this, "此选集没有可用播放地址", Toast.LENGTH_LONG).show(); return; }
         if (preparingPlayback) return;
@@ -654,6 +784,13 @@ public final class CatalogActivity extends Activity {
     }
 
     private void showSource() {
+        if (detail == null && !keyword.isEmpty() && searchHandle != null) {
+            StringBuilder sources = new StringBuilder("片名搜索会查询以下可搜索点播库；结果保留各自来源，不合并同名影片。\n");
+            for (Provider p : providers) if (p.supportsSearch && !CatalogApi.liveProvider(p)) sources.append("\n").append(p.name);
+            sources.append("\n\n仅浏览来源与直播频道不参与片名全库搜索；可返回浏览后选择它们。");
+            new AlertDialog.Builder(this).setTitle("全库搜索来源").setMessage(sources.toString()).setPositiveButton("关闭", null).show();
+            return;
+        }
         Provider provider = detail == null ? providers.get(providerIndex) : detail.video.provider;
         String message = detail == null ? provider.name + "\n影片与线路信息由该来源提供，清晰度以实际播放信息为准。"
             : attribution(detail.video);
@@ -674,12 +811,16 @@ public final class CatalogActivity extends Activity {
             detailScreen = null;
             catalogScreen.setVisibility(View.VISIBLE);
             heading.setText("同频4K");
-        } else if (progress != null && progress.getVisibility() == View.VISIBLE && !loading) {
+            restoreGlobalSearch();
+        } else if (readingDetail) {
             ++detailTicket;
             if (detailRequest != null) detailRequest.cancel(true);
+            readingDetail = false;
             progress.setVisibility(View.GONE);
             status.setText("已取消读取选集");
-        } else super.onBackPressed();
+            restoreGlobalSearch();
+        } else if (!keyword.isEmpty()) returnToBrowse();
+        else super.onBackPressed();
     }
 
     @Override protected void onSaveInstanceState(Bundle saved) {
@@ -687,6 +828,7 @@ public final class CatalogActivity extends Activity {
         saved.putInt("provider", providerIndex);
         saved.putInt("page", page);
         saved.putString("keyword", keyword);
+        saved.putString("channelQuery", channelQuery);
         if (providers != null && !providers.isEmpty()) {
             saved.putString("categoryProvider", providers.get(providerIndex).id);
             saved.putString("category", pendingCategoryId.isEmpty() ? categoryId : pendingCategoryId);
@@ -694,6 +836,7 @@ public final class CatalogActivity extends Activity {
     }
 
     @Override protected void onDestroy() {
+        if (allSearch != null) allSearch.close();
         if (sourcePicker != null) sourcePicker.close();
         ++pageTicket;
         ++detailTicket;
@@ -706,6 +849,8 @@ public final class CatalogActivity extends Activity {
 
     @Override protected void onPause() {
         foreground = false;
+        if (allSearch != null && searchHandle != null) allSearch.cancelRound(searchHandle);
+        readingDetail = false;
         ++detailTicket;
         if (detailRequest != null) detailRequest.cancel(true);
         if (sourcePicker != null) sourcePicker.close();
@@ -716,6 +861,7 @@ public final class CatalogActivity extends Activity {
     @Override protected void onResume() {
         super.onResume(); foreground = true;
         if (bridgePending) { bridgePending = false; bridgeSourceSwitch(); }
+        else restoreGlobalSearch();
     }
 
     private void showLibraryMenu() {
@@ -742,6 +888,8 @@ public final class CatalogActivity extends Activity {
     }
 
     private void loadHistory(LibraryStore.Entry entry) {
+        if (searchHandle != null) allSearch.cancelRound(searchHandle);
+        readingDetail = true;
         final int ticket = ++detailTicket;
         if (detailRequest != null) detailRequest.cancel(true);
         progress.setVisibility(View.VISIBLE); status.setText("正在读取观看记录…");
@@ -750,8 +898,8 @@ public final class CatalogActivity extends Activity {
                 Detail result = CatalogApi.fetchDetail(entry.video);
                 main.post(() -> {
                     if (!alive() || ticket != detailTicket) return;
-                    progress.setVisibility(View.GONE);
-                    if (result.lines.isEmpty()) { status.setText("这部影片暂时没有可用线路"); return; }
+                    readingDetail = false; progress.setVisibility(View.GONE);
+                    if (result.lines.isEmpty()) { restoreGlobalSearch(); status.setText("这部影片暂时没有可用线路"); return; }
                     showDetail(result);
                     Line match = null;
                     for (Line line : result.lines) if (line.name.equals(entry.line)) {
@@ -764,7 +912,7 @@ public final class CatalogActivity extends Activity {
                 });
             } catch (Exception unavailable) {
                 main.post(() -> { if (alive() && ticket == detailTicket) {
-                    progress.setVisibility(View.GONE); status.setText("观看记录暂时无法连接，请重试或切换片源");
+                    readingDetail = false; progress.setVisibility(View.GONE); restoreGlobalSearch(); status.setText("观看记录暂时无法连接，请重试或切换片源");
                 } });
             }
         });
@@ -869,10 +1017,14 @@ public final class CatalogActivity extends Activity {
             } else holder = (Holder) convert.getTag();
             Video video = getItem(position);
             holder.title.setText(video.title);
-            holder.subtitle.setText(video.categoryLabel + " · " + (video.subtitle.isEmpty() ? video.provider.name : video.subtitle));
+            holder.subtitle.setText(resultSubtitle(video));
             loadPoster(video.poster, holder.image, video.title);
             return convert;
         }
+    }
+
+    static String resultSubtitle(Video video) {
+        return video.provider.name + " · " + video.categoryLabel + (video.subtitle.isEmpty() ? "" : " · " + video.subtitle);
     }
 
     private static final class Holder { ImageView image; TextView title, subtitle; }
