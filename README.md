@@ -2,6 +2,10 @@
 
 手机端与电视端的项目归档，当前手机版本 **1.3.4 / 1340**，电视版本 **1.3.0 / 1300**。
 
+## 参与开发
+
+欢迎 Fork 仓库、创建分支并提交 Pull Request。问题反馈和功能建议请提交 [Issue](https://github.com/TongpinAI/tongpin-4k/issues)，参与步骤与验证要求见 [贡献指南](CONTRIBUTING.md)。
+
 ## 目录
 
 - `tongpin-4k/`：手机 Java、资源、smali、测试、设计与发布校验记录。
