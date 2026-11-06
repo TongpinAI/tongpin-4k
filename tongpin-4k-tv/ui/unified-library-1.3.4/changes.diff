@@ -1,0 +1,472 @@
+--- before/src/com/tongpin/player4k/tv/TvHomeActivity.java
++++ after/src/com/tongpin/player4k/tv/TvHomeActivity.java
+@@ -98,6 +98,7 @@
+                 if (!providerId.isEmpty() && providerId.equals(saved.getString("categoryProvider", "")))
+                     pendingCategoryId = saved.getString("category", "");
+             }
++            if (!searchAllowed(providerId)) query = "";
+             showHome();
+             loadPage();
+         } catch (Exception e) {
+@@ -155,13 +156,15 @@
+         LinearLayout controls = row();
+         search = new EditText(this); search.setSingleLine(true);
+         search.setText(query); search.setTextSize(18); search.setTextColor(TvUi.TEXT);
+-        search.setHintTextColor(TvUi.SECONDARY); search.setHint("搜索电影、剧集");
++        search.setHintTextColor(TvUi.SECONDARY); search.setHint(searchAllowed(providerId) ? "搜索电影、剧集" : "该片库仅支持浏览，请按分类或翻页选择");
++        search.setEnabled(searchAllowed(providerId));
+         search.setBackgroundResource(R.drawable.tv_search_background);
+         search.setPadding(d(14), d(6), d(14), d(6));
+         search.setImeOptions(android.view.inputmethod.EditorInfo.IME_ACTION_SEARCH);
+         LinearLayout.LayoutParams inputParams = new LinearLayout.LayoutParams(0, d(48), 1);
+         inputParams.setMargins(0, 0, d(8), 0); controls.addView(search, inputParams);
+-        action(controls, TvUi.button(this, "搜索"), v -> submitSearch());
++        Button find = TvUi.button(this, "搜索"); find.setEnabled(searchAllowed(providerId));
++        action(controls, find, v -> submitSearch());
+         Button history = TvUi.button(this, "观看历史"); history.setSelected(mode.equals("history"));
+         action(controls, history, v -> switchLocal("history"));
+         Button favorites = TvUi.button(this, "收藏"); favorites.setSelected(mode.equals("favorites"));
+@@ -175,7 +178,7 @@
+         root.addView(controls); gap(root, 6);
+ 
+         LinearLayout tabs = row();
+-        Button all = TvUi.button(this, "全部片库"); all.setSelected(mode.equals("catalog") && providerId.isEmpty());
++        Button all = TvUi.button(this, "全部片库 · " + providers.size() + "组"); all.setSelected(mode.equals("catalog") && providerId.isEmpty());
+         Button activeSource = all;
+         action(tabs, all, v -> switchProvider(""));
+         for (Provider p : providers) {
+@@ -225,7 +228,7 @@
+     }
+ 
+     private void submitSearch() {
+-        query = search.getText().toString().trim(); mode = "catalog"; page = 1;
++        query = searchAllowed(providerId) ? search.getText().toString().trim() : ""; mode = "catalog"; page = 1;
+         InputMethodManager ime = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+         if (ime != null) ime.hideSoftInputFromWindow(search.getWindowToken(), 0);
+         showHome(); loadPage();
+@@ -233,8 +236,17 @@
+ 
+     private void switchProvider(String id) {
+         if (!providerId.equals(id)) { categoryCatalog = null; categoryId = ""; pendingCategoryId = ""; }
+-        providerId = id; mode = "catalog"; query = search.getText().toString().trim(); page = 1;
++        providerId = id; mode = "catalog"; query = searchAllowed(id) ? search.getText().toString().trim() : ""; page = 1;
+         showHome(); loadPage();
++    }
++
++    private boolean searchAllowed(String id) {
++        if (id.isEmpty()) return true;
++        for (Provider provider : providers) if (provider.id.equals(id)) return provider.supportsSearch;
++        return true;
++    }
++    static boolean acceptsQuery(Provider provider, String query) {
++        return provider != null && (query == null || query.isEmpty() || provider.supportsSearch);
+     }
+ 
+     private void switchLocal(String newMode) {
+@@ -254,7 +266,7 @@
+         boolean enabled = false;
+         if (!mode.equals("catalog")) text = "来源分类：本机记录不筛选";
+         else if (provider == null) text = "来源分类：请先选择单个片库";
+-        else if (!"maccms".equals(provider.kind)) text = "来源未提供分类";
++        else if (!CatalogApi.hasCategories(provider)) text = "来源未提供分类";
+         else if (categoryCatalog == null) text = "正在读取来源分类…";
+         else if (categoryCatalog.isEmpty()) text = "来源未提供分类";
+         else {
+@@ -318,7 +330,11 @@
+             })); return;
+         }
+         final List<Provider> selected = new ArrayList<Provider>();
+-        for (Provider p : providers) if (providerId.isEmpty() || providerId.equals(p.id)) selected.add(p);
++        int browseOnly = 0;
++        for (Provider p : providers) if (providerId.isEmpty() || providerId.equals(p.id)) {
++            if (!acceptsQuery(p, requestQuery)) browseOnly++; else selected.add(p);
++        }
++        final int skippedBrowseOnly = browseOnly;
+         if (selected.isEmpty()) {
+             status.setText("片库配置已变化，请选择全部片库。"); updatePager(false); return;
+         }
+@@ -332,7 +348,7 @@
+                 try {
+                     CatalogCategories.Selection scoped = selected.size() == 1 ? category : null;
+                     result = CatalogApi.fetchPage(provider, requestQuery, requestPage, scoped);
+-                    if (selected.size() == 1 && "maccms".equals(provider.kind)
++                    if (selected.size() == 1 && CatalogApi.hasCategories(provider)
+                             && (result.categories == null || result.categories.isEmpty())) {
+                         try { result = CatalogApi.withCategories(result, CatalogApi.fetchCategories(provider), scoped); }
+                         catch (Exception unavailableCategory) { /* Keep explicit unclassified items when metadata is unavailable. */ }
+@@ -343,8 +359,13 @@
+                 main.post(() -> {
+                     if (!current(ticket)) return;
+                     results[index] = got; errors[index] = failed;
++                    if (got != null) {
++                        videos.addAll(got.items); hasMore |= got.hasMore;
++                        adapter.notifyDataSetChanged();
++                    }
+                     if (--remaining[0] > 0) {
+-                        status.setText("正在查询片库… " + (selected.size() - remaining[0]) + "/" + selected.size()); return;
++                        status.setText("片库已返回 " + (selected.size() - remaining[0]) + "/" + selected.size()
++                                + " · 本页" + videos.size() + "部 · 可先浏览已返回内容"); return;
+                     }
+                     if (selected.size() == 1 && results[0] != null) {
+                         categoryCatalog = results[0].categories;
+@@ -364,7 +385,7 @@
+                     StringBuilder failures = new StringBuilder(); int successful = 0, mismatches = 0;
+                     for (int j = 0; j < results.length; j++) {
+                         if (results[j] != null) {
+-                            successful++; videos.addAll(results[j].items); hasMore |= results[j].hasMore;
++                            successful++;
+                             mismatches += results[j].categoryMismatchCount;
+                         } else {
+                             if (failures.length() > 0) failures.append("；");
+@@ -372,6 +393,7 @@
+                         }
+                     }
+                     String label = successful + "/" + selected.size() + "组片库已返回 · 本页" + videos.size() + "部";
++                    if (skippedBrowseOnly > 0) label += " · " + skippedBrowseOnly + "组仅浏览片库未参与搜索";
+                     if (mismatches > 0) label += " · " + mismatches + "条来源分类不匹配，已隐藏";
+                     if (selected.size() == 1 && results[0] == null && categoryCatalog == null) {
+                         categoryPicker.setText("分类读取失败，请刷新重试"); categoryPicker.setEnabled(false);
+@@ -616,16 +638,31 @@
+             try {
+                 Video video = CatalogApi.decodeVideo(data.getStringExtra("video_json"), providers);
+                 store.record(video, data.getStringExtra("episode_name"), Math.max(0, data.getLongExtra("position_ms", 0)));
+-                if (inDetail && detail != null && videoKey(video).equals(videoKey(detailVideo))) {
++                if (inDetail && detail != null && !videoKey(video).equals(videoKey(detailVideo))) {
++                    openDetail(video);
++                } else if (inDetail && detail != null) {
+                     episodesDescending = getSharedPreferences("tongpin_tv_preferences", MODE_PRIVATE)
+                             .getBoolean("episodes_descending", false);
+-                    int returned = data.getIntExtra("queue_index", -1);
+-                    if (selectedLine >= 0 && selectedLine < detail.lines.size()
+-                            && returned >= 0 && returned < detail.lines.get(selectedLine).episodes.size()) selectedEpisode = returned;
+-                    renderEpisodes();
++                    String returnedLine = data.getStringExtra("line_name");
++                    int line = -1;
++                    for (int i=0;i<detail.lines.size();i++) if (detail.lines.get(i).name.equals(returnedLine)) {
++                        if (line >= 0) { line = -1; break; } line = i;
++                    }
++                    selectedEpisode = -1;
++                    if (line >= 0) {
++                        selectedLine = line;
++                        selectedEpisode = returnedEpisodeIndex(detail.lines.get(line).episodes,data.getStringExtra("episode_name"));
++                    }
++                    renderLines(); renderEpisodes();
+                 }
+             } catch (Exception e) { if (detailStatus != null && inDetail) detailStatus.setText("观看位置未保存：" + message(e)); }
+         }
++    }
++
++    static int returnedEpisodeIndex(List<Episode> episodes, String name) {
++        ArrayList<String> names = new ArrayList<String>();
++        for (Episode episode : episodes) names.add(episode.name);
++        return CrossSourcePolicy.uniqueEpisode(name,names);
+     }
+ 
+     private void returnHome() { cancelPending(); restoreGridFocus = true; showHome(); loadPage(); }
+--- before/src/com/tongpin/player4k/tv/TvPlayerActivity.java
++++ after/src/com/tongpin/player4k/tv/TvPlayerActivity.java
+@@ -51,6 +51,7 @@
+     private LinearLayout header, controls;
+     private TextView actual, status, clock, declaredQuality, heading, subtitle, holdHint;
+     private Button playButton, qualityButton, retryButton, previousButton, nextButton, episodesButton, speedButton, autoButton, decoderButton;
++    private Button seekBackButton, seekForwardButton;
+     private AlertDialog qualityDialog;
+     private boolean subtitlePicker, subtitleChoosing;
+     private List<TvPlaybackEngine.SubtitleTrack> subtitleTracks = Collections.emptyList();
+@@ -67,6 +68,8 @@
+     private boolean valid, surfaceReady, foreground, prepared, seeking, playing;
+     private boolean playWhenReady = true, failed, completed, destroyed, retryFromStart;
+     private TvPlayQueue queue;
++    private List<CatalogApi.Provider> sourceProviders;
++    private TvSourcePicker sourcePicker;
+     private TvLibraryStore store;
+     private int episodeIndex, playbackGeneration, knownDuration;
+     private boolean advancing, progressErrorShown;
+@@ -117,11 +120,12 @@
+         audio = (AudioManager) getSystemService(AUDIO_SERVICE);
+         Intent input = getIntent();
+         try {
+-            queueToken = input.getStringExtra("queue_token");
++            queueToken = saved != null && saved.containsKey("queue_token")
++                    ? saved.getString("queue_token") : input.getStringExtra("queue_token");
+             if (queueToken != null) {
+-                List<CatalogApi.Provider> providers = CatalogApi.parseProviders(providerAsset());
+-                queue = TvPlayQueue.load(this, queueToken, providers);
+-                try { store = new TvLibraryStore(this, providers); }
++                sourceProviders = CatalogApi.parseProviders(providerAsset());
++                queue = TvPlayQueue.load(this, queueToken, sourceProviders);
++                try { store = new TvLibraryStore(this, sourceProviders); }
+                 catch (RuntimeException unavailable) { progressError(); }
+                 episodeIndex = saved == null ? input.getIntExtra("queue_index", 0) : saved.getInt("queue_index", 0);
+                 if (episodeIndex < 0 || episodeIndex >= queue.episodes.size()) throw new IllegalArgumentException();
+@@ -151,6 +155,7 @@
+                 retryFromStart = saved.getBoolean("retry_from_start", false);
+             }
+             if (Build.VERSION.SDK_INT < 23) speed = 1f;
++            if (live()) { position = 0L; completed = false; }
+             decoderMode = normalizedDecoderMode(Build.VERSION.SDK_INT, getSharedPreferences("tongpin_tv_preferences", MODE_PRIVATE).getInt("decoder_mode", 0));
+         } catch (Exception invalid) {
+             invalidInput("播放列表暂不可用，请返回片库重新选择。");
+@@ -158,6 +163,14 @@
+         }
+         valid = true;
+         buildScreen();
++        if (queue != null) sourcePicker = new TvSourcePicker(this, sourceProviders, new TvSourcePicker.Host() {
++            public TvPlayQueue queue() { return queue; }
++            public int index() { return episodeIndex; }
++            public boolean active() { return valid && foreground && !destroyed; }
++            public void opened(AlertDialog dialog) { endHoldSpeed(true); qualityDialog = dialog; main.removeCallbacks(hideControls); }
++            public void closed(AlertDialog dialog) { if (qualityDialog == dialog) qualityDialog = null; scheduleHide(); }
++            public void apply(TvPlayQueue next, String token, int index, boolean carry) { applySource(next, token, index, carry); }
++        });
+         if (failed) errorUi("上次播放未成功，请重试或选择其他画质。");
+         showControls(true);
+         updateResult();
+@@ -267,9 +280,11 @@
+         playButton = addButton(row, "暂停", this::togglePlayback);
+         nextButton = addButton(row, "下一集", () -> moveEpisode(1));
+         episodesButton = addButton(row, "选集", this::chooseEpisodes);
+-        addButton(row, "后退10秒", () -> seekBy(-10000L));
+-        addButton(row, "前进10秒", () -> seekBy(10000L));
++        seekBackButton = addButton(row, "后退10秒", () -> seekBy(-10000L));
++        seekForwardButton = addButton(row, "前进10秒", () -> seekBy(10000L));
+         qualityButton = addButton(row, "画质", this::chooseQuality);
++        Button sources = addButton(row, "换源", this::chooseSources);
++        sources.setEnabled(queue != null);
+         speedButton = addButton(row, "倍速", this::chooseSpeed);
+         speedButton.setEnabled(Build.VERSION.SDK_INT >= 23);
+         addButton(row, "字幕", this::chooseSubtitles);
+@@ -361,6 +376,7 @@
+ 
+     private void changeEpisode(int index) {
+         if (destroyed || !foreground || busy() || queue == null || index < 0 || index >= queue.episodes.size()) return;
++        if (sourcePicker != null) sourcePicker.cancel();
+         saveProgress();
+         releasePlayer();
+         readEpisode(index);
+@@ -373,7 +389,28 @@
+         prepare(); showControls(true); updateResult();
+     }
+ 
++    private void applySource(TvPlayQueue next, String token, int index, boolean carryPosition) {
++        if (destroyed || !foreground || next == null || index < 0 || index >= next.episodes.size()) {
++            TvPlayQueue.delete(this, token); return;
++        }
++        rememberPosition(); saveProgress();
++        long carried = position;
++        boolean wanted = playWhenReady;
++        String oldToken = queueToken;
++        releasePlayer();
++        queue = next; queueToken = token; readEpisode(index);
++        position = sourcePosition(next.video.provider.kind, carryPosition, carried, carryPosition ? 0L : restoredProgress());
++        knownDuration = 0; failed = completed = retryFromStart = false;
++        playWhenReady = wanted;
++        heading.setText(title); updateQualityButton(); updateNavigation();
++        retryButton.setVisibility(View.GONE); playButton.setEnabled(true);
++        getIntent().putExtra("queue_token", token).putExtra("queue_index", index).putExtra("resume_ms", position);
++        if (oldToken != null && !oldToken.equals(token)) TvPlayQueue.delete(this, oldToken);
++        prepare(); showControls(true); updateResult();
++    }
++
+     private long restoredProgress() {
++        if (live()) return 0L;
+         if (queue == null || store == null) return 0L;
+         try { return Math.max(0L, store.getEpisodeProgress(queue.video, queue.progressKey(episodeIndex))); }
+         catch (RuntimeException unavailable) { progressError(); return 0L; }
+@@ -381,6 +418,11 @@
+ 
+     private void saveProgress() {
+         if (queue == null || store == null) return;
++        if (live()) {
++            try { store.record(queue.video, episodeName, 0L); }
++            catch (RuntimeException unavailable) { progressError(); }
++            return;
++        }
+         rememberPosition();
+         int currentDuration = duration();
+         long saved = resumePosition(position, currentDuration > 0 ? currentDuration : knownDuration, completed);
+@@ -396,7 +438,7 @@
+     }
+ 
+     private boolean autoNext() {
+-        return getSharedPreferences("tongpin_tv_preferences", MODE_PRIVATE).getBoolean("auto_next", true);
++        return !live() && getSharedPreferences("tongpin_tv_preferences", MODE_PRIVATE).getBoolean("auto_next", true);
+     }
+ 
+     private void updateNavigation() {
+@@ -405,8 +447,11 @@
+         previousButton.setEnabled(!busy() && TvPlayQueue.step(episodeIndex, count, -1) >= 0);
+         nextButton.setEnabled(!busy() && TvPlayQueue.step(episodeIndex, count, 1) >= 0);
+         episodesButton.setEnabled(!busy() && count > 1);
+-        speedButton.setText(Build.VERSION.SDK_INT >= 23 ? "倍速 · " + speed + "×" : "倍速 · 1×（系统限制）");
++        speedButton.setText(live() ? "倍速 · 直播实时" : Build.VERSION.SDK_INT >= 23 ? "倍速 · " + speed + "×" : "倍速 · 1×（系统限制）");
++        speedButton.setEnabled(!live() && Build.VERSION.SDK_INT >= 23);
+         autoButton.setText("连播 · " + (autoNext() ? "开" : "关"));
++        autoButton.setEnabled(!live());
++        seekBackButton.setEnabled(!live()); seekForwardButton.setEnabled(!live());
+     }
+ 
+     private void chooseEpisodes() {
+@@ -430,7 +475,7 @@
+     }
+ 
+     private void chooseSpeed() {
+-        if (Build.VERSION.SDK_INT < 23 || qualityDialog != null) return;
++        if (live() || Build.VERSION.SDK_INT < 23 || qualityDialog != null) return;
+         main.removeCallbacks(hideControls);
+         String[] names = new String[SPEEDS.length]; int selectedSpeed = 2;
+         for (int i = 0; i < names.length; i++) { names[i] = SPEEDS[i] + "×"; if (speed == SPEEDS[i]) selectedSpeed = i; }
+@@ -550,7 +595,7 @@
+     }
+ 
+     private void beginHoldSpeed() {
+-        if (!holdSpeed.ready(playbackGeneration,foreground && !destroyed && playing && prepared
++        if (!holdSpeed.ready(playbackGeneration,!live() && foreground && !destroyed && playing && prepared
+                 && player!=null && qualityDialog==null && !seekState.active() && Build.VERSION.SDK_INT>=23)) return;
+         try { player.setSpeed(2f); appliedSpeed=2f; holdSpeed.activate(); holdHint.setVisibility(View.VISIBLE); }
+         catch (RuntimeException unavailable) { Toast.makeText(this,"当前格式不支持临时倍速。",Toast.LENGTH_SHORT).show(); }
+@@ -567,8 +612,9 @@
+     }
+ 
+     private void applySpeed() {
+-        if (Build.VERSION.SDK_INT >= 23 && player != null && prepared && speed != appliedSpeed) {
+-            try { player.setSpeed(speed); appliedSpeed = speed; }
++        float effective = sourceSpeed(queue == null ? "" : queue.video.provider.kind, speed);
++        if (Build.VERSION.SDK_INT >= 23 && player != null && prepared && effective != appliedSpeed) {
++            try { player.setSpeed(effective); appliedSpeed = effective; }
+             catch (RuntimeException unavailable) {
+                 speed = appliedSpeed;
+                 Toast.makeText(this, "当前格式不支持所选倍速，已保持 " + speed + "×播放。", Toast.LENGTH_LONG).show();
+@@ -759,7 +805,7 @@
+     }
+ 
+     private void seekTo(long requested) {
+-        if (!prepared || player == null || !foreground) return;
++        if (live() || !prepared || player == null || !foreground) return;
+         seeking = true;
+         try {
+             player.seekTo(requested);
+@@ -769,10 +815,16 @@
+         } catch (RuntimeException error) { fail("该线路无法定位到播放进度，可从头重试或选择其他画质。", true); }
+     }
+ 
+-    private boolean canSeek() { return prepared && player != null && foreground && !failed && duration() > 0; }
++    static boolean liveProvider(String kind) { return "m3u".equals(kind); }
++    static float sourceSpeed(String kind, float fixedSpeed) { return liveProvider(kind) ? 1f : fixedSpeed; }
++    static long sourcePosition(String kind, boolean matchedEpisode, long current, long targetSaved) {
++        return liveProvider(kind) ? 0L : Math.max(0L, matchedEpisode ? current : targetSaved);
++    }
++    private boolean live() { return queue != null && queue.video != null && queue.video.provider != null && liveProvider(queue.video.provider.kind); }
++    private boolean canSeek() { return !live() && prepared && player != null && foreground && !failed && duration() > 0; }
+ 
+     private void requestSeek(long requested, boolean debounce) {
+-        if (!prepared || player == null || !foreground || failed || requested < 0) return;
++        if (live() || !prepared || player == null || !foreground || failed || requested < 0) return;
+         int length = duration();
+         if (debounce && length <= 0) return;
+         endHoldSpeed(true); updateSubtitle("");
+@@ -871,6 +923,10 @@
+         qualityDialog.show();
+     }
+ 
++    private void chooseSources() {
++        if (sourcePicker != null && qualityDialog == null) sourcePicker.show();
++    }
++
+     private String qualityLabel(int index) {
+         String label = safe(labels[index]).trim();
+         if (!label.isEmpty()) return label;
+@@ -880,7 +936,7 @@
+ 
+     private void updateQualityButton() {
+         if (qualityButton != null) qualityButton.setText("画质");
+-        if (declaredQuality != null) declaredQuality.setText("来源标注：" + qualityLabel(selected));
++        if (declaredQuality != null) declaredQuality.setText(live() ? "直播 · 清晰度以实际视频尺寸为准" : "来源标注：" + qualityLabel(selected));
+     }
+ 
+     private void retry() {
+@@ -916,6 +972,7 @@
+     }
+ 
+     private void rememberPosition() {
++        if (live()) { position = 0L; return; }
+         if (player != null && prepared && !completed) {
+             try { position = seekState.observe(Math.max(0L, player.getCurrentPosition()), SystemClock.uptimeMillis()); }
+             catch (RuntimeException ignored) { }
+@@ -923,6 +980,7 @@
+     }
+ 
+     private int duration() {
++        if (live()) return 0;
+         if (player != null && prepared) {
+             try { knownDuration = Math.max(0, player.getDuration()); return knownDuration; } catch (RuntimeException ignored) { }
+         }
+@@ -930,6 +988,12 @@
+     }
+ 
+     private void updateClock() {
++        if (live()) {
++            if (clock != null) clock.setText("直播 · 不提供点播进度与回看");
++            if (progress != null) { progress.setEnabled(false); progress.setVisibility(View.GONE); }
++            return;
++        }
++        if (progress != null) progress.setVisibility(View.VISIBLE);
+         int duration = duration();
+         if (clock != null) clock.setText(time(completed && duration > 0 ? duration : position)
+                 + " / " + (duration > 0 ? time(duration) : "--:--"));
+@@ -1029,7 +1093,9 @@
+         if (!valid) return super.onKeyDown(keyCode, event);
+         switch (keyCode) {
+             case KeyEvent.KEYCODE_MENU:
+-                if (event.getRepeatCount() == 0) chooseQuality();
++                if (event.getRepeatCount() == 0) {
++                    if (sourcePicker != null) chooseSources(); else chooseQuality();
++                }
+                 return true;
+             case KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE:
+             case KeyEvent.KEYCODE_HEADSETHOOK:
+@@ -1062,6 +1128,7 @@
+             case KeyEvent.KEYCODE_DPAD_CENTER:
+             case KeyEvent.KEYCODE_ENTER:
+                 if (!controlsFocused()) {
++                    if (live()) { if (event.getRepeatCount()==0) togglePlayback(); return true; }
+                     if (event.getRepeatCount()==0 && holdSpeed.arm(playbackGeneration,appliedSpeed)) { main.removeCallbacks(beginHoldSpeed); main.postDelayed(beginHoldSpeed,500L); }
+                     return true;
+                 }
+@@ -1093,9 +1160,9 @@
+     private void updateResult() {
+         if (valid) {
+             Intent result = new Intent().putExtra("video_json", videoJson)
+-                    .putExtra("episode_name", episodeName).putExtra("position_ms", resumePosition(position, knownDuration, completed))
++                    .putExtra("episode_name", episodeName).putExtra("position_ms", live() ? 0L : resumePosition(position, knownDuration, completed))
+                     .putExtra("completed", completed);
+-            if (queue != null) result.putExtra("queue_index", episodeIndex);
++            if (queue != null) result.putExtra("queue_index", episodeIndex).putExtra("line_name", queue.lineName);
+             setResult(RESULT_OK, result);
+         }
+     }
+@@ -1110,13 +1177,16 @@
+ 
+     @Override protected void onPause() {
+         foreground = false;
++        if (sourcePicker != null) sourcePicker.cancel();
+         rememberPosition(); saveProgress(); updateResult(); releasePlayer();
+         main.removeCallbacks(ticker); main.removeCallbacks(hideControls);
+         super.onPause();
+     }
+ 
+     @Override protected void onSaveInstanceState(Bundle saved) {
++        if (sourcePicker != null) sourcePicker.cancel();
+         rememberPosition();
++        if (queueToken != null) saved.putString("queue_token", queueToken);
+         saved.putInt("selected", selected); saved.putLong("position", position);
+         saved.putBoolean("play_when_ready", playWhenReady); saved.putBoolean("failed", failed);
+         saved.putBoolean("completed", completed); saved.putBoolean("retry_from_start", retryFromStart);
+@@ -1127,6 +1197,7 @@
+     @Override protected void onDestroy() {
+         if (isFinishing()) saveProgress();
+         destroyed = true;
++        if (sourcePicker != null) sourcePicker.release();
+         main.removeCallbacksAndMessages(null);
+         if (qualityDialog != null) qualityDialog.dismiss();
+         releasePlayer();

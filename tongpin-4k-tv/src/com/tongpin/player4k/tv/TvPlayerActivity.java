@@ -51,6 +51,7 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
     private LinearLayout header, controls;
     private TextView actual, status, clock, declaredQuality, heading, subtitle, holdHint;
     private Button playButton, qualityButton, retryButton, previousButton, nextButton, episodesButton, speedButton, autoButton, decoderButton;
+    private Button seekBackButton, seekForwardButton;
     private AlertDialog qualityDialog;
     private boolean subtitlePicker, subtitleChoosing;
     private List<TvPlaybackEngine.SubtitleTrack> subtitleTracks = Collections.emptyList();
@@ -67,6 +68,8 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
     private boolean valid, surfaceReady, foreground, prepared, seeking, playing;
     private boolean playWhenReady = true, failed, completed, destroyed, retryFromStart;
     private TvPlayQueue queue;
+    private List<CatalogApi.Provider> sourceProviders;
+    private TvSourcePicker sourcePicker;
     private TvLibraryStore store;
     private int episodeIndex, playbackGeneration, knownDuration;
     private boolean advancing, progressErrorShown;
@@ -117,11 +120,12 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
         audio = (AudioManager) getSystemService(AUDIO_SERVICE);
         Intent input = getIntent();
         try {
-            queueToken = input.getStringExtra("queue_token");
+            queueToken = saved != null && saved.containsKey("queue_token")
+                    ? saved.getString("queue_token") : input.getStringExtra("queue_token");
             if (queueToken != null) {
-                List<CatalogApi.Provider> providers = CatalogApi.parseProviders(providerAsset());
-                queue = TvPlayQueue.load(this, queueToken, providers);
-                try { store = new TvLibraryStore(this, providers); }
+                sourceProviders = CatalogApi.parseProviders(providerAsset());
+                queue = TvPlayQueue.load(this, queueToken, sourceProviders);
+                try { store = new TvLibraryStore(this, sourceProviders); }
                 catch (RuntimeException unavailable) { progressError(); }
                 episodeIndex = saved == null ? input.getIntExtra("queue_index", 0) : saved.getInt("queue_index", 0);
                 if (episodeIndex < 0 || episodeIndex >= queue.episodes.size()) throw new IllegalArgumentException();
@@ -151,6 +155,7 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
                 retryFromStart = saved.getBoolean("retry_from_start", false);
             }
             if (Build.VERSION.SDK_INT < 23) speed = 1f;
+            if (live()) { position = 0L; completed = false; }
             decoderMode = normalizedDecoderMode(Build.VERSION.SDK_INT, getSharedPreferences("tongpin_tv_preferences", MODE_PRIVATE).getInt("decoder_mode", 0));
         } catch (Exception invalid) {
             invalidInput("播放列表暂不可用，请返回片库重新选择。");
@@ -158,6 +163,14 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
         }
         valid = true;
         buildScreen();
+        if (queue != null) sourcePicker = new TvSourcePicker(this, sourceProviders, new TvSourcePicker.Host() {
+            public TvPlayQueue queue() { return queue; }
+            public int index() { return episodeIndex; }
+            public boolean active() { return valid && foreground && !destroyed; }
+            public void opened(AlertDialog dialog) { endHoldSpeed(true); qualityDialog = dialog; main.removeCallbacks(hideControls); }
+            public void closed(AlertDialog dialog) { if (qualityDialog == dialog) qualityDialog = null; scheduleHide(); }
+            public void apply(TvPlayQueue next, String token, int index, boolean carry) { applySource(next, token, index, carry); }
+        });
         if (failed) errorUi("上次播放未成功，请重试或选择其他画质。");
         showControls(true);
         updateResult();
@@ -267,9 +280,11 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
         playButton = addButton(row, "暂停", this::togglePlayback);
         nextButton = addButton(row, "下一集", () -> moveEpisode(1));
         episodesButton = addButton(row, "选集", this::chooseEpisodes);
-        addButton(row, "后退10秒", () -> seekBy(-10000L));
-        addButton(row, "前进10秒", () -> seekBy(10000L));
+        seekBackButton = addButton(row, "后退10秒", () -> seekBy(-10000L));
+        seekForwardButton = addButton(row, "前进10秒", () -> seekBy(10000L));
         qualityButton = addButton(row, "画质", this::chooseQuality);
+        Button sources = addButton(row, "换源", this::chooseSources);
+        sources.setEnabled(queue != null);
         speedButton = addButton(row, "倍速", this::chooseSpeed);
         speedButton.setEnabled(Build.VERSION.SDK_INT >= 23);
         addButton(row, "字幕", this::chooseSubtitles);
@@ -361,6 +376,7 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
 
     private void changeEpisode(int index) {
         if (destroyed || !foreground || busy() || queue == null || index < 0 || index >= queue.episodes.size()) return;
+        if (sourcePicker != null) sourcePicker.cancel();
         saveProgress();
         releasePlayer();
         readEpisode(index);
@@ -373,7 +389,28 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
         prepare(); showControls(true); updateResult();
     }
 
+    private void applySource(TvPlayQueue next, String token, int index, boolean carryPosition) {
+        if (destroyed || !foreground || next == null || index < 0 || index >= next.episodes.size()) {
+            TvPlayQueue.delete(this, token); return;
+        }
+        rememberPosition(); saveProgress();
+        long carried = position;
+        boolean wanted = playWhenReady;
+        String oldToken = queueToken;
+        releasePlayer();
+        queue = next; queueToken = token; readEpisode(index);
+        position = sourcePosition(next.video.provider.kind, carryPosition, carried, carryPosition ? 0L : restoredProgress());
+        knownDuration = 0; failed = completed = retryFromStart = false;
+        playWhenReady = wanted;
+        heading.setText(title); updateQualityButton(); updateNavigation();
+        retryButton.setVisibility(View.GONE); playButton.setEnabled(true);
+        getIntent().putExtra("queue_token", token).putExtra("queue_index", index).putExtra("resume_ms", position);
+        if (oldToken != null && !oldToken.equals(token)) TvPlayQueue.delete(this, oldToken);
+        prepare(); showControls(true); updateResult();
+    }
+
     private long restoredProgress() {
+        if (live()) return 0L;
         if (queue == null || store == null) return 0L;
         try { return Math.max(0L, store.getEpisodeProgress(queue.video, queue.progressKey(episodeIndex))); }
         catch (RuntimeException unavailable) { progressError(); return 0L; }
@@ -381,6 +418,11 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
 
     private void saveProgress() {
         if (queue == null || store == null) return;
+        if (live()) {
+            try { store.record(queue.video, episodeName, 0L); }
+            catch (RuntimeException unavailable) { progressError(); }
+            return;
+        }
         rememberPosition();
         int currentDuration = duration();
         long saved = resumePosition(position, currentDuration > 0 ? currentDuration : knownDuration, completed);
@@ -396,7 +438,7 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
     }
 
     private boolean autoNext() {
-        return getSharedPreferences("tongpin_tv_preferences", MODE_PRIVATE).getBoolean("auto_next", true);
+        return !live() && getSharedPreferences("tongpin_tv_preferences", MODE_PRIVATE).getBoolean("auto_next", true);
     }
 
     private void updateNavigation() {
@@ -405,8 +447,11 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
         previousButton.setEnabled(!busy() && TvPlayQueue.step(episodeIndex, count, -1) >= 0);
         nextButton.setEnabled(!busy() && TvPlayQueue.step(episodeIndex, count, 1) >= 0);
         episodesButton.setEnabled(!busy() && count > 1);
-        speedButton.setText(Build.VERSION.SDK_INT >= 23 ? "倍速 · " + speed + "×" : "倍速 · 1×（系统限制）");
+        speedButton.setText(live() ? "倍速 · 直播实时" : Build.VERSION.SDK_INT >= 23 ? "倍速 · " + speed + "×" : "倍速 · 1×（系统限制）");
+        speedButton.setEnabled(!live() && Build.VERSION.SDK_INT >= 23);
         autoButton.setText("连播 · " + (autoNext() ? "开" : "关"));
+        autoButton.setEnabled(!live());
+        seekBackButton.setEnabled(!live()); seekForwardButton.setEnabled(!live());
     }
 
     private void chooseEpisodes() {
@@ -430,7 +475,7 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
     }
 
     private void chooseSpeed() {
-        if (Build.VERSION.SDK_INT < 23 || qualityDialog != null) return;
+        if (live() || Build.VERSION.SDK_INT < 23 || qualityDialog != null) return;
         main.removeCallbacks(hideControls);
         String[] names = new String[SPEEDS.length]; int selectedSpeed = 2;
         for (int i = 0; i < names.length; i++) { names[i] = SPEEDS[i] + "×"; if (speed == SPEEDS[i]) selectedSpeed = i; }
@@ -550,7 +595,7 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
     }
 
     private void beginHoldSpeed() {
-        if (!holdSpeed.ready(playbackGeneration,foreground && !destroyed && playing && prepared
+        if (!holdSpeed.ready(playbackGeneration,!live() && foreground && !destroyed && playing && prepared
                 && player!=null && qualityDialog==null && !seekState.active() && Build.VERSION.SDK_INT>=23)) return;
         try { player.setSpeed(2f); appliedSpeed=2f; holdSpeed.activate(); holdHint.setVisibility(View.VISIBLE); }
         catch (RuntimeException unavailable) { Toast.makeText(this,"当前格式不支持临时倍速。",Toast.LENGTH_SHORT).show(); }
@@ -567,8 +612,9 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
     }
 
     private void applySpeed() {
-        if (Build.VERSION.SDK_INT >= 23 && player != null && prepared && speed != appliedSpeed) {
-            try { player.setSpeed(speed); appliedSpeed = speed; }
+        float effective = sourceSpeed(queue == null ? "" : queue.video.provider.kind, speed);
+        if (Build.VERSION.SDK_INT >= 23 && player != null && prepared && effective != appliedSpeed) {
+            try { player.setSpeed(effective); appliedSpeed = effective; }
             catch (RuntimeException unavailable) {
                 speed = appliedSpeed;
                 Toast.makeText(this, "当前格式不支持所选倍速，已保持 " + speed + "×播放。", Toast.LENGTH_LONG).show();
@@ -759,7 +805,7 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
     }
 
     private void seekTo(long requested) {
-        if (!prepared || player == null || !foreground) return;
+        if (live() || !prepared || player == null || !foreground) return;
         seeking = true;
         try {
             player.seekTo(requested);
@@ -769,10 +815,16 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
         } catch (RuntimeException error) { fail("该线路无法定位到播放进度，可从头重试或选择其他画质。", true); }
     }
 
-    private boolean canSeek() { return prepared && player != null && foreground && !failed && duration() > 0; }
+    static boolean liveProvider(String kind) { return "m3u".equals(kind); }
+    static float sourceSpeed(String kind, float fixedSpeed) { return liveProvider(kind) ? 1f : fixedSpeed; }
+    static long sourcePosition(String kind, boolean matchedEpisode, long current, long targetSaved) {
+        return liveProvider(kind) ? 0L : Math.max(0L, matchedEpisode ? current : targetSaved);
+    }
+    private boolean live() { return queue != null && queue.video != null && queue.video.provider != null && liveProvider(queue.video.provider.kind); }
+    private boolean canSeek() { return !live() && prepared && player != null && foreground && !failed && duration() > 0; }
 
     private void requestSeek(long requested, boolean debounce) {
-        if (!prepared || player == null || !foreground || failed || requested < 0) return;
+        if (live() || !prepared || player == null || !foreground || failed || requested < 0) return;
         int length = duration();
         if (debounce && length <= 0) return;
         endHoldSpeed(true); updateSubtitle("");
@@ -871,6 +923,10 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
         qualityDialog.show();
     }
 
+    private void chooseSources() {
+        if (sourcePicker != null && qualityDialog == null) sourcePicker.show();
+    }
+
     private String qualityLabel(int index) {
         String label = safe(labels[index]).trim();
         if (!label.isEmpty()) return label;
@@ -880,7 +936,7 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
 
     private void updateQualityButton() {
         if (qualityButton != null) qualityButton.setText("画质");
-        if (declaredQuality != null) declaredQuality.setText("来源标注：" + qualityLabel(selected));
+        if (declaredQuality != null) declaredQuality.setText(live() ? "直播 · 清晰度以实际视频尺寸为准" : "来源标注：" + qualityLabel(selected));
     }
 
     private void retry() {
@@ -916,6 +972,7 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
     }
 
     private void rememberPosition() {
+        if (live()) { position = 0L; return; }
         if (player != null && prepared && !completed) {
             try { position = seekState.observe(Math.max(0L, player.getCurrentPosition()), SystemClock.uptimeMillis()); }
             catch (RuntimeException ignored) { }
@@ -923,6 +980,7 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
     }
 
     private int duration() {
+        if (live()) return 0;
         if (player != null && prepared) {
             try { knownDuration = Math.max(0, player.getDuration()); return knownDuration; } catch (RuntimeException ignored) { }
         }
@@ -930,6 +988,12 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
     }
 
     private void updateClock() {
+        if (live()) {
+            if (clock != null) clock.setText("直播 · 不提供点播进度与回看");
+            if (progress != null) { progress.setEnabled(false); progress.setVisibility(View.GONE); }
+            return;
+        }
+        if (progress != null) progress.setVisibility(View.VISIBLE);
         int duration = duration();
         if (clock != null) clock.setText(time(completed && duration > 0 ? duration : position)
                 + " / " + (duration > 0 ? time(duration) : "--:--"));
@@ -1029,7 +1093,9 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
         if (!valid) return super.onKeyDown(keyCode, event);
         switch (keyCode) {
             case KeyEvent.KEYCODE_MENU:
-                if (event.getRepeatCount() == 0) chooseQuality();
+                if (event.getRepeatCount() == 0) {
+                    if (sourcePicker != null) chooseSources(); else chooseQuality();
+                }
                 return true;
             case KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE:
             case KeyEvent.KEYCODE_HEADSETHOOK:
@@ -1062,6 +1128,7 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
             case KeyEvent.KEYCODE_DPAD_CENTER:
             case KeyEvent.KEYCODE_ENTER:
                 if (!controlsFocused()) {
+                    if (live()) { if (event.getRepeatCount()==0) togglePlayback(); return true; }
                     if (event.getRepeatCount()==0 && holdSpeed.arm(playbackGeneration,appliedSpeed)) { main.removeCallbacks(beginHoldSpeed); main.postDelayed(beginHoldSpeed,500L); }
                     return true;
                 }
@@ -1093,9 +1160,9 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
     private void updateResult() {
         if (valid) {
             Intent result = new Intent().putExtra("video_json", videoJson)
-                    .putExtra("episode_name", episodeName).putExtra("position_ms", resumePosition(position, knownDuration, completed))
+                    .putExtra("episode_name", episodeName).putExtra("position_ms", live() ? 0L : resumePosition(position, knownDuration, completed))
                     .putExtra("completed", completed);
-            if (queue != null) result.putExtra("queue_index", episodeIndex);
+            if (queue != null) result.putExtra("queue_index", episodeIndex).putExtra("line_name", queue.lineName);
             setResult(RESULT_OK, result);
         }
     }
@@ -1110,13 +1177,16 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
 
     @Override protected void onPause() {
         foreground = false;
+        if (sourcePicker != null) sourcePicker.cancel();
         rememberPosition(); saveProgress(); updateResult(); releasePlayer();
         main.removeCallbacks(ticker); main.removeCallbacks(hideControls);
         super.onPause();
     }
 
     @Override protected void onSaveInstanceState(Bundle saved) {
+        if (sourcePicker != null) sourcePicker.cancel();
         rememberPosition();
+        if (queueToken != null) saved.putString("queue_token", queueToken);
         saved.putInt("selected", selected); saved.putLong("position", position);
         saved.putBoolean("play_when_ready", playWhenReady); saved.putBoolean("failed", failed);
         saved.putBoolean("completed", completed); saved.putBoolean("retry_from_start", retryFromStart);
@@ -1127,6 +1197,7 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
     @Override protected void onDestroy() {
         if (isFinishing()) saveProgress();
         destroyed = true;
+        if (sourcePicker != null) sourcePicker.release();
         main.removeCallbacksAndMessages(null);
         if (qualityDialog != null) qualityDialog.dismiss();
         releasePlayer();

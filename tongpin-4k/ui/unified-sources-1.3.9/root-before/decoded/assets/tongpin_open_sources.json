@@ -1,0 +1,81 @@
+{
+  "providers": [
+    {
+      "id": "mdzy",
+      "name": "魔都资源",
+      "kind": "maccms",
+      "api": "https://www.mdzyapi.com/api.php/provide/vod/",
+      "homepage": "https://mdzyapi.com/"
+    },
+    {
+      "id": "360zy",
+      "name": "360资源",
+      "kind": "maccms",
+      "api": "https://360zy.com/api.php/provide/vod/",
+      "homepage": "https://360zy.com/"
+    },
+    {
+      "id": "blender",
+      "name": "Blender开放电影",
+      "kind": "peertube",
+      "api": "https://video.blender.org/api/v1/video-channels/blender_open_movies/videos?sort=-publishedAt",
+      "homepage": "https://video.blender.org/video-channels/blender_open_movies"
+    },
+    {
+      "id": "ryzy",
+      "name": "如意资源",
+      "kind": "maccms",
+      "api": "https://cj.rycjapi.com/api.php/provide/vod/",
+      "homepage": "https://ryzyw.com/"
+    },
+    {
+      "id": "ikun",
+      "name": "iKun资源",
+      "kind": "maccms",
+      "api": "https://ikunzyapi.com/api.php/provide/vod/",
+      "homepage": "https://www.ikunzy.com/"
+    },
+    {
+      "id": "guangsu",
+      "name": "光速资源",
+      "kind": "maccms",
+      "api": "https://api.guangsuapi.com/api.php/provide/vod/",
+      "homepage": "https://www.guangsuzy.com/"
+    },
+    {
+      "id": "hongniu",
+      "name": "红牛资源",
+      "kind": "maccms",
+      "api": "https://www.hongniuzy2.com/api.php/provide/vod/",
+      "homepage": "https://www.hongniuzy2.com/"
+    },
+    {
+      "id": "jinying",
+      "name": "金鹰资源",
+      "kind": "maccms",
+      "api": "https://jyzyapi.com/provide/vod/from/jinyingm3u8/at/json",
+      "homepage": "https://www.jinyingzy.net/"
+    },
+    {
+      "id": "huya",
+      "name": "虎牙资源（第三方）",
+      "kind": "maccms",
+      "api": "https://www.huyaapi.com/api.php/provide/vod/from/hym3u8",
+      "homepage": "https://www.huyaapi.com/"
+    },
+    {
+      "id": "bfzy",
+      "name": "暴风资源",
+      "kind": "maccms",
+      "api": "https://bfzyapi.com/api.php/provide/vod",
+      "homepage": "https://bfzyapi.com/"
+    },
+    {
+      "id": "qiyi",
+      "name": "奇艺资源（第三方）",
+      "kind": "maccms",
+      "api": "https://www.iqiyizyapi.com/api.php/provide/vod",
+      "homepage": "https://www.iqiyizyapi.com/"
+    }
+  ]
+}

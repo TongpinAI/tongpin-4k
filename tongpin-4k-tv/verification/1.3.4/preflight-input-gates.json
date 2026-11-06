@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "input_count": 30,
+  "owner_scope_source_paths": 9,
+  "independent_promotion_blocked": true,
+  "source_freeze_sha256": "30efd04eed83083e6cbf60c59b97a17e269fac341b7b09c36f80dff0a342d625",
+  "main_freeze_sha256": "10560c05422bf3f4f3b53d76a0a1c6ff07417b368c783d3cb5703d53454caef8",
+  "builder_sha256": "3721c90b146517c3ae55f10e00ddd9a2c0c28410eb922de94d044793e0207447"
+}

@@ -15,6 +15,8 @@
 
 
 # instance fields
+.field public area:Ljava/lang/String;
+
 .field public author:Ljava/lang/String;
 
 .field categoryCatalog:Lcom/tongpin/player4k/catalog/CatalogCategories;
@@ -41,15 +43,17 @@
 
 .field public title:Ljava/lang/String;
 
+.field public year:Ljava/lang/String;
+
 
 # direct methods
 .method public constructor <init>()V
     .locals 1
 
-    .line 57
+    .line 58
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 53
+    .line 54
     const-string v0, ""
 
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->id:Ljava/lang/String;
@@ -62,14 +66,18 @@
 
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->sourceUrl:Ljava/lang/String;
 
-    .line 54
+    .line 55
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->description:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->author:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->licence:Ljava/lang/String;
 
-    .line 55
+    iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->year:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->area:Ljava/lang/String;
+
+    .line 56
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->categoryId:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->categoryName:Ljava/lang/String;
@@ -78,6 +86,6 @@
 
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->categoryLabel:Ljava/lang/String;
 
-    .line 57
+    .line 58
     return-void
 .end method

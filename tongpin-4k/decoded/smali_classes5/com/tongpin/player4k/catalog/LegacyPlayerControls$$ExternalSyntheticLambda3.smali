@@ -3,34 +3,40 @@
 .source "D8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/view/View$OnClickListener;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/tongpin/player4k/catalog/LegacyPlayerControls$Host;
+.field public final synthetic f$0:Landroid/app/Activity;
+
+.field public final synthetic f$1:Lcom/tongpin/player4k/catalog/LegacyPlayerControls$Host;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/tongpin/player4k/catalog/LegacyPlayerControls$Host;)V
+.method public synthetic constructor <init>(Landroid/app/Activity;Lcom/tongpin/player4k/catalog/LegacyPlayerControls$Host;)V
     .locals 0
 
     .line 0
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/tongpin/player4k/catalog/LegacyPlayerControls$$ExternalSyntheticLambda3;->f$0:Lcom/tongpin/player4k/catalog/LegacyPlayerControls$Host;
+    iput-object p1, p0, Lcom/tongpin/player4k/catalog/LegacyPlayerControls$$ExternalSyntheticLambda3;->f$0:Landroid/app/Activity;
+
+    iput-object p2, p0, Lcom/tongpin/player4k/catalog/LegacyPlayerControls$$ExternalSyntheticLambda3;->f$1:Lcom/tongpin/player4k/catalog/LegacyPlayerControls$Host;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
-    .locals 1
+.method public final onClick(Landroid/view/View;)V
+    .locals 2
 
     .line 0
-    iget-object v0, p0, Lcom/tongpin/player4k/catalog/LegacyPlayerControls$$ExternalSyntheticLambda3;->f$0:Lcom/tongpin/player4k/catalog/LegacyPlayerControls$Host;
+    iget-object v0, p0, Lcom/tongpin/player4k/catalog/LegacyPlayerControls$$ExternalSyntheticLambda3;->f$0:Landroid/app/Activity;
 
-    invoke-interface {v0}, Lcom/tongpin/player4k/catalog/LegacyPlayerControls$Host;->legacyDecoderChanged()V
+    iget-object v1, p0, Lcom/tongpin/player4k/catalog/LegacyPlayerControls$$ExternalSyntheticLambda3;->f$1:Lcom/tongpin/player4k/catalog/LegacyPlayerControls$Host;
+
+    invoke-static {v0, v1, p1}, Lcom/tongpin/player4k/catalog/LegacyPlayerControls;->lambda$bind$3(Landroid/app/Activity;Lcom/tongpin/player4k/catalog/LegacyPlayerControls$Host;Landroid/view/View;)V
 
     return-void
 .end method

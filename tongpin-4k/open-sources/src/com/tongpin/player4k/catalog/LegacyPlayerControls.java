@@ -88,6 +88,10 @@ public final class LegacyPlayerControls {
         previous.setOnClickListener(view -> step(host, -1));
         next.setOnClickListener(view -> step(host, 1));
         more.setOnClickListener(view -> showMore(activity, host));
+        for (int sourceId : new int[]{actionViewId(1), 0x7f0a06b5}) {
+            View source = activity.findViewById(sourceId);
+            if (source != null) source.setOnClickListener(view -> LegacySourceBridge.show(activity, host));
+        }
         for (int action : new int[]{0, 1, 2, 4}) {
             View target = activity.findViewById(actionViewId(action));
             if (target != null && target.hasOnClickListeners()) target.setVisibility(View.GONE);

@@ -1,0 +1,20 @@
+{
+  "annotation_count": 5594,
+  "unique_suffix_count": 1130,
+  "expected_annotation_pattern": "LR•IPV[46](?:•\\d{1,3}『线路\\d{1,3}』)?",
+  "top_10_suffixes": {
+    "LR•IPV4": 2372,
+    "LR•IPV4•2『线路1』": 249,
+    "LR•IPV4•2『线路2』": 248,
+    "LR•IPV4•3『线路1』": 100,
+    "LR•IPV4•3『线路2』": 100,
+    "LR•IPV4•3『线路3』": 95,
+    "LR•IPV4•4『线路1』": 42,
+    "LR•IPV4•4『线路2』": 42,
+    "LR•IPV4•4『线路3』": 42,
+    "LR•IPV4•5『线路1』": 38
+  },
+  "all_match_known_lr_annotation": true,
+  "unexpected_suffix_count": 0,
+  "unexpected_examples": []
+}

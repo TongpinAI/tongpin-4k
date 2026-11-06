@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "assertions": {
+    "phone": 42,
+    "tv": 42
+  },
+  "source_sha256": {
+    "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\open-sources\\src\\com\\tongpin\\player4k\\catalog\\CatalogApi.java": "9e99cf63272fc2b42aa75d8de6094f2ab9b356270dd3f13254c7601826f9e959",
+    "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\open-sources\\src\\com\\tongpin\\player4k\\catalog\\CatalogCategories.java": "3c368a9e8ebbfbcf15e8426b1cdacfd0e3289efdfeb1f887569840528425f03b",
+    "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\open-sources\\src\\com\\tongpin\\player4k\\catalog\\MacCmsXml.java": "5ca12bf836e1c8e10c8efd06d0054e0ce25c8c63c707f7513e77eddccf5b8f68",
+    "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\open-sources\\src\\com\\tongpin\\player4k\\catalog\\M3uCatalog.java": "710daeaabe91bab03e078106de0b4cdd5d1b852cbdb4c7992ed0b2e3626ead51",
+    "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\open-sources\\src\\com\\tongpin\\player4k\\catalog\\TvBoxJson.java": "4fe2bf0bdaf94a431a5ddc6514eb51a37d668006b608659a1cf16fd558faab24",
+    "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k-tv\\src\\com\\tongpin\\player4k\\tv\\CatalogApi.java": "33410bf75cae6a3d903c85e6e3e9deda2adad6f2cfb6ec2f55fa5c2ce6c39f04",
+    "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k-tv\\src\\com\\tongpin\\player4k\\tv\\CatalogCategories.java": "94ad50088414706688648027634e6acd76fc52214bac47dcf29d1d2e9e86ae8a",
+    "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k-tv\\src\\com\\tongpin\\player4k\\tv\\MacCmsXml.java": "74ccc2ea09021a677a39e11e38017ebfa31a79a35cfda90793da425e364d41be",
+    "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k-tv\\src\\com\\tongpin\\player4k\\tv\\M3uCatalog.java": "82ef4af6c0046df839aca596ede569b4ba9585b6b1aeb7a1d3851bf784eed281",
+    "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k-tv\\src\\com\\tongpin\\player4k\\tv\\TvBoxJson.java": "5299156e9e08c5a1633a7fd4666682d2a801c1435e35cc1a663303f5e811817a",
+    "C:\\Users\\Administrator.DESKTOP-R9V7M9S\\Documents\\ChatGPT\\测试\\tongpin-4k\\open-sources\\tests\\src\\com\\tongpin\\player4k\\catalog\\MacCmsXmlTest.java": "c286b37f679a832b25334f9a648520388467540a622122e9bbea6a88cbb06bf6"
+  },
+  "both_android_apis_compiled": true,
+  "fixtures": {
+    "maotai-detail.sanitized.xml": "dbf6f591cb910a7fecea2a8762be27f41e29a461367c36cc8f06e55bab3de1d0",
+    "maotai-home.xml": "9d9613a0aa9adc28db85d88e53dc50308bd02a15adf2ea9248685f17c9951fb5",
+    "maotai-provenance.json": "a662c6e04ceff47a4d1923a579196ddbc39bab275825526aa4db324e2ce62532"
+  },
+  "shared_adapter_package_only_identical": true,
+  "security_scope": "DOCTYPE/entity rejection, resolver deny, streaming depth/node/item/line/UTF8 bounds; resulting JSON still passes existing unsafe/category/media validators",
+  "live_network_tested": false,
+  "device_tested": false
+}

@@ -1,0 +1,2501 @@
+{
+  "checked_date": "2026-11-06",
+  "original_image_rows": 47,
+  "original_url_rows": 46,
+  "original_unique_urls": 42,
+  "original_image_sha256": "fd65ffe9fa015ed2de8c472f5ba5b45eea268c28f86f283e02f11f89834de881",
+  "additional_readable_url_rows": 71,
+  "additional_unique_urls": 69,
+  "additional_obscured_url_not_invented": 1,
+  "combined_unique_urls": 96,
+  "shared_between_images": 15,
+  "every_readable_seed_checked": true,
+  "seed_classification_counts": {
+    "unreachable": 23,
+    "tvbox-sites-config": 42,
+    "binary-image": 1,
+    "html-page": 13,
+    "tvbox-sites-config-malformed": 1,
+    "text-config-address-list": 7,
+    "unsupported-text-or-binary": 3,
+    "tvbox-multi-config": 4,
+    "device-local-service-not-fetched": 1,
+    "m3u-channel-list": 1
+  },
+  "recursive_unique_configs_checked": 271,
+  "deferred_recursive_children_count": 0,
+  "recursive_depth_limit": 3,
+  "recursive_unique_config_limit": 512,
+  "remote_code_executed": false,
+  "device_local_addresses_not_fetched": true,
+  "entries": [
+    {
+      "url": "https://xn--sdds-rp5imh.v.nxog.top/apitv.php?id=3",
+      "origins": [
+        {
+          "image": "original",
+          "row": 1,
+          "name": "欧歌接口"
+        }
+      ],
+      "checked": true,
+      "classification": "unreachable",
+      "http_status": null,
+      "checked_at_utc": "2026-11-06T10:12:58.289498+00:00",
+      "response_sha256": null,
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 0,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "http://xhztv.top/4k.json",
+      "origins": [
+        {
+          "image": "original",
+          "row": 2,
+          "name": "小盒子4K"
+        },
+        {
+          "image": "additional",
+          "url_line": 56
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-sites-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:12:57.910315+00:00",
+      "response_sha256": "ff00f27c05a041f2283871c10c1261e7da1291363cdfadc124ba466de40b6814",
+      "direct_candidates": [
+        "http://xh1.xn--yetu07f.icu/api.php/provide/vod",
+        "https://video.adminqt.cn/api.php/provide/vod",
+        "https://xzcjz.com/api.php/provide/vod",
+        "https://ikunzyapi.com/api.php/provide/vod",
+        "https://hhzyapi.com/api.php/provide/vod",
+        "https://www.hongniuzy2.com/api.php/provide/vod",
+        "https://api.guangsuapi.com/api.php/provide/vod",
+        "https://cj.lziapi.com/api.php/provide/vod",
+        "https://suoniapi.com/api.php/provide/vod"
+      ],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 9,
+        "runtime_site_declarations": 44,
+        "registered_provider_ids": [
+          "guangsu",
+          "hhzy",
+          "hongniu",
+          "ikun"
+        ]
+      }
+    },
+    {
+      "url": "https://9280.kstore.vip/newwex.json",
+      "origins": [
+        {
+          "image": "original",
+          "row": 3,
+          "name": "王二小"
+        },
+        {
+          "image": "additional",
+          "url_line": 9
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-sites-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:12:57.584506+00:00",
+      "response_sha256": "f9015eed57c1b8d63f28eea4d80626f8724f4def35af2b732cdf604c4ae26c9c",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 100,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://jihulab.com/ymz1231/xymz/-/raw/main/ymshaoer",
+      "origins": [
+        {
+          "image": "original",
+          "row": 4,
+          "name": "少儿频道"
+        }
+      ],
+      "checked": true,
+      "classification": "binary-image",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:12:56.567762+00:00",
+      "response_sha256": "5b3036addf7ece6f78d7f5ba4aeacc464e19da55756e644c266951c9a1f915e6",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 0,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://700sjro44343.vicp.fun/eggp/0211/tv.json",
+      "origins": [
+        {
+          "image": "original",
+          "row": 5,
+          "name": "二月红接口"
+        },
+        {
+          "image": "additional",
+          "url_line": 43
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-sites-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:12:57.070590+00:00",
+      "response_sha256": "6c2f2b538076c4be609c08f00d470caf896031b536e596f07b336585f4e135f1",
+      "direct_candidates": [
+        "http://ffzy5.tv/api.php/provide/vod"
+      ],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 1,
+        "runtime_site_declarations": 27,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "http://xn--5mqx81b535a.com/",
+      "origins": [
+        {
+          "image": "original",
+          "row": 6,
+          "name": "影视仓"
+        },
+        {
+          "image": "original",
+          "row": 15,
+          "name": "uuccc"
+        },
+        {
+          "image": "additional",
+          "url_line": 24
+        }
+      ],
+      "checked": true,
+      "classification": "html-page",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:12:52.839238+00:00",
+      "response_sha256": "5ce979c1db2934d55ee978a8674bc8b0fd3907edad88d6b3126f6a8a9f5299b5",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 0,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "http://home.jundie.top:81/top98.json",
+      "origins": [
+        {
+          "image": "original",
+          "row": 7,
+          "name": "俊哥接口"
+        },
+        {
+          "image": "additional",
+          "url_line": 45
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-sites-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:12:56.476069+00:00",
+      "response_sha256": "9e3411a57300a0f80f3c248c48b6e8f0ae8bbaa42c9288908068fe34eb9fa489",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 24,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://tv.nxog.top/m/111.php?ou=%E5%85%AC%E4%BC%97%E5%8F%B7%E6%AC%A7%E6%AD%8Capp&mz=index&jar=index&123&b=tv",
+      "origins": [
+        {
+          "image": "original",
+          "row": 8,
+          "name": "欧歌免费"
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-sites-config-malformed",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:12:59.901711+00:00",
+      "response_sha256": "238fe725c328793322269474ef8bd5f3d09f60ea595caccc7406e8fab4c7bc92",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 0,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "http://tvbox.xn--4kq62z5rby2qupq9ub.top/",
+      "origins": [
+        {
+          "image": "original",
+          "row": 9,
+          "name": "王二小接口"
+        },
+        {
+          "image": "additional",
+          "url_line": 7
+        },
+        {
+          "image": "additional",
+          "url_line": 10
+        }
+      ],
+      "checked": true,
+      "classification": "text-config-address-list",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:13:01.808947+00:00",
+      "response_sha256": "5b4a0427d3fd926dd21a0d3e1440687c8b8d7c479c3c4c6c17585db84eca5b65",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 15,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 363,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "http://tv.999888987.xyz/",
+      "origins": [
+        {
+          "image": "original",
+          "row": 10,
+          "name": "王二小放牛娃"
+        },
+        {
+          "image": "additional",
+          "url_line": 11
+        }
+      ],
+      "checked": true,
+      "classification": "text-config-address-list",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:13:00.368580+00:00",
+      "response_sha256": "5b4a0427d3fd926dd21a0d3e1440687c8b8d7c479c3c4c6c17585db84eca5b65",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 15,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 363,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://qist.wyfc.qzz.io/fty.json",
+      "origins": [
+        {
+          "image": "original",
+          "row": 11,
+          "name": "饭太硬"
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-sites-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:12:59.953112+00:00",
+      "response_sha256": "83c3e570849c1debdd8e7f4e9d0c177a7997cd37b5438c2dffb866a433d188ea",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 48,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "http://xn--6orr3pi6g9uu.top/",
+      "origins": [
+        {
+          "image": "original",
+          "row": 12,
+          "name": "宝盒接口"
+        },
+        {
+          "image": "original",
+          "row": 27,
+          "name": "xn--6orr3pi6g9uu"
+        },
+        {
+          "image": "additional",
+          "url_line": 59
+        }
+      ],
+      "checked": true,
+      "classification": "unreachable",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:13:12.446970+00:00",
+      "response_sha256": null,
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 0,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://qist.wyfc.qzz.io/xiaosa/api.json",
+      "origins": [
+        {
+          "image": "original",
+          "row": 13,
+          "name": "潇洒"
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-sites-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:13:02.520242+00:00",
+      "response_sha256": "ebdf1c456dce37b20506c213eb2e2269d2bbaa06f47896a5c614dbad20139810",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 111,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://9280.kstore.space/newwex.json",
+      "origins": [
+        {
+          "image": "original",
+          "row": 14,
+          "name": "牛二"
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-sites-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:13:03.476776+00:00",
+      "response_sha256": "f9015eed57c1b8d63f28eea4d80626f8724f4def35af2b732cdf604c4ae26c9c",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 100,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "http://fmys.top/fmys.json",
+      "origins": [
+        {
+          "image": "original",
+          "row": 16,
+          "name": "fmys"
+        }
+      ],
+      "checked": true,
+      "classification": "unreachable",
+      "http_status": 404,
+      "checked_at_utc": "2026-11-06T10:13:09.341516+00:00",
+      "response_sha256": null,
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 0,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "http://fty.888484.xyz/tv",
+      "origins": [
+        {
+          "image": "original",
+          "row": 18,
+          "name": "饭太硬"
+        }
+      ],
+      "checked": true,
+      "classification": "html-page",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:13:10.677805+00:00",
+      "response_sha256": "e72982130b183728a0e39d5af128053493ab2064d0d7ba360930a4b9652ae57b",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 4,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 0,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://www.iyouhun.com/tv/wex",
+      "origins": [
+        {
+          "image": "original",
+          "row": 19,
+          "name": "新接口"
+        },
+        {
+          "image": "additional",
+          "url_line": 61
+        }
+      ],
+      "checked": true,
+      "classification": "html-page",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:13:11.687471+00:00",
+      "response_sha256": "fd9df68f10c92efc421b366a9385a4ed699d2827b81c6804fb1a772036a037e9",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 0,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://raw.liucn.cc/box/m.json",
+      "origins": [
+        {
+          "image": "original",
+          "row": 20,
+          "name": "ok"
+        },
+        {
+          "image": "additional",
+          "url_line": 39
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-sites-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:13:02.956057+00:00",
+      "response_sha256": "784d1e374385be38784ad9c65d3d2194df243323090babee0ae638258862a259",
+      "direct_candidates": [
+        "http://c.xn--yetu07f.icu/api.php/provide/vod",
+        "https://suoniapi.com/api.php/provide/vod",
+        "https://taopianapi.com/cjapi/mc/vod/json.html",
+        "http://ffzy1.tv/api.php/provide/vod",
+        "https://lzizy1.com/api.php/provide/vod",
+        "https://49zy1.com/api.php/provide/vod",
+        "https://www.feisuzyapi.com/api.php/provide/vod",
+        "https://caiji.qhzyapi.com/api.php/provide/vod",
+        "https://kekezy1.com/api.php/provide/vod",
+        "https://www.huyaapi.com/api.php/provide/vod/from/hym3u8",
+        "https://hhzyapi.com/api.php/provide/vod",
+        "https://app.bfzyapi.com/api.php/provide/vod",
+        "https://api.apibdzy.com/api.php/provide/vod",
+        "https://mv.wogg.link/mv/vod",
+        "https://mv.wogg.link/mv/vod"
+      ],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 14,
+        "runtime_site_declarations": 219,
+        "registered_provider_ids": [
+          "bfzy",
+          "hhzy",
+          "huya",
+          "taopian"
+        ]
+      }
+    },
+    {
+      "url": "https://tv.203511.xyz/0821.json",
+      "origins": [
+        {
+          "image": "original",
+          "row": 21,
+          "name": "荐片"
+        },
+        {
+          "image": "additional",
+          "url_line": 44
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-sites-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:13:06.284742+00:00",
+      "response_sha256": "41fb58ae613707c04b7312272e442829d53cc17f42d4b991c5c124693828eb81",
+      "direct_candidates": [
+        "https://cj.lziapi.com/api.php/provide/vod/at/xml",
+        "https://bfzyapi.com/api.php/provide/vod",
+        "http://cj.ffzyapi.com/api.php/provide/vod/at/xml",
+        "https://suoniapi.com/api.php/provide/vod",
+        "https://360zy.com/api.php/provide/vod"
+      ],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 5,
+        "runtime_site_declarations": 23,
+        "registered_provider_ids": [
+          "360zy",
+          "bfzy"
+        ]
+      }
+    },
+    {
+      "url": "https://700sjro44343.vicp.fun/vip/vip/tv.json",
+      "origins": [
+        {
+          "image": "original",
+          "row": 22,
+          "name": "1"
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-sites-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:13:06.234037+00:00",
+      "response_sha256": "60c421bd8dfa96fb8c52befbf9e794b439a736df10d64ccaf8221082c7da1254",
+      "direct_candidates": [
+        "http://ffzy5.tv/api.php/provide/vod"
+      ],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 1,
+        "runtime_site_declarations": 27,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "http://tv.nxog.top/m/",
+      "origins": [
+        {
+          "image": "original",
+          "row": 23,
+          "name": "cs"
+        }
+      ],
+      "checked": true,
+      "classification": "unreachable",
+      "http_status": 403,
+      "checked_at_utc": "2026-11-06T10:13:07.246452+00:00",
+      "response_sha256": null,
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 0,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "http://47.96.82.41:5188/api.json",
+      "origins": [
+        {
+          "image": "original",
+          "row": 24,
+          "name": "软件"
+        },
+        {
+          "image": "additional",
+          "url_line": 58
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-sites-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:13:07.477017+00:00",
+      "response_sha256": "5ca4e5c74d8e0161dcce5a91c63432ee1a085c8d5bde327400d66a6cdf4b362d",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 90,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://gist.githubusercontent.com/ph7368/20ee6c7b64d77d82f8f4162cdd04ad61/raw/gistfile1.txt",
+      "origins": [
+        {
+          "image": "original",
+          "row": 25,
+          "name": "ok"
+        },
+        {
+          "image": "original",
+          "row": 40,
+          "name": "接口"
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-sites-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:13:05.088404+00:00",
+      "response_sha256": "c8c29d042cc20719bb697b7922d814a2041688c4f9e59272c11d8837502acfd1",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 1,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/gh/liu673cn/box@main/m.json",
+      "origins": [
+        {
+          "image": "original",
+          "row": 26,
+          "name": "11"
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-sites-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:13:10.534370+00:00",
+      "response_sha256": "784d1e374385be38784ad9c65d3d2194df243323090babee0ae638258862a259",
+      "direct_candidates": [
+        "http://c.xn--yetu07f.icu/api.php/provide/vod",
+        "https://suoniapi.com/api.php/provide/vod",
+        "https://taopianapi.com/cjapi/mc/vod/json.html",
+        "http://ffzy1.tv/api.php/provide/vod",
+        "https://lzizy1.com/api.php/provide/vod",
+        "https://49zy1.com/api.php/provide/vod",
+        "https://www.feisuzyapi.com/api.php/provide/vod",
+        "https://caiji.qhzyapi.com/api.php/provide/vod",
+        "https://kekezy1.com/api.php/provide/vod",
+        "https://www.huyaapi.com/api.php/provide/vod/from/hym3u8",
+        "https://hhzyapi.com/api.php/provide/vod",
+        "https://app.bfzyapi.com/api.php/provide/vod",
+        "https://api.apibdzy.com/api.php/provide/vod",
+        "https://mv.wogg.link/mv/vod",
+        "https://mv.wogg.link/mv/vod"
+      ],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 14,
+        "runtime_site_declarations": 219,
+        "registered_provider_ids": [
+          "bfzy",
+          "hhzy",
+          "huya",
+          "taopian"
+        ]
+      }
+    },
+    {
+      "url": "https://6800.kstore.vip/fish.json",
+      "origins": [
+        {
+          "image": "original",
+          "row": 28,
+          "name": "摸鱼儿"
+        },
+        {
+          "image": "additional",
+          "url_line": 6
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-sites-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:13:11.384511+00:00",
+      "response_sha256": "89a4742c85e3de71a5e07625b45ae271f844d461dd1dca973ef5ce3a694cf80e",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 104,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://700sjro44343.vicp.fun/eggp/0615/tv.php",
+      "origins": [
+        {
+          "image": "original",
+          "row": 29,
+          "name": "https://700sjro44343.vicp.fun/eggp/0615/tv.php"
+        }
+      ],
+      "checked": true,
+      "classification": "html-page",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:13:15.166081+00:00",
+      "response_sha256": "5ce979c1db2934d55ee978a8674bc8b0fd3907edad88d6b3126f6a8a9f5299b5",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 0,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "http://www.xn--sss604efuw.net/tv",
+      "origins": [
+        {
+          "image": "original",
+          "row": 30,
+          "name": "http://www.xn--sss604efuw.net/tv"
+        }
+      ],
+      "checked": true,
+      "classification": "html-page",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:13:09.215262+00:00",
+      "response_sha256": "6cc95be760f5aecba87a41cf245d0049b45d2fb8e6d7c593f124cb7c2346bb32",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 4,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 0,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://9280.kstore.space/wex.json",
+      "origins": [
+        {
+          "image": "original",
+          "row": 31,
+          "name": "牛儿"
+        },
+        {
+          "image": "original",
+          "row": 37,
+          "name": "牛儿"
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-sites-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:13:12.756011+00:00",
+      "response_sha256": "6aa59bf4a9799021a34df69e5bcb4c8a75a1f6920b323c4ee5681f5de2d21a20",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 63,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/xmbjm/svip/refs/heads/main/svip.json",
+      "origins": [
+        {
+          "image": "original",
+          "row": 32,
+          "name": "拾光"
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-sites-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:13:14.264362+00:00",
+      "response_sha256": "8832da306e2e575eba1d536d530c7e7fdc1928fe674a25f5fccb593973f0fb2f",
+      "direct_candidates": [
+        "http://6.qqqtv.top/api.php/provide/vod",
+        "https://www.iqiyizyapi.com/api.php/provide/vod",
+        "https://www.hongniuzy2.com/api.php/provide/vod",
+        "http://api.guangsuapi.com/api.php/provide/vod",
+        "https://jszyapi.com/api.php/provide/vod",
+        "https://suoniapi.com/api.php/provide/vod",
+        "https://cj.lziapi.com/api.php/provide/vod",
+        "http://cj.ffzyapi.com/api.php/provide/vod",
+        "https://api.niuniuzy.me/api.php/provide/vod",
+        "https://caiji.kuaichezy.org/api.php/provide/vod",
+        "https://collect.wolongzy.cc/api.php/provide/vod",
+        "https://jszyapi.com/api.php/provide/vod",
+        "https://huawei8.live/api.php/provide/vod",
+        "https://api.wwzy.tv/api.php/provide/vod",
+        "https://cj.rycjapi.com/api.php/provide/vod/at/json",
+        "https://oknnews.com/api.php/provide/vod",
+        "https://mozhuazy.com/api.php/provide/vod",
+        "https://json.heimuer.xyz/api.php/provide/vod",
+        "https://pg.fenwe078.cf/api.php/provide/vod",
+        "https://okzyw9.com/api.php/provide/vod",
+        "https://360zy.com/api.php/provide/vod",
+        "https://yayazy2.com/api.php/provide/vod",
+        "https://bfzyapi.com/api.php/provide/vod",
+        "https://zuida.xyz/api.php/provide/vod",
+        "https://hhzyapi.com/api.php/provide/vod",
+        "https://tyyszyapi.com/api.php/provide/vod",
+        "https://sdzyapi.com/api.php/provide/vod",
+        "https://api.wujinapi.net/api.php/provide/vod",
+        "https://www.911ysw.top/tianyi.php/provide/vod",
+        "http://caiji.dyttzyapi.com/api.php/provide/vod/at/xml",
+        "https://caiji.maotaizy.cc/api.php/provide/vod/from/mtm3u8/at/xml",
+        "https://api.wuxianzy.net/api.php/provide/vod",
+        "https://caiji.moduapi.cc/api.php/provide/vod"
+      ],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 32,
+        "runtime_site_declarations": 213,
+        "registered_provider_ids": [
+          "360zy",
+          "bfzy",
+          "guangsu",
+          "hhzy",
+          "hongniu",
+          "jszy",
+          "maotai",
+          "mdzy",
+          "qiyi"
+        ]
+      }
+    },
+    {
+      "url": "https://g.33445500.xyz/https://raw.githubusercontent.com/qist/tvbox/refs/heads/master/jsm.json",
+      "origins": [
+        {
+          "image": "original",
+          "row": 33,
+          "name": "神秘大佬"
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-sites-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:13:16.112211+00:00",
+      "response_sha256": "dcb0e59a7d00af7e7b783fcb8667b154652677b7da21348defb6dc6baf5ba74c",
+      "direct_candidates": [
+        "http://caiji.dyttzyapi.com/api.php/provide/vod",
+        "http://tyyszy.com/api.php/provide/vod",
+        "https://cj.lziapi.com/api.php/provide/vod",
+        "http://ffzy.tv/api.php/provide/vod",
+        "https://suoniapi.com/api.php/provide/vod/at/xml",
+        "https://wolongzyw.com/api.php/provide/vod",
+        "https://api.ukuapi.com/api.php/provide/vod",
+        "https://jszyapi.com/api.php/provide/vod",
+        "http://154.219.117.232:9981/jacloudapi.php/provide/vod",
+        "https://zy.jinchancaiji.com/api.php/provide/vod",
+        "https://vs.okcdn100.top/api.php/provide/vod",
+        "https://zy.jinchancaiji.com/api.php/provide/vod",
+        "https://suoniapi.com/api.php/provide/vod",
+        "https://api.apibdzy.com/api.php/provide/vod",
+        "https://bfzyapi.com/api.php/provide/vod"
+      ],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 14,
+        "runtime_site_declarations": 142,
+        "registered_provider_ids": [
+          "bfzy",
+          "jszy"
+        ]
+      }
+    },
+    {
+      "url": "https://g.33445500.xyz/https://raw.githubusercontent.com/qist/tvbox/refs/heads/master/xiaosa/api.json",
+      "origins": [
+        {
+          "image": "original",
+          "row": 34,
+          "name": "潇洒"
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-sites-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:13:16.010503+00:00",
+      "response_sha256": "ebdf1c456dce37b20506c213eb2e2269d2bbaa06f47896a5c614dbad20139810",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 111,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://bitbucket.org/xduo/duoapi/raw/master/xpg.json",
+      "origins": [
+        {
+          "image": "original",
+          "row": 35,
+          "name": "小苹果线路"
+        }
+      ],
+      "checked": true,
+      "classification": "unreachable",
+      "http_status": 404,
+      "checked_at_utc": "2026-11-06T10:13:18.838143+00:00",
+      "response_sha256": null,
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 0,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "http://550.3vcn.work/wdjyys.json",
+      "origins": [
+        {
+          "image": "original",
+          "row": 36,
+          "name": "金鹰"
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-sites-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:13:18.551451+00:00",
+      "response_sha256": "b71483ed76034a215a1a7868c75c1b14c8ea38399f201d29424d05375914bc51",
+      "direct_candidates": [
+        "https://jyzyapi.com/provide/vod",
+        "https://hhzyapi.com/api.php/provide/vod",
+        "https://api.1080zyku.com/inc/apijson.php",
+        "https://www.hongniuzy2.com/api.php/provide/vod",
+        "https://jszyapi.com/api.php/provide/vod",
+        "https://360zy.com/api.php/provide/vod",
+        "https://ikunzyapi.com/api.php/provide/vod/from/ikm3u8/at/json",
+        "https://cjhwba.com/api.php/provide/vod",
+        "http://cj.ffzyapi.com/api.php/provide/vod",
+        "http://cj.lziapi.com/api.php/provide/vod",
+        "https://suoniapi.com/api.php/provide/vod/from/snm3u8",
+        "https://www.huyaapi.com/api.php/provide/vod/from/hym3u8",
+        "https://caiji.kczyapi.com/api.php/provide/vod",
+        "https://api.tiankongapi.com/api.php/provide/vod"
+      ],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 14,
+        "runtime_site_declarations": 92,
+        "registered_provider_ids": [
+          "360zy",
+          "hhzy",
+          "hongniu",
+          "huya",
+          "ikun",
+          "jinying",
+          "jszy"
+        ]
+      }
+    },
+    {
+      "url": "http://tv.nxog.top/",
+      "origins": [
+        {
+          "image": "original",
+          "row": 38,
+          "name": "天天"
+        }
+      ],
+      "checked": true,
+      "classification": "html-page",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:13:16.495628+00:00",
+      "response_sha256": "2769ba303ce2bc28f31ed9f625d3ee2b21a39a22b7376a8446eafaea114fa086",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 0,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://gitee.com/th_114/tvbox/raw/master/tvbox.json",
+      "origins": [
+        {
+          "image": "original",
+          "row": 39,
+          "name": "1"
+        }
+      ],
+      "checked": true,
+      "classification": "unreachable",
+      "http_status": 403,
+      "checked_at_utc": "2026-11-06T10:13:17.320391+00:00",
+      "response_sha256": null,
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 0,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://xn--sdds-rp5imh.v.nxog.top/?mm=25f&ou=%E8%A3%85%F0%9F%85%B1",
+      "origins": [
+        {
+          "image": "original",
+          "row": 41,
+          "name": "欧歌备用接口"
+        }
+      ],
+      "checked": true,
+      "classification": "unreachable",
+      "http_status": null,
+      "checked_at_utc": "2026-11-06T10:13:18.837052+00:00",
+      "response_sha256": null,
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 0,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://ym.wya6.cn/",
+      "origins": [
+        {
+          "image": "original",
+          "row": 42,
+          "name": "无意云"
+        }
+      ],
+      "checked": true,
+      "classification": "unreachable",
+      "http_status": null,
+      "checked_at_utc": "2026-11-06T10:13:12.882409+00:00",
+      "response_sha256": null,
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 0,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://xn--3003-mb1gy821b.v.nxog.top/apib?id=1",
+      "origins": [
+        {
+          "image": "original",
+          "row": 43,
+          "name": "11"
+        }
+      ],
+      "checked": true,
+      "classification": "unreachable",
+      "http_status": null,
+      "checked_at_utc": "2026-11-06T10:13:19.123148+00:00",
+      "response_sha256": null,
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 0,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://tv.nxog.top/apitv.php?id=2",
+      "origins": [
+        {
+          "image": "original",
+          "row": 44,
+          "name": "tvbox"
+        }
+      ],
+      "checked": true,
+      "classification": "unreachable",
+      "http_status": 404,
+      "checked_at_utc": "2026-11-06T10:13:21.460042+00:00",
+      "response_sha256": null,
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 0,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://jinenge.us.kg/app/tvbox/tvbox.json",
+      "origins": [
+        {
+          "image": "original",
+          "row": 45,
+          "name": "wwtest"
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-sites-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:13:22.510154+00:00",
+      "response_sha256": "fb84d7efebb614c766b8a971c2c268802137c4002dde2fdb8ea91443a8e30957",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 42,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://700sjro44343.vicp.fun/240731/one/",
+      "origins": [
+        {
+          "image": "original",
+          "row": 46,
+          "name": "影视仓"
+        },
+        {
+          "image": "additional",
+          "url_line": 25
+        }
+      ],
+      "checked": true,
+      "classification": "html-page",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:13:24.322816+00:00",
+      "response_sha256": "5ce979c1db2934d55ee978a8674bc8b0fd3907edad88d6b3126f6a8a9f5299b5",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 0,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "http://boluo.live/",
+      "origins": [
+        {
+          "image": "original",
+          "row": 47,
+          "name": "接口"
+        },
+        {
+          "image": "additional",
+          "url_line": 29
+        },
+        {
+          "image": "additional",
+          "url_line": 67
+        }
+      ],
+      "checked": true,
+      "classification": "html-page",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:13:18.215213+00:00",
+      "response_sha256": "6dc9c7fc93bb488bb0520a6c780a8d3c0fb5486a4711aca49b4c53fac7393023",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 0,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "http://w.junce.dpdns.org/fm.gif",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 1
+        }
+      ],
+      "checked": true,
+      "classification": "unsupported-text-or-binary",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:18:42.369081+00:00",
+      "response_sha256": "51649b8a8f067de39c9417102d905208e37f248cc787f01c86dcb797a2b74b7f",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 0,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://0.12yue.de5.net/tvbox/%E8%82%A5%E7%8C%AB.json",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 2
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-sites-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:18:44.632467+00:00",
+      "response_sha256": "e3c7e6b1a694df41b7efdfba72ee2d24a8af0bcdf609c9f94a93ead5b3dec3cd",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 40,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "http://xn--ihqu10cn4c.xn--v4q818bf34b.cc/",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 3
+        }
+      ],
+      "checked": true,
+      "classification": "html-page",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:18:43.577336+00:00",
+      "response_sha256": "b5c523031a0926b4acc51c0a97bafc49faa0ed47b68bc614455516c27426f866",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 0,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://0.12yue.de5.net/tvbox/%E6%91%B8%E9%B1%BC.json",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 4
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-sites-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:18:44.507124+00:00",
+      "response_sha256": "7ef60e760417c13cfc15414c3f4fd1268034d7f4e20837a62a99b9cf4cce2b45",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 104,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "http://www.xn--ihq545aq7p.com/",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 5
+        }
+      ],
+      "checked": true,
+      "classification": "unreachable",
+      "http_status": null,
+      "checked_at_utc": "2026-11-06T10:18:36.313255+00:00",
+      "response_sha256": null,
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 0,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://0.12yue.de5.net/tvbox/%E7%8E%8B%E4%BA%8C%E5%B0%8F.json",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 8
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-sites-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:18:44.754414+00:00",
+      "response_sha256": "e28e371271891436176738e24f04db9cc963a7c6a2b7c33e167ff300e1ca8ed0",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 98,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "http://tv.999888123.xyz/",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 12
+        }
+      ],
+      "checked": true,
+      "classification": "text-config-address-list",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:13:46.831054+00:00",
+      "response_sha256": "5b4a0427d3fd926dd21a0d3e1440687c8b8d7c479c3c4c6c17585db84eca5b65",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 15,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 363,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://jjjietvbox.lol/jieluntan-wxe.json",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 13
+        }
+      ],
+      "checked": true,
+      "classification": "unreachable",
+      "http_status": null,
+      "checked_at_utc": "2026-11-06T10:18:36.414840+00:00",
+      "response_sha256": null,
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 0,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://jjjietvbox.lol/jieluntan-ner.json",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 14
+        }
+      ],
+      "checked": true,
+      "classification": "unreachable",
+      "http_status": null,
+      "checked_at_utc": "2026-11-06T10:18:36.415349+00:00",
+      "response_sha256": null,
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 0,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://jjjietvbox.lol/jieluntan-n2.json",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 15
+        }
+      ],
+      "checked": true,
+      "classification": "unreachable",
+      "http_status": null,
+      "checked_at_utc": "2026-11-06T10:18:36.415349+00:00",
+      "response_sha256": null,
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 0,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://9280.kstore.vip/wex.json",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 16
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-sites-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:13:43.439625+00:00",
+      "response_sha256": "6aa59bf4a9799021a34df69e5bcb4c8a75a1f6920b323c4ee5681f5de2d21a20",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 63,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://9280.kstore.space/aiwex.json",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 17
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-sites-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:13:42.069438+00:00",
+      "response_sha256": "f9015eed57c1b8d63f28eea4d80626f8724f4def35af2b732cdf604c4ae26c9c",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 100,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "http://ai.xn--4kq62z5rby2qupq9ub.top/",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 18
+        }
+      ],
+      "checked": true,
+      "classification": "text-config-address-list",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:13:38.028903+00:00",
+      "response_sha256": "5b4a0427d3fd926dd21a0d3e1440687c8b8d7c479c3c4c6c17585db84eca5b65",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 15,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 363,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "http://new.xn--4kq62z5rby2qupq9ub.top/",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 19
+        }
+      ],
+      "checked": true,
+      "classification": "text-config-address-list",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:13:46.674470+00:00",
+      "response_sha256": "5b4a0427d3fd926dd21a0d3e1440687c8b8d7c479c3c4c6c17585db84eca5b65",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 15,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 363,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "http://new.999888123.xyz/",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 20
+        }
+      ],
+      "checked": true,
+      "classification": "text-config-address-list",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:13:41.633659+00:00",
+      "response_sha256": "5b4a0427d3fd926dd21a0d3e1440687c8b8d7c479c3c4c6c17585db84eca5b65",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 15,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 363,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "http://new.999888987.xyz/",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 21
+        }
+      ],
+      "checked": true,
+      "classification": "text-config-address-list",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:13:41.989045+00:00",
+      "response_sha256": "5b4a0427d3fd926dd21a0d3e1440687c8b8d7c479c3c4c6c17585db84eca5b65",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 15,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 363,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "http://124.71.19.220/c/1",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 22
+        }
+      ],
+      "checked": true,
+      "classification": "html-page",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:18:40.184309+00:00",
+      "response_sha256": "2629fa7e822c7bff250e48e46390cb43186ea79bf3ac892c1ea74957c4525090",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 0,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "http://www.xn--5mqx81b535a.com/",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 23
+        }
+      ],
+      "checked": true,
+      "classification": "unreachable",
+      "http_status": 502,
+      "checked_at_utc": "2026-11-06T10:18:43.213512+00:00",
+      "response_sha256": null,
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 0,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://0.12yue.de5.net/tvbox/%E6%8C%BA%E5%A5%BD.json",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 26
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-sites-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:18:44.832357+00:00",
+      "response_sha256": "609d1b63474794dd3ccbb9d3266fc92fc07a578b2b60adc6c20a4314aef0d03a",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 46,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "http://ztha.top/TVBox/thdjk.json",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 27
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-sites-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:18:47.855207+00:00",
+      "response_sha256": "aebec31ee34dac308d38650067334303e8f1f19af6fa80a9a8cb7e624765aa04",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 46,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "http://ztha.top/TVBox/GYCK.json",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 28
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-multi-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:18:47.785934+00:00",
+      "response_sha256": "a0524ba991e98c0da6705fde612e8ebe90a299b79ef606ba58fcc609dbf63565",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 49,
+        "direct_endpoint_count": 54,
+        "runtime_site_declarations": 777,
+        "registered_provider_ids": [
+          "bfzy",
+          "guangsu",
+          "hhzy",
+          "hongniu",
+          "huya",
+          "ikun",
+          "jszy",
+          "mdzy",
+          "taopian",
+          "xinlang"
+        ]
+      }
+    },
+    {
+      "url": "http://vip.boluo.live/",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 30
+        }
+      ],
+      "checked": true,
+      "classification": "unreachable",
+      "http_status": null,
+      "checked_at_utc": "2026-11-06T10:18:40.764855+00:00",
+      "response_sha256": null,
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 0,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "http://xn--7qvx15a.shop/",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 31
+        }
+      ],
+      "checked": true,
+      "classification": "unreachable",
+      "http_status": null,
+      "checked_at_utc": "2026-11-06T10:18:40.865538+00:00",
+      "response_sha256": null,
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 0,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://700sjro44343.vicp.fun/vip/2505/qiezi/tv.php",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 32
+        }
+      ],
+      "checked": true,
+      "classification": "html-page",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:18:52.941413+00:00",
+      "response_sha256": "5ce979c1db2934d55ee978a8674bc8b0fd3907edad88d6b3126f6a8a9f5299b5",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 0,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://700sjro44343.vicp.fun/vip/2505/qiezi/duo.txt",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 33
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-multi-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:18:48.115734+00:00",
+      "response_sha256": "a419134c42d3c86ac440153ca246f633854f140facd8eb0554250bdc960a2adb",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 2,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 0,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://cnb.cool/fish2035/xs/-/git/raw/main/api.json",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 34
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-sites-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:18:49.395661+00:00",
+      "response_sha256": "1331dd13868266a301f050d2e2cb0a6052eff844d355f97120ce539515487481",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 127,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://0.12yue.de5.net/tvbox/%E6%BD%87%E6%B4%92.json",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 35
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-sites-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:18:50.052500+00:00",
+      "response_sha256": "72ba65fa17b38aada99b004ce60f46bdc6b33d3b47f48798e3a30507ee4fd7d0",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 111,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://jjjietvbox.lol/xiaosha.json",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 36
+        }
+      ],
+      "checked": true,
+      "classification": "unreachable",
+      "http_status": null,
+      "checked_at_utc": "2026-11-06T10:18:44.520040+00:00",
+      "response_sha256": null,
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 0,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://xn--i8sz35d1yr.top/%E7%A6%81%E6%AD%A2%E8%B4%A9%E5%8D%96",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 37
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-sites-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:18:52.344124+00:00",
+      "response_sha256": "55cd81cb29721d2794d06e94a704ecb32999696d32fcd172503517bca09040f3",
+      "direct_candidates": [
+        "https://api.wsyzy.net/api.php/provide/vod",
+        "https://360zy.com/api.php/seaxml/vod",
+        "https://cj.lziapi.com/api.php/provide/vod",
+        "http://cj.ffzyapi.com/api.php/provide/vod",
+        "http://jiduo.3116598.xyz/PHP/pkty.php"
+      ],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 5,
+        "runtime_site_declarations": 86,
+        "registered_provider_ids": [
+          "360zy",
+          "wsyzy"
+        ]
+      }
+    },
+    {
+      "url": "https://raw.githubusercontent.com/liu673cn/box/main/m.json",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 38
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-sites-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:18:47.150927+00:00",
+      "response_sha256": "784d1e374385be38784ad9c65d3d2194df243323090babee0ae638258862a259",
+      "direct_candidates": [
+        "http://c.xn--yetu07f.icu/api.php/provide/vod",
+        "https://suoniapi.com/api.php/provide/vod",
+        "https://taopianapi.com/cjapi/mc/vod/json.html",
+        "http://ffzy1.tv/api.php/provide/vod",
+        "https://lzizy1.com/api.php/provide/vod",
+        "https://49zy1.com/api.php/provide/vod",
+        "https://www.feisuzyapi.com/api.php/provide/vod",
+        "https://caiji.qhzyapi.com/api.php/provide/vod",
+        "https://kekezy1.com/api.php/provide/vod",
+        "https://www.huyaapi.com/api.php/provide/vod/from/hym3u8",
+        "https://hhzyapi.com/api.php/provide/vod",
+        "https://app.bfzyapi.com/api.php/provide/vod",
+        "https://api.apibdzy.com/api.php/provide/vod",
+        "https://mv.wogg.link/mv/vod",
+        "https://mv.wogg.link/mv/vod"
+      ],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 14,
+        "runtime_site_declarations": 219,
+        "registered_provider_ids": [
+          "bfzy",
+          "hhzy",
+          "huya",
+          "taopian"
+        ]
+      }
+    },
+    {
+      "url": "https://szyyds.cn/tv/x.json",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 40
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-sites-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:18:51.887946+00:00",
+      "response_sha256": "6ad54de8458333a1e5420062d84f7a6ba02f386cb3427ec49f24fd598ac138ad",
+      "direct_candidates": [
+        "http://caiji.dyttzyapi.com/api.php/provide/vod",
+        "http://tyyszy.com/api.php/provide/vod",
+        "https://cj.lziapi.com/api.php/provide/vod",
+        "http://ffzy.tv/api.php/provide/vod",
+        "https://suoniapi.com/api.php/provide/vod/at/xml",
+        "https://jszyapi.com/api.php/provide/vod",
+        "http://154.219.117.232:9981/jacloudapi.php/provide/vod",
+        "https://suoniapi.com/api.php/provide/vod",
+        "https://api.apibdzy.com/api.php/provide/vod",
+        "https://bfzyapi.com/api.php/provide/vod",
+        "http://caiji.dyttzyapi.com/api.php/provide/vod/from/dyttm3u8/at/m3u8",
+        "http://cj.lziapi.com/api.php/provide/vod",
+        "https://www.hongniuzy2.com/api.php/provide/vod",
+        "http://sdzyapi.com/api.php/provide/vod",
+        "https://api.guangsuapi.com/api.php/provide/vod",
+        "http://api.xinlangapi.com/xinlangapi.php/provide/vod"
+      ],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 16,
+        "runtime_site_declarations": 46,
+        "registered_provider_ids": [
+          "bfzy",
+          "guangsu",
+          "hongniu",
+          "jszy",
+          "xinlang"
+        ]
+      }
+    },
+    {
+      "url": "https://0.12yue.de5.net/tvbox/%E5%B0%8F%E9%A9%AC.json",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 41
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-sites-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:18:50.915051+00:00",
+      "response_sha256": "d813268f37d4efeef697b3940180d3d513a795302f0311ba087af3e37be75b91",
+      "direct_candidates": [
+        "http://caiji.dyttzyapi.com/api.php/provide/vod",
+        "http://tyyszy.com/api.php/provide/vod",
+        "https://cj.lziapi.com/api.php/provide/vod",
+        "http://ffzy.tv/api.php/provide/vod",
+        "https://suoniapi.com/api.php/provide/vod/at/xml",
+        "https://jszyapi.com/api.php/provide/vod",
+        "http://154.219.117.232:9981/jacloudapi.php/provide/vod",
+        "https://suoniapi.com/api.php/provide/vod",
+        "https://api.apibdzy.com/api.php/provide/vod",
+        "https://bfzyapi.com/api.php/provide/vod",
+        "http://caiji.dyttzyapi.com/api.php/provide/vod/from/dyttm3u8/at/m3u8",
+        "http://cj.lziapi.com/api.php/provide/vod",
+        "https://www.hongniuzy2.com/api.php/provide/vod",
+        "http://sdzyapi.com/api.php/provide/vod",
+        "https://api.guangsuapi.com/api.php/provide/vod",
+        "http://api.xinlangapi.com/xinlangapi.php/provide/vod"
+      ],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 16,
+        "runtime_site_declarations": 46,
+        "registered_provider_ids": [
+          "bfzy",
+          "guangsu",
+          "hongniu",
+          "jszy",
+          "xinlang"
+        ]
+      }
+    },
+    {
+      "url": "https://jjjietvbox.lol/jieluntan-xiaoma.json",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 42
+        }
+      ],
+      "checked": true,
+      "classification": "unreachable",
+      "http_status": null,
+      "checked_at_utc": "2026-11-06T10:18:47.824746+00:00",
+      "response_sha256": null,
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 0,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://0.12yue.de5.net/tvbox/%E9%9B%86%E5%A4%9A.json",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 46
+        }
+      ],
+      "checked": true,
+      "classification": "html-page",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:18:54.707846+00:00",
+      "response_sha256": "7bc4b66031ce44fccd5ae1e293d73a3de989ffad1d5d760efa034f5aabe49123",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 0,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://0.12yue.de5.net/tvbox/%E5%97%B7%E5%91%9C.json",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 47
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-sites-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:18:54.617724+00:00",
+      "response_sha256": "c4c64eee790cde7c4777fed2b46905d31dcc61fb3da637269b40500de223e341",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 80,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://jjjietvbox.lol/jieluntan-aowu.json",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 48
+        }
+      ],
+      "checked": true,
+      "classification": "unreachable",
+      "http_status": null,
+      "checked_at_utc": "2026-11-06T10:18:47.858394+00:00",
+      "response_sha256": null,
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 0,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://0.12yue.de5.net/tvbox/%E5%8D%97%E9%A3%8E.json",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 49
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-sites-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:18:54.611349+00:00",
+      "response_sha256": "33bd115903b04bd8331eca7df83781b7b6c1c9668116d732cd04f23e6c16997f",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 91,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://0.12yue.de5.net/tvbox/%E5%91%A8J.json",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 50
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-sites-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:18:55.955467+00:00",
+      "response_sha256": "30c6e03c4b115b173fedf3121d6a519def9d4ee8ab37ba1f7ec0ac5450bbf5fc",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 25,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://0.12yue.de5.net/tvbox/%E5%B0%8F%E7%B1%B3.json",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 51
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-sites-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:18:55.796775+00:00",
+      "response_sha256": "9e6c0273304f1bb0175c1bae0dc61aa1c385e388a2583fffdff6713a3e84c5e2",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 43,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://0.12yue.de5.net/tvbox/%E8%8F%9C%E5%A6%AE%E4%B8%9D.json",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 52
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-sites-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:18:57.064302+00:00",
+      "response_sha256": "a242c50f974e608f7b13f0ed650eb83596189a38a4ef6db46eec33822daf18c7",
+      "direct_candidates": [
+        "http://cj.ffzyapi.com/api.php/provide/vod"
+      ],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 1,
+        "runtime_site_declarations": 36,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://jjjietvbox.lol/jieluntan-cns.json",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 53
+        }
+      ],
+      "checked": true,
+      "classification": "unreachable",
+      "http_status": null,
+      "checked_at_utc": "2026-11-06T10:18:50.921881+00:00",
+      "response_sha256": null,
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 0,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://0.12yue.de5.net/tvbox/%E4%B8%9C%E7%AF%B1.json",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 54
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-sites-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:18:57.141329+00:00",
+      "response_sha256": "2b22c595c5dcd7b3d11afe0e1f2e966808315152d2fd6592d6d8447d8e2c689f",
+      "direct_candidates": [
+        "http://caiji.dyttzyapi.com/api.php/provide/vod/from/dyttm3u8/at/m3u8",
+        "https://360zy.com/api.php/seaxml/vod",
+        "http://cj.ffzyapi.com/api.php/provide/vod",
+        "https://cj.lziapi.com/api.php/provide/vod"
+      ],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 4,
+        "runtime_site_declarations": 89,
+        "registered_provider_ids": [
+          "360zy"
+        ]
+      }
+    },
+    {
+      "url": "http://xhztv.top/xhz",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 55
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-sites-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:19:03.700818+00:00",
+      "response_sha256": "7594130e1ba680a4766997acc24286f1f2db91db391cc3dff5fd23ad7882d0ab",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 54,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://0.12yue.de5.net/tvbox/%E8%81%9A%E7%8E%A9.json",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 57
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-sites-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:18:57.924187+00:00",
+      "response_sha256": "09887fbc4d3e4fcfd58073c2e42021109ad7776184c071789e164e21883f7f2b",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 54,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://qist.wyfc.qzz.io/jsm.json",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 60
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-sites-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:18:59.804531+00:00",
+      "response_sha256": "dcb0e59a7d00af7e7b783fcb8667b154652677b7da21348defb6dc6baf5ba74c",
+      "direct_candidates": [
+        "http://caiji.dyttzyapi.com/api.php/provide/vod",
+        "http://tyyszy.com/api.php/provide/vod",
+        "https://cj.lziapi.com/api.php/provide/vod",
+        "http://ffzy.tv/api.php/provide/vod",
+        "https://suoniapi.com/api.php/provide/vod/at/xml",
+        "https://wolongzyw.com/api.php/provide/vod",
+        "https://api.ukuapi.com/api.php/provide/vod",
+        "https://jszyapi.com/api.php/provide/vod",
+        "http://154.219.117.232:9981/jacloudapi.php/provide/vod",
+        "https://zy.jinchancaiji.com/api.php/provide/vod",
+        "https://vs.okcdn100.top/api.php/provide/vod",
+        "https://zy.jinchancaiji.com/api.php/provide/vod",
+        "https://suoniapi.com/api.php/provide/vod",
+        "https://api.apibdzy.com/api.php/provide/vod",
+        "https://bfzyapi.com/api.php/provide/vod"
+      ],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 14,
+        "runtime_site_declarations": 142,
+        "registered_provider_ids": [
+          "bfzy",
+          "jszy"
+        ]
+      }
+    },
+    {
+      "url": "https://jjjietvbox.lol/jieluntan-jinyu.json",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 62
+        }
+      ],
+      "checked": true,
+      "classification": "unreachable",
+      "http_status": null,
+      "checked_at_utc": "2026-11-06T10:18:54.615969+00:00",
+      "response_sha256": null,
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 0,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/wxrjck/-YSC-/refs/heads/main/wx.json",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 63
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-multi-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:19:01.232919+00:00",
+      "response_sha256": "67547fb37fed24a2ed4e2781b73cf28de163abf2bae9cc0e42559efb107eeb6a",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 0,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://yqx.imgos.cn/yqx/tv/duo.json",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 64
+        }
+      ],
+      "checked": true,
+      "classification": "tvbox-multi-config",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:19:01.068152+00:00",
+      "response_sha256": "8e90371028138c7439a2213c7a4aa4018cbe53a813496364e4ad2dff2a40a309",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 144,
+        "direct_endpoint_count": 188,
+        "runtime_site_declarations": 5134,
+        "registered_provider_ids": [
+          "360zy",
+          "bfzy",
+          "dandan",
+          "dazhong",
+          "feifan",
+          "guangsu",
+          "hhzy",
+          "hongniu",
+          "huya",
+          "ikun",
+          "jinying",
+          "jszy",
+          "longma",
+          "maotai",
+          "maoyan",
+          "mdzy",
+          "qiyi",
+          "ryzy",
+          "subo",
+          "taopian",
+          "wsyzy",
+          "xigua",
+          "xinlang",
+          "yinghua"
+        ]
+      }
+    },
+    {
+      "url": "https://tv.1788.space/",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 65
+        }
+      ],
+      "checked": true,
+      "classification": "html-page",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:19:03.704977+00:00",
+      "response_sha256": "ba6422d77d584d8b5e02edf97e9e50c3072f0484bff4c9564b93ced0711f9fac",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 152,
+        "direct_endpoint_count": 203,
+        "runtime_site_declarations": 5663,
+        "registered_provider_ids": [
+          "360zy",
+          "360zyzz",
+          "bfzy",
+          "dandan",
+          "dazhong",
+          "feifan",
+          "guangsu",
+          "hhzy",
+          "hongniu",
+          "huya",
+          "ikun",
+          "jinying",
+          "jszy",
+          "longma",
+          "maotai",
+          "maoyan",
+          "mdzy",
+          "qiyi",
+          "ryzy",
+          "subo",
+          "taopian",
+          "wsyzy",
+          "xigua",
+          "xinlang",
+          "yinghua"
+        ]
+      }
+    },
+    {
+      "url": "http://47.120.41.246:8025/vip/jar/zb.php",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 66
+        }
+      ],
+      "checked": true,
+      "classification": "unsupported-text-or-binary",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:19:09.405956+00:00",
+      "response_sha256": "c4b6a72f8fc008b581634133b28fb6cbdbdad5b8aa009f7482d09057de90af2a",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 0,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "http://127.0.0.1:5266/iptv.m3u",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 68
+        }
+      ],
+      "checked": true,
+      "classification": "device-local-service-not-fetched",
+      "http_status": null,
+      "checked_at_utc": null,
+      "response_sha256": null,
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 0,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://g.blfrp.cn/https://raw.githubusercontent.com/cyh92/live/refs/heads/main/source/migu.m3u",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 69
+        }
+      ],
+      "checked": true,
+      "classification": "m3u-channel-list",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:19:10.675871+00:00",
+      "response_sha256": "addf418a17d7d1899b2f56aed13210716285a8406f1f7306b6f2a460cb552b50",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 0,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "https://ds65.tv1288.xyz/",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 70
+        }
+      ],
+      "checked": true,
+      "classification": "unsupported-text-or-binary",
+      "http_status": 200,
+      "checked_at_utc": "2026-11-06T10:19:06.138694+00:00",
+      "response_sha256": "30eead322852157c86beaed070bad27521c21e2b8b743660da5fcacdfea88dd0",
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 0,
+        "registered_provider_ids": []
+      }
+    },
+    {
+      "url": "http://211.101.246.28:3000/",
+      "origins": [
+        {
+          "image": "additional",
+          "url_line": 71
+        }
+      ],
+      "checked": true,
+      "classification": "unreachable",
+      "http_status": 502,
+      "checked_at_utc": "2026-11-06T10:19:06.851014+00:00",
+      "response_sha256": null,
+      "direct_candidates": [],
+      "data_only_descendant_summary": {
+        "reachable_config_count": 1,
+        "direct_endpoint_count": 0,
+        "runtime_site_declarations": 0,
+        "registered_provider_ids": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "source_ready": true,
+  "source_sha256": {
+    "src/com/tongpin/player4k/tv/TvHomeActivity.java": "94d883698aa6e5427c4b75b396d6d771b2103e7c0d113d3ae0e507e8b39cb30d",
+    "src/com/tongpin/player4k/tv/TvPlayerActivity.java": "e7e6f59b5fed32d7547e4fc72b8eea4a3842516d2908b1d66061516780900faa",
+    "src/com/tongpin/player4k/tv/TvSourcePicker.java": "ddd12050595300d4739e507b8705515b16bf98af55c23553f20e0ddf11c4f79a",
+    "src/com/tongpin/player4k/tv/TvSourceState.java": "355c7a23f34b1986e5427bbc9c64efbd664072a807f04035bcb89adb4f14549a",
+    "src/com/tongpin/player4k/tv/CrossSourcePolicy.java": "10f4440f3970a3f3bd233548496ea98680dfbd0ed8eb8d7018d3df1e96108bc3"
+  },
+  "modified_existing_sources": [
+    "src/com/tongpin/player4k/tv/TvHomeActivity.java",
+    "src/com/tongpin/player4k/tv/TvPlayerActivity.java"
+  ],
+  "new_sources": [
+    "src/com/tongpin/player4k/tv/TvSourcePicker.java",
+    "src/com/tongpin/player4k/tv/TvSourceState.java",
+    "src/com/tongpin/player4k/tv/CrossSourcePolicy.java"
+  ],
+  "unchanged_queue_sha256": "a1d630ec5f52f53b725fc0e251871c7fc2de7934d8bca9ba0355dccab1ae35d7",
+  "shared_policy_phone_sha256": "f443a406641ec8e8ed8d891642afb7da8a046bb5213faddf40e37158afab195c",
+  "shared_policy_package_only_identical": true,
+  "tests": {
+    "path": "ui/unified-library-1.3.4/verification.json",
+    "sha256": "2a18b4403512433412895ca318d11f916faecc4b12048637d51edef629931dcd",
+    "host_assertions": 308
+  },
+  "test_source_sha256": {
+    "ui/unified-library-1.3.4/tests/TvSourceSwitchTest.java": "3c06fea7bdb2f441e39540e5f4ee354e1c61dae05ab8f20bb954a227360eadce",
+    "ui/unified-library-1.3.4/tests/verify_sources.py": "cc55ec67efeb0eaa9037f6a7bd83a7b51145d133d2cfe222f6b18213b5fa5da6"
+  },
+  "device_tested": false,
+  "scope": "Unified provider home and paginated/searchable source picker. Strict work+episode identity gates VOD position transfer. M3U opens actual channels directly at realtime1x without VOD restore/save/seek/autonext; local history retained. Shared API/transports/registry/build excluded. Browse-only VOD capability respected in unified search, direct selection and player browsing."
+}

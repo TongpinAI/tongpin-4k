@@ -1,0 +1,5041 @@
+{
+  "checked_date": "2026-11-06",
+  "endpoints": [
+    {
+      "api": "http://xh1.xn--yetu07f.icu/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:16:51.506174+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://xzcjz.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:16:51.507174+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://c.xn--yetu07f.icu/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:16:51.719216+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://ikunzyapi.com/api.php/provide/vod%20",
+      "checked_at_utc": "2026-11-06T10:16:51.507174+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        404
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://video.adminqt.cn/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:16:51.506174+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        200
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://49zy1.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:17:02.581850+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://www.feisuzyapi.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:17:02.622823+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://caiji.qhzyapi.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:17:02.668638+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://kekezy1.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:17:02.715445+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://taopianapi.com/cjapi/mc/vod/json.html",
+      "checked_at_utc": "2026-11-06T10:16:51.890546+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "16515072",
+          "pid": "",
+          "name": "动漫/海外动漫"
+        },
+        "obeys_type_filter": true,
+        "client_filter_required": false,
+        "returned_type_ids": [
+          "16515072"
+        ],
+        "http": {
+          "requested_url": "https://taopianapi.com/cjapi/mc/vod/json.html?ac=detail&t=16515072&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://taopianapi.com/cjapi/mc/vod/json.html?ac=detail&t=16515072&pg=1&pagesize=20",
+          "content_type": "application/json;charset=utf-8;",
+          "bytes": 253447,
+          "sha256": "b2b3ca5c5c483751e62c2cbf8c673c3b732c31f8e4697ab249e7917915943faa",
+          "elapsed_seconds": 7.297,
+          "checked_at_utc": "2026-11-06T10:17:16.243682+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "taopian"
+    },
+    {
+      "api": "https://www.hongniuzy2.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:16:51.507174+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "",
+          "name": "电影"
+        },
+        "obeys_type_filter": true,
+        "client_filter_required": false,
+        "returned_type_ids": [
+          "1"
+        ],
+        "http": {
+          "requested_url": "https://www.hongniuzy2.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://www.hongniuzy2.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 4482,
+          "sha256": "3794eb1ffd91b0aa0c7c1bd4e4e993208a3e28914fa80c2fb093f045775ffe21",
+          "elapsed_seconds": 5.578,
+          "checked_at_utc": "2026-11-06T10:17:25.858289+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "hongniu"
+    },
+    {
+      "api": "https://api.guangsuapi.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:16:51.508173+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "电影"
+        },
+        "obeys_type_filter": true,
+        "client_filter_required": false,
+        "returned_type_ids": [
+          "1"
+        ],
+        "http": {
+          "requested_url": "https://api.guangsuapi.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://api.guangsuapi.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 2519,
+          "sha256": "f2acd7021dc69f799a24c8174f2edd3aff98bbe22ec7c8bfd314f6544832cbce",
+          "elapsed_seconds": 5.843,
+          "checked_at_utc": "2026-11-06T10:17:30.334930+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "guangsu"
+    },
+    {
+      "api": "https://www.huyaapi.com/api.php/provide/vod/from/hym3u8",
+      "checked_at_utc": "2026-11-06T10:17:02.731738+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "电视剧"
+        },
+        "obeys_type_filter": true,
+        "client_filter_required": false,
+        "returned_type_ids": [
+          "1"
+        ],
+        "http": {
+          "requested_url": "https://www.huyaapi.com/api.php/provide/vod/from/hym3u8?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://www.huyaapi.com/api.php/provide/vod/from/hym3u8?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 7893,
+          "sha256": "f952c3e0196854dabc66e2d9c1f04e5ebcc5e24394227b15d59cd9eeb9f37c97",
+          "elapsed_seconds": 6.11,
+          "checked_at_utc": "2026-11-06T10:17:30.498316+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "huya"
+    },
+    {
+      "api": "https://hhzyapi.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:16:51.507174+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "电视剧"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://hhzyapi.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://hhzyapi.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 87,
+          "sha256": "ddec19a66f03c6dff8e27353fd6990d48f9cf70c9c4d7037490e923139924872",
+          "elapsed_seconds": 6.594,
+          "checked_at_utc": "2026-11-06T10:17:33.325099+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "hhzy"
+    },
+    {
+      "api": "https://mv.wogg.link/mv/vod",
+      "checked_at_utc": "2026-11-06T10:17:30.337203+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        200
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://app.bfzyapi.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:17:16.247335+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "20",
+          "pid": "0",
+          "name": "电影片"
+        },
+        "obeys_type_filter": true,
+        "client_filter_required": false,
+        "returned_type_ids": [
+          "20"
+        ],
+        "http": {
+          "requested_url": "https://app.bfzyapi.com/api.php/provide/vod?ac=detail&t=20&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://app.bfzyapi.com/api.php/provide/vod?ac=detail&t=20&pg=1&pagesize=20",
+          "content_type": "application/json; charset=utf-8",
+          "bytes": 42107,
+          "sha256": "f8e4de8fbcf39a8714dd62a29600c6ae4c05ec6af82b522518090c95def4458d",
+          "elapsed_seconds": 6.547,
+          "checked_at_utc": "2026-11-06T10:17:45.897306+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "bfzy"
+    },
+    {
+      "api": "https://bfzyapi.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:17:33.327109+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "20",
+          "pid": "0",
+          "name": "电影片"
+        },
+        "obeys_type_filter": true,
+        "client_filter_required": false,
+        "returned_type_ids": [
+          "20"
+        ],
+        "http": {
+          "requested_url": "https://bfzyapi.com/api.php/provide/vod?ac=detail&t=20&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://bfzyapi.com/api.php/provide/vod?ac=detail&t=20&pg=1&pagesize=20",
+          "content_type": "application/json; charset=utf-8",
+          "bytes": 42107,
+          "sha256": "f8e4de8fbcf39a8714dd62a29600c6ae4c05ec6af82b522518090c95def4458d",
+          "elapsed_seconds": 5.984,
+          "checked_at_utc": "2026-11-06T10:17:57.849170+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "bfzy"
+    },
+    {
+      "api": "http://6.qqqtv.top/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:17:57.852176+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        503
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://360zy.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:17:45.903784+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "电影"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://360zy.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://360zy.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 87,
+          "sha256": "ddec19a66f03c6dff8e27353fd6990d48f9cf70c9c4d7037490e923139924872",
+          "elapsed_seconds": 7.61,
+          "checked_at_utc": "2026-11-06T10:18:15.316547+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "360zy"
+    },
+    {
+      "api": "https://suoniapi.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:16:51.508173+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "",
+          "name": "电影"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://suoniapi.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://suoniapi.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 89,
+          "sha256": "e666ec151678434d919431c5856722d468a35bf0c13e08db79b3a5ee0a32abd8",
+          "elapsed_seconds": 6.422,
+          "checked_at_utc": "2026-11-06T10:18:34.603044+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://www.iqiyizyapi.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:18:10.833254+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "40",
+          "name": "国产动漫"
+        },
+        "obeys_type_filter": true,
+        "client_filter_required": false,
+        "returned_type_ids": [
+          "1"
+        ],
+        "http": {
+          "requested_url": "https://www.iqiyizyapi.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://www.iqiyizyapi.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 240213,
+          "sha256": "0b6ba10791efbe59af50c97f9ca1e93e23edfdfc8442c80026f956c3cbdf11a2",
+          "elapsed_seconds": 7.546,
+          "checked_at_utc": "2026-11-06T10:18:37.588260+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "qiyi"
+    },
+    {
+      "api": "https://cj.lziapi.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:16:51.508173+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "电影片"
+        },
+        "obeys_type_filter": true,
+        "client_filter_required": false,
+        "returned_type_ids": [
+          "1"
+        ],
+        "http": {
+          "requested_url": "https://cj.lziapi.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://cj.lziapi.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "application/json; charset=utf-8",
+          "bytes": 3371,
+          "sha256": "d30d56ea6e68bc7571c27000af8b731e386ba1ca998256699cc257d3a17dd3fa",
+          "elapsed_seconds": 7.125,
+          "checked_at_utc": "2026-11-06T10:18:47.665989+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://lzizy1.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:16:58.972859+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "电影片"
+        },
+        "obeys_type_filter": true,
+        "client_filter_required": false,
+        "returned_type_ids": [
+          "1"
+        ],
+        "http": {
+          "requested_url": "https://lzizy1.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://lzizy1.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "application/json; charset=utf-8",
+          "bytes": 3371,
+          "sha256": "d30d56ea6e68bc7571c27000af8b731e386ba1ca998256699cc257d3a17dd3fa",
+          "elapsed_seconds": 6.578,
+          "checked_at_utc": "2026-11-06T10:18:47.737823+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://ffzy1.tv/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:16:51.957860+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "电影片"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://ffzy1.tv/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://ffzy1.tv/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "error": "TimeoutError",
+          "error_detail": "total read deadline",
+          "elapsed_seconds": 17.906,
+          "checked_at_utc": "2026-11-06T10:19:03.341584+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://collect.wolongzy.cc/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:19:03.342615+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://api.guangsuapi.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:18:15.318553+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "电影"
+        },
+        "obeys_type_filter": true,
+        "client_filter_required": false,
+        "returned_type_ids": [
+          "1"
+        ],
+        "http": {
+          "requested_url": "http://api.guangsuapi.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://api.guangsuapi.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 2519,
+          "sha256": "f2acd7021dc69f799a24c8174f2edd3aff98bbe22ec7c8bfd314f6544832cbce",
+          "elapsed_seconds": 10.375,
+          "checked_at_utc": "2026-11-06T10:19:08.189044+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "guangsu"
+    },
+    {
+      "api": "https://jszyapi.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:18:34.607538+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "电视剧"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://jszyapi.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://jszyapi.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 87,
+          "sha256": "ddec19a66f03c6dff8e27353fd6990d48f9cf70c9c4d7037490e923139924872",
+          "elapsed_seconds": 6.047,
+          "checked_at_utc": "2026-11-06T10:19:16.910739+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "jszy"
+    },
+    {
+      "api": "https://api.wwzy.tv/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:19:08.190048+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        200
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://api.apibdzy.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:17:25.860271+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "",
+          "name": "电影"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://api.apibdzy.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://api.apibdzy.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 89,
+          "sha256": "e666ec151678434d919431c5856722d468a35bf0c13e08db79b3a5ee0a32abd8",
+          "elapsed_seconds": 5.704,
+          "checked_at_utc": "2026-11-06T10:19:20.786189+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://cj.lziapi.com/api.php/provide/vod/at/xml",
+      "checked_at_utc": "2026-11-06T10:17:30.500320+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-xml",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "",
+          "name": "电影片"
+        },
+        "obeys_type_filter": true,
+        "client_filter_required": false,
+        "returned_type_ids": [
+          "1"
+        ],
+        "http": {
+          "requested_url": "https://cj.lziapi.com/api.php/provide/vod/at/xml?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://cj.lziapi.com/api.php/provide/vod/at/xml?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/xml; charset=utf-8",
+          "bytes": 1705,
+          "sha256": "06de346016249ea2e899e3e1db9b8f13d394430d8a983862e18ec2c067c841f1",
+          "elapsed_seconds": 8.031,
+          "checked_at_utc": "2026-11-06T10:19:21.719138+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://oknnews.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:19:18.108684+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        400
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://pg.fenwe078.cf/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:19:24.394884+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://okzyw9.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:19:24.638802+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://ffzy5.tv/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:16:51.508173+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "电影片"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://ffzy5.tv/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://ffzy5.tv/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 87,
+          "sha256": "ddec19a66f03c6dff8e27353fd6990d48f9cf70c9c4d7037490e923139924872",
+          "elapsed_seconds": 13.469,
+          "checked_at_utc": "2026-11-06T10:19:25.408756+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://cj.ffzyapi.com/api.php/provide/vod/at/xml",
+      "checked_at_utc": "2026-11-06T10:17:33.732558+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-xml",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "",
+          "name": "电影片"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "http://cj.ffzyapi.com/api.php/provide/vod/at/xml?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "http://cj.ffzyapi.com/api.php/provide/vod/at/xml?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 129,
+          "sha256": "f3590a8fd25d072bdbfcdd7987b8f9e962519c0db4e55356115d147a66dc1ef6",
+          "elapsed_seconds": 5.015,
+          "checked_at_utc": "2026-11-06T10:19:25.713465+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://mozhuazy.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:19:20.787729+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://cj.rycjapi.com/api.php/provide/vod/at/json",
+      "checked_at_utc": "2026-11-06T10:19:16.912301+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        403
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://zuida.xyz/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:19:25.412446+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        520
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://json.heimuer.xyz/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:19:21.721581+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        200
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://api.wujinapi.net/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:19:32.842902+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        520
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://www.911ysw.top/tianyi.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:19:32.854449+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        200
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://api.wuxianzy.net/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:19:45.200495+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://huawei8.live/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:19:03.789670+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://caiji.maotaizy.cc/api.php/provide/vod/from/mtm3u8/at/xml",
+      "checked_at_utc": "2026-11-06T10:19:39.666036+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-xml",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "",
+          "name": "电影"
+        },
+        "obeys_type_filter": true,
+        "client_filter_required": false,
+        "returned_type_ids": [
+          "1"
+        ],
+        "http": {
+          "requested_url": "https://caiji.maotaizy.cc/api.php/provide/vod/from/mtm3u8/at/xml?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://caiji.maotaizy.cc/api.php/provide/vod/from/mtm3u8/at/xml?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 3270,
+          "sha256": "c9267d609abf45ae4f6991fdfb641ae1c92f0690b3c80c85b2f299341f2ceca3",
+          "elapsed_seconds": 3.578,
+          "checked_at_utc": "2026-11-06T10:20:01.353672+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "maotai"
+    },
+    {
+      "api": "https://caiji.moduapi.cc/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:19:45.344755+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "国产动漫"
+        },
+        "obeys_type_filter": true,
+        "client_filter_required": false,
+        "returned_type_ids": [
+          "1"
+        ],
+        "http": {
+          "requested_url": "https://caiji.moduapi.cc/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://caiji.moduapi.cc/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 164590,
+          "sha256": "4d7e06993510963e73883cd6038b92bd19d917357b4ebfa2db863f4510e36501",
+          "elapsed_seconds": 6.25,
+          "checked_at_utc": "2026-11-06T10:20:08.247943+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "mdzy"
+    },
+    {
+      "api": "https://api.niuniuzy.me/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:18:47.667995+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "",
+          "name": "电影"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://api.niuniuzy.me/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://api.niuniuzy.me/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 89,
+          "sha256": "e666ec151678434d919431c5856722d468a35bf0c13e08db79b3a5ee0a32abd8",
+          "elapsed_seconds": 6.563,
+          "checked_at_utc": "2026-11-06T10:20:45.025569+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://caiji.kuaichezy.org/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:18:47.739418+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "",
+          "name": "电影"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://caiji.kuaichezy.org/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://caiji.kuaichezy.org/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 89,
+          "sha256": "e666ec151678434d919431c5856722d468a35bf0c13e08db79b3a5ee0a32abd8",
+          "elapsed_seconds": 7.906,
+          "checked_at_utc": "2026-11-06T10:20:51.755027+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://tyyszyapi.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:19:25.715161+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "",
+          "name": "电影"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://tyyszyapi.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://tyyszyapi.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 89,
+          "sha256": "e666ec151678434d919431c5856722d468a35bf0c13e08db79b3a5ee0a32abd8",
+          "elapsed_seconds": 7.562,
+          "checked_at_utc": "2026-11-06T10:20:53.506748+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://wolongzyw.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:20:51.757032+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        200
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://cj.ffzyapi.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:18:37.591067+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "电影片"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "http://cj.ffzyapi.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "http://cj.ffzyapi.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "error": "TimeoutError",
+          "error_detail": "total read deadline",
+          "elapsed_seconds": 16.234,
+          "checked_at_utc": "2026-11-06T10:21:01.885244+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://zy.jinchancaiji.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:21:01.886312+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://vs.okcdn100.top/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:21:01.923167+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        404
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://api.ukuapi.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:20:53.508318+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        200
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://sdzyapi.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:19:28.412923+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "",
+          "name": "电影"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://sdzyapi.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://sdzyapi.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 89,
+          "sha256": "e666ec151678434d919431c5856722d468a35bf0c13e08db79b3a5ee0a32abd8",
+          "elapsed_seconds": 6.453,
+          "checked_at_utc": "2026-11-06T10:21:24.352690+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://yayazy2.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:19:24.653570+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "",
+          "name": "电影"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://yayazy2.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://yayazy2.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 89,
+          "sha256": "e666ec151678434d919431c5856722d468a35bf0c13e08db79b3a5ee0a32abd8",
+          "elapsed_seconds": 5.781,
+          "checked_at_utc": "2026-11-06T10:21:25.579493+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://cjhwba.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:21:25.583006+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        200
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://tyyszy.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:20:01.356457+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "",
+          "name": "电影"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "http://tyyszy.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "http://tyyszy.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 89,
+          "sha256": "e666ec151678434d919431c5856722d468a35bf0c13e08db79b3a5ee0a32abd8",
+          "elapsed_seconds": 5.453,
+          "checked_at_utc": "2026-11-06T10:21:42.899828+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://ikunzyapi.com/api.php/provide/vod/from/ikm3u8/at/json",
+      "checked_at_utc": "2026-11-06T10:21:24.354697+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "电影"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://ikunzyapi.com/api.php/provide/vod/from/ikm3u8/at/json?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://ikunzyapi.com/api.php/provide/vod/from/ikm3u8/at/json?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 87,
+          "sha256": "ddec19a66f03c6dff8e27353fd6990d48f9cf70c9c4d7037490e923139924872",
+          "elapsed_seconds": 5.609,
+          "checked_at_utc": "2026-11-06T10:21:44.395240+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "ikun"
+    },
+    {
+      "api": "https://jyzyapi.com/provide/vod",
+      "checked_at_utc": "2026-11-06T10:21:08.555828+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "电视剧"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://jyzyapi.com/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://jyzyapi.com/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 87,
+          "sha256": "ddec19a66f03c6dff8e27353fd6990d48f9cf70c9c4d7037490e923139924872",
+          "elapsed_seconds": 5.875,
+          "checked_at_utc": "2026-11-06T10:21:44.815163+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "jinying"
+    },
+    {
+      "api": "https://caiji.kczyapi.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:21:44.419607+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://caiji.dyttzyapi.com/api.php/provide/vod/at/xml",
+      "checked_at_utc": "2026-11-06T10:19:33.935712+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-xml",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "",
+          "name": "电影片"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "http://caiji.dyttzyapi.com/api.php/provide/vod/at/xml?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "http://caiji.dyttzyapi.com/api.php/provide/vod/at/xml?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 129,
+          "sha256": "f3590a8fd25d072bdbfcdd7987b8f9e962519c0db4e55356115d147a66dc1ef6",
+          "elapsed_seconds": 6.547,
+          "checked_at_utc": "2026-11-06T10:21:54.121379+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://caiji.dyttzyapi.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:19:47.660244+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "电影片"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "http://caiji.dyttzyapi.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "http://caiji.dyttzyapi.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 87,
+          "sha256": "ddec19a66f03c6dff8e27353fd6990d48f9cf70c9c4d7037490e923139924872",
+          "elapsed_seconds": 4.844,
+          "checked_at_utc": "2026-11-06T10:21:56.445776+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://ikunzyapi.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:21:47.226537+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "电影"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://ikunzyapi.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://ikunzyapi.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 87,
+          "sha256": "ddec19a66f03c6dff8e27353fd6990d48f9cf70c9c4d7037490e923139924872",
+          "elapsed_seconds": 5.531,
+          "checked_at_utc": "2026-11-06T10:22:05.381782+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "ikun"
+    },
+    {
+      "api": "https://api.tiankongapi.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:21:44.817716+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        200
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://suoniapi.com/api.php/provide/vod/at/xml",
+      "checked_at_utc": "2026-11-06T10:20:45.027348+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-xml",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "",
+          "name": "电影"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://suoniapi.com/api.php/provide/vod/at/xml?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://suoniapi.com/api.php/provide/vod/at/xml?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 129,
+          "sha256": "f3590a8fd25d072bdbfcdd7987b8f9e962519c0db4e55356115d147a66dc1ef6",
+          "elapsed_seconds": 6.437,
+          "checked_at_utc": "2026-11-06T10:22:22.090325+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://ffzy.tv/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:20:08.249946+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "电影片"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "http://ffzy.tv/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "http://ffzy.tv/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 87,
+          "sha256": "ddec19a66f03c6dff8e27353fd6990d48f9cf70c9c4d7037490e923139924872",
+          "elapsed_seconds": 12.11,
+          "checked_at_utc": "2026-11-06T10:22:28.742689+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://154.219.117.232:9981/jacloudapi.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:20:54.369414+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "电影"
+        },
+        "obeys_type_filter": true,
+        "client_filter_required": false,
+        "returned_type_ids": [
+          "1"
+        ],
+        "http": {
+          "requested_url": "http://154.219.117.232:9981/jacloudapi.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "http://154.219.117.232:9981/jacloudapi.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 58447,
+          "sha256": "216e1d69f61a920a02b617c51fcd1a7f817938ca06370031ae193f2f8d1637ed",
+          "elapsed_seconds": 5.328,
+          "checked_at_utc": "2026-11-06T10:22:33.107667+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://cj.lziapi.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:21:32.998543+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "电影片"
+        },
+        "obeys_type_filter": true,
+        "client_filter_required": false,
+        "returned_type_ids": [
+          "1"
+        ],
+        "http": {
+          "requested_url": "http://cj.lziapi.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "http://cj.lziapi.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "application/json; charset=utf-8",
+          "bytes": 3371,
+          "sha256": "10ae50c461b02e961cc862dc01162492b31c0c7bdfada1ecc874df76e4a91d6c",
+          "elapsed_seconds": 5.219,
+          "checked_at_utc": "2026-11-06T10:23:19.290570+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://suoniapi.com/api.php/provide/vod/from/snm3u8",
+      "checked_at_utc": "2026-11-06T10:21:42.901594+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "",
+          "name": "电影"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://suoniapi.com/api.php/provide/vod/from/snm3u8?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://suoniapi.com/api.php/provide/vod/from/snm3u8?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 89,
+          "sha256": "e666ec151678434d919431c5856722d468a35bf0c13e08db79b3a5ee0a32abd8",
+          "elapsed_seconds": 6.297,
+          "checked_at_utc": "2026-11-06T10:23:25.142003+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://api.1080zyku.com/inc/apijson.php",
+      "checked_at_utc": "2026-11-06T10:21:13.073758+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "",
+          "name": "电影"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://api.1080zyku.com/inc/apijson.php?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://api.1080zyku.com/inc/apijson.php?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html; charset=UTF-8",
+          "bytes": 97,
+          "sha256": "44748fd9611728f9fcc9c47ab0290886ee59b71cc691c4fb73fba9fbf106042c",
+          "elapsed_seconds": 13.078,
+          "checked_at_utc": "2026-11-06T10:23:32.236776+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://d.xzam.cn/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:27:16.726322+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://ys.zf520.cn/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:27:16.725106+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://kuaiyun-api.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:27:16.856761+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://caiji.yueai55.cc:2277/yuelove.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:27:16.725106+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://xzcjz.com/api.php/provide/vod/at/json",
+      "checked_at_utc": "2026-11-06T10:27:16.824847+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://cdk.centos.chat/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:27:17.299349+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://www.xy1080.net/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:27:17.567785+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://49zyw.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:27:16.944371+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://www.77hanju.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:27:19.933071+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://tvbox-1-g5221611.deta.app/vod/sohu",
+      "checked_at_utc": "2026-11-06T10:27:31.067205+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://xkanzy10.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:27:31.400179+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://cj.baozi66.top:66/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:27:31.432343+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://82.156.40.118:1234/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:27:16.726322+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        502
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://api.ylzy.me/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:27:37.167203+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://360zy.com/api.php/seaxml/vod",
+      "checked_at_utc": "2026-11-06T10:27:16.723615+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "电影"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://360zy.com/api.php/seaxml/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://360zy.com/api.php/seaxml/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 87,
+          "sha256": "ddec19a66f03c6dff8e27353fd6990d48f9cf70c9c4d7037490e923139924872",
+          "elapsed_seconds": 6.562,
+          "checked_at_utc": "2026-11-06T10:27:45.129623+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "360zy"
+    },
+    {
+      "api": "https://leshizyapi.com/api.php/provide/vod/at/json",
+      "checked_at_utc": "2026-11-06T10:27:45.131383+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://api.wsyzy.net/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:27:16.722617+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "",
+          "name": "电影"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://api.wsyzy.net/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://api.wsyzy.net/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 89,
+          "sha256": "e666ec151678434d919431c5856722d468a35bf0c13e08db79b3a5ee0a32abd8",
+          "elapsed_seconds": 5.765,
+          "checked_at_utc": "2026-11-06T10:27:45.582179+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "wsyzy"
+    },
+    {
+      "api": "https://www.moduzy.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:27:25.514228+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "国产动漫"
+        },
+        "obeys_type_filter": true,
+        "client_filter_required": false,
+        "returned_type_ids": [
+          "1"
+        ],
+        "http": {
+          "requested_url": "https://www.moduzy.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://www.moduzy.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 167177,
+          "sha256": "4f829c45cbbe2171b01e7b3e67f9037ae123ff370aec25c9db23d5c83895a1a1",
+          "elapsed_seconds": 9.75,
+          "checked_at_utc": "2026-11-06T10:27:50.993456+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "mdzy"
+    },
+    {
+      "api": "https://jszy.tv/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:27:50.996971+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://api.xinlangapi.com/xinlangapi.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:27:16.725106+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "电影"
+        },
+        "obeys_type_filter": true,
+        "client_filter_required": false,
+        "returned_type_ids": [
+          "1"
+        ],
+        "http": {
+          "requested_url": "http://api.xinlangapi.com/xinlangapi.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "http://api.xinlangapi.com/xinlangapi.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 2523,
+          "sha256": "f1898a463c219db3d94378df3615963c098d3fc98df99cccf50367b6b4507119",
+          "elapsed_seconds": 4.906,
+          "checked_at_utc": "2026-11-06T10:27:52.310803+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "xinlang"
+    },
+    {
+      "api": "https://damozy.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:27:51.046750+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://www.inmi.app/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:27:53.785623+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://tvbox-mv--leosam2048.repl.co/mv/vod",
+      "checked_at_utc": "2026-11-06T10:27:57.289129+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://p2100.net/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:27:52.312856+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        403
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://jszyapi.com/api.php/provide/vod/at/json",
+      "checked_at_utc": "2026-11-06T10:27:16.891887+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "电视剧"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://jszyapi.com/api.php/provide/vod/at/json?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://jszyapi.com/api.php/provide/vod/at/json?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 87,
+          "sha256": "ddec19a66f03c6dff8e27353fd6990d48f9cf70c9c4d7037490e923139924872",
+          "elapsed_seconds": 5.766,
+          "checked_at_utc": "2026-11-06T10:28:00.721240+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "jszy"
+    },
+    {
+      "api": "http://hucongrong.web3v.work/%E9%A3%8E%E6%B0%B4/fxz/lib/apiv5585json.html",
+      "checked_at_utc": "2026-11-06T10:27:37.433091+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "16515072",
+          "pid": "",
+          "name": "动漫/海外动漫"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [
+          "15204352"
+        ],
+        "http": {
+          "requested_url": "http://hucongrong.web3v.work/%E9%A3%8E%E6%B0%B4/fxz/lib/apiv5585json.html?ac=detail&t=16515072&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "http://hucongrong.web3v.work/%E9%A3%8E%E6%B0%B4/fxz/lib/apiv5585json.html?ac=detail&t=16515072&pg=1&pagesize=20",
+          "content_type": "text/html",
+          "bytes": 281599,
+          "sha256": "99d33a2202fedf6e3e4d26558a38c8ffa3beffc0db533ff2425d0262d2da4933",
+          "elapsed_seconds": 7.484,
+          "checked_at_utc": "2026-11-06T10:28:01.423791+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "taopian"
+    },
+    {
+      "api": "http://141.147.146.105/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:27:31.484205+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        502
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://kuaikan-api.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:27:57.630237+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://playersll.gaoxin155.com.cn/api.php/provide/vod/from/qq?at%2Fxml%2F=",
+      "checked_at_utc": "2026-11-06T10:27:58.206161+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        502
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://api.xinlangapi.com/xinlangapi.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:27:45.159115+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "电影"
+        },
+        "obeys_type_filter": true,
+        "client_filter_required": false,
+        "returned_type_ids": [
+          "1"
+        ],
+        "http": {
+          "requested_url": "https://api.xinlangapi.com/xinlangapi.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://api.xinlangapi.com/xinlangapi.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 2523,
+          "sha256": "f1898a463c219db3d94378df3615963c098d3fc98df99cccf50367b6b4507119",
+          "elapsed_seconds": 5.563,
+          "checked_at_utc": "2026-11-06T10:28:19.741063+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "xinlang"
+    },
+    {
+      "api": "http://playersll.gaoxin155.com.cn/api.php/provide/vod/from/mgtv?at%2Fxml%2F=",
+      "checked_at_utc": "2026-11-06T10:28:00.723759+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        502
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://playersll.gaoxin155.com.cn/api.php/provide/vod/from/qiyi?at%2Fxml%2F=",
+      "checked_at_utc": "2026-11-06T10:28:01.427539+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        502
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://playersll.gaoxin155.com.cn/api.php/provide/vod/from/youku?at%2Fxml%2F=",
+      "checked_at_utc": "2026-11-06T10:28:02.403610+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        502
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://dbzy.tv/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:28:21.941220+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://www.huyaapi.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:27:45.583184+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "电视剧"
+        },
+        "obeys_type_filter": true,
+        "client_filter_required": false,
+        "returned_type_ids": [
+          "1"
+        ],
+        "http": {
+          "requested_url": "https://www.huyaapi.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://www.huyaapi.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 9795,
+          "sha256": "8d78069d8f9142f11a92fd52c29ccfd1ad2fd0e5d97f7441abaf3933c6a6f387",
+          "elapsed_seconds": 5.718,
+          "checked_at_utc": "2026-11-06T10:28:23.261046+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "huya"
+    },
+    {
+      "api": "http://playersll.gaoxin155.com.cn/api.php/provide/vod/from/sohu?at%2Fxml%2F=",
+      "checked_at_utc": "2026-11-06T10:28:04.148323+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        502
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://jiduo.3116598.xyz/PHP/pkty.php",
+      "checked_at_utc": "2026-11-06T10:27:16.723615+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "tvbox-http-json",
+      "category_behavior": {
+        "selected": {
+          "id": "2@直播",
+          "pid": "",
+          "name": "足球直播"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [
+          ""
+        ],
+        "http": {
+          "requested_url": "http://jiduo.3116598.xyz/PHP/pkty.php?ac=detail&t=2%40%E7%9B%B4%E6%92%AD&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "http://jiduo.3116598.xyz/PHP/pkty.php?ac=detail&t=2%40%E7%9B%B4%E6%92%AD&pg=1&pagesize=20",
+          "content_type": "application/json; charset=utf-8",
+          "bytes": 1090,
+          "sha256": "9f30a3ba5fb6b6f5632865f375249cb8b9c4d9c084ce80d7e2a9f105ccd4804e",
+          "elapsed_seconds": 6.813,
+          "checked_at_utc": "2026-11-06T10:28:25.202062+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://api.wujinapi.me/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:28:25.204683+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        520
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://caiji.maotaizy.cc/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:28:21.056342+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "电影"
+        },
+        "obeys_type_filter": true,
+        "client_filter_required": false,
+        "returned_type_ids": [
+          "1"
+        ],
+        "http": {
+          "requested_url": "https://caiji.maotaizy.cc/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://caiji.maotaizy.cc/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 9261,
+          "sha256": "04569c988caead126823d129f1a5f123db12d0903d05bdb3620d2ea00994c191",
+          "elapsed_seconds": 2.75,
+          "checked_at_utc": "2026-11-06T10:28:32.608208+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "maotai"
+    },
+    {
+      "api": "http://wdzy.xn--xhqy79ao1f5n5a.xn--io0a7i/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:28:32.609861+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://wwzy.tv/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:28:19.603657+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        200
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://zhangqun66.serv00.net/158.php",
+      "checked_at_utc": "2026-11-06T10:28:31.550818+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        403
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://zhangqun66.serv00.net/hwb.php",
+      "checked_at_utc": "2026-11-06T10:28:33.188010+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        403
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://www.feidaozy.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:28:37.564812+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://leshiapi.com/api.php/provide/vod/at/json",
+      "checked_at_utc": "2026-11-06T10:28:37.597218+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://ys7.cttv.vip/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:28:37.750623+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://www.heyik.cn/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:28:37.861299+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://cj.rycjapi.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:28:19.743068+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        403
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": "ryzy"
+    },
+    {
+      "api": "https://www.mdzyapi.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:28:23.177389+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "国产动漫"
+        },
+        "obeys_type_filter": true,
+        "client_filter_required": false,
+        "returned_type_ids": [
+          "1"
+        ],
+        "http": {
+          "requested_url": "https://www.mdzyapi.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://www.mdzyapi.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 167177,
+          "sha256": "928a0e1f9cfc2fef875bb1cc45c05cfc479785815d394d25dcabaf81bd2d8df1",
+          "elapsed_seconds": 6.016,
+          "checked_at_utc": "2026-11-06T10:28:42.996979+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "mdzy"
+    },
+    {
+      "api": "https://cj.vodimg.top/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:28:37.901886+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        403
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://www.nuuub.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:28:43.000793+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://www.moduzy.cc/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:28:36.558378+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        200
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://www.39kan.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:28:39.020027+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        523
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://www.mandao.site/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:28:49.584170+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://vip.smzj6.vip/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:28:44.921549+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        404
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://www.wyvod.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:28:50.618743+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        403
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://sdzyapi.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:27:16.725106+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "",
+          "name": "电影"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "http://sdzyapi.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "http://sdzyapi.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 89,
+          "sha256": "e666ec151678434d919431c5856722d468a35bf0c13e08db79b3a5ee0a32abd8",
+          "elapsed_seconds": 4.89,
+          "checked_at_utc": "2026-11-06T10:29:00.932675+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://www.zfsp.cc/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:28:45.776676+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        200
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://vod38.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:28:57.747980+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        403
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://15ds.cn/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:29:01.303011+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://haiwaikan.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:29:07.965435+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://api.kuaifan.tv/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:29:09.332238+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://www.51zhuiju.cc/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:28:46.376764+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        200
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://zy.xmm.hk/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:29:09.373426+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://www.nmnm.cc/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:28:57.308449+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        200
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://nm.xxxc137.top/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:29:00.934480+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        200
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://ghfast.top/https://raw.githubusercontent.com/hanhan8127/TVBox/main/hanXC.json",
+      "checked_at_utc": "2026-11-06T10:29:12.875639+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        200
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://hong.hgyx.vip/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:29:04.119595+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://xn--ihqu10cn4c.xn--v4q818bf34b.com/api/yyutx.php",
+      "checked_at_utc": "2026-11-06T10:29:17.880058+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        200
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://caiji.dyttzyapi.com/api.php/provide/vod/from/dyttm3u8/at/m3u8",
+      "checked_at_utc": "2026-11-06T10:27:16.723615+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "电影片"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://caiji.dyttzyapi.com/api.php/provide/vod/from/dyttm3u8/at/m3u8?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://caiji.dyttzyapi.com/api.php/provide/vod/from/dyttm3u8/at/m3u8?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 87,
+          "sha256": "ddec19a66f03c6dff8e27353fd6990d48f9cf70c9c4d7037490e923139924872",
+          "elapsed_seconds": 11.563,
+          "checked_at_utc": "2026-11-06T10:29:27.115452+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://caiji.dyttzyapi.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:29:09.555745+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        200
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://127.0.0.1:10079/p/0/null/https://json.heimuer.xyz/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:29:27.592053+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://127.0.0.1:10079/p/0/proxy/https://haiwaikan.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:29:27.630795+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://127.0.0.1:10079/p/0/proxy/https://ikunzyapi.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:29:27.676717+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://127.0.0.1:10079/p/0/proxy/http://fszy1.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:29:27.716917+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://127.0.0.1:10079/p/0/proxy/https://bfzyapi.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:29:27.756011+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://127.0.0.1:10079/p/0/proxy/https://suoniapi.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:29:27.796206+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://127.0.0.1:10079/p/0/proxy/https://api.kuaifan.tv/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:29:27.836800+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://127.0.0.1:10079/p/0/proxy/http://cj.lziapi.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:29:27.879594+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://127.0.0.1:10079/p/0/proxy/http://cj.ffzyapi.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:29:27.919900+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://json02.heimuer.xyz/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:29:15.516416+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        200
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://api.yzzy-api.com/inc/apijson.php",
+      "checked_at_utc": "2026-11-06T10:29:10.910511+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        200
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://raw.githubusercontent.com/hanhan8127/TVBox/main/hanXC.json",
+      "checked_at_utc": "2026-11-06T10:29:28.182533+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        200
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://mov.cswklt.top/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:29:29.300040+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://7.qqqtv.top/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:29:22.449271+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        503
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://hw8.live/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:29:29.447449+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://home.jundie.top:9520/spider/cli_gitCafe",
+      "checked_at_utc": "2026-11-06T10:29:27.957211+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        502
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://tyyszy.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:28:20.331355+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "",
+          "name": "电影"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://tyyszy.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://tyyszy.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 89,
+          "sha256": "e666ec151678434d919431c5856722d468a35bf0c13e08db79b3a5ee0a32abd8",
+          "elapsed_seconds": 5.734,
+          "checked_at_utc": "2026-11-06T10:30:05.130022+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://iqyi.xiaohuangrentv.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:30:05.131560+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://www.fuju2024.cc:8013/ruifenglb_api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:29:34.598361+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        502
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://caiji.kczyapi.com/api.php/provide/vod/from/kcm3u8",
+      "checked_at_utc": "2026-11-06T10:30:06.350512+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://zpsps.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:29:58.316782+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        200
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://api.yzzy-api.com/inc/api.php",
+      "checked_at_utc": "2026-11-06T10:29:27.117626+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-xml",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "",
+          "name": "电影"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://api.yzzy-api.com/inc/api.php?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://api.yzzy-api.com/inc/api.php?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html; charset=UTF-8",
+          "error": "TimeoutError",
+          "error_detail": "total read deadline",
+          "elapsed_seconds": 17.437,
+          "checked_at_utc": "2026-11-06T10:30:11.221106+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://collect.wolongzyw.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:30:09.098408+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        200
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://api.zuidapi.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:28:23.263052+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "",
+          "name": "电影"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://api.zuidapi.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://api.zuidapi.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 89,
+          "sha256": "e666ec151678434d919431c5856722d468a35bf0c13e08db79b3a5ee0a32abd8",
+          "elapsed_seconds": 6.188,
+          "checked_at_utc": "2026-11-06T10:30:15.533215+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://api.wujinapi.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:30:12.056719+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        520
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://api.ukuapi88.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:28:23.737404+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "电影"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://api.ukuapi88.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://api.ukuapi88.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 89,
+          "sha256": "e666ec151678434d919431c5856722d468a35bf0c13e08db79b3a5ee0a32abd8",
+          "elapsed_seconds": 5.797,
+          "checked_at_utc": "2026-11-06T10:30:19.843315+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://www.ahjiuman.com/api.php/provide/vod/at/json",
+      "checked_at_utc": "2026-11-06T10:30:11.222110+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        404
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://jinyingzy.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:29:52.503605+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "电视剧"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://jinyingzy.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://jinyingzy.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 87,
+          "sha256": "ddec19a66f03c6dff8e27353fd6990d48f9cf70c9c4d7037490e923139924872",
+          "elapsed_seconds": 5.625,
+          "checked_at_utc": "2026-11-06T10:30:26.782779+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "jinying"
+    },
+    {
+      "api": "https://cj.lzcaiji.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:28:32.698614+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "电影片"
+        },
+        "obeys_type_filter": true,
+        "client_filter_required": false,
+        "returned_type_ids": [
+          "1"
+        ],
+        "http": {
+          "requested_url": "https://cj.lzcaiji.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://cj.lzcaiji.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "application/json; charset=utf-8",
+          "bytes": 3371,
+          "sha256": "d6e24072d1f3fe7d263837bff5d92e84457f2e4fe742d43bbd7ee5a1b5ff3c13",
+          "elapsed_seconds": 6.25,
+          "checked_at_utc": "2026-11-06T10:30:26.823188+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://api.okzy.org/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:30:26.783872+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://m3u8.feisuzyapi.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:30:26.950857+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://fszy1.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:30:26.989227+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://zuidazy.me/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:30:17.732922+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        520
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://120.53.102.254/dsp",
+      "checked_at_utc": "2026-11-06T10:30:19.844374+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        404
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://m3u8.apiyhzy.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:30:07.562068+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "",
+          "name": "电影"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://m3u8.apiyhzy.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://m3u8.apiyhzy.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 89,
+          "sha256": "e666ec151678434d919431c5856722d468a35bf0c13e08db79b3a5ee0a32abd8",
+          "elapsed_seconds": 5.906,
+          "checked_at_utc": "2026-11-06T10:30:35.522504+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "yinghua"
+    },
+    {
+      "api": "http://jiduo.3116598.xyz/PHP/fytg.php",
+      "checked_at_utc": "2026-11-06T10:30:34.995554+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://ckzy.me/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:30:26.829191+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "21",
+          "pid": "0",
+          "name": "教程"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://ckzy.me/api.php/provide/vod?ac=detail&t=21&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://ckzy.me/api.php/provide/vod?ac=detail&t=21&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 87,
+          "sha256": "ddec19a66f03c6dff8e27353fd6990d48f9cf70c9c4d7037490e923139924872",
+          "elapsed_seconds": 5.922,
+          "checked_at_utc": "2026-11-06T10:30:45.533721+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://subocaiji.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:30:15.534945+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "电影"
+        },
+        "obeys_type_filter": true,
+        "client_filter_required": false,
+        "returned_type_ids": [
+          "1"
+        ],
+        "http": {
+          "requested_url": "https://subocaiji.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://subocaiji.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 2528,
+          "sha256": "084f11a4f94b590fb57e1a2d39f50b9ac27d9f5036868a60a1edd929bf102d1e",
+          "elapsed_seconds": 6.657,
+          "checked_at_utc": "2026-11-06T10:30:55.485391+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "subo"
+    },
+    {
+      "api": "https://ty.tyyszy5.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:29:09.690993+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "",
+          "name": "电影"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://ty.tyyszy5.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://ty.tyyszy5.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 89,
+          "sha256": "e666ec151678434d919431c5856722d468a35bf0c13e08db79b3a5ee0a32abd8",
+          "elapsed_seconds": 6.125,
+          "checked_at_utc": "2026-11-06T10:30:56.995632+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://jyzyapi.com/provide/vod/at/xml",
+      "checked_at_utc": "2026-11-06T10:30:27.039658+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-xml",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "",
+          "name": "电视剧"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://jyzyapi.com/provide/vod/at/xml?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://jyzyapi.com/provide/vod/at/xml?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 129,
+          "sha256": "f3590a8fd25d072bdbfcdd7987b8f9e962519c0db4e55356115d147a66dc1ef6",
+          "elapsed_seconds": 5.547,
+          "checked_at_utc": "2026-11-06T10:31:00.404945+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "jinying"
+    },
+    {
+      "api": "http://8.134.205.252:39466/pz/sx4k.php/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:30:41.524815+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://cj.jusj.top/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:31:01.134950+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://sy.xuntuyun.cn:20394/ctyx.php/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:30:45.534725+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        502
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://8.134.205.252:39466/pz/co4k.php/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:30:55.487414+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://cmsyun2.qijiyun.vip/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:30:56.997173+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "体验新4k-❤️国漫—试玩"
+        },
+        "obeys_type_filter": true,
+        "client_filter_required": false,
+        "returned_type_ids": [
+          "1"
+        ],
+        "http": {
+          "requested_url": "http://cmsyun2.qijiyun.vip/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "http://cmsyun2.qijiyun.vip/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 221098,
+          "sha256": "e941928067d95e78fa9cc9cab16fda89d29280436e2fad71e56750828b4c2cc2",
+          "elapsed_seconds": 4.812,
+          "checked_at_utc": "2026-11-06T10:31:23.379908+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://api.juliang.live/api/provide/vod",
+      "checked_at_utc": "2026-11-06T10:31:16.386662+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        403
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://m.juwu.tv/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:31:25.247191+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://taopianapi.com/cjapi/mc10/vod/xml.html",
+      "checked_at_utc": "2026-11-06T10:31:01.278009+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-xml",
+      "category_behavior": {
+        "selected": {
+          "id": "16515072",
+          "pid": "",
+          "name": "动漫/海外动漫"
+        },
+        "obeys_type_filter": true,
+        "client_filter_required": false,
+        "returned_type_ids": [
+          "16515072"
+        ],
+        "http": {
+          "requested_url": "https://taopianapi.com/cjapi/mc10/vod/xml.html?ac=detail&t=16515072&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://taopianapi.com/cjapi/mc10/vod/xml.html?ac=detail&t=16515072&pg=1&pagesize=20",
+          "content_type": "application/xml;charset=utf-8;",
+          "bytes": 8572,
+          "sha256": "ec660204de1710184c4777e436cd83aca7710f45b79493667fb68b8403951ee5",
+          "elapsed_seconds": 6.109,
+          "checked_at_utc": "2026-11-06T10:31:32.577332+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://lz.118318.xyz/api.php/provide/vod/at/xml",
+      "checked_at_utc": "2026-11-06T10:31:32.578889+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://zhangqun1818.serv00.net/zh/2242.php",
+      "checked_at_utc": "2026-11-06T10:31:00.408379+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "tvbox-http-json",
+      "category_behavior": {
+        "selected": {
+          "id": "澳洲电视",
+          "pid": "",
+          "name": "澳洲电视"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [
+          ""
+        ],
+        "http": {
+          "requested_url": "http://zhangqun1818.serv00.net/zh/2242.php?ac=detail&t=%E6%BE%B3%E6%B4%B2%E7%94%B5%E8%A7%86&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "http://zhangqun1818.serv00.net/zh/2242.php?ac=detail&t=%E6%BE%B3%E6%B4%B2%E7%94%B5%E8%A7%86&pg=1&pagesize=20",
+          "content_type": "application/json; charset=utf-8",
+          "bytes": 37752,
+          "sha256": "495d1fe3c06a12bafffe80c751b5084f1979e8a7390d04147b409f27d8576f72",
+          "elapsed_seconds": 7.656,
+          "checked_at_utc": "2026-11-06T10:31:36.310201+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://cj.ffzyapi.com//api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:29:28.410387+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "电影片"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://cj.ffzyapi.com//api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://cj.ffzyapi.com//api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 87,
+          "sha256": "ddec19a66f03c6dff8e27353fd6990d48f9cf70c9c4d7037490e923139924872",
+          "elapsed_seconds": 13.094,
+          "checked_at_utc": "2026-11-06T10:31:36.983225+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "feifan"
+    },
+    {
+      "api": "http://110.42.66.100:12678/api.php",
+      "checked_at_utc": "2026-11-06T10:31:16.457276+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "电视剧"
+        },
+        "obeys_type_filter": true,
+        "client_filter_required": false,
+        "returned_type_ids": [
+          "1"
+        ],
+        "http": {
+          "requested_url": "http://110.42.66.100:12678/api.php?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "http://110.42.66.100:12678/api.php?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/json;charset=utf-8",
+          "bytes": 107247,
+          "sha256": "f99041fcd8621c6b8f05f530066b0377763e4c75aebb47748b9d546764ffaf0c",
+          "elapsed_seconds": 6.156,
+          "checked_at_utc": "2026-11-06T10:31:46.072471+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://cdn.dzzyapi.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:31:25.415953+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "电影"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://cdn.dzzyapi.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://cdn.dzzyapi.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 85,
+          "sha256": "d6fb375bce89abb8e8bb50aeb2848e3862ee0b42713db79866fbd0be7f5fa622",
+          "elapsed_seconds": 5.953,
+          "checked_at_utc": "2026-11-06T10:31:50.328648+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "dazhong"
+    },
+    {
+      "api": "http://jhysj.jiaheyy.top/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:31:23.381477+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "18",
+          "pid": "0",
+          "name": "电影"
+        },
+        "obeys_type_filter": true,
+        "client_filter_required": false,
+        "returned_type_ids": [
+          "18"
+        ],
+        "http": {
+          "requested_url": "http://jhysj.jiaheyy.top/api.php/provide/vod?ac=detail&t=18&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "http://jhysj.jiaheyy.top/api.php/provide/vod?ac=detail&t=18&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 72183,
+          "sha256": "501739c886e1cb10814cd4c22ff506f3af0d3c8fa85fa0fee4a0721aa198a5ce",
+          "elapsed_seconds": 6.797,
+          "checked_at_utc": "2026-11-06T10:31:56.901015+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "longma"
+    },
+    {
+      "api": "https://cj.yayazy.net/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:30:05.171011+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "",
+          "name": "电影"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://cj.yayazy.net/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://cj.yayazy.net/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 89,
+          "sha256": "e666ec151678434d919431c5856722d468a35bf0c13e08db79b3a5ee0a32abd8",
+          "elapsed_seconds": 6.453,
+          "checked_at_utc": "2026-11-06T10:32:05.386864+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://xsd.sdzyapi.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:30:23.642549+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "",
+          "name": "电影"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://xsd.sdzyapi.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://xsd.sdzyapi.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 89,
+          "sha256": "e666ec151678434d919431c5856722d468a35bf0c13e08db79b3a5ee0a32abd8",
+          "elapsed_seconds": 6.25,
+          "checked_at_utc": "2026-11-06T10:32:06.007228+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://www.huyaapi.com/api.php/provide/vod/at/json",
+      "checked_at_utc": "2026-11-06T10:31:36.984788+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "电视剧"
+        },
+        "obeys_type_filter": true,
+        "client_filter_required": false,
+        "returned_type_ids": [
+          "1"
+        ],
+        "http": {
+          "requested_url": "https://www.huyaapi.com/api.php/provide/vod/at/json?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://www.huyaapi.com/api.php/provide/vod/at/json?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 9795,
+          "sha256": "8d78069d8f9142f11a92fd52c29ccfd1ad2fd0e5d97f7441abaf3933c6a6f387",
+          "elapsed_seconds": 6.578,
+          "checked_at_utc": "2026-11-06T10:32:14.136712+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "huya"
+    },
+    {
+      "api": "https://www.lovedan.net/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:31:36.204096+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "",
+          "name": "电影"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [
+          "10",
+          "12",
+          "21",
+          "22",
+          "6",
+          "64",
+          "7",
+          "8",
+          "9"
+        ],
+        "http": {
+          "requested_url": "https://www.lovedan.net/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://www.lovedan.net/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 66326,
+          "sha256": "7f15c21bf7ccef7e409fe794463502fd8c3b4ee6f10da77f0fb999d0292e2793",
+          "elapsed_seconds": 7.89,
+          "checked_at_utc": "2026-11-06T10:32:16.261638+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "dandan"
+    },
+    {
+      "api": "https://dzzy.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:31:50.330219+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "电影"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://dzzy.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://dzzy.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 85,
+          "sha256": "d6fb375bce89abb8e8bb50aeb2848e3862ee0b42713db79866fbd0be7f5fa622",
+          "elapsed_seconds": 11.407,
+          "checked_at_utc": "2026-11-06T10:32:21.405936+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "dazhong"
+    },
+    {
+      "api": "https://www.hongniuzy2.com/api.php/provide/vod/at/josn",
+      "checked_at_utc": "2026-11-06T10:31:46.074142+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "",
+          "name": "电影"
+        },
+        "obeys_type_filter": true,
+        "client_filter_required": false,
+        "returned_type_ids": [
+          "1"
+        ],
+        "http": {
+          "requested_url": "https://www.hongniuzy2.com/api.php/provide/vod/at/josn?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://www.hongniuzy2.com/api.php/provide/vod/at/josn?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 4482,
+          "sha256": "3794eb1ffd91b0aa0c7c1bd4e4e993208a3e28914fa80c2fb093f045775ffe21",
+          "elapsed_seconds": 6.86,
+          "checked_at_utc": "2026-11-06T10:32:22.117308+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "hongniu"
+    },
+    {
+      "api": "https://api.maoyanapi.top/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:31:56.902597+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "电影"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://api.maoyanapi.top/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://api.maoyanapi.top/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 85,
+          "sha256": "d6fb375bce89abb8e8bb50aeb2848e3862ee0b42713db79866fbd0be7f5fa622",
+          "elapsed_seconds": 6.641,
+          "checked_at_utc": "2026-11-06T10:32:23.450567+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "maoyan"
+    },
+    {
+      "api": "https://www.ryzyw.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:32:06.008987+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        403
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://api.1080zyku.com/inc/api_mac10.php",
+      "checked_at_utc": "2026-11-06T10:30:29.898857+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "",
+          "name": "电影"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://api.1080zyku.com/inc/api_mac10.php?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://api.1080zyku.com/inc/api_mac10.php?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html; charset=UTF-8",
+          "bytes": 97,
+          "sha256": "44748fd9611728f9fcc9c47ab0290886ee59b71cc691c4fb73fba9fbf106042c",
+          "elapsed_seconds": 7.078,
+          "checked_at_utc": "2026-11-06T10:32:26.462472+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://iqiyizyapi.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:32:14.138723+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "40",
+          "name": "国产动漫"
+        },
+        "obeys_type_filter": true,
+        "client_filter_required": false,
+        "returned_type_ids": [
+          "1"
+        ],
+        "http": {
+          "requested_url": "https://iqiyizyapi.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://iqiyizyapi.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 240213,
+          "sha256": "26489199c0a277aa58b3507ec6e17f2259274ad7111a4f8911c94c4ff0f06f3b",
+          "elapsed_seconds": 7.593,
+          "checked_at_utc": "2026-11-06T10:32:41.506628+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "qiyi"
+    },
+    {
+      "api": "https://api.yparse.com/api/news",
+      "checked_at_utc": "2026-11-06T10:32:26.464477+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "45",
+          "pid": "",
+          "name": "影视资讯"
+        },
+        "obeys_type_filter": true,
+        "client_filter_required": false,
+        "returned_type_ids": [
+          "45"
+        ],
+        "http": {
+          "requested_url": "https://api.yparse.com/api/news?ac=detail&t=45&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://api.yparse.com/api/news?ac=detail&t=45&pg=1&pagesize=20",
+          "content_type": "text/json;charset=UTF-8",
+          "bytes": 54144,
+          "sha256": "f08d7d4c8e7ea1a79b4713aae5e490bcc4fb547f04185ba8c3bbd8e6a59b1d76",
+          "elapsed_seconds": 5.703,
+          "checked_at_utc": "2026-11-06T10:32:43.677886+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://sspa8.top:8100/php/%E9%85%B7%E6%88%91.php",
+      "checked_at_utc": "2026-11-06T10:30:35.523509+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "tvbox-http-json",
+      "category_behavior": {
+        "selected": {
+          "id": "bang",
+          "pid": "",
+          "name": "排行榜"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [
+          ""
+        ],
+        "http": {
+          "requested_url": "http://sspa8.top:8100/php/%E9%85%B7%E6%88%91.php?ac=detail&t=bang&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "http://sspa8.top:8100/php/%E9%85%B7%E6%88%91.php?ac=detail&t=bang&pg=1&pagesize=20",
+          "content_type": "application/json; charset=utf-8",
+          "bytes": 10234,
+          "sha256": "aee2acfc28f5f3cdce3946a08fcc8dcb857d5cb6dfb25c2e59f3040a78d0d2ae",
+          "elapsed_seconds": 12.078,
+          "checked_at_utc": "2026-11-06T10:32:46.433016+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://caiji.dbzy5.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:32:46.434635+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://yhzy.cc/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:32:22.121404+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "",
+          "name": "电影"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://yhzy.cc/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://yhzy.cc/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 89,
+          "sha256": "e666ec151678434d919431c5856722d468a35bf0c13e08db79b3a5ee0a32abd8",
+          "elapsed_seconds": 7.312,
+          "checked_at_utc": "2026-11-06T10:32:49.229679+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "yinghua"
+    },
+    {
+      "api": "https://lz.118318.xyz/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:32:46.745619+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://api.yparse.com/api/json",
+      "checked_at_utc": "2026-11-06T10:32:23.452110+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "3",
+          "pid": "",
+          "name": "动漫"
+        },
+        "obeys_type_filter": true,
+        "client_filter_required": false,
+        "returned_type_ids": [
+          "3"
+        ],
+        "http": {
+          "requested_url": "https://api.yparse.com/api/json?ac=detail&t=3&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://api.yparse.com/api/json?ac=detail&t=3&pg=1&pagesize=20",
+          "content_type": "text/json;charset=UTF-8",
+          "bytes": 47070,
+          "sha256": "d70f6ba39c5ba9728d45b342a86a584045537667b45a240dcfa02a34ec2925c7",
+          "elapsed_seconds": 5.922,
+          "checked_at_utc": "2026-11-06T10:32:53.003515+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://api.yparse.com/api/m3u8/json",
+      "checked_at_utc": "2026-11-06T10:32:24.398144+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "3",
+          "pid": "",
+          "name": "动漫"
+        },
+        "obeys_type_filter": true,
+        "client_filter_required": false,
+        "returned_type_ids": [
+          "3"
+        ],
+        "http": {
+          "requested_url": "https://api.yparse.com/api/m3u8/json?ac=detail&t=3&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://api.yparse.com/api/m3u8/json?ac=detail&t=3&pg=1&pagesize=20",
+          "content_type": "text/json;charset=UTF-8",
+          "bytes": 47070,
+          "sha256": "d70f6ba39c5ba9728d45b342a86a584045537667b45a240dcfa02a34ec2925c7",
+          "elapsed_seconds": 5.844,
+          "checked_at_utc": "2026-11-06T10:32:54.484726+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://38.76.197.172:15151/duanju.php?type=dquark",
+      "checked_at_utc": "2026-11-06T10:32:21.407939+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        200
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://www.seacms.org/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:32:41.509275+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://360zyzz.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:33:01.184725+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "电影"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://360zyzz.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://360zyzz.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 87,
+          "sha256": "ddec19a66f03c6dff8e27353fd6990d48f9cf70c9c4d7037490e923139924872",
+          "elapsed_seconds": 1.063,
+          "checked_at_utc": "2026-11-06T10:33:10.198693+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "360zyzz"
+    },
+    {
+      "api": "http://so.yinpai.xyz/wanpan.php?type=quark%7Cuc%7Cbaidu%7Ctianyi%7Cxunlei%7C123",
+      "checked_at_utc": "2026-11-06T10:32:16.265159+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [
+        200
+      ],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://catbox.n13.club/t4/bili.php?id=bMTV",
+      "checked_at_utc": "2026-11-06T10:33:17.084773+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://catbox.n13.club/t4/cntv.php",
+      "checked_at_utc": "2026-11-06T10:33:17.162178+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://catbox.n13.club/t4/heihu.php",
+      "checked_at_utc": "2026-11-06T10:33:17.229946+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://catbox.n13.club/t4/qingting.php",
+      "checked_at_utc": "2026-11-06T10:33:17.287531+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://catbox.n13.club/t4/tangdou.php",
+      "checked_at_utc": "2026-11-06T10:33:17.338125+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "http://taopianapi.com/cjapi/mc/vod/json",
+      "checked_at_utc": "2026-11-06T10:32:49.418071+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "16515072",
+          "pid": "",
+          "name": "动漫/海外动漫"
+        },
+        "obeys_type_filter": true,
+        "client_filter_required": false,
+        "returned_type_ids": [
+          "16515072"
+        ],
+        "http": {
+          "requested_url": "http://taopianapi.com/cjapi/mc/vod/json?ac=detail&t=16515072&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://taopianapi.com/cjapi/mc/vod/json?ac=detail&t=16515072&pg=1&pagesize=20",
+          "content_type": "application/json;charset=utf-8;",
+          "bytes": 253447,
+          "sha256": "b2b3ca5c5c483751e62c2cbf8c673c3b732c31f8e4697ab249e7917915943faa",
+          "elapsed_seconds": 11.5,
+          "checked_at_utc": "2026-11-06T10:33:20.371288+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "taopian"
+    },
+    {
+      "api": "https://subocj.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:32:43.679449+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "电影"
+        },
+        "obeys_type_filter": true,
+        "client_filter_required": false,
+        "returned_type_ids": [
+          "1"
+        ],
+        "http": {
+          "requested_url": "https://subocj.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://subocj.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 2528,
+          "sha256": "084f11a4f94b590fb57e1a2d39f50b9ac27d9f5036868a60a1edd929bf102d1e",
+          "elapsed_seconds": 6.969,
+          "checked_at_utc": "2026-11-06T10:33:23.935094+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "subo"
+    },
+    {
+      "api": "https://ddmf.net/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:32:49.231264+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "",
+          "name": "电影"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [
+          "10",
+          "12",
+          "21",
+          "22",
+          "6",
+          "64",
+          "7",
+          "8",
+          "9"
+        ],
+        "http": {
+          "requested_url": "https://ddmf.net/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://ddmf.net/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 66326,
+          "sha256": "7f15c21bf7ccef7e409fe794463502fd8c3b4ee6f10da77f0fb999d0292e2793",
+          "elapsed_seconds": 7.766,
+          "checked_at_utc": "2026-11-06T10:33:30.416852+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "dandan"
+    },
+    {
+      "api": "https://caiji.maotaizy.cc/api.php/provide/vod/from/mtm3u8/at/json",
+      "checked_at_utc": "2026-11-06T10:33:23.937102+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "电影"
+        },
+        "obeys_type_filter": true,
+        "client_filter_required": false,
+        "returned_type_ids": [
+          "1"
+        ],
+        "http": {
+          "requested_url": "https://caiji.maotaizy.cc/api.php/provide/vod/from/mtm3u8/at/json?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://caiji.maotaizy.cc/api.php/provide/vod/from/mtm3u8/at/json?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 8886,
+          "sha256": "7ee8a4e9a536134bfb41e76d64bdfbe68ab1c3e0f325d0cf3efdd0dad9f5dcd2",
+          "elapsed_seconds": 1.985,
+          "checked_at_utc": "2026-11-06T10:33:39.155698+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://tianwei.qzz.io/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:33:20.375033+00:00",
+      "metadata_status": "no-compatible-catalog-response",
+      "home_http_statuses": [],
+      "format": null,
+      "category_behavior": null,
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://jszyapi.com/api.php/provide/vod/from/jsm3u8",
+      "checked_at_utc": "2026-11-06T10:33:17.395321+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "电视剧"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://jszyapi.com/api.php/provide/vod/from/jsm3u8?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://jszyapi.com/api.php/provide/vod/from/jsm3u8?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 87,
+          "sha256": "ddec19a66f03c6dff8e27353fd6990d48f9cf70c9c4d7037490e923139924872",
+          "elapsed_seconds": 5.656,
+          "checked_at_utc": "2026-11-06T10:33:42.601501+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "jszy"
+    },
+    {
+      "api": "http://api.ffzyapi.com/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:31:36.311376+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "电影片"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "http://api.ffzyapi.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "http://api.ffzyapi.com/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 87,
+          "sha256": "ddec19a66f03c6dff8e27353fd6990d48f9cf70c9c4d7037490e923139924872",
+          "elapsed_seconds": 12.343,
+          "checked_at_utc": "2026-11-06T10:33:46.755126+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "feifan"
+    },
+    {
+      "api": "https://api.ffzyapi.com/api.php/provide/vod/from/ffm3u8",
+      "checked_at_utc": "2026-11-06T10:33:03.423333+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "电影片"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://api.ffzyapi.com/api.php/provide/vod/from/ffm3u8?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://api.ffzyapi.com/api.php/provide/vod/from/ffm3u8?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 87,
+          "sha256": "ddec19a66f03c6dff8e27353fd6990d48f9cf70c9c4d7037490e923139924872",
+          "elapsed_seconds": 12.453,
+          "checked_at_utc": "2026-11-06T10:34:32.990609+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "feifan"
+    },
+    {
+      "api": "https://api.zuidapi.com/api.php/provide/vod/json",
+      "checked_at_utc": "2026-11-06T10:32:53.012193+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "",
+          "name": "电影"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://api.zuidapi.com/api.php/provide/vod/json?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://api.zuidapi.com/api.php/provide/vod/json?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 89,
+          "sha256": "e666ec151678434d919431c5856722d468a35bf0c13e08db79b3a5ee0a32abd8",
+          "elapsed_seconds": 6.344,
+          "checked_at_utc": "2026-11-06T10:34:39.921904+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://xiguazy.tv/api.php/provide/vod",
+      "checked_at_utc": "2026-11-06T10:32:05.389770+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "电影片"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://xiguazy.tv/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://xiguazy.tv/api.php/provide/vod?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 87,
+          "sha256": "ddec19a66f03c6dff8e27353fd6990d48f9cf70c9c4d7037490e923139924872",
+          "elapsed_seconds": 6.125,
+          "checked_at_utc": "2026-11-06T10:34:47.406811+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": true,
+      "failure_reason": null,
+      "registered_provider_id": "xigua"
+    },
+    {
+      "api": "https://api.ukuapi88.com/api.php/provide/vod/json",
+      "checked_at_utc": "2026-11-06T10:32:54.486733+00:00",
+      "metadata_status": "metadata-reachable-samples-not-playable",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "电影"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://api.ukuapi88.com/api.php/provide/vod/json?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://api.ukuapi88.com/api.php/provide/vod/json?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 89,
+          "sha256": "e666ec151678434d919431c5856722d468a35bf0c13e08db79b3a5ee0a32abd8",
+          "elapsed_seconds": 5.672,
+          "checked_at_utc": "2026-11-06T10:34:50.668107+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": false,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": null,
+      "registered_provider_id": null
+    },
+    {
+      "api": "https://caiji.xgzyapi.com/api.php/provide/vod/from/xiguam3u8",
+      "checked_at_utc": "2026-11-06T10:33:10.200699+00:00",
+      "metadata_status": "usable-direct-vod",
+      "home_http_statuses": [
+        200
+      ],
+      "format": "maccms-json",
+      "category_behavior": {
+        "selected": {
+          "id": "1",
+          "pid": "0",
+          "name": "电影片"
+        },
+        "obeys_type_filter": false,
+        "client_filter_required": true,
+        "returned_type_ids": [],
+        "http": {
+          "requested_url": "https://caiji.xgzyapi.com/api.php/provide/vod/from/xiguam3u8?ac=detail&t=1&pg=1&pagesize=20",
+          "status": 200,
+          "final_url": "https://caiji.xgzyapi.com/api.php/provide/vod/from/xiguam3u8?ac=detail&t=1&pg=1&pagesize=20",
+          "content_type": "text/html;charset=utf-8",
+          "bytes": 87,
+          "sha256": "ddec19a66f03c6dff8e27353fd6990d48f9cf70c9c4d7037490e923139924872",
+          "elapsed_seconds": 13.438,
+          "checked_at_utc": "2026-11-06T10:35:52.657864+00:00"
+        }
+      },
+      "actual_manifest_or_container_observed": true,
+      "production_ua_and_segment_verified": false,
+      "failure_reason": "production-UA detail failed or identity mismatch",
+      "registered_provider_id": null
+    }
+  ]
+}

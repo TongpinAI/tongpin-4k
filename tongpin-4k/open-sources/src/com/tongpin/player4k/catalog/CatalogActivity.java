@@ -30,6 +30,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.GridView;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -53,7 +54,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import com.tongpin.player4k.catalog.CatalogApi.*;
 
-/** Independent public catalog; existing home, account, and playback routes remain available. */
+/** Unified home: every configured source is browsed here and selectable in the player. */
 public final class CatalogActivity extends Activity {
     private static final int BG = 0xfff5f2e9, SURFACE = 0xffffffff, TEXT = 0xff172c42;
     private static final int SECONDARY = 0xff5d6d78, BLUE = 0xff226cc7, OUTLINE = 0xffd5ddd9;
@@ -77,13 +78,31 @@ public final class CatalogActivity extends Activity {
     private TextView heading, caption, status, pageNumber;
     private EditText search;
     private ProgressBar progress;
-    private Button previous, next, retry;
+    private Button previous, next, retry, searchSubmit;
     private VideoAdapter adapter;
     private CatalogCategories categoryCatalog;
     private String categoryId = "", pendingCategoryId = "";
     private Spinner categoryPicker;
     private final ArrayList<String> categoryOptions = new ArrayList<>();
     private boolean bindingCategories;
+    private Spinner providerPicker;
+    private LinearLayout sourceChips;
+    private PhoneSourcePicker sourcePicker;
+    private boolean foreground, bridgePending;
+
+    public static void openSourceSwitch(Activity host, String title, String episodeLabel, String year,
+                                        String category, String description, long position, float speed, boolean playing) {
+        openSourceSwitch(host, title, episodeLabel, year, category, description, position, speed, playing, "");
+    }
+
+    public static void openSourceSwitch(Activity host, String title, String episodeLabel, String year,
+                                        String category, String description, long position, float speed, boolean playing, String providerId) {
+        host.startActivity(new Intent(host, CatalogActivity.class).putExtra("source_switch", true)
+                .putExtra("switch_title", title).putExtra("switch_episode", episodeLabel).putExtra("switch_year", year)
+                .putExtra("switch_category", category).putExtra("switch_description", description)
+                .putExtra("switch_position", Math.max(0L, position)).putExtra("switch_speed", speed)
+                .putExtra("switch_playing", playing).putExtra("source_provider", providerId));
+    }
 
     public static void bindEntry(View root) {
         View entry = root.findViewWithTag("tp_public_catalog");
@@ -119,9 +138,16 @@ public final class CatalogActivity extends Activity {
             keyword = saved.getString("keyword", "");
             if (providers.get(providerIndex).id.equals(saved.getString("categoryProvider", "")))
                 pendingCategoryId = saved.getString("category", "");
+        } else {
+            String preferred = getSharedPreferences("tongpin_ui", MODE_PRIVATE).getString("home_provider", "");
+            for (int i = 0; i < providers.size(); i++) if (providers.get(i).id.equals(preferred)) providerIndex = i;
         }
         buildScreen();
         loadPage(page);
+        if (getIntent().getBooleanExtra("source_switch", false)) {
+            getIntent().removeExtra("source_switch");
+            bridgePending = true;
+        }
     }
 
     private void buildScreen() {
@@ -129,12 +155,12 @@ public final class CatalogActivity extends Activity {
         root.setBackgroundColor(BG);
         LinearLayout toolbar = row();
         toolbar.setPadding(dp(8), dp(8), dp(8), dp(8));
-        Button back = button("返回", false);
-        back.setContentDescription("返回上一页");
-        back.setOnClickListener(view -> onBackPressed());
+        Button back = button("我的", false);
+        back.setContentDescription("观看历史与收藏");
+        back.setOnClickListener(view -> showLibraryMenu());
         back.setMinWidth(dp(64));
         toolbar.addView(back, new LinearLayout.LayoutParams(-2, dp(48)));
-        heading = label("公开片库", 22, TEXT);
+        heading = label("同频4K", 22, TEXT);
         heading.setTypeface(Typeface.DEFAULT, Typeface.BOLD);
         heading.setSingleLine(true);
         heading.setEllipsize(TextUtils.TruncateAt.END);
@@ -149,7 +175,7 @@ public final class CatalogActivity extends Activity {
         catalogScreen = column();
         content.addView(catalogScreen, new FrameLayout.LayoutParams(-1, -1));
 
-        Spinner picker = new Spinner(this);
+        Spinner picker = new Spinner(this); providerPicker = picker;
         ArrayList<String> names = new ArrayList<>();
         for (Provider provider : providers) names.add(provider.name);
         picker.setAdapter(pickerAdapter(names));
@@ -165,6 +191,12 @@ public final class CatalogActivity extends Activity {
         LinearLayout.LayoutParams pickerLayout = new LinearLayout.LayoutParams(-1, -2);
         pickerLayout.setMargins(dp(16), 0, dp(16), dp(4));
         catalogScreen.addView(sourceRow, pickerLayout);
+        HorizontalScrollView sources = new HorizontalScrollView(this);
+        sources.setHorizontalScrollBarEnabled(false);
+        sourceChips = row(); sourceChips.setPadding(dp(16), 0, dp(16), dp(4));
+        sources.addView(sourceChips, new HorizontalScrollView.LayoutParams(-2, -2));
+        catalogScreen.addView(sources, new LinearLayout.LayoutParams(-1, -2));
+        renderSourceChips();
         caption = label("", 13, SECONDARY);
         caption.setMaxLines(2);
         caption.setPadding(dp(20), dp(4), dp(20), dp(8));
@@ -200,7 +232,7 @@ public final class CatalogActivity extends Activity {
         search.setImeOptions(EditorInfo.IME_ACTION_SEARCH);
         search.setText(keyword);
         searchRow.addView(search, new LinearLayout.LayoutParams(0, dp(56), 1));
-        Button submit = button("搜索", true);
+        Button submit = button("搜索", true); searchSubmit = submit;
         submit.setMinWidth(dp(72));
         LinearLayout.LayoutParams submitLayout = new LinearLayout.LayoutParams(-2, dp(48));
         submitLayout.setMargins(dp(12), 0, 0, 0);
@@ -250,15 +282,48 @@ public final class CatalogActivity extends Activity {
         catalogScreen.addView(pager);
         setContentView(root);
         PhoneUi.installInsets(this, root);
+        updateSearchSupport();
         picker.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override public void onNothingSelected(AdapterView<?> parent) { }
             @Override public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (providerIndex != position) {
                     providerIndex = position; categoryCatalog = null; categoryId = ""; pendingCategoryId = "";
+                    getSharedPreferences("tongpin_ui", MODE_PRIVATE).edit().putString("home_provider", providers.get(position).id).apply();
+                    renderSourceChips();
+                    updateSearchSupport();
                     renderCategories(); loadPage(1);
                 }
             }
         });
+    }
+
+    private void updateSearchSupport() {
+        boolean enabled = providers.get(providerIndex).supportsSearch;
+        if (!enabled) { keyword = ""; search.setText(""); }
+        search.setEnabled(enabled); searchSubmit.setEnabled(enabled);
+        search.setHint(enabled ? "搜索当前片库" : "此来源不支持搜索，请使用分类浏览");
+    }
+
+    private void renderSourceChips() {
+        if (sourceChips == null) return;
+        sourceChips.removeAllViews();
+        Button all = button("全部片源 · " + providers.size(), false);
+        all.setOnClickListener(v -> {
+            String[] labels = new String[providers.size()];
+            for (int i = 0; i < labels.length; i++) labels[i] = providers.get(i).name;
+            new AlertDialog.Builder(this).setTitle("选择首页片源").setSingleChoiceItems(labels, providerIndex, (dialog, index) -> {
+                dialog.dismiss(); providerPicker.setSelection(index);
+            }).setNegativeButton("关闭", null).show();
+        });
+        sourceChips.addView(all, new LinearLayout.LayoutParams(-2, dp(44)));
+        for (int i = 0; i < providers.size(); i++) {
+            final int index = i;
+            Button chip = button(providers.get(i).name, i == providerIndex);
+            chip.setContentDescription(providers.get(i).name + (i == providerIndex ? "，当前片源" : "，切换此片源"));
+            chip.setOnClickListener(v -> providerPicker.setSelection(index));
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(-2, dp(44)); params.leftMargin = dp(8);
+            sourceChips.addView(chip, params);
+        }
     }
 
     private void renderCategories() {
@@ -279,6 +344,9 @@ public final class CatalogActivity extends Activity {
     }
 
     private void submitSearch() {
+        if (!providers.get(providerIndex).supportsSearch) {
+            Toast.makeText(this, "此来源不支持搜索，请使用分类浏览", Toast.LENGTH_SHORT).show(); return;
+        }
         keyword = search.getText().toString().trim();
         InputMethodManager keyboard = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
         if (keyboard != null) keyboard.hideSoftInputFromWindow(search.getWindowToken(), 0);
@@ -299,7 +367,7 @@ public final class CatalogActivity extends Activity {
         adapter.notifyDataSetChanged();
         Provider provider = providers.get(providerIndex);
         final CatalogCategories.Selection category = categoryCatalog == null ? null : categoryCatalog.select(categoryId);
-        caption.setText("peertube".equals(provider.kind)
+        caption.setText(!provider.supportsSearch ? "此来源仅支持分类浏览 · 可使用分类和翻页选择影片" : CatalogApi.liveProvider(provider) ? "直播频道 · 不保存播放进度 · 清晰度以实际画面为准" : "peertube".equals(provider.kind)
             ? "Blender 开放电影 · 部分影片提供 4K 版本"
             : "电影与剧集 · 播放时显示实际分辨率");
         status.setText("正在载入 " + provider.name + "…");
@@ -310,7 +378,7 @@ public final class CatalogActivity extends Activity {
         pageRequest = requests.submit(() -> {
             try {
                 Page result = CatalogApi.fetchPage(provider, query, requestedPage, category);
-                if ("maccms".equals(provider.kind) && (result.categories == null || result.categories.isEmpty())) {
+                if (CatalogApi.hasCategories(provider) && (result.categories == null || result.categories.isEmpty())) {
                     try { result = CatalogApi.withCategories(result, CatalogApi.fetchCategories(provider), category); }
                     catch (Exception unavailableCategory) { /* Catalog entries remain explicitly unclassified. */ }
                 }
@@ -402,7 +470,7 @@ public final class CatalogActivity extends Activity {
     private void showDetail(Detail value) {
         detail = value;
         selectedEpisode = null;
-        heading.setText("选集播放");
+        heading.setText(CatalogApi.liveProvider(value.video.provider) ? "直播频道" : "选集播放");
         catalogScreen.setVisibility(View.GONE);
         if (detailScreen != null) content.removeView(detailScreen);
         detailScreen = column();
@@ -424,11 +492,24 @@ public final class CatalogActivity extends Activity {
         title.setMaxLines(2);
         title.setEllipsize(TextUtils.TruncateAt.END);
         words.addView(title);
-        TextView sourceName = label(value.video.provider.name + " · " + value.video.categoryLabel + " · 优先高画质", 14, SECONDARY);
+        TextView sourceName = label(value.video.provider.name + " · " + value.video.categoryLabel
+                + (CatalogApi.liveProvider(value.video.provider) ? " · 不保存播放进度" : " · 优先高画质"), 14, SECONDARY);
         sourceName.setPadding(0, dp(6), 0, 0);
         words.addView(sourceName);
         summary.addView(words, new LinearLayout.LayoutParams(0, -2, 1));
         detailScreen.addView(summary);
+        LinearLayout library = row(); library.setPadding(0, dp(8), 0, dp(4));
+        Button favorite = button(LibraryStore.favorite(this, value.video) ? "已收藏" : "收藏", false);
+        favorite.setOnClickListener(v -> favorite.setText(LibraryStore.toggle(this, value.video) ? "已收藏" : "收藏"));
+        library.addView(favorite, new LinearLayout.LayoutParams(0, dp(48), 1));
+        Button change = button("其他片源", false);
+        change.setOnClickListener(v -> {
+            if (sourcePicker != null) sourcePicker.close();
+            sourcePicker = new PhoneSourcePicker(this, providers, value.video, "", (selected, line, index, matched) -> {
+                showDetail(selected); play(selected, line.episodes.get(index));
+            }); sourcePicker.show();
+        });
+        library.addView(change, new LinearLayout.LayoutParams(0, dp(48), 1)); detailScreen.addView(library);
         if (!value.video.description.isEmpty()) {
             TextView description = label(Html.fromHtml(value.video.description, Html.FROM_HTML_MODE_LEGACY).toString().trim(), 14, SECONDARY);
             description.setMaxLines(2);
@@ -540,6 +621,7 @@ public final class CatalogActivity extends Activity {
                     preparingPlayback = false;
                     if (!alive() || ticket != detailTicket || detail != value) { PlayQueue.delete(this, token); return; }
                     try {
+                        LibraryStore.watched(this, value.video, line.name, episode.name);
                         startActivity(new Intent(this, OpenPlayerActivity.class)
                                 .putExtra("queue_token", token).putExtra("queue_index", index));
                     } catch (RuntimeException unavailable) {
@@ -591,7 +673,7 @@ public final class CatalogActivity extends Activity {
             content.removeView(detailScreen);
             detailScreen = null;
             catalogScreen.setVisibility(View.VISIBLE);
-            heading.setText("公开片库");
+            heading.setText("同频4K");
         } else if (progress != null && progress.getVisibility() == View.VISIBLE && !loading) {
             ++detailTicket;
             if (detailRequest != null) detailRequest.cancel(true);
@@ -612,6 +694,7 @@ public final class CatalogActivity extends Activity {
     }
 
     @Override protected void onDestroy() {
+        if (sourcePicker != null) sourcePicker.close();
         ++pageTicket;
         ++detailTicket;
         main.removeCallbacksAndMessages(null);
@@ -619,6 +702,105 @@ public final class CatalogActivity extends Activity {
         images.shutdownNow();
         posters.evictAll();
         super.onDestroy();
+    }
+
+    @Override protected void onPause() {
+        foreground = false;
+        ++detailTicket;
+        if (detailRequest != null) detailRequest.cancel(true);
+        if (sourcePicker != null) sourcePicker.close();
+        if (!loading && progress != null) progress.setVisibility(View.GONE);
+        super.onPause();
+    }
+
+    @Override protected void onResume() {
+        super.onResume(); foreground = true;
+        if (bridgePending) { bridgePending = false; bridgeSourceSwitch(); }
+    }
+
+    private void showLibraryMenu() {
+        new AlertDialog.Builder(this).setTitle("我的").setItems(new String[]{"观看历史", "我的收藏"}, (dialog, index) -> showLibrary(index == 1))
+                .setNegativeButton("关闭", null).show();
+    }
+
+    private void showLibrary(boolean favorites) {
+        List<Video> records = LibraryStore.list(this, favorites);
+        List<LibraryStore.Entry> history = favorites ? Collections.emptyList() : LibraryStore.history(this);
+        String[] labels = new String[records.size()];
+        for (int i = 0; i < labels.length; i++) labels[i] = records.get(i).title + " · " + records.get(i).provider.name
+                + (!favorites && i < history.size() && !history.get(i).episode.isEmpty() ? "\n继续 " + history.get(i).episode : "");
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this).setTitle(favorites ? "我的收藏" : "观看历史");
+        if (labels.length == 0) dialog.setMessage(favorites ? "收藏影片后会显示在这里" : "播放影片后会显示在这里");
+        else dialog.setItems(labels, (d, index) -> {
+            if (!favorites && index < history.size()) loadHistory(history.get(index));
+            else loadDetail(records.get(index));
+        });
+        dialog.setNeutralButton(favorites ? "原有收藏" : "原有观看记录", (d, w) -> {
+            try { startActivity(new Intent().setClassName(this, "com.shenma.tvlauncher.phone.HistoryCollectActivity").putExtra("type", favorites ? 1 : 2)); }
+            catch (RuntimeException unavailable) { Toast.makeText(this, "原有记录暂时无法打开", Toast.LENGTH_SHORT).show(); }
+        }).setNegativeButton("关闭", null).show();
+    }
+
+    private void loadHistory(LibraryStore.Entry entry) {
+        final int ticket = ++detailTicket;
+        if (detailRequest != null) detailRequest.cancel(true);
+        progress.setVisibility(View.VISIBLE); status.setText("正在读取观看记录…");
+        detailRequest = requests.submit(() -> {
+            try {
+                Detail result = CatalogApi.fetchDetail(entry.video);
+                main.post(() -> {
+                    if (!alive() || ticket != detailTicket) return;
+                    progress.setVisibility(View.GONE);
+                    if (result.lines.isEmpty()) { status.setText("这部影片暂时没有可用线路"); return; }
+                    showDetail(result);
+                    Line match = null;
+                    for (Line line : result.lines) if (line.name.equals(entry.line)) {
+                        if (match != null) return; match = line;
+                    }
+                    if (match == null) return;
+                    ArrayList<String> names = new ArrayList<>(); for (Episode episode : match.episodes) names.add(episode.name);
+                    int index = CrossSourcePolicy.uniqueEpisode(entry.episode, names);
+                    if (index >= 0) play(result, match.episodes.get(index));
+                });
+            } catch (Exception unavailable) {
+                main.post(() -> { if (alive() && ticket == detailTicket) {
+                    progress.setVisibility(View.GONE); status.setText("观看记录暂时无法连接，请重试或切换片源");
+                } });
+            }
+        });
+    }
+
+    private void bridgeSourceSwitch() {
+        if (!foreground || !alive()) return;
+        Intent input = getIntent();
+        Video original = new Video(); original.title = input.getStringExtra("switch_title");
+        original.year = input.getStringExtra("switch_year"); original.categoryLabel = input.getStringExtra("switch_category");
+        original.description = input.getStringExtra("switch_description");
+        sourcePicker = new PhoneSourcePicker(this, providers, original, input.getStringExtra("switch_episode"), (selected, line, index, same) -> {
+            if (preparingPlayback) return;
+            preparingPlayback = true;
+            final int ticket = detailTicket;
+            requests.execute(() -> {
+                String token = null;
+                try {
+                    token = PlayQueue.save(this, selected, line);
+                    final String saved = token;
+                    main.post(() -> {
+                        preparingPlayback = false;
+                        if (!alive() || ticket != detailTicket) { PlayQueue.delete(this, saved); return; }
+                        Intent play = new Intent(this, OpenPlayerActivity.class).putExtra("queue_token", saved)
+                                .putExtra("queue_index", index).putExtra("fixed_speed", input.getFloatExtra("switch_speed", 1f))
+                                .putExtra("start_paused", !input.getBooleanExtra("switch_playing", true));
+                        if (same) play.putExtra("resume_position", Math.max(0L, input.getLongExtra("switch_position", 0L)));
+                        try { startActivity(play); finish(); }
+                        catch (RuntimeException unavailable) { PlayQueue.delete(this, saved); Toast.makeText(this, "暂时无法打开播放器", Toast.LENGTH_SHORT).show(); }
+                    });
+                } catch (Exception unavailable) {
+                    if (token != null) PlayQueue.delete(this, token);
+                    main.post(() -> { preparingPlayback = false; if (alive()) Toast.makeText(this, "换源信息无法保存，请重试", Toast.LENGTH_SHORT).show(); });
+                }
+            });
+        }); sourcePicker.onCancel(this::finish); sourcePicker.showProvider(input.getStringExtra("source_provider"));
     }
 
     private boolean alive() { return !isFinishing() && !isDestroyed(); }
@@ -692,7 +874,9 @@ public final class CatalogActivity extends Activity {
     private void loadPoster(String url, ImageView view, String title) {
         view.setTag(url);
         view.setContentDescription(title + " 封面");
-        view.setImageDrawable(null);
+        android.graphics.drawable.GradientDrawable placeholder = new android.graphics.drawable.GradientDrawable();
+        placeholder.setColor(0xffe4eaf0); placeholder.setCornerRadius(dp(12));
+        view.setImageDrawable(placeholder);
         if (!httpUrl(url)) return;
         Bitmap cached = posters.get(url);
         if (cached != null) { view.setImageBitmap(cached); return; }
@@ -709,7 +893,8 @@ public final class CatalogActivity extends Activity {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inJustDecodeBounds = true;
                 BitmapFactory.decodeByteArray(data, 0, data.length, options);
-                if (options.outWidth <= 0 || options.outHeight <= 0) return;
+                if (options.outWidth <= 0 || options.outHeight <= 0 || options.outWidth > 10000 || options.outHeight > 10000
+                        || (long) options.outWidth * options.outHeight > 8000000L) return;
                 options.inSampleSize = 1;
                 while (options.outWidth / options.inSampleSize > 512 || options.outHeight / options.inSampleSize > 512) options.inSampleSize *= 2;
                 options.inJustDecodeBounds = false;

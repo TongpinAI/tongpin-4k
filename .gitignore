@@ -34,3 +34,6 @@
 !/tongpin-4k/verification/1.3.6/proof-tools/*.class
 !/tongpin-4k/verification/1.3.7/proof-tools/*.class
 !/tongpin-4k/verification/1.3.8/proof-tools/*.class
+
+!/tongpin-4k/verification/1.3.9/proof-tools/*.class
+!/tongpin-4k/verification/1.3.9/proof-tools/**/*.class

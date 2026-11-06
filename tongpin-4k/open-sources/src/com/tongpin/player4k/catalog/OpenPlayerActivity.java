@@ -36,7 +36,11 @@ import com.shuyu.gsyvideoplayer.video.base.GSYBaseVideoPlayer;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Locale;
+import java.util.List;
+import java.util.Collections;
 import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import com.tongpin.player4k.catalog.CatalogApi.Episode;
 import com.tongpin.player4k.catalog.CatalogApi.Stream;
 
@@ -54,7 +58,7 @@ public final class OpenPlayerActivity extends Activity {
     private int selected;
     private StandardGSYVideoPlayer player;
     private OrientationUtils orientation;
-    private TextView actual, error, heading;
+    private TextView actual, error, heading, credits;
     private Button quality, lower;
     private LinearLayout recovery;
     private boolean fullscreen, foreground = true, resumeAfterPause, destroying;
@@ -64,6 +68,12 @@ public final class OpenPlayerActivity extends Activity {
     private int episodeIndex, aspect, playGeneration;
     private float speed = 1f;
     private boolean transitioning, decoderReloadPending;
+    private boolean pauseOnPrepared;
+    private List<CatalogApi.Provider> providers = Collections.emptyList();
+    private PhoneSourcePicker sourcePicker;
+    private final ExecutorService sourceRequests = Executors.newSingleThreadExecutor();
+    private int sourceGeneration;
+    private boolean preparingSource;
 
     @Override protected void onCreate(Bundle state) {
         super.onCreate(state);
@@ -71,7 +81,10 @@ public final class OpenPlayerActivity extends Activity {
         String author = "", licence = "";
         try {
             Intent input = getIntent();
-            queueToken = input.getStringExtra("queue_token");
+            queueToken = state == null ? input.getStringExtra("queue_token") : state.getString("queue_token", input.getStringExtra("queue_token"));
+            speed = input.getFloatExtra("fixed_speed", 1f);
+            if (Float.isNaN(speed) || speed < .5f || speed > 2f) speed = 1f;
+            pauseOnPrepared = state == null ? input.getBooleanExtra("start_paused", false) : state.getBoolean("start_paused", false);
             if (queueToken != null) {
                 queue = PlayQueue.load(this, queueToken);
                 episodeIndex = state == null ? input.getIntExtra("queue_index", 0) : state.getInt("queue_index", 0);
@@ -97,10 +110,21 @@ public final class OpenPlayerActivity extends Activity {
                 aspect = state.getInt("aspect", 0) == 4 ? 4 : 0;
             }
             invalid = validateStreams(urls, labels, widths, heights, selected);
+            if (state == null) position = Math.max(0L, input.getLongExtra("resume_position", -1L));
         } catch (Exception malformed) {
             invalid = queueToken == null ? "播放信息无效，请返回片库重选。" : "播放列表无法读取，请返回片库重新选集。";
         }
         title = title == null || title.trim().isEmpty() ? "视频播放" : title.trim();
+        try (java.io.InputStream config = getAssets().open("tongpin_open_sources.json")) {
+            java.io.ByteArrayOutputStream data = new java.io.ByteArrayOutputStream();
+            byte[] buffer = new byte[8192]; int count;
+            while ((count = config.read(buffer)) != -1) {
+                if (data.size() + count > 1024 * 1024) throw new java.io.IOException("配置过大");
+                data.write(buffer, 0, count);
+            }
+            providers = CatalogApi.parseProviders(new String(data.toByteArray(), java.nio.charset.StandardCharsets.UTF_8));
+        } catch (Exception unavailable) { /* Original playback remains usable when configuration is unavailable. */ }
+        if (queue != null && queue.video != null) LibraryStore.watched(this, queue.video, queue.lineName, queue.episodes.get(episodeIndex).name);
         normalSystemBars();
         LinearLayout screen = new LinearLayout(this);
         screen.setOrientation(LinearLayout.VERTICAL);
@@ -184,10 +208,10 @@ public final class OpenPlayerActivity extends Activity {
         quality.setEllipsize(TextUtils.TruncateAt.END);
         quality.setOnClickListener(view -> chooseQuality());
         controls.addView(quality, new LinearLayout.LayoutParams(0, -2, 1));
-        Button source = button("来源", false);
-        source.setEnabled(validHttpUrl(sourceUrl));
-        source.setContentDescription("在浏览器查看原始来源");
-        source.setOnClickListener(view -> openSource());
+        Button source = button("换源", false);
+        source.setEnabled(!providers.isEmpty());
+        source.setContentDescription("切换片源或当前片源的播放线路");
+        source.setOnClickListener(view -> chooseSource());
         LinearLayout.LayoutParams sourceParams = new LinearLayout.LayoutParams(dp(80), -2);
         sourceParams.leftMargin = dp(8);
         controls.addView(source, sourceParams);
@@ -197,10 +221,11 @@ public final class OpenPlayerActivity extends Activity {
         information.setPadding(dp(16), 0, dp(16), 0);
         information.addView(error);
         information.addView(recovery);
-        if (!credit.isEmpty()) information.addView(text(credit, 14, SECONDARY));
+        credits = text(credit, 14, SECONDARY); credits.setVisibility(credit.isEmpty() ? View.GONE : View.VISIBLE);
+        information.addView(credits);
         body.addView(information, new LinearLayout.LayoutParams(-1, -2));
         quality.setEnabled(invalid == null && hasQualityChoices(urls));
-        if (invalid == null) playAt(selected, state == null ? restoredProgress() : position);
+        if (invalid == null) playAt(selected, state == null && !getIntent().hasExtra("resume_position") ? restoredProgress() : position);
         else {
             quality.setEnabled(false);
             error.setText(invalid);
@@ -222,7 +247,7 @@ public final class OpenPlayerActivity extends Activity {
         if (player == null || destroying || index < 0 || index >= urls.length) return;
         HoldSpeedControls.reset(this);
         SubtitleControls.stateChanged(player, 1);
-        position = Math.max(0L, resumeAt);
+        position = carryPosition(live(), false, resumeAt);
         transitioning = true;
         ++playGeneration;
         updateNavigation();
@@ -284,7 +309,9 @@ public final class OpenPlayerActivity extends Activity {
     private void changeEpisode(int index) {
         if (destroying || transitioning || queue == null || index < 0 || index >= queue.episodes.size()) return;
         saveProgress(false);
+        cancelSourcePicker(); ++sourceGeneration;
         readEpisode(index);
+        if (queue.video != null) LibraryStore.watched(this, queue.video, queue.lineName, queue.episodes.get(episodeIndex).name);
         heading.setText(title);
         quality.setEnabled(hasQualityChoices(urls));
         lower.setVisibility(hasQualityChoices(urls) ? View.VISIBLE : View.GONE);
@@ -292,13 +319,14 @@ public final class OpenPlayerActivity extends Activity {
     }
 
     private long restoredProgress() {
-        if (queue == null) return 0L;
+        if (queue == null || live()) return 0L;
         try { return Math.max(0L, getSharedPreferences("tongpin_progress", MODE_PRIVATE).getLong("p_" + queue.progressKey(episodeIndex), 0L)); }
         catch (RuntimeException malformed) { return 0L; }
     }
 
     private void saveProgress(boolean completed) {
         if (queue == null || player == null) return;
+        if (live()) { position = 0L; return; }
         try {
             GSYBaseVideoPlayer current = player.getCurrentPlayer();
             long actualPosition = current.getCurrentPositionWhenPlaying();
@@ -401,11 +429,11 @@ public final class OpenPlayerActivity extends Activity {
         if (player == null || destroying) return;
         HoldSpeedControls.reset(this);
         String[] items = {hasQualityChoices(urls) ? "切换画质 · " + qualityLabel(selected) : "画质 · 单一播放线路",
-                "倍速 · " + speed + "×", "后退 10 秒", "前进 10 秒",
-                "画面比例 · " + (aspect == 0 ? "原比例" : "填充屏幕"), "自动连播 · " + (autoNext() ? "开" : "关"), "解码 · " + DecoderPolicy.label(this), "字幕"};
+                live() ? "倍速 · 直播实时" : "倍速 · " + speed + "×", "后退 10 秒", "前进 10 秒",
+                "画面比例 · " + (aspect == 0 ? "原比例" : "填充屏幕"), "自动连播 · " + (autoNext() ? "开" : "关"), "解码 · " + DecoderPolicy.label(this), "字幕", "换源 · 全部片源与线路"};
         int[] kinds = {PlayerOptionsSheet.SOURCE, PlayerOptionsSheet.SPEED, PlayerOptionsSheet.SEEK_BACK,
-                PlayerOptionsSheet.SEEK_FORWARD, PlayerOptionsSheet.ASPECT, PlayerOptionsSheet.AUTO_NEXT, PlayerOptionsSheet.DECODER, PlayerOptionsSheet.SUBTITLES};
-        PlayerOptionsSheet.show(this, "播放设置", items, new boolean[]{true, true, true, true, true, true, true, true}, kinds, autoNext(), (dialog, action) -> {
+                PlayerOptionsSheet.SEEK_FORWARD, PlayerOptionsSheet.ASPECT, PlayerOptionsSheet.AUTO_NEXT, PlayerOptionsSheet.DECODER, PlayerOptionsSheet.SUBTITLES, PlayerOptionsSheet.SOURCE};
+        PlayerOptionsSheet.show(this, "播放设置", items, new boolean[]{true, !live(), !live(), !live(), true, true, true, true, !providers.isEmpty()}, kinds, autoNext(), (dialog, action) -> {
             if (action == 0) {
                 if (hasQualityChoices(urls)) chooseQuality();
                 else Toast.makeText(this, "此集仅提供一个播放版本", Toast.LENGTH_SHORT).show();
@@ -414,7 +442,8 @@ public final class OpenPlayerActivity extends Activity {
             else if (action == 4) chooseAspect();
             else if (action == 5) getSharedPreferences("tongpin_ui", MODE_PRIVATE).edit().putBoolean("auto_next", !autoNext()).apply();
             else if (action == 6) DecoderPolicy.choose(this, this::decoderChanged);
-            else SubtitleControls.show(this, player);
+            else if (action == 7) SubtitleControls.show(this, player);
+            else chooseSource();
         });
     }
 
@@ -441,11 +470,12 @@ public final class OpenPlayerActivity extends Activity {
     }
 
     private void applySpeed() {
-        try { player.getCurrentPlayer().setSpeedPlaying(speed, true); }
+        try { player.getCurrentPlayer().setSpeedPlaying(live() ? 1f : speed, true); }
         catch (RuntimeException | LinkageError unavailable) { Toast.makeText(this, "当前线路暂不支持所选倍速", Toast.LENGTH_SHORT).show(); }
     }
 
     private void seekBy(long delta) {
+        if (live()) { Toast.makeText(this, "直播不提供进度跳转", Toast.LENGTH_SHORT).show(); return; }
         if (transitioning || player == null) return;
         try {
             GSYBaseVideoPlayer current = player.getCurrentPlayer();
@@ -546,6 +576,8 @@ public final class OpenPlayerActivity extends Activity {
     }
 
     private void sizeControls(GSYBaseVideoPlayer view) {
+        enableProgress(view, !live());
+        view.setIsTouchWiget(!live()); view.setIsTouchWigetFull(!live());
         View full = view.getFullscreenButton();
         ViewGroup.LayoutParams params = full.getLayoutParams();
         params.width = dp(48); params.height = dp(48); full.setLayoutParams(params);
@@ -582,12 +614,13 @@ public final class OpenPlayerActivity extends Activity {
     }
 
     @Override protected void onPause() {
+        cancelSourcePicker(); ++sourceGeneration;
         HoldSpeedControls.reset(this); SubtitleControls.pause(this);
         foreground = false;
         saveProgress(false);
         if (player != null) {
             int state = player.getCurrentPlayer().getCurrentState();
-            resumeAfterPause = state == 1 || state == 2 || state == 3;
+            resumeAfterPause = !pauseOnPrepared && state != 7 && LegacySourceBridge.wantsPlay(player.getCurrentPlayer());
             player.getCurrentPlayer().onVideoPause();
         }
         keepScreenOn(false);
@@ -608,6 +641,7 @@ public final class OpenPlayerActivity extends Activity {
     }
 
     @Override protected void onDestroy() {
+        cancelSourcePicker(); ++sourceGeneration; sourceRequests.shutdownNow();
         HoldSpeedControls.release(this); SubtitleControls.release(this);
         if (isFinishing()) saveProgress(false);
         destroying = true;
@@ -621,17 +655,20 @@ public final class OpenPlayerActivity extends Activity {
 
     @Override public boolean dispatchTouchEvent(MotionEvent event) {
         if (event == null) return false;
-        if (player != null && foreground && !destroying && HoldSpeedControls.touch(this, event, player, false)) return true;
+        if (player != null && foreground && !destroying && !live() && HoldSpeedControls.touch(this, event, player, false)) return true;
         return super.dispatchTouchEvent(event);
     }
 
     @Override protected void onSaveInstanceState(Bundle state) {
+        cancelSourcePicker(); ++sourceGeneration;
         if (player != null) {
             long current = player.getCurrentPlayer().getCurrentPositionWhenPlaying();
             if (current > 0) position = resumePosition(current, player.getCurrentPlayer().getDuration(), false);
         }
         state.putInt("queue_index", episodeIndex); state.putInt("selected", selected);
-        state.putLong("position", position); state.putFloat("speed", speed); state.putInt("aspect", aspect);
+        state.putLong("position", live() ? 0L : position); state.putFloat("speed", speed); state.putInt("aspect", aspect);
+        state.putString("queue_token", queueToken);
+        state.putBoolean("start_paused", player != null && !LegacySourceBridge.wantsPlay(player.getCurrentPlayer()) || pauseOnPrepared);
         super.onSaveInstanceState(state);
     }
 
@@ -642,6 +679,76 @@ public final class OpenPlayerActivity extends Activity {
         } catch (ActivityNotFoundException | SecurityException unavailable) {
             Toast.makeText(this, "没有可打开来源的应用", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void chooseSource() {
+        if (destroying || !foreground || player == null || transitioning || preparingSource || providers.isEmpty()) return;
+        HoldSpeedControls.reset(this); cancelSourcePicker();
+        CatalogApi.Video original = queue == null ? null : queue.video;
+        if (original == null) {
+            original = new CatalogApi.Video(); original.title = queue == null ? title : queue.title;
+        }
+        String label = queue == null ? "" : queue.episodes.get(episodeIndex).name;
+        sourcePicker = new PhoneSourcePicker(this, providers, original, label, this::switchSource);
+        sourcePicker.show();
+    }
+
+    private void cancelSourcePicker() {
+        if (sourcePicker != null) sourcePicker.close(); sourcePicker = null;
+    }
+
+    private void switchSource(CatalogApi.Detail detail, CatalogApi.Line line, int index, boolean sameEpisode) {
+        if (destroying || !foreground || player == null || transitioning || preparingSource) return;
+        HoldSpeedControls.reset(this);
+        preparingSource = true;
+        final int token = ++sourceGeneration, playback = playGeneration;
+        sourceRequests.execute(() -> {
+            String saved = null;
+            try {
+                saved = PlayQueue.save(this, detail, line);
+                final String nextToken = saved;
+                final PlayQueue nextQueue = PlayQueue.load(this, saved);
+                runOnUiThread(() -> {
+                    preparingSource = false;
+                    if (destroying || !foreground || token != sourceGeneration || playback != playGeneration) {
+                        PlayQueue.delete(this, nextToken); return;
+                    }
+                    final boolean paused = !LegacySourceBridge.wantsPlay(player.getCurrentPlayer());
+                    long currentPosition = player.getCurrentPlayer().getCurrentPositionWhenPlaying();
+                    boolean targetLive = CatalogApi.liveProvider(nextQueue.video == null ? null : nextQueue.video.provider);
+                    long resume = sameEpisode ? carryPosition(live(), targetLive, currentPosition > 0 ? currentPosition : position) : -1L;
+                    saveProgress(false);
+                    String oldToken = queueToken;
+                    queueToken = nextToken; queue = nextQueue;
+                    getIntent().putExtra("queue_token", nextToken).putExtra("queue_index", index);
+                    readEpisode(index); heading.setText(title);
+                    enableProgress(player, !live());
+                    player.setIsTouchWiget(!live()); player.setIsTouchWigetFull(!live());
+                    if (player.getCurrentPlayer() != player) enableProgress(player.getCurrentPlayer(), !live());
+                    player.getCurrentPlayer().setIsTouchWiget(!live()); player.getCurrentPlayer().setIsTouchWigetFull(!live());
+                    String credit = queue.author + (queue.licence.isEmpty() ? "" : (queue.author.isEmpty() ? "" : " · ") + queue.licence);
+                    credits.setText(credit); credits.setVisibility(credit.isEmpty() ? View.GONE : View.VISIBLE);
+                    quality.setEnabled(hasQualityChoices(urls));
+                    lower.setVisibility(hasQualityChoices(urls) ? View.VISIBLE : View.GONE);
+                    pauseOnPrepared = paused;
+                    LibraryStore.watched(this, queue.video, queue.lineName, queue.episodes.get(episodeIndex).name);
+                    playAt(selected, resume >= 0L ? resume : restoredProgress());
+                    if (oldToken != null && !oldToken.equals(nextToken)) PlayQueue.delete(this, oldToken);
+                });
+            } catch (Exception invalid) {
+                if (saved != null) PlayQueue.delete(this, saved);
+                runOnUiThread(() -> { if (!destroying && token == sourceGeneration)
+                    Toast.makeText(this, "换源信息无法保存，当前播放保持不变", Toast.LENGTH_LONG).show(); preparingSource = false; });
+            }
+        });
+    }
+
+    private boolean live() { return queue != null && queue.video != null && CatalogApi.liveProvider(queue.video.provider); }
+    static long carryPosition(boolean sourceLive, boolean targetLive, long position) { return sourceLive || targetLive ? 0L : Math.max(0L, position); }
+    private void enableProgress(View view, boolean enabled) {
+        if (view instanceof android.widget.SeekBar) view.setEnabled(enabled);
+        if (view instanceof ViewGroup) for (int i = 0; i < ((ViewGroup) view).getChildCount(); i++)
+            enableProgress(((ViewGroup) view).getChildAt(i), enabled);
     }
 
     private WindowInsets applyInsets(View view, WindowInsets insets) {
@@ -725,8 +832,9 @@ public final class OpenPlayerActivity extends Activity {
             if (resume != position) { position = resume; player.getCurrentPlayer().seekTo(resume); saveProgress(true); }
             showDimensions();
             player.postDelayed(() -> showDimensions(), 500);
-            if (!foreground) player.getCurrentPlayer().onVideoPause();
-            keepScreenOn(foreground);
+            boolean paused = pauseOnPrepared; pauseOnPrepared = false;
+            if (!foreground || paused) player.getCurrentPlayer().onVideoPause();
+            keepScreenOn(foreground && !paused);
             orientation.setEnable(foreground);
         }); }
         public void d(String url, Object... args) { runOnUiThread(() -> { if (current(url)) failed(); }); }

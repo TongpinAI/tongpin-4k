@@ -19,9 +19,9 @@ SDK = TOOLS / "build-tools-35.0.1"
 JDK = Path(r"D:\PyCharm\PyCharm 2024.3.1.1\jbr\bin")
 SOURCE = UPSTREAM / "output/kanke-4k-latest-noads.apk"
 DECODED = ROOT / "decoded"
-VERSION_NAME = "1.3.8"
-VERSION_CODE = 1380
-PREVIOUS_VERSION = "1.3.7"
+VERSION_NAME = "1.3.9"
+VERSION_CODE = 1390
+PREVIOUS_VERSION = "1.3.8"
 RELEASE_KIND = "code-and-ui"
 VERIFY_ROOT = ROOT / "verification"
 VERIFY = VERIFY_ROOT / VERSION_NAME
@@ -216,7 +216,7 @@ def check_own_code(candidate, integration):
         else:
             assert not classes5_same, "Feature release classes5.dex was not updated"
             if integration.get("provider_asset_changed"):
-                assert VERSION_NAME == "1.3.6" and not asset_same
+                assert VERSION_NAME in {"1.3.6", "1.3.9"} and not asset_same
                 assert hashlib.sha256(new.read("assets/tongpin_open_sources.json")).hexdigest() == integration["provider_asset_sha256"]
             else:
                 assert asset_same, "Public source registry changed in this feature release"
@@ -231,7 +231,7 @@ def check_own_code(candidate, integration):
                    "res/layout/phone_activity_splash.xml", "META-INF/MANIFEST.MF", "META-INF/TONGPIN4.SF", "META-INF/TONGPIN4.RSA"} | extra_allowed
         allowed.add("assets/tongpin_open_sources.json" if RELEASE_KIND == "asset-only" else "classes5.dex")
         if integration.get("provider_asset_changed"):
-            assert VERSION_NAME == "1.3.6" and RELEASE_KIND == "code-and-ui"
+            assert VERSION_NAME in {"1.3.6", "1.3.9"} and RELEASE_KIND == "code-and-ui"
             allowed.add("assets/tongpin_open_sources.json")
         allowed_added = set(integration.get("allowed_added_apk_entries", []))
         allowed_removed = set(integration.get("allowed_removed_apk_entries", []))
@@ -258,22 +258,22 @@ def check_own_code(candidate, integration):
 def check_final_ui_dex(candidate):
     if RELEASE_KIND != "code-and-ui":
         return None
-    assert VERSION_NAME == "1.3.8", "Prepare the version-specific final UI DEX proof reader"
+    assert VERSION_NAME == "1.3.9", "Prepare the version-specific final UI DEX proof reader"
     dex = VERIFY / "final-classes5.dex"
     with zipfile.ZipFile(candidate) as archive:
         dex.write_bytes(archive.read("classes5.dex"))
     proof_classes = VERIFY / "proof-tools"
-    assert (proof_classes / "DisassembleOwn1380.class").is_file()
+    assert (proof_classes / "DisassembleOwn1390.class").is_file()
     cp = os.pathsep.join([str(TOOLS / "apktool_3.0.3.jar"), str(proof_classes)])
-    integration = json.loads((ROOT / "open-sources/integration/1.3.8.json").read_text(encoding="utf-8"))
+    integration = json.loads((ROOT / "open-sources/integration/1.3.9.json").read_text(encoding="utf-8"))
     final_smali = VERIFY / "final-smali"
-    run([JDK / "java.exe", "-cp", cp, "DisassembleOwn1380", dex, final_smali, str(integration["own_class_count"])], evidence="final-disassembly.log")
-    run([sys.executable, ROOT / "open-sources/integration/integrate_1_3_8.py", "--check-final-smali", final_smali], evidence="final-abi.log")
-    run([sys.executable, ROOT / "open-sources/integration/audit_final_ui_api_1380.py", final_smali,
+    run([JDK / "java.exe", "-cp", cp, "DisassembleOwn1390", dex, final_smali, str(integration["own_class_count"])], evidence="final-disassembly.log")
+    run([sys.executable, ROOT / "open-sources/integration/integrate_1_3_9.py", "--check-final-smali", final_smali], evidence="final-abi.log")
+    run([sys.executable, ROOT / "open-sources/integration/audit_final_ui_api_1390.py", final_smali,
          VERIFY / "reviewed-framework-api.json"], evidence="final-framework-api.log")
     abi = json.loads((VERIFY / "final-own-abi-check.json").read_text(encoding="utf-8"))
     api = json.loads((VERIFY / "final-framework-api-review.json").read_text(encoding="utf-8"))
-    run([sys.executable, ROOT / "open-sources/integration/check_timer_dex_1380.py", final_smali], evidence="final-timer.log")
+    run([sys.executable, ROOT / "open-sources/integration/check_timer_dex_1390.py", final_smali], evidence="final-timer.log")
     timer = json.loads((VERIFY / "final-timer-proof.json").read_text(encoding="utf-8"))
     assert abi["passed"] and api["passed"] and timer["passed"]
     return {"passed":True, "classes5_sha256":digest(dex), "own_class_count":integration["own_class_count"],

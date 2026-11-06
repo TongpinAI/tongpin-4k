@@ -26,7 +26,7 @@
 .method private constructor <init>()V
     .locals 0
 
-    .line 690
+    .line 872
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -35,7 +35,7 @@
 .method synthetic constructor <init>(Lcom/tongpin/player4k/catalog/CatalogActivity$1;)V
     .locals 0
 
-    .line 690
+    .line 872
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity$Holder;-><init>()V
 
     return-void

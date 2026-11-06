@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "actual_bridge_state_assertions": 12,
+  "single_phone_launcher": "com.tongpin.player4k.catalog.CatalogActivity",
+  "actual_native_abi_anchor_checks": 6,
+  "detail_and_more_source_hooks": true,
+  "hold_speed_reset_before_snapshot": true,
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/LegacySourceBridge.java": "3ab13f914303a25746cb1b02ec23d42294b1ba7e7fdef78b2b9e2570ac9bfb28",
+    "ui/unified-sources-1.3.9/RootBridgeTest.java": "231018fceaa2b34c529c70dbc1e36d1ddc3a49ba35c231dff3942e78228aa753"
+  },
+  "device_tested": false
+}

@@ -1,0 +1,19 @@
+{
+  "checked_date": "2026-11-06",
+  "api": "https://caiji.maotaizy.cc/api.php/provide/vod/from/mtm3u8/at/xml",
+  "home_original_sha256": "9d9613a0aa9adc28db85d88e53dc50308bd02a15adf2ea9248685f17c9951fb5",
+  "detail_original_sha256": "2c88b6ffdce4b5e66dbe1dc59893f392006134e56b97f2dace048940fcc4dcb2",
+  "detail_sanitized_fields": [
+    "pic",
+    "des",
+    "dl/dd media URLs"
+  ],
+  "class_parent_ids_absent": true,
+  "original_supported_episode_count": 1,
+  "sanitized_supported_episode_count": 1,
+  "empty_segments_preserved": true,
+  "fixtures": {
+    "maotai-detail.sanitized.xml": "dbf6f591cb910a7fecea2a8762be27f41e29a461367c36cc8f06e55bab3de1d0",
+    "maotai-home.xml": "9d9613a0aa9adc28db85d88e53dc50308bd02a15adf2ea9248685f17c9951fb5"
+  }
+}

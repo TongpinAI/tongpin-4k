@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "assertions": {
+    "CrossSourcePolicyTest": 69,
+    "RootBridgeTest": 12
+  },
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/CrossSourcePolicy.java": "f443a406641ec8e8ed8d891642afb7da8a046bb5213faddf40e37158afab195c",
+    "open-sources/src/com/tongpin/player4k/catalog/LegacySourceBridge.java": "3aec6575144571f1cb0cfe555b54df3f2219df48dff3a269d6b162b8062ad686",
+    "open-sources/tests/src/com/tongpin/player4k/catalog/CrossSourcePolicyTest.java": "2a641a1bdeaa7859df0949363b189a88163f8750a593974c644943254c6f3538",
+    "ui/unified-sources-1.3.9/RootBridgeTest.java": "231018fceaa2b34c529c70dbc1e36d1ddc3a49ba35c231dff3942e78228aa753"
+  },
+  "activity_or_media_engine_constructed": false,
+  "scope": "Current pure identity/information and native play-intent policies independently compiled and executed; other Android dependencies supplied only as SDK/stubs/compiled host consumer classes."
+}

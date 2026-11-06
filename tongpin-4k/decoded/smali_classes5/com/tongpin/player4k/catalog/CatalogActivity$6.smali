@@ -44,7 +44,7 @@
         }
     .end annotation
 
-    .line 634
+    .line 816
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$6;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
     invoke-direct {p0, p2, p3, p4}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;ILjava/util/List;)V
@@ -55,36 +55,36 @@
 .method private style(Landroid/view/View;)Landroid/view/View;
     .locals 5
 
-    .line 636
+    .line 818
     check-cast p1, Landroid/widget/TextView;
 
-    .line 637
+    .line 819
     const v0, -0xe8d3be
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 638
+    .line 820
     const/high16 v0, 0x41700000    # 15.0f
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setTextSize(F)V
 
-    .line 639
+    .line 821
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$6;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
     const/16 v1, 0x30
 
-    invoke-static {v0, v1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$1000(Lcom/tongpin/player4k/catalog/CatalogActivity;I)I
+    invoke-static {v0, v1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$1300(Lcom/tongpin/player4k/catalog/CatalogActivity;I)I
 
     move-result v0
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setMinHeight(I)V
 
-    .line 640
+    .line 822
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$6;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
     const/16 v1, 0xc
 
-    invoke-static {v0, v1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$1000(Lcom/tongpin/player4k/catalog/CatalogActivity;I)I
+    invoke-static {v0, v1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$1300(Lcom/tongpin/player4k/catalog/CatalogActivity;I)I
 
     move-result v0
 
@@ -92,35 +92,35 @@
 
     const/16 v3, 0x8
 
-    invoke-static {v2, v3}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$1000(Lcom/tongpin/player4k/catalog/CatalogActivity;I)I
+    invoke-static {v2, v3}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$1300(Lcom/tongpin/player4k/catalog/CatalogActivity;I)I
 
     move-result v2
 
     iget-object v4, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$6;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
-    invoke-static {v4, v1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$1000(Lcom/tongpin/player4k/catalog/CatalogActivity;I)I
+    invoke-static {v4, v1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$1300(Lcom/tongpin/player4k/catalog/CatalogActivity;I)I
 
     move-result v1
 
     iget-object v4, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$6;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
-    invoke-static {v4, v3}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$1000(Lcom/tongpin/player4k/catalog/CatalogActivity;I)I
+    invoke-static {v4, v3}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$1300(Lcom/tongpin/player4k/catalog/CatalogActivity;I)I
 
     move-result v3
 
     invoke-virtual {p1, v0, v2, v1, v3}, Landroid/widget/TextView;->setPadding(IIII)V
 
-    .line 641
+    .line 823
     const/4 v0, 0x2
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setMaxLines(I)V
 
-    .line 642
+    .line 824
     sget-object v0, Landroid/text/TextUtils$TruncateAt;->END:Landroid/text/TextUtils$TruncateAt;
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setEllipsize(Landroid/text/TextUtils$TruncateAt;)V
 
-    .line 643
+    .line 825
     return-object p1
 .end method
 
@@ -129,7 +129,7 @@
 .method public getDropDownView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 0
 
-    .line 646
+    .line 828
     invoke-super {p0, p1, p2, p3}, Landroid/widget/ArrayAdapter;->getDropDownView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object p1
@@ -144,7 +144,7 @@
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 0
 
-    .line 645
+    .line 827
     invoke-super {p0, p1, p2, p3}, Landroid/widget/ArrayAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object p1

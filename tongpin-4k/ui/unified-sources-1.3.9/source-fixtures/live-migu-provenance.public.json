@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "checked_at_utc": "2026-11-06T10:29:54.193276+00:00",
+  "feed_url": "https://g.blfrp.cn/https://raw.githubusercontent.com/cyh92/live/refs/heads/main/source/migu.m3u",
+  "feed_sha256": "addf418a17d7d1899b2f56aed13210716285a8406f1f7306b6f2a460cb552b50",
+  "kind": "m3u-live",
+  "sample_channel": "CCTV1综合",
+  "sample_host": "play.kankanlive.com",
+  "master_http_status": 200,
+  "media_http_status": 200,
+  "segment_http_status": 200,
+  "mpeg_ts_header": true,
+  "prefix_bytes": 4096,
+  "auth_or_cookie_used": false,
+  "key_downloaded": false,
+  "decoded_or_device_tested": false,
+  "fixture_replaced_fields": [
+    "logos",
+    "stream URLs"
+  ],
+  "fixture_sha256": "0c5c94263dff175c22cb9446aa61e464bd7bd65283b216811af6046d65dc2d52"
+}

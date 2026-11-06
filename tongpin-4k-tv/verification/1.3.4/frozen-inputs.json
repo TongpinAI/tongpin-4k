@@ -1,0 +1,68 @@
+{
+  "source_ready": true,
+  "final_promotion_authorized": true,
+  "input_sha256": {
+    "src/com/tongpin/player4k/tv/CatalogApi.java": "33410bf75cae6a3d903c85e6e3e9deda2adad6f2cfb6ec2f55fa5c2ce6c39f04",
+    "src/com/tongpin/player4k/tv/CatalogCategories.java": "94ad50088414706688648027634e6acd76fc52214bac47dcf29d1d2e9e86ae8a",
+    "src/com/tongpin/player4k/tv/CrossSourcePolicy.java": "10f4440f3970a3f3bd233548496ea98680dfbd0ed8eb8d7018d3df1e96108bc3",
+    "src/com/tongpin/player4k/tv/EpisodeSummary.java": "71b18f30cd7befa81d46219829ad53c864f2fe3a2d4a5bc9b44fc312460e2b1d",
+    "src/com/tongpin/player4k/tv/M3uCatalog.java": "82ef4af6c0046df839aca596ede569b4ba9585b6b1aeb7a1d3851bf784eed281",
+    "src/com/tongpin/player4k/tv/MacCmsXml.java": "74ccc2ea09021a677a39e11e38017ebfa31a79a35cfda90793da425e364d41be",
+    "src/com/tongpin/player4k/tv/SubtitlePolicy.java": "b19103dd785a337b2179f5cd9175fd2c0a808a545706993f8e17203f683ed5bf",
+    "src/com/tongpin/player4k/tv/TvBoxJson.java": "5299156e9e08c5a1633a7fd4666682d2a801c1435e35cc1a663303f5e811817a",
+    "src/com/tongpin/player4k/tv/TvHoldSpeedState.java": "b59ae62ea967af00a290037506db099af17992c61b1c87bafc2c62a687734422",
+    "src/com/tongpin/player4k/tv/TvHomeActivity.java": "94d883698aa6e5427c4b75b396d6d771b2103e7c0d113d3ae0e507e8b39cb30d",
+    "src/com/tongpin/player4k/tv/TvLibraryStore.java": "a72e6295c542703f45321ba3d2b296392f19f3632727a64fd26a68dbb8a9b385",
+    "src/com/tongpin/player4k/tv/TvPlaybackEngine.java": "ada8455654a5f5018f3f5e51b9ba8931552e4a2c0cdb713ca9a449680ca564f9",
+    "src/com/tongpin/player4k/tv/TvPlayerActivity.java": "e7e6f59b5fed32d7547e4fc72b8eea4a3842516d2908b1d66061516780900faa",
+    "src/com/tongpin/player4k/tv/TvPlayQueue.java": "a1d630ec5f52f53b725fc0e251871c7fc2de7934d8bca9ba0355dccab1ae35d7",
+    "src/com/tongpin/player4k/tv/TvSeekState.java": "9fe01ce88f12e525cca5a6f8be29bc0e3873f1005daefbdd9cfad7248ddc11b4",
+    "src/com/tongpin/player4k/tv/TvSourcePicker.java": "ddd12050595300d4739e507b8705515b16bf98af55c23553f20e0ddf11c4f79a",
+    "src/com/tongpin/player4k/tv/TvSourceState.java": "355c7a23f34b1986e5427bbc9c64efbd664072a807f04035bcb89adb4f14549a",
+    "src/com/tongpin/player4k/tv/TvUi.java": "3715754d451e64df7b104960f50d446530b1eb6ad141a7b92f932edbf1aac0b5",
+    "res/drawable/tv_focus_background.xml": "bdc9f279ec4327488c22299f5adec74728e29b50bafb6f17b699ab4933710bd8",
+    "res/drawable/tv_focus_dark.xml": "bea33e58add31e7b9659bfb93ef0cc83662162658fd4912d47560937d056db4d",
+    "res/drawable/tv_grid_selector.xml": "5844d7c168efcc46bdef5efd42c9087eed43f88fb8d0dbdbb4842d75691bce7d",
+    "res/drawable/tv_search_background.xml": "76d1fa0b330781d5cf15d1a170668d53cc715f29a4d564e61837e92588c8bab6",
+    "res/drawable-nodpi/tp_banner.png": "5321ee7198ed556943833b2601fdbdf06c721ed8e215ded75554246769413e88",
+    "res/drawable-nodpi/tp_icon.png": "5dd31702b54c9c1a064ae8201e59491e9d9d14a70bb9eaa1a4083e7b8b73e946",
+    "res/values/colors.xml": "1efd0e4e0470cfc22467895ccc12d776a8adb61003a2ab43c550f8e62468c0c0",
+    "res/values/strings.xml": "974c03385d1fcf3bab9d100f67e770987b3ed42c31edcb87d873dc10201c3f83",
+    "res/values/styles.xml": "6bd2c9f09621d294274d801bdedec58638b8ba945f2f9e1269bc944b63acfd27",
+    "assets/tongpin_open_sources.json": "9793756bfa35672f9c2645cd981dce4e23431be664ebceb71e6f2b05966b3e05",
+    "assets/third_party_licenses/media3_1_10_1.txt": "6d7755b5107932b011843f15b0c76474aaacd5e30887452437dd0dc5e29acbae",
+    "AndroidManifest.xml": "a307d20c806389b3c4e3afe70ece5b0c255237d0c784e6360823d9407a9c011e"
+  },
+  "owner_freeze_reports": {
+    "ui/unified-library-1.3.4/source-freeze.json": "30efd04eed83083e6cbf60c59b97a17e269fac341b7b09c36f80dff0a342d625",
+    "../tongpin-4k/ui/unified-sources-1.3.9/transport-source-freeze.json": "7195f0d8bc1e1abc2cc57e160f86a110820b1daeca71b91178cf309881ea9449"
+  },
+  "review_reports": {
+    "ui/unified-library-1.3.4/verification.json": "2a18b4403512433412895ca318d11f916faecc4b12048637d51edef629931dcd",
+    "ui/unified-library-1.3.4/xml-platform-api.json": "ff959e3cee781d372bc4c08c2b625422e143d5ab892ea79428a59890ef1605bc",
+    "../tongpin-4k/ui/unified-sources-1.3.9/xml/tests/verification.json": "e84c3893638ecace66e0a8ad241cd3d698f39bf7460626cbcfe87b90e8d26b75",
+    "../tongpin-4k/ui/unified-sources-1.3.9/m3u/tests/verification.json": "469a43cf5a91faa02a83a47bba55f6ac1859d6cba0caae8974d9887eaaee98c2",
+    "../tongpin-4k/ui/unified-sources-1.3.9/tvbox-json/tests/verification.json": "1c5d60c58374b22972d1517da77dcadbc1754d113994f59930423bd075307755",
+    "verification/1.3.4/preflight/result.json": "0fbca2ee903b7093a98c2aa81078046eb7293b612207ea36275fceda6337ac73",
+    "../tongpin-4k/ui/unified-sources-1.3.9/independent-production-parser-verification.json": "e4c3a0ccd9444fb27a84afa2f311329cb5b9fd1167240f46cdd69c4fc1b21935"
+  },
+  "independent_reviews": {
+    "ui/unified-library-1.3.4/independent-phone-owner-review.json": "4813383073c3013793c1ab12dbf61cb46fc483d8512b17d17d525615ed345b63",
+    "ui/unified-library-1.3.4/builder-independent-review.json": "d2753f55efdbe25da03a0bfa71bb3b759f2774695c086fd0a82715f2ab8c94c3",
+    "ui/unified-library-1.3.4/transport-independent-review.json": "7c6851a7b91356914d63c055521b16721c0bb7a8f1ff4f0f9024e61f39d1ceb8"
+  },
+  "snapshot_indexes": {
+    "before-snapshot.json": "95c0588c95d1e54556b4115531a8f23e4626646f43b48e5e40f4cfeb63c525c0",
+    "prior-evidence-sha256.json": "8238f44dbfb53f7db58add9d15f9522264302ea9469e65387453c785f2ea3573"
+  },
+  "runtime_lock_sha256": "ac815aa6acc4315422af245f7aabd7a47449e493cbf8806886755c3d44f6684e",
+  "previous_resource_ids_sha256": "700d9b1d79d502ae3d8f67ce3a4b9f0982176229874c2bac7f364182a4cbbeb2",
+  "device_tested": false,
+  "phase": "Signed artifact unchanged; data-only fixture evidence refreshed after build. Original build-start freeze preserved in evidence-refresh/before.",
+  "evidence_only_revision": {
+    "build_start_frozen_inputs_sha256": "1192fc408c200b10721539b0129df767f26d9af88684049275feadbfa3b58f8d",
+    "reason": "Two sanitized fixture download URL fields redacted; NoCode38/app rerun; all production sources and APK unchanged.",
+    "repackaged": false,
+    "production_input_sha256_unchanged": true
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "version": "1.3.9",
+  "sha256": "f78f8a403b879428396fe81c5145c8ae9336827d0597f8273acb0b0014a586a3",
+  "bytes": 77054517,
+  "frozen_inputs_sha256": "6692578c48745815c567bf4563eb050bce5d19c2438b77e7bbf810c8d0a9376c",
+  "all_current_java_sources_match_frozen": true,
+  "provider_count": 28,
+  "provider_asset_sha256": "9793756bfa35672f9c2645cd981dce4e23431be664ebceb71e6f2b05966b3e05",
+  "final_dex_and_abi_proof": {
+    "passed": true,
+    "classes5_sha256": "20a9e63a59945226c5afe88c660e962faa8bcad6550caa2a0054be0dcad6a382",
+    "own_class_count": 231,
+    "abi_invocations": 3183,
+    "reviewed_guarded_api_references": 25,
+    "timer_dex_verified": true,
+    "native_render_verified": false
+  },
+  "signed_package_check": "root-post-build-check.json",
+  "downloads_identical": true,
+  "device_tested": false
+}

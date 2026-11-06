@@ -1,0 +1,258 @@
+{
+  "passed": true,
+  "finalized": true,
+  "checked_date": "2026-11-06",
+  "readable_seed_urls": 96,
+  "all_readable_seed_urls_checked": true,
+  "recursive_resources_checked": 271,
+  "recursive_children_deferred": 0,
+  "recursive_resource_classifications": {
+    "unreachable": 108,
+    "tvbox-sites-config": 99,
+    "binary-image": 1,
+    "html-page": 27,
+    "tvbox-sites-config-malformed": 5,
+    "text-config-address-list": 8,
+    "unsupported-text-or-binary": 8,
+    "tvbox-multi-config": 6,
+    "device-local-service-not-fetched": 1,
+    "m3u-channel-list": 5,
+    "encoded-or-encrypted-text": 3
+  },
+  "direct_endpoint_count": 233,
+  "metadata_probe_status_counts": {
+    "no-compatible-catalog-response": 134,
+    "usable-direct-vod": 52,
+    "metadata-reachable-samples-not-playable": 47
+  },
+  "manifest_usable_endpoint_count": 52,
+  "production_segment_verified_endpoint_count": 48,
+  "registry_total": 28,
+  "preserved_prefix": 11,
+  "new_vod": 15,
+  "new_live": 2,
+  "total_live": 2,
+  "new_provider_ids": [
+    "360zyzz",
+    "dandan",
+    "dazhong",
+    "feifan",
+    "hhzy",
+    "jszy",
+    "longma",
+    "maotai",
+    "maoyan",
+    "public_live",
+    "public_live_clun",
+    "subo",
+    "taopian",
+    "wsyzy",
+    "xigua",
+    "xinlang",
+    "yinghua"
+  ],
+  "browse_only_provider_ids": [
+    "maotai",
+    "wsyzy"
+  ],
+  "implemented_formats": [
+    "MacCMS JSON",
+    "MacCMS RSS XML",
+    "no-code TVBox JSON",
+    "M3U live channel list"
+  ],
+  "static_runtime_inspection": {
+    "references_checked": 256,
+    "http_status_counts": {
+      "502": 7,
+      "200": 180,
+      "404": 45,
+      "403": 4,
+      "gaierror": 12,
+      "401": 3,
+      "URLError": 4,
+      "TimeoutError": 1
+    },
+    "runtime_site_declarations": 9447,
+    "remote_code_executed": false,
+    "decision": "JAR/JS/Python/QuickJS references were read as data only. Unresolved runtime/decryption/gated endpoints are explicitly unsupported, not represented as playable sources."
+  },
+  "static_taopian_merge": {
+    "static_entries": 30,
+    "live_ids_returned": 30,
+    "exact_id_title_year_matches": 29,
+    "same_work_covered": 30,
+    "year_conflict": {
+      "id": "1505258",
+      "title": "神秘博士 第十二季",
+      "static_year": 2020,
+      "live_year": 2019,
+      "matching_other_evidence": [
+        "ID",
+        "title",
+        "type",
+        "area",
+        "full synopsis",
+        "20 episode items"
+      ]
+    },
+    "standalone_fake_pagination_not_added": true
+  },
+  "aliases": {
+    "taopian": [
+      "http://taopianapi.com/cjapi/mc/vod/json",
+      "http://hucongrong.web3v.work/%E9%A3%8E%E6%B0%B4/fxz/lib/apiv5585json.html"
+    ],
+    "bfzy": [
+      "https://app.bfzyapi.com/api.php/provide/vod"
+    ],
+    "hongniu": [
+      "https://www.hongniuzy2.com/api.php/provide/vod/at/josn"
+    ],
+    "hhzy": [],
+    "guangsu": [
+      "http://api.guangsuapi.com/api.php/provide/vod"
+    ],
+    "huya": [
+      "https://www.huyaapi.com/api.php/provide/vod",
+      "https://www.huyaapi.com/api.php/provide/vod/at/json"
+    ],
+    "qiyi": [
+      "https://iqiyizyapi.com/api.php/provide/vod"
+    ],
+    "360zy": [
+      "https://360zy.com/api.php/seaxml/vod"
+    ],
+    "ikun": [
+      "https://ikunzyapi.com/api.php/provide/vod/from/ikm3u8/at/json"
+    ],
+    "mdzy": [
+      "https://caiji.moduapi.cc/api.php/provide/vod",
+      "https://www.moduzy.com/api.php/provide/vod"
+    ],
+    "maotai": [
+      "https://caiji.maotaizy.cc/api.php/provide/vod/from/mtm3u8/at/xml"
+    ],
+    "jszy": [
+      "https://jszyapi.com/api.php/provide/vod/at/json",
+      "https://jszyapi.com/api.php/provide/vod/from/jsm3u8"
+    ],
+    "jinying": [
+      "https://jinyingzy.com/api.php/provide/vod",
+      "https://jyzyapi.com/provide/vod",
+      "https://jyzyapi.com/provide/vod/at/xml"
+    ],
+    "wsyzy": [],
+    "xinlang": [
+      "http://api.xinlangapi.com/xinlangapi.php/provide/vod"
+    ],
+    "yinghua": [
+      "https://m3u8.apiyhzy.com/api.php/provide/vod"
+    ],
+    "subo": [
+      "https://subocaiji.com/api.php/provide/vod"
+    ],
+    "longma": [],
+    "dazhong": [
+      "https://cdn.dzzyapi.com/api.php/provide/vod"
+    ],
+    "dandan": [
+      "https://www.lovedan.net/api.php/provide/vod"
+    ],
+    "feifan": [
+      "http://api.ffzyapi.com/api.php/provide/vod",
+      "http://cj.ffzyapi.com//api.php/provide/vod"
+    ],
+    "360zyzz": [],
+    "maoyan": [],
+    "xigua": [],
+    "public_live": [
+      "https://raw.githubusercontent.com/cyh92/live/refs/heads/main/source/migu.m3u"
+    ],
+    "public_live_clun": []
+  },
+  "verified_alias_samples": [
+    {
+      "a": "https://360zy.com/api.php/provide/vod",
+      "b": "https://360zyzz.com/api.php/provide/vod",
+      "passed": false,
+      "sample_count": 3
+    },
+    {
+      "a": "https://www.mdzyapi.com/api.php/provide/vod",
+      "b": "https://caiji.moduapi.cc/api.php/provide/vod",
+      "passed": true,
+      "sample_count": 3
+    },
+    {
+      "a": "https://caiji.maotaizy.cc/api.php/provide/vod/from/mtm3u8/at/xml",
+      "b": "https://caiji.maotaizy.cc/api.php/provide/vod",
+      "passed": true,
+      "sample_count": 3
+    },
+    {
+      "a": "https://subocaiji.com/api.php/provide/vod",
+      "b": "https://subocj.com/api.php/provide/vod",
+      "passed": true,
+      "sample_count": 3
+    },
+    {
+      "a": "https://jyzyapi.com/provide/vod/from/jinyingm3u8/at/json",
+      "b": "https://jyzyapi.com/provide/vod",
+      "passed": true,
+      "sample_count": 3
+    }
+  ],
+  "distinct_catalog_note": "360zy and360zyzz have colliding numeric IDs with different actual titles/URLs; retained separate. Host similarity alone never establishes equivalence.",
+  "unaccepted_deep_probes": [
+    {
+      "api": "http://cmsyun2.qijiyun.vip/api.php/provide/vod",
+      "reason": "segment/key/header probe failed"
+    },
+    {
+      "api": "http://zhangqun1818.serv00.net/zh/2242.php",
+      "reason": "segment/key/header probe failed"
+    },
+    {
+      "api": "https://caiji.maotaizy.cc/api.php/provide/vod/from/mtm3u8/at/json",
+      "reason": "segment/key/header probe failed"
+    },
+    {
+      "api": "https://caiji.xgzyapi.com/api.php/provide/vod/from/xiguam3u8",
+      "reason": "production-UA detail failed or identity mismatch"
+    }
+  ],
+  "not_integrated_status_meanings": {
+    "unreachable": "Failed during this bounded check; not a permanent-dead claim.",
+    "metadata-reachable-samples-not-playable": "Metadata worked, bounded sample did not establish public playable media; not every item proved dead.",
+    "no-compatible-catalog-response": "No compatible public data response from tested paths; may be HTML, runtime-only, denied, encrypted, or unavailable.",
+    "device-local-service-not-fetched": "127.0.0.1 refers to device service, not a public Internet film library.",
+    "encoded-or-encrypted-text": "No public decoded direct catalog extracted without executing remote code or bypassing access."
+  },
+  "live_feed_decisions": [
+    {
+      "feed": "Migu via GitHub/proxy",
+      "decision": "Integrated one provider; raw and proxy feeds byte-identical."
+    },
+    {
+      "feed": "https://clun.top/lib/iptv.m3u",
+      "decision": "Integrated separate live provider after strict known LR terminal display annotation normalization;8distinct-host samples,4segment passes; decoded examples1080p."
+    },
+    {
+      "feed": "https://develop202.github.io/migu_video/interface.txt",
+      "decision": "No public channel media entries; device-local/runtime interface."
+    },
+    {
+      "feed": "https://epg.pw/test_channels.m3u",
+      "decision": "Metadata fetched; bounded public-host samples timed out, no accepted segment proof. Not declared permanently dead."
+    }
+  ],
+  "boundaries": [
+    "One obscured screenshot URL remains unreadable and was not invented.",
+    "No source count equals unique films or a complete library.",
+    "No accepted sample proved4K; labels4K/8K are not resolution evidence.",
+    "No watermark status inferred from source names.",
+    "No login/paywall bypass, no remote code execution, no LAN probes."
+  ],
+  "primary_format_reference": "https://github.com/FongMi/TV"
+}

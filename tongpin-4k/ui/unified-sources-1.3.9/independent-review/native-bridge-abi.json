@@ -1,0 +1,95 @@
+{
+  "passed": true,
+  "actual_smali_classes": {
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/VideoDetailPlayActivity.smali": {
+      "sha256": "00ac1c43dc76a4d539d9985ab05abdd897b7ebc5e19b01c07f12c31d582ae9ff",
+      "methods": [
+        ".method private static final x2(Lcom/shenma/tvlauncher/phone/VideoDetailPlayActivity;Lcom/shenma/tvlauncher/entity/PlayerSource;I)Lm7/f0;"
+      ],
+      "fields": [
+        ".field private e:Lcom/shenma/tvlauncher/vod/domain/VideoDetailInfo;",
+        ".field private final f:Ljava/util/List;",
+        ".field private g:I",
+        ".field private h:I",
+        ".field private i:F"
+      ]
+    },
+    "decoded/smali_classes5/com/shenma/tvlauncher/vod/domain/VideoDetailInfo.smali": {
+      "sha256": "670ebd38f2067a3b01e8af05306bcb39405ed24b1c0a72fe87684cbc548e5c6d",
+      "methods": [
+        ".method public getTitle()Ljava/lang/String;",
+        ".method public getPubtime()Ljava/lang/String;",
+        ".method public getType()[Ljava/lang/String;",
+        ".method public getIntro()Ljava/lang/String;"
+      ],
+      "fields": []
+    },
+    "decoded/smali_classes5/com/shenma/tvlauncher/entity/PlayerSource.smali": {
+      "sha256": "bb9e2b48bf842cef81e8ab88cbf325fa9db5bd7357f89010d48851a9f37800f7",
+      "methods": [
+        ".method public final getList()Ljava/util/List;",
+        ".method public final getShow()Ljava/lang/String;"
+      ],
+      "fields": []
+    },
+    "decoded/smali_classes5/com/shenma/tvlauncher/vod/domain/VodUrl.smali": {
+      "sha256": "d04af1441d945fa5fdd70a1caa661064e33b470a6f8df7c66dfe4a1abc25c377",
+      "methods": [
+        ".method public getTitle()Ljava/lang/String;"
+      ],
+      "fields": []
+    },
+    "decoded/smali_classes5/com/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer.smali": {
+      "sha256": "751cf22a1bc89ebfa2be9162f0543f59089f081063884a571bdbcbf29809deaa",
+      "methods": [
+        ".method public getCurrentPlayer()Lcom/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer;"
+      ],
+      "fields": []
+    },
+    "decoded/smali_classes5/com/shuyu/gsyvideoplayer/video/base/GSYVideoView.smali": {
+      "sha256": "b53a6775af840e4feb215cf082ff44dc33f104ae3dc8b737e91b5ad64b02175b",
+      "methods": [
+        ".method public getCurrentPositionWhenPlaying()J",
+        ".method public getSpeed()F",
+        ".method public abstract getGSYVideoManager()Lcom/shuyu/gsyvideoplayer/video/base/GSYVideoViewBridge;",
+        ".method public getCurrentState()I"
+      ],
+      "fields": [
+        ".field protected mBackUpPlayingBufferState:I"
+      ]
+    },
+    "decoded/smali_classes5/com/shuyu/gsyvideoplayer/video/base/GSYVideoViewBridge.smali": {
+      "sha256": "c3dc4667e4a93d6cf785e031bae35df5b1584927c7f1036ef6296e999a94eafb",
+      "methods": [
+        ".method public abstract isPlaying()Z"
+      ],
+      "fields": []
+    },
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/HistoryCollectActivity.smali": {
+      "sha256": "8acc33a2df33208c508b0b354e7f13a68b60776eddc5ce05c4c81f766f2780ab",
+      "methods": [
+        ".method public initView(Landroid/os/Bundle;)V"
+      ],
+      "fields": [],
+      "intent_type_mapping_method_sha256": "4d9ce2a59b1af4759cf401b2eac678789476c4ed45b14b50c672042d97be7430",
+      "modified_W_preimage_sha256": "8ded6f18b4c7a9bea7cfc0837a75cd51f3a53e8b2f395bd9976f660e085dce94",
+      "new_W_only_calls_public_record_bridge": true
+    },
+    "decoded/smali_classes5/com/shenma/tvlauncher/vod/db/Album.smali": {
+      "sha256": "f4aeba0f38b6fce78ce0819564e5f784821a6be45214056d366b777d8ad7e22a",
+      "methods": [
+        ".method public getAlbumTitle()Ljava/lang/String;"
+      ],
+      "fields": []
+    }
+  },
+  "ids": {
+    "i_video_view": "0x7f0a036e",
+    "ll_source": "0x7f0a06b5"
+  },
+  "history_intent_type": {
+    "1": "收藏",
+    "2": "观看历史"
+  },
+  "application_classes_executed": false
+}

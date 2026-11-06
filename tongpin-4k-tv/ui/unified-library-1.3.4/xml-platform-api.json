@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "class_min_api": {
+    "javax/xml/parsers/SAXParserFactory": 1,
+    "org/xml/sax/Attributes": 1,
+    "org/xml/sax/InputSource": 1,
+    "org/xml/sax/SAXException": 1,
+    "org/xml/sax/XMLReader": 1,
+    "org/xml/sax/helpers/DefaultHandler": 1
+  },
+  "prefix_whitelist_expanded": false,
+  "reason": "Existing builder explicitly accepts classes present in official SDK API database; no SAX prefix exception needed.",
+  "device_tested": false
+}

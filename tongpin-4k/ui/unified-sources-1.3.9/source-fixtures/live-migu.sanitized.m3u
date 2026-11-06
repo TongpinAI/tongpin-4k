@@ -1,0 +1,5 @@
+#EXTM3U
+#EXTINF:-1 tvg-id="CCTV1综合" tvg-name="CCTV1综合" tvg-logo="https://poster.example.invalid/live.png" group-title="央视频道",CCTV1综合
+https://media.example.invalid/live-1.m3u8
+#EXTINF:-1 tvg-id="CCTV1综合" tvg-name="CCTV1综合" tvg-logo="https://poster.example.invalid/live.png" group-title="央视频道",CCTV1综合
+https://media.example.invalid/live-2.m3u8

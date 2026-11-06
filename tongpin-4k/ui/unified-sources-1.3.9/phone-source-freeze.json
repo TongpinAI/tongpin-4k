@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "scope": "Phone unified home, actual cross-provider source/episode selection and bounded local library; no manifest/build/provider changes owned here",
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogActivity.java": "660e1b17e600f2b81b5531dd530b2b96fcc033cac8316f2fe9a29a85c2fbe1bb",
+    "open-sources/src/com/tongpin/player4k/catalog/OpenPlayerActivity.java": "84e38efdec8723b890a7f3e73ffc658d4c1592d90391a54b772b77fd7a7cbb08",
+    "open-sources/src/com/tongpin/player4k/catalog/PlayQueue.java": "e9f9ae222fa5cd6f7e561e9c4493d2431f4b9f4b8b476fcfb9c303558c863357",
+    "open-sources/src/com/tongpin/player4k/catalog/CrossSourcePolicy.java": "f443a406641ec8e8ed8d891642afb7da8a046bb5213faddf40e37158afab195c",
+    "open-sources/src/com/tongpin/player4k/catalog/PhoneSourcePicker.java": "38a7785c449987acaf869d52a4d67e600c9e769f3ea30e2e9cdcf13bad05f3a8",
+    "open-sources/src/com/tongpin/player4k/catalog/LibraryStore.java": "dbffd5a32ea9b91fdfd11604b021a3eba9089e7055ed906790ba1f2bb6d779ee",
+    "open-sources/tests/run_unified_source_tests.py": "bc7921e048d21b9d6d9ad14897d511192fa920e8dec5ae18bc8073b58f7db96f",
+    "open-sources/tests/src/com/tongpin/player4k/catalog/CrossSourcePolicyTest.java": "bc8e2492d95ebea76ffba366a9faf4eb052c5f83b13c80b37086cdf6bcb54630",
+    "ui/unified-sources-1.3.9/PHONE_HOME_AND_SOURCE_SWITCH.md": "24f76af6f1a32399853413f406648dde3a9e1e9399c011165fb816cf18d23d7e",
+    "ui/unified-sources-1.3.9/FORMATS.md": "87fac97ffa3b3808f3f5a165b48e86e3cbe7941e74b89663018ce7f3160cd028"
+  },
+  "tests": "ui/unified-sources-1.3.9/tests/verification.json",
+  "device_tested": false,
+  "tests_assertions": 454
+}

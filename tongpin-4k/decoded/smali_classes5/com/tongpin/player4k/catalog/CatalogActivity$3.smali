@@ -33,7 +33,7 @@
         }
     .end annotation
 
-    .line 253
+    .line 286
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$3;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -55,7 +55,7 @@
         }
     .end annotation
 
-    .line 256
+    .line 289
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$3;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
     invoke-static {p1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$700(Lcom/tongpin/player4k/catalog/CatalogActivity;)I
@@ -64,7 +64,7 @@
 
     if-eq p1, p3, :cond_0
 
-    .line 257
+    .line 290
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$3;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
     invoke-static {p1, p3}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$702(Lcom/tongpin/player4k/catalog/CatalogActivity;I)I
@@ -85,10 +85,57 @@
 
     invoke-static {p1, p2}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$402(Lcom/tongpin/player4k/catalog/CatalogActivity;Ljava/lang/String;)Ljava/lang/String;
 
-    .line 258
+    .line 291
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$3;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
-    invoke-static {p1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$900(Lcom/tongpin/player4k/catalog/CatalogActivity;)V
+    const-string p2, "tongpin_ui"
+
+    const/4 p4, 0x0
+
+    invoke-virtual {p1, p2, p4}, Lcom/tongpin/player4k/catalog/CatalogActivity;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+
+    move-result-object p1
+
+    invoke-interface {p1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+
+    move-result-object p1
+
+    iget-object p2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$3;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
+
+    invoke-static {p2}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$900(Lcom/tongpin/player4k/catalog/CatalogActivity;)Ljava/util/List;
+
+    move-result-object p2
+
+    invoke-interface {p2, p3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object p2
+
+    check-cast p2, Lcom/tongpin/player4k/catalog/CatalogApi$Provider;
+
+    iget-object p2, p2, Lcom/tongpin/player4k/catalog/CatalogApi$Provider;->id:Ljava/lang/String;
+
+    const-string p3, "home_provider"
+
+    invoke-interface {p1, p3, p2}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+
+    move-result-object p1
+
+    invoke-interface {p1}, Landroid/content/SharedPreferences$Editor;->apply()V
+
+    .line 292
+    iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$3;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
+
+    invoke-static {p1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$1000(Lcom/tongpin/player4k/catalog/CatalogActivity;)V
+
+    .line 293
+    iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$3;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
+
+    invoke-static {p1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$1100(Lcom/tongpin/player4k/catalog/CatalogActivity;)V
+
+    .line 294
+    iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$3;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
+
+    invoke-static {p1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$1200(Lcom/tongpin/player4k/catalog/CatalogActivity;)V
 
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$3;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
@@ -96,7 +143,7 @@
 
     invoke-static {p1, p2}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$500(Lcom/tongpin/player4k/catalog/CatalogActivity;I)V
 
-    .line 260
+    .line 296
     :cond_0
     return-void
 .end method
@@ -111,6 +158,6 @@
         }
     .end annotation
 
-    .line 254
+    .line 287
     return-void
 .end method

@@ -1,0 +1,43 @@
+{
+  "passed": true,
+  "verdict": "clear after independent source/lifecycle/history/identity review and observed fixes",
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogActivity.java": "660e1b17e600f2b81b5531dd530b2b96fcc033cac8316f2fe9a29a85c2fbe1bb",
+    "open-sources/src/com/tongpin/player4k/catalog/OpenPlayerActivity.java": "84e38efdec8723b890a7f3e73ffc658d4c1592d90391a54b772b77fd7a7cbb08",
+    "open-sources/src/com/tongpin/player4k/catalog/PlayQueue.java": "e9f9ae222fa5cd6f7e561e9c4493d2431f4b9f4b8b476fcfb9c303558c863357",
+    "open-sources/src/com/tongpin/player4k/catalog/CrossSourcePolicy.java": "f443a406641ec8e8ed8d891642afb7da8a046bb5213faddf40e37158afab195c",
+    "open-sources/src/com/tongpin/player4k/catalog/PhoneSourcePicker.java": "38a7785c449987acaf869d52a4d67e600c9e769f3ea30e2e9cdcf13bad05f3a8",
+    "open-sources/src/com/tongpin/player4k/catalog/LibraryStore.java": "dbffd5a32ea9b91fdfd11604b021a3eba9089e7055ed906790ba1f2bb6d779ee"
+  },
+  "owner_freeze_sha256": "114420b17e55ceaaa32b55b29afaf316e42378030bb9357da81d69a7afcd9e23",
+  "owner_tests_sha256": "e682e7f828101a6b262b0fa13d559304a7c23bc633786ec488fed1dc907e05a1",
+  "host_assertions": 454,
+  "fresh_d8_compile_report_sha256": "ff7d626c50ecb0ba3beb40ccec29554119140b298e6357d95568b2ebede3bbf3",
+  "own_java_sources_compiled": 28,
+  "fresh_own_classes": 231,
+  "checks": [
+    "One unified home exposes registry providers and actual source categories; changed source resets category identity",
+    "Local library is60records/192KiB; source/API/item identity preserved, legacy DB never rewritten",
+    "Only strict work identity plus unique canonical episode enables current progress transfer; duplicates/gaps/seasons/extras/filler handled conservatively",
+    "Explicit actual work/line/episode selection replaces ordinal assumptions; live channels remain declared live",
+    "Source request generations and playback epochs invalidate pause/destroy/episode changes; saved queue token guards pending source changes",
+    "New queue fully saved/validated before commit; stale queue tokens deleted; old token deleted after successful replacement",
+    "Current position/fixed speed/play-intent sampled at commit; real paused-buffer/error policy reused from native bridge",
+    "Live noVODseek/hold/position carry/restore/save; effective1x with stored VOD speed retained",
+    "Foreground bridge starts only from onResume; original cold-start history record W now routes to actual source chooser without native bootstrap",
+    "Subtitle/seek/3secondresolution/decoder/fullscreen callbacks retained under existing generation guards",
+    "supportsSearch=false clears/disables home keyword, player browses actual categories/pages with no unsupported query/search button and no live mislabel; known-ID detail route retained"
+  ],
+  "findings_resolved": [
+    "Deferred bridge foreground race",
+    "Save-state source-generation race",
+    "Low-information synopsis collision",
+    "Native temporary hold snapshot and buffered pause intent",
+    "Legacy history cold-start bootstrap dependency",
+    "Truthful browse-only capability routing for non-searchable VOD providers"
+  ],
+  "device_tested": false,
+  "android_activity_or_media_engine_constructed": false,
+  "live_network_tested_by_reviewer": false,
+  "fresh_stage": "open-sources/staging-1.3.9-r3"
+}

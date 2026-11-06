@@ -3,19 +3,27 @@
 .source "D8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
 .field public final synthetic f$0:Lcom/tongpin/player4k/catalog/OpenPlayerActivity;
 
-.field public final synthetic f$1:Z
+.field public final synthetic f$1:Lcom/tongpin/player4k/catalog/CatalogApi$Detail;
 
-.field public final synthetic f$2:Landroid/app/AlertDialog;
+.field public final synthetic f$2:Lcom/tongpin/player4k/catalog/CatalogApi$Line;
+
+.field public final synthetic f$3:I
+
+.field public final synthetic f$4:I
+
+.field public final synthetic f$5:Z
+
+.field public final synthetic f$6:I
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;ZLandroid/app/AlertDialog;)V
+.method public synthetic constructor <init>(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;Lcom/tongpin/player4k/catalog/CatalogApi$Detail;Lcom/tongpin/player4k/catalog/CatalogApi$Line;IIZI)V
     .locals 0
 
     .line 0
@@ -23,26 +31,42 @@
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda0;->f$0:Lcom/tongpin/player4k/catalog/OpenPlayerActivity;
 
-    iput-boolean p2, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda0;->f$1:Z
+    iput-object p2, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda0;->f$1:Lcom/tongpin/player4k/catalog/CatalogApi$Detail;
 
-    iput-object p3, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda0;->f$2:Landroid/app/AlertDialog;
+    iput-object p3, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda0;->f$2:Lcom/tongpin/player4k/catalog/CatalogApi$Line;
+
+    iput p4, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda0;->f$3:I
+
+    iput p5, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda0;->f$4:I
+
+    iput-boolean p6, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda0;->f$5:Z
+
+    iput p7, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda0;->f$6:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onClick(Landroid/view/View;)V
-    .locals 3
+.method public final run()V
+    .locals 7
 
     .line 0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda0;->f$0:Lcom/tongpin/player4k/catalog/OpenPlayerActivity;
 
-    iget-boolean v1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda0;->f$1:Z
+    iget-object v1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda0;->f$1:Lcom/tongpin/player4k/catalog/CatalogApi$Detail;
 
-    iget-object v2, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda0;->f$2:Landroid/app/AlertDialog;
+    iget-object v2, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda0;->f$2:Lcom/tongpin/player4k/catalog/CatalogApi$Line;
 
-    invoke-virtual {v0, v1, v2, p1}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->lambda$chooseEpisodes$2$com-tongpin-player4k-catalog-OpenPlayerActivity(ZLandroid/app/AlertDialog;Landroid/view/View;)V
+    iget v3, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda0;->f$3:I
+
+    iget v4, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda0;->f$4:I
+
+    iget-boolean v5, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda0;->f$5:Z
+
+    iget v6, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda0;->f$6:I
+
+    invoke-virtual/range {v0 .. v6}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->lambda$switchSource$0$com-tongpin-player4k-catalog-OpenPlayerActivity(Lcom/tongpin/player4k/catalog/CatalogApi$Detail;Lcom/tongpin/player4k/catalog/CatalogApi$Line;IIZI)V
 
     return-void
 .end method

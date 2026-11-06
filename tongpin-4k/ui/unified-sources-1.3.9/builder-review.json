@@ -1,0 +1,123 @@
+{
+  "passed": true,
+  "scope": "Seven phone139 build/integration/final-DEX proof programs; three pinned toolchain/class dependencies; native138 baseline fast gate",
+  "source_sha256": {
+    "build_tongpin.py": "f45e5efb5ddc57e94f762a6c6227e455f2b213bfe86782a70130eadb36a73e62",
+    "open-sources/integration/assert_contract.py": "79c199df16cc76ea4f8329e36522322ed81e5cf8c3da70cbecfbcf353a753087",
+    "open-sources/integration/ui_1390_contract.py": "dbc976cdbef0e9a23db53525eda3dbc7340d0dbb33db86896c5027793bec6988",
+    "open-sources/integration/integrate_1_3_9.py": "acb467e1a3c9113e6867328440c7abfbd3e5a6ae0b20b37468d8abad4f888dc7",
+    "open-sources/integration/DisassembleOwn1390.java": "046dd8b6125ad32787268067223e65ab09813e0dc1bf8a6b3612260c993e3115",
+    "open-sources/integration/audit_final_ui_api_1390.py": "4112f93d8052df432816711ca87d0d7a4b89722679c00b5b3ba44bcc23a090b6",
+    "open-sources/integration/check_timer_dex_1390.py": "e28809538b957ee01cfd58802a1a27bde64174a89053c6a138e664ea0fc998ca",
+    "open-sources/toolchain/compile_java_to_smali.py": "b1b855f38294ecb7d392980b917f8fa17eaae77496c3bd1fcd961e557574cc9c",
+    "open-sources/toolchain/check_framework_api.py": "91209f30753abd8ea244655bd98762d4e0590c173dae2e842367d82559a61905",
+    "verification/1.3.9/proof-tools/DisassembleOwn1390.class": "074beacc76186914ec9d5358ca6090b6ae34848b444467cf57c4273649e27b8f"
+  },
+  "reviewed_primary_tooling_count": 7,
+  "pinned_dependencies": 3,
+  "positive_gate": {
+    "passed": true,
+    "scope": "139 unified home/source integration; static release boundary, no native UI/playback acceptance",
+    "files": {
+      "resources": {},
+      "smali": {
+        "decoded/smali_classes5/com/shenma/tvlauncher/phone/HistoryCollectActivity.smali": {
+          "before_path": "ui/unified-sources-1.3.9/root-before/decoded/smali_classes5/com/shenma/tvlauncher/phone/HistoryCollectActivity.smali",
+          "before_sha256": "8ded6f18b4c7a9bea7cfc0837a75cd51f3a53e8b2f395bd9976f660e085dce94",
+          "after_sha256": "8acc33a2df33208c508b0b354e7f13a68b60776eddc5ce05c4c81f766f2780ab",
+          "modified_methods": [
+            "W(Lcom/shenma/tvlauncher/phone/HistoryCollectActivity;Lcom/shenma/tvlauncher/vod/db/Album;I)Lm7/f0;"
+          ],
+          "added_methods": [],
+          "added_fields": [],
+          "required_final_invocations": {
+            "W(Lcom/shenma/tvlauncher/phone/HistoryCollectActivity;Lcom/shenma/tvlauncher/vod/db/Album;I)Lm7/f0;": [
+              "Lcom/tongpin/player4k/catalog/LegacySourceBridge;->openRecord(Landroid/app/Activity;Ljava/lang/Object;)V"
+            ]
+          }
+        }
+      }
+    },
+    "new_resources": {},
+    "unchanged_native_resource_asset_inputs": 12687,
+    "java_source_count": 28,
+    "provider_count": 28,
+    "single_launcher": "com.tongpin.player4k.catalog.CatalogActivity",
+    "previous_release_native_bytes_preserved_except_record_route": true,
+    "checks": {
+      "native_baseline": true,
+      "exact_legacy_record_route": true,
+      "exact_launcher_transfer": true,
+      "sources_and_owners": true,
+      "registry": true
+    },
+    "device_tested": false
+  },
+  "negative_cases": [
+    {
+      "case": "missing_tooling_pin",
+      "rejected": true,
+      "mutation": "in-memory JSON only; no production/report/index file changed"
+    },
+    {
+      "case": "missing_evidence_pin",
+      "rejected": true,
+      "mutation": "in-memory JSON only; no production/report/index file changed"
+    },
+    {
+      "case": "missing_owner_report",
+      "rejected": true,
+      "mutation": "in-memory JSON only; no production/report/index file changed"
+    },
+    {
+      "case": "missing_preimage_index_entry",
+      "rejected": true,
+      "mutation": "in-memory JSON only; no production/report/index file changed"
+    },
+    {
+      "case": "missing_native_baseline_entry",
+      "rejected": true,
+      "mutation": "in-memory JSON only; no production/report/index file changed"
+    },
+    {
+      "case": "missing_prior_evidence_entry",
+      "rejected": true,
+      "mutation": "in-memory JSON only; no production/report/index file changed"
+    },
+    {
+      "case": "missing_canonical_payload_pin",
+      "rejected": true,
+      "mutation": "in-memory JSON only; no production/report/index file changed"
+    }
+  ],
+  "negative_case_count": 7,
+  "one_actual_hash_pass": true,
+  "memoized_file_hash_count": 13042,
+  "extra_hash_reads_for_negative_cases": 0,
+  "reviewed_behaviors": [
+    "Only139 selects new baseline gate; all older version branches remain byte-identical after three-line dispatch removal.",
+    "Native/resource/assets full inventory equals pinned138 baseline except version label, provider asset, and one exactly reversible history route.",
+    "Launcher intent filter moves exactly from SplashActivity to own CatalogActivity; version1390/1.3.9 matches manifest/yaml/resources.",
+    "Own28Java inventory, five modified+seven added classes, exact owner coverage, all required evidence/tooling and37prior138 reports are pinned.",
+    "Freshr3DEX and own-smali hash map are pinned; namespace replacement stays inside catalog path and final APK must match fresh own methods/native call sets.",
+    "Builder preserves other four DEX and42native libraries byte-for-byte, rejects unapproved APK entries/classes and checks16KiB library alignment.",
+    "Final proof reader never loads target app classes; API refs match reviewed SDK guards; timer/seek/decoder and fresh own instructions compared as data.",
+    "Registry retains exact old11prefix,28actual parsed IDs/capabilities and new-format proof evidence; no device UI/render/stream reliability claim."
+  ],
+  "read_only_review_no_package_or_sign": true,
+  "device_tested": false,
+  "elapsed_seconds": 36.828,
+  "canonical_inputs_completion": {
+    "passed": true,
+    "only_three_exact_tooling_deltas": true,
+    "production_source_native_registry_stage_maps_unchanged": true,
+    "canonical_path": "open-sources/staging-1.3.9-r3/own-classes.dex",
+    "canonical_dex_sha256": "ee78544fc568a55cacf82c08ae24a088f5469ec1256da4d3b169c07ce7cdc0d7",
+    "canonical_dex_size": 280808,
+    "archive_asset": "tongpin-4k-build-inputs-1.3.9.zip",
+    "archive_sha256": "4301b94567abe475405a4164d5fd72a7f6961a8b2ac8719de528b4f646f26ce6",
+    "signed_apk_sha256_unchanged": "f78f8a403b879428396fe81c5145c8ae9336827d0597f8273acb0b0014a586a3",
+    "gate_independent_of_original_work_directory": true
+  },
+  "previous_builder_review_sha256": "9627ce05f16cda973f662be06c72b989de5d04a3264080dd329d46338f215ca4"
+}

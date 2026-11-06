@@ -1,18 +1,18 @@
 # 手机端构建输入与恢复说明
 
-当前手机端版本为 **1.3.8 / versionCode 1380**，包名 `com.tongpin.player4k`。本仓库保存现有工程，不将其描述为完整 Android Studio / Gradle 重写项目：公开片库和播放器增强源码位于 `tongpin-4k/open-sources/src/`，既有 APK 的资源及 smali 位于 `tongpin-4k/decoded/`。
+当前源码为 **1.3.9 / versionCode1390**，包名 `com.tongpin.player4k`。它是在现有APK/原生播放库基础上维护的fork，含自有Java、继承资源与smali，不描述为完整Gradle或clean-room重写项目。
 
-## 仓库内保留的内容
+## 当前输入与检查范围
 
-- 手机 Java 源码、编译桩、主机测试及其 `json-20260719.jar` 依赖。
-- `decoded/` 的全部实际 APK 输入，包含资源、五组 smali、42 个原生库及原 APK 附带的 JAR；仅排除 `decoded/build/` 缓存。
-- 集成脚本、各版本 staging、历史 before 快照、UI 设计记录及 JSON / 文本验证证据。证据中的旧本机绝对路径保留原样，避免改写已冻结哈希。
-- 相邻 `kanke-noads/decoded/smali`、`smali_classes2`、`smali_classes3`、`smali_classes4`：构建时用于核对前四个未改 DEX 的 34,298 份输入，与手机端相应目录逐字节一致。
-- `tongpin-4k/verification/1.3.8/proof-tools/DisassembleOwn1380.class`：当前最终DEX审核的构建输入（含其实际生成的嵌套检查类）；对应源码为 `open-sources/integration/DisassembleOwn1380.java`。旧134、135、136、137的proof-tools类继续保留以支持历史合同；这些小型检查程序不是App运行库，普通测试编译的`.class`不提交。
+- `open-sources/src`有28份自有Java，本轮重新编译到`open-sources/staging-1.3.9-r3`，自有类数量以当前compile-report和最终DEX核对为准；编译桩和host JSON实现不打进安装包。
+- `decoded`包含实际构建资源、五组smali及42个原生库。前四DEX继续核对`kanke-noads/decoded`的对应输入；原生第五码仅旧历史点击桥接的一个方法改动，其余继承代码保持合同范围。
+- 统一首页、实际来源换源、旧记录转入新确认流程以及本地历史/收藏见`ui/unified-sources-1.3.9`。XML/M3U/无code JSON不增加运行库依赖，使用平台API和既有播放器。
+- `verification/1.3.9/proof-tools`中的全部真实检查器`.class`及嵌套类是最终DEX审计输入，对应源码位于`open-sources/integration`。134–138的历史证明类继续保留；普通测试编译产物不提交。
+- 旧冻结报告、before快照、stage与实际R夹具按原字节保留，不把历史报告改成当前验证结果。
 
-## 需要从 Release 恢复的二进制输入
+## 从Release恢复
 
-这些 APK 是当前构建及完整增量合同检查使用的基线，不放入 Git 源码历史。下载后恢复到表中的仓库相对路径；以 SHA256 验证原始字节，不要重新签名或重打包。
+先按根`artifacts-manifest.json`下载全部列出的资产。当前源码及全部增量合同仍读取下表基线；文件要保持原始字节，不重新签名：
 
 | 仓库相对路径 | 字节数 | SHA256 |
 | --- | ---: | --- |
@@ -25,41 +25,24 @@
 | `tongpin-4k/output/tongpin-4k-1.3.5.apk` | 76988981 | `d8b1a9fe626c4f6bae59a4194c9851844fbd30bc3b5b1226aee5fe4e11b5b293` |
 | `tongpin-4k/output/tongpin-4k-1.3.6.apk` | 77005365 | `20e3e6e2972958baa8d39d6fa67c155a7ba778867203433b205d9fbe049c6e31` |
 | `tongpin-4k/output/tongpin-4k-1.3.7.apk` | 77021749 | `6356604f250e93446f282769196ee9cad570af5789250b02d37618f5da875705` |
+| `tongpin-4k/output/tongpin-4k-1.3.8.apk` | 77021749 | `532c6f3810df6c284f273e4f4ba32bb2e6fab67054f80828e003f922debf8475` |
 
-`build_tongpin.py` 本身读取 kanke 基线、手机1.0.1与直接前版1.3.7；完整 `open-sources/integration/assert_contract.py` 会沿138→137→136→135→134→133→132→131→130→121→120的冻结合同投影，读取表内1.3.4、1.3.3、1.3.2和1.3.1。其他旧 APK、未签名或仅对齐的中间 APK 不属于当前有效构建依赖。
+在仓库根执行`python scripts/restore_artifacts.py --download-dir <资产下载目录> --check-only`可先校验全部输入；去掉`--check-only`只补齐缺少且哈希一致的目标。脚本拒绝覆盖不同内容，不写签名密钥。根清单是完整恢复目标的依据，当前139手机成品及134电视成品属于交付物，不是重建自身的输入。
 
-同一 Release 还提供手机最终1.3.8 APK；它是可安装交付物，不是重建输入。构建脚本拒绝覆盖已有同版本最终 APK，维护时必须按原流程准备新的版本、stage、合同和审核记录，不要删除或重置旧合同来绕过检查。
+`build_tongpin.py`当前直接核对手机138基线；完整合同继续读取137及更早APK、源码和证明类。对应旧附件应保留，不能为通过检查删除旧合同或改写历史证据。
 
-## 工具链与本机配置
+## 139阶段DEX固定构建输入
 
-恢复工具链到相邻 `kanke-noads/tools/`。所需内容为：
+当前增量合同还读取`tongpin-4k/open-sources/staging-1.3.9-r3/own-classes.dex`，SHA256为`ee78544fc568a55cacf82c08ae24a088f5469ec1256da4d3b169c07ce7cdc0d7`。它是本轮28份Java生成的231个自有类的原始D8产物，作为小型构建输入ZIP随当前Release提供；ZIP文件名、大小、哈希和唯一恢复成员以根`artifacts-manifest.json`为准。上面的统一恢复脚本会将其恢复到这个仓库内的规范路径。
 
-- `apktool_3.0.3.jar`。
-- `platform-35/android.jar`、`platform-35/data/api-versions.xml`。现有平台下载来源与哈希见 `tongpin-4k/open-sources/toolchain/android-sdk-provenance.json`。
-- `build-tools-35.0.1/` 中的 `aapt2.exe`、`zipalign.exe`、`lib/apksigner.jar`、`lib/d8.jar` 、`core-lambda-stubs.jar` 及其 Windows DLL。
+该DEX不提交Git，也不依赖原电脑临时`toolchain/builds/<随机目录>/dex/classes.dex`仍然存在。`compile-report.json`的旧工作目录可以保留为编译出处，当前合同和集成读取规范stage输入并核对相同哈希；签名APK和Java源码不会因增加这个恢复资产而改变。后续新版本修改Java时仍须建立新的stage、报告和规范输入，不能拿别的DEX替换这一版本的固定字节。
 
-构建不需要 JADX、uber-apk-signer、SDK ZIP 的重复副本或独立的 apktool-aapt2 可执行文件。原资源重编使用 Apktool 内置的兼容 aapt2；最终资源检查、16KB 对齐和签名使用 Android SDK 工具。
+## 工具与本机路径
 
-原脚本仍使用下列 Windows 本机路径，本次归档没有改写构建实现：
+恢复相邻`kanke-noads/tools`中的Apktool3.0.3、Android API35、build-tools35.0.1，包括`core-lambda-stubs.jar`及原工具DLL。SDK工具归档v2和逐文件哈希以根清单为准；本轮没有新运行依赖或SDK下载项。源代码内的host JSON测试JAR及TV官方依赖保留原锁定字节。
 
-- JBR：`D:\PyCharm\PyCharm 2024.3.1.1\jbr\bin`。
-- 供资源编译使用的 ASCII junction：`D:\DevTools\tmp\tongpin4k-build`，必须指向当前手机项目目录；脚本发现该路径指向别处会停止。
-- Python 3.11 或以上，脚本使用 `hashlib.file_digest`。
+原Windows流程使用JBR路径`D:\PyCharm\PyCharm 2024.3.1.1\jbr\bin`、Python3.11+，以及指向手机工程的ASCII junction `D:\DevTools\tmp\tongpin4k-build`。新机器需按实际位置配置，推荐短ASCII检出路径。保留的绝对路径和已冻结compile-report不是已完成跨机器重建适配的声明。
 
-Windows 下建议将仓库检出到较短的 ASCII 目录，例如 `D:\src\tongpin4k`。继承的 Kotlin smali 中存在很长的文件名；Git for Windows 可在仓库内设置 `core.longpaths=true`，但原 Python 构建脚本本身并未加入所有长路径适配。
+整包入口为`tongpin-4k/build_tongpin.py`。修改Java时须按`open-sources/toolchain/README.md`编译到新stage，核对实际APK ABI，创建新版本和新检查记录；不要覆盖现有版本输出。签名私钥与`signing/local-key.json`只在本机安全恢复，仓库和Release不包含这些秘密。
 
-1.3.8是单个原生评分方法的修改，直接复用发布137的21份Java和157个自有编译类；当前集成读取 `open-sources/staging-1.3.7-r1`，不重新运行Java或D8。后续若修改自有Java，仍须按 `open-sources/toolchain/README.md` 编译到全新staging，核对实际APK ABI。整包入口是 `tongpin-4k/build_tongpin.py`。各版本合同和已交付 APK 的检查关系详见集成目录与验证记录。
-
-## 本地保留而不上 GitHub 的内容
-
-`tongpin-4k/signing/` 整目录不上传，包含签名私钥及密码配置。原脚本从本地 `signing/local-key.json` 读取 `keystore`、`alias`、`password`，维护者必须在本机安全恢复既有签名材料，才能对现有已安装应用执行同签名升级；这些秘密不属于 Release 附件。
-
-另外不提交输出 APK、编译缓存、临时工具链工程、测试编译产物、验证用 DEX / 资源压缩包、原研究目录已通过 `.gitignore` 标为本地专用的 `*.local.json` 请求记录，以及研究时下载的视频分片和媒体头二进制；保留相关分析、JSON 测试夹具和脚本。原工程约 3.98GB，其中 42 个 APK 输出占约 3.22GB，此类生成文件不进入源码历史。
-
-1.3.6新增来源分类、3个直接公开来源、长按临时2×／按住右滑升3×和现有字幕轨选择，保留原8来源ID和顺序。源码与独立审查位于 `ui/player-catalog-1.3.6`，成品检查位于 `verification/1.3.6`。
-
-本次在原电脑执行对应构建与文件校验，没有在另一台机器上重建手机APK，也没有真机播放验收。手机工程仍包含继承自用户提供 APK 的第三方实现与原生库；公开仓库不会改变这些内容各自的权属。
-
-1.3.7修正原生首页筛选字段、过期响应和分页，移除已核实误标的海外内地选项，香港／台湾使用较广的电视剧目录；并在原生封面失败后按严格影片身份尝试恢复。两端集数摘要区分最高集号与实际可选数量。11来源及公开片库分类不变，不能据此声称上游地区全部正确、片库齐全或新增真实4K。源码与审查见 `ui/native-fix-1.3.7`，成品检查见 `verification/1.3.7`。
-
-1.3.8仅隐藏手机原生海报右上角所有评分，并清空复用卡片的旧评分文字；21份Java、157个自有编译类、11来源和布局不变，电视保持1.3.3。当前源码、实际指令检查及独立审查见 `ui/poster-score-1.3.8`，成品证据见 `verification/1.3.8`。137及更早报告、已编译命名空间和证明类是历史合同输入，不能重写。没有新增真机验收。
+主机策略测试、真实源码编译和DEX/资源合同不代替触摸、字幕、全屏或持续播放设备验收。当前没有新增手机真机验收。

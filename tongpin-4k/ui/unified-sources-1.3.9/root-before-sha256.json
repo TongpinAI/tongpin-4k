@@ -1,0 +1,9 @@
+{
+  "build_tongpin.py": "cddce4ac756d4608ffcee49f38321de618ee35221fe762431eefb82a080afdde",
+  "decoded/AndroidManifest.xml": "60dadcbc6ceeaa3217d092aa705ef8c570f4b0c4ded9a6885e61a0285278c1fa",
+  "decoded/apktool.yml": "137269099d6ce1d0dd612535f7b7e455e292a5a42cb624c2e1890e0f3cdfe5dd",
+  "decoded/res/values/strings.xml": "921324a168c7375dd39b8e49b989856b3a6b8b09c10fbdacc17149d5e915aa41",
+  "decoded/assets/tongpin_open_sources.json": "7e6a9616a36c68788500c68b313265bda50e28efe7af695cc9b368f89078aa1d",
+  "open-sources/src/com/tongpin/player4k/catalog/CatalogApi.java": "bb26fbdcff341cc8b8676addf5a2320799f9283d5011bd2a907833ff2eef9864",
+  "open-sources/src/com/tongpin/player4k/catalog/LegacyPlayerControls.java": "a349186d28fd04ffdf72e6006443b9e2570255ab1903f08d8f4c661fa35e4ec3"
+}

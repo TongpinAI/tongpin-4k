@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "feed": "https://clun.top/lib/iptv.m3u",
+  "raw_feed_sha256": "16933ce4ec93ea29899420eec94f29eeba823d427b0438d9f6b8d45ab8b71df3",
+  "fixture_actual_entry_count": 2,
+  "display_annotation_preserved": true,
+  "only_media_and_logo_hosts_replaced": true,
+  "fixture_sha256": "fffd8f8e07608d785cf52f44743bc1b4409665cdfb13e6b35a3fd0b11187bcde",
+  "availability_boundary": "Four of eight distinct-host samples passed after literal display-label removal. Channel labels4K/8K do not prove decoded resolution; observed video samples1920x1080."
+}

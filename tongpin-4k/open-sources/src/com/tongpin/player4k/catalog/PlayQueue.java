@@ -20,11 +20,12 @@ import com.tongpin.player4k.catalog.CatalogApi.*;
 final class PlayQueue {
     static final int MAX_BYTES = 8 * 1024 * 1024;
     final String title, sourceUrl, author, licence, lineName, identity;
+    final Video video;
     final List<Episode> episodes;
 
-    private PlayQueue(String title, String sourceUrl, String author, String licence, String lineName, String identity, List<Episode> episodes) {
+    private PlayQueue(String title, String sourceUrl, String author, String licence, String lineName, String identity, List<Episode> episodes, Video video) {
         this.title = title; this.sourceUrl = sourceUrl; this.author = author;
-        this.licence = licence; this.lineName = lineName; this.identity = identity; this.episodes = episodes;
+        this.licence = licence; this.lineName = lineName; this.identity = identity; this.episodes = episodes; this.video = video;
     }
 
     static String save(Context context, Detail detail, Line line) throws IOException {
@@ -78,7 +79,8 @@ final class PlayQueue {
             throw new IOException("播放列表不完整，请返回片库重选");
         try {
             JSONObject root = new JSONObject();
-            root.put("version", 1);
+            root.put("version", 2);
+            root.put("video", encodeVideo(detail.video));
             root.put("title", bounded(detail.video.title, 512));
             root.put("source", bounded(detail.video.sourceUrl, 8192));
             root.put("author", bounded(detail.video.author, 512));
@@ -121,7 +123,9 @@ final class PlayQueue {
             Object value = reader.nextValue();
             if (!(value instanceof JSONObject) || reader.nextClean() != 0) throw new IOException("播放列表格式无效");
             JSONObject root = (JSONObject) value;
-            if (root.getInt("version") != 1) throw new IOException("播放列表版本无效");
+            int version = root.getInt("version");
+            if (version != 1 && version != 2) throw new IOException("播放列表版本无效");
+            Video video = version == 2 ? decodeVideo(root.getJSONObject("video")) : null;
             String title = bounded(root.getString("title"), 512), source = bounded(root.getString("source"), 8192);
             if (!source.isEmpty() && !OpenPlayerActivity.validHttpUrl(source)) throw new IOException("原始来源地址无效");
             String author = bounded(root.getString("author"), 512), licence = bounded(root.getString("licence"), 512);
@@ -148,9 +152,46 @@ final class PlayQueue {
                 }
                 episodes.add(episode);
             }
-            return new PlayQueue(title, source, author, licence, line, identity, episodes);
+            return new PlayQueue(title, source, author, licence, line, identity, episodes, video);
         } catch (IOException failure) { throw failure; }
         catch (Exception malformed) { throw new IOException("播放列表格式无效，请返回片库重新选集", malformed); }
+    }
+
+    static JSONObject encodeVideo(Video video) throws Exception {
+        if (video == null || video.provider == null) throw new IOException("影片来源信息不完整");
+        JSONObject p = new JSONObject();
+        p.put("id", bounded(video.provider.id, 128)); p.put("name", bounded(video.provider.name, 256));
+        p.put("kind", bounded(video.provider.kind, 32)); p.put("api", bounded(video.provider.api, 8192));
+        p.put("homepage", bounded(video.provider.homepage, 8192));
+        p.put("supportsSearch", video.provider.supportsSearch);
+        JSONObject value = new JSONObject(); value.put("provider", p);
+        value.put("id", bounded(video.id, 128)); value.put("title", bounded(video.title, 512));
+        value.put("subtitle", bounded(video.subtitle, 4096)); value.put("poster", bounded(video.poster, 8192));
+        value.put("sourceUrl", bounded(video.sourceUrl, 8192));
+        String description = video.description == null ? "" : video.description;
+        value.put("description", description.substring(0, Math.min(description.length(), 16384)));
+        value.put("author", bounded(video.author, 512)); value.put("licence", bounded(video.licence, 512));
+        value.put("year", bounded(video.year, 128)); value.put("area", bounded(video.area, 512));
+        value.put("categoryId", bounded(video.categoryId, 128)); value.put("categoryName", bounded(video.categoryName, 512));
+        value.put("categoryLabel", bounded(video.categoryLabel, 512));
+        return value;
+    }
+
+    static Video decodeVideo(JSONObject value) throws Exception {
+        JSONObject configuration = new JSONObject();
+        configuration.put("providers", new JSONArray().put(value.getJSONObject("provider")));
+        List<Provider> declared = CatalogApi.parseProviders(configuration.toString());
+        if (declared.size() != 1) throw new IOException("影片来源配置无效");
+        Video video = new Video(); video.provider = declared.get(0);
+        video.id = bounded(value.getString("id"), 128); video.title = bounded(value.getString("title"), 512);
+        if (video.id.isEmpty() || video.title.isEmpty()) throw new IOException("影片标识无效");
+        video.subtitle = bounded(value.optString("subtitle"), 4096); video.poster = bounded(value.optString("poster"), 8192);
+        video.sourceUrl = bounded(value.optString("sourceUrl"), 8192);
+        video.description = bounded(value.optString("description"), 16384); video.author = bounded(value.optString("author"), 512);
+        video.licence = bounded(value.optString("licence"), 512); video.year = bounded(value.optString("year"), 128);
+        video.area = bounded(value.optString("area"), 512); video.categoryId = bounded(value.optString("categoryId"), 128);
+        video.categoryName = bounded(value.optString("categoryName"), 512); video.categoryLabel = bounded(value.optString("categoryLabel", "未分类"), 512);
+        return video;
     }
 
     private static String bounded(String value, int limit) throws IOException {

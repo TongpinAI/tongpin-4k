@@ -1,0 +1,179 @@
+{
+  "pageindex": 1,
+  "pagecount": 1,
+  "pagesize": 30,
+  "recordcount": 1,
+  "class": [
+    {
+      "type_id": 16515072,
+      "type_name": "动漫/海外动漫"
+    },
+    {
+      "type_id": 16449536,
+      "type_name": "综艺/海外综艺"
+    },
+    {
+      "type_id": 16384000,
+      "type_name": "综艺/日韩综艺"
+    },
+    {
+      "type_id": 16318464,
+      "type_name": "电视剧/台湾剧"
+    },
+    {
+      "type_id": 16252928,
+      "type_name": "综艺/欧美综艺"
+    },
+    {
+      "type_id": 16187392,
+      "type_name": "综艺/港台综艺"
+    },
+    {
+      "type_id": 16121856,
+      "type_name": "电视剧/泰国剧"
+    },
+    {
+      "type_id": 16056320,
+      "type_name": "综艺/大陆综艺"
+    },
+    {
+      "type_id": 15990784,
+      "type_name": "动漫/欧美动漫"
+    },
+    {
+      "type_id": 15925248,
+      "type_name": "动漫/国产动漫"
+    },
+    {
+      "type_id": 15859712,
+      "type_name": "动漫/日本动漫"
+    },
+    {
+      "type_id": 15794176,
+      "type_name": "电视剧/韩国剧"
+    },
+    {
+      "type_id": 15728640,
+      "type_name": "电视剧/日本剧"
+    },
+    {
+      "type_id": 15663104,
+      "type_name": "电视剧/香港剧"
+    },
+    {
+      "type_id": 15597568,
+      "type_name": "电视剧/国产剧"
+    },
+    {
+      "type_id": 15532032,
+      "type_name": "电视剧/海外剧"
+    },
+    {
+      "type_id": 15400960,
+      "type_name": "电影/战争片"
+    },
+    {
+      "type_id": 15335424,
+      "type_name": "电影/科幻片"
+    },
+    {
+      "type_id": 15269888,
+      "type_name": "电影/奇幻片"
+    },
+    {
+      "type_id": 15204352,
+      "type_name": "电视剧/欧美剧"
+    },
+    {
+      "type_id": 15138816,
+      "type_name": "电影/冒险片"
+    },
+    {
+      "type_id": 15073280,
+      "type_name": "电影/动画片"
+    },
+    {
+      "type_id": 15007744,
+      "type_name": "电影/喜剧片"
+    },
+    {
+      "type_id": 14942208,
+      "type_name": "电影/动作片"
+    },
+    {
+      "type_id": 14876672,
+      "type_name": "电影/爱情片"
+    },
+    {
+      "type_id": 14811136,
+      "type_name": "电影/恐怖片"
+    },
+    {
+      "type_id": 14614528,
+      "type_name": "电影/惊悚片"
+    },
+    {
+      "type_id": 14548992,
+      "type_name": "电影/剧情片"
+    },
+    {
+      "type_id": 8388608,
+      "type_name": "电影/悬疑片"
+    },
+    {
+      "type_id": 1179648,
+      "type_name": "电影/纪录片"
+    }
+  ],
+  "list": [
+    {
+      "vod_id": 1540083,
+      "vod_name": "话事人",
+      "vod_sub": "",
+      "vod_remarks": "连载中 连载到16集",
+      "vod_serial": 16,
+      "type_id": 15597568,
+      "vod_actor": "姜皓文/唐文龙/吴念轩/林敬刚/何健麒",
+      "vod_director": "罗仪威",
+      "vod_pic": "https://poster.example.invalid/sample.jpg",
+      "vod_content": "fixture synopsis",
+      "vod_time": "2026-09-18 16:00:00",
+      "vod_area": "中国大陆",
+      "vod_lang": "汉语普通话",
+      "vod_year": 2026,
+      "type_name": "电视剧/国产剧",
+      "vod_keywords": "姜皓文,唐文龙,吴念轩,林敬刚,何健麒,罗仪威,国产剧,姜皓文,唐文龙,吴念轩,林敬刚,何健麒,汉语普通话,汉语普通话,剧情,动作,犯罪,话事人",
+      "vod_tag": "剧情/动作/犯罪",
+      "vod_play_server": "",
+      "vod_play_from": "tpm3u8$$$tpiframe",
+      "vod_play_url": "第1集$https://media.example.invalid/episode-1.m3u8#第2集$https://media.example.invalid/episode-2.m3u8#第3集$https://media.example.invalid/episode-3.m3u8#第4集$https://media.example.invalid/episode-4.m3u8#第5集$https://media.example.invalid/episode-5.m3u8#第6集$https://media.example.invalid/episode-6.m3u8#第7集$https://media.example.invalid/episode-7.m3u8#第8集$https://media.example.invalid/episode-8.m3u8#第9集$https://media.example.invalid/episode-9.m3u8#第10集$https://media.example.invalid/episode-10.m3u8#第11集$https://media.example.invalid/episode-11.m3u8#第12集$https://media.example.invalid/episode-12.m3u8#第13集$https://media.example.invalid/episode-13.m3u8#第14集$https://media.example.invalid/episode-14.m3u8#第15集$https://media.example.invalid/episode-15.m3u8#第16集$https://media.example.invalid/episode-16.m3u8$$$第1集$https://media.example.invalid/episode-17.html#第2集$https://media.example.invalid/episode-18.html#第3集$https://media.example.invalid/episode-19.html#第4集$https://media.example.invalid/episode-20.html#第5集$https://media.example.invalid/episode-21.html#第6集$https://media.example.invalid/episode-22.html#第7集$https://media.example.invalid/episode-23.html#第8集$https://media.example.invalid/episode-24.html#第9集$https://media.example.invalid/episode-25.html#第10集$https://media.example.invalid/episode-26.html#第11集$https://media.example.invalid/episode-27.html#第12集$https://media.example.invalid/episode-28.html#第13集$https://media.example.invalid/episode-29.html#第14集$https://media.example.invalid/episode-30.html#第15集$https://media.example.invalid/episode-31.html#第16集$https://media.example.invalid/episode-32.html",
+      "vod_play_note": "",
+      "vod_down_server": "",
+      "vod_down_from": "tpm3u8$$$tpiframe",
+      "vod_down_url": "第1集$https://media.example.invalid/episode-1.m3u8#第2集$https://media.example.invalid/episode-2.m3u8#第3集$https://media.example.invalid/episode-3.m3u8#第4集$https://media.example.invalid/episode-4.m3u8#第5集$https://media.example.invalid/episode-5.m3u8#第6集$https://media.example.invalid/episode-6.m3u8#第7集$https://media.example.invalid/episode-7.m3u8#第8集$https://media.example.invalid/episode-8.m3u8#第9集$https://media.example.invalid/episode-9.m3u8#第10集$https://media.example.invalid/episode-10.m3u8#第11集$https://media.example.invalid/episode-11.m3u8#第12集$https://media.example.invalid/episode-12.m3u8#第13集$https://media.example.invalid/episode-13.m3u8#第14集$https://media.example.invalid/episode-14.m3u8#第15集$https://media.example.invalid/episode-15.m3u8#第16集$https://media.example.invalid/episode-16.m3u8$$$第1集$https://media.example.invalid/episode-17.html#第2集$https://media.example.invalid/episode-18.html#第3集$https://media.example.invalid/episode-19.html#第4集$https://media.example.invalid/episode-20.html#第5集$https://media.example.invalid/episode-21.html#第6集$https://media.example.invalid/episode-22.html#第7集$https://media.example.invalid/episode-23.html#第8集$https://media.example.invalid/episode-24.html#第9集$https://media.example.invalid/episode-25.html#第10集$https://media.example.invalid/episode-26.html#第11集$https://media.example.invalid/episode-27.html#第12集$https://media.example.invalid/episode-28.html#第13集$https://media.example.invalid/episode-29.html#第14集$https://media.example.invalid/episode-30.html#第15集$https://media.example.invalid/episode-31.html#第16集$https://media.example.invalid/episode-32.html",
+      "vod_down_note": "",
+      "vod_length": 1118,
+      "vod_weekday": "周一",
+      "vod_copyright": "",
+      "vod_state_": 16,
+      "vod_version": "高清版",
+      "vod_tv": "",
+      "vod_total": 0,
+      "vod_continu": 0,
+      "vod_status": 1,
+      "vod_stars": 0,
+      "vod_hits": 0,
+      "vod_isend": 0,
+      "vod_douban_id": 0,
+      "list_name": "电视剧/国产剧",
+      "imdb": 0,
+      "extra_type": "",
+      "origin": "tpm3u8$$$tpiframe",
+      "vod_state": "",
+      "vod_duration": 18,
+      "vod_pubdate": "2026-08-29 16:00:00",
+      "vod_douban_score": 0,
+      "vod_ename": ""
+    }
+  ]
+}

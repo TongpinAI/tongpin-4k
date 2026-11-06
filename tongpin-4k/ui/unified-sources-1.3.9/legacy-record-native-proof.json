@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "smali": {
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/HistoryCollectActivity.smali": {
+      "before_path": "ui/unified-sources-1.3.9/root-before/decoded/smali_classes5/com/shenma/tvlauncher/phone/HistoryCollectActivity.smali",
+      "before_sha256": "8ded6f18b4c7a9bea7cfc0837a75cd51f3a53e8b2f395bd9976f660e085dce94",
+      "after_sha256": "8acc33a2df33208c508b0b354e7f13a68b60776eddc5ce05c4c81f766f2780ab",
+      "modified_methods": [
+        "W(Lcom/shenma/tvlauncher/phone/HistoryCollectActivity;Lcom/shenma/tvlauncher/vod/db/Album;I)Lm7/f0;"
+      ],
+      "added_methods": [],
+      "added_fields": [],
+      "required_final_invocations": {
+        "W(Lcom/shenma/tvlauncher/phone/HistoryCollectActivity;Lcom/shenma/tvlauncher/vod/db/Album;I)Lm7/f0;": [
+          "Lcom/tongpin/player4k/catalog/LegacySourceBridge;->openRecord(Landroid/app/Activity;Ljava/lang/Object;)V"
+        ]
+      }
+    }
+  },
+  "exact_preimage_recovered": true,
+  "database_modified": false
+}

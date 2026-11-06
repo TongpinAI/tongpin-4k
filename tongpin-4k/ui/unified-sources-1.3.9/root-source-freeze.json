@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/LegacyPlayerControls.java": "77042be3533a784eea5ae949fd8905a0e45c0f0fe0e3c2a72d8a110e164427c2",
+    "open-sources/src/com/tongpin/player4k/catalog/LegacySourceBridge.java": "3ab13f914303a25746cb1b02ec23d42294b1ba7e7fdef78b2b9e2570ac9bfb28",
+    "decoded/AndroidManifest.xml": "6dc0865c23dc52dac6b36d9b8b0a23084a0c7bfe4608d62df543a963031279ad",
+    "decoded/apktool.yml": "42c57e3081b0f2a1d30741bacc006877e5b3c2b633ad74889a0c6d95f76888bf",
+    "decoded/res/values/strings.xml": "9c2c31a41a9721e857189aeca8c999b02628803e35bac6852f5ec0e058b6976c"
+  },
+  "native_record_click": "legacy-record-native-proof.json",
+  "tests": "root-tests/verification.json",
+  "database_modified": false,
+  "device_tested": false
+}

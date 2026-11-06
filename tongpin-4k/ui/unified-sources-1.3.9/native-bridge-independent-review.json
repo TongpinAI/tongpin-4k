@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "verdict": "clear after independent actual pure play-state execution, native field/method/resource validation and bounded138-to139 source-hook review",
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/LegacySourceBridge.java": "3ab13f914303a25746cb1b02ec23d42294b1ba7e7fdef78b2b9e2570ac9bfb28",
+    "open-sources/src/com/tongpin/player4k/catalog/LegacyPlayerControls.java": "77042be3533a784eea5ae949fd8905a0e45c0f0fe0e3c2a72d8a110e164427c2",
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/HistoryCollectActivity.smali": "8acc33a2df33208c508b0b354e7f13a68b60776eddc5ce05c4c81f766f2780ab"
+  },
+  "reviewed_previous_controls_sha256": "a349186d28fd04ffdf72e6006443b9e2570255ab1903f08d8f4c661fa35e4ec3",
+  "native_abi_proof": {
+    "path": "ui/unified-sources-1.3.9/independent-review/native-bridge-abi.json",
+    "sha256": "d18fd9f357b177d1905b9ec623cc2ac608cb22bbc3c9d21bb0ea9c1a9339d1a8",
+    "actual_classes": 9
+  },
+  "independent_tests": {
+    "path": "ui/unified-sources-1.3.9/independent-review/native-state-final-tests.json",
+    "sha256": "9b6029c797ea36a0a3d293882539c683e9627fdecfbf595a59a1ccd858c715f6",
+    "root_bridge_assertions": 12
+  },
+  "findings_resolved": [
+    "Temporary hold reset before fixed-speed snapshot",
+    "Buffered playing intent distinguishes paused-buffer state",
+    "Catalog source transfer honors explicit actual original-source episode choice",
+    "Cold-start legacy records route by real title to unified source/actual-episode chooser without Splash/backend initialization or guessed ordinal"
+  ],
+  "checks": [
+    "Native e/f/g/h/i and getTitle/getPubtime/getType/getIntro descriptors verified",
+    "PlayerSource getList/getShow and VodUrl getTitle verified",
+    "Static private x2 Activity/PlayerSource/int signature and g/v2/I1 behavior verified",
+    "i_video_view0x7f0a036e and ll_source0x7f0a06b5 are actual resource IDs",
+    "Only4line shared bridge hook added to inherited LegacyPlayerControls.install; detail andMore use same listener",
+    "Actual getCurrentState/getSpeed/getCurrentPlayer/current-position/manager ABI verified",
+    "Superclass reflection finds actual protectedmBackUpPlayingBufferState:I",
+    "HistoryCollectActivity actual type1collection/type2history branch verified",
+    "Package-static wantsPlay wrapper permits public-player reuse of the same real buffer/pause intent policy",
+    "Actual Album.getAlbumTitle public descriptor and public static bridge checked; exactly one native W method changed, all remaining HistoryCollect bytes identical"
+  ],
+  "device_tested": false,
+  "android_activity_or_media_engine_constructed": false,
+  "legacy_record_native_proof": {
+    "path": "ui/unified-sources-1.3.9/legacy-record-native-proof.json",
+    "sha256": "5c661c2a96802e9ae05521831015ab36d8f4c70da312cb9f481689495e2da05d",
+    "exact_whole_class_inverse_independently_verified": true
+  }
+}

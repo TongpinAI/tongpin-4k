@@ -1,0 +1,36 @@
+{
+  "passed": true,
+  "assertions": {
+    "CrossSourcePolicyTest": 75,
+    "PlayQueueTest": 62,
+    "HoldSpeedStateTest": 102,
+    "HoldSpeedGestureTest": 54,
+    "PlaybackResolutionTest": 72,
+    "CatalogEpisodeOrderTest": 10,
+    "OpenPlayerUiTest": 16,
+    "PhoneUiTest": 26,
+    "PlayerOptionsSheetTest": 37
+  },
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogActivity.java": "660e1b17e600f2b81b5531dd530b2b96fcc033cac8316f2fe9a29a85c2fbe1bb",
+    "open-sources/src/com/tongpin/player4k/catalog/CrossSourcePolicy.java": "f443a406641ec8e8ed8d891642afb7da8a046bb5213faddf40e37158afab195c",
+    "open-sources/src/com/tongpin/player4k/catalog/LibraryStore.java": "dbffd5a32ea9b91fdfd11604b021a3eba9089e7055ed906790ba1f2bb6d779ee",
+    "open-sources/src/com/tongpin/player4k/catalog/OpenPlayerActivity.java": "84e38efdec8723b890a7f3e73ffc658d4c1592d90391a54b772b77fd7a7cbb08",
+    "open-sources/src/com/tongpin/player4k/catalog/PhoneSourcePicker.java": "38a7785c449987acaf869d52a4d67e600c9e769f3ea30e2e9cdcf13bad05f3a8",
+    "open-sources/src/com/tongpin/player4k/catalog/PlayQueue.java": "e9f9ae222fa5cd6f7e561e9c4493d2431f4b9f4b8b476fcfb9c303558c863357",
+    "open-sources/tests/src/com/tongpin/player4k/catalog/CrossSourcePolicyTest.java": "bc8e2492d95ebea76ffba366a9faf4eb052c5f83b13c80b37086cdf6bcb54630",
+    "open-sources/tests/src/com/tongpin/player4k/catalog/PlayQueueTest.java": "35fff7656d1839d84c5999d27a732029b878ed9b5d1976617cce0d4936c5c331",
+    "open-sources/tests/src/com/tongpin/player4k/catalog/HoldSpeedStateTest.java": "c9344448cad504d5caef1b0a40600b3c34818827538c36d91865f8f696201eb4",
+    "open-sources/tests/src/com/tongpin/player4k/catalog/HoldSpeedGestureTest.java": "72cab9e645d2ec07b403809e8b91635d8edcf50b6fa6700d9e2fcecefd2e11f6",
+    "open-sources/tests/src/com/tongpin/player4k/catalog/PlaybackResolutionTest.java": "22855092f808edb217e43f37d1c9c7a4c99544bc4d3acb5877a8bd9adf4f5862",
+    "open-sources/tests/src/com/tongpin/player4k/catalog/CatalogEpisodeOrderTest.java": "1de3a9fb42a024a31b32e696f02bebb2403560d9145cf8673b47b5adf9c19044",
+    "open-sources/tests/src/com/tongpin/player4k/catalog/OpenPlayerUiTest.java": "aac888057c5e345105581bd6eaa753246fed889b3728fceaa9265a507bfc1edb",
+    "open-sources/tests/src/com/tongpin/player4k/catalog/PhoneUiTest.java": "a13a60def389b192d40e00fda62185924ef4203d13442ef0e890723c8179dfc1",
+    "open-sources/tests/src/com/tongpin/player4k/catalog/PlayerOptionsSheetTest.java": "59ec63d998eb6666362c2ee51d053727150925a8fa25406a057cc631fb7d798c"
+  },
+  "all_phone_java_compiled": true,
+  "device_tested": false,
+  "activity_constructed": false,
+  "live_network_tested": false,
+  "scope": "Actual pure matching, metadata serialization, bounded local library, queue and existing playback policies"
+}

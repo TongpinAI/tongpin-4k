@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "api": "https://taopianapi.com/cjapi/mc/vod/json.html",
+  "code_field_absent": true,
+  "paging_fields": [
+    "pageindex",
+    "pagecount",
+    "pagesize",
+    "recordcount"
+  ],
+  "home_fixture_rows": 2,
+  "class_declarations_preserved": 30,
+  "detail_fixture_rows": 1,
+  "detail_ids": [
+    "1540083"
+  ],
+  "detail_episode_counts": [
+    32
+  ],
+  "episode_empty_segments_and_labels_preserved": true,
+  "download_empty_segments_and_labels_preserved": true,
+  "no_raw_download_media_targets": true,
+  "replaced_fields": [
+    "vod_pic and other absolute URL artwork/source fields",
+    "vod_play_url/vod_down_url HTTP targets only",
+    "vod_content/vod_blurb"
+  ],
+  "raw_home_sha256": "3bda2bac6ac86f78898a284cd662446893bce9e07cfe0da33df8606d500e1c9a",
+  "raw_detail_sha256": "2e7e17fc3747495e319af3d4ed4a6ae9d5ef96513ee6a744c348fb03dcd3042b",
+  "fixtures": {
+    "taopian-home.sanitized.json": "375c8b73ff09a584cfadc9909c04cf9280d5141900b3696d99fe211fca0f811d",
+    "taopian-detail.sanitized.json": "c1b8858cca9eb1312b7da161ea4cee3251c7a268ffde2e329e15b32d76cb7a79"
+  }
+}

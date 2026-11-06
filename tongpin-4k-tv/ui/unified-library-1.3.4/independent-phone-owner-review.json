@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "verdict": "clear",
+  "freeze_sha256": "30efd04eed83083e6cbf60c59b97a17e269fac341b7b09c36f80dff0a342d625",
+  "source_sha256": {
+    "src/com/tongpin/player4k/tv/TvHomeActivity.java": "94d883698aa6e5427c4b75b396d6d771b2103e7c0d113d3ae0e507e8b39cb30d",
+    "src/com/tongpin/player4k/tv/TvPlayerActivity.java": "e7e6f59b5fed32d7547e4fc72b8eea4a3842516d2908b1d66061516780900faa",
+    "src/com/tongpin/player4k/tv/TvSourcePicker.java": "ddd12050595300d4739e507b8705515b16bf98af55c23553f20e0ddf11c4f79a",
+    "src/com/tongpin/player4k/tv/TvSourceState.java": "355c7a23f34b1986e5427bbc9c64efbd664072a807f04035bcb89adb4f14549a",
+    "src/com/tongpin/player4k/tv/CrossSourcePolicy.java": "10f4440f3970a3f3bd233548496ea98680dfbd0ed8eb8d7018d3df1e96108bc3"
+  },
+  "scope": "Independent final five TV UI/state/matcher files; excludes transport/API code authored by reviewer",
+  "checks": [
+    "Knowncurrentprovider/workID usesdirectdetail evenbrowseOnly; nonemptykeywordneverusedforfalseproviders",
+    "Unifiedall-sourcekeywordsearch excludes unsupportedproviders; manualbrowseOnly source clears/disablessearch",
+    "Picker hasactualsourcepages/searchforcapableproviders andclearbrowseOnlyflow otherwise",
+    "Livechannel browser explicit, actualmirrorchoice, noVODrestore/save/seek/carry/autonext, effective1x",
+    "FixedVODspeed/playWhenReady andverifiedepisodeposition preserved; uncertainepisode usesactualtargetselection",
+    "Pause/save/destroy/canonicalepisode change invalidates generation and cleansstalequeuefile",
+    "Sharedmeaningfulsynopsis/episodepolicy matchesphone; repeatedgenericdescription rejected",
+    "Inputlimit200matchesproductionAPI; no syntheticyear/regionfilter capability"
+  ],
+  "tests": {
+    "path": "ui/unified-library-1.3.4/verification.json",
+    "sha256": "2a18b4403512433412895ca318d11f916faecc4b12048637d51edef629931dcd",
+    "host_assertions": 308
+  },
+  "device_tested": false
+}

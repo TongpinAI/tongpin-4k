@@ -1,0 +1,36 @@
+{
+  "passed": true,
+  "verdict": "clear: current TV transport matches independently replayed production parsers and actual public source fixtures",
+  "workspace_sources": true,
+  "source_sha256": {
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/CatalogApi.java": "33410bf75cae6a3d903c85e6e3e9deda2adad6f2cfb6ec2f55fa5c2ce6c39f04",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/MacCmsXml.java": "74ccc2ea09021a677a39e11e38017ebfa31a79a35cfda90793da425e364d41be",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/M3uCatalog.java": "82ef4af6c0046df839aca596ede569b4ba9585b6b1aeb7a1d3851bf784eed281",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/TvBoxJson.java": "5299156e9e08c5a1633a7fd4666682d2a801c1435e35cc1a663303f5e811817a"
+  },
+  "primary_audit": {
+    "path": "tongpin-4k/ui/unified-sources-1.3.9/source-audit.public.json",
+    "sha256": "1bd3261d9844e7f23551b2bf6ffe9639b69ab7547b46e0408080fd53d4f98003"
+  },
+  "primary_parser_proof": {
+    "path": "tongpin-4k/ui/unified-sources-1.3.9/independent-production-parser-verification.json",
+    "sha256": "e4c3a0ccd9444fb27a84afa2f311329cb5b9fd1167240f46cdd69c4fc1b21935"
+  },
+  "scope": {
+    "registered_providers": 28,
+    "original_provider_prefix_preserved": 11,
+    "new_vod": 15,
+    "new_live": 2,
+    "assertions_per_app": 398,
+    "actual_full_m3u_feeds": 2,
+    "actual_xml_alias_checked": true,
+    "actual_vod_id_line_episode_and_url_preservation": true,
+    "known_segment_verified_live_target_retained": true,
+    "browse_only_capabilities_verified": true,
+    "network_requests_during_replay": 0
+  },
+  "reviewer_not_transport_author": true,
+  "unresolved_semantic_blockers": [],
+  "device_tested": false,
+  "runtime_playback_guarantee": false
+}

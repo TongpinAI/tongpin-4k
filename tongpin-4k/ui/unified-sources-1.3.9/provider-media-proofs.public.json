@@ -1,0 +1,646 @@
+{
+  "passed": true,
+  "checked_date": "2026-11-06",
+  "api_user_agent": "Tongpin4K/1.1.0 PublicCatalog",
+  "representative_media_user_agent": "ExoSourceManager/1.3.9 (Linux;Android 13) AndroidXMedia3/1.10.1",
+  "device_tested": false,
+  "new_provider_count": 17,
+  "proofs": [
+    {
+      "provider_id": "taopian",
+      "verified_api": "https://taopianapi.com/cjapi/mc/vod/json.html",
+      "sample": {
+        "id": "1540117",
+        "title": "末誓",
+        "type_id": "15597568",
+        "type_name": "电视剧/国产剧",
+        "identity_matched": true,
+        "episode_count": 6,
+        "first_label": "第1集",
+        "last_label": "第3集"
+      },
+      "api_production_ua": "Tongpin4K/1.1.0 PublicCatalog",
+      "api_status": 200,
+      "media_chain_statuses": [
+        200
+      ],
+      "segment_status": 206,
+      "segment_prefix_bytes": 65536,
+      "mpeg_ts_packets": true,
+      "iso_bmff_signature": false,
+      "aes_key_bytes": null,
+      "ffprobe_streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "actual_4k_sample": false,
+      "required_media_headers": {}
+    },
+    {
+      "provider_id": "hhzy",
+      "verified_api": "https://hhzyapi.com/api.php/provide/vod",
+      "sample": {
+        "id": "183340",
+        "title": "玫瑰战争粤语版",
+        "type_id": "20",
+        "type_name": "内地剧",
+        "identity_matched": true,
+        "episode_count": 2,
+        "first_label": "第03集",
+        "last_label": "第03集"
+      },
+      "api_production_ua": "Tongpin4K/1.1.0 PublicCatalog",
+      "api_status": 200,
+      "media_chain_statuses": [
+        200
+      ],
+      "segment_status": 206,
+      "segment_prefix_bytes": 65536,
+      "mpeg_ts_packets": true,
+      "iso_bmff_signature": false,
+      "aes_key_bytes": 16,
+      "ffprobe_streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "actual_4k_sample": false,
+      "required_media_headers": {}
+    },
+    {
+      "provider_id": "maotai",
+      "verified_api": "https://caiji.maotaizy.cc/api.php/provide/vod",
+      "sample": {
+        "id": "155634",
+        "title": "野马九号",
+        "type_id": "11",
+        "type_name": "剧情片",
+        "identity_matched": true,
+        "episode_count": 2,
+        "first_label": "抢先版",
+        "last_label": "抢先版"
+      },
+      "api_production_ua": "Tongpin4K/1.1.0 PublicCatalog",
+      "api_status": 200,
+      "media_chain_statuses": [
+        200,
+        200
+      ],
+      "segment_status": 206,
+      "segment_prefix_bytes": 65536,
+      "mpeg_ts_packets": true,
+      "iso_bmff_signature": false,
+      "aes_key_bytes": 16,
+      "ffprobe_streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1920,
+          "height": 820
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "actual_4k_sample": false,
+      "required_media_headers": {}
+    },
+    {
+      "provider_id": "jszy",
+      "verified_api": "https://jszyapi.com/api.php/provide/vod",
+      "sample": {
+        "id": "153336",
+        "title": "妈妈发疯了",
+        "type_id": "5",
+        "type_name": "韩剧",
+        "identity_matched": true,
+        "episode_count": 58,
+        "first_label": "第1集",
+        "last_label": "第29集"
+      },
+      "api_production_ua": "Tongpin4K/1.1.0 PublicCatalog",
+      "api_status": 200,
+      "media_chain_statuses": [
+        200
+      ],
+      "segment_status": 206,
+      "segment_prefix_bytes": 65536,
+      "mpeg_ts_packets": true,
+      "iso_bmff_signature": false,
+      "aes_key_bytes": 16,
+      "ffprobe_streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "actual_4k_sample": false,
+      "required_media_headers": {}
+    },
+    {
+      "provider_id": "wsyzy",
+      "verified_api": "https://api.wsyzy.net/api.php/provide/vod",
+      "sample": {
+        "id": "149768",
+        "title": "绝命杀手第二季",
+        "type_id": "14",
+        "type_name": "欧美剧",
+        "identity_matched": true,
+        "episode_count": 6,
+        "first_label": "第01集",
+        "last_label": "第06集"
+      },
+      "api_production_ua": "Tongpin4K/1.1.0 PublicCatalog",
+      "api_status": 200,
+      "media_chain_statuses": [
+        200,
+        200
+      ],
+      "segment_status": 206,
+      "segment_prefix_bytes": 65536,
+      "mpeg_ts_packets": true,
+      "iso_bmff_signature": false,
+      "aes_key_bytes": null,
+      "ffprobe_streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1920,
+          "height": 960
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "actual_4k_sample": false,
+      "required_media_headers": {}
+    },
+    {
+      "provider_id": "xinlang",
+      "verified_api": "https://api.xinlangapi.com/xinlangapi.php/provide/vod",
+      "sample": {
+        "id": "239243",
+        "title": "谷雨",
+        "type_id": "13",
+        "type_name": "大陆剧",
+        "identity_matched": true,
+        "episode_count": 12,
+        "first_label": "第01集",
+        "last_label": "第06集"
+      },
+      "api_production_ua": "Tongpin4K/1.1.0 PublicCatalog",
+      "api_status": 200,
+      "media_chain_statuses": [
+        200
+      ],
+      "segment_status": 206,
+      "segment_prefix_bytes": 65536,
+      "mpeg_ts_packets": true,
+      "iso_bmff_signature": false,
+      "aes_key_bytes": 16,
+      "ffprobe_streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1280,
+          "height": 534
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "actual_4k_sample": false,
+      "required_media_headers": {}
+    },
+    {
+      "provider_id": "yinghua",
+      "verified_api": "https://yhzy.cc/api.php/provide/vod",
+      "sample": {
+        "id": "105129",
+        "title": "离婚后第三天前夫后悔了",
+        "type_id": "13",
+        "type_name": "国产剧",
+        "identity_matched": true,
+        "episode_count": 1,
+        "first_label": "全集",
+        "last_label": "全集"
+      },
+      "api_production_ua": "Tongpin4K/1.1.0 PublicCatalog",
+      "api_status": 200,
+      "media_chain_statuses": [
+        200
+      ],
+      "segment_status": 206,
+      "segment_prefix_bytes": 65536,
+      "mpeg_ts_packets": true,
+      "iso_bmff_signature": false,
+      "aes_key_bytes": null,
+      "ffprobe_streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1854,
+          "height": 1000
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "actual_4k_sample": false,
+      "required_media_headers": {}
+    },
+    {
+      "provider_id": "subo",
+      "verified_api": "https://subocj.com/api.php/provide/vod",
+      "sample": {
+        "id": "163804",
+        "title": "谷雨",
+        "type_id": "14",
+        "type_name": "大陆剧",
+        "identity_matched": true,
+        "episode_count": 12,
+        "first_label": "第01集",
+        "last_label": "第06集"
+      },
+      "api_production_ua": "Tongpin4K/1.1.0 PublicCatalog",
+      "api_status": 200,
+      "media_chain_statuses": [
+        200
+      ],
+      "segment_status": 206,
+      "segment_prefix_bytes": 65536,
+      "mpeg_ts_packets": true,
+      "iso_bmff_signature": false,
+      "aes_key_bytes": 16,
+      "ffprobe_streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1280,
+          "height": 534
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "actual_4k_sample": false,
+      "required_media_headers": {}
+    },
+    {
+      "provider_id": "longma",
+      "verified_api": "http://jhysj.jiaheyy.top/api.php/provide/vod",
+      "sample": {
+        "id": "480303",
+        "title": "危险心动",
+        "type_id": "16",
+        "type_name": null,
+        "identity_matched": true,
+        "episode_count": 6,
+        "first_label": "第1集",
+        "last_label": "第6集完结"
+      },
+      "api_production_ua": "Tongpin4K/1.1.0 PublicCatalog",
+      "api_status": 200,
+      "media_chain_statuses": [
+        200
+      ],
+      "segment_status": 206,
+      "segment_prefix_bytes": 65536,
+      "mpeg_ts_packets": true,
+      "iso_bmff_signature": false,
+      "aes_key_bytes": null,
+      "ffprobe_streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "actual_4k_sample": false,
+      "required_media_headers": {}
+    },
+    {
+      "provider_id": "dazhong",
+      "verified_api": "https://dzzy.com/api.php/provide/vod",
+      "sample": {
+        "id": "28073",
+        "title": "卿色无双",
+        "type_id": "22",
+        "type_name": "短剧",
+        "identity_matched": true,
+        "episode_count": 88,
+        "first_label": "第01集",
+        "last_label": "第44集"
+      },
+      "api_production_ua": "Tongpin4K/1.1.0 PublicCatalog",
+      "api_status": 200,
+      "media_chain_statuses": [
+        200,
+        200
+      ],
+      "segment_status": 206,
+      "segment_prefix_bytes": 65536,
+      "mpeg_ts_packets": true,
+      "iso_bmff_signature": false,
+      "aes_key_bytes": 16,
+      "ffprobe_streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "actual_4k_sample": false,
+      "required_media_headers": {}
+    },
+    {
+      "provider_id": "dandan",
+      "verified_api": "https://ddmf.net/api.php/provide/vod",
+      "sample": {
+        "id": "211544",
+        "title": "窝心排灯节",
+        "type_id": "21",
+        "type_name": "剧情片",
+        "identity_matched": true,
+        "episode_count": 3,
+        "first_label": "HD中字",
+        "last_label": "正片"
+      },
+      "api_production_ua": "Tongpin4K/1.1.0 PublicCatalog",
+      "api_status": 200,
+      "media_chain_statuses": [
+        200
+      ],
+      "segment_status": 206,
+      "segment_prefix_bytes": 65536,
+      "mpeg_ts_packets": true,
+      "iso_bmff_signature": false,
+      "aes_key_bytes": 16,
+      "ffprobe_streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "actual_4k_sample": false,
+      "required_media_headers": {}
+    },
+    {
+      "provider_id": "feifan",
+      "verified_api": "https://api.ffzyapi.com/api.php/provide/vod/from/ffm3u8",
+      "sample": {
+        "id": "100257",
+        "title": "玫瑰战争粤语",
+        "type_id": "14",
+        "type_name": "香港剧",
+        "identity_matched": true,
+        "episode_count": 3,
+        "first_label": "第01集",
+        "last_label": "第03集"
+      },
+      "api_production_ua": "Tongpin4K/1.1.0 PublicCatalog",
+      "api_status": 200,
+      "media_chain_statuses": [
+        200,
+        200
+      ],
+      "segment_status": 206,
+      "segment_prefix_bytes": 65536,
+      "mpeg_ts_packets": true,
+      "iso_bmff_signature": false,
+      "aes_key_bytes": null,
+      "ffprobe_streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "actual_4k_sample": false,
+      "required_media_headers": {}
+    },
+    {
+      "provider_id": "360zyzz",
+      "verified_api": "https://360zyzz.com/api.php/provide/vod",
+      "sample": {
+        "id": "109260",
+        "title": "超凡战队",
+        "type_id": "9",
+        "type_name": "科幻片",
+        "identity_matched": true,
+        "episode_count": 1,
+        "first_label": "正片",
+        "last_label": "正片"
+      },
+      "api_production_ua": "Tongpin4K/1.1.0 PublicCatalog",
+      "api_status": 200,
+      "media_chain_statuses": [
+        200,
+        200
+      ],
+      "segment_status": 206,
+      "segment_prefix_bytes": 65536,
+      "mpeg_ts_packets": true,
+      "iso_bmff_signature": false,
+      "aes_key_bytes": 16,
+      "ffprobe_streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1920,
+          "height": 816
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "actual_4k_sample": false,
+      "required_media_headers": {}
+    },
+    {
+      "provider_id": "maoyan",
+      "verified_api": "https://api.maoyanapi.top/api.php/provide/vod",
+      "sample": {
+        "id": "158287",
+        "title": "后会友期",
+        "type_id": "34",
+        "type_name": "大陆综艺",
+        "identity_matched": true,
+        "episode_count": 9,
+        "first_label": "20261022第1期",
+        "last_label": "20261106加更版"
+      },
+      "api_production_ua": "Tongpin4K/1.1.0 PublicCatalog",
+      "api_status": 200,
+      "media_chain_statuses": [
+        200,
+        200
+      ],
+      "segment_status": 206,
+      "segment_prefix_bytes": 65536,
+      "mpeg_ts_packets": true,
+      "iso_bmff_signature": false,
+      "aes_key_bytes": 16,
+      "ffprobe_streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "actual_4k_sample": false,
+      "required_media_headers": {}
+    },
+    {
+      "provider_id": "xigua",
+      "verified_api": "https://xiguazy.tv/api.php/provide/vod",
+      "sample": {
+        "id": "90652",
+        "title": "超凡战队2026",
+        "type_id": "11",
+        "type_name": "剧情片",
+        "identity_matched": true,
+        "episode_count": 2,
+        "first_label": "HD中字",
+        "last_label": "HD中字"
+      },
+      "api_production_ua": "Tongpin4K/1.1.0 PublicCatalog",
+      "api_status": 200,
+      "media_chain_statuses": [
+        200,
+        200
+      ],
+      "segment_status": 206,
+      "segment_prefix_bytes": 65536,
+      "mpeg_ts_packets": true,
+      "iso_bmff_signature": false,
+      "aes_key_bytes": null,
+      "ffprobe_streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1920,
+          "height": 816
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "actual_4k_sample": false,
+      "required_media_headers": {}
+    },
+    {
+      "provider_id": "public_live",
+      "sample_channel": "CCTV1综合",
+      "api_status": 200,
+      "api_production_ua": "Tongpin4K/1.1.0 PublicCatalog",
+      "segment_prefix_bytes": 65536,
+      "media_chain_statuses": [
+        200,
+        200
+      ],
+      "segment_status": 200,
+      "mpeg_ts_packets": true,
+      "ffprobe_streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 800,
+          "height": 600
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "actual_4k_sample": false
+    },
+    {
+      "provider_id": "public_live_clun",
+      "sample_channel": "东方卫视4K",
+      "api_status": 200,
+      "api_production_ua": "Tongpin4K/1.1.0 PublicCatalog",
+      "media_chain_statuses": [
+        200
+      ],
+      "segment_status": 206,
+      "segment_prefix_bytes": 65536,
+      "mpeg_ts_packets": true,
+      "ffprobe_streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "actual_4k_sample": false,
+      "literal_annotation_removal_required": true,
+      "bounded_samples": 8,
+      "bounded_segment_passes": 4
+    }
+  ],
+  "actual_4k_samples": 0,
+  "all_channels_or_titles_tested": false,
+  "key_material_exported": false,
+  "headers_or_credentials_required_for_accepted_samples": false,
+  "boundary": "HLS master/variant followed to real TS/ISO-BMFF bytes; AES-128 identity key length checked where declared. No full-film, no device, no completeness/4K/watermark guarantee."
+}

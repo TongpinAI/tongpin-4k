@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "version": "1.3.4",
+  "input_count": 30,
+  "freeze_sha256": "1192fc408c200b10721539b0129df767f26d9af88684049275feadbfa3b58f8d",
+  "builder_sha256": "3721c90b146517c3ae55f10e00ddd9a2c0c28410eb922de94d044793e0207447",
+  "independent_reviews": {
+    "ui/unified-library-1.3.4/independent-phone-owner-review.json": "4813383073c3013793c1ab12dbf61cb46fc483d8512b17d17d525615ed345b63",
+    "ui/unified-library-1.3.4/builder-independent-review.json": "d2753f55efdbe25da03a0bfa71bb3b759f2774695c086fd0a82715f2ab8c94c3",
+    "ui/unified-library-1.3.4/transport-independent-review.json": "7c6851a7b91356914d63c055521b16721c0bb7a8f1ff4f0f9024e61f39d1ceb8"
+  },
+  "source_unchanged_from_preflight": true,
+  "promotion_authorized": true,
+  "device_tested": false
+}

@@ -39,6 +39,7 @@ public final class CatalogApi {
 
     public static class Provider {
         public String id = "", name = "", kind = "", api = "", homepage = "";
+        public boolean supportsSearch = true;
         public Provider() {}
         public Provider(String id, String name, String kind, String api, String homepage) {
             this.id = id;
@@ -52,7 +53,7 @@ public final class CatalogApi {
     public static class Video {
         public Provider provider;
         public String id = "", title = "", subtitle = "", poster = "", sourceUrl = "";
-        public String description = "", author = "", licence = "";
+        public String description = "", author = "", licence = "", year = "", area = "";
         public String categoryId = "", categoryName = "", categoryLabel = "未分类";
         CatalogCategories categoryCatalog;
         public Video() {}
@@ -107,6 +108,12 @@ public final class CatalogApi {
             encoded.put("sourceUrl", codecUrl(video.sourceUrl));
             encoded.put("author", codecText(video.author, 512, false));
             encoded.put("licence", codecText(video.licence, 512, false));
+            encoded.put("year", codecText(video.year, 64, false));
+            encoded.put("area", codecText(video.area, 256, false));
+            encoded.put("description", codecText(video.description, 32768, false));
+            encoded.put("categoryId", codecText(video.categoryId, 128, false));
+            encoded.put("categoryName", codecText(video.categoryName, 512, false));
+            encoded.put("categoryLabel", codecText(video.categoryLabel, 1024, false));
             String result = encoded.toString();
             if (result.getBytes(StandardCharsets.UTF_8).length > 65536) throw failure("影片信息过长");
             return result;
@@ -143,6 +150,12 @@ public final class CatalogApi {
         video.sourceUrl = codecUrl(codecField(encoded, "sourceUrl", 8192, false));
         video.author = codecField(encoded, "author", 512, false);
         video.licence = codecField(encoded, "licence", 512, false);
+        video.year = codecField(encoded, "year", 64, false);
+        video.area = codecField(encoded, "area", 256, false);
+        video.description = codecField(encoded, "description", 32768, false);
+        video.categoryId = codecField(encoded, "categoryId", 128, false);
+        video.categoryName = codecField(encoded, "categoryName", 512, false);
+        video.categoryLabel = codecField(encoded, "categoryLabel", 1024, false);
         return video;
     }
 
@@ -173,13 +186,13 @@ public final class CatalogApi {
     }
 
     private static void requireKindId(Provider provider, String id) throws IOException {
-        if (id == null || !("maccms".equals(provider.kind) ? id.matches("[0-9]{1,20}")
+        if (id == null || !(macProvider(provider) && !"tvbox_json".equals(provider.kind) ? id.matches("[0-9]{1,20}")
                 : id.matches("[A-Za-z0-9_-]{1,128}"))) throw failure("影片编号与片源不匹配");
     }
 
     public static List<Provider> parseProviders(String json) throws IOException {
         JSONObject root = object(json);
-        JSONArray providers = array(root, "providers", 32);
+        JSONArray providers = array(root, "providers", 128);
         List<Provider> result = new ArrayList<Provider>();
         Set<String> seen = new HashSet<String>();
         for (int i = 0; i < providers.length(); i++) {
@@ -191,6 +204,10 @@ public final class CatalogApi {
             if (!p.id.matches("[A-Za-z0-9_-]{1,128}") || p.name.isEmpty()
                     || UNSAFE_CATEGORY.matcher(p.name).find() || !supported(p)
                     || http(p.api).isEmpty() || seen.contains(p.id)) continue;
+            if (item.has("supportsSearch")) {
+                if (!(item.opt("supportsSearch") instanceof Boolean)) continue;
+                p.supportsSearch = item.optBoolean("supportsSearch", true);
+            }
             p.api = http(p.api);
             p.homepage = http(p.homepage);
             seen.add(p.id);
@@ -201,11 +218,12 @@ public final class CatalogApi {
 
     public static CatalogCategories fetchCategories(Provider provider) throws IOException {
         requireProvider(provider);
-        if (!"maccms".equals(provider.kind)) return new CatalogCategories(provider.id,
+        if ("m3u".equals(provider.kind)) return parseCategories(provider, get(provider.api));
+        if (!macProvider(provider)) return new CatalogCategories(provider.id,
                 new ArrayList<CatalogCategories.Category>(), new HashSet<String>());
         String api = parameters(provider.api, new String[][]{{"ac", "list"}, {"pg", "1"},
                 {"pagesize", "20"}, {"wd", null}, {"ids", null}, {"t", null}});
-        JSONObject root = object(get(api)); checkMac(root);
+        JSONObject root = object(normalizeResponse(provider, get(api))); checkMac(root);
         return categories(provider, root);
     }
 
@@ -217,8 +235,10 @@ public final class CatalogApi {
         requireProvider(provider);
         requireCategory(provider, selection);
         query = query(query);
+        requireSearch(provider, query);
         requirePage(page);
-        if ("maccms".equals(provider.kind)) {
+        if ("m3u".equals(provider.kind)) return parsePage(provider, get(provider.api), query, page, selection);
+        if (macProvider(provider)) {
             String api = parameters(provider.api, new String[][]{
                     {"ac", "detail"}, {"pg", Integer.toString(page)},
                     {"pagesize", Integer.toString(PAGE_SIZE)}, {"wd", query}, {"ids", null},
@@ -257,7 +277,30 @@ public final class CatalogApi {
     public static Detail fetchDetail(Video video) throws IOException {
         requireVideo(video);
         String api;
-        if ("maccms".equals(video.provider.kind)) {
+        if ("m3u".equals(video.provider.kind)) {
+            Detail live = parseDetail(video, get(video.provider.api));
+            java.util.HashMap<String, Boolean> resolved = new java.util.HashMap<>();
+            List<Line> reachable = new ArrayList<>();
+            for (Line line : live.lines) {
+                boolean allowed = true;
+                for (Episode episode : line.episodes) for (Stream stream : episode.streams) {
+                    String host;
+                    try { host = new URI(stream.url).getHost(); } catch (Exception invalid) { allowed = false; continue; }
+                    Boolean known = resolved.get(host);
+                    if (known == null) {
+                        try { M3uCatalog.requirePublicStream(stream.url); known = Boolean.TRUE; }
+                        catch (IOException unavailable) { known = Boolean.FALSE; }
+                        resolved.put(host, known);
+                    }
+                    if (!known) allowed = false;
+                }
+                if (allowed) reachable.add(line);
+            }
+            live.lines = reachable;
+            if (live.lines.isEmpty()) throw failure("直播频道暂时没有可用的公开地址");
+            return live;
+        }
+        if (macProvider(video.provider)) {
             api = parameters(video.provider.api, new String[][]{
                     {"ac", "detail"}, {"ids", video.id}, {"wd", null}, {"pg", null}});
         } else {
@@ -282,9 +325,13 @@ public final class CatalogApi {
         requireCategory(provider, selection);
         requirePage(page);
         query = query(query);
-        JSONObject root = object(json);
+        requireSearch(provider, query);
+        JSONObject root = object("m3u".equals(provider.kind)
+                ? M3uCatalog.page(json, query, page, selection == null ? "" : selection.id) : normalizeResponse(provider, json));
         if ("peertube".equals(provider.kind)) return peerPage(provider, root, query, page);
         checkMac(root);
+        if ("tvbox_json".equals(provider.kind) && page > 1 && nonNegative(root, "page", -1) != page)
+            throw failure("来源未返回所请求的页码，请切换片源");
         JSONArray data = array(root, "list", MAX_ITEMS);
         Set<String> denied = deniedCategories(root);
         Page result = new Page();
@@ -315,7 +362,8 @@ public final class CatalogApi {
 
     public static Detail parseDetail(Video requested, String json) throws IOException {
         requireVideo(requested);
-        JSONObject root = object(json);
+        JSONObject root = object("m3u".equals(requested.provider.kind)
+                ? M3uCatalog.detail(json, requested.id) : normalizeResponse(requested.provider, json));
         if ("peertube".equals(requested.provider.kind)) return peerDetail(requested, root);
         checkMac(root);
         JSONArray items = array(root, "list", MAX_ITEMS);
@@ -526,6 +574,8 @@ public final class CatalogApi {
         video.categoryName = plain(text(item, "type_name", 512), 512);
         video.poster = relative(provider.api, text(item, "vod_pic", 8192));
         video.description = plain(text(item, "vod_content", 32768), 32768);
+        video.year = plain(text(item, "vod_year", 64), 64);
+        video.area = plain(text(item, "vod_area", 256), 256);
         video.author = plain(text(item, "vod_director", 512), 512);
         video.licence = plain(text(item, "licence", 512), 512);
         video.sourceUrl = http(text(item, "vod_detail_url", 8192));
@@ -574,7 +624,7 @@ public final class CatalogApi {
 
     public static CatalogCategories parseCategories(Provider provider, String json) throws IOException {
         requireProvider(provider);
-        JSONObject root = object(json); checkMac(root);
+        JSONObject root = object("m3u".equals(provider.kind) ? M3uCatalog.categories(json) : normalizeResponse(provider, json)); checkMac(root);
         return categories(provider, root);
     }
 
@@ -594,7 +644,7 @@ public final class CatalogApi {
 
     private static void requireCategory(Provider provider, CatalogCategories.Selection selection) throws IOException {
         if (selection == null) return;
-        if (!provider.id.equals(selection.catalog.providerId) || !"maccms".equals(provider.kind) && !selection.id.isEmpty())
+        if (!provider.id.equals(selection.catalog.providerId) || !hasCategories(provider) && !selection.id.isEmpty())
             throw failure("分类不属于当前片库");
     }
 
@@ -621,8 +671,25 @@ public final class CatalogApi {
         if (p == null || !CatalogCategories.validId(p.id) || !supported(p) || http(p.api).isEmpty()) throw failure("片源配置无效");
     }
 
+    public static boolean macProvider(Provider provider) {
+        return provider != null && ("maccms".equals(provider.kind) || "maccms_xml".equals(provider.kind) || "tvbox_json".equals(provider.kind));
+    }
+
+    public static boolean liveProvider(Provider provider) {
+        return provider != null && "m3u".equals(provider.kind);
+    }
+
+    public static boolean hasCategories(Provider provider) {
+        return macProvider(provider) || provider != null && "m3u".equals(provider.kind);
+    }
+
+    private static String normalizeResponse(Provider provider, String response) throws IOException {
+        return provider != null && "maccms_xml".equals(provider.kind) ? MacCmsXml.normalize(response)
+                : provider != null && "tvbox_json".equals(provider.kind) ? TvBoxJson.normalize(object(response)) : response;
+    }
+
     private static boolean supported(Provider p) {
-        return "maccms".equals(p.kind) || "peertube".equals(p.kind);
+        return macProvider(p) || "peertube".equals(p.kind) || "m3u".equals(p.kind);
     }
 
     private static void requireVideo(Video video) throws IOException {
@@ -633,6 +700,10 @@ public final class CatalogApi {
 
     private static void requirePage(int page) throws IOException {
         if (page < 1) throw failure("页码超出支持范围");
+    }
+
+    private static void requireSearch(Provider provider, String query) throws IOException {
+        if (!provider.supportsSearch && !query.isEmpty()) throw failure(provider.name + " 不支持搜索，请使用来源分类浏览");
     }
 
     private static String query(String query) throws IOException {

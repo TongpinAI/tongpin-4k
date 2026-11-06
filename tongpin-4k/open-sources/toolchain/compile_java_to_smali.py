@@ -62,6 +62,7 @@ def main(source, output):
         "Compile-only stubs leaked into the DEX"
     assert source_hashes == {path.relative_to(source).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
                              for path in sources}, "Source changed during compilation; compile again into a fresh output"
+    (output / "own-classes.dex").write_bytes((dex / "classes.dex").read_bytes())
     report = {"source_directory": str(source), "smali_output": str(output / "smali"), "work_directory": str(work),
               "source_sha256": source_hashes,
               "class_files": [path.relative_to(app_classes).as_posix() for path in app_files],

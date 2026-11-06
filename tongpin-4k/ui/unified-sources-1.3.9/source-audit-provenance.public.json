@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "inputs_sha256": {
+    "registry-recommendation.json": "dfb03884748933f5b281eb58aff652607b3716ae77ffed8f8d2f69cc81ca7ea6",
+    "input-coverage.public.json": "e0b90bf25a0250d49deee549e8c5fa5a94354e8b527dd740d927f9aca005c227",
+    "validation.private.json": "bd713fb3500e141a5800c84d090178d1b369a9a68bb7f7e580975f812a1cf47a",
+    "deep-validation.private.json": "27f9053db6b0cfbde24af497114a69122a67368034c30e8506c2425b7fc9969e",
+    "deep-live-production.private.json": "2949dff27407c707e6f0e207d7373412450ced5f492856389f2414edf27a678c",
+    "deep-live-clun-production.private.json": "3a81fbe230daea6827af4e5bc9f49ef96f0db6cec38a01781747657afc01de53",
+    "verified-aliases.private.json": "d6a4e1b0e2fccbd61b2301228e92f840041a31ca331c13e973bb6c67e9eae4e7",
+    "static-taopian-coverage.private.json": "b04be0849c57ab388fa409bc1f0dd2a46dcfd7c96ce013479b98da20621d38bf"
+  },
+  "generator_sha256": {
+    "input_coverage.py": "ce9ca6135e1dca7f3d01a9ad07a4ac046df54b24d5a39bc35fe284ea7d8bec9f",
+    "registry.py": "11fa9fec51c872458a88103cc1b960d2b6cecd1451f8a13daa8c2dcb68ec8c53",
+    "publish_audit.py": "fa9725b4ba951ff36b30a4dd471d08f53578c60aef5d15a3058b92f2a4893c7e",
+    "sanitize_maotai.py": "3ee43263a32ae7c432804df6b79602402a48e937672148fa3bc1a42bdee87410",
+    "sanitize_taopian.py": "ba863a508c6e88c53860aa1e8a7feb407402e75b46c302f1eb6f9dd04fafba45",
+    "sanitize_live.py": "21561bf17c1831df86c9e6f6e36b9770d9dbd501312aad8e57ac21f72b175c9f",
+    "finalize_live.py": "a887ec38f2551c161b406618753fcc53d6e522624e18f7f228527f7768703cb8",
+    "clun_suffixes.py": "bcb3ad9b31e7b5e79afdafd28f34b9f7cbb4c83c315460c4a6be56699f2f8757"
+  },
+  "raw_payloads_media_keys_remote_code_bytes_exported": false
+}

@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "verdict": "clear",
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/LegacySourceBridge.java": "3ab13f914303a25746cb1b02ec23d42294b1ba7e7fdef78b2b9e2570ac9bfb28",
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/HistoryCollectActivity.smali": "8acc33a2df33208c508b0b354e7f13a68b60776eddc5ce05c4c81f766f2780ab"
+  },
+  "checks": [
+    "NativeHistory W is solechangedmethod; replacingexactrawblockrecoversentireoriginalclass",
+    "Albumtitleonlybridge requires explicitactualsource/work/episode; no unsafe oldordinal orprogress transfer",
+    "No originalDBrowmutation or coldstartSettings/Splash dependency innewrecordroute",
+    "Nativepaused/buffering intent usesreviewedwantsPlay; sourceposition/speed capturedafterholdreset",
+    "PhoneUI foreground/save-state guards reviewed; sourcehandoff is opaquequeue token, notlargeIntent"
+  ],
+  "database_modified": false,
+  "device_tested": false
+}

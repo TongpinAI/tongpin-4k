@@ -1,0 +1,1650 @@
+{
+  "interim": false,
+  "updated_at_utc": "2026-11-06T11:07:07.799792+00:00",
+  "old_prefix_count": 11,
+  "preserved_old_prefix_ids": [
+    "mdzy",
+    "360zy",
+    "blender",
+    "ryzy",
+    "ikun",
+    "guangsu",
+    "hongniu",
+    "jinying",
+    "huya",
+    "bfzy",
+    "qiyi"
+  ],
+  "providers": [
+    {
+      "id": "mdzy",
+      "name": "魔都资源",
+      "kind": "maccms",
+      "api": "https://www.mdzyapi.com/api.php/provide/vod/",
+      "homepage": "https://mdzyapi.com/"
+    },
+    {
+      "id": "360zy",
+      "name": "360资源",
+      "kind": "maccms",
+      "api": "https://360zy.com/api.php/provide/vod/",
+      "homepage": "https://360zy.com/"
+    },
+    {
+      "id": "blender",
+      "name": "Blender开放电影",
+      "kind": "peertube",
+      "api": "https://video.blender.org/api/v1/video-channels/blender_open_movies/videos?sort=-publishedAt",
+      "homepage": "https://video.blender.org/video-channels/blender_open_movies"
+    },
+    {
+      "id": "ryzy",
+      "name": "如意资源",
+      "kind": "maccms",
+      "api": "https://cj.rycjapi.com/api.php/provide/vod/",
+      "homepage": "https://ryzyw.com/"
+    },
+    {
+      "id": "ikun",
+      "name": "iKun资源",
+      "kind": "maccms",
+      "api": "https://ikunzyapi.com/api.php/provide/vod/",
+      "homepage": "https://www.ikunzy.com/"
+    },
+    {
+      "id": "guangsu",
+      "name": "光速资源",
+      "kind": "maccms",
+      "api": "https://api.guangsuapi.com/api.php/provide/vod/",
+      "homepage": "https://www.guangsuzy.com/"
+    },
+    {
+      "id": "hongniu",
+      "name": "红牛资源",
+      "kind": "maccms",
+      "api": "https://www.hongniuzy2.com/api.php/provide/vod/",
+      "homepage": "https://www.hongniuzy2.com/"
+    },
+    {
+      "id": "jinying",
+      "name": "金鹰资源",
+      "kind": "maccms",
+      "api": "https://jyzyapi.com/provide/vod/from/jinyingm3u8/at/json",
+      "homepage": "https://www.jinyingzy.net/"
+    },
+    {
+      "id": "huya",
+      "name": "虎牙资源（第三方）",
+      "kind": "maccms",
+      "api": "https://www.huyaapi.com/api.php/provide/vod/from/hym3u8",
+      "homepage": "https://www.huyaapi.com/"
+    },
+    {
+      "id": "bfzy",
+      "name": "暴风资源",
+      "kind": "maccms",
+      "api": "https://bfzyapi.com/api.php/provide/vod",
+      "homepage": "https://bfzyapi.com/"
+    },
+    {
+      "id": "qiyi",
+      "name": "奇艺资源（第三方）",
+      "kind": "maccms",
+      "api": "https://www.iqiyizyapi.com/api.php/provide/vod",
+      "homepage": "https://www.iqiyizyapi.com/"
+    },
+    {
+      "id": "360zyzz",
+      "name": "三六独立资源（第三方）",
+      "kind": "maccms",
+      "api": "https://360zyzz.com/api.php/provide/vod",
+      "homepage": "https://360zyzz.com/"
+    },
+    {
+      "id": "dandan",
+      "name": "蛋蛋资源（第三方）",
+      "kind": "maccms",
+      "api": "https://ddmf.net/api.php/provide/vod",
+      "homepage": "https://ddmf.net/"
+    },
+    {
+      "id": "dazhong",
+      "name": "大众资源（第三方）",
+      "kind": "maccms",
+      "api": "https://dzzy.com/api.php/provide/vod",
+      "homepage": "https://dzzy.com/"
+    },
+    {
+      "id": "feifan",
+      "name": "非凡资源（第三方）",
+      "kind": "maccms",
+      "api": "https://api.ffzyapi.com/api.php/provide/vod/from/ffm3u8",
+      "homepage": "https://api.ffzyapi.com/"
+    },
+    {
+      "id": "hhzy",
+      "name": "豪华资源（第三方）",
+      "kind": "maccms",
+      "api": "https://hhzyapi.com/api.php/provide/vod",
+      "homepage": "https://hhzyapi.com/"
+    },
+    {
+      "id": "jszy",
+      "name": "极速资源（第三方）",
+      "kind": "maccms",
+      "api": "https://jszyapi.com/api.php/provide/vod",
+      "homepage": "https://jszyapi.com/"
+    },
+    {
+      "id": "longma",
+      "name": "龙马资源（第三方）",
+      "kind": "maccms",
+      "api": "http://jhysj.jiaheyy.top/api.php/provide/vod",
+      "homepage": "http://jhysj.jiaheyy.top/"
+    },
+    {
+      "id": "maotai",
+      "name": "茅台资源（第三方，仅浏览）",
+      "kind": "maccms",
+      "api": "https://caiji.maotaizy.cc/api.php/provide/vod",
+      "homepage": "https://caiji.maotaizy.cc/",
+      "supportsSearch": false
+    },
+    {
+      "id": "maoyan",
+      "name": "猫眼资源（第三方）",
+      "kind": "maccms",
+      "api": "https://api.maoyanapi.top/api.php/provide/vod",
+      "homepage": "https://api.maoyanapi.top/"
+    },
+    {
+      "id": "public_live",
+      "name": "公开直播（第三方清单）",
+      "kind": "m3u",
+      "api": "https://g.blfrp.cn/https://raw.githubusercontent.com/cyh92/live/refs/heads/main/source/migu.m3u",
+      "homepage": "https://github.com/cyh92/live"
+    },
+    {
+      "id": "public_live_clun",
+      "name": "公开直播CLUN（第三方清单）",
+      "kind": "m3u",
+      "api": "https://clun.top/lib/iptv.m3u",
+      "homepage": "https://clun.top/"
+    },
+    {
+      "id": "subo",
+      "name": "速播资源（第三方）",
+      "kind": "maccms",
+      "api": "https://subocj.com/api.php/provide/vod",
+      "homepage": "https://subocj.com/"
+    },
+    {
+      "id": "taopian",
+      "name": "淘片资源（第三方）",
+      "kind": "tvbox_json",
+      "api": "https://taopianapi.com/cjapi/mc/vod/json.html",
+      "homepage": "https://taopianapi.com/"
+    },
+    {
+      "id": "wsyzy",
+      "name": "WSY资源（第三方，仅浏览）",
+      "kind": "maccms",
+      "api": "https://api.wsyzy.net/api.php/provide/vod",
+      "homepage": "https://api.wsyzy.net/",
+      "supportsSearch": false
+    },
+    {
+      "id": "xigua",
+      "name": "西瓜资源（第三方）",
+      "kind": "maccms",
+      "api": "https://xiguazy.tv/api.php/provide/vod",
+      "homepage": "https://xiguazy.tv/"
+    },
+    {
+      "id": "xinlang",
+      "name": "新浪资源（第三方）",
+      "kind": "maccms",
+      "api": "https://api.xinlangapi.com/xinlangapi.php/provide/vod",
+      "homepage": "https://api.xinlangapi.com/"
+    },
+    {
+      "id": "yinghua",
+      "name": "樱花资源（第三方）",
+      "kind": "maccms",
+      "api": "https://yhzy.cc/api.php/provide/vod",
+      "homepage": "https://yhzy.cc/"
+    }
+  ],
+  "additions": [
+    {
+      "id": "360zyzz",
+      "name": "三六独立资源（第三方）",
+      "kind": "maccms",
+      "api": "https://360zyzz.com/api.php/provide/vod",
+      "homepage": "https://360zyzz.com/"
+    },
+    {
+      "id": "dandan",
+      "name": "蛋蛋资源（第三方）",
+      "kind": "maccms",
+      "api": "https://ddmf.net/api.php/provide/vod",
+      "homepage": "https://ddmf.net/"
+    },
+    {
+      "id": "dazhong",
+      "name": "大众资源（第三方）",
+      "kind": "maccms",
+      "api": "https://dzzy.com/api.php/provide/vod",
+      "homepage": "https://dzzy.com/"
+    },
+    {
+      "id": "feifan",
+      "name": "非凡资源（第三方）",
+      "kind": "maccms",
+      "api": "https://api.ffzyapi.com/api.php/provide/vod/from/ffm3u8",
+      "homepage": "https://api.ffzyapi.com/"
+    },
+    {
+      "id": "hhzy",
+      "name": "豪华资源（第三方）",
+      "kind": "maccms",
+      "api": "https://hhzyapi.com/api.php/provide/vod",
+      "homepage": "https://hhzyapi.com/"
+    },
+    {
+      "id": "jszy",
+      "name": "极速资源（第三方）",
+      "kind": "maccms",
+      "api": "https://jszyapi.com/api.php/provide/vod",
+      "homepage": "https://jszyapi.com/"
+    },
+    {
+      "id": "longma",
+      "name": "龙马资源（第三方）",
+      "kind": "maccms",
+      "api": "http://jhysj.jiaheyy.top/api.php/provide/vod",
+      "homepage": "http://jhysj.jiaheyy.top/"
+    },
+    {
+      "id": "maotai",
+      "name": "茅台资源（第三方，仅浏览）",
+      "kind": "maccms",
+      "api": "https://caiji.maotaizy.cc/api.php/provide/vod",
+      "homepage": "https://caiji.maotaizy.cc/",
+      "supportsSearch": false
+    },
+    {
+      "id": "maoyan",
+      "name": "猫眼资源（第三方）",
+      "kind": "maccms",
+      "api": "https://api.maoyanapi.top/api.php/provide/vod",
+      "homepage": "https://api.maoyanapi.top/"
+    },
+    {
+      "id": "public_live",
+      "name": "公开直播（第三方清单）",
+      "kind": "m3u",
+      "api": "https://g.blfrp.cn/https://raw.githubusercontent.com/cyh92/live/refs/heads/main/source/migu.m3u",
+      "homepage": "https://github.com/cyh92/live"
+    },
+    {
+      "id": "public_live_clun",
+      "name": "公开直播CLUN（第三方清单）",
+      "kind": "m3u",
+      "api": "https://clun.top/lib/iptv.m3u",
+      "homepage": "https://clun.top/"
+    },
+    {
+      "id": "subo",
+      "name": "速播资源（第三方）",
+      "kind": "maccms",
+      "api": "https://subocj.com/api.php/provide/vod",
+      "homepage": "https://subocj.com/"
+    },
+    {
+      "id": "taopian",
+      "name": "淘片资源（第三方）",
+      "kind": "tvbox_json",
+      "api": "https://taopianapi.com/cjapi/mc/vod/json.html",
+      "homepage": "https://taopianapi.com/"
+    },
+    {
+      "id": "wsyzy",
+      "name": "WSY资源（第三方，仅浏览）",
+      "kind": "maccms",
+      "api": "https://api.wsyzy.net/api.php/provide/vod",
+      "homepage": "https://api.wsyzy.net/",
+      "supportsSearch": false
+    },
+    {
+      "id": "xigua",
+      "name": "西瓜资源（第三方）",
+      "kind": "maccms",
+      "api": "https://xiguazy.tv/api.php/provide/vod",
+      "homepage": "https://xiguazy.tv/"
+    },
+    {
+      "id": "xinlang",
+      "name": "新浪资源（第三方）",
+      "kind": "maccms",
+      "api": "https://api.xinlangapi.com/xinlangapi.php/provide/vod",
+      "homepage": "https://api.xinlangapi.com/"
+    },
+    {
+      "id": "yinghua",
+      "name": "樱花资源（第三方）",
+      "kind": "maccms",
+      "api": "https://yhzy.cc/api.php/provide/vod",
+      "homepage": "https://yhzy.cc/"
+    }
+  ],
+  "audited_aliases": {
+    "taopian": [
+      "http://taopianapi.com/cjapi/mc/vod/json",
+      "http://hucongrong.web3v.work/%E9%A3%8E%E6%B0%B4/fxz/lib/apiv5585json.html"
+    ],
+    "bfzy": [
+      "https://app.bfzyapi.com/api.php/provide/vod"
+    ],
+    "hongniu": [
+      "https://www.hongniuzy2.com/api.php/provide/vod/at/josn"
+    ],
+    "hhzy": [],
+    "guangsu": [
+      "http://api.guangsuapi.com/api.php/provide/vod"
+    ],
+    "huya": [
+      "https://www.huyaapi.com/api.php/provide/vod",
+      "https://www.huyaapi.com/api.php/provide/vod/at/json"
+    ],
+    "qiyi": [
+      "https://iqiyizyapi.com/api.php/provide/vod"
+    ],
+    "360zy": [
+      "https://360zy.com/api.php/seaxml/vod"
+    ],
+    "ikun": [
+      "https://ikunzyapi.com/api.php/provide/vod/from/ikm3u8/at/json"
+    ],
+    "mdzy": [
+      "https://caiji.moduapi.cc/api.php/provide/vod",
+      "https://www.moduzy.com/api.php/provide/vod"
+    ],
+    "maotai": [
+      "https://caiji.maotaizy.cc/api.php/provide/vod/from/mtm3u8/at/xml"
+    ],
+    "jszy": [
+      "https://jszyapi.com/api.php/provide/vod/at/json",
+      "https://jszyapi.com/api.php/provide/vod/from/jsm3u8"
+    ],
+    "jinying": [
+      "https://jinyingzy.com/api.php/provide/vod",
+      "https://jyzyapi.com/provide/vod",
+      "https://jyzyapi.com/provide/vod/at/xml"
+    ],
+    "wsyzy": [],
+    "xinlang": [
+      "http://api.xinlangapi.com/xinlangapi.php/provide/vod"
+    ],
+    "yinghua": [
+      "https://m3u8.apiyhzy.com/api.php/provide/vod"
+    ],
+    "subo": [
+      "https://subocaiji.com/api.php/provide/vod"
+    ],
+    "longma": [],
+    "dazhong": [
+      "https://cdn.dzzyapi.com/api.php/provide/vod"
+    ],
+    "dandan": [
+      "https://www.lovedan.net/api.php/provide/vod"
+    ],
+    "feifan": [
+      "http://api.ffzyapi.com/api.php/provide/vod",
+      "http://cj.ffzyapi.com//api.php/provide/vod"
+    ],
+    "360zyzz": [],
+    "maoyan": [],
+    "xigua": [],
+    "public_live": [
+      "https://raw.githubusercontent.com/cyh92/live/refs/heads/main/source/migu.m3u"
+    ],
+    "public_live_clun": []
+  },
+  "alias_sample_equivalence_proofs": [
+    {
+      "a": "https://bfzyapi.com/api.php/provide/vod",
+      "b": "https://app.bfzyapi.com/api.php/provide/vod",
+      "basis": "exact20item+class identity",
+      "shared_items": 20
+    },
+    {
+      "a": "http://api.guangsuapi.com/api.php/provide/vod",
+      "b": "https://api.guangsuapi.com/api.php/provide/vod",
+      "basis": "exact20item+class identity",
+      "shared_items": 20
+    },
+    {
+      "a": "https://ikunzyapi.com/api.php/provide/vod",
+      "b": "https://ikunzyapi.com/api.php/provide/vod/from/ikm3u8/at/json",
+      "basis": "exact20item+class identity",
+      "shared_items": 20
+    },
+    {
+      "a": "https://360zy.com/api.php/seaxml/vod",
+      "b": "https://360zy.com/api.php/provide/vod",
+      "basis": "exact20item+class identity",
+      "shared_items": 20
+    },
+    {
+      "a": "https://api.xinlangapi.com/xinlangapi.php/provide/vod",
+      "b": "http://api.xinlangapi.com/xinlangapi.php/provide/vod",
+      "basis": "exact20item+class identity",
+      "shared_items": 20
+    },
+    {
+      "a": "https://www.huyaapi.com/api.php/provide/vod",
+      "b": "https://www.huyaapi.com/api.php/provide/vod/from/hym3u8",
+      "basis": "same declared format/from route with>=80%real item identity overlap",
+      "shared_items": 19
+    },
+    {
+      "a": "https://www.mdzyapi.com/api.php/provide/vod",
+      "b": "https://www.moduzy.com/api.php/provide/vod",
+      "basis": "exact20item+class identity",
+      "shared_items": 20
+    },
+    {
+      "a": "https://jszyapi.com/api.php/provide/vod/at/json",
+      "b": "https://jszyapi.com/api.php/provide/vod",
+      "basis": "same declared format/from route with>=80%real item identity overlap",
+      "shared_items": 19
+    },
+    {
+      "a": "https://jyzyapi.com/provide/vod/at/xml",
+      "b": "https://jyzyapi.com/provide/vod",
+      "basis": "same declared format/from route with>=80%real item identity overlap",
+      "shared_items": 19
+    },
+    {
+      "a": "https://jyzyapi.com/provide/vod/at/xml",
+      "b": "https://jinyingzy.com/api.php/provide/vod",
+      "basis": "exact20item+class identity",
+      "shared_items": 20
+    },
+    {
+      "a": "https://www.huyaapi.com/api.php/provide/vod/at/json",
+      "b": "https://www.huyaapi.com/api.php/provide/vod/from/hym3u8",
+      "basis": "same declared format/from route with>=80%real item identity overlap",
+      "shared_items": 18
+    },
+    {
+      "a": "https://www.huyaapi.com/api.php/provide/vod/at/json",
+      "b": "https://www.huyaapi.com/api.php/provide/vod",
+      "basis": "same declared format/from route with>=80%real item identity overlap",
+      "shared_items": 19
+    },
+    {
+      "a": "https://iqiyizyapi.com/api.php/provide/vod",
+      "b": "https://www.iqiyizyapi.com/api.php/provide/vod",
+      "basis": "same declared format/from route with>=80%real item identity overlap",
+      "shared_items": 18
+    },
+    {
+      "a": "https://www.hongniuzy2.com/api.php/provide/vod/at/josn",
+      "b": "https://www.hongniuzy2.com/api.php/provide/vod",
+      "basis": "same declared format/from route with>=80%real item identity overlap",
+      "shared_items": 18
+    },
+    {
+      "a": "https://dzzy.com/api.php/provide/vod",
+      "b": "https://cdn.dzzyapi.com/api.php/provide/vod",
+      "basis": "exact20item+class identity",
+      "shared_items": 20
+    },
+    {
+      "a": "https://yhzy.cc/api.php/provide/vod",
+      "b": "https://m3u8.apiyhzy.com/api.php/provide/vod",
+      "basis": "exact20item+class identity",
+      "shared_items": 20
+    },
+    {
+      "a": "http://taopianapi.com/cjapi/mc/vod/json",
+      "b": "https://taopianapi.com/cjapi/mc/vod/json.html",
+      "basis": "exact20item+class identity",
+      "shared_items": 20
+    },
+    {
+      "a": "https://ddmf.net/api.php/provide/vod",
+      "b": "https://www.lovedan.net/api.php/provide/vod",
+      "basis": "exact20item+class identity",
+      "shared_items": 20
+    },
+    {
+      "a": "https://jszyapi.com/api.php/provide/vod/from/jsm3u8",
+      "b": "https://jszyapi.com/api.php/provide/vod",
+      "basis": "same declared format/from route with>=80%real item identity overlap",
+      "shared_items": 19
+    },
+    {
+      "a": "https://jszyapi.com/api.php/provide/vod/from/jsm3u8",
+      "b": "https://jszyapi.com/api.php/provide/vod/at/json",
+      "basis": "exact20item+class identity",
+      "shared_items": 20
+    },
+    {
+      "a": "https://api.ffzyapi.com/api.php/provide/vod/from/ffm3u8",
+      "b": "http://cj.ffzyapi.com//api.php/provide/vod",
+      "basis": "exact20item+class identity",
+      "shared_items": 20
+    },
+    {
+      "a": "http://api.ffzyapi.com/api.php/provide/vod",
+      "b": "http://cj.ffzyapi.com//api.php/provide/vod",
+      "basis": "exact20item+class identity",
+      "shared_items": 20
+    },
+    {
+      "a": "http://api.ffzyapi.com/api.php/provide/vod",
+      "b": "https://api.ffzyapi.com/api.php/provide/vod/from/ffm3u8",
+      "basis": "exact20item+class identity",
+      "shared_items": 20
+    },
+    {
+      "a": "https://www.mdzyapi.com/api.php/provide/vod",
+      "b": "https://caiji.moduapi.cc/api.php/provide/vod",
+      "basis": "three real identities/year/type and complete playable-URL equality or declared-line subset",
+      "sample_count": 3
+    },
+    {
+      "a": "https://caiji.maotaizy.cc/api.php/provide/vod/from/mtm3u8/at/xml",
+      "b": "https://caiji.maotaizy.cc/api.php/provide/vod",
+      "basis": "three real identities/year/type and complete playable-URL equality or declared-line subset",
+      "sample_count": 3
+    },
+    {
+      "a": "https://subocaiji.com/api.php/provide/vod",
+      "b": "https://subocj.com/api.php/provide/vod",
+      "basis": "three real identities/year/type and complete playable-URL equality or declared-line subset",
+      "sample_count": 3
+    }
+  ],
+  "provider_media_evidence": [
+    {
+      "provider_id": "taopian",
+      "verified_api": "https://taopianapi.com/cjapi/mc/vod/json.html",
+      "sample": {
+        "id": "1540117",
+        "title": "末誓",
+        "type_id": "15597568",
+        "type_name": "电视剧/国产剧",
+        "identity_matched": true,
+        "episode_count": 6,
+        "first_label": "第1集",
+        "last_label": "第3集"
+      },
+      "api_production_ua": "Tongpin4K/1.1.0 PublicCatalog",
+      "api_status": 200,
+      "media_chain_statuses": [
+        200
+      ],
+      "segment_status": 206,
+      "segment_prefix_bytes": 65536,
+      "mpeg_ts_packets": true,
+      "iso_bmff_signature": false,
+      "aes_key_bytes": null,
+      "ffprobe_streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "actual_4k_sample": false,
+      "required_media_headers": {}
+    },
+    {
+      "provider_id": "bfzy",
+      "verified_api": "https://bfzyapi.com/api.php/provide/vod",
+      "sample": {
+        "id": "171575",
+        "title": "折月亮",
+        "type_id": "31",
+        "type_name": "国产剧",
+        "identity_matched": true,
+        "episode_count": 6,
+        "first_label": "第1集",
+        "last_label": "第6集"
+      },
+      "api_production_ua": "Tongpin4K/1.1.0 PublicCatalog",
+      "api_status": 200,
+      "media_chain_statuses": [
+        200
+      ],
+      "segment_status": 206,
+      "segment_prefix_bytes": 65536,
+      "mpeg_ts_packets": true,
+      "iso_bmff_signature": false,
+      "aes_key_bytes": null,
+      "ffprobe_streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1920,
+          "height": 800
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "actual_4k_sample": false,
+      "required_media_headers": {}
+    },
+    {
+      "provider_id": "hongniu",
+      "verified_api": "https://www.hongniuzy2.com/api.php/provide/vod",
+      "sample": {
+        "id": "199301",
+        "title": "玫瑰战争粤语版",
+        "type_id": "12",
+        "type_name": "国产剧",
+        "identity_matched": true,
+        "episode_count": 2,
+        "first_label": "第03集",
+        "last_label": "第03集"
+      },
+      "api_production_ua": "Tongpin4K/1.1.0 PublicCatalog",
+      "api_status": 200,
+      "media_chain_statuses": [
+        200
+      ],
+      "segment_status": 206,
+      "segment_prefix_bytes": 65536,
+      "mpeg_ts_packets": true,
+      "iso_bmff_signature": false,
+      "aes_key_bytes": 16,
+      "ffprobe_streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "actual_4k_sample": false,
+      "required_media_headers": {}
+    },
+    {
+      "provider_id": "hhzy",
+      "verified_api": "https://hhzyapi.com/api.php/provide/vod",
+      "sample": {
+        "id": "183340",
+        "title": "玫瑰战争粤语版",
+        "type_id": "20",
+        "type_name": "内地剧",
+        "identity_matched": true,
+        "episode_count": 2,
+        "first_label": "第03集",
+        "last_label": "第03集"
+      },
+      "api_production_ua": "Tongpin4K/1.1.0 PublicCatalog",
+      "api_status": 200,
+      "media_chain_statuses": [
+        200
+      ],
+      "segment_status": 206,
+      "segment_prefix_bytes": 65536,
+      "mpeg_ts_packets": true,
+      "iso_bmff_signature": false,
+      "aes_key_bytes": 16,
+      "ffprobe_streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "actual_4k_sample": false,
+      "required_media_headers": {}
+    },
+    {
+      "provider_id": "guangsu",
+      "verified_api": "https://api.guangsuapi.com/api.php/provide/vod",
+      "sample": {
+        "id": "223336",
+        "title": "谷雨",
+        "type_id": "13",
+        "type_name": "大陆剧",
+        "identity_matched": true,
+        "episode_count": 8,
+        "first_label": "第01集",
+        "last_label": "第04集"
+      },
+      "api_production_ua": "Tongpin4K/1.1.0 PublicCatalog",
+      "api_status": 200,
+      "media_chain_statuses": [
+        200
+      ],
+      "segment_status": 206,
+      "segment_prefix_bytes": 65536,
+      "mpeg_ts_packets": true,
+      "iso_bmff_signature": false,
+      "aes_key_bytes": 16,
+      "ffprobe_streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1280,
+          "height": 534
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "actual_4k_sample": false,
+      "required_media_headers": {}
+    },
+    {
+      "provider_id": "huya",
+      "verified_api": "https://www.huyaapi.com/api.php/provide/vod/from/hym3u8",
+      "sample": {
+        "id": "161511",
+        "title": "玫瑰战争粤语版",
+        "type_id": "20",
+        "type_name": "内地剧",
+        "identity_matched": true,
+        "episode_count": 1,
+        "first_label": "第03集",
+        "last_label": "第03集"
+      },
+      "api_production_ua": "Tongpin4K/1.1.0 PublicCatalog",
+      "api_status": 200,
+      "media_chain_statuses": [
+        200
+      ],
+      "segment_status": 206,
+      "segment_prefix_bytes": 65536,
+      "mpeg_ts_packets": true,
+      "iso_bmff_signature": false,
+      "aes_key_bytes": 16,
+      "ffprobe_streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "actual_4k_sample": false,
+      "required_media_headers": {}
+    },
+    {
+      "provider_id": "qiyi",
+      "verified_api": "https://www.iqiyizyapi.com/api.php/provide/vod",
+      "sample": {
+        "id": "86703",
+        "title": "针线缘",
+        "type_id": "30",
+        "type_name": "台湾剧",
+        "identity_matched": true,
+        "episode_count": 63,
+        "first_label": "第01集",
+        "last_label": "第63集"
+      },
+      "api_production_ua": "Tongpin4K/1.1.0 PublicCatalog",
+      "api_status": 200,
+      "media_chain_statuses": [
+        200
+      ],
+      "segment_status": 206,
+      "segment_prefix_bytes": 65536,
+      "mpeg_ts_packets": true,
+      "iso_bmff_signature": false,
+      "aes_key_bytes": null,
+      "ffprobe_streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "actual_4k_sample": false,
+      "required_media_headers": {}
+    },
+    {
+      "provider_id": "360zy",
+      "verified_api": "https://360zy.com/api.php/provide/vod",
+      "sample": {
+        "id": "108958",
+        "title": "对家和我",
+        "type_id": "13",
+        "type_name": "国产剧",
+        "identity_matched": true,
+        "episode_count": 4,
+        "first_label": "第01集",
+        "last_label": "第04集"
+      },
+      "api_production_ua": "Tongpin4K/1.1.0 PublicCatalog",
+      "api_status": 200,
+      "media_chain_statuses": [
+        200,
+        200
+      ],
+      "segment_status": 206,
+      "segment_prefix_bytes": 65536,
+      "mpeg_ts_packets": true,
+      "iso_bmff_signature": false,
+      "aes_key_bytes": 16,
+      "ffprobe_streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "actual_4k_sample": false,
+      "required_media_headers": {}
+    },
+    {
+      "provider_id": "ikun",
+      "verified_api": "https://ikunzyapi.com/api.php/provide/vod",
+      "sample": {
+        "id": "70529",
+        "title": "奇思妙探第四季",
+        "type_id": "26",
+        "type_name": "欧美剧",
+        "identity_matched": true,
+        "episode_count": 4,
+        "first_label": "第01集",
+        "last_label": "第04集"
+      },
+      "api_production_ua": "Tongpin4K/1.1.0 PublicCatalog",
+      "api_status": 200,
+      "media_chain_statuses": [
+        200,
+        200
+      ],
+      "segment_status": 206,
+      "segment_prefix_bytes": 33276,
+      "mpeg_ts_packets": true,
+      "iso_bmff_signature": false,
+      "aes_key_bytes": null,
+      "ffprobe_streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "actual_4k_sample": false,
+      "required_media_headers": {}
+    },
+    {
+      "provider_id": "mdzy",
+      "verified_api": "https://www.mdzyapi.com/api.php/provide/vod",
+      "sample": {
+        "id": "92341",
+        "title": "折月亮",
+        "type_id": "26",
+        "type_name": "国产剧",
+        "identity_matched": true,
+        "episode_count": 6,
+        "first_label": "第01集",
+        "last_label": "第06集"
+      },
+      "api_production_ua": "Tongpin4K/1.1.0 PublicCatalog",
+      "api_status": 200,
+      "media_chain_statuses": [
+        200,
+        200
+      ],
+      "segment_status": 206,
+      "segment_prefix_bytes": 65536,
+      "mpeg_ts_packets": true,
+      "iso_bmff_signature": false,
+      "aes_key_bytes": null,
+      "ffprobe_streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1920,
+          "height": 800
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "actual_4k_sample": false,
+      "required_media_headers": {}
+    },
+    {
+      "provider_id": "maotai",
+      "verified_api": "https://caiji.maotaizy.cc/api.php/provide/vod",
+      "sample": {
+        "id": "155634",
+        "title": "野马九号",
+        "type_id": "11",
+        "type_name": "剧情片",
+        "identity_matched": true,
+        "episode_count": 2,
+        "first_label": "抢先版",
+        "last_label": "抢先版"
+      },
+      "api_production_ua": "Tongpin4K/1.1.0 PublicCatalog",
+      "api_status": 200,
+      "media_chain_statuses": [
+        200,
+        200
+      ],
+      "segment_status": 206,
+      "segment_prefix_bytes": 65536,
+      "mpeg_ts_packets": true,
+      "iso_bmff_signature": false,
+      "aes_key_bytes": 16,
+      "ffprobe_streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1920,
+          "height": 820
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "actual_4k_sample": false,
+      "required_media_headers": {}
+    },
+    {
+      "provider_id": "jszy",
+      "verified_api": "https://jszyapi.com/api.php/provide/vod",
+      "sample": {
+        "id": "153336",
+        "title": "妈妈发疯了",
+        "type_id": "5",
+        "type_name": "韩剧",
+        "identity_matched": true,
+        "episode_count": 58,
+        "first_label": "第1集",
+        "last_label": "第29集"
+      },
+      "api_production_ua": "Tongpin4K/1.1.0 PublicCatalog",
+      "api_status": 200,
+      "media_chain_statuses": [
+        200
+      ],
+      "segment_status": 206,
+      "segment_prefix_bytes": 65536,
+      "mpeg_ts_packets": true,
+      "iso_bmff_signature": false,
+      "aes_key_bytes": 16,
+      "ffprobe_streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "actual_4k_sample": false,
+      "required_media_headers": {}
+    },
+    {
+      "provider_id": "jinying",
+      "verified_api": "https://jyzyapi.com/provide/vod",
+      "sample": {
+        "id": "163267",
+        "title": "谷雨",
+        "type_id": "20",
+        "type_name": "内地剧",
+        "identity_matched": true,
+        "episode_count": 12,
+        "first_label": "第01集",
+        "last_label": "第06集"
+      },
+      "api_production_ua": "Tongpin4K/1.1.0 PublicCatalog",
+      "api_status": 200,
+      "media_chain_statuses": [
+        200
+      ],
+      "segment_status": 206,
+      "segment_prefix_bytes": 65536,
+      "mpeg_ts_packets": true,
+      "iso_bmff_signature": false,
+      "aes_key_bytes": 16,
+      "ffprobe_streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1280,
+          "height": 534
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "actual_4k_sample": false,
+      "required_media_headers": {}
+    },
+    {
+      "provider_id": "wsyzy",
+      "verified_api": "https://api.wsyzy.net/api.php/provide/vod",
+      "sample": {
+        "id": "149768",
+        "title": "绝命杀手第二季",
+        "type_id": "14",
+        "type_name": "欧美剧",
+        "identity_matched": true,
+        "episode_count": 6,
+        "first_label": "第01集",
+        "last_label": "第06集"
+      },
+      "api_production_ua": "Tongpin4K/1.1.0 PublicCatalog",
+      "api_status": 200,
+      "media_chain_statuses": [
+        200,
+        200
+      ],
+      "segment_status": 206,
+      "segment_prefix_bytes": 65536,
+      "mpeg_ts_packets": true,
+      "iso_bmff_signature": false,
+      "aes_key_bytes": null,
+      "ffprobe_streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1920,
+          "height": 960
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "actual_4k_sample": false,
+      "required_media_headers": {}
+    },
+    {
+      "provider_id": "xinlang",
+      "verified_api": "https://api.xinlangapi.com/xinlangapi.php/provide/vod",
+      "sample": {
+        "id": "239243",
+        "title": "谷雨",
+        "type_id": "13",
+        "type_name": "大陆剧",
+        "identity_matched": true,
+        "episode_count": 12,
+        "first_label": "第01集",
+        "last_label": "第06集"
+      },
+      "api_production_ua": "Tongpin4K/1.1.0 PublicCatalog",
+      "api_status": 200,
+      "media_chain_statuses": [
+        200
+      ],
+      "segment_status": 206,
+      "segment_prefix_bytes": 65536,
+      "mpeg_ts_packets": true,
+      "iso_bmff_signature": false,
+      "aes_key_bytes": 16,
+      "ffprobe_streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1280,
+          "height": 534
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "actual_4k_sample": false,
+      "required_media_headers": {}
+    },
+    {
+      "provider_id": "yinghua",
+      "verified_api": "https://yhzy.cc/api.php/provide/vod",
+      "sample": {
+        "id": "105129",
+        "title": "离婚后第三天前夫后悔了",
+        "type_id": "13",
+        "type_name": "国产剧",
+        "identity_matched": true,
+        "episode_count": 1,
+        "first_label": "全集",
+        "last_label": "全集"
+      },
+      "api_production_ua": "Tongpin4K/1.1.0 PublicCatalog",
+      "api_status": 200,
+      "media_chain_statuses": [
+        200
+      ],
+      "segment_status": 206,
+      "segment_prefix_bytes": 65536,
+      "mpeg_ts_packets": true,
+      "iso_bmff_signature": false,
+      "aes_key_bytes": null,
+      "ffprobe_streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1854,
+          "height": 1000
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "actual_4k_sample": false,
+      "required_media_headers": {}
+    },
+    {
+      "provider_id": "subo",
+      "verified_api": "https://subocj.com/api.php/provide/vod",
+      "sample": {
+        "id": "163804",
+        "title": "谷雨",
+        "type_id": "14",
+        "type_name": "大陆剧",
+        "identity_matched": true,
+        "episode_count": 12,
+        "first_label": "第01集",
+        "last_label": "第06集"
+      },
+      "api_production_ua": "Tongpin4K/1.1.0 PublicCatalog",
+      "api_status": 200,
+      "media_chain_statuses": [
+        200
+      ],
+      "segment_status": 206,
+      "segment_prefix_bytes": 65536,
+      "mpeg_ts_packets": true,
+      "iso_bmff_signature": false,
+      "aes_key_bytes": 16,
+      "ffprobe_streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1280,
+          "height": 534
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "actual_4k_sample": false,
+      "required_media_headers": {}
+    },
+    {
+      "provider_id": "longma",
+      "verified_api": "http://jhysj.jiaheyy.top/api.php/provide/vod",
+      "sample": {
+        "id": "480303",
+        "title": "危险心动",
+        "type_id": "16",
+        "type_name": null,
+        "identity_matched": true,
+        "episode_count": 6,
+        "first_label": "第1集",
+        "last_label": "第6集完结"
+      },
+      "api_production_ua": "Tongpin4K/1.1.0 PublicCatalog",
+      "api_status": 200,
+      "media_chain_statuses": [
+        200
+      ],
+      "segment_status": 206,
+      "segment_prefix_bytes": 65536,
+      "mpeg_ts_packets": true,
+      "iso_bmff_signature": false,
+      "aes_key_bytes": null,
+      "ffprobe_streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "actual_4k_sample": false,
+      "required_media_headers": {}
+    },
+    {
+      "provider_id": "dazhong",
+      "verified_api": "https://dzzy.com/api.php/provide/vod",
+      "sample": {
+        "id": "28073",
+        "title": "卿色无双",
+        "type_id": "22",
+        "type_name": "短剧",
+        "identity_matched": true,
+        "episode_count": 88,
+        "first_label": "第01集",
+        "last_label": "第44集"
+      },
+      "api_production_ua": "Tongpin4K/1.1.0 PublicCatalog",
+      "api_status": 200,
+      "media_chain_statuses": [
+        200,
+        200
+      ],
+      "segment_status": 206,
+      "segment_prefix_bytes": 65536,
+      "mpeg_ts_packets": true,
+      "iso_bmff_signature": false,
+      "aes_key_bytes": 16,
+      "ffprobe_streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "actual_4k_sample": false,
+      "required_media_headers": {}
+    },
+    {
+      "provider_id": "dandan",
+      "verified_api": "https://ddmf.net/api.php/provide/vod",
+      "sample": {
+        "id": "211544",
+        "title": "窝心排灯节",
+        "type_id": "21",
+        "type_name": "剧情片",
+        "identity_matched": true,
+        "episode_count": 3,
+        "first_label": "HD中字",
+        "last_label": "正片"
+      },
+      "api_production_ua": "Tongpin4K/1.1.0 PublicCatalog",
+      "api_status": 200,
+      "media_chain_statuses": [
+        200
+      ],
+      "segment_status": 206,
+      "segment_prefix_bytes": 65536,
+      "mpeg_ts_packets": true,
+      "iso_bmff_signature": false,
+      "aes_key_bytes": 16,
+      "ffprobe_streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "actual_4k_sample": false,
+      "required_media_headers": {}
+    },
+    {
+      "provider_id": "feifan",
+      "verified_api": "https://api.ffzyapi.com/api.php/provide/vod/from/ffm3u8",
+      "sample": {
+        "id": "100257",
+        "title": "玫瑰战争粤语",
+        "type_id": "14",
+        "type_name": "香港剧",
+        "identity_matched": true,
+        "episode_count": 3,
+        "first_label": "第01集",
+        "last_label": "第03集"
+      },
+      "api_production_ua": "Tongpin4K/1.1.0 PublicCatalog",
+      "api_status": 200,
+      "media_chain_statuses": [
+        200,
+        200
+      ],
+      "segment_status": 206,
+      "segment_prefix_bytes": 65536,
+      "mpeg_ts_packets": true,
+      "iso_bmff_signature": false,
+      "aes_key_bytes": null,
+      "ffprobe_streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "actual_4k_sample": false,
+      "required_media_headers": {}
+    },
+    {
+      "provider_id": "360zyzz",
+      "verified_api": "https://360zyzz.com/api.php/provide/vod",
+      "sample": {
+        "id": "109260",
+        "title": "超凡战队",
+        "type_id": "9",
+        "type_name": "科幻片",
+        "identity_matched": true,
+        "episode_count": 1,
+        "first_label": "正片",
+        "last_label": "正片"
+      },
+      "api_production_ua": "Tongpin4K/1.1.0 PublicCatalog",
+      "api_status": 200,
+      "media_chain_statuses": [
+        200,
+        200
+      ],
+      "segment_status": 206,
+      "segment_prefix_bytes": 65536,
+      "mpeg_ts_packets": true,
+      "iso_bmff_signature": false,
+      "aes_key_bytes": 16,
+      "ffprobe_streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1920,
+          "height": 816
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "actual_4k_sample": false,
+      "required_media_headers": {}
+    },
+    {
+      "provider_id": "maoyan",
+      "verified_api": "https://api.maoyanapi.top/api.php/provide/vod",
+      "sample": {
+        "id": "158287",
+        "title": "后会友期",
+        "type_id": "34",
+        "type_name": "大陆综艺",
+        "identity_matched": true,
+        "episode_count": 9,
+        "first_label": "20261022第1期",
+        "last_label": "20261106加更版"
+      },
+      "api_production_ua": "Tongpin4K/1.1.0 PublicCatalog",
+      "api_status": 200,
+      "media_chain_statuses": [
+        200,
+        200
+      ],
+      "segment_status": 206,
+      "segment_prefix_bytes": 65536,
+      "mpeg_ts_packets": true,
+      "iso_bmff_signature": false,
+      "aes_key_bytes": 16,
+      "ffprobe_streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "actual_4k_sample": false,
+      "required_media_headers": {}
+    },
+    {
+      "provider_id": "xigua",
+      "verified_api": "https://xiguazy.tv/api.php/provide/vod",
+      "sample": {
+        "id": "90652",
+        "title": "超凡战队2026",
+        "type_id": "11",
+        "type_name": "剧情片",
+        "identity_matched": true,
+        "episode_count": 2,
+        "first_label": "HD中字",
+        "last_label": "HD中字"
+      },
+      "api_production_ua": "Tongpin4K/1.1.0 PublicCatalog",
+      "api_status": 200,
+      "media_chain_statuses": [
+        200,
+        200
+      ],
+      "segment_status": 206,
+      "segment_prefix_bytes": 65536,
+      "mpeg_ts_packets": true,
+      "iso_bmff_signature": false,
+      "aes_key_bytes": null,
+      "ffprobe_streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1920,
+          "height": 816
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "actual_4k_sample": false,
+      "required_media_headers": {}
+    },
+    {
+      "provider_id": "public_live",
+      "sample_channel": "CCTV1综合",
+      "api_status": 200,
+      "api_production_ua": "Tongpin4K/1.1.0 PublicCatalog",
+      "segment_prefix_bytes": 65536,
+      "media_chain_statuses": [
+        200,
+        200
+      ],
+      "segment_status": 200,
+      "mpeg_ts_packets": true,
+      "ffprobe_streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 800,
+          "height": 600
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "actual_4k_sample": false
+    },
+    {
+      "provider_id": "public_live_clun",
+      "sample_channel": "东方卫视4K",
+      "api_status": 200,
+      "api_production_ua": "Tongpin4K/1.1.0 PublicCatalog",
+      "media_chain_statuses": [
+        200
+      ],
+      "segment_status": 206,
+      "segment_prefix_bytes": 65536,
+      "mpeg_ts_packets": true,
+      "ffprobe_streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ],
+      "actual_4k_sample": false,
+      "literal_annotation_removal_required": true,
+      "bounded_samples": 8,
+      "bounded_segment_passes": 4
+    }
+  ],
+  "validated_endpoint_count": 233,
+  "manifest_usable_endpoints": 52,
+  "segment_verified_endpoints": 48,
+  "recommended_distinct_additions": 17,
+  "exclusions": [
+    {
+      "api": "http://cmsyun2.qijiyun.vip/api.php/provide/vod",
+      "reason": "segment/key/header probe failed"
+    },
+    {
+      "api": "http://zhangqun1818.serv00.net/zh/2242.php",
+      "reason": "segment/key/header probe failed"
+    },
+    {
+      "api": "https://caiji.maotaizy.cc/api.php/provide/vod/from/mtm3u8/at/json",
+      "reason": "segment/key/header probe failed"
+    },
+    {
+      "api": "https://caiji.xgzyapi.com/api.php/provide/vod/from/xiguam3u8",
+      "reason": "production-UA detail failed or identity mismatch"
+    }
+  ],
+  "provider_capabilities": {
+    "360zyzz": {
+      "search_supported": true,
+      "paging_parameter": "pg",
+      "detail_parameter": "ids"
+    },
+    "dandan": {
+      "search_supported": true,
+      "paging_parameter": "pg",
+      "detail_parameter": "ids"
+    },
+    "dazhong": {
+      "search_supported": true,
+      "paging_parameter": "pg",
+      "detail_parameter": "ids"
+    },
+    "feifan": {
+      "search_supported": true,
+      "paging_parameter": "pg",
+      "detail_parameter": "ids"
+    },
+    "hhzy": {
+      "search_supported": true,
+      "paging_parameter": "pg",
+      "detail_parameter": "ids"
+    },
+    "jszy": {
+      "search_supported": true,
+      "paging_parameter": "pg",
+      "detail_parameter": "ids"
+    },
+    "longma": {
+      "search_supported": true,
+      "paging_parameter": "pg",
+      "detail_parameter": "ids"
+    },
+    "maotai": {
+      "search_supported": false,
+      "paging_parameter": "pg",
+      "detail_parameter": "ids"
+    },
+    "maoyan": {
+      "search_supported": true,
+      "paging_parameter": "pg",
+      "detail_parameter": "ids"
+    },
+    "subo": {
+      "search_supported": true,
+      "paging_parameter": "pg",
+      "detail_parameter": "ids"
+    },
+    "taopian": {
+      "search_supported": true,
+      "paging_parameter": "pg",
+      "detail_parameter": "ids"
+    },
+    "wsyzy": {
+      "search_supported": false,
+      "paging_parameter": "pg",
+      "detail_parameter": "ids"
+    },
+    "xigua": {
+      "search_supported": true,
+      "paging_parameter": "pg",
+      "detail_parameter": "ids"
+    },
+    "xinlang": {
+      "search_supported": true,
+      "paging_parameter": "pg",
+      "detail_parameter": "ids"
+    },
+    "yinghua": {
+      "search_supported": true,
+      "paging_parameter": "pg",
+      "detail_parameter": "ids"
+    }
+  },
+  "availability_boundary": "One real title per accepted representative; snapshot equivalence is not a unique-film or completeness claim. No4Klabel withoutffprobe dimensions."
+}
