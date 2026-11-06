@@ -1,0 +1,36 @@
+{
+  "passed": true,
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogActivity.java": "00820b527c98141f53b0823b0882b6b74c8263ce75acc306fa4942b406433663"
+  },
+  "source_scope_changed": [
+    "com/tongpin/player4k/catalog/CatalogActivity.java"
+  ],
+  "all_other33_java_unchanged": true,
+  "all_catalog_search_unchanged": true,
+  "actual_rendering_performed": false,
+  "device_available": false,
+  "legacy_screenshot_reference_only": true,
+  "mechanical_scan_before": [],
+  "mechanical_scan_after": [],
+  "contrast_ratios": {
+    "title": 12.72,
+    "metadata": 4.78,
+    "selected_tab": 4.65,
+    "search": 14.23
+  },
+  "checks": {
+    "main_search_kept_first": true,
+    "source_controls_folded_to_toolbar": true,
+    "real_categories_and_all_id_filter": true,
+    "grid_measures_cover_from_cell": true,
+    "normal3_narrow_large_text2": true,
+    "empty_poster_labels_hidden": true,
+    "all_touch_controls48dp": true,
+    "long_titles_2lines_ellipsized": true,
+    "append_does_not_scroll_or_reorder": true,
+    "native_grid_focus_feedback_preserved": true,
+    "declared_roots_first_flat_not_inferred": true
+  },
+  "limits": "Native screenshots cannot be produced without an Android device/emulator; source checks and host layout math do not substitute for rendering."
+}

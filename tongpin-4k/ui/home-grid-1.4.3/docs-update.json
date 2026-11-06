@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "scope": "Current143summary with original older design/product text retained as historical; existing line endings preserved byte-for-byte outside inserted summaries and explicit heading replacements.",
+  "files": {
+    "DESIGN.md": {
+      "before_sha256": "0f21479ab30b99e7ac6e18debf22389980de2666667b6c834229080f6d1342fb",
+      "after_sha256": "0644e96d5ff64c4ea7569092dd5bb3bf1a2d0df6145bd642aa94a99252b654a9",
+      "historical_bytes_restored_exactly": true
+    },
+    "PRODUCT.md": {
+      "before_sha256": "c5bfb26746b98e9ce0abc1c824b7e0306406e16959c5c8a1889595f9d2e918c0",
+      "after_sha256": "38ca8ec66a87a0997544a3da9394a8b26ad1b7f588aab43aa175a6ba2d19b82a",
+      "historical_bytes_restored_exactly": true
+    },
+    ".impeccable/surfaces/android.md": {
+      "before_sha256": "79037112d853c275ed9228bc8636c6fdddae22e67fa5fa464dab3ea598ac1365",
+      "after_sha256": "2bdf95d858d4320fd83e90e3947890d2ee2cac8c341603c2f1eed07a2c3583bc",
+      "historical_bytes_restored_exactly": true
+    }
+  },
+  "device_tested": false
+}

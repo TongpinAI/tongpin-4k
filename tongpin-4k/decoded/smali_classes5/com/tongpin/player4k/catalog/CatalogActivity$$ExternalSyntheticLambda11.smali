@@ -3,34 +3,34 @@
 .source "D8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnCancelListener;
+.implements Ljava/util/concurrent/Executor;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
+.field public final synthetic f$0:Landroid/os/Handler;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/tongpin/player4k/catalog/CatalogActivity;)V
+.method public synthetic constructor <init>(Landroid/os/Handler;)V
     .locals 0
 
     .line 0
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda11;->f$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
+    iput-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda11;->f$0:Landroid/os/Handler;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onCancel(Landroid/content/DialogInterface;)V
+.method public final execute(Ljava/lang/Runnable;)V
     .locals 1
 
     .line 0
-    iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda11;->f$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
+    iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda11;->f$0:Landroid/os/Handler;
 
-    invoke-virtual {v0, p1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->lambda$onCreate$1$com-tongpin-player4k-catalog-CatalogActivity(Landroid/content/DialogInterface;)V
+    invoke-virtual {v0, p1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method

@@ -1,0 +1,460 @@
+--- published142/CatalogActivity.java
++++ 143/CatalogActivity.java
+@@ -82,18 +82,16 @@
+     private VideoAdapter adapter;
+     private CatalogCategories categoryCatalog;
+     private String categoryId = "", pendingCategoryId = "";
+-    private Spinner categoryPicker;
+     private final ArrayList<String> categoryOptions = new ArrayList<>();
+-    private boolean bindingCategories;
+-    private Spinner providerPicker;
+-    private LinearLayout sourceChips;
+     private PhoneSourcePicker sourcePicker;
+     private boolean foreground, bridgePending;
+     private AllCatalogSearch allSearch;
+     private AllCatalogSearch.Handle searchHandle;
+     private boolean readingDetail;
+     private String channelQuery = "";
+-    private View browseSourceRow, browseChips, browseCategoryRow;
++    private View browseCategoryRow, stateRow;
++    private LinearLayout categoryTabs;
++    private Button categoryFilter;
+     private Button channelSearch;
+ 
+     public static void openSourceSwitch(Activity host, String title, String episodeLabel, String year,
+@@ -163,78 +161,43 @@
+         root.setBackgroundColor(BG);
+         LinearLayout toolbar = row();
+         toolbar.setPadding(dp(8), dp(8), dp(8), dp(8));
+-        Button back = button("我的", false);
+-        back.setContentDescription("观看历史与收藏");
+-        back.setOnClickListener(view -> showLibraryMenu());
+-        back.setMinWidth(dp(64));
+-        toolbar.addView(back, new LinearLayout.LayoutParams(-2, dp(48)));
+         heading = label("同频4K", 22, TEXT);
+         heading.setTypeface(Typeface.DEFAULT, Typeface.BOLD);
+-        heading.setSingleLine(true);
+-        heading.setEllipsize(TextUtils.TruncateAt.END);
++        heading.setSingleLine(true); heading.setEllipsize(TextUtils.TruncateAt.END);
++        heading.setPadding(dp(8), 0, 0, 0);
+         toolbar.addView(heading, new LinearLayout.LayoutParams(0, dp(48), 1));
+-        Button about = button("来源", false);
+-        about.setOnClickListener(view -> showSource());
+-        about.setMinWidth(dp(64));
+-        toolbar.addView(about, new LinearLayout.LayoutParams(-2, dp(48)));
++        Button source = button("片库", false);
++        source.setContentDescription("切换浏览片库，或查看当前影片来源");
++        source.setOnClickListener(view -> { if (detail == null) showProviderPicker(); else showSource(); });
++        toolbar.addView(source, new LinearLayout.LayoutParams(-2, dp(48)));
++        Button mine = button("我的", false);
++        mine.setContentDescription("观看历史与收藏"); mine.setOnClickListener(view -> showLibraryMenu());
++        toolbar.addView(mine, new LinearLayout.LayoutParams(-2, dp(48)));
+         root.addView(toolbar);
+         content = new FrameLayout(this);
+         root.addView(content, new LinearLayout.LayoutParams(-1, 0, 1));
+         catalogScreen = column();
+         content.addView(catalogScreen, new FrameLayout.LayoutParams(-1, -1));
+ 
+-        Spinner picker = new Spinner(this); providerPicker = picker;
+-        ArrayList<String> names = new ArrayList<>();
+-        for (Provider provider : providers) names.add(provider.name);
+-        picker.setAdapter(pickerAdapter(names));
+-        picker.setContentDescription("选择浏览来源，片名搜索自动查询全部可搜索片库");
+-        picker.setSelection(providerIndex);
+-        LinearLayout sourceRow = row();
+-        sourceRow.setBackground(PhoneUi.background(this, PhoneUi.TONAL, 16));
+-        sourceRow.setPadding(dp(12), dp(4), dp(8), dp(4));
+-        sourceRow.addView(label("浏览来源", 14, TEXT), new LinearLayout.LayoutParams(dp(72), dp(48)));
+-        picker.setBackgroundTintList(ColorStateList.valueOf(BLUE));
+-        picker.setPopupBackgroundDrawable(PhoneUi.background(this, SURFACE, 16));
+-        sourceRow.addView(picker, new LinearLayout.LayoutParams(0, dp(48), 1));
+-        LinearLayout.LayoutParams pickerLayout = new LinearLayout.LayoutParams(-1, -2);
+-        pickerLayout.setMargins(dp(16), 0, dp(16), dp(4));
+-        catalogScreen.addView(sourceRow, pickerLayout);
+-        browseSourceRow = sourceRow;
+-        HorizontalScrollView sources = new HorizontalScrollView(this);
+-        sources.setHorizontalScrollBarEnabled(false);
+-        sourceChips = row(); sourceChips.setPadding(dp(16), 0, dp(16), dp(4));
+-        sources.addView(sourceChips, new HorizontalScrollView.LayoutParams(-2, -2));
+-        catalogScreen.addView(sources, new LinearLayout.LayoutParams(-1, -2));
+-        browseChips = sources;
+-        renderSourceChips();
+         caption = label("", 13, SECONDARY);
+-        caption.setMaxLines(2);
+-        caption.setPadding(dp(20), dp(4), dp(20), dp(8));
++        caption.setSingleLine(true); caption.setEllipsize(TextUtils.TruncateAt.END);
++        caption.setPadding(dp(16), dp(6), dp(16), 0);
+         catalogScreen.addView(caption);
+-        LinearLayout categoryRow = row();
+-        categoryRow.setPadding(dp(16), 0, dp(16), dp(4));
+-        categoryRow.addView(label("分类", 14, TEXT), new LinearLayout.LayoutParams(dp(48), dp(48)));
+-        categoryPicker = new Spinner(this);
+-        categoryPicker.setContentDescription("按当前片库的来源分类浏览");
+-        categoryRow.addView(categoryPicker, new LinearLayout.LayoutParams(0, dp(48), 1));
+-        catalogScreen.addView(categoryRow);
+-        browseCategoryRow = categoryRow;
+-        channelSearch = button("搜索频道", false);
++        LinearLayout categoryRow = row(); categoryRow.setPadding(dp(8), 0, dp(8), 0);
++        HorizontalScrollView categories = new HorizontalScrollView(this);
++        categories.setHorizontalScrollBarEnabled(false);
++        categoryTabs = row(); categories.addView(categoryTabs, new HorizontalScrollView.LayoutParams(-2, -2));
++        categoryRow.addView(categories, new LinearLayout.LayoutParams(0, dp(48), 1));
++        categoryFilter = button("筛选", false); categoryFilter.setContentDescription("查看当前片库全部真实分类");
++        categoryFilter.setOnClickListener(view -> showCategoryPicker());
++        categoryRow.addView(categoryFilter, new LinearLayout.LayoutParams(-2, dp(48)));
++        channelSearch = button("频道", false); channelSearch.setContentDescription("搜索当前直播来源的频道");
+         channelSearch.setOnClickListener(view -> searchChannels());
+         categoryRow.addView(channelSearch, new LinearLayout.LayoutParams(-2, dp(48)));
++        catalogScreen.addView(categoryRow); browseCategoryRow = categoryRow;
+         renderCategories();
+-        categoryPicker.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+-            @Override public void onNothingSelected(AdapterView<?> parent) { }
+-            @Override public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+-                if (bindingCategories || position != categoryPicker.getSelectedItemPosition()
+-                        || position < 0 || position >= categoryOptions.size()) return;
+-                String selected = categoryOptions.get(position);
+-                if (!keyword.isEmpty()) return;
+-                if (!categoryId.equals(selected)) { categoryId = selected; pendingCategoryId = ""; loadPage(1); }
+-            }
+-        });
+         LinearLayout searchRow = row();
+-        searchRow.setPadding(dp(16), 0, dp(16), 0);
++        searchRow.setPadding(dp(16), 0, dp(16), dp(4));
+         search = new EditText(this);
+         search.setTextSize(16);
+         search.setTextColor(TEXT);
+@@ -260,6 +223,7 @@
+         });
+ 
+         LinearLayout state = row();
++        stateRow = state;
+         state.setPadding(dp(20), dp(4), dp(16), dp(4));
+         progress = new ProgressBar(this);
+         state.addView(progress, new LinearLayout.LayoutParams(dp(24), dp(24)));
+@@ -274,13 +238,15 @@
+         });
+         state.addView(retry, new LinearLayout.LayoutParams(dp(96), dp(48)));
+         catalogScreen.addView(state, new LinearLayout.LayoutParams(-1, -2));
+-        ListView list = new ListView(this);
+-        list.setBackgroundColor(SURFACE);
+-        list.setDivider(new ColorDrawable(0xffe6e9e8));
+-        list.setDividerHeight(dp(1));
+-        adapter = new VideoAdapter();
+-        list.setAdapter(adapter);
+-        list.setOnItemClickListener((parent, view, position, id) -> loadDetail(videos.get(position)));
++        GridView list = new PosterGrid(this);
++        list.setBackgroundColor(BG); list.setNumColumns(posterColumns(getResources().getConfiguration().screenWidthDp,
++                getResources().getConfiguration().fontScale));
++        list.setHorizontalSpacing(dp(10)); list.setVerticalSpacing(dp(16));
++        list.setStretchMode(GridView.STRETCH_COLUMN_WIDTH);
++        list.setPadding(dp(16), dp(8), dp(16), dp(12)); list.setClipToPadding(false);
++        list.setContentDescription("影片海报片库");
++        adapter = new VideoAdapter(); list.setAdapter(adapter);
++        list.setOnItemClickListener((parent, view, position, id) -> loadDetail(adapter.getItem(position)));
+         catalogScreen.addView(list, new LinearLayout.LayoutParams(-1, 0, 1));
+         LinearLayout pager = row();
+         pager.setPadding(dp(16), dp(4), dp(16), dp(4));
+@@ -306,22 +272,12 @@
+         setContentView(root);
+         PhoneUi.installInsets(this, root);
+         updateSearchSupport();
+-        picker.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+-            @Override public void onNothingSelected(AdapterView<?> parent) { }
+-            @Override public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+-                if (providerIndex != position) {
+-                    browseProvider(position);
+-                }
+-            }
+-        });
+     }
+ 
+     private void updateSearchSupport() {
+         boolean browsing = keyword.isEmpty();
+         search.setEnabled(true); searchSubmit.setEnabled(true); search.setHint("搜索全部影视片库");
+-        for (View row : new View[]{browseSourceRow, browseChips, browseCategoryRow})
+-            if (row != null) row.setVisibility(browsing ? View.VISIBLE : View.GONE);
+-        if (categoryPicker != null) categoryPicker.setEnabled(browsing && categoryOptions.size() > 1);
++        if (browseCategoryRow != null) browseCategoryRow.setVisibility(browsing ? View.VISIBLE : View.GONE);
+         if (channelSearch != null) channelSearch.setVisibility(browsing && CatalogApi.liveProvider(providers.get(providerIndex)) ? View.VISIBLE : View.GONE);
+     }
+ 
+@@ -329,47 +285,74 @@
+         cancelGlobalSearch(); keyword = ""; search.setText(""); channelQuery = "";
+         providerIndex = index; categoryCatalog = null; categoryId = ""; pendingCategoryId = "";
+         getSharedPreferences("tongpin_ui", MODE_PRIVATE).edit().putString("home_provider", providers.get(index).id).apply();
+-        if (providerPicker.getSelectedItemPosition() != index) providerPicker.setSelection(index);
+-        renderSourceChips(); updateSearchSupport(); renderCategories(); loadPage(1);
+-    }
+-
+-    private void renderSourceChips() {
+-        if (sourceChips == null) return;
+-        sourceChips.removeAllViews();
+-        Button all = button("浏览来源 · " + providers.size(), false);
+-        all.setOnClickListener(v -> {
+-            String[] labels = new String[providers.size()];
+-            for (int i = 0; i < labels.length; i++) labels[i] = providers.get(i).name;
+-            new AlertDialog.Builder(this).setTitle("选择首页片源").setSingleChoiceItems(labels, providerIndex, (dialog, index) -> {
+-                dialog.dismiss(); browseProvider(index);
+-            }).setNegativeButton("关闭", null).show();
+-        });
+-        sourceChips.addView(all, new LinearLayout.LayoutParams(-2, dp(44)));
+-        for (int i = 0; i < providers.size(); i++) {
+-            final int index = i;
+-            Button chip = button(providers.get(i).name, i == providerIndex);
+-            chip.setContentDescription(providers.get(i).name + (i == providerIndex ? "，当前片源" : "，切换此片源"));
+-            chip.setOnClickListener(v -> browseProvider(index));
+-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(-2, dp(44)); params.leftMargin = dp(8);
+-            sourceChips.addView(chip, params);
+-        }
++        updateSearchSupport(); renderCategories(); loadPage(1);
++    }
++
++    private void showProviderPicker() {
++        String[] labels = new String[providers.size()];
++        for (int i = 0; i < labels.length; i++) labels[i] = providers.get(i).name;
++        new AlertDialog.Builder(this).setTitle("选择浏览片库").setSingleChoiceItems(labels, providerIndex, (dialog, index) -> {
++            dialog.dismiss(); browseProvider(index);
++        }).setNegativeButton("关闭", null).show();
+     }
+ 
+     private void renderCategories() {
+-        if (categoryPicker == null) return;
+-        bindingCategories = true;
+-        categoryOptions.clear();
+-        categoryOptions.add("");
+-        ArrayList<String> labels = new ArrayList<>();
+-        labels.add(categoryCatalog == null ? "正在读取来源分类…" : categoryCatalog.isEmpty() ? "来源未提供分类" : "全部分类");
+-        if (categoryCatalog != null) for (CatalogCategories.Category category : categoryCatalog.categories()) {
+-            categoryOptions.add(category.id); labels.add(categoryCatalog.display(category));
+-        }
+-        int selected = categoryOptions.indexOf(categoryId);
+-        categoryPicker.setAdapter(pickerAdapter(labels));
+-        categoryPicker.setSelection(Math.max(0, selected), false);
+-        categoryPicker.setEnabled(keyword.isEmpty() && categoryOptions.size() > 1);
+-        bindingCategories = false;
++        if (categoryTabs == null) return;
++        categoryTabs.removeAllViews(); categoryOptions.clear(); categoryOptions.add("");
++        ArrayList<CatalogCategories.Category> declared = new ArrayList<>();
++        if (categoryCatalog != null) declared.addAll(categoryCatalog.categories());
++        for (CatalogCategories.Category category : declared) categoryOptions.add(category.id);
++        addCategoryTab("", "全部", "全部分类");
++        for (String id : visibleCategoryIds(declared, categoryId))
++            for (CatalogCategories.Category category : declared) if (category.id.equals(id)) {
++                addCategoryTab(category.id, category.name, categoryCatalog.display(category)); break;
++            }
++        categoryFilter.setEnabled(!declared.isEmpty());
++        String chosen = "全部分类";
++        for (CatalogCategories.Category category : declared) if (category.id.equals(categoryId)) chosen = categoryCatalog.display(category);
++        if (keyword.isEmpty() && caption != null) caption.setText(providers.get(providerIndex).name + " · " + chosen);
++    }
++
++    private void addCategoryTab(String id, String name, String description) {
++        Button tab = button(name, false); tab.setSingleLine(true); tab.setEllipsize(TextUtils.TruncateAt.END);
++        tab.setMaxWidth(dp(160)); tab.setTextColor(id.equals(categoryId) ? BLUE : SECONDARY);
++        tab.setTypeface(Typeface.DEFAULT, id.equals(categoryId) ? Typeface.BOLD : Typeface.NORMAL);
++        tab.setContentDescription(description + (id.equals(categoryId) ? "，已选中" : "，选择此分类"));
++        tab.setOnClickListener(view -> selectCategory(id));
++        categoryTabs.addView(tab, new LinearLayout.LayoutParams(-2, dp(48)));
++    }
++
++    static List<String> visibleCategoryIds(List<CatalogCategories.Category> declared, String selected) {
++        ArrayList<CatalogCategories.Category> ordered = new ArrayList<>();
++        for (CatalogCategories.Category category : declared) if (declaredRoot(category)) ordered.add(category);
++        for (CatalogCategories.Category category : declared) if (!declaredRoot(category)) ordered.add(category);
++        ArrayList<String> ids = new ArrayList<>();
++        // An item chosen in the full filter remains visible instead of hiding beyond the short tab list.
++        for (int i = 7; i < ordered.size(); i++) if (ordered.get(i).id.equals(selected)) { ids.add(selected); break; }
++        for (int i = 0; i < Math.min(7, ordered.size()); i++) ids.add(ordered.get(i).id);
++        return ids;
++    }
++
++    private static boolean declaredRoot(CatalogCategories.Category category) {
++        return category.parentKnown && (category.parentId.isEmpty() || "0".equals(category.parentId));
++    }
++
++    private void selectCategory(String id) {
++        if (!keyword.isEmpty() || categoryCatalog == null) return;
++        try { categoryCatalog.select(id); }
++        catch (IllegalArgumentException changed) { return; }
++        if (!categoryId.equals(id)) { categoryId = id; pendingCategoryId = ""; renderCategories(); loadPage(1); }
++    }
++
++    private void showCategoryPicker() {
++        if (!keyword.isEmpty() || categoryCatalog == null || categoryCatalog.isEmpty()) return;
++        ArrayList<String> labels = new ArrayList<>(); labels.add("全部分类");
++        for (CatalogCategories.Category category : categoryCatalog.categories()) labels.add(categoryCatalog.display(category));
++        final ArrayList<String> ids = new ArrayList<>(categoryOptions);
++        new AlertDialog.Builder(this).setTitle("全部分类 · " + providers.get(providerIndex).name)
++                .setSingleChoiceItems(labels.toArray(new String[0]), Math.max(0, ids.indexOf(categoryId)), (dialog, index) -> {
++                    dialog.dismiss(); if (index >= 0 && index < ids.size()) selectCategory(ids.get(index));
++                }).setNegativeButton("关闭", null).show();
+     }
+ 
+     private void submitSearch() {
+@@ -395,7 +378,7 @@
+         loading = true; hasMore = false;
+         images.getQueue().clear(); videos.clear(); adapter.notifyDataSetChanged();
+         updateSearchSupport();
+-        caption.setText("片名搜索 · 正在查询全部可搜索点播库");
++        caption.setText("搜索结果 · 全部可搜索影视片库");
+         status.setText("正在搜索，各来源结果将陆续显示…");
+         progress.setVisibility(View.VISIBLE); retry.setVisibility(View.GONE);
+         final String query = keyword;
+@@ -412,9 +395,9 @@
+         loading = snapshot.loading; hasMore = snapshot.hasMore;
+         // Returning search packets cannot dismiss a detail or replace its loading/error state.
+         if (!foreground || readingDetail || detail != null) return;
+-        caption.setText("片名搜索 · " + snapshot.totalSources + "个可搜索点播库 · "
+-                + snapshot.skippedBrowseOnly + "个仅浏览、" + snapshot.skippedLive + "个直播来源不参与");
+-        status.setText(globalStatus(snapshot));
++        caption.setText("搜索结果 · " + snapshot.totalSources + "个影视片库");
++        status.setText(snapshot.loading || snapshot.canResume || snapshot.failedSources > 0 || snapshot.repeatStoppedSources > 0
++                || snapshot.limited || snapshot.items.isEmpty() ? globalStatus(snapshot) : "");
+         progress.setVisibility(snapshot.loading ? View.VISIBLE : View.GONE);
+         retry.setText("重试失败"); retry.setEnabled(!snapshot.loading);
+         retry.setVisibility(snapshot.failedSources > 0 && !snapshot.limited ? View.VISIBLE : View.GONE);
+@@ -483,9 +466,7 @@
+         adapter.notifyDataSetChanged();
+         Provider provider = providers.get(providerIndex);
+         final CatalogCategories.Selection category = categoryCatalog == null ? null : categoryCatalog.select(categoryId);
+-        caption.setText(!provider.supportsSearch ? "此来源仅支持浏览；上方片名搜索仍查询全部可搜索片库" : CatalogApi.liveProvider(provider) ? "直播频道 · 可用“搜索频道”筛选 · 不保存播放进度" : "peertube".equals(provider.kind)
+-            ? "Blender 开放电影 · 部分影片提供 4K 版本"
+-            : "电影与剧集 · 播放时显示实际分辨率");
++        renderCategories();
+         status.setText("正在载入 " + provider.name + "…");
+         progress.setVisibility(View.VISIBLE);
+         retry.setVisibility(View.GONE);
+@@ -518,7 +499,7 @@
+                     hasMore = received.hasMore;
+                     loading = false;
+                     progress.setVisibility(View.GONE);
+-                    status.setText(videos.isEmpty() ? "没有匹配影片，请换个关键词或片库" : "本页 " + videos.size() + " 部 · 选择影片查看选集");
++                    status.setText(videos.isEmpty() ? "暂无影片，可切换分类或片库" : "");
+                     if (received.categoryMismatchCount > 0)
+                         status.append(" · " + received.categoryMismatchCount + "条来源分类不匹配，已隐藏");
+                     adapter.notifyDataSetChanged();
+@@ -530,10 +511,7 @@
+                     loading = false;
+                     progress.setVisibility(View.GONE);
+                     status.setText("片库暂时无法连接，请重试或切换片库");
+-                    if (categoryCatalog == null) {
+-                        categoryPicker.setAdapter(pickerAdapter(Collections.singletonList("分类读取失败，请重试")));
+-                        categoryPicker.setEnabled(false);
+-                    }
++                    if (categoryCatalog == null) categoryFilter.setEnabled(false);
+                     retry.setVisibility(View.VISIBLE);
+                     updatePager();
+                 });
+@@ -542,6 +520,8 @@
+     }
+ 
+     private void updatePager() {
++        stateRow.setVisibility(progress.getVisibility() == View.VISIBLE || retry.getVisibility() == View.VISIBLE
++                || status.getText().length() > 0 ? View.VISIBLE : View.GONE);
+         if (!keyword.isEmpty() && searchHandle != null) {
+             AllCatalogSearch.Snapshot snapshot = searchHandle.snapshot();
+             previous.setText("返回浏览"); previous.setEnabled(true);
+@@ -559,6 +539,7 @@
+     private void loadDetail(Video video) {
+         if (searchHandle != null) allSearch.cancelRound(searchHandle);
+         readingDetail = true;
++        stateRow.setVisibility(View.VISIBLE);
+         final int ticket = ++detailTicket;
+         if (detailRequest != null) detailRequest.cancel(true);
+         progress.setVisibility(View.VISIBLE);
+@@ -570,7 +551,7 @@
+                 main.post(() -> {
+                     if (!alive() || ticket != detailTicket) return;
+                     readingDetail = false; progress.setVisibility(View.GONE);
+-                    status.setText("本页 " + videos.size() + " 部 · 选择影片查看选集");
++                    status.setText("");
+                     if (result.lines.isEmpty()) {
+                         restoreGlobalSearch();
+                         new AlertDialog.Builder(this).setTitle("暂时没有可用选集")
+@@ -890,6 +871,7 @@
+     private void loadHistory(LibraryStore.Entry entry) {
+         if (searchHandle != null) allSearch.cancelRound(searchHandle);
+         readingDetail = true;
++        stateRow.setVisibility(View.VISIBLE);
+         final int ticket = ++detailTicket;
+         if (detailRequest != null) detailRequest.cancel(true);
+         progress.setVisibility(View.VISIBLE); status.setText("正在读取观看记录…");
+@@ -983,6 +965,29 @@
+         };
+     }
+ 
++    static int posterColumns(int widthDp, float fontScale) {
++        return widthDp < 340 && fontScale >= 1.2f || widthDp < 400 && fontScale >= 1.5f ? 2 : 3;
++    }
++
++    static int posterHeight(int widthPx) { return Math.max(0, widthPx) * 3 / 2; }
++
++    private final class PosterGrid extends GridView {
++        PosterGrid(Context context) { super(context); }
++        @Override protected void onSizeChanged(int width, int height, int oldWidth, int oldHeight) {
++            super.onSizeChanged(width, height, oldWidth, oldHeight);
++            int widthDp = Math.round(width / getResources().getDisplayMetrics().density);
++            setNumColumns(posterColumns(widthDp, getResources().getConfiguration().fontScale));
++        }
++    }
++
++    private static final class PosterImage extends ImageView {
++        PosterImage(Context context) { super(context); }
++        @Override protected void onMeasure(int widthSpec, int heightSpec) {
++            int width = View.MeasureSpec.getSize(widthSpec);
++            setMeasuredDimension(width, posterHeight(width));
++        }
++    }
++
+     private final class VideoAdapter extends BaseAdapter {
+         @Override public int getCount() { return videos.size(); }
+         @Override public Video getItem(int position) { return videos.get(position); }
+@@ -990,34 +995,25 @@
+         @Override public View getView(int position, View convert, ViewGroup parent) {
+             Holder holder;
+             if (convert == null) {
+-                LinearLayout row = row();
+-                row.setPadding(dp(16), dp(12), dp(16), dp(12));
+-                holder = new Holder();
+-                holder.image = new ImageView(CatalogActivity.this);
++                LinearLayout card = column(); holder = new Holder();
++                holder.image = new PosterImage(CatalogActivity.this);
+                 holder.image.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                 holder.image.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+                 holder.image.setBackground(PhoneUi.background(CatalogActivity.this, OUTLINE, 12));
+                 holder.image.setClipToOutline(true);
+-                row.addView(holder.image, new LinearLayout.LayoutParams(dp(72), dp(108)));
+-                LinearLayout words = column();
+-                words.setPadding(dp(12), 0, 0, 0);
+-                holder.title = label("", 17, TEXT);
+-                holder.title.setTypeface(Typeface.DEFAULT, Typeface.BOLD);
+-                holder.title.setMaxLines(2);
+-                holder.title.setEllipsize(TextUtils.TruncateAt.END);
+-                words.addView(holder.title);
+-                holder.subtitle = label("", 14, SECONDARY);
+-                holder.subtitle.setMaxLines(2);
+-                holder.subtitle.setEllipsize(TextUtils.TruncateAt.END);
+-                holder.subtitle.setPadding(0, dp(4), 0, 0);
+-                words.addView(holder.subtitle);
+-                row.addView(words, new LinearLayout.LayoutParams(0, -2, 1));
+-                row.setTag(holder);
+-                convert = row;
++                card.addView(holder.image, new LinearLayout.LayoutParams(-1, -2));
++                holder.title = label("", 15, TEXT); holder.title.setMaxLines(2); holder.title.setMinLines(2);
++                holder.title.setEllipsize(TextUtils.TruncateAt.END); holder.title.setPadding(0, dp(6), 0, 0);
++                card.addView(holder.title, new LinearLayout.LayoutParams(-1, -2));
++                holder.subtitle = label("", 12, SECONDARY); holder.subtitle.setMaxLines(2);
++                holder.subtitle.setEllipsize(TextUtils.TruncateAt.END); holder.subtitle.setPadding(0, dp(2), 0, 0);
++                card.addView(holder.subtitle, new LinearLayout.LayoutParams(-1, -2));
++                card.setTag(holder); convert = card;
+             } else holder = (Holder) convert.getTag();
+-            Video video = getItem(position);
+-            holder.title.setText(video.title);
+-            holder.subtitle.setText(resultSubtitle(video));
++            Video video = getItem(position); holder.title.setText(video.title);
++            String subtitle = keyword.isEmpty() ? video.subtitle : resultSubtitle(video);
++            holder.subtitle.setText(subtitle); holder.subtitle.setVisibility(subtitle.isEmpty() ? View.GONE : View.VISIBLE);
++            convert.setContentDescription(video.title + "，" + resultSubtitle(video));
+             loadPoster(video.poster, holder.image, video.title);
+             return convert;
+         }

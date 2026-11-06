@@ -11,11 +11,9 @@
 
 .field public final synthetic f$1:I
 
-.field public final synthetic f$2:Lcom/tongpin/player4k/catalog/CatalogApi$Detail;
-
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/tongpin/player4k/catalog/CatalogActivity;ILcom/tongpin/player4k/catalog/CatalogApi$Detail;)V
+.method public synthetic constructor <init>(Lcom/tongpin/player4k/catalog/CatalogActivity;I)V
     .locals 0
 
     .line 0
@@ -25,24 +23,20 @@
 
     iput p2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda40;->f$1:I
 
-    iput-object p3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda40;->f$2:Lcom/tongpin/player4k/catalog/CatalogApi$Detail;
-
     return-void
 .end method
 
 
 # virtual methods
 .method public final run()V
-    .locals 3
+    .locals 2
 
     .line 0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda40;->f$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
     iget v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda40;->f$1:I
 
-    iget-object v2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda40;->f$2:Lcom/tongpin/player4k/catalog/CatalogApi$Detail;
-
-    invoke-virtual {v0, v1, v2}, Lcom/tongpin/player4k/catalog/CatalogActivity;->lambda$loadDetail$1$com-tongpin-player4k-catalog-CatalogActivity(ILcom/tongpin/player4k/catalog/CatalogApi$Detail;)V
+    invoke-virtual {v0, v1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->lambda$loadDetail$2$com-tongpin-player4k-catalog-CatalogActivity(I)V
 
     return-void
 .end method

@@ -1,13 +1,13 @@
 # 手机端构建输入与恢复说明
 
-当前源码为 **1.4.2 / versionCode1420**，包名 `com.tongpin.player4k`。它是在现有APK/原生播放库基础上维护的fork，含自有Java、继承资源与smali，不描述为完整Gradle或clean-room重写项目。
+当前源码为 **1.4.3 / versionCode1430**，包名 `com.tongpin.player4k`。它是在现有APK/原生播放库基础上维护的fork，含自有Java、继承资源与smali，不描述为完整Gradle或clean-room重写项目。
 
 ## 当前输入与检查范围
 
-- `open-sources/src`有34份自有Java，本轮重新编译到`open-sources/staging-1.4.2-r3`，自有类数量以当前compile-report和最终DEX核对为准；编译桩和host JSON实现不打进安装包。
+- `open-sources/src`有34份自有Java，本轮重新编译到`open-sources/staging-1.4.3-r1`，自有类数量以当前compile-report和最终DEX核对为准；编译桩和host JSON实现不打进安装包。
 - `decoded`包含实际构建资源、五组smali及42个原生库。前四DEX继续核对`kanke-noads/decoded`的对应输入；原生第五码仅旧历史点击桥接的一个方法改动，其余继承代码保持合同范围。
 - 统一首页、实际来源换源、旧记录转入新确认流程以及本地历史/收藏见`ui/unified-sources-1.3.9`。XML/M3U/无code JSON不增加运行库依赖，使用平台API和既有播放器。
-- `verification/1.4.2/proof-tools`中的全部真实检查器`.class`及嵌套类是最终DEX审计输入，对应源码位于`open-sources/integration`。134–141的历史证明类继续保留；普通测试编译产物不提交。
+- `verification/1.4.3/proof-tools`中的全部真实检查器`.class`及嵌套类是最终DEX审计输入，对应源码位于`open-sources/integration`。134–142的历史证明类继续保留；普通测试编译产物不提交。
 - 旧冻结报告、before快照、stage与实际R夹具按原字节保留，不把历史报告改成当前验证结果。
 
 ## 历史140自动选源构建输入
@@ -33,9 +33,9 @@
 | `tongpin-4k/output/tongpin-4k-1.3.7.apk` | 77021749 | `6356604f250e93446f282769196ee9cad570af5789250b02d37618f5da875705` |
 | `tongpin-4k/output/tongpin-4k-1.3.8.apk` | 77021749 | `532c6f3810df6c284f273e4f4ba32bb2e6fab67054f80828e003f922debf8475` |
 
-在仓库根执行`python scripts/restore_artifacts.py --download-dir <资产下载目录> --check-only`可先校验全部输入；去掉`--check-only`只补齐缺少且哈希一致的目标。脚本拒绝覆盖不同内容，不写签名密钥。根清单是完整恢复目标的依据，当前142手机成品及137电视成品属于交付物，不是重建自身的输入。
+在仓库根执行`python scripts/restore_artifacts.py --download-dir <资产下载目录> --check-only`可先校验全部输入；去掉`--check-only`只补齐缺少且哈希一致的目标。脚本拒绝覆盖不同内容，不写签名密钥。根清单是完整恢复目标的依据，当前143手机成品及137电视成品属于交付物，不是重建自身的输入。
 
-`build_tongpin.py`当前直接核对手机141基线；完整合同继续读取137及更早APK、源码和证明类。对应旧附件应保留，不能为通过检查删除旧合同或改写历史证据。
+`build_tongpin.py`当前直接核对手机142基线；完整合同继续读取137及更早APK、源码和证明类。对应旧附件应保留，不能为通过检查删除旧合同或改写历史证据。
 
 ## 历史139阶段DEX固定构建输入
 
@@ -61,8 +61,15 @@
 源码冻结、主机状态测试和独立审查见`ui/playback-fix-1.4.1/`；最终实际APK、DEX、API隔离、签名及资源校验见`verification/1.4.1/`。历史140及更早证据和规范DEX保持原字节。当前集换源和重试替换已使用的播放会话，保留有效checkpoint，退休旧全屏和提示框；无真机播放或截图问题复现结论。
 
 
-## 142全库搜索构建输入
+## 历史142全库搜索构建输入
 
 当前34份Java包含首页聚合搜索。规范输入`open-sources/staging-1.4.2-r3/own-classes.dex`的SHA256为`963e8de0ec62b4b4750ba8631e8af3f9ca1b451314235b579f6b8194799c0d38`，随`v1.4.2`构建输入ZIP恢复；旧版本规范DEX和证据按原字节保留。源码、分页／取消测试及独立审查见`ui/global-search-1.4.2/`，最终APK、ABI、SDK门控、资源与签名检查见`verification/1.4.2/`。
 
 此轮复用既有CatalogApi和UI控件，只增加默认跨点播来源搜索与独立分页状态，不改变播放核心、4K排序或28来源配置。编译桩、主机测试和网络抽样不等于安卓设备验收。
+
+
+## 143海报首页构建输入
+
+当前34份Java只有CatalogActivity的首页呈现作本轮生产修改；原搜索、网络与播放helper保留原始字节。规范输入`open-sources/staging-1.4.3-r1/own-classes.dex`的SHA256为`042907e947e2922620a7f5ef417097d97ccf701b232c08c6267cf7de1481005d`，随`v1.4.3`构建输入ZIP恢复；旧28项资产继续保留，电视不增加新包。
+
+布局规则、真实分类／卡片身份检查、源码与工具独立审查见`ui/home-grid-1.4.3/`，最终APK、实际DEX、ABI、SDK门控、资源与签名检查见`verification/1.4.3/`。三列与大字窄屏规则的主机检查不能替代原生字体测量、设备截图与触摸验收。

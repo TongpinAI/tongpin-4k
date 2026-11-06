@@ -1,0 +1,29 @@
+����: [options] Դֵ 8 �ѹ�ʱ������δ�����а���ɾ��
+����: [options] Ŀ��ֵ 8 �ѹ�ʱ������δ�����а���ɾ��
+����: [options] Ҫ�����й��ѹ�ʱѡ��ľ���, ��ʹ�� -Xlint:-options��
+ע: C:\Users\Administrator.DESKTOP-R9V7M9S\Documents\ChatGPT\����\tongpin-4k\open-sources\toolchain\stubs\k6\b.javaʹ�û򸲸����ѹ�ʱ�� API��
+ע: �й���ϸ��Ϣ, ��ʹ�� -Xlint:deprecation ���±��롣
+3 ������
+����: [options] Դֵ 8 �ѹ�ʱ������δ�����а���ɾ��
+����: [options] Ŀ��ֵ 8 �ѹ�ʱ������δ�����а���ɾ��
+����: [options] Ҫ�����й��ѹ�ʱѡ��ľ���, ��ʹ�� -Xlint:-options��
+ע: ĳЩ�����ļ�ʹ�û򸲸����ѹ�ʱ�� API��
+ע: �й���ϸ��Ϣ, ��ʹ�� -Xlint:deprecation ���±��롣
+ע: C:\Users\Administrator.DESKTOP-R9V7M9S\Documents\ChatGPT\����\tongpin-4k\open-sources\src\com\tongpin\player4k\catalog\NativePosterRepair.javaʹ����δ�����򲻰�ȫ�Ĳ�����
+ע: �й���ϸ��Ϣ, ��ʹ�� -Xlint:unchecked ���±��롣
+3 ������
+Actual CatalogActivity poster grid assertions passed: 25
+Actual CatalogActivity global search assertions passed: 5
+Playback session assertions passed: 30
+Auto-source caller assertions passed: 33
+Auto-source queue assertions passed: 16
+Cross-source production assertions passed: 75
+Play queue production assertions passed: 62
+Hold-speed assertions passed: 102
+Hold-gesture assertions passed: 54
+Playback resolution production assertions passed: 72
+Actual CatalogActivity.displayEpisodes assertions passed: 10
+palette:ff226cc7,ffbdd8ff
+Player UI assertions passed: 16
+Actual PhoneUi inset/palette/grid assertions passed: 26
+Sheet and empty-label assertions passed: 37

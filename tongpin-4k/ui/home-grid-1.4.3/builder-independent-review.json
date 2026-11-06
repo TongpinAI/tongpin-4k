@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "verdict": "clear:143 permits only CatalogActivity poster-grid UI plus exact version metadata; published142 search/playback/native/registry boundary and complete11tool final DEX proofs remain enforced",
+  "source_sha256": {
+    "open-sources/integration/audit_final_ui_api_1430.py": "7bc61e24d84e6f3995aea9540f1b730b0887325d7f75ef7b0e9a28a97f4b4272",
+    "open-sources/toolchain/check_framework_api.py": "91209f30753abd8ea244655bd98762d4e0590c173dae2e842367d82559a61905",
+    "verification/1.4.3/proof-tools/DisassembleOwn1430.class": "7b3feef4e5e421b010b77f71e5d4c689d78387fafbfc85b3535a1557db7251f8",
+    "open-sources/integration/ui_1430_contract.py": "f0cb20e4a88ae85181603c6e95c8d48fb116edcf9332e15ed4b5be7972266cda",
+    "build_tongpin.py": "a81aaf22d7c1902b19dc4b2c17360a86a3ed8c494e24e018da363005d4083565",
+    "open-sources/integration/DisassembleOwn1430.java": "7ccb6dcd860f37dc104ef918adc404ed7f22580bd45116e38495d98fad151255",
+    "open-sources/toolchain/compile_java_to_smali.py": "b1b855f38294ecb7d392980b917f8fa17eaae77496c3bd1fcd961e557574cc9c",
+    "open-sources/integration/check_native_bindings_1410.py": "9a69cd89a30993ac4ca4beaa7a8d1d7d0e1b981edbb2f2f62740f955c6a9d93c",
+    "open-sources/integration/check_timer_dex_1430.py": "dfd979d31e7978f730478c14a5937a408661766199aa10404805df92f63e9954",
+    "open-sources/integration/integrate_1_4_3.py": "95e58b505ac9b1aa71fb15a471fbfc7b180982c6fe8645beff84f8df67d047de",
+    "open-sources/integration/assert_contract.py": "2cfedc0e9c2ac297824a69079e076606da935e0d45fa1057c7e138133ccf9a9d"
+  },
+  "reviewed_main_freeze_sha256": "15e4db26a836f9dc74041406b8a52548ad1d2886adf27efd7f736f494e0173ce",
+  "gate_test_report": "ui/home-grid-1.4.3/builder-gate-review-tests.json",
+  "gate_test_report_sha256": "a1deaac8e32051e74e6130bf2300ff4295867d1bd682992f36f921d7e44ab2e3",
+  "checks": [
+    "Actual complete verify(promotion=False) passes for34sources/298fresh ownDEX classes; only CatalogActivity source differs and ADDED is empty.",
+    "Eleven in-memory negative cases reject unauthorized promotion, absent independent tool coverage, missing homepage/native evidence, missing/wrong native checker pin, missing preimage hash, absent/wrong canonicalDEX pin, partial stage map and previous142 stage.",
+    "Published142 APK identity is hard-pinned; before-source graph, original stubs, native/resource/asset inventory and rawbytes are unchanged except exact version values. All33other source files retain142 bytes, including AllCatalogSearch and players.",
+    "Fresh canonical ownDEX descriptors independently parsed as data:298unique own classes match frozen fullsmali map; compile stubs are absent.",
+    "Final reader still covers every own class plus17legacy classes, full opcode/register/method equivalence, timer/native helpers, actualAPK ABI, field/access/native binding and official SDK API guards. Only version/stage routing differs from142 proof tooling.",
+    "Native-binding checker retains the independent141-reviewed byte hash; actual298-class r1 binding check independently rerun. It is a symbolic/access/linear receiver checker, not a completeDalvik verifier.",
+    "Top-level assert_contract dispatches directly to143 without evaluating historical142 proof against modifiedJava; prior142 verification records and source preimages are pinned.",
+    "Framework resources,28provider registry/runtime dependencies, package identity and player source semantics remain outside this UI change."
+  ],
+  "negative_case_count": 11,
+  "fresh_java_source_count": 34,
+  "fresh_own_dex_class_count": 298,
+  "canonical_dex_sha256": "042907e947e2922620a7f5ef417097d97ccf701b232c08c6267cf7de1481005d",
+  "prior_native_checker_review": "ui/playback-fix-1.4.1/builder-independent-review.json",
+  "prior_native_checker_review_sha256": "ffaeb106c16d3b2e8ed6f330aa93c88d157627b371a07f74094b31a2943bc01c",
+  "current_design_documents": {
+    "DESIGN.md": "0644e96d5ff64c4ea7569092dd5bb3bf1a2d0df6145bd642aa94a99252b654a9",
+    "PRODUCT.md": "38ca8ec66a87a0997544a3da9394a8b26ad1b7f588aab43aa175a6ba2d19b82a",
+    ".impeccable/surfaces/android.md": "2bdf95d858d4320fd83e90e3947890d2ee2cac8c341603c2f1eed07a2c3583bc"
+  },
+  "historical_document_bytes_restore_proof": "ui/home-grid-1.4.3/docs-update.json",
+  "production_or_freeze_mutated": false,
+  "device_tested": false,
+  "runtime_playback_tested": false,
+  "native_render_verified": false
+}

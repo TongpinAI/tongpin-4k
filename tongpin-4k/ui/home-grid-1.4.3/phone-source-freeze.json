@@ -1,0 +1,33 @@
+{
+  "passed": true,
+  "version_name": "1.4.3",
+  "version_code": 1430,
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogActivity.java": "00820b527c98141f53b0823b0882b6b74c8263ce75acc306fa4942b406433663"
+  },
+  "stub_sha256": {
+    "open-sources/toolchain/stubs/com/shuyu/gsyvideoplayer/player/IjkPlayerManager.java": "4df97c8bac7a5d08b6e7326a4b89bc712673adc1ec92e45c32a87570707b7b6a",
+    "open-sources/toolchain/stubs/com/shuyu/gsyvideoplayer/player/IPlayerManager.java": "c5d45c40f2b7dc484e7297f47eeed63f0858411a84771ff6443b9e7eefac1c48",
+    "open-sources/toolchain/stubs/com/shuyu/gsyvideoplayer/player/PlayerFactory.java": "6b7a03399536f022bdd8e46f8a34de35407004800f969721fb3052938dcd607a",
+    "open-sources/toolchain/stubs/com/shuyu/gsyvideoplayer/utils/GSYVideoType.java": "9c19f3330671f13d2b46351c5f744f435d5e35879ccd428916ad31bd97c85847",
+    "open-sources/toolchain/stubs/com/shuyu/gsyvideoplayer/utils/OrientationUtils.java": "141c865aa84202cb0dd692e1f392ca75b84840bd1e8390c9340b950bb5464daf",
+    "open-sources/toolchain/stubs/com/shuyu/gsyvideoplayer/video/StandardGSYVideoPlayer.java": "041f529dcf7e2c659efe64837e9f14ce22e1bd4b3d0cac22b4743393afb977a0",
+    "open-sources/toolchain/stubs/com/shuyu/gsyvideoplayer/video/base/GSYBaseVideoPlayer.java": "cfa50f3b1c0cf0fd7e14238c3a5750c3ef7cb3ba61ac37ac74ddb7874d323704",
+    "open-sources/toolchain/stubs/com/shuyu/gsyvideoplayer/video/base/GSYTextureRenderView.java": "f438a02157ab163fba92b004b8fe78fa357ce32356b167dc9facb11593cfa48d",
+    "open-sources/toolchain/stubs/com/shuyu/gsyvideoplayer/video/base/GSYVideoControlView.java": "b7e1f059067e484fa710492424cc4e14fd98253ca88bb404ab8cf0de1de11f56",
+    "open-sources/toolchain/stubs/com/shuyu/gsyvideoplayer/video/base/GSYVideoView.java": "bf969b8b09c2ae696e9052c704f977ec77a2a6dc615763f1d72588bf05ce8d89",
+    "open-sources/toolchain/stubs/com/shuyu/gsyvideoplayer/video/base/GSYVideoViewBridge.java": "bb0698aa17be8a4b7b18fe7d4231c657b3b4969096cb8f64e9b1a71fe051eadd",
+    "open-sources/toolchain/stubs/k6/b.java": "8e338a2c189d3b86f3aad539405f1607ef560fac2cbc1f9a1acfc0c4c1f91048",
+    "open-sources/toolchain/stubs/k6/c.java": "63bab928293ca0a4024a6e341758fbca39d94466fb955b40cd345c3867b4f431",
+    "open-sources/toolchain/stubs/m6/a.java": "0cc446a7af044dbc769ed4f222e9b3ba77eba90db8fa3a8fa127ca3c361f853f",
+    "open-sources/toolchain/stubs/m6/h.java": "aabd677594713f692896acf4f6a99033cd7c48bd33ecda671f3cea36b54abdaa",
+    "open-sources/toolchain/stubs/n6/c.java": "6d3d40901c468daf3a61d764c73e0fd272e6de6559358d98e4949e03654dcd9e",
+    "open-sources/toolchain/stubs/tv/danmaku/ijk/media/exo2/Exo2PlayerManager.java": "c3be876ba6a22cbdc3a4e733fb773db6346702b3bf9f5fc5c13b70380b9157b5",
+    "open-sources/toolchain/stubs/tv/danmaku/ijk/media/player/IMediaPlayer.java": "1cb7f8d780e2c2fade139bc391f4f4d595261e22e4175c1bd36dc2183ab36bb5"
+  },
+  "tests_sha256": "44c54a764c48d022ff54a2981ec64810ca0db386cbd2c58554a8af9db39d7c06",
+  "assertions": 585,
+  "unchanged_source_count": 33,
+  "device_tested": false,
+  "scope": "Compact native three-column poster home, actual category tabs and full filters; global title search/helper/player/providers unchanged"
+}

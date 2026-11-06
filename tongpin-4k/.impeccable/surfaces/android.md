@@ -1,6 +1,18 @@
 # 同频4K Android surface
 
-## Current state — 1.3.5
+## Current state — 1.4.3
+
+- Mode：Operate；Android Views，继续采用浅米底、墨蓝文字与蓝色重点。
+- Authority：用户确认的旧三列海报风格，以及当前CatalogActivity、真实来源分类与全库搜索行为。
+- Version：手机1.4.3／versionCode1430；本轮生产界面仅CatalogActivity，TV保持既有1.3.7。
+- First viewport：品牌顶栏、“片库／我的”、单个全库搜索框、浏览来源与分类摘要、根类优先的低噪真实分类标签、海报网格。28来源收起到“片库”弹窗，“筛选”显示全部实际分类ID与原始层级名称；搜索模式隐藏单源分类。
+- Grid：常规三列，封面按列实际宽度×3/2计算高度并CENTER_CROP。实际Grid宽<340dp且fontScale≥1.2，或宽<400dp且fontScale≥1.5时用两列。标题15sp、两行空间，副信息12sp；浏览显示真实更新，全库结果保留实际来源，空副行隐藏。
+- Search：主框沿用24个可搜索点播库的部分结果、逐源分页及取消／继续；2个仅浏览与2个直播来源保留浏览，直播另有频道检索。成功浏览清空持续说明，加载／空态／失败／限制仍明确显示。
+- Delivery：没有连接手机或模拟器，没有原生渲染、触摸或播放验收；主机与构建证据单独记录。
+
+以下1.3.5状态与其STORY、FIRST VIEWPORT、FORM等段落保留为历史记录，当前手机首页以上述1.4.3摘要为准。
+
+## 历史状态 — 1.3.5
 
 - Mode：Operate；Android Views，code-led。
 - Direction：用户已确认“索引片库：浅米底、墨蓝文字、蓝色重点、紧凑”。

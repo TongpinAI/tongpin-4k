@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/tongpin/player4k/catalog/CatalogActivity;->showDetail(Lcom/tongpin/player4k/catalog/CatalogApi$Detail;)V
+    value = Lcom/tongpin/player4k/catalog/CatalogActivity;->pickerAdapter(Ljava/util/List;)Landroid/widget/ArrayAdapter;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -25,22 +25,18 @@
 # instance fields
 .field final synthetic this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
-.field final synthetic val$displayed:Ljava/util/List;
-
 
 # direct methods
-.method constructor <init>(Lcom/tongpin/player4k/catalog/CatalogActivity;Landroid/content/Context;ILjava/util/List;Ljava/util/List;)V
+.method constructor <init>(Lcom/tongpin/player4k/catalog/CatalogActivity;Landroid/content/Context;ILjava/util/List;)V
     .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x8010,
             0x0,
             0x0,
-            0x0,
-            0x1010
+            0x0
         }
         names = {
-            null,
             null,
             null,
             null,
@@ -48,9 +44,7 @@
         }
     .end annotation
 
-    .line 687
-    iput-object p5, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$4;->val$displayed:Ljava/util/List;
-
+    .line 952
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$4;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
     invoke-direct {p0, p2, p3, p4}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;ILjava/util/List;)V
@@ -58,152 +52,106 @@
     return-void
 .end method
 
+.method private style(Landroid/view/View;)Landroid/view/View;
+    .locals 5
 
-# virtual methods
-.method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .locals 4
+    .line 954
+    check-cast p1, Landroid/widget/TextView;
 
-    .line 689
-    invoke-super {p0, p1, p2, p3}, Landroid/widget/ArrayAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
+    .line 955
+    const v0, -0xe8d3be
 
-    move-result-object p2
+    invoke-virtual {p1, v0}, Landroid/widget/TextView;->setTextColor(I)V
 
-    check-cast p2, Landroid/widget/TextView;
+    .line 956
+    const/high16 v0, 0x41700000    # 15.0f
 
-    .line 690
-    const/high16 p3, 0x41700000    # 15.0f
+    invoke-virtual {p1, v0}, Landroid/widget/TextView;->setTextSize(F)V
 
-    invoke-virtual {p2, p3}, Landroid/widget/TextView;->setTextSize(F)V
-
-    const/16 p3, 0x11
-
-    invoke-virtual {p2, p3}, Landroid/widget/TextView;->setGravity(I)V
-
-    .line 691
-    iget-object p3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$4;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
-
+    .line 957
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$4;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
-    invoke-virtual {v0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->getResources()Landroid/content/res/Resources;
+    const/16 v1, 0x30
 
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
-
-    move-result-object v0
-
-    iget v0, v0, Landroid/content/res/Configuration;->fontScale:F
-
-    const/high16 v1, 0x3f800000    # 1.0f
-
-    invoke-static {v1, v0}, Ljava/lang/Math;->max(FF)F
+    invoke-static {v0, v1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$100(Lcom/tongpin/player4k/catalog/CatalogActivity;I)I
 
     move-result v0
 
-    const/high16 v1, 0x42600000    # 56.0f
+    invoke-virtual {p1, v0}, Landroid/widget/TextView;->setMinHeight(I)V
 
-    mul-float/2addr v0, v1
+    .line 958
+    iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$4;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
-    invoke-static {v0}, Ljava/lang/Math;->round(F)I
+    const/16 v1, 0xc
+
+    invoke-static {v0, v1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$100(Lcom/tongpin/player4k/catalog/CatalogActivity;I)I
 
     move-result v0
-
-    invoke-static {p3, v0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$1000(Lcom/tongpin/player4k/catalog/CatalogActivity;I)I
-
-    move-result p3
-
-    invoke-virtual {p2, p3}, Landroid/widget/TextView;->setMinHeight(I)V
-
-    .line 692
-    const/4 p3, 0x2
-
-    invoke-virtual {p2, p3}, Landroid/widget/TextView;->setMaxLines(I)V
-
-    sget-object p3, Landroid/text/TextUtils$TruncateAt;->END:Landroid/text/TextUtils$TruncateAt;
-
-    invoke-virtual {p2, p3}, Landroid/widget/TextView;->setEllipsize(Landroid/text/TextUtils$TruncateAt;)V
-
-    .line 693
-    iget-object p3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$4;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
-
-    const/16 v0, 0x8
-
-    invoke-static {p3, v0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$1000(Lcom/tongpin/player4k/catalog/CatalogActivity;I)I
-
-    move-result p3
-
-    iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$4;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
-
-    invoke-static {v1, v0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$1000(Lcom/tongpin/player4k/catalog/CatalogActivity;I)I
-
-    move-result v1
 
     iget-object v2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$4;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
-    invoke-static {v2, v0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$1000(Lcom/tongpin/player4k/catalog/CatalogActivity;I)I
+    const/16 v3, 0x8
+
+    invoke-static {v2, v3}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$100(Lcom/tongpin/player4k/catalog/CatalogActivity;I)I
 
     move-result v2
 
-    iget-object v3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$4;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
+    iget-object v4, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$4;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
-    invoke-static {v3, v0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$1000(Lcom/tongpin/player4k/catalog/CatalogActivity;I)I
+    invoke-static {v4, v1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$100(Lcom/tongpin/player4k/catalog/CatalogActivity;I)I
 
-    move-result v0
+    move-result v1
 
-    invoke-virtual {p2, p3, v1, v2, v0}, Landroid/widget/TextView;->setPadding(IIII)V
+    iget-object v4, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$4;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
-    .line 694
-    new-instance p3, Landroid/content/res/ColorStateList;
+    invoke-static {v4, v3}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$100(Lcom/tongpin/player4k/catalog/CatalogActivity;I)I
 
-    const v0, 0x10102fe
+    move-result v3
 
-    filled-new-array {v0}, [I
+    invoke-virtual {p1, v0, v2, v1, v3}, Landroid/widget/TextView;->setPadding(IIII)V
 
-    move-result-object v0
+    .line 959
+    const/4 v0, 0x2
 
-    const/4 v1, 0x0
+    invoke-virtual {p1, v0}, Landroid/widget/TextView;->setMaxLines(I)V
 
-    new-array v2, v1, [I
+    .line 960
+    sget-object v0, Landroid/text/TextUtils$TruncateAt;->END:Landroid/text/TextUtils$TruncateAt;
 
-    filled-new-array {v0, v2}, [[I
+    invoke-virtual {p1, v0}, Landroid/widget/TextView;->setEllipsize(Landroid/text/TextUtils$TruncateAt;)V
 
-    move-result-object v0
+    .line 961
+    return-object p1
+.end method
 
-    const v2, -0xdd9339
 
-    const v3, -0xe8d3be
+# virtual methods
+.method public getDropDownView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
+    .locals 0
 
-    filled-new-array {v2, v3}, [I
-
-    move-result-object v2
-
-    invoke-direct {p3, v0, v2}, Landroid/content/res/ColorStateList;-><init>([[I[I)V
-
-    invoke-virtual {p2, p3}, Landroid/widget/TextView;->setTextColor(Landroid/content/res/ColorStateList;)V
-
-    .line 696
-    invoke-static {p2, v1}, Lcom/tongpin/player4k/catalog/PhoneUi;->styleEpisodeBackground(Landroid/widget/TextView;I)V
-
-    .line 697
-    iget-object p3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$4;->val$displayed:Ljava/util/List;
-
-    invoke-interface {p3, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    .line 964
+    invoke-super {p0, p1, p2, p3}, Landroid/widget/ArrayAdapter;->getDropDownView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object p1
 
-    iget-object p3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$4;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
+    invoke-direct {p0, p1}, Lcom/tongpin/player4k/catalog/CatalogActivity$4;->style(Landroid/view/View;)Landroid/view/View;
 
-    invoke-static {p3}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$1100(Lcom/tongpin/player4k/catalog/CatalogActivity;)Lcom/tongpin/player4k/catalog/CatalogApi$Episode;
+    move-result-object p1
 
-    move-result-object p3
+    return-object p1
+.end method
 
-    if-ne p1, p3, :cond_0
+.method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
+    .locals 0
 
-    const/4 v1, 0x1
+    .line 963
+    invoke-super {p0, p1, p2, p3}, Landroid/widget/ArrayAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
 
-    :cond_0
-    invoke-virtual {p2, v1}, Landroid/widget/TextView;->setActivated(Z)V
+    move-result-object p1
 
-    .line 698
-    return-object p2
+    invoke-direct {p0, p1}, Lcom/tongpin/player4k/catalog/CatalogActivity$4;->style(Landroid/view/View;)Landroid/view/View;
+
+    move-result-object p1
+
+    return-object p1
 .end method

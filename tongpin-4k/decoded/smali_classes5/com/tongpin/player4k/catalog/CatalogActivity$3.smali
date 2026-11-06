@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/tongpin/player4k/catalog/CatalogActivity;->buildScreen()V
+    value = Lcom/tongpin/player4k/catalog/CatalogActivity;->showDetail(Lcom/tongpin/player4k/catalog/CatalogApi$Detail;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,20 +20,32 @@
 # instance fields
 .field final synthetic this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
+.field final synthetic val$renderEpisodes:Ljava/lang/Runnable;
+
 
 # direct methods
-.method constructor <init>(Lcom/tongpin/player4k/catalog/CatalogActivity;)V
+.method constructor <init>(Lcom/tongpin/player4k/catalog/CatalogActivity;Ljava/lang/Runnable;)V
     .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
-            0x8010
+            0x8010,
+            0x1010
         }
         names = {
+            null,
             null
         }
     .end annotation
 
-    .line 309
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()V"
+        }
+    .end annotation
+
+    .line 697
+    iput-object p2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$3;->val$renderEpisodes:Ljava/lang/Runnable;
+
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$3;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -55,22 +67,11 @@
         }
     .end annotation
 
-    .line 312
-    iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$3;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
+    .line 699
+    iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$3;->val$renderEpisodes:Ljava/lang/Runnable;
 
-    invoke-static {p1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$800(Lcom/tongpin/player4k/catalog/CatalogActivity;)I
+    invoke-interface {p1}, Ljava/lang/Runnable;->run()V
 
-    move-result p1
-
-    if-eq p1, p3, :cond_0
-
-    .line 313
-    iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$3;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
-
-    invoke-static {p1, p3}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$900(Lcom/tongpin/player4k/catalog/CatalogActivity;I)V
-
-    .line 315
-    :cond_0
     return-void
 .end method
 
@@ -84,6 +85,6 @@
         }
     .end annotation
 
-    .line 310
+    .line 698
     return-void
 .end method

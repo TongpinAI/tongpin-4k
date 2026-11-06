@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "verdict": "clear: compact poster-grid caller reviewed; real category bindings, recycling, search and lifecycle preserved",
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogActivity.java": "00820b527c98141f53b0823b0882b6b74c8263ce75acc306fa4942b406433663"
+  },
+  "workspace_sources": false,
+  "device_tested": false,
+  "actual_rendering_performed": false,
+  "owner_freeze_sha256": "b9e07c3689361ea48113a69e13e87034e7a169a065af5b4cb7a56ce8c3c99123",
+  "unchanged_other_java_count": 33,
+  "owner_assertions": 585,
+  "evidence_sha256": {
+    "ui/home-grid-1.4.3/tests/verification.json": "44c54a764c48d022ff54a2981ec64810ca0db386cbd2c58554a8af9db39d7c06",
+    "ui/home-grid-1.4.3/layout-source-review.json": "aef2df28edb3b7c2fae8b24fa592664a7a572035be58c4e0a425395a3fafcf46"
+  },
+  "notes": [
+    "Only CatalogActivity differs from published142 integration source hashes; all33 other Java files, search scheduler, playback sources/API and28-provider registry bytes are unchanged.",
+    "PosterGrid normally uses three columns with a two-column fallback for narrow large-font windows. PosterImage uses its actual measured column width at2:3; card title/provider metadata and visibility are rebound, while the unchanged image loader resets placeholders and rejects late recycled-URL results.",
+    "The homepage retains the native themed selector after review; no transparent selector or focus-request/reset was added. The same grid/adapter survive detail hide/return and cumulative result notifications. There are no stale ListView casts or selection-from-top helpers; the only selection0 call is the unchanged episode grid.",
+    "Compact tabs prioritize actual declared root categories, then actual remaining declarations. Unknown flat tables are not assigned invented parents; extra selected categories stay visible, and full filtering retains every actual source-local ID.",
+    "Removed spinner/chip references are absent in success and exception paths. Source/category selection uses existing ticket/cancel/reset routes, category failure safely disables the new filter, and real live-channel search plus history/favorites remain reachable.",
+    "Global search still uses its existing session and true Video/provider identity, does not carry browse categories, and preserves cancellation/detail guards. No new network request stack, player logic, or TV production change was introduced.",
+    "The585 host assertions and actual SDK compilation supplement source inspection. No phone render, touch/keyboard focus, screen-reader, split-screen or device playback acceptance is claimed."
+  ]
+}
