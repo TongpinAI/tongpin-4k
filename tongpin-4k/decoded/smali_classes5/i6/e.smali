@@ -212,23 +212,8 @@
 
     .line 10
     .line 11
-    invoke-virtual {v0}, Lcom/shenma/tvlauncher/vod/domain/VodDataInfo;->getPic()Ljava/lang/String;
+    invoke-static {v1, v0}, Lcom/tongpin/player4k/catalog/NativePosterRepair;->bind(Landroid/view/View;Ljava/lang/Object;)V
 
-    .line 12
-    .line 13
-    .line 14
-    move-result-object v2
-
-    .line 15
-    invoke-static {v2}, Li6/e;->posterUri(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Lcom/facebook/drawee/view/SimpleDraweeView;->setImageURI(Ljava/lang/String;)V
-
-    .line 16
-    .line 17
-    .line 18
     iget-object v1, p1, Li6/e$c;->g:Landroid/widget/TextView;
 
     .line 19

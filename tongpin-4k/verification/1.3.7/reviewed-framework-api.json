@@ -1,0 +1,157 @@
+{
+  "min_sdk": 24,
+  "higher_api_references": [
+    {
+      "kind": "class",
+      "owner": "android/graphics/Insets",
+      "since": 29
+    },
+    {
+      "kind": "class",
+      "owner": "android/view/DisplayCutout",
+      "since": 28
+    },
+    {
+      "kind": "class",
+      "owner": "android/view/WindowInsets$Type",
+      "since": 30
+    },
+    {
+      "kind": "class",
+      "owner": "android/view/WindowInsetsController",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/view/DisplayCutout;",
+      "member": "getSafeInsetBottom()I",
+      "since": 28
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/view/DisplayCutout;",
+      "member": "getSafeInsetLeft()I",
+      "since": 28
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/view/DisplayCutout;",
+      "member": "getSafeInsetRight()I",
+      "since": 28
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/view/DisplayCutout;",
+      "member": "getSafeInsetTop()I",
+      "since": 28
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/view/Window;",
+      "member": "getInsetsController()Landroid/view/WindowInsetsController;",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/view/Window;",
+      "member": "setDecorFitsSystemWindows(Z)V",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/view/Window;",
+      "member": "setNavigationBarContrastEnforced(Z)V",
+      "since": 29
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/view/WindowInsets$Type;",
+      "member": "displayCutout()I",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/view/WindowInsets$Type;",
+      "member": "ime()I",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/view/WindowInsets$Type;",
+      "member": "systemBars()I",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/view/WindowInsets;",
+      "member": "getDisplayCutout()Landroid/view/DisplayCutout;",
+      "since": 28
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/view/WindowInsets;",
+      "member": "getInsets(I)Landroid/graphics/Insets;",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/view/WindowInsetsController;",
+      "member": "hide(I)V",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/view/WindowInsetsController;",
+      "member": "setSystemBarsAppearance(II)V",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/view/WindowInsetsController;",
+      "member": "setSystemBarsBehavior(I)V",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/view/WindowInsetsController;",
+      "member": "show(I)V",
+      "since": 30
+    },
+    {
+      "kind": "field",
+      "owner": "Landroid/graphics/Insets;",
+      "member": "bottom",
+      "since": 29
+    },
+    {
+      "kind": "field",
+      "owner": "Landroid/graphics/Insets;",
+      "member": "left",
+      "since": 29
+    },
+    {
+      "kind": "field",
+      "owner": "Landroid/graphics/Insets;",
+      "member": "right",
+      "since": 29
+    },
+    {
+      "kind": "field",
+      "owner": "Landroid/graphics/Insets;",
+      "member": "top",
+      "since": 29
+    },
+    {
+      "kind": "field",
+      "owner": "Landroid/view/WindowManager$LayoutParams;",
+      "member": "layoutInDisplayCutoutMode",
+      "since": 28
+    }
+  ],
+  "passed": true,
+  "scope": "DEX class/method/field references, including inherited platform members; SDK_INT guards require manual review",
+  "method_reference_count": 1665,
+  "field_reference_count": 565,
+  "guard_review": "Exact same25 higher API identities as136. PhoneUi and OpenPlayerActivity whole source hashes remain byte-identical (guard-source-proof.json). New four native-fix helpers add no API above24.",
+  "native_render_verified": false
+}

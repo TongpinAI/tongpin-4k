@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "verdict": "clear: bounded TV133 episode-status builder change; ready for root build",
+  "reviewer": "watermark_source_review, independent of TV builder author",
+  "builder_sha256": "58d86e64da36bddfa55ee23505a5a741bc0d8e352cb8e865a045e78dd4ef5d72",
+  "freeze_sha256": "a639f74b129e47cfa52c2dda910b41ed29b8c965de5cd68a6bd3cce1f112fed7",
+  "manifest_contract": true,
+  "provider_contract": true,
+  "episode_status_contract": true,
+  "tampered_snapshot_rejected": true,
+  "actual_snapshot_input_count": 24,
+  "review_notes": [
+    "Only manifest version,version string and EpisodeSummary differ from immutable132 input graph; no input added or removed.",
+    "All Media3 runtime/resource/ABI/SDK guard version sets include133 and the runtime lock stays pinned.",
+    "Previous132 APK digest and independent summary review are checked; copied tampered summary hash is rejected before any build."
+  ],
+  "build_executed": false,
+  "device_tested": false
+}

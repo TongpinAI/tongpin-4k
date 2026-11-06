@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "verdict": "clear: independent137builder/tooling review, full historical projection and seven in-memory negative checks passed",
+  "scope": "Build/integration tooling only; separate pinned reports review production functionality. No APK execution, signing or promotion performed by this reviewer.",
+  "source_sha256": {
+    "build_tongpin.py": "deb38d5118d7f3f719b3e3ef308f87ecd5205ba0f74752392e5f5079e221521e",
+    "open-sources/integration/assert_contract.py": "b4c37f6c19b867c5644664222250b7cc8a5fa1ca2121775945c05d9b4c72171f",
+    "open-sources/integration/ui_1360_contract.py": "605dab319b2d175e2ad098e00e916405513037e521ee01cf819cf7b81ee8c00c",
+    "open-sources/integration/ui_1370_contract.py": "c94dfcdd708683f2e357922b620da61bf008d61d54687fc11c22377b7bd2c502",
+    "open-sources/integration/integrate_1_3_7.py": "510b6b22f28ebfb2ac9ec50624e434033a78521394225b4b1f0ad0a702e828b1",
+    "open-sources/integration/DisassembleOwn1370.java": "288de5d606910a1f56698732ca8bf9848898258f98ba256e4f6d835a6d8c5204",
+    "open-sources/integration/audit_final_ui_api_1370.py": "2ad46e8500a4063d07b4efbdce0e7192432ce0a640bab3e6d2079885bbc878aa",
+    "open-sources/integration/check_timer_dex_1370.py": "b90671a6cc057123dcb26c0c6d31d29a842b9f3d7778103bfc0e22828c0d4e87"
+  },
+  "test_script": "ui/native-fix-1.3.7/builder-review-tests.py",
+  "test_script_sha256": "ce007c8a81ea72da4e2580617982dd91012c24ec7203334e16d1493f888b81c9",
+  "aggregate_version": "1.3.7",
+  "own_source_count": 21,
+  "fresh_own_dex_classes": 157,
+  "native_file_count": 4,
+  "native_modified_methods": 12,
+  "native_added_methods": 1,
+  "legacy_proof_class_count": 17,
+  "provider_count": 11,
+  "provider_asset_sha256": "7e6a9616a36c68788500c68b313265bda50e28efe7af695cc9b368f89078aa1d",
+  "full_historical_contract_passed": true,
+  "negative_freezes_rejected": [
+    "changed source digest",
+    "unapproved native method",
+    "bad native preimage digest",
+    "unapproved native field",
+    "unapproved resource change",
+    "owner report hash mismatch",
+    "missing new source"
+  ],
+  "review_notes": [
+    "Compared build_tongpin.py against exact136 snapshot: only137/1370/previous136 constants and versioned proof dispatch change; package/signing/tool/native library checks remain.",
+    "137 outer gate bounds four new own sources, two changed existing Java files and four native classes, checks12modified+1added method and exact136 preimages; resources and provider asset are unchanged.",
+    "136 adapter adds explicit projected reads and excludes only the four newly proven sources; original136 report bytes and hash predicates remain intact. Full137-to-historical check() completed without writing contract-result.json.",
+    "Integrator validates current21source hashes, actual emitted ABI and exact previous own namespace before replacement; only unpublished137 namespace can be retried. Source/destination paths are bounded before removal.",
+    "Final source reader covers all own classes plus17 legacy classes; final ABI/API/instruction gates retain135/136 inherited callsets before137 overrides. High API comparison and literal/branch canonicalization remain the reviewed136 logic."
+  ],
+  "production_or_old_evidence_mutated_by_review": false,
+  "device_tested": false
+}

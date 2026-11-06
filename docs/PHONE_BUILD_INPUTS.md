@@ -1,6 +1,6 @@
 # 手机端构建输入与恢复说明
 
-当前手机端版本为 **1.3.6 / versionCode 1360**，包名 `com.tongpin.player4k`。本仓库保存现有工程，不将其描述为完整 Android Studio / Gradle 重写项目：公开片库和播放器增强源码位于 `tongpin-4k/open-sources/src/`，既有 APK 的资源及 smali 位于 `tongpin-4k/decoded/`。
+当前手机端版本为 **1.3.7 / versionCode 1370**，包名 `com.tongpin.player4k`。本仓库保存现有工程，不将其描述为完整 Android Studio / Gradle 重写项目：公开片库和播放器增强源码位于 `tongpin-4k/open-sources/src/`，既有 APK 的资源及 smali 位于 `tongpin-4k/decoded/`。
 
 ## 仓库内保留的内容
 
@@ -8,7 +8,7 @@
 - `decoded/` 的全部实际 APK 输入，包含资源、五组 smali、42 个原生库及原 APK 附带的 JAR；仅排除 `decoded/build/` 缓存。
 - 集成脚本、各版本 staging、历史 before 快照、UI 设计记录及 JSON / 文本验证证据。证据中的旧本机绝对路径保留原样，避免改写已冻结哈希。
 - 相邻 `kanke-noads/decoded/smali`、`smali_classes2`、`smali_classes3`、`smali_classes4`：构建时用于核对前四个未改 DEX 的 34,298 份输入，与手机端相应目录逐字节一致。
-- `tongpin-4k/verification/1.3.6/proof-tools/DisassembleOwn1360.class`：当前最终DEX审核的构建输入；对应源码为 `open-sources/integration/DisassembleOwn1360.java`。旧134、135的proof-tools类继续保留以支持历史合同；这些小型检查程序不是App运行库，普通测试编译的`.class`不提交。
+- `tongpin-4k/verification/1.3.7/proof-tools/DisassembleOwn1370.class`：当前最终DEX审核的构建输入（含其实际生成的嵌套检查类）；对应源码为 `open-sources/integration/DisassembleOwn1370.java`。旧134、135、136的proof-tools类继续保留以支持历史合同；这些小型检查程序不是App运行库，普通测试编译的`.class`不提交。
 
 ## 需要从 Release 恢复的二进制输入
 
@@ -23,10 +23,11 @@
 | `tongpin-4k/output/tongpin-4k-1.3.3.apk` | 76988981 | `36afc75c61b0575142a7d719f22355f3cfc9b87270176b974ad993d2861730b5` |
 | `tongpin-4k/output/tongpin-4k-1.3.4.apk` | 76988981 | `79c3fee66b5c840adcd906d233b8d53800c90ff0e8703bd5c05abb62d10d105f` |
 | `tongpin-4k/output/tongpin-4k-1.3.5.apk` | 76988981 | `d8b1a9fe626c4f6bae59a4194c9851844fbd30bc3b5b1226aee5fe4e11b5b293` |
+| `tongpin-4k/output/tongpin-4k-1.3.6.apk` | 77005365 | `20e3e6e2972958baa8d39d6fa67c155a7ba778867203433b205d9fbe049c6e31` |
 
-`build_tongpin.py` 本身读取 kanke 基线、手机1.0.1与直接前版1.3.5；完整 `open-sources/integration/assert_contract.py` 会沿136→135→134→133→132→131→130→121→120的冻结合同投影，读取表内1.3.4、1.3.3、1.3.2和1.3.1。其他旧 APK、未签名或仅对齐的中间 APK 不属于当前有效构建依赖。
+`build_tongpin.py` 本身读取 kanke 基线、手机1.0.1与直接前版1.3.6；完整 `open-sources/integration/assert_contract.py` 会沿137→136→135→134→133→132→131→130→121→120的冻结合同投影，读取表内1.3.4、1.3.3、1.3.2和1.3.1。其他旧 APK、未签名或仅对齐的中间 APK 不属于当前有效构建依赖。
 
-同一 Release 还提供手机最终1.3.6 APK；它是可安装交付物，不是重建输入。构建脚本拒绝覆盖已有同版本最终 APK，维护时必须按原流程准备新的版本、stage、合同和审核记录，不要删除或重置旧合同来绕过检查。
+同一 Release 还提供手机最终1.3.7 APK；它是可安装交付物，不是重建输入。构建脚本拒绝覆盖已有同版本最终 APK，维护时必须按原流程准备新的版本、stage、合同和审核记录，不要删除或重置旧合同来绕过检查。
 
 ## 工具链与本机配置
 
@@ -57,3 +58,5 @@ Windows 下建议将仓库检出到较短的 ASCII 目录，例如 `D:\src\tongp
 1.3.6新增来源分类、3个直接公开来源、长按临时2×／按住右滑升3×和现有字幕轨选择，保留原8来源ID和顺序。源码与独立审查位于 `ui/player-catalog-1.3.6`，成品检查位于 `verification/1.3.6`。
 
 本次在原电脑执行对应构建与文件校验，没有在另一台机器上重建手机APK，也没有真机播放验收。手机工程仍包含继承自用户提供 APK 的第三方实现与原生库；公开仓库不会改变这些内容各自的权属。
+
+1.3.7修正原生首页筛选字段、过期响应和分页，移除已核实误标的海外内地选项，香港／台湾使用较广的电视剧目录；并在原生封面失败后按严格影片身份尝试恢复。两端集数摘要区分最高集号与实际可选数量。11来源及公开片库分类不变，不能据此声称上游地区全部正确、片库齐全或新增真实4K。源码与审查见 `ui/native-fix-1.3.7`，成品检查见 `verification/1.3.7`。

@@ -1,0 +1,8 @@
+warning: [options] source value 8 is obsolete and will be removed in a future release
+warning: [options] target value 8 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+Note: C:\Users\Administrator.DESKTOP-R9V7M9S\Documents\ChatGPT\����\tongpin-4k\open-sources\src\com\tongpin\player4k\catalog\NativePosterRepair.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+3 warnings
+PASS 42 strict poster identity/URI/magic assertions
+PASS 39 actual helper failure-only/recycle/listener/cache/network-bound assertions

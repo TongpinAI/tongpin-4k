@@ -1,0 +1,207 @@
+{
+  "version": "1.3.7",
+  "source_ready": true,
+  "final_promotion_authorized": true,
+  "source_sha256": {
+    "com/tongpin/player4k/catalog/CatalogActivity.java": "3e6497f49a2f84800f951114f5fe957fe5ac77f15254b0e5768282522ea3751b",
+    "com/tongpin/player4k/catalog/CatalogApi.java": "bb26fbdcff341cc8b8676addf5a2320799f9283d5011bd2a907833ff2eef9864",
+    "com/tongpin/player4k/catalog/CatalogCategories.java": "3c368a9e8ebbfbcf15e8426b1cdacfd0e3289efdfeb1f887569840528425f03b",
+    "com/tongpin/player4k/catalog/DecoderPolicy.java": "57e1335322d9b99eecc9e360417e389c3b144d08619d42718c6413993c77c24a",
+    "com/tongpin/player4k/catalog/EpisodeSummary.java": "0fb9399cd8c9f07db6e3ae1849efb618552adb0517be40086ea25e39b69ba533",
+    "com/tongpin/player4k/catalog/HoldSpeedControls.java": "60355936fc925597d77e6ca497afda7eb363325de72ea3a0019c76687073a1bb",
+    "com/tongpin/player4k/catalog/HoldSpeedState.java": "bfa09d212a5539adee07dd997df347bef8ccf67ce1dd315ede4b0d101c11e279",
+    "com/tongpin/player4k/catalog/LegacyBrowseFilters.java": "2a8fba01e85ccc0699b7884ec53ea77871df1eeb969a8fb7fd0760c3d45d52cd",
+    "com/tongpin/player4k/catalog/LegacyEpisodeOrder.java": "ba722811b8e4a1c35a01d6d6f3cc864f56d0ad2ab74af6567f3cc86494410f30",
+    "com/tongpin/player4k/catalog/LegacyPlayerControls.java": "a349186d28fd04ffdf72e6006443b9e2570255ab1903f08d8f4c661fa35e4ec3",
+    "com/tongpin/player4k/catalog/LegacySeekState.java": "b689197479729830ad43c575f3a06de34dbe3310fb129407eba1717c72dfb28a",
+    "com/tongpin/player4k/catalog/NativeBrowseState.java": "27c76fd67668ff57aa9e174eae51bdd644cd35955ccc34f4eaf0b0e4bfe18587",
+    "com/tongpin/player4k/catalog/NativePosterRepair.java": "db92f1831f6a86f34e0afd7e7bfff741e8f9744eda4fe86512841ba25d2fdc5c",
+    "com/tongpin/player4k/catalog/OpenPlayerActivity.java": "685375d966147b8609584c8e0557a0d4d7469f8bb0bc6822d245b294ded86cce",
+    "com/tongpin/player4k/catalog/PhoneUi.java": "8d8e39fea8e3b5c2e7e15301014e54ba55294713a28ee22600056a04e0b9fe8a",
+    "com/tongpin/player4k/catalog/PlaybackResolution.java": "053602bf9af43ba6f503470c72717eee8e367545c9035b3c7ef4716100975f36",
+    "com/tongpin/player4k/catalog/PlayerOptionsSheet.java": "5eeb12dc1214e08389967db7505dbf041ee0cddcba71fcddfaad19c7553628cf",
+    "com/tongpin/player4k/catalog/PlayQueue.java": "4243c5837fe4067e9606085852e7fb168d97775329c3490dd15f618ef82fb241",
+    "com/tongpin/player4k/catalog/PosterMatchPolicy.java": "2eec1f3e7204028d9f35b26c5442daf585c9257906da3bd1cd4b321032c543bd",
+    "com/tongpin/player4k/catalog/SubtitleControls.java": "d0b1a24d7fd658e2683d322c106f217f4d95c900c8415002bad1970e0f275784",
+    "com/tongpin/player4k/catalog/SubtitlePolicy.java": "a891f56a8d81221aa98e88a909692ee18b427c984f9f0074f60f1a19f625c552"
+  },
+  "resources": {},
+  "new_resource_names": {},
+  "smali": {
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/fragment/x.smali": {
+      "before_path": "ui/native-fix-1.3.7/before/decoded/smali_classes5/com/shenma/tvlauncher/phone/fragment/x.smali",
+      "before_sha256": "cd6a5d16f9f2c91c253cc9d6425006d4724afb98e8fa5d682c8a27fe29884e56",
+      "after_sha256": "19e0b6eba393ab5766f3042039858d5cccc60d28e76b434ec48a1d7299baa4c5",
+      "modified_methods": [
+        "X()V",
+        "Z()Lcom/android/volley/Response$ErrorListener;",
+        "a0()Lcom/android/volley/Response$Listener;",
+        "b0()Lcom/android/volley/Response$ErrorListener;",
+        "c0()Lcom/android/volley/Response$Listener;",
+        "f0(Lcom/shenma/tvlauncher/vod/domain/RequestVo;)V",
+        "onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V",
+        "q0(Ljava/lang/String;)V",
+        "t0()V"
+      ],
+      "added_methods": [
+        "onDestroyView()V"
+      ],
+      "added_fields": [],
+      "required_final_invocations": {
+        "X()V": [
+          "Lcom/tongpin/player4k/catalog/LegacyBrowseFilters;->reset(Ljava/lang/Object;)V"
+        ],
+        "Z()Lcom/android/volley/Response$ErrorListener;": [
+          "Lcom/tongpin/player4k/catalog/LegacyBrowseFilters;->failure(Ljava/lang/Object;)Ljava/lang/Object;"
+        ],
+        "a0()Lcom/android/volley/Response$Listener;": [
+          "Lcom/tongpin/player4k/catalog/LegacyBrowseFilters;->success(Ljava/lang/Object;)Ljava/lang/Object;"
+        ],
+        "b0()Lcom/android/volley/Response$ErrorListener;": [
+          "Lcom/tongpin/player4k/catalog/LegacyBrowseFilters;->metadataFailure(Ljava/lang/Object;)Ljava/lang/Object;"
+        ],
+        "c0()Lcom/android/volley/Response$Listener;": [
+          "Lcom/tongpin/player4k/catalog/LegacyBrowseFilters;->metadataSuccess(Ljava/lang/Object;)Ljava/lang/Object;"
+        ],
+        "f0(Lcom/shenma/tvlauncher/vod/domain/RequestVo;)V": [
+          "Lcom/android/volley/RequestQueue;->add(Lcom/android/volley/Request;)Lcom/android/volley/Request;",
+          "Lcom/shenma/tvlauncher/phone/fragment/x$e;-><init>(Lcom/shenma/tvlauncher/phone/fragment/x;ILjava/lang/String;Ljava/lang/Class;Lcom/android/volley/Response$Listener;Lcom/android/volley/Response$ErrorListener;)V",
+          "Lcom/shenma/tvlauncher/phone/fragment/x$f;-><init>(Lcom/shenma/tvlauncher/phone/fragment/x;ILjava/lang/String;Ljava/lang/Class;Lcom/android/volley/Response$Listener;Lcom/android/volley/Response$ErrorListener;)V",
+          "Lcom/shenma/tvlauncher/phone/fragment/x;->Z()Lcom/android/volley/Response$ErrorListener;",
+          "Lcom/shenma/tvlauncher/phone/fragment/x;->a0()Lcom/android/volley/Response$Listener;",
+          "Lcom/shenma/tvlauncher/phone/fragment/x;->b0()Lcom/android/volley/Response$ErrorListener;",
+          "Lcom/shenma/tvlauncher/phone/fragment/x;->c0()Lcom/android/volley/Response$Listener;",
+          "Lcom/shenma/tvlauncher/phone/fragment/x;->v0()V",
+          "Lcom/shenma/tvlauncher/utils/b;->a()Ljava/lang/String;",
+          "Lcom/shenma/tvlauncher/utils/g;->f(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;",
+          "Lcom/shenma/tvlauncher/utils/k;->l(Landroid/content/Context;)Z",
+          "Lcom/tongpin/player4k/catalog/LegacyBrowseFilters;->notSent(Ljava/lang/Object;Ljava/lang/Object;)V",
+          "Lcom/tongpin/player4k/catalog/LegacyBrowseFilters;->trackDataRequest(Ljava/lang/Object;Ljava/lang/Object;)V",
+          "Ljava/lang/StringBuilder;-><init>()V",
+          "Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;",
+          "Ljava/lang/StringBuilder;->toString()Ljava/lang/String;"
+        ],
+        "onDestroyView()V": [
+          "Lcom/shenma/tvlauncher/phone/base/BaseFragment;->onDestroyView()V",
+          "Lcom/tongpin/player4k/catalog/LegacyBrowseFilters;->destroy(Ljava/lang/Object;)V"
+        ],
+        "onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V": [
+          "Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;",
+          "Lcom/shenma/tvlauncher/phone/base/BaseFragment;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V",
+          "Lcom/shenma/tvlauncher/phone/fragment/x;->j0()V",
+          "Lcom/shenma/tvlauncher/phone/fragment/x;->k0()V",
+          "Lcom/shenma/tvlauncher/phone/fragment/x;->m0(Landroid/view/View;)V",
+          "Lcom/tongpin/player4k/catalog/LegacyBrowseFilters;->attach(Ljava/lang/Object;Landroid/view/View;)V"
+        ],
+        "q0(Ljava/lang/String;)V": [
+          "Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I",
+          "Landroidx/fragment/app/Fragment;->requireContext()Landroid/content/Context;",
+          "Lcom/shenma/tvlauncher/phone/fragment/x;->f0(Lcom/shenma/tvlauncher/vod/domain/RequestVo;)V",
+          "Lcom/shenma/tvlauncher/vod/domain/RequestVo;-><init>()V",
+          "Lcom/tongpin/player4k/catalog/LegacyBrowseFilters;->base(Ljava/lang/Object;)Ljava/lang/String;",
+          "Lcom/tongpin/player4k/catalog/LegacyBrowseFilters;->beforeRequest(Ljava/lang/Object;Ljava/lang/String;)Z",
+          "Ljava/lang/StringBuilder;-><init>()V",
+          "Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;",
+          "Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;",
+          "Ljava/lang/StringBuilder;->toString()Ljava/lang/String;",
+          "Ljava/lang/System;->currentTimeMillis()J"
+        ],
+        "t0()V": [
+          "Lcom/tongpin/player4k/catalog/LegacyBrowseFilters;->apply(Ljava/lang/Object;)V"
+        ]
+      }
+    },
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/fragment/x$k.smali": {
+      "before_path": "ui/native-fix-1.3.7/before/decoded/smali_classes5/com/shenma/tvlauncher/phone/fragment/x$k.smali",
+      "before_sha256": "ffdbd1380057dba9371f27f1235b890b8b717ac39ef96f6c232011db1e790bc8",
+      "after_sha256": "d8f8f49a42e57845ade30fe67d550395252cc30f3222ecdae7a600ca35cc265e",
+      "modified_methods": [
+        "onScrolled(Landroidx/recyclerview/widget/RecyclerView;II)V"
+      ],
+      "added_methods": [],
+      "added_fields": [],
+      "required_final_invocations": {
+        "onScrolled(Landroidx/recyclerview/widget/RecyclerView;II)V": [
+          "Landroidx/recyclerview/widget/LinearLayoutManager;->findLastVisibleItemPosition()I",
+          "Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildCount()I",
+          "Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getItemCount()I",
+          "Landroidx/recyclerview/widget/RecyclerView$OnScrollListener;->onScrolled(Landroidx/recyclerview/widget/RecyclerView;II)V",
+          "Landroidx/recyclerview/widget/RecyclerView;->getLayoutManager()Landroidx/recyclerview/widget/RecyclerView$LayoutManager;",
+          "Lcom/shenma/tvlauncher/phone/fragment/x;->V(Lcom/shenma/tvlauncher/phone/fragment/x;)V",
+          "Lcom/shenma/tvlauncher/phone/fragment/x;->p(Lcom/shenma/tvlauncher/phone/fragment/x;)I",
+          "Lcom/shenma/tvlauncher/phone/fragment/x;->r(Lcom/shenma/tvlauncher/phone/fragment/x;)I"
+        ]
+      }
+    },
+    "decoded/smali_classes5/i6/e.smali": {
+      "before_path": "ui/native-fix-1.3.7/before/decoded/smali_classes5/i6/e.smali",
+      "before_sha256": "ae2c3c29ffa1862e3ce5a7f130f4df037185c72149c680a219441733a3d85c99",
+      "after_sha256": "75ffbe36bb5a51e6faab81beee82f928048973e9fb87ac995031bb6deaf2b848",
+      "modified_methods": [
+        "e(Li6/e$c;I)V"
+      ],
+      "added_methods": [],
+      "added_fields": [],
+      "required_final_invocations": {
+        "e(Li6/e$c;I)V": [
+          "Landroid/view/View;->setTag(Ljava/lang/Object;)V",
+          "Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V",
+          "Lcom/shenma/tvlauncher/vod/domain/VodDataInfo;->getScore()Ljava/lang/String;",
+          "Lcom/shenma/tvlauncher/vod/domain/VodDataInfo;->getState()Ljava/lang/String;",
+          "Lcom/shenma/tvlauncher/vod/domain/VodDataInfo;->getTitle()Ljava/lang/String;",
+          "Lcom/tongpin/player4k/catalog/NativePosterRepair;->bind(Landroid/view/View;Ljava/lang/Object;)V",
+          "Li6/e;->bindScore(Landroid/widget/TextView;Ljava/lang/String;)V",
+          "Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;",
+          "Ljava/util/List;->get(I)Ljava/lang/Object;"
+        ]
+      }
+    },
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/SearchActivity$c.smali": {
+      "before_path": "ui/native-fix-1.3.7/before/decoded/smali_classes5/com/shenma/tvlauncher/phone/SearchActivity$c.smali",
+      "before_sha256": "24e4cd9eeb6d8e2bce4596a1452551cb1c985a7458777a4814f147ca135a0020",
+      "after_sha256": "3d18f4d98844a2cdf6c3f91c60a0df3d33346c72685f5e001a7d31265c0f8098",
+      "modified_methods": [
+        "n(Lme/jingbin/library/adapter/b;Lcom/shenma/tvlauncher/vod/domain/VodDataInfo;I)V"
+      ],
+      "added_methods": [],
+      "added_fields": [],
+      "required_final_invocations": {
+        "n(Lme/jingbin/library/adapter/b;Lcom/shenma/tvlauncher/vod/domain/VodDataInfo;I)V": [
+          "Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V",
+          "Lcom/shenma/tvlauncher/phone/q;-><init>(Lcom/shenma/tvlauncher/vod/domain/VodDataInfo;Lcom/shenma/tvlauncher/phone/SearchActivity;)V",
+          "Lcom/shenma/tvlauncher/vod/domain/VodDataInfo;->getScore()Ljava/lang/String;",
+          "Lcom/shenma/tvlauncher/vod/domain/VodDataInfo;->getState()Ljava/lang/String;",
+          "Lcom/shenma/tvlauncher/vod/domain/VodDataInfo;->getTitle()Ljava/lang/String;",
+          "Lcom/tongpin/player4k/catalog/NativePosterRepair;->bind(Landroid/view/View;Ljava/lang/Object;)V",
+          "Li6/e;->bindScore(Landroid/widget/TextView;Ljava/lang/String;)V",
+          "Lme/jingbin/library/adapter/b;->a(I)Landroid/view/View;",
+          "Lme/jingbin/library/adapter/b;->e(ILjava/lang/CharSequence;)Lme/jingbin/library/adapter/b;"
+        ]
+      }
+    }
+  },
+  "provider_asset_sha256": "7e6a9616a36c68788500c68b313265bda50e28efe7af695cc9b368f89078aa1d",
+  "owner_freeze_reports": {
+    "ui/native-fix-1.3.7/summary-source-freeze.json": "dad45227ffd3187e2c6af5a43e524656f6f263557937913643260f746270b467",
+    "ui/native-fix-1.3.7/browse-source-freeze.json": "e4af219b766305fffc0c37d3786d187ecaee776c3d6025f70cd85c76b72583d7",
+    "ui/native-fix-1.3.7/poster-source-freeze.json": "9a4054cd1e224820496d02fc5de52cc6c05a035d69976cfdc197ef7a9788a87e"
+  },
+  "review_reports": {
+    "ui/native-fix-1.3.7/summary-review.json": "160e7512a1674bfb923ab88123e2db4f8dfcf42dad3ae743ae2eb1c8dfae9bd2",
+    "ui/native-fix-1.3.7/browse-tests/verification.json": "fcc6632d6215a8f54fc0b71306e75d8149952b341540e06571328c9db9140d08",
+    "ui/native-fix-1.3.7/browse-independent-review.json": "4b712a5ce9804681e0e0f52d14bca7d37754c49679e357f9d228d56e8868f80a",
+    "ui/native-fix-1.3.7/poster-tests.json": "3cf10573fa1c6343bc3fb5e6fe585c0b366059ed2b4ba7248a1d63a0706a4b38",
+    "ui/native-fix-1.3.7/poster-android-compile.json": "67c1e567bcca6c890640a53650f3b8b64a74edfceea5e1695561151ee77a1c35",
+    "ui/native-fix-1.3.7/poster-member-proof.json": "20a29a8ce066097ee538fbe2e755b4c1978ccebb88750048edba23146264d44a",
+    "ui/native-fix-1.3.7/poster-independent-review.json": "23db70d6a4284db314654f92bfd3db3cbbd476d126a8443095416198e39446c6",
+    "ui/native-fix-1.3.7/native-proof/assembly.json": "0291fea59bcb925fccb904d4220e8a9fc01af839f2b8666d17e9cd97578b274a",
+    "ui/native-fix-1.3.7/playback-regressions/verification.json": "01ecc8fd84b48a3af92f9b6c34d8980b2cca9960f67dd17d1643d467faeb088a",
+    "ui/native-fix-1.3.7/inherited136-preimage-check.json": "aa6e5016db4b440957729f21bc95cb2d231dc8a3a67f9537414774c265ef6c7e",
+    "verification/1.3.7/guard-source-proof.json": "44b649df23a9697ef42c32c77c98cf3499ff2d00976bab74c0c0946f30e07174",
+    "ui/native-fix-1.3.7/builder-review.json": "adaa6ab1e9fa329de75f828945a1a0ce6904695b6db8b32237ed456bc2255179"
+  },
+  "independent_review": {
+    "path": "ui/native-fix-1.3.7/release-review.json",
+    "sha256": "caf951c32826a82896b3d4d973424de0f933f701e02db6dfeae7ed69c43fe165"
+  }
+}

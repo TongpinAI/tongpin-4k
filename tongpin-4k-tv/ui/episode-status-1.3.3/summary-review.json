@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "verdict": "clear: highest available ordinal and unique selectable episode count are distinct; no fabricated links",
+  "reviewer": "watermark_source_review, independent of summary author",
+  "source_sha256": {
+    "src/com/tongpin/player4k/tv/EpisodeSummary.java": "71b18f30cd7befa81d46219829ad53c864f2fe3a2d4a5bc9b44fc312460e2b1d"
+  },
+  "test_sha256": {
+    "tests/src/com/tongpin/player4k/tv/EpisodeSummaryTest.java": "ce1b22fab279afdea20bb3196e4f51c43fd019eaeae1631385e1b190f8ad6394"
+  },
+  "owner_freeze_sha256": "e6189c6c060d75c15d048b1374360f541d0438358df9f2c7191282e05d2a29a2",
+  "independent_host_assertions": 39,
+  "actual_native_tangmen_fixture_cases": 4,
+  "review_notes": [
+    "All parsed episode ordinals are positive: max==unique count exactly characterizes a contiguous1..max set. Gaps or a late-only selection display latest ordinal and unique selectable count separately.",
+    "Duplicates and upper/lower parts retain existing unique episode/part semantics. 人物志 is explicitly classified as extra. No episode/list order or playback URL is changed.",
+    "Actual429899wasu fixture:175 unique episodes through177,missing8/39; xigua173,cntv166,pptv174+2extras match generated summaries.",
+    "Phone LegacyEpisodeOrder changes only maxLines(2) before the existing summary binding; no layout IDs or native methods edited by this owner."
+  ],
+  "device_tested": false
+}

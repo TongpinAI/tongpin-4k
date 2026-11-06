@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "verdict": "clear after independent source, lifecycle and exact native method-scope review",
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/NativeBrowseState.java": "27c76fd67668ff57aa9e174eae51bdd644cd35955ccc34f4eaf0b0e4bfe18587",
+    "open-sources/src/com/tongpin/player4k/catalog/LegacyBrowseFilters.java": "2a8fba01e85ccc0699b7884ec53ea77871df1eeb969a8fb7fd0760c3d45d52cd",
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/fragment/x.smali": "19e0b6eba393ab5766f3042039858d5cccc60d28e76b434ec48a1d7299baa4c5",
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/fragment/x$k.smali": "d8f8f49a42e57845ade30fe67d550395252cc30f3222ecdae7a600ca35cc265e"
+  },
+  "actual_modified_methods": {
+    "x.smali": [
+      "X()V",
+      "Z()Lcom/android/volley/Response$ErrorListener;",
+      "a0()Lcom/android/volley/Response$Listener;",
+      "b0()Lcom/android/volley/Response$ErrorListener;",
+      "c0()Lcom/android/volley/Response$Listener;",
+      "f0(Lcom/shenma/tvlauncher/vod/domain/RequestVo;)V",
+      "onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V",
+      "q0(Ljava/lang/String;)V",
+      "t0()V"
+    ],
+    "x$k.smali": [
+      "onScrolled(Landroidx/recyclerview/widget/RecyclerView;II)V"
+    ]
+  },
+  "checks": [
+    "Request identity includes category, encoded query, expected page, view and generation; stale responses cannot change current list or loading flag.",
+    "New first-page request clears old cards and pagination; failed page retries preserve filters and current admitted page.",
+    "Actual upstream metadata fields are used, including foreign year instead of language; all values use one UTF-8 encoding.",
+    "Foreign mainland choices excluded; exact Hong Kong/Taiwan values use validated broader television route and corresponding type/temporal schema.",
+    "Duplicate Volley cached/network metadata success cannot reset an active route or filter; malformed metadata permits a later valid schema.",
+    "View destruction invalidates state and cancels/stops only the per-view queue; callbacks retain owner weakly.",
+    "Pagination uses actual zero-based last item; no invented pages or total item count from inconsistent videonum.",
+    "Same native adapters/click handlers retained; list committed once and adapter notified after valid data admission."
+  ],
+  "device_tested": false,
+  "limitations": [
+    "Upstream individual country metadata remains unreliable; no title-based inference or server record rewriting.",
+    "Actual Android UI and RecyclerView event execution require device acceptance."
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "passed": true,
+  "assertions": {
+    "NativeBrowseStateTest": 51,
+    "LegacyBrowseFiltersTest": 84
+  },
+  "actual_bundled_abi_checks": 32,
+  "actual_abi_source_sha256": {
+    "decoded/smali_classes5/com/shenma/tvlauncher/vod/domain/VodTypeInfo.smali": "ce1829d1a3ab19347205c83b6c6e7df85f9e9ad1ec35e4d2a5eadb6ba3ae6891",
+    "decoded/smali_classes5/com/shenma/tvlauncher/vod/domain/VodFilterInfo.smali": "7b49fe9b00ff60948129d67d2ab602b8ae0f8a32227691abe305975dc4403a08",
+    "decoded/smali_classes5/i6/b.smali": "44ce766962c112561fa5d50b7af6cb7c27f20122dc0cf05aeaa49fe047bbc963",
+    "decoded/smali_classes5/i6/e.smali": "75ffbe36bb5a51e6faab81beee82f928048973e9fb87ac995031bb6deaf2b848",
+    "decoded/smali_classes5/me/jingbin/library/ByRecyclerView.smali": "8b796b307baab66a85260658fff0e80813c939f59432de39e2fafcd89db54ef0",
+    "decoded/smali_classes3/com/android/volley/Response$Listener.smali": "7030795f250217bb6ef6ff00c7c076c4034bd7e614c23f05dd9bc6bd3a22f52b",
+    "decoded/smali_classes3/com/android/volley/Response$ErrorListener.smali": "95f8f6a98b586ee8887ab203669d0be4de5df8bd6a492082f65cd300cb48015e",
+    "decoded/smali_classes3/com/android/volley/RequestQueue$RequestFilter.smali": "db1edf8b1439abcac20cb08e3bd2637ec69b9cdd3432eea28570d4c47c06cb06",
+    "decoded/smali_classes3/com/android/volley/RequestQueue.smali": "73ef32b7c207d08ad2cf26167a35c973258f9e472ff375c642a18038a5a301f7",
+    "decoded/smali_classes3/com/android/volley/Request.smali": "3fe81e625fcc1d07bb0e17dad54f52d44460ff2fb316a123ad34c37996151d41",
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/fragment/x.smali": "19e0b6eba393ab5766f3042039858d5cccc60d28e76b434ec48a1d7299baa4c5"
+  },
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/NativeBrowseState.java": "27c76fd67668ff57aa9e174eae51bdd644cd35955ccc34f4eaf0b0e4bfe18587",
+    "open-sources/src/com/tongpin/player4k/catalog/LegacyBrowseFilters.java": "2a8fba01e85ccc0699b7884ec53ea77871df1eeb969a8fb7fd0760c3d45d52cd",
+    "open-sources/tests/src/com/tongpin/player4k/catalog/NativeBrowseStateTest.java": "87ecb78d365929822b708ab67108cd0c6abb6db9b5fdfe19cc35c6cbfd23e267",
+    "open-sources/tests/src/com/tongpin/player4k/catalog/LegacyBrowseFiltersTest.java": "6c720daae420064c9e33250de52c72dcbb28a1dd1473e99aa4a52158f4813ff0",
+    "open-sources/tests/run_native_browse_137_tests.py": "d1cc1a84faee04f4b8577480a227ae00c7fc4c3adbe78e0bcbb5cd0fbff7b272",
+    "open-sources/integrate_native_browse_1370.py": "7c87342978ad8879140c53a0c72c6ee1fe706193779dced4924d983d462609fb"
+  },
+  "android_compile_only": true,
+  "native_hooks_exact_from_before": true,
+  "device_test": false,
+  "network_test": false,
+  "limitations": [
+    "Bridge integration uses ABI-shaped fakes; actual bundled signatures are checked separately. No device UI behavior claimed."
+  ]
+}

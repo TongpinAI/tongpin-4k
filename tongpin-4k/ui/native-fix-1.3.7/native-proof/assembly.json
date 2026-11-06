@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "source_sha256": {
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/fragment/x.smali": "19e0b6eba393ab5766f3042039858d5cccc60d28e76b434ec48a1d7299baa4c5",
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/fragment/x$k.smali": "d8f8f49a42e57845ade30fe67d550395252cc30f3222ecdae7a600ca35cc265e",
+    "decoded/smali_classes5/i6/e.smali": "75ffbe36bb5a51e6faab81beee82f928048973e9fb87ac995031bb6deaf2b848",
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/SearchActivity$c.smali": "3d18f4d98844a2cdf6c3f91c60a0df3d33346c72685f5e001a7d31265c0f8098"
+  },
+  "four_native_classes_assembled": true,
+  "proof_only_not_production": true,
+  "proof_apk_sha256": "61b5f050ea26cf4cece204a9cb62109f9f8800e4ebe78d3549228153726a8d5c",
+  "device_tested": false
+}

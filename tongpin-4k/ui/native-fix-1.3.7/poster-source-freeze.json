@@ -1,0 +1,39 @@
+{
+  "passed": true,
+  "source_ready": true,
+  "frozen": true,
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/NativePosterRepair.java": "db92f1831f6a86f34e0afd7e7bfff741e8f9744eda4fe86512841ba25d2fdc5c",
+    "open-sources/src/com/tongpin/player4k/catalog/PosterMatchPolicy.java": "2eec1f3e7204028d9f35b26c5442daf585c9257906da3bd1cd4b321032c543bd",
+    "decoded/smali_classes5/i6/e.smali": "75ffbe36bb5a51e6faab81beee82f928048973e9fb87ac995031bb6deaf2b848",
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/SearchActivity$c.smali": "3d18f4d98844a2cdf6c3f91c60a0df3d33346c72685f5e001a7d31265c0f8098"
+  },
+  "new_own_sources": [
+    "open-sources/src/com/tongpin/player4k/catalog/NativePosterRepair.java",
+    "open-sources/src/com/tongpin/player4k/catalog/PosterMatchPolicy.java"
+  ],
+  "native_modified_methods": {
+    "decoded/smali_classes5/i6/e.smali": {
+      "before_sha256": "ae2c3c29ffa1862e3ce5a7f130f4df037185c72149c680a219441733a3d85c99",
+      "after_sha256": "75ffbe36bb5a51e6faab81beee82f928048973e9fb87ac995031bb6deaf2b848",
+      "changed_methods": [
+        "e(Li6/e$c;I)V"
+      ],
+      "exact_whole_class_preimage_recovered": true,
+      "added_or_removed_methods": []
+    },
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/SearchActivity$c.smali": {
+      "before_sha256": "24e4cd9eeb6d8e2bce4596a1452551cb1c985a7458777a4814f147ca135a0020",
+      "after_sha256": "3d18f4d98844a2cdf6c3f91c60a0df3d33346c72685f5e001a7d31265c0f8098",
+      "changed_methods": [
+        "n(Lme/jingbin/library/adapter/b;Lcom/shenma/tvlauncher/vod/domain/VodDataInfo;I)V"
+      ],
+      "exact_whole_class_preimage_recovered": true,
+      "added_or_removed_methods": []
+    }
+  },
+  "resources_changed": [],
+  "new_compile_stubs": [],
+  "tests_assertions": 81,
+  "device_tested": false
+}

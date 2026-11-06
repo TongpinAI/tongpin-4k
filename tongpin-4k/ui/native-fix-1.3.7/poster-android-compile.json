@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "sdk": "actual platform35 android.jar",
+  "new_compile_stubs": false,
+  "device_tested": false,
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/NativePosterRepair.java": "db92f1831f6a86f34e0afd7e7bfff741e8f9744eda4fe86512841ba25d2fdc5c",
+    "open-sources/src/com/tongpin/player4k/catalog/PosterMatchPolicy.java": "2eec1f3e7204028d9f35b26c5442daf585c9257906da3bd1cd4b321032c543bd",
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogApi.java": "bb26fbdcff341cc8b8676addf5a2320799f9283d5011bd2a907833ff2eef9864",
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogCategories.java": "3c368a9e8ebbfbcf15e8426b1cdacfd0e3289efdfeb1f887569840528425f03b"
+  }
+}

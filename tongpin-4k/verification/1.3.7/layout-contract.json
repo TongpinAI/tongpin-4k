@@ -1,0 +1,177 @@
+{
+  "passed": true,
+  "files": {
+    "resources": {},
+    "smali": {
+      "decoded/smali_classes5/com/shenma/tvlauncher/phone/fragment/x.smali": {
+        "before_path": "ui/native-fix-1.3.7/before/decoded/smali_classes5/com/shenma/tvlauncher/phone/fragment/x.smali",
+        "before_sha256": "cd6a5d16f9f2c91c253cc9d6425006d4724afb98e8fa5d682c8a27fe29884e56",
+        "after_sha256": "19e0b6eba393ab5766f3042039858d5cccc60d28e76b434ec48a1d7299baa4c5",
+        "modified_methods": [
+          "X()V",
+          "Z()Lcom/android/volley/Response$ErrorListener;",
+          "a0()Lcom/android/volley/Response$Listener;",
+          "b0()Lcom/android/volley/Response$ErrorListener;",
+          "c0()Lcom/android/volley/Response$Listener;",
+          "f0(Lcom/shenma/tvlauncher/vod/domain/RequestVo;)V",
+          "onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V",
+          "q0(Ljava/lang/String;)V",
+          "t0()V"
+        ],
+        "added_methods": [
+          "onDestroyView()V"
+        ],
+        "added_fields": [],
+        "required_final_invocations": {
+          "X()V": [
+            "Lcom/tongpin/player4k/catalog/LegacyBrowseFilters;->reset(Ljava/lang/Object;)V"
+          ],
+          "Z()Lcom/android/volley/Response$ErrorListener;": [
+            "Lcom/tongpin/player4k/catalog/LegacyBrowseFilters;->failure(Ljava/lang/Object;)Ljava/lang/Object;"
+          ],
+          "a0()Lcom/android/volley/Response$Listener;": [
+            "Lcom/tongpin/player4k/catalog/LegacyBrowseFilters;->success(Ljava/lang/Object;)Ljava/lang/Object;"
+          ],
+          "b0()Lcom/android/volley/Response$ErrorListener;": [
+            "Lcom/tongpin/player4k/catalog/LegacyBrowseFilters;->metadataFailure(Ljava/lang/Object;)Ljava/lang/Object;"
+          ],
+          "c0()Lcom/android/volley/Response$Listener;": [
+            "Lcom/tongpin/player4k/catalog/LegacyBrowseFilters;->metadataSuccess(Ljava/lang/Object;)Ljava/lang/Object;"
+          ],
+          "f0(Lcom/shenma/tvlauncher/vod/domain/RequestVo;)V": [
+            "Lcom/android/volley/RequestQueue;->add(Lcom/android/volley/Request;)Lcom/android/volley/Request;",
+            "Lcom/shenma/tvlauncher/phone/fragment/x$e;-><init>(Lcom/shenma/tvlauncher/phone/fragment/x;ILjava/lang/String;Ljava/lang/Class;Lcom/android/volley/Response$Listener;Lcom/android/volley/Response$ErrorListener;)V",
+            "Lcom/shenma/tvlauncher/phone/fragment/x$f;-><init>(Lcom/shenma/tvlauncher/phone/fragment/x;ILjava/lang/String;Ljava/lang/Class;Lcom/android/volley/Response$Listener;Lcom/android/volley/Response$ErrorListener;)V",
+            "Lcom/shenma/tvlauncher/phone/fragment/x;->Z()Lcom/android/volley/Response$ErrorListener;",
+            "Lcom/shenma/tvlauncher/phone/fragment/x;->a0()Lcom/android/volley/Response$Listener;",
+            "Lcom/shenma/tvlauncher/phone/fragment/x;->b0()Lcom/android/volley/Response$ErrorListener;",
+            "Lcom/shenma/tvlauncher/phone/fragment/x;->c0()Lcom/android/volley/Response$Listener;",
+            "Lcom/shenma/tvlauncher/phone/fragment/x;->v0()V",
+            "Lcom/shenma/tvlauncher/utils/b;->a()Ljava/lang/String;",
+            "Lcom/shenma/tvlauncher/utils/g;->f(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;",
+            "Lcom/shenma/tvlauncher/utils/k;->l(Landroid/content/Context;)Z",
+            "Lcom/tongpin/player4k/catalog/LegacyBrowseFilters;->notSent(Ljava/lang/Object;Ljava/lang/Object;)V",
+            "Lcom/tongpin/player4k/catalog/LegacyBrowseFilters;->trackDataRequest(Ljava/lang/Object;Ljava/lang/Object;)V",
+            "Ljava/lang/StringBuilder;-><init>()V",
+            "Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;",
+            "Ljava/lang/StringBuilder;->toString()Ljava/lang/String;"
+          ],
+          "onDestroyView()V": [
+            "Lcom/shenma/tvlauncher/phone/base/BaseFragment;->onDestroyView()V",
+            "Lcom/tongpin/player4k/catalog/LegacyBrowseFilters;->destroy(Ljava/lang/Object;)V"
+          ],
+          "onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V": [
+            "Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;",
+            "Lcom/shenma/tvlauncher/phone/base/BaseFragment;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V",
+            "Lcom/shenma/tvlauncher/phone/fragment/x;->j0()V",
+            "Lcom/shenma/tvlauncher/phone/fragment/x;->k0()V",
+            "Lcom/shenma/tvlauncher/phone/fragment/x;->m0(Landroid/view/View;)V",
+            "Lcom/tongpin/player4k/catalog/LegacyBrowseFilters;->attach(Ljava/lang/Object;Landroid/view/View;)V"
+          ],
+          "q0(Ljava/lang/String;)V": [
+            "Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I",
+            "Landroidx/fragment/app/Fragment;->requireContext()Landroid/content/Context;",
+            "Lcom/shenma/tvlauncher/phone/fragment/x;->f0(Lcom/shenma/tvlauncher/vod/domain/RequestVo;)V",
+            "Lcom/shenma/tvlauncher/vod/domain/RequestVo;-><init>()V",
+            "Lcom/tongpin/player4k/catalog/LegacyBrowseFilters;->base(Ljava/lang/Object;)Ljava/lang/String;",
+            "Lcom/tongpin/player4k/catalog/LegacyBrowseFilters;->beforeRequest(Ljava/lang/Object;Ljava/lang/String;)Z",
+            "Ljava/lang/StringBuilder;-><init>()V",
+            "Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;",
+            "Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;",
+            "Ljava/lang/StringBuilder;->toString()Ljava/lang/String;",
+            "Ljava/lang/System;->currentTimeMillis()J"
+          ],
+          "t0()V": [
+            "Lcom/tongpin/player4k/catalog/LegacyBrowseFilters;->apply(Ljava/lang/Object;)V"
+          ]
+        },
+        "exact_preimage_recovered": true
+      },
+      "decoded/smali_classes5/com/shenma/tvlauncher/phone/fragment/x$k.smali": {
+        "before_path": "ui/native-fix-1.3.7/before/decoded/smali_classes5/com/shenma/tvlauncher/phone/fragment/x$k.smali",
+        "before_sha256": "ffdbd1380057dba9371f27f1235b890b8b717ac39ef96f6c232011db1e790bc8",
+        "after_sha256": "d8f8f49a42e57845ade30fe67d550395252cc30f3222ecdae7a600ca35cc265e",
+        "modified_methods": [
+          "onScrolled(Landroidx/recyclerview/widget/RecyclerView;II)V"
+        ],
+        "added_methods": [],
+        "added_fields": [],
+        "required_final_invocations": {
+          "onScrolled(Landroidx/recyclerview/widget/RecyclerView;II)V": [
+            "Landroidx/recyclerview/widget/LinearLayoutManager;->findLastVisibleItemPosition()I",
+            "Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildCount()I",
+            "Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getItemCount()I",
+            "Landroidx/recyclerview/widget/RecyclerView$OnScrollListener;->onScrolled(Landroidx/recyclerview/widget/RecyclerView;II)V",
+            "Landroidx/recyclerview/widget/RecyclerView;->getLayoutManager()Landroidx/recyclerview/widget/RecyclerView$LayoutManager;",
+            "Lcom/shenma/tvlauncher/phone/fragment/x;->V(Lcom/shenma/tvlauncher/phone/fragment/x;)V",
+            "Lcom/shenma/tvlauncher/phone/fragment/x;->p(Lcom/shenma/tvlauncher/phone/fragment/x;)I",
+            "Lcom/shenma/tvlauncher/phone/fragment/x;->r(Lcom/shenma/tvlauncher/phone/fragment/x;)I"
+          ]
+        },
+        "exact_preimage_recovered": true
+      },
+      "decoded/smali_classes5/i6/e.smali": {
+        "before_path": "ui/native-fix-1.3.7/before/decoded/smali_classes5/i6/e.smali",
+        "before_sha256": "ae2c3c29ffa1862e3ce5a7f130f4df037185c72149c680a219441733a3d85c99",
+        "after_sha256": "75ffbe36bb5a51e6faab81beee82f928048973e9fb87ac995031bb6deaf2b848",
+        "modified_methods": [
+          "e(Li6/e$c;I)V"
+        ],
+        "added_methods": [],
+        "added_fields": [],
+        "required_final_invocations": {
+          "e(Li6/e$c;I)V": [
+            "Landroid/view/View;->setTag(Ljava/lang/Object;)V",
+            "Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V",
+            "Lcom/shenma/tvlauncher/vod/domain/VodDataInfo;->getScore()Ljava/lang/String;",
+            "Lcom/shenma/tvlauncher/vod/domain/VodDataInfo;->getState()Ljava/lang/String;",
+            "Lcom/shenma/tvlauncher/vod/domain/VodDataInfo;->getTitle()Ljava/lang/String;",
+            "Lcom/tongpin/player4k/catalog/NativePosterRepair;->bind(Landroid/view/View;Ljava/lang/Object;)V",
+            "Li6/e;->bindScore(Landroid/widget/TextView;Ljava/lang/String;)V",
+            "Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;",
+            "Ljava/util/List;->get(I)Ljava/lang/Object;"
+          ]
+        },
+        "exact_preimage_recovered": true
+      },
+      "decoded/smali_classes5/com/shenma/tvlauncher/phone/SearchActivity$c.smali": {
+        "before_path": "ui/native-fix-1.3.7/before/decoded/smali_classes5/com/shenma/tvlauncher/phone/SearchActivity$c.smali",
+        "before_sha256": "24e4cd9eeb6d8e2bce4596a1452551cb1c985a7458777a4814f147ca135a0020",
+        "after_sha256": "3d18f4d98844a2cdf6c3f91c60a0df3d33346c72685f5e001a7d31265c0f8098",
+        "modified_methods": [
+          "n(Lme/jingbin/library/adapter/b;Lcom/shenma/tvlauncher/vod/domain/VodDataInfo;I)V"
+        ],
+        "added_methods": [],
+        "added_fields": [],
+        "required_final_invocations": {
+          "n(Lme/jingbin/library/adapter/b;Lcom/shenma/tvlauncher/vod/domain/VodDataInfo;I)V": [
+            "Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V",
+            "Lcom/shenma/tvlauncher/phone/q;-><init>(Lcom/shenma/tvlauncher/vod/domain/VodDataInfo;Lcom/shenma/tvlauncher/phone/SearchActivity;)V",
+            "Lcom/shenma/tvlauncher/vod/domain/VodDataInfo;->getScore()Ljava/lang/String;",
+            "Lcom/shenma/tvlauncher/vod/domain/VodDataInfo;->getState()Ljava/lang/String;",
+            "Lcom/shenma/tvlauncher/vod/domain/VodDataInfo;->getTitle()Ljava/lang/String;",
+            "Lcom/tongpin/player4k/catalog/NativePosterRepair;->bind(Landroid/view/View;Ljava/lang/Object;)V",
+            "Li6/e;->bindScore(Landroid/widget/TextView;Ljava/lang/String;)V",
+            "Lme/jingbin/library/adapter/b;->a(I)Landroid/view/View;",
+            "Lme/jingbin/library/adapter/b;->e(ILjava/lang/CharSequence;)Lme/jingbin/library/adapter/b;"
+          ]
+        },
+        "exact_preimage_recovered": true
+      }
+    }
+  },
+  "new_resources": {},
+  "new_own_sources": [
+    "com/tongpin/player4k/catalog/LegacyBrowseFilters.java",
+    "com/tongpin/player4k/catalog/NativeBrowseState.java",
+    "com/tongpin/player4k/catalog/NativePosterRepair.java",
+    "com/tongpin/player4k/catalog/PosterMatchPolicy.java"
+  ],
+  "modified_own_sources": [
+    "com/tongpin/player4k/catalog/EpisodeSummary.java",
+    "com/tongpin/player4k/catalog/LegacyEpisodeOrder.java"
+  ],
+  "provider_registry_unchanged": true,
+  "prior_release_evidence_unchanged": true,
+  "native_runtime_verified": false
+}

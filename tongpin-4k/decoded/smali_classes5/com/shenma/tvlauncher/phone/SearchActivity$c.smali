@@ -347,23 +347,8 @@
 
     .line 48
     .line 49
-    invoke-virtual {p2}, Lcom/shenma/tvlauncher/vod/domain/VodDataInfo;->getPic()Ljava/lang/String;
+    invoke-static {p3, p2}, Lcom/tongpin/player4k/catalog/NativePosterRepair;->bind(Landroid/view/View;Ljava/lang/Object;)V
 
-    .line 50
-    .line 51
-    .line 52
-    move-result-object v0
-
-    .line 53
-    invoke-static {v0}, Li6/e;->posterUri(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p3, v0}, Lcom/facebook/drawee/view/SimpleDraweeView;->setImageURI(Ljava/lang/String;)V
-
-    .line 54
-    .line 55
-    .line 56
     :cond_4
     if-eqz p1, :cond_5
 

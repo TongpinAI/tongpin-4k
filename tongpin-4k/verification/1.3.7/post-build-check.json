@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "apk_sha256": "6356604f250e93446f282769196ee9cad570af5789250b02d37618f5da875705",
+  "downloads_sha256": "6356604f250e93446f282769196ee9cad570af5789250b02d37618f5da875705",
+  "size_bytes": 77021749,
+  "own_class_count": 157,
+  "actual_final_abi_invocations": 2600,
+  "own_methods_verified": 882,
+  "scoped_native_methods_verified": 34,
+  "provider_count": 11,
+  "asset_sha256": "7e6a9616a36c68788500c68b313265bda50e28efe7af695cc9b368f89078aa1d",
+  "original_and_added_resource_ids_retained": true,
+  "native_libraries_retained": 42,
+  "first_four_dex_unchanged": true,
+  "all_frozen_source_and_review_hashes_unchanged": true,
+  "prior_136_evidence_unchanged": true,
+  "prior_136_evidence_files": 19,
+  "signature_v1_v2_v3": true,
+  "apk_entry_delta": [
+    "AndroidManifest.xml",
+    "META-INF/MANIFEST.MF",
+    "META-INF/TONGPIN4.RSA",
+    "META-INF/TONGPIN4.SF",
+    "classes5.dex",
+    "resources.arsc"
+  ],
+  "source_freeze_sha256": "23776334b4a8f15aa9fe8ff9522b30d85de738cfa1dabd907e940c1bf0c51455",
+  "build_result_sha256": "0e3614944b0f76df41d14be2e46922dc5b581df6438f3af030da16a06b166eac",
+  "device_tested": false
+}

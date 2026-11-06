@@ -10,7 +10,7 @@ public final class EpisodeSummary {
     private EpisodeSummary() {}
 
     private static final Pattern EXTRA = Pattern.compile(
-            "(?i)(陪看|彩蛋|花絮|预告|預告|番外|特辑|特輯|特别篇|特別篇|幕后|幕後|访谈|訪談|采访|採訪|先导|先導|片花|trailer|preview|bonus|behind the scenes|interview)");
+            "(?i)(陪看|彩蛋|花絮|预告|預告|番外|特辑|特輯|特别篇|特別篇|人物志|幕后|幕後|访谈|訪談|采访|採訪|先导|先導|片花|trailer|preview|bonus|behind the scenes|interview)");
     private static final Pattern NUMBER = Pattern.compile(
             "(?i)^(?:第\\s*|ep(?:isode)?\\s*)?([0-9]{1,4}|[零〇一二三四五六七八九十百千两兩]{1,8})\\s*"
             + "(?:集|话|話|期|回)?\\s*(?:([上中下])(?:集)?|[（(]([上中下])[)）])?\\s*"
@@ -19,7 +19,7 @@ public final class EpisodeSummary {
     public static String describe(Iterable<String> names) {
         Set<Integer> episodes = new HashSet<>();
         Set<String> parts = new HashSet<>();
-        int total = 0, extra = 0, other = 0;
+        int total = 0, extra = 0, other = 0, latest = 0;
         if (names != null) for (String raw : names) {
             total++;
             String name = raw == null ? "" : raw.replace('\u3000', ' ').trim();
@@ -28,12 +28,14 @@ public final class EpisodeSummary {
             int number = match.matches() ? number(match.group(1)) : -1;
             if (number <= 0) { other++; continue; }
             episodes.add(number);
+            latest = Math.max(latest, number);
             String part = match.group(2) != null ? match.group(2) : match.group(3);
             parts.add(number + ":" + (part == null ? "" : part));
         }
         if (total == 0) return "暂无选集";
         if (episodes.isEmpty()) return "可选" + total + "项";
-        String text = "正片" + episodes.size() + "集";
+        String text = latest == episodes.size() ? "正片" + episodes.size() + "集"
+                : "更新至第" + latest + "集 · 可选" + episodes.size() + "集";
         if (parts.size() > episodes.size()) text += "（" + parts.size() + "段）";
         if (extra > 0) text += " · 附加" + extra + "条";
         if (other > 0) text += " · 其他" + other + "项";

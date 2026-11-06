@@ -1,0 +1,250 @@
+{
+  "passed": true,
+  "records": [
+    {
+      "path": "decoded/smali_classes4/w2/a.smali",
+      "sha256": "a00c1815660799c41386a72d23198f335ed24dac63044786a20d398ce47841df",
+      "class_declaration": ".class public interface abstract Lw2/a;",
+      "members": []
+    },
+    {
+      "path": "decoded/smali_classes5/com/shenma/tvlauncher/vod/domain/VodDataInfo.smali",
+      "sha256": "8408be6783a72845b2931e591f85efee51f0101f1aa23d2a837b8750499d8a17",
+      "class_declaration": ".class public Lcom/shenma/tvlauncher/vod/domain/VodDataInfo;",
+      "members": [
+        {
+          "line": 46,
+          "declaration": ".method public getPic()Ljava/lang/String;"
+        },
+        {
+          "line": 79,
+          "declaration": ".method public getTitle()Ljava/lang/String;"
+        },
+        {
+          "line": 90,
+          "declaration": ".method public getType()Ljava/lang/String;"
+        },
+        {
+          "line": 35,
+          "declaration": ".method public getNextlink()Ljava/lang/String;"
+        }
+      ]
+    },
+    {
+      "path": "decoded/smali_classes5/com/shenma/tvlauncher/phone/b.smali",
+      "sha256": "1e7a785dc50b3af679dd3eeea172f289c561155a3c2d179344b39f68a3d23ff8",
+      "class_declaration": ".class public final Lcom/shenma/tvlauncher/phone/b;",
+      "members": [
+        {
+          "line": 7,
+          "declaration": ".field public static final a:Lcom/shenma/tvlauncher/phone/b;"
+        },
+        {
+          "line": 69,
+          "declaration": ".method public final a()Lcom/shenma/tvlauncher/entity/AdEntity;"
+        },
+        {
+          "line": 11,
+          "declaration": ".field private static c:Lcom/shenma/tvlauncher/entity/AdEntity;"
+        },
+        {
+          "line": 91,
+          "declaration": ".method public final c()Ljava/lang/String;"
+        },
+        {
+          "line": 13,
+          "declaration": ".field private static d:Ljava/lang/String;"
+        },
+        {
+          "line": 102,
+          "declaration": ".method public final d()Lcom/shenma/tvlauncher/entity/ServerEntity;"
+        }
+      ]
+    },
+    {
+      "path": "decoded/smali_classes5/com/shenma/tvlauncher/entity/ServerEntity.smali",
+      "sha256": "20577e8b13ca620888e728122901495c5e6c4bcd5fbb93ed5a57a4e916a6253d",
+      "class_declaration": ".class public final Lcom/shenma/tvlauncher/entity/ServerEntity;",
+      "members": [
+        {
+          "line": 1468,
+          "declaration": ".method public final getMiyao()Ljava/lang/String;"
+        }
+      ]
+    },
+    {
+      "path": "decoded/smali_classes5/com/shenma/tvlauncher/utils/b.smali",
+      "sha256": "09a5d1d1254c94a37c63c45be51ab75234e8c8b1bd6cb07a7887329e2e33c615",
+      "class_declaration": ".class public Lcom/shenma/tvlauncher/utils/b;",
+      "members": [
+        {
+          "line": 19,
+          "declaration": ".method public static a()Ljava/lang/String;"
+        }
+      ]
+    },
+    {
+      "path": "decoded/smali_classes5/com/shenma/tvlauncher/utils/g.smali",
+      "sha256": "f64c2bc803bfa62ad9a0ed3806cfcde9426617f5040bfadad140b9e3ba62bd55",
+      "class_declaration": ".class public Lcom/shenma/tvlauncher/utils/g;",
+      "members": [
+        {
+          "line": 271,
+          "declaration": ".method public static d(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;"
+        },
+        {
+          "line": 366,
+          "declaration": ".method public static f(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;"
+        }
+      ]
+    },
+    {
+      "path": "decoded/smali_classes4/com/facebook/drawee/view/SimpleDraweeView.smali",
+      "sha256": "2b096a1296a80fa2980a7fd0feef67baa406382208fbe478e907bb2380ce85b6",
+      "class_declaration": ".class public Lcom/facebook/drawee/view/SimpleDraweeView;",
+      "members": [
+        {
+          "line": 396,
+          "declaration": ".method public getControllerBuilder()Lcom/facebook/drawee/controller/b;"
+        },
+        {
+          "line": 594,
+          "declaration": ".method public setImageURI(Landroid/net/Uri;)V"
+        },
+        {
+          "line": 605,
+          "declaration": ".method public setImageURI(Ljava/lang/String;)V"
+        }
+      ]
+    },
+    {
+      "path": "decoded/smali_classes4/com/facebook/drawee/view/DraweeView.smali",
+      "sha256": "6849cf1275934a770a4c17313f3c98eea6eaed523be9d0bab2fc8037673d3b29",
+      "class_declaration": ".class public Lcom/facebook/drawee/view/DraweeView;",
+      "members": [
+        {
+          "line": 522,
+          "declaration": ".method public getController()Lw2/a;"
+        },
+        {
+          "line": 861,
+          "declaration": ".method public setController(Lw2/a;)V"
+        }
+      ]
+    },
+    {
+      "path": "decoded/smali_classes4/n2/e.smali",
+      "sha256": "30df7f530d2d4305fce4194e6dbbaac3aae8577578ab9ef8442dbc9cddba0ec7",
+      "class_declaration": ".class public Ln2/e;",
+      "members": [
+        {
+          "line": 564,
+          "declaration": ".method public bridge synthetic a(Landroid/net/Uri;)Lw2/d;"
+        }
+      ]
+    },
+    {
+      "path": "decoded/smali_classes4/com/facebook/drawee/controller/b.smali",
+      "sha256": "b0f97fe0ffc9f1b86e2a4b6bf0bba50d8ad089473c3603f3103fb01ee53e1dbe",
+      "class_declaration": ".class public abstract Lcom/facebook/drawee/controller/b;",
+      "members": [
+        {
+          "line": 1222,
+          "declaration": ".method public z(Ljava/lang/Object;)Lcom/facebook/drawee/controller/b;"
+        },
+        {
+          "line": 254,
+          "declaration": ".method public B(Lw2/a;)Lcom/facebook/drawee/controller/b;"
+        },
+        {
+          "line": 30,
+          "declaration": ".field private final c:Ljava/util/Set;"
+        },
+        {
+          "line": 407,
+          "declaration": ".method public c()Lcom/facebook/drawee/controller/a;"
+        }
+      ]
+    },
+    {
+      "path": "decoded/smali_classes4/com/facebook/drawee/controller/a.smali",
+      "sha256": "e86b03118c61fe3010a58af5a7fee6a7c070e7f277e4d8c32148c94de5106106",
+      "class_declaration": ".class public abstract Lcom/facebook/drawee/controller/a;",
+      "members": [
+        {
+          "line": 42,
+          "declaration": ".field private h:Lw2/c;"
+        },
+        {
+          "line": 3245,
+          "declaration": ".method public h(Lcom/facebook/drawee/controller/d;)V"
+        },
+        {
+          "line": 38,
+          "declaration": ".field protected f:Lcom/facebook/drawee/controller/d;"
+        },
+        {
+          "line": 2061,
+          "declaration": ".method static bridge synthetic f(Lcom/facebook/drawee/controller/a;Ljava/lang/String;Lcom/facebook/datasource/c;Ljava/lang/Object;FZZZ)V"
+        },
+        {
+          "line": 870,
+          "declaration": ".method private J(Ljava/lang/String;Lcom/facebook/datasource/c;Ljava/lang/Throwable;Z)V"
+        },
+        {
+          "line": 1758,
+          "declaration": ".method private R(Ljava/lang/Throwable;Lcom/facebook/datasource/c;)V"
+        }
+      ]
+    },
+    {
+      "path": "decoded/smali_classes4/com/facebook/drawee/controller/d.smali",
+      "sha256": "88b92d8f66d4e2a4bcfbcb039ffe02659ea372bf5dd7b43bc31f4098569b9cb9",
+      "class_declaration": ".class public interface abstract Lcom/facebook/drawee/controller/d;",
+      "members": [
+        {
+          "line": 10,
+          "declaration": ".method public abstract b(Ljava/lang/String;Ljava/lang/Throwable;)V"
+        }
+      ]
+    },
+    {
+      "path": "decoded/smali_classes4/com/facebook/drawee/controller/f.smali",
+      "sha256": "76ee6dd1f3e3d718eeb01ebcf4d17a7325e0757c1f1993710ba4ad6e996a984f",
+      "class_declaration": ".class public Lcom/facebook/drawee/controller/f;",
+      "members": [
+        {
+          "line": 10,
+          "declaration": ".field private final a:Ljava/util/List;"
+        },
+        {
+          "line": 82,
+          "declaration": ".method public a(Ljava/lang/String;Ljava/lang/Object;)V"
+        }
+      ]
+    }
+  ],
+  "native_method_inverse_proofs": {
+    "decoded/smali_classes5/i6/e.smali": {
+      "before_sha256": "ae2c3c29ffa1862e3ce5a7f130f4df037185c72149c680a219441733a3d85c99",
+      "after_sha256": "75ffbe36bb5a51e6faab81beee82f928048973e9fb87ac995031bb6deaf2b848",
+      "changed_methods": [
+        "e(Li6/e$c;I)V"
+      ],
+      "exact_whole_class_preimage_recovered": true,
+      "added_or_removed_methods": []
+    },
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/SearchActivity$c.smali": {
+      "before_sha256": "24e4cd9eeb6d8e2bce4596a1452551cb1c985a7458777a4814f147ca135a0020",
+      "after_sha256": "3d18f4d98844a2cdf6c3f91c60a0df3d33346c72685f5e001a7d31265c0f8098",
+      "changed_methods": [
+        "n(Lme/jingbin/library/adapter/b;Lcom/shenma/tvlauncher/vod/domain/VodDataInfo;I)V"
+      ],
+      "exact_whole_class_preimage_recovered": true,
+      "added_or_removed_methods": []
+    }
+  },
+  "fresco_callback_proof": "Actual controller.a.J final_failed branch calls private R; R dispatches controller.d.b. Public controller.h adds listener before View.setController. Owned listener is removed by identity only from protected controller.f or forwarding listener private list a; other listeners retained.",
+  "ordinary_transport": "Runtime phone.b.a.c/d getters, ServerEntity.getMiyao, utils.b.a timestamp and utils.g.f/d are existing normal public metadata transport; no key value embedded or logged.",
+  "device_tested": false
+}

@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "source_sha256": {
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/fragment/x.smali": {
+      "before_sha256": "cd6a5d16f9f2c91c253cc9d6425006d4724afb98e8fa5d682c8a27fe29884e56",
+      "after_sha256": "19e0b6eba393ab5766f3042039858d5cccc60d28e76b434ec48a1d7299baa4c5"
+    },
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/fragment/x$k.smali": {
+      "before_sha256": "ffdbd1380057dba9371f27f1235b890b8b717ac39ef96f6c232011db1e790bc8",
+      "after_sha256": "d8f8f49a42e57845ade30fe67d550395252cc30f3222ecdae7a600ca35cc265e"
+    }
+  },
+  "modified_methods": [
+    "x.X",
+    "x.Z",
+    "x.a0",
+    "x.b0",
+    "x.c0",
+    "x.t0",
+    "x.q0",
+    "x.f0",
+    "x.onViewCreated",
+    "x.onDestroyView (added)",
+    "x$k.onScrolled"
+  ]
+}

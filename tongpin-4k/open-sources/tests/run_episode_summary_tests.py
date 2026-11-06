@@ -62,7 +62,7 @@ classes = out / "tv-classes"
 classes.mkdir(exist_ok=True)
 libraries = sorted((TV / "third-party/media3-1.10.1/jars").glob("*.jar"))
 cp = os.pathsep.join(map(str, [ANDROID] + libraries))
-run(compiler + ["-cp", cp, "-d", classes] + tv_sources + [TV / "build/1.3.0/generated/com/tongpin/player4k/tv/R.java", tv_test])
+run(compiler + ["-cp", cp, "-d", classes] + tv_sources + [TV / "build/1.3.1/generated/com/tongpin/player4k/tv/R.java", tv_test])
 text = run([JAVA, "-ea", "-Dfile.encoding=UTF-8", "-cp", os.pathsep.join([str(classes), cp]), "com.tongpin.player4k.tv.EpisodeSummaryTest"])
 tv_count = int(re.search(r"assertions passed: (\d+)", text)[1])
 assert before == hashes(), "production changed during tests"

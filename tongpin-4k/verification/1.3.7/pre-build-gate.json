@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "builder_review_sha256": "adaa6ab1e9fa329de75f828945a1a0ce6904695b6db8b32237ed456bc2255179",
+  "tooling_source_sha256": {
+    "build_tongpin.py": "deb38d5118d7f3f719b3e3ef308f87ecd5205ba0f74752392e5f5079e221521e",
+    "open-sources/integration/assert_contract.py": "b4c37f6c19b867c5644664222250b7cc8a5fa1ca2121775945c05d9b4c72171f",
+    "open-sources/integration/ui_1360_contract.py": "605dab319b2d175e2ad098e00e916405513037e521ee01cf819cf7b81ee8c00c",
+    "open-sources/integration/ui_1370_contract.py": "c94dfcdd708683f2e357922b620da61bf008d61d54687fc11c22377b7bd2c502",
+    "open-sources/integration/integrate_1_3_7.py": "510b6b22f28ebfb2ac9ec50624e434033a78521394225b4b1f0ad0a702e828b1",
+    "open-sources/integration/DisassembleOwn1370.java": "288de5d606910a1f56698732ca8bf9848898258f98ba256e4f6d835a6d8c5204",
+    "open-sources/integration/audit_final_ui_api_1370.py": "2ad46e8500a4063d07b4efbdce0e7192432ce0a640bab3e6d2079885bbc878aa",
+    "open-sources/integration/check_timer_dex_1370.py": "b90671a6cc057123dcb26c0c6d31d29a842b9f3d7778103bfc0e22828c0d4e87"
+  },
+  "own_classes_integrated": 157,
+  "full_contract_passed": true,
+  "source_freeze_sha256": "23776334b4a8f15aa9fe8ff9522b30d85de738cfa1dabd907e940c1bf0c51455",
+  "previous136_apk_sha256": "20e3e6e2972958baa8d39d6fa67c155a7ba778867203433b205d9fbe049c6e31"
+}

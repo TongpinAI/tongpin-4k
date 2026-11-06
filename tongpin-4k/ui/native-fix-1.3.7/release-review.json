@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "verdict": "clear: independent summary, native browse and poster repair reviews cover the exact137 production scope",
+  "source_sha256": {
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/SearchActivity$c.smali": "3d18f4d98844a2cdf6c3f91c60a0df3d33346c72685f5e001a7d31265c0f8098",
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/fragment/x$k.smali": "d8f8f49a42e57845ade30fe67d550395252cc30f3222ecdae7a600ca35cc265e",
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/fragment/x.smali": "19e0b6eba393ab5766f3042039858d5cccc60d28e76b434ec48a1d7299baa4c5",
+    "decoded/smali_classes5/i6/e.smali": "75ffbe36bb5a51e6faab81beee82f928048973e9fb87ac995031bb6deaf2b848",
+    "open-sources/src/com/tongpin/player4k/catalog/EpisodeSummary.java": "0fb9399cd8c9f07db6e3ae1849efb618552adb0517be40086ea25e39b69ba533",
+    "open-sources/src/com/tongpin/player4k/catalog/LegacyBrowseFilters.java": "2a8fba01e85ccc0699b7884ec53ea77871df1eeb969a8fb7fd0760c3d45d52cd",
+    "open-sources/src/com/tongpin/player4k/catalog/LegacyEpisodeOrder.java": "ba722811b8e4a1c35a01d6d6f3cc864f56d0ad2ab74af6567f3cc86494410f30",
+    "open-sources/src/com/tongpin/player4k/catalog/NativeBrowseState.java": "27c76fd67668ff57aa9e174eae51bdd644cd35955ccc34f4eaf0b0e4bfe18587",
+    "open-sources/src/com/tongpin/player4k/catalog/NativePosterRepair.java": "db92f1831f6a86f34e0afd7e7bfff741e8f9744eda4fe86512841ba25d2fdc5c",
+    "open-sources/src/com/tongpin/player4k/catalog/PosterMatchPolicy.java": "2eec1f3e7204028d9f35b26c5442daf585c9257906da3bd1cd4b321032c543bd"
+  },
+  "independent_reports_sha256": {
+    "ui/native-fix-1.3.7/summary-review.json": "160e7512a1674bfb923ab88123e2db4f8dfcf42dad3ae743ae2eb1c8dfae9bd2",
+    "ui/native-fix-1.3.7/browse-independent-review.json": "4b712a5ce9804681e0e0f52d14bca7d37754c49679e357f9d228d56e8868f80a",
+    "ui/native-fix-1.3.7/poster-independent-review.json": "23db70d6a4284db314654f92bfd3db3cbbd476d126a8443095416198e39446c6"
+  },
+  "device_tested": false
+}

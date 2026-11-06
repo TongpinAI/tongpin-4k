@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "source_ready": true,
+  "version": "1.3.7",
+  "scope": "Native phone home filter metadata fields, captured browse transactions, region directory routing and ordered pagination.",
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/NativeBrowseState.java": "27c76fd67668ff57aa9e174eae51bdd644cd35955ccc34f4eaf0b0e4bfe18587",
+    "open-sources/src/com/tongpin/player4k/catalog/LegacyBrowseFilters.java": "2a8fba01e85ccc0699b7884ec53ea77871df1eeb969a8fb7fd0760c3d45d52cd",
+    "open-sources/tests/src/com/tongpin/player4k/catalog/NativeBrowseStateTest.java": "87ecb78d365929822b708ab67108cd0c6abb6db9b5fdfe19cc35c6cbfd23e267",
+    "open-sources/tests/src/com/tongpin/player4k/catalog/LegacyBrowseFiltersTest.java": "6c720daae420064c9e33250de52c72dcbb28a1dd1473e99aa4a52158f4813ff0",
+    "open-sources/tests/run_native_browse_137_tests.py": "d1cc1a84faee04f4b8577480a227ae00c7fc4c3adbe78e0bcbb5cd0fbff7b272",
+    "open-sources/integrate_native_browse_1370.py": "7c87342978ad8879140c53a0c72c6ee1fe706193779dced4924d983d462609fb",
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/fragment/x.smali": "19e0b6eba393ab5766f3042039858d5cccc60d28e76b434ec48a1d7299baa4c5",
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/fragment/x$k.smali": "d8f8f49a42e57845ade30fe67d550395252cc30f3222ecdae7a600ca35cc265e",
+    "ui/native-fix-1.3.7/NATIVE-BROWSE.md": "ab1c057a67fa609ab506d525742678bd47e2a1215c8f1d68f07b0016e7010145",
+    "ui/native-fix-1.3.7/browse-integration.json": "c8d1a0172c621eeb96e33175b571c2d3309c30878124731a31ecb8292e4b5b3b"
+  },
+  "tests_report": "ui/native-fix-1.3.7/browse-tests/verification.json",
+  "tests_report_sha256": "fcc6632d6215a8f54fc0b71306e75d8149952b341540e06571328c9db9140d08",
+  "device_tested": false,
+  "remote_code_executed": false,
+  "old_reports_modified": false,
+  "production_smali_paths": [
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/fragment/x.smali",
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/fragment/x$k.smali"
+  ],
+  "modified_methods": [
+    "x.X",
+    "x.Z",
+    "x.a0",
+    "x.b0",
+    "x.c0",
+    "x.t0",
+    "x.q0",
+    "x.f0",
+    "x.onViewCreated",
+    "x.onDestroyView (added)",
+    "x$k.onScrolled"
+  ]
+}

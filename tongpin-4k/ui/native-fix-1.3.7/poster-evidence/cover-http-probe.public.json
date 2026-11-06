@@ -1,0 +1,60 @@
+[
+  {
+    "name": "direct-native",
+    "proxy_enabled": false,
+    "requested_url": "http://dbzy5.com/upload/vod/20260804-1/5456e0357d77eb38eed5d2c82b4a31f8.jpg",
+    "headers": {
+      "User-Agent": "Dalvik/2.1.0 (Linux; U; Android 14; Test Build/UP1A)"
+    },
+    "error": "URLError: <urlopen error [Errno 11001] getaddrinfo failed>",
+    "seconds": 0.84
+  },
+  {
+    "name": "proxy-native",
+    "proxy_enabled": true,
+    "requested_url": "http://dbzy5.com/upload/vod/20260804-1/5456e0357d77eb38eed5d2c82b4a31f8.jpg",
+    "headers": {
+      "User-Agent": "Dalvik/2.1.0 (Linux; U; Android 14; Test Build/UP1A)"
+    },
+    "status": 502,
+    "final_url": "http://dbzy5.com/upload/vod/20260804-1/5456e0357d77eb38eed5d2c82b4a31f8.jpg",
+    "response_headers": {
+      "Content-Length": "0"
+    },
+    "truncated": false,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "magic_hex": "",
+    "image_error": "UnidentifiedImageError: cannot identify image file <_io.BytesIO object at 0x0000000003585850>",
+    "seconds": 1.48
+  },
+  {
+    "name": "direct-browser",
+    "proxy_enabled": false,
+    "requested_url": "http://dbzy5.com/upload/vod/20260804-1/5456e0357d77eb38eed5d2c82b4a31f8.jpg",
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 Chrome/130.0.0.0 Mobile Safari/537.36"
+    },
+    "error": "URLError: <urlopen error [Errno 11001] getaddrinfo failed>",
+    "seconds": 0.84
+  },
+  {
+    "name": "proxy-browser",
+    "proxy_enabled": true,
+    "requested_url": "http://dbzy5.com/upload/vod/20260804-1/5456e0357d77eb38eed5d2c82b4a31f8.jpg",
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 Chrome/130.0.0.0 Mobile Safari/537.36"
+    },
+    "status": 502,
+    "final_url": "http://dbzy5.com/upload/vod/20260804-1/5456e0357d77eb38eed5d2c82b4a31f8.jpg",
+    "response_headers": {
+      "Content-Length": "0"
+    },
+    "truncated": false,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "magic_hex": "",
+    "image_error": "UnidentifiedImageError: cannot identify image file <_io.BytesIO object at 0x0000000003585940>",
+    "seconds": 1.48
+  }
+]

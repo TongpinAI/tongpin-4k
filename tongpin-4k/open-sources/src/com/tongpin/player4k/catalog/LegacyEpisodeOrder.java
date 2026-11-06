@@ -58,6 +58,7 @@ public final class LegacyEpisodeOrder {
             }
         } catch (Exception brokenAdapter) { throw new IllegalStateException("无法更新选集数量", brokenAdapter); }
         String text = EpisodeSummary.describe(names);
+        ((TextView) view).setMaxLines(2);
         ((TextView) view).setText(text);
         view.setContentDescription("当前线路：" + text);
     }

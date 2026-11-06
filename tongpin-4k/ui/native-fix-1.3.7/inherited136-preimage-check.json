@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "old_default_rules_retained": true,
+  "exact136_before_overrides_accepted": true,
+  "prior136_json_unchanged": true,
+  "chain": {
+    "136": true,
+    "135": true,
+    "134": true,
+    "133": true,
+    "132": true,
+    "131": true,
+    "130": true,
+    "121": true,
+    "120": true,
+    "legacy113": true
+  },
+  "new_helper_sources_excluded_only_when_explicitly_requested": [
+    "com/tongpin/player4k/catalog/LegacyBrowseFilters.java",
+    "com/tongpin/player4k/catalog/NativeBrowseState.java",
+    "com/tongpin/player4k/catalog/NativePosterRepair.java",
+    "com/tongpin/player4k/catalog/PosterMatchPolicy.java"
+  ]
+}

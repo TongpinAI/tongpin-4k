@@ -1,0 +1,8 @@
+����: [options] Դֵ 8 �ѹ�ʱ������δ�����а���ɾ��
+����: [options] Ŀ��ֵ 8 �ѹ�ʱ������δ�����а���ɾ��
+����: [options] Ҫ�����й��ѹ�ʱѡ��ľ���, ��ʹ�� -Xlint:-options��
+ע: C:\Users\Administrator.DESKTOP-R9V7M9S\Documents\ChatGPT\����\tongpin-4k\open-sources\src\com\tongpin\player4k\catalog\NativePosterRepair.javaʹ����δ�����򲻰�ȫ�Ĳ�����
+ע: �й���ϸ��Ϣ, ��ʹ�� -Xlint:unchecked ���±��롣
+3 ������
+PASS 42 strict poster identity/URI/magic assertions
+PASS 39 actual helper failure-only/recycle/listener/cache/network-bound assertions

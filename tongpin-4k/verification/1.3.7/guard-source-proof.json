@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "guard_source_whole_files_unchanged_from_136": {
+    "com/tongpin/player4k/catalog/PhoneUi.java": "8d8e39fea8e3b5c2e7e15301014e54ba55294713a28ee22600056a04e0b9fe8a",
+    "com/tongpin/player4k/catalog/OpenPlayerActivity.java": "685375d966147b8609584c8e0557a0d4d7469f8bb0bc6822d245b294ded86cce"
+  },
+  "min_sdk": 24,
+  "device_tested": false
+}

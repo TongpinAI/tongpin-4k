@@ -1,0 +1,48 @@
+{
+  "original_native_id": "531748",
+  "candidate_provider": "ryzy",
+  "candidate_id": "84969",
+  "identity_evidence": {
+    "exact_title": true,
+    "exact_year": true,
+    "compatible_category": true,
+    "native_normalized_synopsis_length": 91,
+    "native_entire_distinctive_synopsis_contained_in_candidate": true,
+    "synopsis_sha256": "1edd1519854dd1107fcf02ccf22646fc3be79eae6beefdfd5c4a8913d0a415d6"
+  },
+  "image_probes": [
+    {
+      "name": "direct-native",
+      "url": "https://pic.ry-pic.com/upload/vod/20260827-1/cab2bb0f4c5c9093e02974001af72d27.webp",
+      "status": 200,
+      "final_url": "https://pic.ry-pic.com/upload/vod/20260827-1/cab2bb0f4c5c9093e02974001af72d27.webp",
+      "content_type": "image/webp",
+      "bytes": 31598,
+      "sha256": "a46b873b8d140ca1a8aae5e973663f6f5da6a794333759894037dd2cc19ce4ea",
+      "format": "WEBP",
+      "size": [
+        270,
+        402
+      ],
+      "decode_verified": true,
+      "seconds": 2.22
+    },
+    {
+      "name": "proxy-native",
+      "url": "https://pic.ry-pic.com/upload/vod/20260827-1/cab2bb0f4c5c9093e02974001af72d27.webp",
+      "status": 200,
+      "final_url": "https://pic.ry-pic.com/upload/vod/20260827-1/cab2bb0f4c5c9093e02974001af72d27.webp",
+      "content_type": "image/webp",
+      "bytes": 31598,
+      "sha256": "a46b873b8d140ca1a8aae5e973663f6f5da6a794333759894037dd2cc19ce4ea",
+      "format": "WEBP",
+      "size": [
+        270,
+        402
+      ],
+      "decode_verified": true,
+      "seconds": 7.99
+    }
+  ],
+  "production_edited": false
+}

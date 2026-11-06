@@ -483,144 +483,46 @@
 .end method
 
 .method private X()V
-    .locals 1
+    .locals 0
 
-    .line 1
-    iget-object v0, p0, Lcom/shenma/tvlauncher/phone/fragment/x;->Q:Ljava/lang/String;
-
-    .line 2
-    .line 3
-    if-eqz v0, :cond_1
-
-    .line 4
-    .line 5
-    invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
-
-    .line 6
-    .line 7
-    .line 8
-    move-result v0
-
-    .line 9
-    if-eqz v0, :cond_0
-
-    .line 10
-    .line 11
-    goto :goto_0
-
-    .line 12
-    :cond_0
-    const/4 v0, 0x0
-
-    .line 13
-    iput-object v0, p0, Lcom/shenma/tvlauncher/phone/fragment/x;->K:Ljava/util/ArrayList;
-
-    .line 14
-    .line 15
-    const/4 v0, 0x1
-
-    .line 16
-    iput v0, p0, Lcom/shenma/tvlauncher/phone/fragment/x;->C:I
-
-    .line 17
-    .line 18
-    const-string v0, ""
-
-    .line 19
-    .line 20
-    iput-object v0, p0, Lcom/shenma/tvlauncher/phone/fragment/x;->Q:Ljava/lang/String;
-
-    .line 21
-    .line 22
-    invoke-virtual {p0, v0}, Lcom/shenma/tvlauncher/phone/fragment/x;->q0(Ljava/lang/String;)V
-
-    .line 23
-    .line 24
-    .line 25
-    invoke-direct {p0}, Lcom/shenma/tvlauncher/phone/fragment/x;->r0()V
-
-    .line 26
-    .line 27
-    .line 28
-    :cond_1
-    :goto_0
+    invoke-static {p0}, Lcom/tongpin/player4k/catalog/LegacyBrowseFilters;->reset(Ljava/lang/Object;)V
     return-void
 .end method
 
 .method private Z()Lcom/android/volley/Response$ErrorListener;
     .locals 1
 
-    .line 1
-    new-instance v0, Lcom/shenma/tvlauncher/phone/fragment/x$j;
-
-    .line 2
-    .line 3
-    invoke-direct {v0, p0}, Lcom/shenma/tvlauncher/phone/fragment/x$j;-><init>(Lcom/shenma/tvlauncher/phone/fragment/x;)V
-
-    .line 4
-    .line 5
-    .line 6
+    invoke-static {p0}, Lcom/tongpin/player4k/catalog/LegacyBrowseFilters;->failure(Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v0
+    check-cast v0, Lcom/android/volley/Response$ErrorListener;
     return-object v0
 .end method
 
 .method private a0()Lcom/android/volley/Response$Listener;
     .locals 1
 
-    .line 1
-    new-instance v0, Lcom/shenma/tvlauncher/phone/fragment/x$i;
-
-    .line 2
-    .line 3
-    invoke-direct {v0, p0}, Lcom/shenma/tvlauncher/phone/fragment/x$i;-><init>(Lcom/shenma/tvlauncher/phone/fragment/x;)V
-
-    .line 4
-    .line 5
-    .line 6
+    invoke-static {p0}, Lcom/tongpin/player4k/catalog/LegacyBrowseFilters;->success(Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v0
+    check-cast v0, Lcom/android/volley/Response$Listener;
     return-object v0
 .end method
 
 .method private b0()Lcom/android/volley/Response$ErrorListener;
     .locals 1
 
-    .line 1
-    new-instance v0, Lcom/shenma/tvlauncher/phone/fragment/x$h;
-
-    .line 2
-    .line 3
-    invoke-direct {v0, p0}, Lcom/shenma/tvlauncher/phone/fragment/x$h;-><init>(Lcom/shenma/tvlauncher/phone/fragment/x;)V
-
-    .line 4
-    .line 5
-    .line 6
+    invoke-static {p0}, Lcom/tongpin/player4k/catalog/LegacyBrowseFilters;->metadataFailure(Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v0
+    check-cast v0, Lcom/android/volley/Response$ErrorListener;
     return-object v0
 .end method
 
 .method private c0()Lcom/android/volley/Response$Listener;
-    .locals 2
+    .locals 1
 
-    .line 1
-    sget-object v0, Lcom/shenma/tvlauncher/phone/b;->a:Lcom/shenma/tvlauncher/phone/b;
-
-    .line 2
-    .line 3
-    invoke-virtual {v0}, Lcom/shenma/tvlauncher/phone/b;->c()Ljava/lang/String;
-
-    .line 4
-    .line 5
-    .line 6
+    invoke-static {p0}, Lcom/tongpin/player4k/catalog/LegacyBrowseFilters;->metadataSuccess(Ljava/lang/Object;)Ljava/lang/Object;
     move-result-object v0
-
-    .line 7
-    new-instance v1, Lcom/shenma/tvlauncher/phone/fragment/x$g;
-
-    .line 8
-    .line 9
-    invoke-direct {v1, p0, v0}, Lcom/shenma/tvlauncher/phone/fragment/x$g;-><init>(Lcom/shenma/tvlauncher/phone/fragment/x;Ljava/lang/String;)V
-
-    .line 10
-    .line 11
-    .line 12
-    return-object v1
+    check-cast v0, Lcom/android/volley/Response$Listener;
+    return-object v0
 .end method
 
 .method private d0(Z)V
@@ -2920,584 +2822,9 @@
 .end method
 
 .method private t0()V
-    .locals 4
+    .locals 0
 
-    .line 1
-    const-string v0, ""
-
-    .line 2
-    .line 3
-    iput-object v0, p0, Lcom/shenma/tvlauncher/phone/fragment/x;->Q:Ljava/lang/String;
-
-    .line 4
-    .line 5
-    const/4 v0, 0x0
-
-    .line 6
-    iput-object v0, p0, Lcom/shenma/tvlauncher/phone/fragment/x;->K:Ljava/util/ArrayList;
-
-    .line 7
-    .line 8
-    const/4 v0, 0x1
-
-    .line 9
-    iput v0, p0, Lcom/shenma/tvlauncher/phone/fragment/x;->C:I
-
-    .line 10
-    .line 11
-    iget-object v0, p0, Lcom/shenma/tvlauncher/phone/fragment/x;->s:Li6/b;
-
-    .line 12
-    .line 13
-    invoke-virtual {v0}, Li6/b;->b()I
-
-    .line 14
-    .line 15
-    .line 16
-    move-result v0
-
-    .line 17
-    if-ltz v0, :cond_0
-
-    .line 18
-    .line 19
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    .line 20
-    .line 21
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    .line 22
-    .line 23
-    .line 24
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    .line 25
-    .line 26
-    iget-object v3, p0, Lcom/shenma/tvlauncher/phone/fragment/x;->Q:Ljava/lang/String;
-
-    .line 27
-    .line 28
-    invoke-static {v3}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    .line 29
-    .line 30
-    .line 31
-    move-result-object v3
-
-    .line 32
-    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    .line 33
-    .line 34
-    .line 35
-    const-string v3, "&sort="
-
-    .line 36
-    .line 37
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 38
-    .line 39
-    .line 40
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    .line 41
-    .line 42
-    .line 43
-    iget-object v2, p0, Lcom/shenma/tvlauncher/phone/fragment/x;->t:[Ljava/lang/String;
-
-    .line 44
-    .line 45
-    aget-object v0, v2, v0
-
-    .line 46
-    .line 47
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 48
-    .line 49
-    .line 50
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    .line 51
-    .line 52
-    .line 53
-    move-result-object v0
-
-    .line 54
-    iput-object v0, p0, Lcom/shenma/tvlauncher/phone/fragment/x;->Q:Ljava/lang/String;
-
-    .line 55
-    .line 56
-    :cond_0
-    iget-object v0, p0, Lcom/shenma/tvlauncher/phone/fragment/x;->q:Li6/b;
-
-    .line 57
-    .line 58
-    invoke-virtual {v0}, Li6/b;->b()I
-
-    .line 59
-    .line 60
-    .line 61
-    move-result v0
-
-    .line 62
-    if-ltz v0, :cond_1
-
-    .line 63
-    .line 64
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    .line 65
-    .line 66
-    iget-object v2, p0, Lcom/shenma/tvlauncher/phone/fragment/x;->Q:Ljava/lang/String;
-
-    .line 67
-    .line 68
-    invoke-static {v2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    .line 69
-    .line 70
-    .line 71
-    move-result-object v2
-
-    .line 72
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    .line 73
-    .line 74
-    .line 75
-    const-string v2, "&area="
-
-    .line 76
-    .line 77
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 78
-    .line 79
-    .line 80
-    iget-object v2, p0, Lcom/shenma/tvlauncher/phone/fragment/x;->q:Li6/b;
-
-    .line 81
-    .line 82
-    invoke-virtual {v2, v0}, Li6/b;->c(I)Ljava/lang/String;
-
-    .line 83
-    .line 84
-    .line 85
-    move-result-object v0
-
-    .line 86
-    invoke-static {v0}, Lcom/shenma/tvlauncher/utils/k;->g(Ljava/lang/String;)Ljava/lang/String;
-
-    .line 87
-    .line 88
-    .line 89
-    move-result-object v0
-
-    .line 90
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 91
-    .line 92
-    .line 93
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    .line 94
-    .line 95
-    .line 96
-    move-result-object v0
-
-    .line 97
-    iput-object v0, p0, Lcom/shenma/tvlauncher/phone/fragment/x;->Q:Ljava/lang/String;
-
-    .line 98
-    .line 99
-    :cond_1
-    iget-object v0, p0, Lcom/shenma/tvlauncher/phone/fragment/x;->p:Li6/b;
-
-    .line 100
-    .line 101
-    invoke-virtual {v0}, Li6/b;->b()I
-
-    .line 102
-    .line 103
-    .line 104
-    move-result v0
-
-    .line 105
-    if-ltz v0, :cond_2
-
-    .line 106
-    .line 107
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    .line 108
-    .line 109
-    iget-object v2, p0, Lcom/shenma/tvlauncher/phone/fragment/x;->Q:Ljava/lang/String;
-
-    .line 110
-    .line 111
-    invoke-static {v2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    .line 112
-    .line 113
-    .line 114
-    move-result-object v2
-
-    .line 115
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    .line 116
-    .line 117
-    .line 118
-    const-string v2, "&type="
-
-    .line 119
-    .line 120
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 121
-    .line 122
-    .line 123
-    iget-object v2, p0, Lcom/shenma/tvlauncher/phone/fragment/x;->p:Li6/b;
-
-    .line 124
-    .line 125
-    invoke-virtual {v2, v0}, Li6/b;->c(I)Ljava/lang/String;
-
-    .line 126
-    .line 127
-    .line 128
-    move-result-object v0
-
-    .line 129
-    invoke-static {v0}, Lcom/shenma/tvlauncher/utils/k;->g(Ljava/lang/String;)Ljava/lang/String;
-
-    .line 130
-    .line 131
-    .line 132
-    move-result-object v0
-
-    .line 133
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 134
-    .line 135
-    .line 136
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    .line 137
-    .line 138
-    .line 139
-    move-result-object v0
-
-    .line 140
-    iput-object v0, p0, Lcom/shenma/tvlauncher/phone/fragment/x;->Q:Ljava/lang/String;
-
-    .line 141
-    .line 142
-    :cond_2
-    iget-object v0, p0, Lcom/shenma/tvlauncher/phone/fragment/x;->r:Li6/b;
-
-    .line 143
-    .line 144
-    invoke-virtual {v0}, Li6/b;->b()I
-
-    .line 145
-    .line 146
-    .line 147
-    move-result v0
-
-    .line 148
-    if-ltz v0, :cond_6
-
-    .line 149
-    .line 150
-    iget-object v1, p0, Lcom/shenma/tvlauncher/phone/fragment/x;->r:Li6/b;
-
-    .line 151
-    .line 152
-    invoke-virtual {v1, v0}, Li6/b;->c(I)Ljava/lang/String;
-
-    .line 153
-    .line 154
-    .line 155
-    move-result-object v0
-
-    .line 156
-    iget-object v1, p0, Lcom/shenma/tvlauncher/phone/fragment/x;->H:Ljava/lang/String;
-
-    .line 157
-    .line 158
-    const-string v2, "TEACH"
-
-    .line 159
-    .line 160
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    .line 161
-    .line 162
-    .line 163
-    move-result v1
-
-    .line 164
-    if-eqz v1, :cond_3
-
-    .line 165
-    .line 166
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    .line 167
-    .line 168
-    iget-object v2, p0, Lcom/shenma/tvlauncher/phone/fragment/x;->Q:Ljava/lang/String;
-
-    .line 169
-    .line 170
-    invoke-static {v2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    .line 171
-    .line 172
-    .line 173
-    move-result-object v2
-
-    .line 174
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    .line 175
-    .line 176
-    .line 177
-    const-string v2, "&language="
-
-    .line 178
-    .line 179
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 180
-    .line 181
-    .line 182
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 183
-    .line 184
-    .line 185
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    .line 186
-    .line 187
-    .line 188
-    move-result-object v0
-
-    .line 189
-    iput-object v0, p0, Lcom/shenma/tvlauncher/phone/fragment/x;->Q:Ljava/lang/String;
-
-    .line 190
-    .line 191
-    goto :goto_0
-
-    .line 192
-    :cond_3
-    iget-object v1, p0, Lcom/shenma/tvlauncher/phone/fragment/x;->H:Ljava/lang/String;
-
-    .line 193
-    .line 194
-    const-string v2, "COMIC"
-
-    .line 195
-    .line 196
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    .line 197
-    .line 198
-    .line 199
-    move-result v1
-
-    .line 200
-    if-eqz v1, :cond_4
-
-    .line 201
-    .line 202
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    .line 203
-    .line 204
-    iget-object v2, p0, Lcom/shenma/tvlauncher/phone/fragment/x;->Q:Ljava/lang/String;
-
-    .line 205
-    .line 206
-    invoke-static {v2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    .line 207
-    .line 208
-    .line 209
-    move-result-object v2
-
-    .line 210
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    .line 211
-    .line 212
-    .line 213
-    const-string v2, "&prop="
-
-    .line 214
-    .line 215
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 216
-    .line 217
-    .line 218
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 219
-    .line 220
-    .line 221
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    .line 222
-    .line 223
-    .line 224
-    move-result-object v0
-
-    .line 225
-    iput-object v0, p0, Lcom/shenma/tvlauncher/phone/fragment/x;->Q:Ljava/lang/String;
-
-    .line 226
-    .line 227
-    goto :goto_0
-
-    .line 228
-    :cond_4
-    iget-object v1, p0, Lcom/shenma/tvlauncher/phone/fragment/x;->H:Ljava/lang/String;
-
-    .line 229
-    .line 230
-    const-string v2, "TVPLAY"
-
-    .line 231
-    .line 232
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    .line 233
-    .line 234
-    .line 235
-    move-result v1
-
-    .line 236
-    if-eqz v1, :cond_5
-
-    .line 237
-    .line 238
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    .line 239
-    .line 240
-    iget-object v2, p0, Lcom/shenma/tvlauncher/phone/fragment/x;->Q:Ljava/lang/String;
-
-    .line 241
-    .line 242
-    invoke-static {v2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    .line 243
-    .line 244
-    .line 245
-    move-result-object v2
-
-    .line 246
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    .line 247
-    .line 248
-    .line 249
-    const-string v2, "&start="
-
-    .line 250
-    .line 251
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 252
-    .line 253
-    .line 254
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 255
-    .line 256
-    .line 257
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    .line 258
-    .line 259
-    .line 260
-    move-result-object v0
-
-    .line 261
-    iput-object v0, p0, Lcom/shenma/tvlauncher/phone/fragment/x;->Q:Ljava/lang/String;
-
-    .line 262
-    .line 263
-    goto :goto_0
-
-    .line 264
-    :cond_5
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    .line 265
-    .line 266
-    iget-object v2, p0, Lcom/shenma/tvlauncher/phone/fragment/x;->Q:Ljava/lang/String;
-
-    .line 267
-    .line 268
-    invoke-static {v2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    .line 269
-    .line 270
-    .line 271
-    move-result-object v2
-
-    .line 272
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
-
-    .line 273
-    .line 274
-    .line 275
-    const-string v2, "&year="
-
-    .line 276
-    .line 277
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 278
-    .line 279
-    .line 280
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 281
-    .line 282
-    .line 283
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    .line 284
-    .line 285
-    .line 286
-    move-result-object v0
-
-    .line 287
-    iput-object v0, p0, Lcom/shenma/tvlauncher/phone/fragment/x;->Q:Ljava/lang/String;
-
-    .line 288
-    .line 289
-    :cond_6
-    :goto_0
-    iget-object v0, p0, Lcom/shenma/tvlauncher/phone/fragment/x;->Q:Ljava/lang/String;
-
-    .line 290
-    .line 291
-    invoke-virtual {p0, v0}, Lcom/shenma/tvlauncher/phone/fragment/x;->q0(Ljava/lang/String;)V
-
-    .line 292
-    .line 293
-    .line 294
+    invoke-static {p0}, Lcom/tongpin/player4k/catalog/LegacyBrowseFilters;->apply(Ljava/lang/Object;)V
     return-void
 .end method
 
@@ -4046,6 +3373,8 @@
     .line 95
     invoke-direct/range {v0 .. v6}, Lcom/shenma/tvlauncher/phone/fragment/x$e;-><init>(Lcom/shenma/tvlauncher/phone/fragment/x;ILjava/lang/String;Ljava/lang/Class;Lcom/android/volley/Response$Listener;Lcom/android/volley/Response$ErrorListener;)V
 
+    invoke-static {p0, v0}, Lcom/tongpin/player4k/catalog/LegacyBrowseFilters;->trackDataRequest(Ljava/lang/Object;Ljava/lang/Object;)V
+
     .line 96
     .line 97
     .line 98
@@ -4153,6 +3482,7 @@
     .line 149
     .line 150
     :cond_1
+    invoke-static {p0, p1}, Lcom/tongpin/player4k/catalog/LegacyBrowseFilters;->notSent(Ljava/lang/Object;Ljava/lang/Object;)V
     return-void
 .end method
 
@@ -4337,6 +3667,8 @@
     .line 1
     invoke-super {p0, p1, p2}, Lcom/shenma/tvlauncher/phone/base/BaseFragment;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
 
+    invoke-static {p0, p1}, Lcom/tongpin/player4k/catalog/LegacyBrowseFilters;->attach(Ljava/lang/Object;Landroid/view/View;)V
+
     .line 2
     .line 3
     .line 4
@@ -4384,6 +3716,12 @@
 .method protected q0(Ljava/lang/String;)V
     .locals 3
 
+    invoke-static {p0, p1}, Lcom/tongpin/player4k/catalog/LegacyBrowseFilters;->beforeRequest(Ljava/lang/Object;Ljava/lang/String;)Z
+    move-result v0
+    if-nez v0, :browse_request_admitted
+    return-void
+    :browse_request_admitted
+
     .line 1
     new-instance v0, Lcom/shenma/tvlauncher/vod/domain/RequestVo;
 
@@ -4423,7 +3761,8 @@
     .line 19
     .line 20
     .line 21
-    iget-object v2, p0, Lcom/shenma/tvlauncher/phone/fragment/x;->c:Ljava/lang/String;
+    invoke-static {p0}, Lcom/tongpin/player4k/catalog/LegacyBrowseFilters;->base(Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object v2
 
     .line 22
     .line 23
@@ -4582,5 +3921,13 @@
     .locals 0
 
     .line 1
+    return-void
+.end method
+
+.method public onDestroyView()V
+    .locals 0
+
+    invoke-static {p0}, Lcom/tongpin/player4k/catalog/LegacyBrowseFilters;->destroy(Ljava/lang/Object;)V
+    invoke-super {p0}, Lcom/shenma/tvlauncher/phone/base/BaseFragment;->onDestroyView()V
     return-void
 .end method

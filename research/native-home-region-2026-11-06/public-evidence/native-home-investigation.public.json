@@ -1,0 +1,429 @@
+{
+  "passed": true,
+  "date": "2026-11-06",
+  "production_modified": false,
+  "account_used": false,
+  "media_downloaded": false,
+  "bootstrap_and_settings_chain": {
+    "public_bootstrap": "https://app-1361125462.cos.ap-guangzhou.myqcloud.com/azapp2.json",
+    "settings_endpoint": "http://43.248.117.45:9001//extend/api/set.php?type=set",
+    "current_pgdz_api_base": "http://43.248.117.4:1122",
+    "native_callers": [
+      "SplashActivity.X",
+      "SplashActivity$getServerUrl$2$1.onResponse ServerEntity.getPgdz→phone.b.g"
+    ]
+  },
+  "filters": {
+    "oumeiju": [
+      {
+        "name": "类型",
+        "field": "type",
+        "values": [
+          "古装",
+          "战争",
+          "喜剧",
+          "家庭",
+          "犯罪",
+          "动作",
+          "奇幻",
+          "剧情",
+          "历史"
+        ]
+      },
+      {
+        "name": "年份",
+        "field": "year",
+        "values": [
+          "2026",
+          "2025",
+          "2024",
+          "2023",
+          "2022",
+          "2021",
+          "2020",
+          "2019",
+          "2018",
+          "2017",
+          "2016",
+          "2015",
+          "2014",
+          "2013",
+          "2012",
+          "2011",
+          "2010",
+          "2009",
+          "2008",
+          "2006",
+          "2005",
+          "2004",
+          "2003",
+          "2002",
+          "2001",
+          "2000"
+        ]
+      },
+      {
+        "name": "地区",
+        "field": "area",
+        "values": [
+          "内地",
+          "香港",
+          "台湾",
+          "美国",
+          "韩国",
+          "日本",
+          "泰国",
+          "印度",
+          "英国",
+          "法国",
+          "加拿大",
+          "西班牙",
+          "俄罗斯",
+          "新加坡",
+          "马来西亚",
+          "其他"
+        ]
+      }
+    ],
+    "comic": [
+      {
+        "name": "类型",
+        "field": "type",
+        "values": [
+          "情感",
+          "科幻",
+          "热血",
+          "推理",
+          "搞笑",
+          "冒险",
+          "萝莉",
+          "校园",
+          "动作",
+          "机战",
+          "运动",
+          "战争",
+          "少年",
+          "少女",
+          "社会",
+          "原创",
+          "亲子",
+          "益智",
+          "励志",
+          "其他"
+        ]
+      },
+      {
+        "name": "年份",
+        "field": "year",
+        "values": [
+          "2026",
+          "2025",
+          "2024",
+          "2023",
+          "2022",
+          "2021",
+          "2020",
+          "2019",
+          "2018",
+          "2017",
+          "2016",
+          "2015",
+          "2014",
+          "2013",
+          "2012",
+          "2011",
+          "2010",
+          "2009",
+          "2008",
+          "2006",
+          "2005",
+          "2004"
+        ]
+      },
+      {
+        "name": "地区",
+        "field": "area",
+        "values": [
+          "内地",
+          "香港",
+          "台湾",
+          "美国",
+          "韩国",
+          "日本",
+          "泰国",
+          "印度",
+          "英国",
+          "法国",
+          "加拿大",
+          "西班牙",
+          "俄罗斯",
+          "新加坡",
+          "马来西亚",
+          "其他"
+        ]
+      }
+    ],
+    "tvplay": [
+      {
+        "name": "类型",
+        "field": "type",
+        "values": [
+          "都市",
+          "古装",
+          "战争",
+          "青春",
+          "偶像",
+          "喜剧",
+          "家庭",
+          "犯罪",
+          "动作",
+          "奇幻",
+          "剧情",
+          "历史",
+          "经典",
+          "乡村",
+          "情景",
+          "商战",
+          "网剧",
+          "其他"
+        ]
+      },
+      {
+        "name": "年份",
+        "field": "year",
+        "values": [
+          "2026",
+          "2025",
+          "2024",
+          "2023",
+          "2022",
+          "2021",
+          "2020",
+          "2019",
+          "2018",
+          "2017",
+          "2016",
+          "2015",
+          "2014",
+          "2013",
+          "2012",
+          "2011",
+          "2010",
+          "2009",
+          "2008",
+          "2006",
+          "2005",
+          "2004",
+          "2003",
+          "2002",
+          "2001",
+          "2000"
+        ]
+      },
+      {
+        "name": "地区",
+        "field": "area",
+        "values": [
+          "内地",
+          "香港",
+          "台湾",
+          "美国",
+          "韩国",
+          "日本",
+          "泰国",
+          "印度",
+          "英国",
+          "法国",
+          "加拿大",
+          "西班牙",
+          "俄罗斯",
+          "新加坡",
+          "马来西亚",
+          "其他"
+        ]
+      }
+    ]
+  },
+  "region_matrix": [
+    {
+      "class": "oumeiju",
+      "area": "",
+      "page": 1,
+      "server_reported_videonum": 43735,
+      "server_totalpage": 438,
+      "returned_items": 20,
+      "decoded_snapshot_sha256": "cbeb7746d60a106d96a7953d9533845f11227b4f295ccc394603532f3cc8f686"
+    },
+    {
+      "class": "oumeiju",
+      "area": "内地",
+      "page": 1,
+      "server_reported_videonum": 123,
+      "server_totalpage": 7,
+      "returned_items": 20,
+      "decoded_snapshot_sha256": "48c22c75850b4ef12e67a7339afdb9742ba47c5b5ddacb92810d6666ef3614a4"
+    },
+    {
+      "class": "oumeiju",
+      "area": "香港",
+      "page": 1,
+      "server_reported_videonum": 2,
+      "server_totalpage": 1,
+      "returned_items": 2,
+      "decoded_snapshot_sha256": "f3dddbaeb19aef159d9119be8d312c56970b3d271f0ecc5390ba9d4fac25d1bc"
+    },
+    {
+      "class": "oumeiju",
+      "area": "香港",
+      "page": 2,
+      "server_reported_videonum": 2,
+      "server_totalpage": 1,
+      "returned_items": 0,
+      "decoded_snapshot_sha256": "3ce538dc70d3d87b181444f5b1689d6e15cd48260b0b837b678ace3b685a8774"
+    },
+    {
+      "class": "oumeiju",
+      "area": "中国香港",
+      "page": 1,
+      "server_reported_videonum": 0,
+      "server_totalpage": 0,
+      "returned_items": 0,
+      "decoded_snapshot_sha256": "fd4d5a13f84e14710e3303114e769b87586e68324a99a468bbf049928cb6ba69"
+    },
+    {
+      "class": "oumeiju",
+      "area": "港澳",
+      "page": 1,
+      "server_reported_videonum": 0,
+      "server_totalpage": 0,
+      "returned_items": 0,
+      "decoded_snapshot_sha256": "fd4d5a13f84e14710e3303114e769b87586e68324a99a468bbf049928cb6ba69"
+    },
+    {
+      "class": "oumeiju",
+      "area": "中国大陆",
+      "page": 1,
+      "server_reported_videonum": 0,
+      "server_totalpage": 0,
+      "returned_items": 0,
+      "decoded_snapshot_sha256": "fd4d5a13f84e14710e3303114e769b87586e68324a99a468bbf049928cb6ba69"
+    },
+    {
+      "class": "oumeiju",
+      "area": "韩国",
+      "page": 1,
+      "server_reported_videonum": 4735,
+      "server_totalpage": 48,
+      "returned_items": 20,
+      "decoded_snapshot_sha256": "a473a3f5d67ccc16de2980b66a6a3522f6276a213ec6317553a21e6218ff8e10"
+    },
+    {
+      "class": "tvplay",
+      "area": "香港",
+      "page": 1,
+      "server_reported_videonum": 2750,
+      "server_totalpage": 28,
+      "returned_items": 20,
+      "decoded_snapshot_sha256": "8dae2593e8bf98a9fafea453abd5294216f9b5f6b223b76efd2020267627368f"
+    },
+    {
+      "class": "tvplay",
+      "area": "香港",
+      "page": 2,
+      "server_reported_videonum": 2750,
+      "server_totalpage": 28,
+      "returned_items": 20,
+      "decoded_snapshot_sha256": "4f17f1807b129de9fa82d87ca72fcc6ab340265fe78592c22c623e057b6b7581"
+    },
+    {
+      "class": "tvplay",
+      "area": "香港",
+      "page": 28,
+      "server_reported_videonum": 2750,
+      "server_totalpage": 28,
+      "returned_items": 10,
+      "decoded_snapshot_sha256": "6c819ffc75b8a6ad263e8d59982f3f10c4711baa468bf53dc56e6e795d4379f2"
+    },
+    {
+      "class": "tvplay",
+      "area": "香港",
+      "page": 29,
+      "server_reported_videonum": 2750,
+      "server_totalpage": 28,
+      "returned_items": 0,
+      "decoded_snapshot_sha256": "3ed2af01b0fec6fefd77af53af71af7f3b3b5f3fb35140ae7eae95a08b4fef81"
+    },
+    {
+      "class": "tvplay",
+      "area": "中国香港",
+      "page": 1,
+      "server_reported_videonum": 1,
+      "server_totalpage": 1,
+      "returned_items": 1,
+      "decoded_snapshot_sha256": "a17128fd3f6e00f47d0d1572e102d32b80a02f27ce1b16840123af9cfd4caf61"
+    },
+    {
+      "class": "tvplay",
+      "area": "港澳",
+      "page": 1,
+      "server_reported_videonum": 0,
+      "server_totalpage": 0,
+      "returned_items": 0,
+      "decoded_snapshot_sha256": "fd4d5a13f84e14710e3303114e769b87586e68324a99a468bbf049928cb6ba69"
+    },
+    {
+      "class": "tvplay",
+      "area": "内地",
+      "page": 1,
+      "server_reported_videonum": 40290,
+      "server_totalpage": 403,
+      "returned_items": 20,
+      "decoded_snapshot_sha256": "37948bead783303d859cff80b413d933383d07604756d7bec64daaecd893137e"
+    }
+  ],
+  "upstream_mainland_samples": [
+    {
+      "id": 524722,
+      "title": "爱情怎么翻译",
+      "pubtime": "2026",
+      "area": [
+        "内地"
+      ],
+      "type": [
+        "剧情,古装,海外"
+      ]
+    },
+    {
+      "id": 524705,
+      "title": "无脸患者救赎或是审判",
+      "pubtime": "2026",
+      "area": [
+        "内地"
+      ],
+      "type": [
+        "剧情,爱情,海外"
+      ]
+    },
+    {
+      "id": 524699,
+      "title": "奇探佩辛丝第2季",
+      "pubtime": "2026",
+      "area": [
+        "内地"
+      ],
+      "type": [
+        "犯罪,海外"
+      ]
+    }
+  ],
+  "conclusions": [
+    "Area changes affect the server result; it is not universally ignored.",
+    "The sampled overseas results and their details explicitly store 内地; native metadata alone cannot correct actual geography.",
+    "Hong Kong overseas query is limited to two language variants; TVPLAY query exposes a separate, much larger Hong Kong catalog.",
+    "The native value 香港 must not be replaced by 中国香港: the latter yields exactly one TVPLAY item.",
+    "TVPLAY Hong Kong ends at page28(10rows);page29empty. Reported videonum2750 is not a reliable unique accessible count and must not imply138pages.",
+    "Tangmen429899 wasuline has175unique selectable regular episodes numberedthrough177, missing8and39; do not advertise177 selectable episodes.",
+    "Changshengmao531748 list/detail share one dead-domain cover; no alternate authoritative cover exposed."
+  ],
+  "raw_data_policy": "Raw config, response transport and video URLs remain in *.private.json outside project exports."
+}

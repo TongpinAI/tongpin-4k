@@ -1,7 +1,7 @@
 {
   "release_tag": "backup-2026-11-06",
-  "phone_version": "1.3.6",
-  "tv_version": "1.3.2",
+  "phone_version": "1.3.7",
+  "tv_version": "1.3.3",
   "signing_keys_uploaded": false,
   "artifacts": [
     {
@@ -110,7 +110,23 @@
       "sha256": "cb8bbf4e39ba875a30831cd6cf523b83d6133613a21550d374e381c11872e1f6",
       "kind": "file",
       "download_release": "v1.3.6"
+    },
+    {
+      "asset": "tongpin-4k-1.3.7.apk",
+      "restore_to": "tongpin-4k/output/tongpin-4k-1.3.7.apk",
+      "size": 77021749,
+      "sha256": "6356604f250e93446f282769196ee9cad570af5789250b02d37618f5da875705",
+      "kind": "file",
+      "download_release": "v1.3.7"
+    },
+    {
+      "asset": "tongpin-4k-tv-1.3.3.apk",
+      "restore_to": "tongpin-4k-tv/output/tongpin-4k-tv-1.3.3.apk",
+      "size": 7637824,
+      "sha256": "c783cd9cb0f80d4f9d2ddcaeae95738f542d436c49eaea13fa97eb0235c93869",
+      "kind": "file",
+      "download_release": "v1.3.7"
     }
   ],
-  "current_release_tag": "v1.3.6"
+  "current_release_tag": "v1.3.7"
 }

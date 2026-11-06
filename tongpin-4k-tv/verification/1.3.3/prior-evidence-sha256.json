@@ -1,0 +1,17 @@
+{
+  "verification/1.3.2/api23-speed-guard.json": "173e93fa1332dbe44c371f753017780472197f4c6ecf08a934be9d917c7c4e27",
+  "verification/1.3.2/api26-seek-guard.json": "a28aa3f0d26ba5692783d7fd58a58b7687f453cf43baa3dcee631e2950692efa",
+  "verification/1.3.2/class-definitions.json": "414aceda674c02eccad8c90ab63435a7687be0019a384bce766ae8d94a5b0df2",
+  "verification/1.3.2/frozen-inputs.json": "17edb86168fcaa0a4b87373706b0630ae14c573a81e512074fdf1e78cd9e7e61",
+  "verification/1.3.2/input-hashes.json": "03efd66ce96e4b928fa0d4a8e8509cd4941b3d93efa6fd439384f2ff6f73512e",
+  "verification/1.3.2/media3-backend-guard.json": "b85d4291011d82eb32bc2df0e85324b74a44940dfa5002bf347958be7db56654",
+  "verification/1.3.2/min-api-audit-raw.json": "d5de33ea36bb10084c08fb54fe166941f4e9dbc7fb66a9197d4d304eed82ed04",
+  "verification/1.3.2/min-api-audit.json": "94a54618c406177e91331099fe1fe9839c4bc3423af15490eb127599bb874ecc",
+  "verification/1.3.2/prior-evidence-sha256.json": "e3ffdcf7fdba1a08e6e1f9c7b5393a5f523ffbf0db411617dc3ad4b80146a65b",
+  "verification/1.3.2/provider-asset-provenance.json": "e51a7b208e2c8488ad7a1fe36b1ad4ace0f465d62725c77d20905703ee93df9b",
+  "verification/1.3.2/resource-continuity.json": "0e44af574b7055bf6ce42c34a84966cf59512d43e9dcb417b713bc59a6bc5b0d",
+  "verification/1.3.2/result.json": "8a7985c5e19e503cf4f1d9898a598f8386c5f09af24c51c7a23cb8907d196c15",
+  "verification/1.3.2/root-post-build-check.json": "4b4a526700919058a9740582861f9e98b9ab5ece5342961ade10af65640a0499",
+  "verification/1.3.2/runtime-abi.json": "76fd1bf46192b6c28f8a2abe71142b9c92ff2cebac5bfe06ca0bdf0dc7a7bca8",
+  "verification/1.3.2/type-references.json": "98b24bd93a41c35a87aad24fb326e27fd11a240a3ff16099bca9498c186c78ba"
+}

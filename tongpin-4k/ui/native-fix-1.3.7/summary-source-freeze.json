@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "source_ready": true,
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/EpisodeSummary.java": "0fb9399cd8c9f07db6e3ae1849efb618552adb0517be40086ea25e39b69ba533",
+    "open-sources/tests/src/com/tongpin/player4k/catalog/EpisodeSummaryTest.java": "08ac0b5850229988716f4a5a9f4354e7444d4edc6525978507f1d230eb4ec2e7",
+    "open-sources/src/com/tongpin/player4k/catalog/LegacyEpisodeOrder.java": "ba722811b8e4a1c35a01d6d6f3cc864f56d0ad2ab74af6567f3cc86494410f30"
+  },
+  "tests": "assertions passed: 39",
+  "scope": "Separate highest declared regular episode number from unique selectable regular episodes; no fabricated missing episode links.",
+  "device_tested": false
+}

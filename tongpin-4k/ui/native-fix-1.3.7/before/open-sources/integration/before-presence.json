@@ -1,0 +1,8 @@
+{
+  "decoded/res/layout/phone_fragment_main.xml": true,
+  "ui/templates/phone_fragment_main.xml": true,
+  "decoded/smali_classes5/com/shenma/tvlauncher/phone/fragment/e.smali": true,
+  "decoded/AndroidManifest.xml": true,
+  ".impeccable/surfaces/android.md": true,
+  "decoded/assets/tongpin_open_sources.json": false
+}

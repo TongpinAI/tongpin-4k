@@ -1,0 +1,76 @@
+[
+  {
+    "endpoint": "https://dns.google/resolve?name=dbzy5.com&type=A",
+    "status": 200,
+    "dns": {
+      "Status": 0,
+      "TC": false,
+      "RD": true,
+      "RA": true,
+      "AD": false,
+      "CD": false,
+      "Question": [
+        {
+          "name": "dbzy5.com.",
+          "type": 1
+        }
+      ],
+      "Comment": "Response from 162.159.48.223."
+    }
+  },
+  {
+    "endpoint": "https://cloudflare-dns.com/dns-query?name=dbzy5.com&type=A",
+    "status": 200,
+    "dns": {
+      "Status": 0,
+      "TC": false,
+      "RD": true,
+      "RA": true,
+      "AD": false,
+      "CD": false,
+      "Question": [
+        {
+          "name": "dbzy5.com",
+          "type": 1
+        }
+      ]
+    }
+  },
+  {
+    "endpoint": "https://dns.google/resolve?name=dbzy5.com&type=AAAA",
+    "status": 200,
+    "dns": {
+      "Status": 0,
+      "TC": false,
+      "RD": true,
+      "RA": true,
+      "AD": false,
+      "CD": false,
+      "Question": [
+        {
+          "name": "dbzy5.com.",
+          "type": 28
+        }
+      ],
+      "Comment": "Response from 162.159.27.251."
+    }
+  },
+  {
+    "endpoint": "https://cloudflare-dns.com/dns-query?name=dbzy5.com&type=AAAA",
+    "status": 200,
+    "dns": {
+      "Status": 0,
+      "TC": false,
+      "RD": true,
+      "RA": true,
+      "AD": false,
+      "CD": false,
+      "Question": [
+        {
+          "name": "dbzy5.com",
+          "type": 28
+        }
+      ]
+    }
+  }
+]

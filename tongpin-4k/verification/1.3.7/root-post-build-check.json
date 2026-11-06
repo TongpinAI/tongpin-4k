@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "version": "1.3.7",
+  "sha256": "6356604f250e93446f282769196ee9cad570af5789250b02d37618f5da875705",
+  "bytes": 77021749,
+  "downloads_identical": true,
+  "same_package_certificate_verified": true,
+  "v1_v2_v3_verified": true,
+  "resource_ids_unchanged": true,
+  "eleven_provider_prefix_verified": true,
+  "actual_resource_id_count": 11471,
+  "changed_entries": [
+    "AndroidManifest.xml",
+    "META-INF/MANIFEST.MF",
+    "META-INF/TONGPIN4.RSA",
+    "META-INF/TONGPIN4.SF",
+    "classes5.dex",
+    "resources.arsc"
+  ],
+  "native_device_tested": false,
+  "first_four_dex_and_native_payloads_unchanged": true
+}

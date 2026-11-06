@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "verdict": "clear after strict identity, failure-only, recycled-view and bounded-network review",
+  "reviewer": "watermark_source_review, independent of poster implementation owner",
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/NativePosterRepair.java": "db92f1831f6a86f34e0afd7e7bfff741e8f9744eda4fe86512841ba25d2fdc5c",
+    "open-sources/src/com/tongpin/player4k/catalog/PosterMatchPolicy.java": "2eec1f3e7204028d9f35b26c5442daf585c9257906da3bd1cd4b321032c543bd",
+    "decoded/smali_classes5/i6/e.smali": "75ffbe36bb5a51e6faab81beee82f928048973e9fb87ac995031bb6deaf2b848",
+    "decoded/smali_classes5/com/shenma/tvlauncher/phone/SearchActivity$c.smali": "3d18f4d98844a2cdf6c3f91c60a0df3d33346c72685f5e001a7d31265c0f8098"
+  },
+  "owner_freeze_sha256": "9a4054cd1e224820496d02fc5de52cc6c05a035d69976cfdc197ef7a9788a87e",
+  "actual_reflected_classes_checked": 13,
+  "independent_host_results": [
+    "PASS 42 strict poster identity/URI/magic assertions",
+    "PASS 39 actual helper failure-only/recycle/listener/cache/network-bound assertions"
+  ],
+  "review_notes": [
+    "Only two native binder methods change; inverse replacement recovers full136 class bytes exactly, with score/helper/resource/click bindings retained.",
+    "Healthy original loads are untouched by recovery; final failure or empty input is required. Unsupported listener setup preserves ordinary nonempty URI loading without treating bridge errors as image failure.",
+    "Native ID/detail/title/kind validation and exact title/year/clear category plus long distinctive full-synopsis containment prevent title-only substitution; ambiguous provider identities or covers reject.",
+    "Actual public runtime transport getters/decoder and Fresco controller/failure-listener members are pinned; listener removal is owned-only and captured Binding identity rejects recycled-view results.",
+    "Two workers/eight queued,25-second budget,three sources,20rows/source and40candidate total;2MiB bodies,two redirects,image MIME/magic/8Mi-pixel bounds; bounded32-file16MiB cache and 5s overload retry.",
+    "Same-ID native canonical cover is preferred before cross-provider search; no title,poster-domain or transport-secret literal is hardcoded. Unknown/contradictory kinds conservatively skip."
+  ],
+  "android_device_tested": false,
+  "android_bitmap_decoder_executed": false,
+  "stand_ins_packaged": false
+}

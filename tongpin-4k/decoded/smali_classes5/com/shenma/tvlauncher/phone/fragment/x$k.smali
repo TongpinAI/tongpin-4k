@@ -81,6 +81,8 @@
     .line 20
     move-result v0
 
+    add-int/lit8 v0, v0, -0x1
+
     .line 21
     invoke-virtual {p1}, Landroidx/recyclerview/widget/LinearLayoutManager;->findLastVisibleItemPosition()I
 
