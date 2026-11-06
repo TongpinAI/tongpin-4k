@@ -9,11 +9,9 @@
 # instance fields
 .field public final synthetic f$0:Lcom/tongpin/player4k/catalog/OpenPlayerActivity;
 
-.field public final synthetic f$1:I
-
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;I)V
+.method public synthetic constructor <init>(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;)V
     .locals 0
 
     .line 0
@@ -21,22 +19,18 @@
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda23;->f$0:Lcom/tongpin/player4k/catalog/OpenPlayerActivity;
 
-    iput p2, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda23;->f$1:I
-
     return-void
 .end method
 
 
 # virtual methods
 .method public final onClick(Landroid/view/View;)V
-    .locals 2
+    .locals 1
 
     .line 0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda23;->f$0:Lcom/tongpin/player4k/catalog/OpenPlayerActivity;
 
-    iget v1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda23;->f$1:I
-
-    invoke-virtual {v0, v1, p1}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->lambda$installNavigation$0$com-tongpin-player4k-catalog-OpenPlayerActivity(ILandroid/view/View;)V
+    invoke-virtual {v0, p1}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->lambda$onCreate$4$com-tongpin-player4k-catalog-OpenPlayerActivity(Landroid/view/View;)V
 
     return-void
 .end method

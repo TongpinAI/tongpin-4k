@@ -1,0 +1,9 @@
+{
+  "open-sources/src/com/tongpin/player4k/catalog/OpenPlayerActivity.java": "84e38efdec8723b890a7f3e73ffc658d4c1592d90391a54b772b77fd7a7cbb08",
+  "open-sources/src/com/tongpin/player4k/catalog/CatalogActivity.java": "660e1b17e600f2b81b5531dd530b2b96fcc033cac8316f2fe9a29a85c2fbe1bb",
+  "build_tongpin.py": "f45e5efb5ddc57e94f762a6c6227e455f2b213bfe86782a70130eadb36a73e62",
+  "open-sources/integration/assert_contract.py": "79c199df16cc76ea4f8329e36522322ed81e5cf8c3da70cbecfbcf353a753087",
+  "decoded/AndroidManifest.xml": "6dc0865c23dc52dac6b36d9b8b0a23084a0c7bfe4608d62df543a963031279ad",
+  "decoded/apktool.yml": "42c57e3081b0f2a1d30741bacc006877e5b3c2b633ad74889a0c6d95f76888bf",
+  "decoded/res/values/strings.xml": "9c2c31a41a9721e857189aeca8c999b02628803e35bac6852f5ec0e058b6976c"
+}

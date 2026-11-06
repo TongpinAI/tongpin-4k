@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "version_name": "1.4.0",
+  "version_code": 1400,
+  "scope": "Phone automatic target-episode source selection callers and ownership state; shared ranking/network helpers separately owned",
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogActivity.java": "b28a79ed1354e6f5224a536f818f6289e6ebb913f547826b4a5e462f2f838211",
+    "open-sources/src/com/tongpin/player4k/catalog/OpenPlayerActivity.java": "10e0aa531e851b46c4b5d01ed710f3444071f8f1baeb17c9402e5240d45c689b",
+    "open-sources/src/com/tongpin/player4k/catalog/AutoSourceSession.java": "eeec1e68c9708d581cf2e4f6f536aaa35740c02c1da932f8510716760d9e3c03"
+  },
+  "tests_path": "ui/auto-source-1.4.0/tests/verification.json",
+  "tests_sha256": "baf28604b76613fa7beb9356c0eccdbdf3452b6c168bbec5e46933d8fd9b4cd0",
+  "assertions": 498,
+  "device_tested": false,
+  "all_java_source_graph_pinned": true
+}

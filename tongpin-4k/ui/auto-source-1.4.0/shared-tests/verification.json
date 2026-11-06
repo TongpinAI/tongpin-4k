@@ -1,0 +1,69 @@
+{
+  "passed": true,
+  "workspace_sources": true,
+  "source_sha256": {
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/CatalogApi.java": "9e99cf63272fc2b42aa75d8de6094f2ab9b356270dd3f13254c7601826f9e959",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/CatalogCategories.java": "3c368a9e8ebbfbcf15e8426b1cdacfd0e3289efdfeb1f887569840528425f03b",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/MacCmsXml.java": "5ca12bf836e1c8e10c8efd06d0054e0ce25c8c63c707f7513e77eddccf5b8f68",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/M3uCatalog.java": "710daeaabe91bab03e078106de0b4cdd5d1b852cbdb4c7992ed0b2e3626ead51",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/TvBoxJson.java": "4fe2bf0bdaf94a431a5ddc6514eb51a37d668006b608659a1cf16fd558faab24",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/CrossSourcePolicy.java": "f443a406641ec8e8ed8d891642afb7da8a046bb5213faddf40e37158afab195c",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/AutoSourcePolicy.java": "ce4fd68b0e2f3f0ed9eed19bd15868bc71e3e9c3dfb3394c384e0e4aa2bc1e87",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/AutoSourceSelector.java": "c7112b6dc1ce5f11dd1248fea477c7dc24cb6cefcdad47f9c56e05df68855f21",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/CatalogApi.java": "33410bf75cae6a3d903c85e6e3e9deda2adad6f2cfb6ec2f55fa5c2ce6c39f04",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/CatalogCategories.java": "94ad50088414706688648027634e6acd76fc52214bac47dcf29d1d2e9e86ae8a",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/MacCmsXml.java": "74ccc2ea09021a677a39e11e38017ebfa31a79a35cfda90793da425e364d41be",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/M3uCatalog.java": "82ef4af6c0046df839aca596ede569b4ba9585b6b1aeb7a1d3851bf784eed281",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/TvBoxJson.java": "5299156e9e08c5a1633a7fd4666682d2a801c1435e35cc1a663303f5e811817a",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/CrossSourcePolicy.java": "10f4440f3970a3f3bd233548496ea98680dfbd0ed8eb8d7018d3df1e96108bc3",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/AutoSourcePolicy.java": "ca0f1a207816bbc010a5ef7df7545d62acf9ce51d27cafbf9edc7a8df4cefeb5",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/AutoSourceSelector.java": "7cd6094b0a72d0282364f875a3af06ebe2f293bd167a3a88fd56d34756aa49ba"
+  },
+  "assertions": {
+    "phone": 93,
+    "tv": 93
+  },
+  "android_api_compiled": true,
+  "min21_d8_api_audits": {
+    "phone": {
+      "min_sdk": 21,
+      "higher_api_references": [],
+      "passed": true,
+      "scope": "DEX class/method/field references, including inherited platform members; SDK_INT guards require manual review",
+      "method_reference_count": 237,
+      "field_reference_count": 122
+    },
+    "tv": {
+      "min_sdk": 21,
+      "higher_api_references": [],
+      "passed": true,
+      "scope": "DEX class/method/field references, including inherited platform members; SDK_INT guards require manual review",
+      "method_reference_count": 237,
+      "field_reference_count": 122
+    }
+  },
+  "dex_api_audit_scope": "Only the new shared helpers and their D8 synthetic classes; existing phone CatalogApi remains min24, existing TV CatalogApi min21.",
+  "test_sha256": "9dd36b1cea1b61371d9470cd910e5eb397e7df45b9fdc6cc2daa638a2a05c4c8",
+  "runner_sha256": "1a20a4b6b522800f74a49daaaaf38fe9187539dc5057ba0334e857e06cff7aee",
+  "shared_package_only_identical": true,
+  "fake_fetch_and_backend_only": true,
+  "public_network_requests": 0,
+  "real_player_decoding_tested": false,
+  "device_tested": false,
+  "cases": [
+    "tier/actualepisode/uniquecoverage/watermarkconflict/pixel tie",
+    "remake/duplicate target/empty/private/extras/date/season refusal",
+    "initialunknown late actual4K guard",
+    "browse-only knownID and exclude keyword/live",
+    "explicitfailedURL lower-quality recovery",
+    "highest4K404 to1080 fallback",
+    "external audio/subtitle and extensionlesschild retainmaster",
+    "HTML JSON empty IFRAME audio-only and segmentHTML rejection",
+    "public AES16byte reachability only",
+    "knownthird4K and fifthtargetline eligible sorting",
+    "nominal4K getsprobe ahead ofnewerunknown/720 but labelcannotdecidefinalquality",
+    "actualCatalogApi parser indefaultbackend",
+    "cancel afterqueued callback/newstart stale delivery/deadline drain",
+    "privateURI/redirect and HTTPSdowngrade refusal"
+  ]
+}

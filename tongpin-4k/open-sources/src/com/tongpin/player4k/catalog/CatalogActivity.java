@@ -790,7 +790,8 @@ public final class CatalogActivity extends Activity {
                         if (!alive() || ticket != detailTicket) { PlayQueue.delete(this, saved); return; }
                         Intent play = new Intent(this, OpenPlayerActivity.class).putExtra("queue_token", saved)
                                 .putExtra("queue_index", index).putExtra("fixed_speed", input.getFloatExtra("switch_speed", 1f))
-                                .putExtra("start_paused", !input.getBooleanExtra("switch_playing", true));
+                                .putExtra("start_paused", !input.getBooleanExtra("switch_playing", true))
+                                .putExtra("manual_source", manualSourceBridge(input.getStringExtra("source_provider")));
                         if (same) play.putExtra("resume_position", Math.max(0L, input.getLongExtra("switch_position", 0L)));
                         try { startActivity(play); finish(); }
                         catch (RuntimeException unavailable) { PlayQueue.delete(this, saved); Toast.makeText(this, "暂时无法打开播放器", Toast.LENGTH_SHORT).show(); }
@@ -801,6 +802,11 @@ public final class CatalogActivity extends Activity {
                 }
             });
         }); sourcePicker.onCancel(this::finish); sourcePicker.showProvider(input.getStringExtra("source_provider"));
+    }
+
+    static boolean manualSourceBridge(String providerId) {
+        // Legacy playback chose a provider explicitly; old-record first-play opens the full chooser.
+        return providerId != null && !providerId.trim().isEmpty();
     }
 
     private boolean alive() { return !isFinishing() && !isDestroyed(); }

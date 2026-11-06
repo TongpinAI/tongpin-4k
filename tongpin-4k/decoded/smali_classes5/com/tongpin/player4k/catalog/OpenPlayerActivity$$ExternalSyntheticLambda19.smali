@@ -3,7 +3,7 @@
 .source "D8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
+.implements Ljava/util/concurrent/Executor;
 
 
 # instance fields
@@ -24,13 +24,13 @@
 
 
 # virtual methods
-.method public final onClick(Landroid/view/View;)V
+.method public final execute(Ljava/lang/Runnable;)V
     .locals 1
 
     .line 0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda19;->f$0:Lcom/tongpin/player4k/catalog/OpenPlayerActivity;
 
-    invoke-virtual {v0, p1}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->lambda$onCreate$4$com-tongpin-player4k-catalog-OpenPlayerActivity(Landroid/view/View;)V
+    invoke-virtual {v0, p1}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->lambda$onCreate$0$com-tongpin-player4k-catalog-OpenPlayerActivity(Ljava/lang/Runnable;)V
 
     return-void
 .end method

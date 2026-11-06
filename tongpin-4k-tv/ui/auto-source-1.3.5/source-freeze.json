@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "version": "1.3.5",
+  "version_code": 1305,
+  "source_sha256": {
+    "src/com/tongpin/player4k/tv/TvPlayerActivity.java": "8e3edabe498e763091aaef18c3349d2c3de400f46dd170748762e5d138ddb913",
+    "src/com/tongpin/player4k/tv/TvAutoSourceState.java": "84cd6c730565d1d57aff63e5ab74bff87347b28cb70101ef976781ec6e39182a",
+    "src/com/tongpin/player4k/tv/TvAutoSourceQueue.java": "21a92f558ca9b1abd56fda89465635460a459d46b50b943b88284505cb375471"
+  },
+  "shared_dependency_sha256": {
+    "src/com/tongpin/player4k/tv/AutoSourcePolicy.java": "ca0f1a207816bbc010a5ef7df7545d62acf9ce51d27cafbf9edc7a8df4cefeb5",
+    "src/com/tongpin/player4k/tv/AutoSourceSelector.java": "7cd6094b0a72d0282364f875a3af06ebe2f293bd167a3a88fd56d34756aa49ba"
+  },
+  "reports": {
+    "ui/auto-source-1.3.5/verification.json": "152ac62b9f098e0b5de3618a223fa022cb1f19e040d9555363c065aa9cae9fdc",
+    "ui/auto-source-1.3.5/source-tests.log": "d36e69d33c822126fdf5631f027f66596758fc2e12a7bd6b8273119781ae830f",
+    "ui/auto-source-1.3.5/tests/verify_sources.py": "af214e2572de3879f499ad46bd58c6a58a5abe9e1747924864ca20e369cd43ff"
+  },
+  "assertions_total": 389,
+  "full_production_java_count": 22,
+  "modified_sources": [
+    "src/com/tongpin/player4k/tv/TvPlayerActivity.java"
+  ],
+  "new_owned_sources": [
+    "src/com/tongpin/player4k/tv/TvAutoSourceState.java",
+    "src/com/tongpin/player4k/tv/TvAutoSourceQueue.java"
+  ],
+  "new_shared_sources": [
+    "src/com/tongpin/player4k/tv/AutoSourcePolicy.java",
+    "src/com/tongpin/player4k/tv/AutoSourceSelector.java"
+  ],
+  "scope": "TV automatic-source caller/lifecycle and bounded queue ownership only; shared selector/policy under separate owner and independent review. Home, manual picker, canonical queue, playback engine, provider assets and resources unchanged except version values.",
+  "background_comparison_while_current_plays": true,
+  "one_initial_and_one_explicit_failure_attempt_per_target": true,
+  "manual_pin_and_budgets_survive_configuration_rebuild": true,
+  "seek_errors_do_not_trigger_source_recovery": true,
+  "prepared_recommendation_expiry_ms": 15000,
+  "no_network_polling": true,
+  "no_live_automatic_selection": true,
+  "commit_preserves_current_same_episode_position_fixed_speed_and_play_intent": true,
+  "device_tested": false,
+  "canonical_shared_owner_report": {
+    "path": "../tongpin-4k/ui/auto-source-1.4.0/shared-source-freeze.json",
+    "sha256": "4884ad1b7aa43e6661d78cc03a91c6af77239ddf1ca3df87f2999545e0d5b752"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "passed": true,
+  "verdict": "clear",
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogActivity.java": "b28a79ed1354e6f5224a536f818f6289e6ebb913f547826b4a5e462f2f838211",
+    "open-sources/src/com/tongpin/player4k/catalog/OpenPlayerActivity.java": "b416e59dab649c229759a896c1a919f20936c97944a6f90939a09624bb368abc",
+    "open-sources/src/com/tongpin/player4k/catalog/AutoSourceSession.java": "3e8a1be6cb2a07b2da8f20661271ea751eec4c2b710926e2c05935e3c4a3ac26"
+  },
+  "owner_report": {
+    "path": "ui/auto-source-1.4.0/phone-source-freeze.json",
+    "sha256": "5017bc04187ab9b39c1860f871d09c2dc6d0b47cae5ec73d1d2cb7c6cb671bc3"
+  },
+  "tests": {
+    "path": "ui/auto-source-1.4.0/tests/verification.json",
+    "sha256": "4313b9803a9108e0fa0c7d1e51d71f1b72232988cea2d363fb0c1a7a9ef09eac",
+    "assertions": 503,
+    "all31_current_java_hashes_verified": true
+  },
+  "fresh_stage": {
+    "path": "open-sources/staging-1.4.0-r2",
+    "compile_report_sha256": "1ae15c8875d1f785362e855df8e8a5fc2ff652208ea8971f52f78b7ef2a7bc85",
+    "dex_sha256": "62c0c7365460c7fe4f174d6bed206b5fb292d1fc38df526c00869ecd9b69cb7a",
+    "java_sources": 31,
+    "own_classes": 268,
+    "stubs_packaged": false
+  },
+  "reviewed_checks": [
+    "One bounded initial comparison and one actual-failure recovery per canonical target; no periodic network rescan.",
+    "Shared strict sameWork and actual coverage/matchedIndex checked again at commit; no ordinal transfer; live excluded.",
+    "Every explicit source/quality choice pins current target, including unchanged quality; Bundle retains pin and used-attempt budgets.",
+    "Write ownership and stale generation callbacks delete uncommitted tokens; cancel/pause/save/destroy invalidate target, selector closes.",
+    "Pending choice expires15s; touch/seek/fullscreen quiet windows defer commit; seek/touch failure consumes recovery budget so lifecycle cannot relaunch fallback later.",
+    "Commit rechecks latest decoded dimensions and samples actual position, fixed speed and paused/play intent; temporary hold speed never becomes fixed preference.",
+    "Baseline snapshots the actually selected current stream; accepted target episode remains an actual unique identity across providers.",
+    "Explicit legacy source bridge launch carries manual_source; existing native139 inputs unchanged by caller scope.",
+    "R2 actual bundled GSY callback order checked; confirmed prepared generation plus one View.post fixes normal initial playback and buffered resume without state3 commit or repeated network attempts."
+  ],
+  "scope": "Independent source review of three phone caller/session files only. Shared network/ranking code and builder/tooling independently reviewed by root. Current SDK compile/D8 artifacts read as data; no Activity or application execution.",
+  "unresolved_findings": [],
+  "device_tested": false,
+  "runtime_playback_tested": false,
+  "superseded_r1": {
+    "path": "ui/auto-source-1.4.0/independent-review-r1/phone-source-independent-review.json",
+    "sha256": "d0f1aef1515ccc49cd7466c92847253fb0bbdf72c09f3f03001a5a07addc3804",
+    "reason": "R1 review missed native callback timing: i executes at state1 before startAfterPrepared, so synchronous start could skip normal automatic selection. R1 was not published; this R2 review includes actual native ordering."
+  },
+  "prepared_order_delta": {
+    "passed": true,
+    "native_path": "decoded/smali_classes5/com/shuyu/gsyvideoplayer/video/base/GSYVideoView.smali",
+    "native_sha256": "b53a6775af840e4feb215cf082ff44dc33f104ae3dc8b737e91b5ad64b02175b",
+    "native_order_report_sha256": "ca612e901cfb7c0091f72af8497f3c4671c9d374ff8792c8100bf2fcfe015425",
+    "single_asynchronous_view_post": true,
+    "confirmed_current_generation_only_for_states_2_3_5": true,
+    "state1_cannot_start_or_consume_attempt": true,
+    "buffering_can_begin_one_comparison_but_cannot_commit": true,
+    "pause_save_manual_episode_source_generation_cancel_or_guard_post": true,
+    "on_resume_can_take_over_confirmed_buffered_generation": true,
+    "no_local_retry_loop_or_repeated_network_scan": true,
+    "independently_rerun_actual_state_assertions": 33,
+    "delta_log_sha256": "3127aaa15087a289b23167d2eed7b9356d51a8dfd779b19602f3a0f41a6613cd"
+  }
+}

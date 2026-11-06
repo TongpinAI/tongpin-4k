@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "verdict": "clear",
+  "source_sha256": {
+    "src/com/tongpin/player4k/tv/TvPlayerActivity.java": "8e3edabe498e763091aaef18c3349d2c3de400f46dd170748762e5d138ddb913",
+    "src/com/tongpin/player4k/tv/TvAutoSourceState.java": "84cd6c730565d1d57aff63e5ab74bff87347b28cb70101ef976781ec6e39182a",
+    "src/com/tongpin/player4k/tv/TvAutoSourceQueue.java": "21a92f558ca9b1abd56fda89465635460a459d46b50b943b88284505cb375471"
+  },
+  "owner_freeze_sha256": "ccbd94c86bc0265846ef7284767983a2f2e4ae8954003fd782c167ebb2155cf4",
+  "owner_verification_sha256": "152ac62b9f098e0b5de3618a223fa022cb1f19e040d9555363c065aa9cae9fdc",
+  "scope": "Independent review of TV automatic-source caller/state/queue ownership only; shared selector and ranking reviewed separately by root",
+  "checks": {
+    "bounded_initial_and_failure_attempts": true,
+    "target_identity_and_actual_selected_baseline": true,
+    "current_queue_ticket_and_stale_callback_guards": true,
+    "unique_actual_episode_no_ordinal_transfer": true,
+    "late_decoder_dimensions_rechecked": true,
+    "commit_samples_current_position_fixed_speed_play_intent": true,
+    "seek_hold_surface_dialog_background_guards": true,
+    "seek_errors_not_treated_as_bad_source": true,
+    "manual_quality_and_source_pin_persist": true,
+    "pending_queue_cancellation_and_destroy_file_cleanup": true,
+    "no_network_scan_in_ticker": true,
+    "live_excluded": true
+  },
+  "evidence": "Source review plus owner actual22-Java SDK compilation and389 host assertions; independent reviewer did not construct Activity or execute media",
+  "device_tested": false,
+  "shared_final_owner_freeze_sha256": "4884ad1b7aa43e6661d78cc03a91c6af77239ddf1ca3df87f2999545e0d5b752"
+}

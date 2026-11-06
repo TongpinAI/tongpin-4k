@@ -3,15 +3,19 @@
 .source "D8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/tongpin/player4k/catalog/PhoneSourcePicker$Selection;
+.implements Landroid/view/View$OnClickListener;
 
 
 # instance fields
 .field public final synthetic f$0:Lcom/tongpin/player4k/catalog/OpenPlayerActivity;
 
+.field public final synthetic f$1:Z
+
+.field public final synthetic f$2:Landroid/app/AlertDialog;
+
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;)V
+.method public synthetic constructor <init>(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;ZLandroid/app/AlertDialog;)V
     .locals 0
 
     .line 0
@@ -19,18 +23,26 @@
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda5;->f$0:Lcom/tongpin/player4k/catalog/OpenPlayerActivity;
 
+    iput-boolean p2, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda5;->f$1:Z
+
+    iput-object p3, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda5;->f$2:Landroid/app/AlertDialog;
+
     return-void
 .end method
 
 
 # virtual methods
-.method public final selected(Lcom/tongpin/player4k/catalog/CatalogApi$Detail;Lcom/tongpin/player4k/catalog/CatalogApi$Line;IZ)V
-    .locals 1
+.method public final onClick(Landroid/view/View;)V
+    .locals 3
 
     .line 0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda5;->f$0:Lcom/tongpin/player4k/catalog/OpenPlayerActivity;
 
-    invoke-static {v0, p1, p2, p3, p4}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->$r8$lambda$EBd403yEnXX3DtOPSZEXRRW_vBY(Lcom/tongpin/player4k/catalog/OpenPlayerActivity;Lcom/tongpin/player4k/catalog/CatalogApi$Detail;Lcom/tongpin/player4k/catalog/CatalogApi$Line;IZ)V
+    iget-boolean v1, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda5;->f$1:Z
+
+    iget-object v2, p0, Lcom/tongpin/player4k/catalog/OpenPlayerActivity$$ExternalSyntheticLambda5;->f$2:Landroid/app/AlertDialog;
+
+    invoke-virtual {v0, v1, v2, p1}, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;->lambda$chooseEpisodes$2$com-tongpin-player4k-catalog-OpenPlayerActivity(ZLandroid/app/AlertDialog;Landroid/view/View;)V
 
     return-void
 .end method

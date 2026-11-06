@@ -1,0 +1,70 @@
+"""Compile unified home/player and exercise actual identity/queue/library policies; no device claims."""
+from pathlib import Path
+import hashlib, json, os, re, subprocess, tempfile
+BASE = Path(__file__).resolve().parents[1]
+PROJECT = BASE.parent
+OUT = PROJECT / "ui/auto-source-1.4.0/tests"
+OUT.mkdir(parents=True, exist_ok=True)
+JAVA = Path(r"D:/PyCharm/PyCharm 2024.3.1.1/jbr/bin/java.exe")
+ANDROID = PROJECT.parent / "kanke-noads/tools/platform-35/android.jar"
+JSON = BASE / "tests/lib/json-20260719.jar"
+RUN = Path(tempfile.mkdtemp(prefix="caller-run-", dir=OUT))
+CLASSES, STUBS = RUN / "classes", RUN / "stubs"
+CLASSES.mkdir(); STUBS.mkdir()
+sources = sorted((BASE / "src/com/tongpin/player4k/catalog").glob("*.java"))
+tests = [BASE / "tests/src/com/tongpin/player4k/catalog" / (name + ".java") for name in
+         ("AutoSourceSessionTest", "AutoSourceQueueTest", "CrossSourcePolicyTest", "PlayQueueTest", "HoldSpeedStateTest", "HoldSpeedGestureTest", "PlaybackResolutionTest", "CatalogEpisodeOrderTest", "OpenPlayerUiTest", "PhoneUiTest", "PlayerOptionsSheetTest")]
+stubs = sorted((BASE / "toolchain/stubs").rglob("*.java"))
+def sha(p): return hashlib.sha256(p.read_bytes()).hexdigest()
+own = [p for p in sources if p.stem in ("CatalogActivity", "OpenPlayerActivity", "PlayQueue", "CrossSourcePolicy", "PhoneSourcePicker", "LibraryStore", "AutoSourceSession")]
+before = {str(p.relative_to(PROJECT)).replace(chr(92), "/"): sha(p) for p in own + tests}
+all_sources = {p.relative_to(BASE / "src").as_posix(): sha(p) for p in sources}
+log = ""
+def run(command):
+    global log
+    result = subprocess.run(list(map(str, command)), capture_output=True, timeout=120)
+    text = (result.stdout + result.stderr).decode("utf-8", "replace"); log += text
+    (OUT / "tests.log").write_text(log, "utf-8")
+    assert result.returncode == 0, text
+    return text
+compiler = [JAVA, "com.sun.tools.javac.Main", "--release", "8", "-encoding", "UTF-8"]
+cp = os.pathsep.join(map(str, [CLASSES, JSON, ANDROID, STUBS]))
+run(compiler + ["-cp", ANDROID, "-d", STUBS] + stubs)
+run(compiler + ["-cp", cp, "-d", CLASSES] + sources + tests)
+counts = {}
+for test in tests:
+    text = run([JAVA, "-ea", "-Dfile.encoding=UTF-8", "-cp", cp, "com.tongpin.player4k.catalog." + test.stem])
+    counts[test.stem] = int(re.search(r"assertions passed: (\d+)", text)[1])
+native = PROJECT / "decoded/smali_classes5/com/shuyu/gsyvideoplayer/video/base/GSYVideoView.smali"
+native_text = native.read_text(encoding="utf-8")
+prepared = re.search(r"^\.method public onPrepared\(\)V\n.*?^\.end method", native_text, re.M | re.S)[0]
+callback = "Lm6/h;->i(Ljava/lang/String;[Ljava/lang/Object;)V"
+assert prepared.index("->mCurrentState:I") < prepared.index("const/4 v1, 0x1") < prepared.index(callback)
+assert prepared.index(callback) < prepared.index("->startAfterPrepared()V")
+player_source = (BASE / "src/com/tongpin/player4k/catalog/OpenPlayerActivity.java").read_text(encoding="utf-8")
+callback_body = player_source[player_source.index("public void i(String url"):player_source.index("public void d(String url")]
+assert "automaticPreparedGeneration = generation;" in callback_body and "automaticAfterPrepared(generation, url);" in callback_body
+assert "startAutomatic(false);" not in callback_body
+deferred = player_source[player_source.index("private void automaticAfterPrepared("):player_source.index("private void scheduleAutomatic()")]
+assert "player.post(preparedAutomaticStart);" in deferred and "postDelayed" not in deferred and "runOnUiThread" not in deferred
+assert "generation != playGeneration" in deferred and "!foreground" in deferred and "urls[selected].equals(url)" in deferred
+assert "automaticPreparedGeneration == generation" in deferred and "this != preparedAutomaticStart" in deferred
+assert "AutoSourceSession.preparedReady(state, automaticPreparedGeneration == playGeneration)" in player_source
+cancel_body = player_source[player_source.index("private void cancelAutomatic()"):player_source.index("static boolean automaticIdentity(")]
+assert "removeCallbacks(preparedAutomaticStart)" in cancel_body and "preparedAutomaticStart = null;" in cancel_body
+order_proof = {"passed":True,"native_sha256":sha(native),"native_path":native.relative_to(PROJECT).as_posix(),
+    "caller_sha256":sha(BASE/"src/com/tongpin/player4k/catalog/OpenPlayerActivity.java"),
+    "native_callback_runs_while_state1_before_native_start":True,"single_view_post_after_native_callback":True,
+    "prepared_generation_allows_buffering_without_retry_loop":True,"commit_still_refuses_buffering":True,
+    "generation_url_foreground_and_cancellation_guards":True,"device_tested":False}
+(OUT.parent / "native-prepared-order.json").write_text(json.dumps(order_proof,indent=2)+"\n",encoding="utf-8")
+assert before == {str(p.relative_to(PROJECT)).replace(chr(92), "/"): sha(p) for p in own + tests}, "Owned inputs changed during verification"
+assert all_sources == {p.relative_to(BASE / "src").as_posix(): sha(p) for p in sources}, "Full Java graph changed during verification"
+report = {"passed": True, "assertions": counts, "source_sha256": before, "all_phone_java_compiled": True,
+          "all_phone_java_source_sha256": all_sources, "fresh_compilation_directory": str(RUN),
+          "actual_catalog_api_compiled": True, "shared_test_stubs_used": False,
+          "native_prepared_order_verified": True, "native_prepared_order_proof_sha256": sha(OUT.parent / "native-prepared-order.json"),
+          "device_tested": False, "activity_constructed": False, "live_network_tested": False,
+          "scope": "Actual pure matching, metadata serialization, bounded local library, queue and existing playback policies"}
+(OUT / "verification.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", "utf-8")
+print(json.dumps({"passed": True, "assertions": counts, "device_tested": False}))

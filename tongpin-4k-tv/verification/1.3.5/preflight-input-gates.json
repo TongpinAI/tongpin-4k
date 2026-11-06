@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "frozen_inputs_sha256": "3e7b853166629d4894672a983d439a4337ff315b7389ada04ec64c529a0cdc44",
+  "input_count": 34,
+  "formal_promotion_blocked_before_builder_review": true,
+  "previous134_evidence_unchanged": true,
+  "builder_sha256": "3ab0125651f68fd2501ca30ce3722df00cfe29bd3a4eb8268651b10263e2eee7"
+}

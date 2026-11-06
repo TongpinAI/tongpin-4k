@@ -458,7 +458,7 @@
 .method private alive()Z
     .locals 1
 
-    .line 806
+    .line 812
     invoke-virtual {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->isFinishing()Z
 
     move-result v0
@@ -656,7 +656,7 @@
 
     iput-object v7, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->sourcePicker:Lcom/tongpin/player4k/catalog/PhoneSourcePicker;
 
-    .line 803
+    .line 804
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->sourcePicker:Lcom/tongpin/player4k/catalog/PhoneSourcePicker;
 
     new-instance v2, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda5;
@@ -675,7 +675,7 @@
 
     invoke-virtual {v1, v0}, Lcom/tongpin/player4k/catalog/PhoneSourcePicker;->showProvider(Ljava/lang/String;)V
 
-    .line 804
+    .line 805
     return-void
 
     .line 774
@@ -1816,7 +1816,7 @@
 .method private button(Ljava/lang/String;Z)Landroid/widget/Button;
     .locals 0
 
-    .line 812
+    .line 818
     if-eqz p2, :cond_0
 
     const/4 p2, 0x0
@@ -1837,7 +1837,7 @@
 .method private column()Landroid/widget/LinearLayout;
     .locals 2
 
-    .line 808
+    .line 814
     new-instance v0, Landroid/widget/LinearLayout;
 
     invoke-direct {v0, p0}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
@@ -1881,7 +1881,7 @@
 .method private dp(I)I
     .locals 1
 
-    .line 807
+    .line 813
     int-to-float p1, p1
 
     invoke-virtual {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->getResources()Landroid/content/res/Resources;
@@ -1988,7 +1988,7 @@
 .method private static httpUrl(Ljava/lang/String;)Z
     .locals 3
 
-    .line 911
+    .line 917
     const/4 v0, 0x0
 
     :try_start_0
@@ -2040,7 +2040,7 @@
     :cond_1
     return v0
 
-    .line 912
+    .line 918
     :catch_0
     move-exception p0
 
@@ -2050,7 +2050,7 @@
 .method private label(Ljava/lang/String;II)Landroid/widget/TextView;
     .locals 0
 
-    .line 810
+    .line 816
     invoke-static {p0, p1, p2, p3}, Lcom/tongpin/player4k/catalog/PhoneUi;->text(Landroid/content/Context;Ljava/lang/String;II)Landroid/widget/TextView;
 
     move-result-object p1
@@ -2430,10 +2430,10 @@
 .method private loadPoster(Ljava/lang/String;Landroid/widget/ImageView;Ljava/lang/String;)V
     .locals 1
 
-    .line 875
+    .line 881
     invoke-virtual {p2, p1}, Landroid/widget/ImageView;->setTag(Ljava/lang/Object;)V
 
-    .line 876
+    .line 882
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -2454,12 +2454,12 @@
 
     invoke-virtual {p2, p3}, Landroid/widget/ImageView;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    .line 877
+    .line 883
     new-instance p3, Landroid/graphics/drawable/GradientDrawable;
 
     invoke-direct {p3}, Landroid/graphics/drawable/GradientDrawable;-><init>()V
 
-    .line 878
+    .line 884
     const v0, -0x1b1510
 
     invoke-virtual {p3, v0}, Landroid/graphics/drawable/GradientDrawable;->setColor(I)V
@@ -2474,10 +2474,10 @@
 
     invoke-virtual {p3, v0}, Landroid/graphics/drawable/GradientDrawable;->setCornerRadius(F)V
 
-    .line 879
+    .line 885
     invoke-virtual {p2, p3}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 880
+    .line 886
     invoke-static {p1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->httpUrl(Ljava/lang/String;)Z
 
     move-result p3
@@ -2486,7 +2486,7 @@
 
     return-void
 
-    .line 881
+    .line 887
     :cond_0
     iget-object p3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->posters:Landroid/util/LruCache;
 
@@ -2496,14 +2496,14 @@
 
     check-cast p3, Landroid/graphics/Bitmap;
 
-    .line 882
+    .line 888
     if-eqz p3, :cond_1
 
     invoke-virtual {p2, p3}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
 
     return-void
 
-    .line 883
+    .line 889
     :cond_1
     iget-object p3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->images:Ljava/util/concurrent/ThreadPoolExecutor;
 
@@ -2513,8 +2513,35 @@
 
     invoke-virtual {p3, v0}, Ljava/util/concurrent/ThreadPoolExecutor;->execute(Ljava/lang/Runnable;)V
 
-    .line 908
+    .line 914
     return-void
+.end method
+
+.method static manualSourceBridge(Ljava/lang/String;)Z
+    .locals 0
+
+    .line 809
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/String;->isEmpty()Z
+
+    move-result p0
+
+    if-nez p0, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
+    return p0
 .end method
 
 .method public static openSourceSwitch(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JFZ)V
@@ -2650,7 +2677,7 @@
         }
     .end annotation
 
-    .line 816
+    .line 822
     new-instance v0, Lcom/tongpin/player4k/catalog/CatalogActivity$6;
 
     const v1, 0x1090003
@@ -2885,17 +2912,17 @@
         }
     .end annotation
 
-    .line 916
+    .line 922
     new-instance v0, Ljava/io/ByteArrayOutputStream;
 
     invoke-direct {v0}, Ljava/io/ByteArrayOutputStream;-><init>()V
 
-    .line 917
+    .line 923
     const/16 v1, 0x2000
 
     new-array v1, v1, [B
 
-    .line 919
+    .line 925
     :goto_0
     invoke-virtual {p0, v1}, Ljava/io/InputStream;->read([B)I
 
@@ -2905,7 +2932,7 @@
 
     if-eq v2, v3, :cond_2
 
-    .line 920
+    .line 926
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
     move-result-object v3
@@ -2916,7 +2943,7 @@
 
     if-nez v3, :cond_1
 
-    .line 921
+    .line 927
     invoke-virtual {v0}, Ljava/io/ByteArrayOutputStream;->size()I
 
     move-result v3
@@ -2925,14 +2952,14 @@
 
     if-gt v3, p1, :cond_0
 
-    .line 922
+    .line 928
     const/4 v3, 0x0
 
     invoke-virtual {v0, v1, v3, v2}, Ljava/io/ByteArrayOutputStream;->write([BII)V
 
     goto :goto_0
 
-    .line 921
+    .line 927
     :cond_0
     new-instance p0, Ljava/io/IOException;
 
@@ -2942,7 +2969,7 @@
 
     throw p0
 
-    .line 920
+    .line 926
     :cond_1
     new-instance p0, Ljava/io/IOException;
 
@@ -2952,7 +2979,7 @@
 
     throw p0
 
-    .line 924
+    .line 930
     :cond_2
     invoke-virtual {v0}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
 
@@ -3320,7 +3347,7 @@
 .method private row()Landroid/widget/LinearLayout;
     .locals 2
 
-    .line 809
+    .line 815
     new-instance v0, Landroid/widget/LinearLayout;
 
     invoke-direct {v0, p0}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
@@ -4761,7 +4788,7 @@
 
     invoke-interface {v0, v9}, Ljava/util/concurrent/ExecutorService;->execute(Ljava/lang/Runnable;)V
 
-    .line 803
+    .line 804
     return-void
 .end method
 
@@ -4808,10 +4835,10 @@
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 801
+    .line 802
     goto :goto_1
 
-    .line 798
+    .line 799
     :catch_0
     move-exception p2
 
@@ -4822,13 +4849,13 @@
 
     const/4 p1, 0x0
 
-    .line 799
+    .line 800
     :goto_0
     if-eqz p1, :cond_0
 
     invoke-static {p0, p1}, Lcom/tongpin/player4k/catalog/PlayQueue;->delete(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 800
+    .line 801
     :cond_0
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->main:Landroid/os/Handler;
 
@@ -4838,7 +4865,7 @@
 
     invoke-virtual {p1, p2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 802
+    .line 803
     :goto_1
     return-void
 .end method
@@ -4917,6 +4944,23 @@
     move-result-object p1
 
     .line 794
+    const-string p3, "source_provider"
+
+    invoke-virtual {p4, p3}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p3
+
+    invoke-static {p3}, Lcom/tongpin/player4k/catalog/CatalogActivity;->manualSourceBridge(Ljava/lang/String;)Z
+
+    move-result p3
+
+    const-string v1, "manual_source"
+
+    invoke-virtual {p1, v1, p3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+
+    move-result-object p1
+
+    .line 795
     if-eqz p5, :cond_1
 
     const-string p3, "switch_position"
@@ -4935,7 +4979,7 @@
 
     invoke-virtual {p1, p5, p3, p4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;J)Landroid/content/Intent;
 
-    .line 795
+    .line 796
     :cond_1
     :try_start_0
     invoke-virtual {p0, p1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->startActivity(Landroid/content/Intent;)V
@@ -4944,7 +4988,7 @@
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 796
+    .line 797
     goto :goto_0
 
     :catch_0
@@ -4960,7 +5004,7 @@
 
     invoke-virtual {p1}, Landroid/widget/Toast;->show()V
 
-    .line 797
+    .line 798
     :goto_0
     return-void
 
@@ -4975,7 +5019,7 @@
 .method synthetic lambda$bridgeSourceSwitch$3$com-tongpin-player4k-catalog-CatalogActivity()V
     .locals 2
 
-    .line 800
+    .line 801
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->preparingPlayback:Z
@@ -5953,10 +5997,10 @@
 .method synthetic lambda$loadPoster$0$com-tongpin-player4k-catalog-CatalogActivity(Ljava/lang/String;Landroid/widget/ImageView;)V
     .locals 10
 
-    .line 884
+    .line 890
     nop
 
-    .line 886
+    .line 892
     const/4 v0, 0x0
 
     :try_start_0
@@ -5973,25 +6017,25 @@
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
     .catchall {:try_start_0 .. :try_end_0} :catchall_3
 
-    .line 887
+    .line 893
     const/16 v0, 0x1770
 
     :try_start_1
     invoke-virtual {v1, v0}, Ljava/net/HttpURLConnection;->setConnectTimeout(I)V
 
-    .line 888
+    .line 894
     const/16 v0, 0x1f40
 
     invoke-virtual {v1, v0}, Ljava/net/HttpURLConnection;->setReadTimeout(I)V
 
-    .line 889
+    .line 895
     const-string v0, "User-Agent"
 
     const-string v2, "Tongpin4K/1.1.0"
 
     invoke-virtual {v1, v0, v2}, Ljava/net/HttpURLConnection;->setRequestProperty(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 890
+    .line 896
     invoke-virtual {v1}, Ljava/net/HttpURLConnection;->getResponseCode()I
 
     move-result v0
@@ -6003,16 +6047,16 @@
 
     if-eq v0, v2, :cond_1
 
-    .line 906
+    .line 912
     if-eqz v1, :cond_0
 
     invoke-virtual {v1}, Ljava/net/HttpURLConnection;->disconnect()V
 
-    .line 890
+    .line 896
     :cond_0
     return-void
 
-    .line 892
+    .line 898
     :cond_1
     :try_start_2
     invoke-virtual {v1}, Ljava/net/HttpURLConnection;->getInputStream()Ljava/io/InputStream;
@@ -6036,25 +6080,25 @@
     :try_start_4
     invoke-virtual {v0}, Ljava/io/InputStream;->close()V
 
-    .line 893
+    .line 899
     :cond_2
     new-instance v0, Landroid/graphics/BitmapFactory$Options;
 
     invoke-direct {v0}, Landroid/graphics/BitmapFactory$Options;-><init>()V
 
-    .line 894
+    .line 900
     const/4 v3, 0x1
 
     iput-boolean v3, v0, Landroid/graphics/BitmapFactory$Options;->inJustDecodeBounds:Z
 
-    .line 895
+    .line 901
     array-length v4, v2
 
     const/4 v5, 0x0
 
     invoke-static {v2, v5, v4, v0}, Landroid/graphics/BitmapFactory;->decodeByteArray([BIILandroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
 
-    .line 896
+    .line 902
     iget v4, v0, Landroid/graphics/BitmapFactory$Options;->outWidth:I
 
     if-lez v4, :cond_8
@@ -6091,11 +6135,11 @@
 
     goto :goto_2
 
-    .line 898
+    .line 904
     :cond_3
     iput v3, v0, Landroid/graphics/BitmapFactory$Options;->inSampleSize:I
 
-    .line 899
+    .line 905
     :goto_0
     iget v3, v0, Landroid/graphics/BitmapFactory$Options;->outWidth:I
 
@@ -6117,11 +6161,11 @@
 
     goto :goto_1
 
-    .line 900
+    .line 906
     :cond_4
     iput-boolean v5, v0, Landroid/graphics/BitmapFactory$Options;->inJustDecodeBounds:Z
 
-    .line 901
+    .line 907
     array-length v3, v2
 
     invoke-static {v2, v5, v3, v0}, Landroid/graphics/BitmapFactory;->decodeByteArray([BIILandroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
@@ -6131,26 +6175,26 @@
     .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_0
     .catchall {:try_start_4 .. :try_end_4} :catchall_2
 
-    .line 902
+    .line 908
     if-nez v0, :cond_6
 
-    .line 906
+    .line 912
     if-eqz v1, :cond_5
 
     invoke-virtual {v1}, Ljava/net/HttpURLConnection;->disconnect()V
 
-    .line 902
+    .line 908
     :cond_5
     return-void
 
-    .line 903
+    .line 909
     :cond_6
     :try_start_5
     iget-object v2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->posters:Landroid/util/LruCache;
 
     invoke-virtual {v2, p1, v0}, Landroid/util/LruCache;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 904
+    .line 910
     iget-object v2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->main:Landroid/os/Handler;
 
     new-instance v3, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda18;
@@ -6162,14 +6206,14 @@
     .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_0
     .catchall {:try_start_5 .. :try_end_5} :catchall_2
 
-    .line 906
+    .line 912
     if-eqz v1, :cond_c
 
     invoke-virtual {v1}, Ljava/net/HttpURLConnection;->disconnect()V
 
     goto :goto_6
 
-    .line 899
+    .line 905
     :cond_7
     :goto_1
     :try_start_6
@@ -6184,18 +6228,18 @@
 
     goto :goto_0
 
-    .line 906
+    .line 912
     :cond_8
     :goto_2
     if-eqz v1, :cond_9
 
     invoke-virtual {v1}, Ljava/net/HttpURLConnection;->disconnect()V
 
-    .line 897
+    .line 903
     :cond_9
     return-void
 
-    .line 892
+    .line 898
     :catchall_0
     move-exception p1
 
@@ -6221,7 +6265,7 @@
     .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_8} :catch_0
     .catchall {:try_start_8 .. :try_end_8} :catchall_2
 
-    .line 906
+    .line 912
     :catchall_2
     move-exception p1
 
@@ -6229,7 +6273,7 @@
 
     goto :goto_4
 
-    .line 905
+    .line 911
     :catch_0
     move-exception p1
 
@@ -6237,7 +6281,7 @@
 
     goto :goto_5
 
-    .line 906
+    .line 912
     :catchall_3
     move-exception p1
 
@@ -6249,17 +6293,17 @@
     :cond_b
     throw p1
 
-    .line 905
+    .line 911
     :catch_1
     move-exception p1
 
-    .line 906
+    .line 912
     :goto_5
     if-eqz v0, :cond_c
 
     invoke-virtual {v0}, Ljava/net/HttpURLConnection;->disconnect()V
 
-    .line 907
+    .line 913
     :cond_c
     :goto_6
     return-void
@@ -6268,7 +6312,7 @@
 .method synthetic lambda$loadPoster$1$com-tongpin-player4k-catalog-CatalogActivity(Ljava/lang/String;Landroid/widget/ImageView;Landroid/graphics/Bitmap;)V
     .locals 1
 
-    .line 904
+    .line 910
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->alive()Z
 
     move-result v0

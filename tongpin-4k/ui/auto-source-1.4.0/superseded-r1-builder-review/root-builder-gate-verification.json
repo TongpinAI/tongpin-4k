@@ -1,0 +1,33 @@
+{
+  "passed": true,
+  "verdict": "clear",
+  "source_sha256": {
+    "build_tongpin.py": "d998e6b84ed7cd9486375ccd068b535c63975bc55090bfaa9bf91cc7e28a1515",
+    "open-sources/integration/DisassembleOwn1400.java": "2a8a1deb010655631841524561a094a48da1202ba8d83e13b4f8431229add3d2",
+    "open-sources/integration/assert_contract.py": "8742e390a88297e4173bca9839bf58029f1e93e8c4c2a0b451109b6c50ef3856",
+    "open-sources/integration/audit_final_ui_api_1400.py": "fbbe4e595533b41f31e80899355f969666016d2ca1d69e4f3c220e4f881f4045",
+    "open-sources/integration/check_timer_dex_1400.py": "44d8421006216e70bfaeae81e69d69b5fbe26e508c401953771fa0ed0646c78a",
+    "open-sources/integration/integrate_1_4_0.py": "323b728078098c7b317f962c469b8ad7c02137997d3ed0c74c0900efe9d59085",
+    "open-sources/integration/ui_1400_contract.py": "f1eea9fecd99ef6eca9116c699b5c33c73ecb58400f6fb79d1867ef9872b53ce",
+    "open-sources/toolchain/check_framework_api.py": "91209f30753abd8ea244655bd98762d4e0590c173dae2e842367d82559a61905",
+    "open-sources/toolchain/compile_java_to_smali.py": "b1b855f38294ecb7d392980b917f8fa17eaae77496c3bd1fcd961e557574cc9c",
+    "verification/1.4.0/proof-tools/DisassembleOwn1400.class": "84fb4dfc3eee82ca9c5e78c33c381fd6b38f3f489018f203ef8f94b4309f7e04"
+  },
+  "promoted_frozen_inputs_sha256": "09a4298993493fcc77c688aa156ea6f79a60dcf2088e7db1f5f769a5b2bb6f21",
+  "observed_normal_integrator_full_gate": {
+    "path": "verification/1.4.0/layout-contract.json",
+    "sha256": "8c4f42107ac1756b349bf7c0bce2e4673aa6a50199cfef261b7b708645499831",
+    "passed": true
+  },
+  "integration_report_sha256": "6310e884198d26e372f606dc05e1d8fd3ffedfdfae4213f2bf75e70f953cf72e",
+  "independent_reviews_complete_and_current": true,
+  "exact_actual_own_namespace_classes": 267,
+  "actual_abi_invocations": 3561,
+  "canonical_stage_dex_sha256": "b4def74b7aa075f56356bdf7a800a6599e6ec6ba66cf41885b9c44aa67af5b2f",
+  "all31_source_hashes_current": true,
+  "both_before_java_match_published139": true,
+  "native_bulk_hash_scan_repeated_by_reviewer": false,
+  "scope": "Independent correspondence check of the normal formal full-gate result, promotion/review pins, actual source/staging/installed namespace and ABI evidence; full native scan already executed by reviewed normal integrator.",
+  "package_or_sign_executed_by_reviewer": false,
+  "device_tested": false
+}

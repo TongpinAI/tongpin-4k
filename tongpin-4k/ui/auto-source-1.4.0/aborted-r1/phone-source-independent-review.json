@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "verdict": "clear",
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogActivity.java": "b28a79ed1354e6f5224a536f818f6289e6ebb913f547826b4a5e462f2f838211",
+    "open-sources/src/com/tongpin/player4k/catalog/OpenPlayerActivity.java": "10e0aa531e851b46c4b5d01ed710f3444071f8f1baeb17c9402e5240d45c689b",
+    "open-sources/src/com/tongpin/player4k/catalog/AutoSourceSession.java": "eeec1e68c9708d581cf2e4f6f536aaa35740c02c1da932f8510716760d9e3c03"
+  },
+  "owner_report": {
+    "path": "ui/auto-source-1.4.0/phone-source-freeze.json",
+    "sha256": "446799cba6929f0fad96b1fe30973fcf05d6b0f3bdbb6dbb22c345fde971869d"
+  },
+  "tests": {
+    "path": "ui/auto-source-1.4.0/tests/verification.json",
+    "sha256": "baf28604b76613fa7beb9356c0eccdbdf3452b6c168bbec5e46933d8fd9b4cd0",
+    "assertions": 498,
+    "all31_current_java_hashes_verified": true
+  },
+  "fresh_stage": {
+    "path": "open-sources/staging-1.4.0-r1",
+    "compile_report_sha256": "199b81c587d3183172bf9d5efa2ef2b66480404cf1dc566749f45ed35601be5c",
+    "dex_sha256": "b4def74b7aa075f56356bdf7a800a6599e6ec6ba66cf41885b9c44aa67af5b2f",
+    "java_sources": 31,
+    "own_classes": 267,
+    "stubs_packaged": false
+  },
+  "reviewed_checks": [
+    "One bounded initial comparison and one actual-failure recovery per canonical target; no periodic network rescan.",
+    "Shared strict sameWork and actual coverage/matchedIndex checked again at commit; no ordinal transfer; live excluded.",
+    "Every explicit source/quality choice pins current target, including unchanged quality; Bundle retains pin and used-attempt budgets.",
+    "Write ownership and stale generation callbacks delete uncommitted tokens; cancel/pause/save/destroy invalidate target, selector closes.",
+    "Pending choice expires15s; touch/seek/fullscreen quiet windows defer commit; seek/touch failure consumes recovery budget so lifecycle cannot relaunch fallback later.",
+    "Commit rechecks latest decoded dimensions and samples actual position, fixed speed and paused/play intent; temporary hold speed never becomes fixed preference.",
+    "Baseline snapshots the actually selected current stream; accepted target episode remains an actual unique identity across providers.",
+    "Explicit legacy source bridge launch carries manual_source; existing native139 inputs unchanged by caller scope."
+  ],
+  "scope": "Independent source review of three phone caller/session files only. Shared network/ranking code and builder/tooling independently reviewed by root. Current SDK compile/D8 artifacts read as data; no Activity or application execution.",
+  "unresolved_findings": [],
+  "device_tested": false,
+  "runtime_playback_tested": false
+}

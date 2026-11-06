@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "verdict": "clear",
+  "source_sha256": {
+    "build_tv.py": "3ab0125651f68fd2501ca30ce3722df00cfe29bd3a4eb8268651b10263e2eee7"
+  },
+  "reviewed_against_before_sha256": "3721c90b146517c3ae55f10e00ddd9a2c0c28410eb922de94d044793e0207447",
+  "main_preflight_freeze_sha256": "3e7b853166629d4894672a983d439a4337ff315b7389ada04ec64c529a0cdc44",
+  "actual_34_input_contract_passed": true,
+  "tamper_rejections": [
+    "promotion false blocks formal",
+    "missing production input",
+    "extra unreviewed source",
+    "stale snapshot hash",
+    "missing owner source coverage",
+    "missing independent source and builder coverage"
+  ],
+  "checks": {
+    "exact_version_135_1305_previous134": true,
+    "only_player_changed_and_four_helpers_added": true,
+    "registry28_byte_exact_unchanged": true,
+    "all134_resource_ids_retained": true,
+    "official_runtime_lock_preserved": true,
+    "existing_api23_api26_backend_guard_paths_preserved": true,
+    "formal_source_and_builder_review_coverage_required": true,
+    "no_application_execution_in_review": true
+  },
+  "device_tested": false
+}

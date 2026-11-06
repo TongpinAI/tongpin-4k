@@ -1,14 +1,20 @@
 # 手机端构建输入与恢复说明
 
-当前源码为 **1.3.9 / versionCode1390**，包名 `com.tongpin.player4k`。它是在现有APK/原生播放库基础上维护的fork，含自有Java、继承资源与smali，不描述为完整Gradle或clean-room重写项目。
+当前源码为 **1.4.0 / versionCode1400**，包名 `com.tongpin.player4k`。它是在现有APK/原生播放库基础上维护的fork，含自有Java、继承资源与smali，不描述为完整Gradle或clean-room重写项目。
 
 ## 当前输入与检查范围
 
-- `open-sources/src`有28份自有Java，本轮重新编译到`open-sources/staging-1.3.9-r3`，自有类数量以当前compile-report和最终DEX核对为准；编译桩和host JSON实现不打进安装包。
+- `open-sources/src`有31份自有Java，本轮重新编译到`open-sources/staging-1.4.0-r2`，自有类数量以当前compile-report和最终DEX核对为准；编译桩和host JSON实现不打进安装包。
 - `decoded`包含实际构建资源、五组smali及42个原生库。前四DEX继续核对`kanke-noads/decoded`的对应输入；原生第五码仅旧历史点击桥接的一个方法改动，其余继承代码保持合同范围。
 - 统一首页、实际来源换源、旧记录转入新确认流程以及本地历史/收藏见`ui/unified-sources-1.3.9`。XML/M3U/无code JSON不增加运行库依赖，使用平台API和既有播放器。
-- `verification/1.3.9/proof-tools`中的全部真实检查器`.class`及嵌套类是最终DEX审计输入，对应源码位于`open-sources/integration`。134–138的历史证明类继续保留；普通测试编译产物不提交。
+- `verification/1.4.0/proof-tools`中的全部真实检查器`.class`及嵌套类是最终DEX审计输入，对应源码位于`open-sources/integration`。134–139的历史证明类继续保留；普通测试编译产物不提交。
 - 旧冻结报告、before快照、stage与实际R夹具按原字节保留，不把历史报告改成当前验证结果。
+
+## 140自动选源构建输入
+
+自动选源规则、调用者和独立审查见`ui/auto-source-1.4.0/`，正式冻结及最终APK检查见`verification/1.4.0/`。只修改两份原自有Java并新增三份自有Java；139原生smali、28来源配置及资源ID保持，资源只更新版本文字。
+
+本轮31份Java编译为268个自有类。规范输入`open-sources/staging-1.4.0-r2/own-classes.dex`的SHA256为`62c0c7365460c7fe4f174d6bed206b5fb292d1fc38df526c00869ecd9b69cb7a`；仅该DEX通过`v1.4.0`的构建输入ZIP恢复。140门禁读取该规范文件，不依赖临时编译工作目录。139的规范stage DEX与历次APK仍按清单保留。
 
 ## 从Release恢复
 
@@ -27,13 +33,13 @@
 | `tongpin-4k/output/tongpin-4k-1.3.7.apk` | 77021749 | `6356604f250e93446f282769196ee9cad570af5789250b02d37618f5da875705` |
 | `tongpin-4k/output/tongpin-4k-1.3.8.apk` | 77021749 | `532c6f3810df6c284f273e4f4ba32bb2e6fab67054f80828e003f922debf8475` |
 
-在仓库根执行`python scripts/restore_artifacts.py --download-dir <资产下载目录> --check-only`可先校验全部输入；去掉`--check-only`只补齐缺少且哈希一致的目标。脚本拒绝覆盖不同内容，不写签名密钥。根清单是完整恢复目标的依据，当前139手机成品及134电视成品属于交付物，不是重建自身的输入。
+在仓库根执行`python scripts/restore_artifacts.py --download-dir <资产下载目录> --check-only`可先校验全部输入；去掉`--check-only`只补齐缺少且哈希一致的目标。脚本拒绝覆盖不同内容，不写签名密钥。根清单是完整恢复目标的依据，当前140手机成品及135电视成品属于交付物，不是重建自身的输入。
 
-`build_tongpin.py`当前直接核对手机138基线；完整合同继续读取137及更早APK、源码和证明类。对应旧附件应保留，不能为通过检查删除旧合同或改写历史证据。
+`build_tongpin.py`当前直接核对手机139基线；完整合同继续读取137及更早APK、源码和证明类。对应旧附件应保留，不能为通过检查删除旧合同或改写历史证据。
 
-## 139阶段DEX固定构建输入
+## 历史139阶段DEX固定构建输入
 
-当前增量合同还读取`tongpin-4k/open-sources/staging-1.3.9-r3/own-classes.dex`，SHA256为`ee78544fc568a55cacf82c08ae24a088f5469ec1256da4d3b169c07ce7cdc0d7`。它是本轮28份Java生成的231个自有类的原始D8产物，作为小型构建输入ZIP随当前Release提供；ZIP文件名、大小、哈希和唯一恢复成员以根`artifacts-manifest.json`为准。上面的统一恢复脚本会将其恢复到这个仓库内的规范路径。
+历史139合同读取`tongpin-4k/open-sources/staging-1.3.9-r3/own-classes.dex`，SHA256为`ee78544fc568a55cacf82c08ae24a088f5469ec1256da4d3b169c07ce7cdc0d7`。它是本轮28份Java生成的231个自有类的原始D8产物，作为小型构建输入ZIP随当前Release提供；ZIP文件名、大小、哈希和唯一恢复成员以根`artifacts-manifest.json`为准。上面的统一恢复脚本会将其恢复到这个仓库内的规范路径。
 
 该DEX不提交Git，也不依赖原电脑临时`toolchain/builds/<随机目录>/dex/classes.dex`仍然存在。`compile-report.json`的旧工作目录可以保留为编译出处，当前合同和集成读取规范stage输入并核对相同哈希；签名APK和Java源码不会因增加这个恢复资产而改变。后续新版本修改Java时仍须建立新的stage、报告和规范输入，不能拿别的DEX替换这一版本的固定字节。
 

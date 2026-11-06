@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "verdict": "clear",
+  "workspace_sources": true,
+  "scope": "Independent root review of source ranking, bounded transport, identity and callback ownership after requested fixes",
+  "source_sha256": {
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/AutoSourcePolicy.java": "ce4fd68b0e2f3f0ed9eed19bd15868bc71e3e9c3dfb3394c384e0e4aa2bc1e87",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/AutoSourceSelector.java": "c7112b6dc1ce5f11dd1248fea477c7dc24cb6cefcdad47f9c56e05df68855f21",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/AutoSourcePolicy.java": "ca0f1a207816bbc010a5ef7df7545d62acf9ce51d27cafbf9edc7a8df4cefeb5",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/AutoSourceSelector.java": "7cd6094b0a72d0282364f875a3af06ebe2f293bd167a3a88fd56d34756aa49ba"
+  },
+  "owner_freeze_sha256": "4884ad1b7aa43e6661d78cc03a91c6af77239ddf1ca3df87f2999545e0d5b752",
+  "test_report_sha256": "35edff6ab1aff361d5218235d73d48efd70a1c2a305b389de1ac7edfd7c27c44",
+  "checks": [
+    "4K/1080 tiers before real episode coverage; extras, empty URLs, duplicates and wrong identities cannot inflate coverage",
+    "Watermark text is a weak explicit source hint; unknown is not verified clean; no image manipulation",
+    "Known current decoded dimensions prevent an unverified nominal label downgrade",
+    "Probe ordering considers target-episode metadata and nominal hints before freshness; only probed evidence enters final ranking",
+    "Bounded workers/read sizes/redirects/deadline; public DNS and URL checks; no private addresses or executable remote configs",
+    "Failed high HLS variants can fall back to lower variants; external audio/subtitles and extensionless child keep master",
+    "HTML/JSON/empty/audio-only/iframe responses do not become playable video; media prefix is reachability evidence, not decoder proof",
+    "Recommendation copies the target episode with a single selected stream; original queue stays unchanged",
+    "First failed same-title detail does not hide the second bounded match",
+    "Cancellation, stale callback suppression, one final recommendation, live and browse-only search exclusions"
+  ],
+  "host_assertions_per_app": 93,
+  "new_shared_min21_api_audit": "passed; no references above21",
+  "device_tested": false,
+  "real_playback_or_public_media_probe_tested": false
+}

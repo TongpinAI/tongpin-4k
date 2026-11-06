@@ -70,6 +70,15 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
     private TvPlayQueue queue;
     private List<CatalogApi.Provider> sourceProviders;
     private TvSourcePicker sourcePicker;
+    private final TvAutoSourceState autoSourceState = new TvAutoSourceState();
+    private AutoSourceSelector autoSourceSelector;
+    private AutoSourceSelector.Handle autoSourceHandle;
+    private AutoSourceSelector.Recommendation autoSourceRecommendation;
+    private TvAutoSourceQueue autoSourceQueue;
+    private TvAutoSourceQueue.Job autoSourceSave;
+    private TvPlayQueue autoSourcePrepared;
+    private String autoSourceToken;
+    private long autoSourceTicket, autoSourceExpires;
     private TvLibraryStore store;
     private int episodeIndex, playbackGeneration, knownDuration;
     private boolean advancing, progressErrorShown;
@@ -91,6 +100,7 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
             if (!foreground || destroyed) return;
             rememberPosition();
             updateClock();
+            commitAutomaticSource();
             main.postDelayed(this, 500);
         }
     };
@@ -171,6 +181,14 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
             public void closed(AlertDialog dialog) { if (qualityDialog == dialog) qualityDialog = null; scheduleHide(); }
             public void apply(TvPlayQueue next, String token, int index, boolean carry) { applySource(next, token, index, carry); }
         });
+        if (queue != null) {
+            autoSourceSelector = new AutoSourceSelector(command -> main.post(command));
+            autoSourceQueue = new TvAutoSourceQueue(getCacheDir(), sourceProviders, command -> main.post(command));
+            autoSourceState.enter(queue, episodeName, live());
+            if (saved != null) autoSourceState.restore(saved.getBoolean("auto_source_manual", false),
+                    saved.getBoolean("auto_source_initial_used", false), saved.getBoolean("auto_source_failure_used", false));
+        }
+        updateQualityButton();
         if (failed) errorUi("上次播放未成功，请重试或选择其他画质。");
         showControls(true);
         updateResult();
@@ -377,9 +395,11 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
     private void changeEpisode(int index) {
         if (destroyed || !foreground || busy() || queue == null || index < 0 || index >= queue.episodes.size()) return;
         if (sourcePicker != null) sourcePicker.cancel();
+        cancelAutomaticSource();
         saveProgress();
         releasePlayer();
         readEpisode(index);
+        autoSourceState.enter(queue, episodeName, live());
         knownDuration = 0;
         position = restoredProgress();
         failed = completed = retryFromStart = false;
@@ -390,6 +410,11 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
     }
 
     private void applySource(TvPlayQueue next, String token, int index, boolean carryPosition) {
+        cancelAutomaticSource();
+        applySource(next, token, index, carryPosition, true);
+    }
+
+    private void applySource(TvPlayQueue next, String token, int index, boolean carryPosition, boolean manual) {
         if (destroyed || !foreground || next == null || index < 0 || index >= next.episodes.size()) {
             TvPlayQueue.delete(this, token); return;
         }
@@ -397,17 +422,94 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
         long carried = position;
         boolean wanted = playWhenReady;
         String oldToken = queueToken;
-        releasePlayer();
+        String previousUrl = urls[selected];
+        CatalogApi.Episode target = next.episodes.get(index);
+        int targetStream = CatalogApi.bestStream(target.streams);
+        boolean keepPlayer = !failed && carryPosition && player != null && prepared
+                && targetStream >= 0 && previousUrl.equals(target.streams.get(targetStream).url);
+        if (!keepPlayer) releasePlayer();
         queue = next; queueToken = token; readEpisode(index);
+        if (manual) { autoSourceState.enter(queue, episodeName, live()); autoSourceState.manual(); }
+        else autoSourceState.replaced(queue, episodeName);
         position = sourcePosition(next.video.provider.kind, carryPosition, carried, carryPosition ? 0L : restoredProgress());
-        knownDuration = 0; failed = completed = retryFromStart = false;
+        if (!keepPlayer) knownDuration = 0;
+        failed = completed = retryFromStart = false;
         playWhenReady = wanted;
         heading.setText(title); updateQualityButton(); updateNavigation();
         retryButton.setVisibility(View.GONE); playButton.setEnabled(true);
         getIntent().putExtra("queue_token", token).putExtra("queue_index", index).putExtra("resume_ms", position);
         if (oldToken != null && !oldToken.equals(token)) TvPlayQueue.delete(this, oldToken);
-        prepare(); showControls(true); updateResult();
+        if (!keepPlayer) prepare();
+        showControls(true); updateResult();
     }
+
+    private CatalogApi.Detail automaticBaseline() {
+        CatalogApi.Detail detail = new CatalogApi.Detail(); detail.video = queue.video;
+        CatalogApi.Line line = new CatalogApi.Line(); line.name = queue.lineName; detail.lines.add(line);
+        for (int i = 0; i < queue.episodes.size(); i++) {
+            CatalogApi.Episode original = queue.episodes.get(i), copy = new CatalogApi.Episode();
+            copy.name = original.name;
+            if (i == episodeIndex) copy.streams.add(original.streams.get(selected));
+            else copy.streams.addAll(original.streams);
+            line.episodes.add(copy);
+        }
+        return detail;
+    }
+
+    private void compareAutomaticSource(boolean recovery) {
+        if (autoSourceSelector == null || queue == null || live() || !foreground || destroyed || completed) return;
+        final long ticket = autoSourceState.begin(recovery);
+        if (ticket == 0L) return;
+        cancelAutomaticWork();
+        autoSourceTicket = ticket;
+        AutoSourceSelector.Request request = new AutoSourceSelector.Request(automaticBaseline(), 0,
+                episodeIndex, sourceProviders, actualWidth, actualHeight);
+        if (recovery) request = request.excludingFailedUrl(urls[selected]);
+        autoSourceHandle = autoSourceSelector.start(request, (handle, recommendation) -> {
+            if (!currentAutomaticSource(ticket, handle) || recommendation == null) return;
+            if (!recommendation.beatsCurrent(actualWidth, actualHeight)) return;
+            autoSourceSave = autoSourceQueue.prepare(recommendation.detail, recommendation.lineIndex, (next, token) -> {
+                if (!currentAutomaticSource(ticket, handle)) { TvPlayQueue.delete(this, token); return; }
+                autoSourcePrepared = next; autoSourceToken = token; autoSourceRecommendation = recommendation;
+                autoSourceExpires = SystemClock.uptimeMillis() + 15000L;
+                commitAutomaticSource();
+            });
+        });
+    }
+
+    private boolean currentAutomaticSource(long ticket, AutoSourceSelector.Handle handle) {
+        return !destroyed && foreground && handle != null && handle == autoSourceHandle && handle.isCurrent()
+                && autoSourceState.current(ticket, queue, episodeName);
+    }
+
+    private void commitAutomaticSource() {
+        if (autoSourcePrepared == null || autoSourceRecommendation == null) return;
+        if (!currentAutomaticSource(autoSourceTicket, autoSourceHandle) || completed
+                || TvAutoSourceState.expired(SystemClock.uptimeMillis(), autoSourceExpires)) { cancelAutomaticSource(); return; }
+        if (!TvAutoSourceState.mayCommit(foreground, destroyed, surfaceReady, qualityDialog != null,
+                seeking, seekState.active(), holdSpeed.armed(), advancing) || (!prepared && !failed)) return;
+        AutoSourceSelector.Recommendation recommendation = autoSourceRecommendation;
+        if (!recommendation.beatsCurrent(actualWidth, actualHeight)) { cancelAutomaticSource(); return; }
+        TvPlayQueue next = autoSourcePrepared; String token = autoSourceToken;
+        int index = recommendation.episodeIndex;
+        AutoSourcePolicy.Coverage coverage = AutoSourcePolicy.coverage(episodeName, next.episodes);
+        if (!AutoSourcePolicy.sameWork(queue.video, next.video)
+                || coverage == null || coverage.matchedIndex != index) { cancelAutomaticSource(); return; }
+        // The last decoder clock, fixed speed and play intent are sampled only after seek/hold settled.
+        autoSourcePrepared = null; autoSourceToken = null; autoSourceRecommendation = null;
+        cancelAutomaticWork();
+        applySource(next, token, index, true, false);
+        Toast.makeText(this, "已自动选优 · " + next.video.provider.name + " · " + next.lineName, Toast.LENGTH_SHORT).show();
+    }
+
+    private void cancelAutomaticWork() {
+        if (autoSourceHandle != null) { autoSourceHandle.cancel(); autoSourceHandle = null; }
+        if (autoSourceSave != null) { autoSourceSave.cancel(); autoSourceSave = null; }
+        if (autoSourceToken != null) TvPlayQueue.delete(this, autoSourceToken);
+        autoSourcePrepared = null; autoSourceToken = null; autoSourceRecommendation = null; autoSourceExpires = 0L;
+    }
+
+    private void cancelAutomaticSource() { autoSourceState.invalidate(); cancelAutomaticWork(); }
 
     private long restoredProgress() {
         if (live()) return 0L;
@@ -694,6 +796,7 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
                 updateNavigation();
                 if (position > 0) requestSeek(position, false); else startWanted();
                 updateClock();
+                compareAutomaticSource(false);
             });
             candidate.setOnSeekCompleteListener(mp -> {
                 if (mp != player || !seeking || !seekState.inFlight()) return;
@@ -894,6 +997,7 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
 
     private void chooseQuality() {
         if (!valid || qualityDialog != null || busy()) return;
+        cancelAutomaticSource();
         main.removeCallbacks(hideControls);
         if (urls.length == 1) {
             qualityDialog = new AlertDialog.Builder(this).setTitle("当前画质")
@@ -905,6 +1009,7 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
             qualityDialog = new AlertDialog.Builder(this).setTitle("选择当前选集画质")
                     .setSingleChoiceItems(choices, selected, (dialog, which) -> {
                         dialog.dismiss();
+                        autoSourceState.manual(); updateQualityButton();
                         if (which == selected && !failed) return;
                         rememberPosition();
                         saveProgress();
@@ -924,7 +1029,7 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
     }
 
     private void chooseSources() {
-        if (sourcePicker != null && qualityDialog == null) sourcePicker.show();
+        if (sourcePicker != null && qualityDialog == null) { cancelAutomaticSource(); sourcePicker.show(); }
     }
 
     private String qualityLabel(int index) {
@@ -936,11 +1041,13 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
 
     private void updateQualityButton() {
         if (qualityButton != null) qualityButton.setText("画质");
-        if (declaredQuality != null) declaredQuality.setText(live() ? "直播 · 清晰度以实际视频尺寸为准" : "来源标注：" + qualityLabel(selected));
+        if (declaredQuality != null) declaredQuality.setText(live() ? "直播 · 清晰度以实际视频尺寸为准"
+                : (autoSourceState.pinned() ? "本集保持手动选择" : "自动4K优先 · 其次1080p") + " · 来源标注：" + qualityLabel(selected));
     }
 
     private void retry() {
         if (!valid) return;
+        cancelAutomaticSource();
         rememberPosition();
         releasePlayer();
         if (retryFromStart) position = 0L;
@@ -951,12 +1058,15 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
     }
 
     private void fail(String reason, boolean fromSeek) {
+        boolean positioning = fromSeek || seeking || seekState.active();
         rememberPosition();
         failed = true;
-        retryFromStart = fromSeek;
+        retryFromStart = positioning;
         releasePlayer();
         errorUi(reason);
         updateResult();
+        if (positioning) cancelAutomaticSource();
+        else compareAutomaticSource(true);
     }
 
     private void errorUi(String reason) {
@@ -1177,6 +1287,7 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
 
     @Override protected void onPause() {
         foreground = false;
+        cancelAutomaticSource();
         if (sourcePicker != null) sourcePicker.cancel();
         rememberPosition(); saveProgress(); updateResult(); releasePlayer();
         main.removeCallbacks(ticker); main.removeCallbacks(hideControls);
@@ -1184,6 +1295,7 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
     }
 
     @Override protected void onSaveInstanceState(Bundle saved) {
+        cancelAutomaticSource();
         if (sourcePicker != null) sourcePicker.cancel();
         rememberPosition();
         if (queueToken != null) saved.putString("queue_token", queueToken);
@@ -1191,12 +1303,18 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
         saved.putBoolean("play_when_ready", playWhenReady); saved.putBoolean("failed", failed);
         saved.putBoolean("completed", completed); saved.putBoolean("retry_from_start", retryFromStart);
         saved.putInt("queue_index", episodeIndex); saved.putFloat("speed", speed);
+        saved.putBoolean("auto_source_manual", autoSourceState.pinned());
+        saved.putBoolean("auto_source_initial_used", autoSourceState.initialUsed());
+        saved.putBoolean("auto_source_failure_used", autoSourceState.failureUsed());
         super.onSaveInstanceState(saved);
     }
 
     @Override protected void onDestroy() {
         if (isFinishing()) saveProgress();
         destroyed = true;
+        cancelAutomaticSource();
+        if (autoSourceQueue != null) autoSourceQueue.release();
+        if (autoSourceSelector != null) autoSourceSelector.close();
         if (sourcePicker != null) sourcePicker.release();
         main.removeCallbacksAndMessages(null);
         if (qualityDialog != null) qualityDialog.dismiss();
@@ -1213,6 +1331,7 @@ public final class TvPlayerActivity extends Activity implements SurfaceHolder.Ca
     @Override public void surfaceChanged(SurfaceHolder holder, int format, int w, int h) { fitSurface(); }
     @Override public void surfaceDestroyed(SurfaceHolder holder) {
         surfaceReady = false;
+        cancelAutomaticSource();
         rememberPosition(); saveProgress(); updateResult(); releasePlayer();
     }
 

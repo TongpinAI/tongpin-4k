@@ -1,0 +1,38 @@
+{
+  "passed": true,
+  "verdict": "clear",
+  "revision": "r2",
+  "source_sha256": {
+    "build_tongpin.py": "d998e6b84ed7cd9486375ccd068b535c63975bc55090bfaa9bf91cc7e28a1515",
+    "open-sources/integration/DisassembleOwn1400.java": "2a8a1deb010655631841524561a094a48da1202ba8d83e13b4f8431229add3d2",
+    "open-sources/integration/assert_contract.py": "8742e390a88297e4173bca9839bf58029f1e93e8c4c2a0b451109b6c50ef3856",
+    "open-sources/integration/audit_final_ui_api_1400.py": "fbbe4e595533b41f31e80899355f969666016d2ca1d69e4f3c220e4f881f4045",
+    "open-sources/integration/check_timer_dex_1400.py": "fc277021ef39c2f7817049a9b42c146e1a81681f421feb9187a967fba617badf",
+    "open-sources/integration/integrate_1_4_0.py": "a3ee71362c7871672e375cb49787a87d4175bf12e3dd9292c0ef471324487f14",
+    "open-sources/integration/ui_1400_contract.py": "d60c00a340489c50c04d145aef713349e3c2632436a9cabaf1d49dee2eb362a8",
+    "open-sources/toolchain/check_framework_api.py": "91209f30753abd8ea244655bd98762d4e0590c173dae2e842367d82559a61905",
+    "open-sources/toolchain/compile_java_to_smali.py": "b1b855f38294ecb7d392980b917f8fa17eaae77496c3bd1fcd961e557574cc9c",
+    "verification/1.4.0/proof-tools/DisassembleOwn1400.class": "84fb4dfc3eee82ca9c5e78c33c381fd6b38f3f489018f203ef8f94b4309f7e04"
+  },
+  "promoted_frozen_inputs_sha256": "e002f7378738e8da0bb39982de9834b0defd3f697ef7729f551166a2afb4e9b7",
+  "observed_normal_integrator_full_gate": {
+    "path": "verification/1.4.0/layout-contract.json",
+    "sha256": "8c4f42107ac1756b349bf7c0bce2e4673aa6a50199cfef261b7b708645499831",
+    "passed": true
+  },
+  "integration_report_sha256": "46a043e83bdda12f4fce3b46f3de069c9a85c7c75161274414fd279b90a6934d",
+  "independent_reviews_complete_and_current": true,
+  "exact_actual_own_namespace_classes": 268,
+  "actual_abi_invocations": 3586,
+  "canonical_stage_directory": "staging-1.4.0-r2",
+  "canonical_stage_dex_sha256": "62c0c7365460c7fe4f174d6bed206b5fb292d1fc38df526c00869ecd9b69cb7a",
+  "all31_source_hashes_current": true,
+  "both_before_java_match_published139": true,
+  "native_prepared_order_proof_sha256": "ca612e901cfb7c0091f72af8497f3c4671c9d374ff8792c8100bf2fcfe015425",
+  "actual_native_order_and503caller_assertions_bound": true,
+  "superseded_r1_gate_review_sha256": "fd1417a495e8b9b29989f0c99dd155d3d16cb4c38d7b0dc3b64344edf60c15bc",
+  "native_bulk_hash_scan_repeated_by_reviewer": false,
+  "scope": "Independent correspondence check of normal formalr2 full-gate result, promotion/review pins, actual source/staging/installed namespace and actual native prepared-order/ABI evidence; reviewed normal integrator executed full native scan.",
+  "package_or_sign_executed_by_reviewer": false,
+  "device_tested": false
+}

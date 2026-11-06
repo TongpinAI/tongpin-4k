@@ -1,0 +1,12 @@
+PASS: smali: 9357 unchanged files; retained classes.dex
+PASS: smali_classes2: 9225 unchanged files; retained classes2.dex
+PASS: smali_classes3: 8155 unchanged files; retained classes3.dex
+PASS: smali_classes4: 7561 unchanged files; retained classes4.dex
+I: Using Apktool 3.0.3 on kanke-4k-latest-noads.apk with 8 threads
+I: Smaling smali_classes5 folder into classes5.dex...
+I: Building resources with aapt2...
+I: smali_classes4 has not changed.
+I: smali_classes3 has not changed.
+I: smali has not changed.
+I: smali_classes2 has not changed.
+I: Building apk file...

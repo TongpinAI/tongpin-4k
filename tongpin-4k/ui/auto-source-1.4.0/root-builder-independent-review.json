@@ -1,0 +1,83 @@
+{
+  "passed": true,
+  "verdict": "clear",
+  "workspace_sources": false,
+  "source_sha256": {
+    "build_tongpin.py": "d998e6b84ed7cd9486375ccd068b535c63975bc55090bfaa9bf91cc7e28a1515",
+    "open-sources/integration/DisassembleOwn1400.java": "2a8a1deb010655631841524561a094a48da1202ba8d83e13b4f8431229add3d2",
+    "open-sources/integration/assert_contract.py": "8742e390a88297e4173bca9839bf58029f1e93e8c4c2a0b451109b6c50ef3856",
+    "open-sources/integration/audit_final_ui_api_1400.py": "fbbe4e595533b41f31e80899355f969666016d2ca1d69e4f3c220e4f881f4045",
+    "open-sources/integration/check_timer_dex_1400.py": "fc277021ef39c2f7817049a9b42c146e1a81681f421feb9187a967fba617badf",
+    "open-sources/integration/integrate_1_4_0.py": "a3ee71362c7871672e375cb49787a87d4175bf12e3dd9292c0ef471324487f14",
+    "open-sources/integration/ui_1400_contract.py": "d60c00a340489c50c04d145aef713349e3c2632436a9cabaf1d49dee2eb362a8",
+    "open-sources/toolchain/check_framework_api.py": "91209f30753abd8ea244655bd98762d4e0590c173dae2e842367d82559a61905",
+    "open-sources/toolchain/compile_java_to_smali.py": "b1b855f38294ecb7d392980b917f8fa17eaae77496c3bd1fcd961e557574cc9c",
+    "verification/1.4.0/proof-tools/DisassembleOwn1400.class": "84fb4dfc3eee82ca9c5e78c33c381fd6b38f3f489018f203ef8f94b4309f7e04"
+  },
+  "scope": "Independent static read of exact140 ten-tool build boundary, version delta, own-namespace integration and final-DEX proof programs; not review of own shared program code.",
+  "independent_proof_javac": {
+    "passed": true,
+    "source": "open-sources/integration/DisassembleOwn1400.java",
+    "byte_equal_to_pinned_class": true,
+    "sha256": "84fb4dfc3eee82ca9c5e78c33c381fd6b38f3f489018f203ef8f94b4309f7e04",
+    "target_app_classes_loaded_or_executed": false
+  },
+  "negative_guard_checks": [
+    {
+      "case": "false_or_missing_promotion",
+      "rejected": true,
+      "scope": "actual first promotion assertion from verify()"
+    },
+    {
+      "case": "missing_required_tool_pin",
+      "rejected": true,
+      "scope": "actual exact ten-tool set assertion"
+    },
+    {
+      "case": "empty_independent_promotion_reviews",
+      "rejected": true,
+      "scope": "actual nonempty independent-review assertion"
+    },
+    {
+      "case": "native_score_binder_byte_change",
+      "rejected": true,
+      "scope": "actual native baseline predicate with in-memory hash mismatch"
+    },
+    {
+      "case": "missing_native_order_evidence_pin",
+      "rejected": true,
+      "scope": "actual minimum evidence assertion"
+    },
+    {
+      "case": "native_order_proof_bound_to_stale_caller",
+      "rejected": true,
+      "scope": "actual current caller source hash assertion"
+    }
+  ],
+  "negative_check_mode": "Extracted actual AST assertions/predicate evaluated in memory; no production/snapshot/report corruption.",
+  "reviewed_behaviors": [
+    "Only140 selects the new gate; old version dispatch bodies are preserved.",
+    "Exact modified2/added3 Java source scope, no native method/resource/provider changes outside version label; published139 native/resource/asset inventory and evidence are pinned.",
+    "promotion_ready true and independent coverage of modified/added code plus all ten tools are mandatory for formal integration.",
+    "Owner/test all-Java hashes, ABI preflight, guarded API review, canonical stage own-classes.dex and exact emitted class map must agree.",
+    "Namespace replacement is confined to the own catalog directory and an exact139 or pinned unpublished140 namespace.",
+    "Builder retains first4DEX and42native libraries, checks ZIP entry whitelist/signature/resource IDs/alignment, then disassembles actual final DEX as data.",
+    "Final native ABI call sets and every own method are compared against pinned inheritance/fresh staging; higherAPI references match reviewed SDK guards."
+  ],
+  "formal_positive_gate_pending_promotion": true,
+  "package_or_sign_executed_by_reviewer": false,
+  "device_tested": false,
+  "r2_revision_review": {
+    "passed": true,
+    "stage": "staging-1.4.0-r2",
+    "changed_tools": [
+      "open-sources/integration/check_timer_dex_1400.py",
+      "open-sources/integration/integrate_1_4_0.py",
+      "open-sources/integration/ui_1400_contract.py"
+    ],
+    "other_seven_tools_byte_unchanged": true,
+    "delta_scope": "Three stage r1-to-r2 literals plus required/hash-bound actual native prepared-order evidence; shared program code unchanged.",
+    "superseded_r1_review_sha256": "3d31959d58777c8b7cc13a7a8b5de660f3efd57c346f2141d7bf1dd4c9bfd45a",
+    "actual_native_order_proof_sha256": "ca612e901cfb7c0091f72af8497f3c4671c9d374ff8792c8100bf2fcfe015425"
+  }
+}

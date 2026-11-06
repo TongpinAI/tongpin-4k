@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "version_name": "1.4.0",
+  "version_code": 1400,
+  "scope": "Phone automatic target-episode source selection callers and ownership state; shared ranking/network helpers separately owned",
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogActivity.java": "b28a79ed1354e6f5224a536f818f6289e6ebb913f547826b4a5e462f2f838211",
+    "open-sources/src/com/tongpin/player4k/catalog/OpenPlayerActivity.java": "b416e59dab649c229759a896c1a919f20936c97944a6f90939a09624bb368abc",
+    "open-sources/src/com/tongpin/player4k/catalog/AutoSourceSession.java": "3e8a1be6cb2a07b2da8f20661271ea751eec4c2b710926e2c05935e3c4a3ac26"
+  },
+  "tests_path": "ui/auto-source-1.4.0/tests/verification.json",
+  "tests_sha256": "4313b9803a9108e0fa0c7d1e51d71f1b72232988cea2d363fb0c1a7a9ef09eac",
+  "assertions": 503,
+  "device_tested": false,
+  "all_java_source_graph_pinned": true,
+  "native_prepared_order_sha256": "ca612e901cfb7c0091f72af8497f3c4671c9d374ff8792c8100bf2fcfe015425",
+  "stage": "open-sources/staging-1.4.0-r2",
+  "r1_unpublished_attempt_aborted": true
+}

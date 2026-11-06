@@ -19,9 +19,9 @@ SDK = TOOLS / "build-tools-35.0.1"
 JDK = Path(r"D:\PyCharm\PyCharm 2024.3.1.1\jbr\bin")
 SOURCE = UPSTREAM / "output/kanke-4k-latest-noads.apk"
 DECODED = ROOT / "decoded"
-VERSION_NAME = "1.3.9"
-VERSION_CODE = 1390
-PREVIOUS_VERSION = "1.3.8"
+VERSION_NAME = "1.4.0"
+VERSION_CODE = 1400
+PREVIOUS_VERSION = "1.3.9"
 RELEASE_KIND = "code-and-ui"
 VERIFY_ROOT = ROOT / "verification"
 VERIFY = VERIFY_ROOT / VERSION_NAME
@@ -258,22 +258,22 @@ def check_own_code(candidate, integration):
 def check_final_ui_dex(candidate):
     if RELEASE_KIND != "code-and-ui":
         return None
-    assert VERSION_NAME == "1.3.9", "Prepare the version-specific final UI DEX proof reader"
+    assert VERSION_NAME == "1.4.0", "Prepare the version-specific final UI DEX proof reader"
     dex = VERIFY / "final-classes5.dex"
     with zipfile.ZipFile(candidate) as archive:
         dex.write_bytes(archive.read("classes5.dex"))
     proof_classes = VERIFY / "proof-tools"
-    assert (proof_classes / "DisassembleOwn1390.class").is_file()
+    assert (proof_classes / "DisassembleOwn1400.class").is_file()
     cp = os.pathsep.join([str(TOOLS / "apktool_3.0.3.jar"), str(proof_classes)])
-    integration = json.loads((ROOT / "open-sources/integration/1.3.9.json").read_text(encoding="utf-8"))
+    integration = json.loads((ROOT / "open-sources/integration/1.4.0.json").read_text(encoding="utf-8"))
     final_smali = VERIFY / "final-smali"
-    run([JDK / "java.exe", "-cp", cp, "DisassembleOwn1390", dex, final_smali, str(integration["own_class_count"])], evidence="final-disassembly.log")
-    run([sys.executable, ROOT / "open-sources/integration/integrate_1_3_9.py", "--check-final-smali", final_smali], evidence="final-abi.log")
-    run([sys.executable, ROOT / "open-sources/integration/audit_final_ui_api_1390.py", final_smali,
+    run([JDK / "java.exe", "-cp", cp, "DisassembleOwn1400", dex, final_smali, str(integration["own_class_count"])], evidence="final-disassembly.log")
+    run([sys.executable, ROOT / "open-sources/integration/integrate_1_4_0.py", "--check-final-smali", final_smali], evidence="final-abi.log")
+    run([sys.executable, ROOT / "open-sources/integration/audit_final_ui_api_1400.py", final_smali,
          VERIFY / "reviewed-framework-api.json"], evidence="final-framework-api.log")
     abi = json.loads((VERIFY / "final-own-abi-check.json").read_text(encoding="utf-8"))
     api = json.loads((VERIFY / "final-framework-api-review.json").read_text(encoding="utf-8"))
-    run([sys.executable, ROOT / "open-sources/integration/check_timer_dex_1390.py", final_smali], evidence="final-timer.log")
+    run([sys.executable, ROOT / "open-sources/integration/check_timer_dex_1400.py", final_smali], evidence="final-timer.log")
     timer = json.loads((VERIFY / "final-timer-proof.json").read_text(encoding="utf-8"))
     assert abi["passed"] and api["passed"] and timer["passed"]
     return {"passed":True, "classes5_sha256":digest(dex), "own_class_count":integration["own_class_count"],

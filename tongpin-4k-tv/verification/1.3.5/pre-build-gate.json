@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "frozen_inputs_sha256": "5b0506520cd80cf9af938d9cbe23ad99ba17b4d917ddb021fe99b8f6336ab152",
+  "builder_sha256": "3ab0125651f68fd2501ca30ce3722df00cfe29bd3a4eb8268651b10263e2eee7",
+  "input_count": 34,
+  "all_inputs_unchanged_from_preflight": true,
+  "final_promotion_authorized": true,
+  "independent_reviews": {
+    "ui/auto-source-1.3.5/source-independent-review.json": "95bb9f85df199b84c0e20abee00d864fb4fbe83e27cb7ec506eaac561894087e",
+    "../tongpin-4k/ui/auto-source-1.4.0/root-shared-independent-review.json": "23d36d9c4eaa02b9aada13d05012f6dcc9cda2bda2d60245f6ea09f700712dce",
+    "ui/auto-source-1.3.5/builder-independent-review.json": "b5fb91487eb7a4c107a130b2a0dc62c7b177eabcc1619687f8ecf26aec3d0d09"
+  },
+  "device_tested": false
+}

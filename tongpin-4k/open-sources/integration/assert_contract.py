@@ -100,6 +100,9 @@ def legacy_113_proofs(baseline_hashes, ui_projections=None):
 
 
 def check():
+    if release_version()[0] == "1.4.0":
+        from ui_1400_contract import verify
+        return verify()
     if release_version()[0] == "1.3.9":
         from ui_1390_contract import verify
         return verify()

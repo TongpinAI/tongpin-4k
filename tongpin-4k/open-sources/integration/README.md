@@ -1,3 +1,11 @@
+# Current integration: 1.4.0 / 1400
+
+The current release changes only own catalogue/player Java and version metadata. The 139 native smali, resources (except the exact version string), launcher and28-provider asset remain pinned. `ui_1400_contract.py` checks the139 APK hash, bounded native/resource inventory, exact two changed and three new own Java files, owner/independent review hashes, canonical fresh staging DEX, actual bundled ABI, guarded framework API references and unchanged139 evidence. Formal integration requires `promotion_ready=true`; no device acceptance is implied. The new integration entry is `integrate_1_4_0.py` and evidence is `verification/1.4.0/`.
+
+The section below is historical entry-patch documentation.
+
+---
+
 # Public catalog entry integration
 
 This patch is limited to the existing homepage entry, provider asset, two internal Activity registrations, one fragment hook, and an additive Android surface note. The three new Java classes and their compiled smali are produced by other tasks.

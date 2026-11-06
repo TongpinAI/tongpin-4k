@@ -1,0 +1,11 @@
+Tongpin4K 1.4.0 local build
+
+$ "D:\PyCharm\PyCharm 2024.3.1.1\jbr\bin\java.exe" -Xmx3g -jar C:\Users\Administrator.DESKTOP-R9V7M9S\Documents\ChatGPT\测试\kanke-noads\tools\apktool_3.0.3.jar b D:\DevTools\tmp\tongpin4k-build\decoded -o D:\DevTools\tmp\tongpin4k-build\output\tongpin-4k-1.4.0-unsigned.apk
+I: Using Apktool 3.0.3 on kanke-4k-latest-noads.apk with 8 threads
+I: Smaling smali_classes5 folder into classes5.dex...
+I: Building resources with aapt2...
+I: smali_classes4 has not changed.
+I: smali_classes3 has not changed.
+I: smali has not changed.
+I: smali_classes2 has not changed.
+I: Building apk file...

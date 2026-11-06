@@ -30,7 +30,7 @@
         }
     .end annotation
 
-    .line 832
+    .line 838
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$VideoAdapter;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
     invoke-direct {p0}, Landroid/widget/BaseAdapter;-><init>()V
@@ -41,7 +41,7 @@
 .method synthetic constructor <init>(Lcom/tongpin/player4k/catalog/CatalogActivity;Lcom/tongpin/player4k/catalog/CatalogActivity$1;)V
     .locals 0
 
-    .line 832
+    .line 838
     invoke-direct {p0, p1}, Lcom/tongpin/player4k/catalog/CatalogActivity$VideoAdapter;-><init>(Lcom/tongpin/player4k/catalog/CatalogActivity;)V
 
     return-void
@@ -52,7 +52,7 @@
 .method public getCount()I
     .locals 1
 
-    .line 833
+    .line 839
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$VideoAdapter;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
     invoke-static {v0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$1500(Lcom/tongpin/player4k/catalog/CatalogActivity;)Ljava/util/ArrayList;
@@ -69,7 +69,7 @@
 .method public getItem(I)Lcom/tongpin/player4k/catalog/CatalogApi$Video;
     .locals 1
 
-    .line 834
+    .line 840
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$VideoAdapter;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
     invoke-static {v0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$1500(Lcom/tongpin/player4k/catalog/CatalogActivity;)Ljava/util/ArrayList;
@@ -96,7 +96,7 @@
         }
     .end annotation
 
-    .line 832
+    .line 838
     invoke-virtual {p0, p1}, Lcom/tongpin/player4k/catalog/CatalogActivity$VideoAdapter;->getItem(I)Lcom/tongpin/player4k/catalog/CatalogApi$Video;
 
     move-result-object p1
@@ -107,7 +107,7 @@
 .method public getItemId(I)J
     .locals 2
 
-    .line 835
+    .line 841
     int-to-long v0, p1
 
     return-wide v0
@@ -116,17 +116,17 @@
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 8
 
-    .line 838
+    .line 844
     if-nez p2, :cond_0
 
-    .line 839
+    .line 845
     iget-object p2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$VideoAdapter;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
     invoke-static {p2}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$1600(Lcom/tongpin/player4k/catalog/CatalogActivity;)Landroid/widget/LinearLayout;
 
     move-result-object p2
 
-    .line 840
+    .line 846
     iget-object p3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$VideoAdapter;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
     const/16 v0, 0x10
@@ -157,14 +157,14 @@
 
     invoke-virtual {p2, p3, v1, v0, v3}, Landroid/widget/LinearLayout;->setPadding(IIII)V
 
-    .line 841
+    .line 847
     new-instance p3, Lcom/tongpin/player4k/catalog/CatalogActivity$Holder;
 
     const/4 v0, 0x0
 
     invoke-direct {p3, v0}, Lcom/tongpin/player4k/catalog/CatalogActivity$Holder;-><init>(Lcom/tongpin/player4k/catalog/CatalogActivity$1;)V
 
-    .line 842
+    .line 848
     new-instance v0, Landroid/widget/ImageView;
 
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$VideoAdapter;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
@@ -173,21 +173,21 @@
 
     iput-object v0, p3, Lcom/tongpin/player4k/catalog/CatalogActivity$Holder;->image:Landroid/widget/ImageView;
 
-    .line 843
+    .line 849
     iget-object v0, p3, Lcom/tongpin/player4k/catalog/CatalogActivity$Holder;->image:Landroid/widget/ImageView;
 
     sget-object v1, Landroid/widget/ImageView$ScaleType;->CENTER_CROP:Landroid/widget/ImageView$ScaleType;
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setScaleType(Landroid/widget/ImageView$ScaleType;)V
 
-    .line 844
+    .line 850
     iget-object v0, p3, Lcom/tongpin/player4k/catalog/CatalogActivity$Holder;->image:Landroid/widget/ImageView;
 
     const/4 v1, 0x2
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImportantForAccessibility(I)V
 
-    .line 845
+    .line 851
     iget-object v0, p3, Lcom/tongpin/player4k/catalog/CatalogActivity$Holder;->image:Landroid/widget/ImageView;
 
     iget-object v3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$VideoAdapter;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
@@ -200,14 +200,14 @@
 
     invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 846
+    .line 852
     iget-object v0, p3, Lcom/tongpin/player4k/catalog/CatalogActivity$Holder;->image:Landroid/widget/ImageView;
 
     const/4 v3, 0x1
 
     invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setClipToOutline(Z)V
 
-    .line 847
+    .line 853
     iget-object v0, p3, Lcom/tongpin/player4k/catalog/CatalogActivity$Holder;->image:Landroid/widget/ImageView;
 
     new-instance v4, Landroid/widget/LinearLayout$LayoutParams;
@@ -232,14 +232,14 @@
 
     invoke-virtual {p2, v0, v4}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 848
+    .line 854
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$VideoAdapter;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
     invoke-static {v0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$1800(Lcom/tongpin/player4k/catalog/CatalogActivity;)Landroid/widget/LinearLayout;
 
     move-result-object v0
 
-    .line 849
+    .line 855
     iget-object v4, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$VideoAdapter;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
     invoke-static {v4, v2}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$1300(Lcom/tongpin/player4k/catalog/CatalogActivity;I)I
@@ -250,7 +250,7 @@
 
     invoke-virtual {v0, v2, v4, v4, v4}, Landroid/widget/LinearLayout;->setPadding(IIII)V
 
-    .line 850
+    .line 856
     iget-object v2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$VideoAdapter;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
     const/16 v5, 0x11
@@ -265,31 +265,31 @@
 
     iput-object v2, p3, Lcom/tongpin/player4k/catalog/CatalogActivity$Holder;->title:Landroid/widget/TextView;
 
-    .line 851
+    .line 857
     iget-object v2, p3, Lcom/tongpin/player4k/catalog/CatalogActivity$Holder;->title:Landroid/widget/TextView;
 
     sget-object v5, Landroid/graphics/Typeface;->DEFAULT:Landroid/graphics/Typeface;
 
     invoke-virtual {v2, v5, v3}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;I)V
 
-    .line 852
+    .line 858
     iget-object v2, p3, Lcom/tongpin/player4k/catalog/CatalogActivity$Holder;->title:Landroid/widget/TextView;
 
     invoke-virtual {v2, v1}, Landroid/widget/TextView;->setMaxLines(I)V
 
-    .line 853
+    .line 859
     iget-object v2, p3, Lcom/tongpin/player4k/catalog/CatalogActivity$Holder;->title:Landroid/widget/TextView;
 
     sget-object v3, Landroid/text/TextUtils$TruncateAt;->END:Landroid/text/TextUtils$TruncateAt;
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setEllipsize(Landroid/text/TextUtils$TruncateAt;)V
 
-    .line 854
+    .line 860
     iget-object v2, p3, Lcom/tongpin/player4k/catalog/CatalogActivity$Holder;->title:Landroid/widget/TextView;
 
     invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 855
+    .line 861
     iget-object v2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$VideoAdapter;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
     const/16 v3, 0xe
@@ -302,19 +302,19 @@
 
     iput-object v2, p3, Lcom/tongpin/player4k/catalog/CatalogActivity$Holder;->subtitle:Landroid/widget/TextView;
 
-    .line 856
+    .line 862
     iget-object v2, p3, Lcom/tongpin/player4k/catalog/CatalogActivity$Holder;->subtitle:Landroid/widget/TextView;
 
     invoke-virtual {v2, v1}, Landroid/widget/TextView;->setMaxLines(I)V
 
-    .line 857
+    .line 863
     iget-object v1, p3, Lcom/tongpin/player4k/catalog/CatalogActivity$Holder;->subtitle:Landroid/widget/TextView;
 
     sget-object v2, Landroid/text/TextUtils$TruncateAt;->END:Landroid/text/TextUtils$TruncateAt;
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setEllipsize(Landroid/text/TextUtils$TruncateAt;)V
 
-    .line 858
+    .line 864
     iget-object v1, p3, Lcom/tongpin/player4k/catalog/CatalogActivity$Holder;->subtitle:Landroid/widget/TextView;
 
     iget-object v2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$VideoAdapter;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
@@ -327,12 +327,12 @@
 
     invoke-virtual {v1, v4, v2, v4, v4}, Landroid/widget/TextView;->setPadding(IIII)V
 
-    .line 859
+    .line 865
     iget-object v1, p3, Lcom/tongpin/player4k/catalog/CatalogActivity$Holder;->subtitle:Landroid/widget/TextView;
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 860
+    .line 866
     new-instance v1, Landroid/widget/LinearLayout$LayoutParams;
 
     const/4 v2, -0x2
@@ -343,13 +343,13 @@
 
     invoke-virtual {p2, v0, v1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 861
+    .line 867
     invoke-virtual {p2, p3}, Landroid/widget/LinearLayout;->setTag(Ljava/lang/Object;)V
 
-    .line 862
+    .line 868
     nop
 
-    .line 863
+    .line 869
     goto :goto_0
 
     :cond_0
@@ -359,20 +359,20 @@
 
     check-cast p3, Lcom/tongpin/player4k/catalog/CatalogActivity$Holder;
 
-    .line 864
+    .line 870
     :goto_0
     invoke-virtual {p0, p1}, Lcom/tongpin/player4k/catalog/CatalogActivity$VideoAdapter;->getItem(I)Lcom/tongpin/player4k/catalog/CatalogApi$Video;
 
     move-result-object p1
 
-    .line 865
+    .line 871
     iget-object v0, p3, Lcom/tongpin/player4k/catalog/CatalogActivity$Holder;->title:Landroid/widget/TextView;
 
     iget-object v1, p1, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->title:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 866
+    .line 872
     iget-object v0, p3, Lcom/tongpin/player4k/catalog/CatalogActivity$Holder;->subtitle:Landroid/widget/TextView;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -419,7 +419,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 867
+    .line 873
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$VideoAdapter;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
     iget-object v1, p1, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->poster:Ljava/lang/String;
@@ -430,6 +430,6 @@
 
     invoke-static {v0, v1, p3, p1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$2000(Lcom/tongpin/player4k/catalog/CatalogActivity;Ljava/lang/String;Landroid/widget/ImageView;Ljava/lang/String;)V
 
-    .line 868
+    .line 874
     return-object p2
 .end method

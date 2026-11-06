@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "scope": "140 auto-source own code only; native139 unchanged",
+  "files": {
+    "resources": {},
+    "smali": {}
+  },
+  "new_resources": {},
+  "java_source_count": 31,
+  "unchanged_native_resource_asset_inputs": 12689,
+  "provider_count": 28,
+  "checks": {
+    "native139_unchanged": true,
+    "version_only_resources": true,
+    "sources_and_reviews": true,
+    "published139_evidence_unchanged": true,
+    "canonical_stage_dex": true
+  },
+  "device_tested": false
+}
