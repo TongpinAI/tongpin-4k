@@ -24,7 +24,7 @@
 .method constructor <init>(Ljava/lang/String;I)V
     .locals 0
 
-    .line 799
+    .line 801
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$SearchAnchor;->key:Ljava/lang/String;

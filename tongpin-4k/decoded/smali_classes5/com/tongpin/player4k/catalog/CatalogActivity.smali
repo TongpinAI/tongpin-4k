@@ -743,7 +743,7 @@
 .method private alive()Z
     .locals 1
 
-    .line 1447
+    .line 1449
     invoke-virtual {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->isFinishing()Z
 
     move-result v0
@@ -770,7 +770,7 @@
 .method private applyBrowsePreview()V
     .locals 4
 
-    .line 645
+    .line 647
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->pendingPreviewGroups:Ljava/util/List;
 
     if-eqz v0, :cond_4
@@ -801,7 +801,7 @@
 
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->keyword:Ljava/lang/String;
 
-    .line 646
+    .line 648
     invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
 
     move-result v0
@@ -834,7 +834,7 @@
 
     goto :goto_1
 
-    .line 648
+    .line 650
     :cond_0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->pendingPreviewGroups:Ljava/util/List;
 
@@ -844,7 +844,7 @@
 
     iput-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->pendingPreviewHandle:Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;
 
-    .line 649
+    .line 651
     iget-object v2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->browseHandle:Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;
 
     if-eqz v2, :cond_3
@@ -875,7 +875,7 @@
 
     goto :goto_0
 
-    .line 650
+    .line 652
     :cond_1
     const/4 v2, 0x1
 
@@ -885,7 +885,7 @@
 
     iput-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->renderedBrowseGroups:Ljava/util/List;
 
-    .line 651
+    .line 653
     iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->resetAggregateViewport:Z
 
     if-eqz v0, :cond_2
@@ -898,7 +898,7 @@
 
     iput-boolean v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->resetAggregateViewport:Z
 
-    .line 652
+    .line 654
     :cond_2
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->posters:Lcom/tongpin/player4k/catalog/CatalogPosters;
 
@@ -920,15 +920,15 @@
 
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->updatePager()V
 
-    .line 653
+    .line 655
     return-void
 
-    .line 649
+    .line 651
     :cond_3
     :goto_0
     return-void
 
-    .line 647
+    .line 649
     :cond_4
     :goto_1
     return-void
@@ -937,7 +937,7 @@
 .method private applyGlobalSnapshot(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;Lcom/tongpin/player4k/catalog/AllCatalogSearch$Snapshot;)V
     .locals 3
 
-    .line 741
+    .line 743
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->searchHandle:Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;
 
     if-ne p1, v0, :cond_e
@@ -950,7 +950,7 @@
 
     goto/16 :goto_9
 
-    .line 742
+    .line 744
     :cond_0
     iget-boolean v0, p2, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Snapshot;->loading:Z
 
@@ -960,7 +960,7 @@
 
     iput-boolean v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->hasMore:Z
 
-    .line 744
+    .line 746
     iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->foreground:Z
 
     if-eqz v0, :cond_d
@@ -991,7 +991,7 @@
 
     goto/16 :goto_8
 
-    .line 747
+    .line 749
     :cond_1
     const/4 p1, 0x0
 
@@ -999,7 +999,7 @@
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->pendingSortedSnapshot:Lcom/tongpin/player4k/catalog/AllCatalogSearch$Snapshot;
 
-    .line 748
+    .line 750
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->renderedSearchGroups:Ljava/util/List;
 
     iget-object v1, p2, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Snapshot;->groups:Ljava/util/List;
@@ -1008,7 +1008,7 @@
 
     if-eq v0, v1, :cond_5
 
-    .line 749
+    .line 751
     iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->resetAggregateViewport:Z
 
     if-eqz v0, :cond_2
@@ -1031,7 +1031,7 @@
 
     move-result-object v0
 
-    .line 750
+    .line 752
     :goto_0
     iget-object v1, p2, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Snapshot;->groups:Ljava/util/List;
 
@@ -1041,12 +1041,12 @@
 
     iput-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->renderedSearchGroups:Ljava/util/List;
 
-    .line 751
+    .line 753
     iget-boolean v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->resetAggregateViewport:Z
 
     if-eqz v1, :cond_4
 
-    .line 752
+    .line 754
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->posterGrid:Landroid/widget/GridView;
 
     invoke-virtual {v0, v2}, Landroid/widget/GridView;->setSelection(I)V
@@ -1063,13 +1063,13 @@
 
     goto :goto_1
 
-    .line 753
+    .line 755
     :cond_4
     invoke-direct {p0, v0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->restoreSearchAnchor(Lcom/tongpin/player4k/catalog/CatalogActivity$SearchAnchor;)V
 
     goto :goto_1
 
-    .line 754
+    .line 756
     :cond_5
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->savedSearchAnchor:Lcom/tongpin/player4k/catalog/CatalogActivity$SearchAnchor;
 
@@ -1085,11 +1085,11 @@
     :goto_1
     nop
 
-    .line 755
+    .line 757
     :goto_2
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->savedSearchAnchor:Lcom/tongpin/player4k/catalog/CatalogActivity$SearchAnchor;
 
-    .line 756
+    .line 758
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->caption:Landroid/widget/TextView;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1136,10 +1136,10 @@
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 757
+    .line 759
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->status:Landroid/widget/TextView;
 
-    .line 758
+    .line 760
     iget-boolean v0, p2, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Snapshot;->loading:Z
 
     if-nez v0, :cond_8
@@ -1191,11 +1191,11 @@
 
     move-result-object v0
 
-    .line 757
+    .line 759
     :goto_4
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 759
+    .line 761
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->progress:Landroid/widget/ProgressBar;
 
     iget-boolean v0, p2, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Snapshot;->loading:Z
@@ -1214,7 +1214,7 @@
     :goto_5
     invoke-virtual {p1, v0}, Landroid/widget/ProgressBar;->setVisibility(I)V
 
-    .line 760
+    .line 762
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->retry:Landroid/widget/Button;
 
     iget-boolean v0, p2, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Snapshot;->projectionFailed:Z
@@ -1239,7 +1239,7 @@
 
     invoke-virtual {p1, v0}, Landroid/widget/Button;->setEnabled(Z)V
 
-    .line 761
+    .line 763
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->retry:Landroid/widget/Button;
 
     iget-boolean v0, p2, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Snapshot;->projectionFailed:Z
@@ -1263,13 +1263,13 @@
     :goto_7
     invoke-virtual {p1, v2}, Landroid/widget/Button;->setVisibility(I)V
 
-    .line 762
+    .line 764
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->updatePager()V
 
-    .line 763
+    .line 765
     return-void
 
-    .line 745
+    .line 747
     :cond_d
     :goto_8
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->pendingSortedHandle:Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;
@@ -1278,7 +1278,7 @@
 
     return-void
 
-    .line 741
+    .line 743
     :cond_e
     :goto_9
     return-void
@@ -1287,7 +1287,7 @@
 .method private applyUnifiedSnapshot(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;)V
     .locals 6
 
-    .line 656
+    .line 658
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->browseHandle:Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;
 
     if-ne p1, v0, :cond_11
@@ -1324,7 +1324,7 @@
 
     goto/16 :goto_8
 
-    .line 657
+    .line 659
     :cond_0
     iget-boolean v0, p2, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;->loading:Z
 
@@ -1334,7 +1334,7 @@
 
     iput-boolean v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->hasMore:Z
 
-    .line 658
+    .line 660
     iget-object v0, p2, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;->groups:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
@@ -1345,12 +1345,12 @@
 
     if-nez v0, :cond_2
 
-    .line 659
+    .line 661
     iput-boolean v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->freshBrowseRows:Z
 
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->invalidatePreviewDelivery()V
 
-    .line 660
+    .line 662
     iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->previewFirstSaved:Z
 
     if-eqz v0, :cond_1
@@ -1365,7 +1365,7 @@
 
     if-eq v0, v2, :cond_2
 
-    .line 661
+    .line 663
     :cond_1
     iput-boolean v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->previewFirstSaved:Z
 
@@ -1373,7 +1373,7 @@
 
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->previewSavedGroups:Ljava/util/List;
 
-    .line 662
+    .line 664
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->previewCache:Lcom/tongpin/player4k/catalog/CatalogPreviewCache;
 
     if-eqz v0, :cond_2
@@ -1390,7 +1390,7 @@
 
     invoke-virtual {v0, v2, v3, v4, v5}, Lcom/tongpin/player4k/catalog/CatalogPreviewCache;->save(Ljava/util/List;Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Section;Ljava/util/List;)V
 
-    .line 665
+    .line 667
     :cond_2
     iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->foreground:Z
 
@@ -1422,7 +1422,7 @@
 
     goto/16 :goto_7
 
-    .line 668
+    .line 670
     :cond_3
     const/4 p1, 0x0
 
@@ -1430,7 +1430,7 @@
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->pendingBrowseSnapshot:Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;
 
-    .line 669
+    .line 671
     iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->showingPreview:Z
 
     const/4 v2, 0x0
@@ -1452,7 +1452,7 @@
 
     if-eq v0, v3, :cond_9
 
-    .line 670
+    .line 672
     iget-object v0, p2, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;->groups:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
@@ -1463,7 +1463,7 @@
 
     iput-boolean v2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->showingPreview:Z
 
-    .line 671
+    .line 673
     :cond_5
     iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->resetAggregateViewport:Z
 
@@ -1487,7 +1487,7 @@
 
     move-result-object v0
 
-    .line 672
+    .line 674
     :goto_0
     iget-object v3, p2, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;->groups:Ljava/util/List;
 
@@ -1497,12 +1497,12 @@
 
     iput-object v3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->renderedBrowseGroups:Ljava/util/List;
 
-    .line 673
+    .line 675
     iget-boolean v3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->resetAggregateViewport:Z
 
     if-eqz v3, :cond_8
 
-    .line 674
+    .line 676
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->posterGrid:Landroid/widget/GridView;
 
     invoke-virtual {v0, v2}, Landroid/widget/GridView;->setSelection(I)V
@@ -1519,13 +1519,13 @@
 
     goto :goto_1
 
-    .line 675
+    .line 677
     :cond_8
     invoke-direct {p0, v0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->restoreSearchAnchor(Lcom/tongpin/player4k/catalog/CatalogActivity$SearchAnchor;)V
 
     goto :goto_1
 
-    .line 676
+    .line 678
     :cond_9
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->savedSearchAnchor:Lcom/tongpin/player4k/catalog/CatalogActivity$SearchAnchor;
 
@@ -1541,11 +1541,11 @@
     :goto_1
     nop
 
-    .line 677
+    .line 679
     :goto_2
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->savedSearchAnchor:Lcom/tongpin/player4k/catalog/CatalogActivity$SearchAnchor;
 
-    .line 678
+    .line 680
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->caption:Landroid/widget/TextView;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1588,7 +1588,7 @@
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 679
+    .line 681
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->status:Landroid/widget/TextView;
 
     iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->showingPreview:Z
@@ -1609,7 +1609,7 @@
     :goto_3
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 680
+    .line 682
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->progress:Landroid/widget/ProgressBar;
 
     iget-boolean v0, p2, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;->loading:Z
@@ -1628,7 +1628,7 @@
     :goto_4
     invoke-virtual {p1, v0}, Landroid/widget/ProgressBar;->setVisibility(I)V
 
-    .line 681
+    .line 683
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->retry:Landroid/widget/Button;
 
     iget-boolean v0, p2, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;->projectionFailed:Z
@@ -1653,7 +1653,7 @@
 
     invoke-virtual {p1, v0}, Landroid/widget/Button;->setEnabled(Z)V
 
-    .line 682
+    .line 684
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->retry:Landroid/widget/Button;
 
     iget-boolean v0, p2, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;->projectionFailed:Z
@@ -1677,13 +1677,13 @@
     :goto_6
     invoke-virtual {p1, v2}, Landroid/widget/Button;->setVisibility(I)V
 
-    .line 683
+    .line 685
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->updatePager()V
 
-    .line 684
+    .line 686
     return-void
 
-    .line 666
+    .line 668
     :cond_10
     :goto_7
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->pendingBrowseHandle:Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;
@@ -1692,7 +1692,7 @@
 
     return-void
 
-    .line 656
+    .line 658
     :cond_11
     :goto_8
     return-void
@@ -1701,7 +1701,7 @@
 .method private static attribution(Lcom/tongpin/player4k/catalog/CatalogApi$Video;)Ljava/lang/String;
     .locals 3
 
-    .line 1245
+    .line 1247
     new-instance v0, Ljava/lang/StringBuilder;
 
     const-string v1, "\u6765\u6e90\uff1a"
@@ -1716,7 +1716,7 @@
 
     move-result-object v0
 
-    .line 1246
+    .line 1248
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->author:Ljava/lang/String;
 
     invoke-virtual {v1}, Ljava/lang/String;->isEmpty()Z
@@ -1735,7 +1735,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1247
+    .line 1249
     :cond_0
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->licence:Ljava/lang/String;
 
@@ -1755,7 +1755,7 @@
 
     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1248
+    .line 1250
     :cond_1
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1791,7 +1791,7 @@
 .method private bridgeSourceSwitch()V
     .locals 8
 
-    .line 1409
+    .line 1411
     iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->foreground:Z
 
     if-eqz v0, :cond_1
@@ -1804,13 +1804,13 @@
 
     goto :goto_0
 
-    .line 1410
+    .line 1412
     :cond_0
     invoke-virtual {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
 
-    .line 1411
+    .line 1413
     new-instance v4, Lcom/tongpin/player4k/catalog/CatalogApi$Video;
 
     invoke-direct {v4}, Lcom/tongpin/player4k/catalog/CatalogApi$Video;-><init>()V
@@ -1823,7 +1823,7 @@
 
     iput-object v1, v4, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->title:Ljava/lang/String;
 
-    .line 1412
+    .line 1414
     const-string v1, "switch_year"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
@@ -1840,7 +1840,7 @@
 
     iput-object v1, v4, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->categoryLabel:Ljava/lang/String;
 
-    .line 1413
+    .line 1415
     const-string v1, "switch_description"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
@@ -1849,7 +1849,7 @@
 
     iput-object v1, v4, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->description:Ljava/lang/String;
 
-    .line 1414
+    .line 1416
     new-instance v7, Lcom/tongpin/player4k/catalog/PhoneSourcePicker;
 
     iget-object v3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->providers:Ljava/util/List;
@@ -1872,7 +1872,7 @@
 
     iput-object v7, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->sourcePicker:Lcom/tongpin/player4k/catalog/PhoneSourcePicker;
 
-    .line 1439
+    .line 1441
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->sourcePicker:Lcom/tongpin/player4k/catalog/PhoneSourcePicker;
 
     new-instance v2, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda5;
@@ -1891,10 +1891,10 @@
 
     invoke-virtual {v1, v0}, Lcom/tongpin/player4k/catalog/PhoneSourcePicker;->showProvider(Ljava/lang/String;)V
 
-    .line 1440
+    .line 1442
     return-void
 
-    .line 1409
+    .line 1411
     :cond_1
     :goto_0
     return-void
@@ -2034,7 +2034,7 @@
 .method static browseQuery(Lcom/tongpin/player4k/catalog/CatalogApi$Provider;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
 
-    .line 862
+    .line 864
     invoke-static {p0}, Lcom/tongpin/player4k/catalog/CatalogApi;->liveProvider(Lcom/tongpin/player4k/catalog/CatalogApi$Provider;)Z
 
     move-result p0
@@ -2059,7 +2059,7 @@
 .method static browseStatus(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;)Ljava/lang/String;
     .locals 4
 
-    .line 692
+    .line 694
     iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;->projectionFailed:Z
 
     const-string v1, ""
@@ -2070,7 +2070,7 @@
 
     goto :goto_0
 
-    .line 693
+    .line 695
     :cond_0
     iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;->projecting:Z
 
@@ -2084,7 +2084,7 @@
 
     goto :goto_0
 
-    .line 694
+    .line 696
     :cond_1
     iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;->limited:Z
 
@@ -2094,7 +2094,7 @@
 
     goto :goto_0
 
-    .line 695
+    .line 697
     :cond_2
     iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;->loading:Z
 
@@ -2140,7 +2140,7 @@
 
     goto :goto_0
 
-    .line 696
+    .line 698
     :cond_3
     iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;->canResume:Z
 
@@ -2150,7 +2150,7 @@
 
     goto :goto_0
 
-    .line 697
+    .line 699
     :cond_4
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;->groups:Ljava/util/List;
 
@@ -2167,7 +2167,7 @@
     :cond_5
     move-object v0, v1
 
-    .line 698
+    .line 700
     :goto_0
     iget v2, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;->failedSources:I
 
@@ -2217,7 +2217,7 @@
 
     move-result-object v0
 
-    .line 699
+    .line 701
     :cond_7
     iget v2, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;->repeatStoppedSources:I
 
@@ -2265,7 +2265,7 @@
 
     move-result-object v0
 
-    .line 700
+    .line 702
     :cond_9
     iget-object p0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;->tab:Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;
 
@@ -2307,7 +2307,7 @@
 
     move-result-object v0
 
-    .line 701
+    .line 703
     :cond_b
     return-object v0
 .end method
@@ -3407,7 +3407,7 @@
 .method private button(Ljava/lang/String;Z)Landroid/widget/Button;
     .locals 0
 
-    .line 1453
+    .line 1455
     if-eqz p2, :cond_0
 
     const/4 p2, 0x0
@@ -3497,7 +3497,7 @@
 .method private captureSearchAnchor()Lcom/tongpin/player4k/catalog/CatalogActivity$SearchAnchor;
     .locals 4
 
-    .line 766
+    .line 768
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->posterGrid:Landroid/widget/GridView;
 
     const/4 v1, 0x0
@@ -3514,7 +3514,7 @@
 
     goto :goto_0
 
-    .line 767
+    .line 769
     :cond_0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->posterGrid:Landroid/widget/GridView;
 
@@ -3524,7 +3524,7 @@
 
     move-result-object v0
 
-    .line 768
+    .line 770
     iget-object v2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->posterGrid:Landroid/widget/GridView;
 
     invoke-virtual {v2}, Landroid/widget/GridView;->isInTouchMode()Z
@@ -3541,7 +3541,7 @@
 
     if-eqz v2, :cond_1
 
-    .line 769
+    .line 771
     iget-object v2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->posterGrid:Landroid/widget/GridView;
 
     invoke-virtual {v2}, Landroid/widget/GridView;->getSelectedView()Landroid/view/View;
@@ -3552,7 +3552,7 @@
 
     move-object v0, v2
 
-    .line 771
+    .line 773
     :cond_1
     invoke-virtual {v0}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
@@ -3564,7 +3564,7 @@
 
     return-object v1
 
-    .line 772
+    .line 774
     :cond_2
     new-instance v1, Lcom/tongpin/player4k/catalog/CatalogActivity$SearchAnchor;
 
@@ -3592,7 +3592,7 @@
 
     return-object v1
 
-    .line 766
+    .line 768
     :cond_3
     :goto_0
     return-object v1
@@ -3668,7 +3668,7 @@
 .method private column()Landroid/widget/LinearLayout;
     .locals 2
 
-    .line 1449
+    .line 1451
     new-instance v0, Landroid/widget/LinearLayout;
 
     invoke-direct {v0, p0}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
@@ -3732,17 +3732,17 @@
         }
     .end annotation
 
-    .line 1196
+    .line 1198
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0, p0}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    .line 1197
+    .line 1199
     if-eqz p1, :cond_0
 
     invoke-static {v0}, Ljava/util/Collections;->reverse(Ljava/util/List;)V
 
-    .line 1198
+    .line 1200
     :cond_0
     return-object v0
 .end method
@@ -3750,7 +3750,7 @@
 .method private dp(I)I
     .locals 1
 
-    .line 1448
+    .line 1450
     int-to-float p1, p1
 
     invoke-virtual {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->getResources()Landroid/content/res/Resources;
@@ -3775,43 +3775,43 @@
 .method private drainSortedSnapshot()V
     .locals 2
 
-    .line 790
+    .line 792
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->pendingSortedHandle:Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;
 
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->pendingSortedSnapshot:Lcom/tongpin/player4k/catalog/AllCatalogSearch$Snapshot;
 
-    .line 791
+    .line 793
     if-eqz v0, :cond_0
 
     if-eqz v1, :cond_0
 
     invoke-direct {p0, v0, v1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->applyGlobalSnapshot(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;Lcom/tongpin/player4k/catalog/AllCatalogSearch$Snapshot;)V
 
-    .line 792
+    .line 794
     :cond_0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->pendingBrowseHandle:Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;
 
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->pendingBrowseSnapshot:Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;
 
-    .line 793
+    .line 795
     if-eqz v0, :cond_1
 
     if-eqz v1, :cond_1
 
     invoke-direct {p0, v0, v1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->applyUnifiedSnapshot(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;)V
 
-    .line 794
+    .line 796
     :cond_1
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->applyBrowsePreview()V
 
-    .line 795
+    .line 797
     return-void
 .end method
 
 .method static episodeColumns(I)I
     .locals 1
 
-    .line 1193
+    .line 1195
     add-int/lit8 p0, p0, -0x20
 
     div-int/lit8 p0, p0, 0x64
@@ -3834,12 +3834,12 @@
 .method private static episodeSummary(Lcom/tongpin/player4k/catalog/CatalogApi$Line;)Ljava/lang/String;
     .locals 3
 
-    .line 1015
+    .line 1017
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    .line 1016
+    .line 1018
     iget-object p0, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Line;->episodes:Ljava/util/List;
 
     invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
@@ -3860,7 +3860,7 @@
 
     check-cast v1, Lcom/tongpin/player4k/catalog/CatalogApi$Episode;
 
-    .line 1017
+    .line 1019
     if-eqz v1, :cond_0
 
     iget-object v2, v1, Lcom/tongpin/player4k/catalog/CatalogApi$Episode;->streams:Ljava/util/List;
@@ -3881,7 +3881,7 @@
 
     goto :goto_0
 
-    .line 1018
+    .line 1020
     :cond_1
     invoke-static {v0}, Lcom/tongpin/player4k/catalog/EpisodeSummary;->describe(Ljava/lang/Iterable;)Ljava/lang/String;
 
@@ -3893,7 +3893,7 @@
 .method static globalStatus(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Snapshot;)Ljava/lang/String;
     .locals 3
 
-    .line 846
+    .line 848
     iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Snapshot;->limited:Z
 
     if-eqz v0, :cond_0
@@ -3930,7 +3930,7 @@
 
     goto/16 :goto_1
 
-    .line 847
+    .line 849
     :cond_0
     iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Snapshot;->loading:Z
 
@@ -3972,7 +3972,7 @@
 
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Snapshot;->items:Ljava/util/List;
 
-    .line 848
+    .line 850
     invoke-interface {v1}, Ljava/util/List;->size()I
 
     move-result v1
@@ -3993,7 +3993,7 @@
 
     goto :goto_1
 
-    .line 849
+    .line 851
     :cond_1
     iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Snapshot;->canResume:Z
 
@@ -4031,7 +4031,7 @@
 
     goto :goto_1
 
-    .line 850
+    .line 852
     :cond_2
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Snapshot;->items:Ljava/util/List;
 
@@ -4049,12 +4049,12 @@
 
     if-lez v0, :cond_3
 
-    .line 851
+    .line 853
     const-string v0, "\u6682\u672a\u6536\u5230\u53ef\u7528\u54cd\u5e94\uff0c\u8bf7\u91cd\u8bd5\u5931\u8d25\u6765\u6e90"
 
     goto :goto_0
 
-    .line 852
+    .line 854
     :cond_3
     iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Snapshot;->hasMore:Z
 
@@ -4070,7 +4070,7 @@
     :goto_0
     goto :goto_1
 
-    .line 853
+    .line 855
     :cond_5
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -4102,7 +4102,7 @@
 
     move-result-object v0
 
-    .line 854
+    .line 856
     :goto_1
     iget-boolean v1, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Snapshot;->limited:Z
 
@@ -4130,7 +4130,7 @@
 
     move-result-object v0
 
-    .line 855
+    .line 857
     :cond_6
     iget v1, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Snapshot;->failedSources:I
 
@@ -4162,7 +4162,7 @@
 
     move-result-object v0
 
-    .line 856
+    .line 858
     iget-boolean v1, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Snapshot;->limited:Z
 
     if-eqz v1, :cond_7
@@ -4183,7 +4183,7 @@
 
     move-result-object v0
 
-    .line 857
+    .line 859
     :cond_8
     iget v1, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Snapshot;->repeatStoppedSources:I
 
@@ -4217,7 +4217,7 @@
 
     move-result-object v0
 
-    .line 858
+    .line 860
     :cond_9
     return-object v0
 .end method
@@ -4225,7 +4225,7 @@
 .method private static httpUrl(Ljava/lang/String;)Z
     .locals 3
 
-    .line 1557
+    .line 1559
     const/4 v0, 0x0
 
     :try_start_0
@@ -4277,7 +4277,7 @@
     :cond_1
     return v0
 
-    .line 1558
+    .line 1560
     :catch_0
     move-exception p0
 
@@ -4317,7 +4317,7 @@
 .method private invalidatePreviewDelivery()V
     .locals 1
 
-    .line 629
+    .line 631
     iget v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->previewTicket:I
 
     add-int/lit8 v0, v0, 0x1
@@ -4330,14 +4330,14 @@
 
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->pendingPreviewHandle:Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;
 
-    .line 630
+    .line 632
     return-void
 .end method
 
 .method private label(Ljava/lang/String;II)Landroid/widget/TextView;
     .locals 0
 
-    .line 1451
+    .line 1453
     invoke-static {p0, p1, p2, p3}, Lcom/tongpin/player4k/catalog/PhoneUi;->text(Landroid/content/Context;Ljava/lang/String;II)Landroid/widget/TextView;
 
     move-result-object p1
@@ -4509,7 +4509,7 @@
 .method private loadBrowsePreview()V
     .locals 11
 
-    .line 633
+    .line 635
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->previewCache:Lcom/tongpin/player4k/catalog/CatalogPreviewCache;
 
     if-eqz v0, :cond_1
@@ -4552,7 +4552,7 @@
 
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->browseHandle:Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;
 
-    .line 634
+    .line 636
     invoke-virtual {v0}, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->isCurrent()Z
 
     move-result v0
@@ -4561,7 +4561,7 @@
 
     goto :goto_0
 
-    .line 635
+    .line 637
     :cond_0
     iget v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->previewTicket:I
 
@@ -4573,10 +4573,10 @@
 
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->homeTab:Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;
 
-    .line 636
+    .line 638
     iget-object v7, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->homeSection:Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Section;
 
-    .line 637
+    .line 639
     iget-object v8, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->previewCache:Lcom/tongpin/player4k/catalog/CatalogPreviewCache;
 
     iget-object v9, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->providers:Ljava/util/List;
@@ -4595,10 +4595,10 @@
 
     invoke-virtual {v8, v9, v0, v7, v10}, Lcom/tongpin/player4k/catalog/CatalogPreviewCache;->load(Ljava/util/List;Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Section;Lcom/tongpin/player4k/catalog/CatalogPreviewCache$Listener;)V
 
-    .line 642
+    .line 644
     return-void
 
-    .line 634
+    .line 636
     :cond_1
     :goto_0
     return-void
@@ -4607,7 +4607,7 @@
 .method private loadDetail(Lcom/tongpin/player4k/catalog/CatalogApi$Video;)V
     .locals 4
 
-    .line 979
+    .line 981
     iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->liveMode:Z
 
     if-nez v0, :cond_0
@@ -4618,7 +4618,7 @@
 
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->savedSearchAnchor:Lcom/tongpin/player4k/catalog/CatalogActivity$SearchAnchor;
 
-    .line 980
+    .line 982
     :cond_0
     const/4 v0, 0x1
 
@@ -4626,12 +4626,12 @@
 
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->pauseCatalogue()V
 
-    .line 981
+    .line 983
     invoke-direct {p0, p1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->latestGroupFor(Lcom/tongpin/player4k/catalog/CatalogApi$Video;)Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Group;
 
     move-result-object v1
 
-    .line 982
+    .line 984
     if-nez v1, :cond_1
 
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->candidateGroups:Ljava/util/Map;
@@ -4646,7 +4646,7 @@
 
     check-cast v1, Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Group;
 
-    .line 983
+    .line 985
     :cond_1
     if-eqz v1, :cond_2
 
@@ -4675,21 +4675,21 @@
     :goto_0
     iput-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->detailGroup:Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Group;
 
-    .line 984
+    .line 986
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->stateRow:Landroid/view/View;
 
     const/4 v2, 0x0
 
     invoke-virtual {v1, v2}, Landroid/view/View;->setVisibility(I)V
 
-    .line 985
+    .line 987
     iget v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->detailTicket:I
 
     add-int/2addr v1, v0
 
     iput v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->detailTicket:I
 
-    .line 986
+    .line 988
     iget-object v3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->detailRequest:Ljava/util/concurrent/Future;
 
     if-eqz v3, :cond_4
@@ -4698,27 +4698,27 @@
 
     invoke-interface {v3, v0}, Ljava/util/concurrent/Future;->cancel(Z)Z
 
-    .line 987
+    .line 989
     :cond_4
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->progress:Landroid/widget/ProgressBar;
 
     invoke-virtual {v0, v2}, Landroid/widget/ProgressBar;->setVisibility(I)V
 
-    .line 988
+    .line 990
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->status:Landroid/widget/TextView;
 
     const-string v2, "\u6b63\u5728\u8bfb\u53d6\u9009\u96c6\u2026"
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 989
+    .line 991
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->retry:Landroid/widget/Button;
 
     const/16 v2, 0x8
 
     invoke-virtual {v0, v2}, Landroid/widget/Button;->setVisibility(I)V
 
-    .line 990
+    .line 992
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->requests:Ljava/util/concurrent/ExecutorService;
 
     new-instance v2, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda2;
@@ -4731,14 +4731,14 @@
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->detailRequest:Ljava/util/concurrent/Future;
 
-    .line 1012
+    .line 1014
     return-void
 .end method
 
 .method private loadHistory(Lcom/tongpin/player4k/catalog/LibraryStore$Entry;)V
     .locals 4
 
-    .line 1377
+    .line 1379
     iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->liveMode:Z
 
     if-nez v0, :cond_0
@@ -4749,7 +4749,7 @@
 
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->savedSearchAnchor:Lcom/tongpin/player4k/catalog/CatalogActivity$SearchAnchor;
 
-    .line 1378
+    .line 1380
     :cond_0
     const/4 v0, 0x1
 
@@ -4765,21 +4765,21 @@
 
     iput-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->detailGroup:Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Group;
 
-    .line 1379
+    .line 1381
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->stateRow:Landroid/view/View;
 
     const/4 v2, 0x0
 
     invoke-virtual {v1, v2}, Landroid/view/View;->setVisibility(I)V
 
-    .line 1380
+    .line 1382
     iget v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->detailTicket:I
 
     add-int/2addr v1, v0
 
     iput v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->detailTicket:I
 
-    .line 1381
+    .line 1383
     iget-object v3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->detailRequest:Ljava/util/concurrent/Future;
 
     if-eqz v3, :cond_1
@@ -4788,7 +4788,7 @@
 
     invoke-interface {v3, v0}, Ljava/util/concurrent/Future;->cancel(Z)Z
 
-    .line 1382
+    .line 1384
     :cond_1
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->progress:Landroid/widget/ProgressBar;
 
@@ -4800,7 +4800,7 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 1383
+    .line 1385
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->requests:Ljava/util/concurrent/ExecutorService;
 
     new-instance v2, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda39;
@@ -4813,14 +4813,14 @@
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->detailRequest:Ljava/util/concurrent/Future;
 
-    .line 1406
+    .line 1408
     return-void
 .end method
 
 .method private loadPage(I)V
     .locals 9
 
-    .line 880
+    .line 882
     const/4 v0, 0x1
 
     if-lt p1, v0, :cond_8
@@ -4831,7 +4831,7 @@
 
     goto/16 :goto_2
 
-    .line 881
+    .line 883
     :cond_0
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->keyword:Ljava/lang/String;
 
@@ -4845,13 +4845,13 @@
 
     return-void
 
-    .line 882
+    .line 884
     :cond_1
     iget-boolean v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->liveMode:Z
 
     if-nez v1, :cond_3
 
-    .line 883
+    .line 885
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->browseHandle:Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;
 
     if-eqz p1, :cond_2
@@ -4884,15 +4884,15 @@
 
     goto :goto_0
 
-    .line 884
+    .line 886
     :cond_2
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->startUnifiedBrowse()V
 
-    .line 885
+    .line 887
     :goto_0
     return-void
 
-    .line 887
+    .line 889
     :cond_3
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->pauseCatalogue()V
 
@@ -4902,21 +4902,21 @@
 
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->updateSearchSupport()V
 
-    .line 888
+    .line 890
     iget v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->pageTicket:I
 
     add-int/lit8 v8, v1, 0x1
 
     iput v8, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->pageTicket:I
 
-    .line 889
+    .line 891
     iget v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->detailTicket:I
 
     add-int/2addr v1, v0
 
     iput v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->detailTicket:I
 
-    .line 890
+    .line 892
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->pageRequest:Ljava/util/concurrent/Future;
 
     if-eqz v1, :cond_4
@@ -4925,7 +4925,7 @@
 
     invoke-interface {v1, v0}, Ljava/util/concurrent/Future;->cancel(Z)Z
 
-    .line 891
+    .line 893
     :cond_4
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->detailRequest:Ljava/util/concurrent/Future;
 
@@ -4935,34 +4935,34 @@
 
     invoke-interface {v1, v0}, Ljava/util/concurrent/Future;->cancel(Z)Z
 
-    .line 892
+    .line 894
     :cond_5
     iput p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->page:I
 
-    .line 893
+    .line 895
     iput-boolean v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->loading:Z
 
-    .line 894
+    .line 896
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->hasMore:Z
 
-    .line 895
+    .line 897
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->posters:Lcom/tongpin/player4k/catalog/CatalogPosters;
 
     invoke-virtual {v1}, Lcom/tongpin/player4k/catalog/CatalogPosters;->clear()V
 
-    .line 896
+    .line 898
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->videos:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->clear()V
 
-    .line 897
+    .line 899
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->adapter:Lcom/tongpin/player4k/catalog/CatalogActivity$VideoAdapter;
 
     invoke-virtual {v1}, Lcom/tongpin/player4k/catalog/CatalogActivity$VideoAdapter;->notifyDataSetChanged()V
 
-    .line 898
+    .line 900
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->providers:Ljava/util/List;
 
     iget v2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->providerIndex:I
@@ -4975,7 +4975,7 @@
 
     check-cast v4, Lcom/tongpin/player4k/catalog/CatalogApi$Provider;
 
-    .line 899
+    .line 901
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->categoryCatalog:Lcom/tongpin/player4k/catalog/CatalogCategories;
 
     if-nez v1, :cond_6
@@ -4996,10 +4996,10 @@
     :goto_1
     move-object v7, v1
 
-    .line 900
+    .line 902
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->renderCategories()V
 
-    .line 901
+    .line 903
     iget-boolean v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->foreground:Z
 
     if-eqz v1, :cond_7
@@ -5008,7 +5008,7 @@
 
     invoke-virtual {v1}, Lcom/tongpin/player4k/catalog/CatalogPosters;->resume()V
 
-    .line 902
+    .line 904
     :cond_7
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->status:Landroid/widget/TextView;
 
@@ -5040,29 +5040,29 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 903
+    .line 905
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->progress:Landroid/widget/ProgressBar;
 
     invoke-virtual {v1, v0}, Landroid/widget/ProgressBar;->setVisibility(I)V
 
-    .line 904
+    .line 906
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->retry:Landroid/widget/Button;
 
     const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setVisibility(I)V
 
-    .line 905
+    .line 907
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->updatePager()V
 
-    .line 906
+    .line 908
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->channelQuery:Ljava/lang/String;
 
     invoke-static {v4, v0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->browseQuery(Lcom/tongpin/player4k/catalog/CatalogApi$Provider;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v5
 
-    .line 907
+    .line 909
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->requests:Ljava/util/concurrent/ExecutorService;
 
     new-instance v1, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda6;
@@ -5081,10 +5081,10 @@
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->pageRequest:Ljava/util/concurrent/Future;
 
-    .line 952
+    .line 954
     return-void
 
-    .line 880
+    .line 882
     :cond_8
     :goto_2
     return-void
@@ -5093,7 +5093,7 @@
 .method private loadPoster(Ljava/lang/String;Landroid/widget/ImageView;Ljava/lang/String;)V
     .locals 1
 
-    .line 1552
+    .line 1554
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -5114,19 +5114,19 @@
 
     invoke-virtual {p2, p3}, Landroid/widget/ImageView;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    .line 1553
+    .line 1555
     iget-object p3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->posters:Lcom/tongpin/player4k/catalog/CatalogPosters;
 
     invoke-virtual {p3, p2, p1}, Lcom/tongpin/player4k/catalog/CatalogPosters;->load(Landroid/widget/ImageView;Ljava/lang/String;)V
 
-    .line 1554
+    .line 1556
     return-void
 .end method
 
 .method static manualSourceBridge(Ljava/lang/String;)Z
     .locals 0
 
-    .line 1444
+    .line 1446
     if-eqz p0, :cond_0
 
     invoke-virtual {p0}, Ljava/lang/String;->trim()Ljava/lang/String;
@@ -5341,7 +5341,7 @@
         }
     .end annotation
 
-    .line 1457
+    .line 1459
     new-instance v0, Lcom/tongpin/player4k/catalog/CatalogActivity$4;
 
     const v1, 0x1090003
@@ -5354,17 +5354,17 @@
 .method private play(Lcom/tongpin/player4k/catalog/CatalogApi$Detail;Lcom/tongpin/player4k/catalog/CatalogApi$Episode;)V
     .locals 10
 
-    .line 1202
+    .line 1204
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->pauseCatalogue()V
 
-    .line 1203
+    .line 1205
     iget-object v0, p2, Lcom/tongpin/player4k/catalog/CatalogApi$Episode;->streams:Ljava/util/List;
 
     invoke-static {v0}, Lcom/tongpin/player4k/catalog/CatalogApi;->bestStream(Ljava/util/List;)I
 
     move-result v0
 
-    .line 1204
+    .line 1206
     const/4 v1, 0x1
 
     if-gez v0, :cond_0
@@ -5379,7 +5379,7 @@
 
     return-void
 
-    .line 1205
+    .line 1207
     :cond_0
     iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->preparingPlayback:Z
 
@@ -5387,11 +5387,11 @@
 
     return-void
 
-    .line 1206
+    .line 1208
     :cond_1
     nop
 
-    .line 1207
+    .line 1209
     iget-object v0, p1, Lcom/tongpin/player4k/catalog/CatalogApi$Detail;->lines:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
@@ -5427,7 +5427,7 @@
     :goto_0
     move-object v6, v2
 
-    .line 1208
+    .line 1210
     if-nez v6, :cond_4
 
     const-string p1, "\u9009\u96c6\u5df2\u53d8\u5316\uff0c\u8bf7\u91cd\u65b0\u9009\u62e9"
@@ -5440,11 +5440,11 @@
 
     return-void
 
-    .line 1209
+    .line 1211
     :cond_4
     nop
 
-    .line 1210
+    .line 1212
     iget-object v0, v6, Lcom/tongpin/player4k/catalog/CatalogApi$Line;->episodes:Ljava/util/List;
 
     invoke-interface {v0, p2}, Ljava/util/List;->indexOf(Ljava/lang/Object;)I
@@ -5453,10 +5453,10 @@
 
     iget v7, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->detailTicket:I
 
-    .line 1211
+    .line 1213
     iput-boolean v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->preparingPlayback:Z
 
-    .line 1212
+    .line 1214
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->requests:Ljava/util/concurrent/ExecutorService;
 
     new-instance v1, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda3;
@@ -5473,14 +5473,14 @@
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/ExecutorService;->execute(Ljava/lang/Runnable;)V
 
-    .line 1235
+    .line 1237
     return-void
 .end method
 
 .method static posterColumns(IF)I
     .locals 1
 
-    .line 1474
+    .line 1476
     const/16 v0, 0x154
 
     if-ge p0, v0, :cond_0
@@ -5517,7 +5517,7 @@
 .method static posterHeight(I)I
     .locals 1
 
-    .line 1477
+    .line 1479
     const/4 v0, 0x0
 
     invoke-static {v0, p0}, Ljava/lang/Math;->max(II)I
@@ -5625,7 +5625,7 @@
 .method static previewStatus(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;)Ljava/lang/String;
     .locals 2
 
-    .line 687
+    .line 689
     iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;->loading:Z
 
     if-eqz v0, :cond_0
@@ -5634,7 +5634,7 @@
 
     goto :goto_2
 
-    .line 688
+    .line 690
     :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -5674,7 +5674,7 @@
 
     move-result-object p0
 
-    .line 687
+    .line 689
     :goto_2
     return-object p0
 .end method
@@ -5682,7 +5682,7 @@
 .method static projectedSearchStatus(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Snapshot;I)Ljava/lang/String;
     .locals 3
 
-    .line 705
+    .line 707
     iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Snapshot;->projectionFailed:Z
 
     const-string v1, ""
@@ -5693,7 +5693,7 @@
 
     goto :goto_0
 
-    .line 706
+    .line 708
     :cond_0
     iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Snapshot;->projecting:Z
 
@@ -5707,7 +5707,7 @@
 
     goto :goto_0
 
-    .line 707
+    .line 709
     :cond_1
     iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Snapshot;->limited:Z
 
@@ -5717,7 +5717,7 @@
 
     goto :goto_0
 
-    .line 708
+    .line 710
     :cond_2
     iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Snapshot;->loading:Z
 
@@ -5763,7 +5763,7 @@
 
     goto :goto_0
 
-    .line 709
+    .line 711
     :cond_3
     iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Snapshot;->canResume:Z
 
@@ -5773,7 +5773,7 @@
 
     goto :goto_0
 
-    .line 710
+    .line 712
     :cond_4
     if-nez p1, :cond_6
 
@@ -5785,7 +5785,7 @@
 
     if-lez p1, :cond_5
 
-    .line 711
+    .line 713
     const-string p1, "\u6682\u672a\u6536\u5230\u53ef\u7528\u54cd\u5e94\uff0c\u8bf7\u91cd\u8bd5\u5931\u8d25\u6765\u6e90"
 
     goto :goto_0
@@ -5798,7 +5798,7 @@
     :cond_6
     move-object p1, v1
 
-    .line 712
+    .line 714
     :goto_0
     iget v0, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Snapshot;->failedSources:I
 
@@ -5848,7 +5848,7 @@
 
     move-result-object p1
 
-    .line 713
+    .line 715
     :cond_8
     iget v0, p0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Snapshot;->repeatStoppedSources:I
 
@@ -5894,7 +5894,7 @@
 
     move-result-object p1
 
-    .line 714
+    .line 716
     :cond_a
     return-object p1
 .end method
@@ -5902,7 +5902,7 @@
 .method private static quality(Lcom/tongpin/player4k/catalog/CatalogApi$Stream;)Ljava/lang/String;
     .locals 4
 
-    .line 1238
+    .line 1240
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Stream;->label:Ljava/lang/String;
 
     const-string v1, "\u81ea\u9002\u5e94"
@@ -5911,7 +5911,7 @@
 
     move-result v0
 
-    .line 1239
+    .line 1241
     iget v1, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Stream;->width:I
 
     if-lez v1, :cond_2
@@ -5920,7 +5920,7 @@
 
     if-lez v1, :cond_2
 
-    .line 1240
+    .line 1242
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -5978,7 +5978,7 @@
 
     return-object p0
 
-    .line 1241
+    .line 1243
     :cond_2
     if-eqz v0, :cond_3
 
@@ -6001,17 +6001,17 @@
         }
     .end annotation
 
-    .line 1562
+    .line 1564
     new-instance v0, Ljava/io/ByteArrayOutputStream;
 
     invoke-direct {v0}, Ljava/io/ByteArrayOutputStream;-><init>()V
 
-    .line 1563
+    .line 1565
     const/16 v1, 0x2000
 
     new-array v1, v1, [B
 
-    .line 1565
+    .line 1567
     :goto_0
     invoke-virtual {p0, v1}, Ljava/io/InputStream;->read([B)I
 
@@ -6021,7 +6021,7 @@
 
     if-eq v2, v3, :cond_2
 
-    .line 1566
+    .line 1568
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
     move-result-object v3
@@ -6032,7 +6032,7 @@
 
     if-nez v3, :cond_1
 
-    .line 1567
+    .line 1569
     invoke-virtual {v0}, Ljava/io/ByteArrayOutputStream;->size()I
 
     move-result v3
@@ -6041,14 +6041,14 @@
 
     if-gt v3, p1, :cond_0
 
-    .line 1568
+    .line 1570
     const/4 v3, 0x0
 
     invoke-virtual {v0, v1, v3, v2}, Ljava/io/ByteArrayOutputStream;->write([BII)V
 
     goto :goto_0
 
-    .line 1567
+    .line 1569
     :cond_0
     new-instance p0, Ljava/io/IOException;
 
@@ -6058,7 +6058,7 @@
 
     throw p0
 
-    .line 1566
+    .line 1568
     :cond_1
     new-instance p0, Ljava/io/IOException;
 
@@ -6068,7 +6068,7 @@
 
     throw p0
 
-    .line 1570
+    .line 1572
     :cond_2
     invoke-virtual {v0}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
 
@@ -6731,7 +6731,7 @@
 .method private restoreGlobalSearch()V
     .locals 2
 
-    .line 825
+    .line 827
     iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->foreground:Z
 
     if-eqz v0, :cond_0
@@ -6750,7 +6750,7 @@
 
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->loadBrowsePreview()V
 
-    .line 826
+    .line 828
     :cond_0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->keyword:Ljava/lang/String;
 
@@ -6760,7 +6760,7 @@
 
     if-eqz v0, :cond_2
 
-    .line 827
+    .line 829
     iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->liveMode:Z
 
     if-nez v0, :cond_1
@@ -6789,7 +6789,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 828
+    .line 830
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->browseHandle:Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;
 
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->browseHandle:Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;
@@ -6806,11 +6806,15 @@
 
     invoke-virtual {v0, v1}, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse;->resume(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;)Z
 
-    .line 830
+    iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->unifiedBrowse:Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse;
+
+    invoke-virtual {v0}, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse;->preload()V
+
+    .line 832
     :cond_1
     return-void
 
-    .line 832
+    .line 834
     :cond_2
     iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->foreground:Z
 
@@ -6838,7 +6842,7 @@
 
     goto :goto_0
 
-    .line 833
+    .line 835
     :cond_3
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->searchHandle:Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;
 
@@ -6850,17 +6854,17 @@
 
     invoke-direct {p0, v0, v1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->applyGlobalSnapshot(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;Lcom/tongpin/player4k/catalog/AllCatalogSearch$Snapshot;)V
 
-    .line 834
+    .line 836
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->allSearch:Lcom/tongpin/player4k/catalog/AllCatalogSearch;
 
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->searchHandle:Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;
 
     invoke-virtual {v0, v1}, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->resume(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;)Z
 
-    .line 835
+    .line 837
     return-void
 
-    .line 832
+    .line 834
     :cond_4
     :goto_0
     return-void
@@ -6869,12 +6873,12 @@
 .method private restoreSearchAnchor(Lcom/tongpin/player4k/catalog/CatalogActivity$SearchAnchor;)V
     .locals 2
 
-    .line 776
+    .line 778
     if-nez p1, :cond_0
 
     return-void
 
-    .line 777
+    .line 779
     :cond_0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->visibleGroups:Ljava/util/List;
 
@@ -6903,7 +6907,7 @@
 
     move-result v0
 
-    .line 778
+    .line 780
     :goto_0
     if-ltz v0, :cond_2
 
@@ -6913,7 +6917,7 @@
 
     invoke-virtual {v1, v0, p1}, Landroid/widget/GridView;->setSelectionFromTop(II)V
 
-    .line 779
+    .line 781
     :cond_2
     return-void
 .end method
@@ -6969,7 +6973,7 @@
 .method static resultSubtitle(Lcom/tongpin/player4k/catalog/CatalogApi$Video;)Ljava/lang/String;
     .locals 3
 
-    .line 1541
+    .line 1543
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -7040,7 +7044,7 @@
 .method private returnToBrowse()V
     .locals 2
 
-    .line 838
+    .line 840
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->cancelGlobalSearch()V
 
     const-string v0, ""
@@ -7051,15 +7055,15 @@
 
     invoke-virtual {v1, v0}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 839
+    .line 841
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->invalidateDetailRequest()V
 
-    .line 840
+    .line 842
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->resetAggregateViewport:Z
 
-    .line 841
+    .line 843
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->liveMode:Z
@@ -7070,7 +7074,7 @@
 
     invoke-direct {p0, v0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->loadPage(I)V
 
-    .line 842
+    .line 844
     return-void
 .end method
 
@@ -7132,7 +7136,7 @@
 .method private row()Landroid/widget/LinearLayout;
     .locals 2
 
-    .line 1450
+    .line 1452
     new-instance v0, Landroid/widget/LinearLayout;
 
     invoke-direct {v0, p0}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
@@ -7151,12 +7155,12 @@
 .method private scheduleSortedDrain()V
     .locals 6
 
-    .line 782
+    .line 784
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->gridClickSettling:Z
 
-    .line 783
+    .line 785
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->sortedDrain:Ljava/lang/Runnable;
 
     if-eqz v0, :cond_0
@@ -7167,7 +7171,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/GridView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
-    .line 784
+    .line 786
     :cond_0
     new-instance v0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda52;
 
@@ -7175,7 +7179,7 @@
 
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->sortedDrain:Ljava/lang/Runnable;
 
-    .line 786
+    .line 788
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->posterGrid:Landroid/widget/GridView;
 
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->sortedDrain:Ljava/lang/Runnable;
@@ -7192,14 +7196,14 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/widget/GridView;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 787
+    .line 789
     return-void
 .end method
 
 .method private searchChannels()V
     .locals 5
 
-    .line 866
+    .line 868
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->providers:Ljava/util/List;
 
     iget v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->providerIndex:I
@@ -7210,7 +7214,7 @@
 
     check-cast v0, Lcom/tongpin/player4k/catalog/CatalogApi$Provider;
 
-    .line 867
+    .line 869
     iget-boolean v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->liveMode:Z
 
     if-eqz v1, :cond_1
@@ -7231,7 +7235,7 @@
 
     goto :goto_0
 
-    .line 868
+    .line 870
     :cond_0
     new-instance v1, Landroid/widget/EditText;
 
@@ -7245,12 +7249,12 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 869
+    .line 871
     const-string v2, "\u641c\u7d22\u5f53\u524d\u76f4\u64ad\u9891\u9053"
 
     invoke-virtual {v1, v2}, Landroid/widget/EditText;->setHint(Ljava/lang/CharSequence;)V
 
-    .line 870
+    .line 872
     new-instance v2, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {v2, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
@@ -7287,7 +7291,7 @@
 
     invoke-direct {v2, p0, v1}, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda15;-><init>(Lcom/tongpin/player4k/catalog/CatalogActivity;Landroid/widget/EditText;)V
 
-    .line 871
+    .line 873
     const-string v1, "\u641c\u7d22\u9891\u9053"
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
@@ -7298,14 +7302,14 @@
 
     invoke-direct {v1, p0}, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda16;-><init>(Lcom/tongpin/player4k/catalog/CatalogActivity;)V
 
-    .line 875
+    .line 877
     const-string v2, "\u5168\u90e8\u9891\u9053"
 
     invoke-virtual {v0, v2, v1}, Landroid/app/AlertDialog$Builder;->setNeutralButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    .line 876
+    .line 878
     const-string v1, "\u53d6\u6d88"
 
     const/4 v2, 0x0
@@ -7316,10 +7320,10 @@
 
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
-    .line 877
+    .line 879
     return-void
 
-    .line 867
+    .line 869
     :cond_1
     :goto_0
     return-void
@@ -7328,7 +7332,7 @@
 .method private searchOtherSources(Lcom/tongpin/player4k/catalog/CatalogApi$Video;)V
     .locals 7
 
-    .line 1058
+    .line 1060
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->alive()Z
 
     move-result v0
@@ -7341,11 +7345,11 @@
 
     goto :goto_0
 
-    .line 1059
+    .line 1061
     :cond_0
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->pauseCatalogue()V
 
-    .line 1060
+    .line 1062
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->sourcePicker:Lcom/tongpin/player4k/catalog/PhoneSourcePicker;
 
     if-eqz v0, :cond_1
@@ -7354,7 +7358,7 @@
 
     invoke-virtual {v0}, Lcom/tongpin/player4k/catalog/PhoneSourcePicker;->close()V
 
-    .line 1061
+    .line 1063
     :cond_1
     new-instance v0, Lcom/tongpin/player4k/catalog/PhoneSourcePicker;
 
@@ -7376,15 +7380,15 @@
 
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->sourcePicker:Lcom/tongpin/player4k/catalog/PhoneSourcePicker;
 
-    .line 1065
+    .line 1067
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->sourcePicker:Lcom/tongpin/player4k/catalog/PhoneSourcePicker;
 
     invoke-virtual {p1}, Lcom/tongpin/player4k/catalog/PhoneSourcePicker;->show()V
 
-    .line 1066
+    .line 1068
     return-void
 
-    .line 1058
+    .line 1060
     :cond_2
     :goto_0
     return-void
@@ -7464,7 +7468,7 @@
 .method private showCandidateChoices(Lcom/tongpin/player4k/catalog/CatalogApi$Video;Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Group;)V
     .locals 9
 
-    .line 1034
+    .line 1036
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->alive()Z
 
     move-result v0
@@ -7477,7 +7481,7 @@
 
     goto/16 :goto_5
 
-    .line 1035
+    .line 1037
     :cond_0
     invoke-direct {p0, p1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->latestGroupFor(Lcom/tongpin/player4k/catalog/CatalogApi$Video;)Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Group;
 
@@ -7492,7 +7496,7 @@
     :cond_1
     move-object v4, p2
 
-    .line 1036
+    .line 1038
     :goto_0
     if-eqz v4, :cond_6
 
@@ -7508,20 +7512,20 @@
 
     goto/16 :goto_4
 
-    .line 1037
+    .line 1039
     :cond_2
     iget v3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->detailTicket:I
 
     iput-object v4, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->detailGroup:Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Group;
 
-    .line 1038
+    .line 1040
     new-instance v5, Ljava/util/ArrayList;
 
     iget-object p2, v4, Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Group;->alternatives:Ljava/util/List;
 
     invoke-direct {v5, p2}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    .line 1039
+    .line 1041
     invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
 
     move-result p2
@@ -7530,7 +7534,7 @@
 
     new-array p2, p2, [Ljava/lang/String;
 
-    .line 1040
+    .line 1042
     const/4 v0, 0x0
 
     :goto_1
@@ -7540,14 +7544,14 @@
 
     if-ge v0, v1, :cond_5
 
-    .line 1041
+    .line 1043
     invoke-virtual {v5, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Lcom/tongpin/player4k/catalog/CatalogApi$Video;
 
-    .line 1042
+    .line 1044
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -7572,7 +7576,7 @@
 
     move-result-object v2
 
-    .line 1043
+    .line 1045
     iget-object v7, v1, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->year:Ljava/lang/String;
 
     invoke-virtual {v7}, Ljava/lang/String;->isEmpty()Z
@@ -7611,7 +7615,7 @@
 
     move-result-object v2
 
-    .line 1044
+    .line 1046
     iget-object v6, v1, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->subtitle:Ljava/lang/String;
 
     invoke-virtual {v6}, Ljava/lang/String;->isEmpty()Z
@@ -7654,12 +7658,12 @@
 
     aput-object v1, p2, v0
 
-    .line 1040
+    .line 1042
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    .line 1046
+    .line 1048
     :cond_5
     invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
 
@@ -7669,7 +7673,7 @@
 
     aput-object v1, p2, v0
 
-    .line 1047
+    .line 1049
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {v0, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
@@ -7694,7 +7698,7 @@
 
     move-result-object p1
 
-    .line 1054
+    .line 1056
     const-string p2, "\u5173\u95ed"
 
     const/4 v0, 0x0
@@ -7705,17 +7709,17 @@
 
     invoke-virtual {p1}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
-    .line 1055
+    .line 1057
     return-void
 
-    .line 1036
+    .line 1038
     :cond_6
     :goto_4
     invoke-direct {p0, p1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->searchOtherSources(Lcom/tongpin/player4k/catalog/CatalogApi$Video;)V
 
     return-void
 
-    .line 1034
+    .line 1036
     :cond_7
     :goto_5
     return-void
@@ -7894,7 +7898,7 @@
 .method private showDetail(Lcom/tongpin/player4k/catalog/CatalogApi$Detail;)V
     .locals 16
 
-    .line 1069
+    .line 1071
     move-object/from16 v7, p0
 
     move-object/from16 v8, p1
@@ -7913,16 +7917,16 @@
 
     iput-object v0, v7, Lcom/tongpin/player4k/catalog/CatalogActivity;->savedSearchAnchor:Lcom/tongpin/player4k/catalog/CatalogActivity$SearchAnchor;
 
-    .line 1070
+    .line 1072
     :cond_0
     iput-object v8, v7, Lcom/tongpin/player4k/catalog/CatalogActivity;->detail:Lcom/tongpin/player4k/catalog/CatalogApi$Detail;
 
-    .line 1071
+    .line 1073
     const/4 v0, 0x0
 
     iput-object v0, v7, Lcom/tongpin/player4k/catalog/CatalogActivity;->selectedEpisode:Lcom/tongpin/player4k/catalog/CatalogApi$Episode;
 
-    .line 1072
+    .line 1074
     iget-object v0, v7, Lcom/tongpin/player4k/catalog/CatalogActivity;->heading:Landroid/widget/TextView;
 
     iget-object v1, v8, Lcom/tongpin/player4k/catalog/CatalogApi$Detail;->video:Lcom/tongpin/player4k/catalog/CatalogApi$Video;
@@ -7947,14 +7951,14 @@
 
     invoke-direct/range {p0 .. p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->updateSearchSupport()V
 
-    .line 1073
+    .line 1075
     iget-object v0, v7, Lcom/tongpin/player4k/catalog/CatalogActivity;->catalogScreen:Landroid/widget/LinearLayout;
 
     const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    .line 1074
+    .line 1076
     iget-object v0, v7, Lcom/tongpin/player4k/catalog/CatalogActivity;->detailScreen:Landroid/widget/LinearLayout;
 
     if-eqz v0, :cond_2
@@ -7965,7 +7969,7 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/FrameLayout;->removeView(Landroid/view/View;)V
 
-    .line 1075
+    .line 1077
     :cond_2
     invoke-direct/range {p0 .. p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->column()Landroid/widget/LinearLayout;
 
@@ -7973,7 +7977,7 @@
 
     iput-object v0, v7, Lcom/tongpin/player4k/catalog/CatalogActivity;->detailScreen:Landroid/widget/LinearLayout;
 
-    .line 1076
+    .line 1078
     iget-object v0, v7, Lcom/tongpin/player4k/catalog/CatalogActivity;->detailScreen:Landroid/widget/LinearLayout;
 
     const/16 v2, 0x10
@@ -7990,37 +7994,37 @@
 
     invoke-virtual {v0, v3, v9, v2, v9}, Landroid/widget/LinearLayout;->setPadding(IIII)V
 
-    .line 1077
+    .line 1079
     invoke-direct/range {p0 .. p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->row()Landroid/widget/LinearLayout;
 
     move-result-object v0
 
-    .line 1078
+    .line 1080
     const/16 v2, 0x30
 
     invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->setGravity(I)V
 
-    .line 1079
+    .line 1081
     new-instance v3, Landroid/widget/ImageView;
 
     invoke-direct {v3, v7}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
 
-    .line 1080
+    .line 1082
     sget-object v4, Landroid/widget/ImageView$ScaleType;->CENTER_CROP:Landroid/widget/ImageView$ScaleType;
 
     invoke-virtual {v3, v4}, Landroid/widget/ImageView;->setScaleType(Landroid/widget/ImageView$ScaleType;)V
 
-    .line 1081
+    .line 1083
     const/4 v4, 0x2
 
     invoke-virtual {v3, v4}, Landroid/widget/ImageView;->setImportantForAccessibility(I)V
 
-    .line 1082
+    .line 1084
     const v5, -0x2a2227
 
     invoke-virtual {v3, v5}, Landroid/widget/ImageView;->setBackgroundColor(I)V
 
-    .line 1083
+    .line 1085
     const/16 v10, 0xc
 
     invoke-static {v7, v5, v10}, Lcom/tongpin/player4k/catalog/PhoneUi;->background(Landroid/content/Context;II)Landroid/graphics/drawable/GradientDrawable;
@@ -8029,12 +8033,12 @@
 
     invoke-virtual {v3, v5}, Landroid/widget/ImageView;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 1084
+    .line 1086
     const/4 v5, 0x1
 
     invoke-virtual {v3, v5}, Landroid/widget/ImageView;->setClipToOutline(Z)V
 
-    .line 1085
+    .line 1087
     new-instance v6, Landroid/widget/LinearLayout$LayoutParams;
 
     const/16 v11, 0x48
@@ -8053,7 +8057,7 @@
 
     invoke-virtual {v0, v3, v6}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 1086
+    .line 1088
     iget-object v6, v8, Lcom/tongpin/player4k/catalog/CatalogApi$Detail;->video:Lcom/tongpin/player4k/catalog/CatalogApi$Video;
 
     iget-object v6, v6, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->poster:Ljava/lang/String;
@@ -8064,19 +8068,19 @@
 
     invoke-direct {v7, v6, v3, v11}, Lcom/tongpin/player4k/catalog/CatalogActivity;->loadPoster(Ljava/lang/String;Landroid/widget/ImageView;Ljava/lang/String;)V
 
-    .line 1087
+    .line 1089
     invoke-direct/range {p0 .. p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->column()Landroid/widget/LinearLayout;
 
     move-result-object v3
 
-    .line 1088
+    .line 1090
     invoke-direct {v7, v10}, Lcom/tongpin/player4k/catalog/CatalogActivity;->dp(I)I
 
     move-result v6
 
     invoke-virtual {v3, v6, v9, v9, v9}, Landroid/widget/LinearLayout;->setPadding(IIII)V
 
-    .line 1089
+    .line 1091
     iget-object v6, v8, Lcom/tongpin/player4k/catalog/CatalogApi$Detail;->video:Lcom/tongpin/player4k/catalog/CatalogApi$Video;
 
     iget-object v6, v6, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->title:Ljava/lang/String;
@@ -8089,23 +8093,23 @@
 
     move-result-object v6
 
-    .line 1090
+    .line 1092
     sget-object v11, Landroid/graphics/Typeface;->DEFAULT:Landroid/graphics/Typeface;
 
     invoke-virtual {v6, v11, v5}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;I)V
 
-    .line 1091
+    .line 1093
     invoke-virtual {v6, v4}, Landroid/widget/TextView;->setMaxLines(I)V
 
-    .line 1092
+    .line 1094
     sget-object v11, Landroid/text/TextUtils$TruncateAt;->END:Landroid/text/TextUtils$TruncateAt;
 
     invoke-virtual {v6, v11}, Landroid/widget/TextView;->setEllipsize(Landroid/text/TextUtils$TruncateAt;)V
 
-    .line 1093
+    .line 1095
     invoke-virtual {v3, v6}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 1094
+    .line 1096
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
@@ -8134,7 +8138,7 @@
 
     move-result-object v6
 
-    .line 1095
+    .line 1097
     iget-object v12, v8, Lcom/tongpin/player4k/catalog/CatalogApi$Detail;->video:Lcom/tongpin/player4k/catalog/CatalogApi$Video;
 
     iget-object v12, v12, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->provider:Lcom/tongpin/player4k/catalog/CatalogApi$Provider;
@@ -8161,7 +8165,7 @@
 
     move-result-object v6
 
-    .line 1094
+    .line 1096
     const/16 v12, 0xe
 
     const v13, -0xa29288
@@ -8170,7 +8174,7 @@
 
     move-result-object v6
 
-    .line 1096
+    .line 1098
     const/4 v14, 0x6
 
     invoke-direct {v7, v14}, Lcom/tongpin/player4k/catalog/CatalogActivity;->dp(I)I
@@ -8179,10 +8183,10 @@
 
     invoke-virtual {v6, v9, v14, v9, v9}, Landroid/widget/TextView;->setPadding(IIII)V
 
-    .line 1097
+    .line 1099
     invoke-virtual {v3, v6}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 1098
+    .line 1100
     new-instance v6, Landroid/widget/LinearLayout$LayoutParams;
 
     const/4 v14, -0x2
@@ -8193,12 +8197,12 @@
 
     invoke-virtual {v0, v3, v6}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 1099
+    .line 1101
     iget-object v3, v7, Lcom/tongpin/player4k/catalog/CatalogActivity;->detailScreen:Landroid/widget/LinearLayout;
 
     invoke-virtual {v3, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 1100
+    .line 1102
     invoke-direct/range {p0 .. p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->row()Landroid/widget/LinearLayout;
 
     move-result-object v0
@@ -8215,7 +8219,7 @@
 
     invoke-virtual {v0, v9, v3, v9, v14}, Landroid/widget/LinearLayout;->setPadding(IIII)V
 
-    .line 1101
+    .line 1103
     iget-object v3, v8, Lcom/tongpin/player4k/catalog/CatalogApi$Detail;->video:Lcom/tongpin/player4k/catalog/CatalogApi$Video;
 
     invoke-static {v7, v3}, Lcom/tongpin/player4k/catalog/LibraryStore;->favorite(Landroid/content/Context;Lcom/tongpin/player4k/catalog/CatalogApi$Video;)Z
@@ -8236,14 +8240,14 @@
 
     move-result-object v3
 
-    .line 1102
+    .line 1104
     new-instance v14, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda21;
 
     invoke-direct {v14, v7, v3, v8}, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda21;-><init>(Lcom/tongpin/player4k/catalog/CatalogActivity;Landroid/widget/Button;Lcom/tongpin/player4k/catalog/CatalogApi$Detail;)V
 
     invoke-virtual {v3, v14}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 1103
+    .line 1105
     new-instance v14, Landroid/widget/LinearLayout$LayoutParams;
 
     invoke-direct {v7, v2}, Lcom/tongpin/player4k/catalog/CatalogActivity;->dp(I)I
@@ -8254,21 +8258,21 @@
 
     invoke-virtual {v0, v3, v14}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 1104
+    .line 1106
     const-string v3, "\u5176\u4ed6\u7247\u6e90"
 
     invoke-direct {v7, v3, v9}, Lcom/tongpin/player4k/catalog/CatalogActivity;->button(Ljava/lang/String;Z)Landroid/widget/Button;
 
     move-result-object v3
 
-    .line 1105
+    .line 1107
     new-instance v6, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda22;
 
     invoke-direct {v6, v7, v8}, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda22;-><init>(Lcom/tongpin/player4k/catalog/CatalogActivity;Lcom/tongpin/player4k/catalog/CatalogApi$Detail;)V
 
     invoke-virtual {v3, v6}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 1106
+    .line 1108
     new-instance v6, Landroid/widget/LinearLayout$LayoutParams;
 
     invoke-direct {v7, v2}, Lcom/tongpin/player4k/catalog/CatalogActivity;->dp(I)I
@@ -8283,7 +8287,7 @@
 
     invoke-virtual {v3, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 1107
+    .line 1109
     iget-object v0, v8, Lcom/tongpin/player4k/catalog/CatalogApi$Detail;->video:Lcom/tongpin/player4k/catalog/CatalogApi$Video;
 
     iget-object v0, v0, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->description:Ljava/lang/String;
@@ -8294,7 +8298,7 @@
 
     if-nez v0, :cond_5
 
-    .line 1108
+    .line 1110
     iget-object v0, v8, Lcom/tongpin/player4k/catalog/CatalogApi$Detail;->video:Lcom/tongpin/player4k/catalog/CatalogApi$Video;
 
     iget-object v0, v0, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->description:Ljava/lang/String;
@@ -8315,15 +8319,15 @@
 
     move-result-object v0
 
-    .line 1109
+    .line 1111
     invoke-virtual {v0, v4}, Landroid/widget/TextView;->setMaxLines(I)V
 
-    .line 1110
+    .line 1112
     sget-object v3, Landroid/text/TextUtils$TruncateAt;->END:Landroid/text/TextUtils$TruncateAt;
 
     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setEllipsize(Landroid/text/TextUtils$TruncateAt;)V
 
-    .line 1111
+    .line 1113
     invoke-direct {v7, v10}, Lcom/tongpin/player4k/catalog/CatalogActivity;->dp(I)I
 
     move-result v3
@@ -8334,23 +8338,23 @@
 
     invoke-virtual {v0, v9, v3, v9, v6}, Landroid/widget/TextView;->setPadding(IIII)V
 
-    .line 1112
+    .line 1114
     iget-object v3, v7, Lcom/tongpin/player4k/catalog/CatalogActivity;->detailScreen:Landroid/widget/LinearLayout;
 
     invoke-virtual {v3, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 1114
+    .line 1116
     :cond_5
     new-instance v14, Landroid/widget/Spinner;
 
     invoke-direct {v14, v7}, Landroid/widget/Spinner;-><init>(Landroid/content/Context;)V
 
-    .line 1115
+    .line 1117
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    .line 1116
+    .line 1118
     iget-object v3, v8, Lcom/tongpin/player4k/catalog/CatalogApi$Detail;->lines:Ljava/util/List;
 
     invoke-interface {v3}, Ljava/util/List;->iterator()Ljava/util/Iterator;
@@ -8404,7 +8408,7 @@
 
     goto :goto_3
 
-    .line 1117
+    .line 1119
     :cond_6
     invoke-direct {v7, v0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->pickerAdapter(Ljava/util/List;)Landroid/widget/ArrayAdapter;
 
@@ -8412,17 +8416,17 @@
 
     invoke-virtual {v14, v0}, Landroid/widget/Spinner;->setAdapter(Landroid/widget/SpinnerAdapter;)V
 
-    .line 1118
+    .line 1120
     const-string v0, "\u9009\u62e9\u64ad\u653e\u7ebf\u8def"
 
     invoke-virtual {v14, v0}, Landroid/widget/Spinner;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    .line 1119
+    .line 1121
     invoke-direct/range {p0 .. p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->row()Landroid/widget/LinearLayout;
 
     move-result-object v0
 
-    .line 1120
+    .line 1122
     invoke-direct {v7, v1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->dp(I)I
 
     move-result v3
@@ -8433,7 +8437,7 @@
 
     invoke-virtual {v0, v9, v3, v9, v4}, Landroid/widget/LinearLayout;->setPadding(IIII)V
 
-    .line 1121
+    .line 1123
     new-instance v3, Landroid/widget/LinearLayout$LayoutParams;
 
     invoke-direct {v7, v2}, Lcom/tongpin/player4k/catalog/CatalogActivity;->dp(I)I
@@ -8444,17 +8448,17 @@
 
     invoke-virtual {v0, v14, v3}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 1122
+    .line 1124
     const-string v3, ""
 
     invoke-direct {v7, v3, v9}, Lcom/tongpin/player4k/catalog/CatalogActivity;->button(Ljava/lang/String;Z)Landroid/widget/Button;
 
     move-result-object v10
 
-    .line 1123
+    .line 1125
     invoke-static {v10, v5}, Lcom/tongpin/player4k/catalog/PhoneUi;->styleButton(Landroid/widget/Button;I)V
 
-    .line 1124
+    .line 1126
     new-instance v3, Landroid/widget/LinearLayout$LayoutParams;
 
     const/16 v4, 0x60
@@ -8471,36 +8475,36 @@
 
     invoke-virtual {v0, v10, v3}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 1125
+    .line 1127
     iget-object v2, v7, Lcom/tongpin/player4k/catalog/CatalogActivity;->detailScreen:Landroid/widget/LinearLayout;
 
     invoke-virtual {v2, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 1126
+    .line 1128
     const-string v0, "\u9009\u96c6 \u00b7 \u6e05\u6670\u5ea6\u4ee5\u64ad\u653e\u753b\u9762\u663e\u793a\u4e3a\u51c6"
 
     invoke-direct {v7, v0, v12, v13}, Lcom/tongpin/player4k/catalog/CatalogActivity;->label(Ljava/lang/String;II)Landroid/widget/TextView;
 
     move-result-object v4
 
-    .line 1127
+    .line 1129
     invoke-direct {v7, v1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->dp(I)I
 
     move-result v0
 
     invoke-virtual {v4, v9, v9, v9, v0}, Landroid/widget/TextView;->setPadding(IIII)V
 
-    .line 1128
+    .line 1130
     iget-object v0, v7, Lcom/tongpin/player4k/catalog/CatalogActivity;->detailScreen:Landroid/widget/LinearLayout;
 
     invoke-virtual {v0, v4}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 1129
+    .line 1131
     new-instance v6, Landroid/widget/GridView;
 
     invoke-direct {v6, v7}, Landroid/widget/GridView;-><init>(Landroid/content/Context;)V
 
-    .line 1130
+    .line 1132
     invoke-virtual/range {p0 .. p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -8517,7 +8521,7 @@
 
     invoke-virtual {v6, v0}, Landroid/widget/GridView;->setNumColumns(I)V
 
-    .line 1131
+    .line 1133
     invoke-direct {v7, v1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->dp(I)I
 
     move-result v0
@@ -8530,25 +8534,25 @@
 
     invoke-virtual {v6, v0}, Landroid/widget/GridView;->setVerticalSpacing(I)V
 
-    .line 1132
+    .line 1134
     const/4 v0, 0x2
 
     invoke-virtual {v6, v0}, Landroid/widget/GridView;->setStretchMode(I)V
 
-    .line 1133
+    .line 1135
     invoke-virtual {v6, v5}, Landroid/widget/GridView;->setChoiceMode(I)V
 
-    .line 1134
+    .line 1136
     new-instance v1, Landroid/graphics/drawable/ColorDrawable;
 
     invoke-direct {v1, v9}, Landroid/graphics/drawable/ColorDrawable;-><init>(I)V
 
     invoke-virtual {v6, v1}, Landroid/widget/GridView;->setSelector(Landroid/graphics/drawable/Drawable;)V
 
-    .line 1135
+    .line 1137
     invoke-virtual {v6, v9}, Landroid/widget/GridView;->setClipToPadding(Z)V
 
-    .line 1136
+    .line 1138
     invoke-direct {v7, v0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->dp(I)I
 
     move-result v0
@@ -8561,7 +8565,7 @@
 
     invoke-virtual {v6, v9, v0, v9, v1}, Landroid/widget/GridView;->setPadding(IIII)V
 
-    .line 1137
+    .line 1139
     iget-object v0, v7, Lcom/tongpin/player4k/catalog/CatalogActivity;->detailScreen:Landroid/widget/LinearLayout;
 
     new-instance v1, Landroid/widget/LinearLayout$LayoutParams;
@@ -8572,7 +8576,7 @@
 
     invoke-virtual {v0, v6, v1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 1138
+    .line 1140
     new-instance v12, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda23;
 
     move-object v0, v12
@@ -8587,24 +8591,24 @@
 
     invoke-direct/range {v0 .. v6}, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda23;-><init>(Lcom/tongpin/player4k/catalog/CatalogActivity;Landroid/widget/Spinner;Lcom/tongpin/player4k/catalog/CatalogApi$Detail;Landroid/widget/TextView;Landroid/widget/Button;Landroid/widget/GridView;)V
 
-    .line 1175
+    .line 1177
     new-instance v0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda24;
 
     invoke-direct {v0, v7, v12}, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda24;-><init>(Lcom/tongpin/player4k/catalog/CatalogActivity;Ljava/lang/Runnable;)V
 
     invoke-virtual {v10, v0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 1181
+    .line 1183
     new-instance v0, Lcom/tongpin/player4k/catalog/CatalogActivity$3;
 
     invoke-direct {v0, v7, v12}, Lcom/tongpin/player4k/catalog/CatalogActivity$3;-><init>(Lcom/tongpin/player4k/catalog/CatalogActivity;Ljava/lang/Runnable;)V
 
     invoke-virtual {v14, v0}, Landroid/widget/Spinner;->setOnItemSelectedListener(Landroid/widget/AdapterView$OnItemSelectedListener;)V
 
-    .line 1185
+    .line 1187
     invoke-interface {v12}, Ljava/lang/Runnable;->run()V
 
-    .line 1186
+    .line 1188
     iget-object v0, v8, Lcom/tongpin/player4k/catalog/CatalogApi$Detail;->video:Lcom/tongpin/player4k/catalog/CatalogApi$Video;
 
     invoke-static {v0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->attribution(Lcom/tongpin/player4k/catalog/CatalogApi$Video;)Ljava/lang/String;
@@ -8617,7 +8621,7 @@
 
     move-result-object v0
 
-    .line 1187
+    .line 1189
     const/16 v1, 0xa
 
     invoke-direct {v7, v1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->dp(I)I
@@ -8630,17 +8634,17 @@
 
     invoke-virtual {v0, v9, v2, v9, v1}, Landroid/widget/TextView;->setPadding(IIII)V
 
-    .line 1188
+    .line 1190
     const/4 v1, 0x3
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setMaxLines(I)V
 
-    .line 1189
+    .line 1191
     iget-object v1, v7, Lcom/tongpin/player4k/catalog/CatalogActivity;->detailScreen:Landroid/widget/LinearLayout;
 
     invoke-virtual {v1, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 1190
+    .line 1192
     iget-object v0, v7, Lcom/tongpin/player4k/catalog/CatalogActivity;->content:Landroid/widget/FrameLayout;
 
     iget-object v1, v7, Lcom/tongpin/player4k/catalog/CatalogActivity;->detailScreen:Landroid/widget/LinearLayout;
@@ -8651,14 +8655,14 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 1191
+    .line 1193
     return-void
 .end method
 
 .method private showKnownSources(Lcom/tongpin/player4k/catalog/CatalogApi$Detail;)V
     .locals 1
 
-    .line 1031
+    .line 1033
     iget-object p1, p1, Lcom/tongpin/player4k/catalog/CatalogApi$Detail;->video:Lcom/tongpin/player4k/catalog/CatalogApi$Video;
 
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->detailGroup:Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Group;
@@ -8671,12 +8675,12 @@
 .method private showLibrary(Z)V
     .locals 8
 
-    .line 1359
+    .line 1361
     invoke-static {p0, p1}, Lcom/tongpin/player4k/catalog/LibraryStore;->list(Landroid/content/Context;Z)Ljava/util/List;
 
     move-result-object v0
 
-    .line 1360
+    .line 1362
     if-eqz p1, :cond_0
 
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
@@ -8690,7 +8694,7 @@
 
     move-result-object v1
 
-    .line 1361
+    .line 1363
     :goto_0
     invoke-interface {v0}, Ljava/util/List;->size()I
 
@@ -8698,7 +8702,7 @@
 
     new-array v3, v2, [Ljava/lang/String;
 
-    .line 1362
+    .line 1364
     const/4 v4, 0x0
 
     :goto_1
@@ -8740,7 +8744,7 @@
 
     move-result-object v5
 
-    .line 1363
+    .line 1365
     if-nez p1, :cond_1
 
     invoke-interface {v1}, Ljava/util/List;->size()I
@@ -8805,12 +8809,12 @@
 
     aput-object v5, v3, v4
 
-    .line 1362
+    .line 1364
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_1
 
-    .line 1364
+    .line 1366
     :cond_2
     new-instance v4, Landroid/app/AlertDialog$Builder;
 
@@ -8830,7 +8834,7 @@
 
     move-result-object v4
 
-    .line 1365
+    .line 1367
     if-nez v2, :cond_5
 
     if-eqz p1, :cond_4
@@ -8847,7 +8851,7 @@
 
     goto :goto_5
 
-    .line 1366
+    .line 1368
     :cond_5
     new-instance v2, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda25;
 
@@ -8855,7 +8859,7 @@
 
     invoke-virtual {v4, v3, v2}, Landroid/app/AlertDialog$Builder;->setItems([Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 1370
+    .line 1372
     :goto_5
     if-eqz p1, :cond_6
 
@@ -8875,7 +8879,7 @@
 
     move-result-object p1
 
-    .line 1373
+    .line 1375
     const-string v0, "\u5173\u95ed"
 
     const/4 v1, 0x0
@@ -8886,14 +8890,14 @@
 
     invoke-virtual {p1}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
-    .line 1374
+    .line 1376
     return-void
 .end method
 
 .method private showLibraryMenu()V
     .locals 3
 
-    .line 1354
+    .line 1356
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {v0, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
@@ -8920,7 +8924,7 @@
 
     move-result-object v0
 
-    .line 1355
+    .line 1357
     const-string v1, "\u5173\u95ed"
 
     const/4 v2, 0x0
@@ -8931,7 +8935,7 @@
 
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
-    .line 1356
+    .line 1358
     return-void
 .end method
 
@@ -9064,7 +9068,7 @@
 .method private showSource()V
     .locals 6
 
-    .line 1252
+    .line 1254
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->detail:Lcom/tongpin/player4k/catalog/CatalogApi$Detail;
 
     const/4 v1, 0x0
@@ -9085,14 +9089,14 @@
 
     if-eqz v0, :cond_2
 
-    .line 1253
+    .line 1255
     new-instance v0, Ljava/lang/StringBuilder;
 
     const-string v3, "\u7247\u540d\u641c\u7d22\u4f1a\u67e5\u8be2\u4ee5\u4e0b\u53ef\u641c\u7d22\u70b9\u64ad\u5e93\uff1b\u7ed3\u679c\u4fdd\u7559\u5404\u81ea\u6765\u6e90\uff0c\u4e0d\u5408\u5e76\u540c\u540d\u5f71\u7247\u3002\n"
 
     invoke-direct {v0, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    .line 1254
+    .line 1256
     iget-object v3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->providers:Ljava/util/List;
 
     invoke-interface {v3}, Ljava/util/List;->iterator()Ljava/util/Iterator;
@@ -9135,13 +9139,13 @@
 
     goto :goto_0
 
-    .line 1255
+    .line 1257
     :cond_1
     const-string v3, "\n\n\u4ec5\u6d4f\u89c8\u6765\u6e90\u4e0e\u76f4\u64ad\u9891\u9053\u4e0d\u53c2\u4e0e\u7247\u540d\u5168\u5e93\u641c\u7d22\uff1b\u53ef\u8fd4\u56de\u6d4f\u89c8\u540e\u9009\u62e9\u5b83\u4eec\u3002"
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1256
+    .line 1258
     new-instance v3, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {v3, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
@@ -9166,10 +9170,10 @@
 
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
-    .line 1257
+    .line 1259
     return-void
 
-    .line 1259
+    .line 1261
     :cond_2
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->detail:Lcom/tongpin/player4k/catalog/CatalogApi$Detail;
 
@@ -9194,7 +9198,7 @@
 
     iget-object v0, v0, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->provider:Lcom/tongpin/player4k/catalog/CatalogApi$Provider;
 
-    .line 1260
+    .line 1262
     :goto_1
     iget-object v3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->detail:Lcom/tongpin/player4k/catalog/CatalogApi$Detail;
 
@@ -9222,7 +9226,7 @@
 
     goto :goto_2
 
-    .line 1261
+    .line 1263
     :cond_4
     iget-object v3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->detail:Lcom/tongpin/player4k/catalog/CatalogApi$Detail;
 
@@ -9232,7 +9236,7 @@
 
     move-result-object v3
 
-    .line 1262
+    .line 1264
     :goto_2
     const-string v4, "peertube"
 
@@ -9262,7 +9266,7 @@
 
     move-result-object v3
 
-    .line 1263
+    .line 1265
     :cond_5
     iget-object v4, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->detail:Lcom/tongpin/player4k/catalog/CatalogApi$Detail;
 
@@ -9279,7 +9283,7 @@
 
     iget-object v0, v0, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->sourceUrl:Ljava/lang/String;
 
-    .line 1264
+    .line 1266
     :goto_3
     new-instance v4, Landroid/app/AlertDialog$Builder;
 
@@ -9295,7 +9299,7 @@
 
     move-result-object v3
 
-    .line 1265
+    .line 1267
     invoke-virtual {v3, v2, v1}, Landroid/app/AlertDialog$Builder;->setNegativeButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v1
@@ -9310,22 +9314,22 @@
 
     move-result-object v0
 
-    .line 1269
+    .line 1271
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
-    .line 1270
+    .line 1272
     return-void
 .end method
 
 .method private showUnavailableSources(Lcom/tongpin/player4k/catalog/CatalogApi$Video;Z)V
     .locals 3
 
-    .line 1022
+    .line 1024
     iget v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->detailTicket:I
 
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->detailGroup:Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Group;
 
-    .line 1023
+    .line 1025
     new-instance v2, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {v2, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
@@ -9344,7 +9348,7 @@
 
     move-result-object p2
 
-    .line 1024
+    .line 1026
     const-string v2, "\u53ef\u4ee5\u9009\u62e9\u672c\u7247\u5176\u4ed6\u6765\u6e90\uff0c\u8bfb\u53d6\u5b83\u7684\u5b9e\u9645\u7ebf\u8def\u4e0e\u9009\u96c6\u3002"
 
     invoke-virtual {p2, v2}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
@@ -9355,14 +9359,14 @@
 
     invoke-direct {v2, p0, v0, v1, p1}, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda14;-><init>(Lcom/tongpin/player4k/catalog/CatalogActivity;ILcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Group;Lcom/tongpin/player4k/catalog/CatalogApi$Video;)V
 
-    .line 1025
+    .line 1027
     const-string p1, "\u5176\u4ed6\u6765\u6e90"
 
     invoke-virtual {p2, p1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object p1
 
-    .line 1028
+    .line 1030
     const-string p2, "\u53d6\u6d88"
 
     const/4 v0, 0x0
@@ -9373,17 +9377,17 @@
 
     invoke-virtual {p1}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
-    .line 1029
+    .line 1031
     return-void
 .end method
 
 .method private startGlobalSearch()V
     .locals 5
 
-    .line 718
+    .line 720
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->pauseCatalogue()V
 
-    .line 719
+    .line 721
     iget v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->pageTicket:I
 
     const/4 v1, 0x1
@@ -9392,7 +9396,7 @@
 
     iput v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->pageTicket:I
 
-    .line 720
+    .line 722
     iget v2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->detailTicket:I
 
     add-int/2addr v2, v1
@@ -9403,7 +9407,7 @@
 
     iput-boolean v2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->readingDetail:Z
 
-    .line 721
+    .line 723
     iget-object v3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->pageRequest:Ljava/util/concurrent/Future;
 
     if-eqz v3, :cond_0
@@ -9412,7 +9416,7 @@
 
     invoke-interface {v3, v1}, Ljava/util/concurrent/Future;->cancel(Z)Z
 
-    .line 722
+    .line 724
     :cond_0
     iget-object v3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->detailRequest:Ljava/util/concurrent/Future;
 
@@ -9422,16 +9426,16 @@
 
     invoke-interface {v3, v1}, Ljava/util/concurrent/Future;->cancel(Z)Z
 
-    .line 723
+    .line 725
     :cond_1
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->cancelGlobalSearch()V
 
-    .line 724
+    .line 726
     iput-boolean v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->loading:Z
 
     iput-boolean v2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->hasMore:Z
 
-    .line 725
+    .line 727
     iget-object v3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->posters:Lcom/tongpin/player4k/catalog/CatalogPosters;
 
     invoke-virtual {v3}, Lcom/tongpin/player4k/catalog/CatalogPosters;->clear()V
@@ -9446,13 +9450,13 @@
 
     invoke-virtual {v3}, Lcom/tongpin/player4k/catalog/CatalogActivity$VideoAdapter;->notifyDataSetChanged()V
 
-    .line 726
+    .line 728
     iput-boolean v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->resetAggregateViewport:Z
 
-    .line 727
+    .line 729
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->updateSearchSupport()V
 
-    .line 728
+    .line 730
     iget-boolean v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->foreground:Z
 
     if-eqz v1, :cond_2
@@ -9461,7 +9465,7 @@
 
     invoke-virtual {v1}, Lcom/tongpin/player4k/catalog/CatalogPosters;->resume()V
 
-    .line 729
+    .line 731
     :cond_2
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->caption:Landroid/widget/TextView;
 
@@ -9469,14 +9473,14 @@
 
     invoke-virtual {v1, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 730
+    .line 732
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->status:Landroid/widget/TextView;
 
     const-string v3, "\u6b63\u5728\u641c\u7d22\uff0c\u5404\u6765\u6e90\u7ed3\u679c\u5c06\u9646\u7eed\u663e\u793a\u2026"
 
     invoke-virtual {v1, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 731
+    .line 733
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->progress:Landroid/widget/ProgressBar;
 
     invoke-virtual {v1, v2}, Landroid/widget/ProgressBar;->setVisibility(I)V
@@ -9487,10 +9491,10 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/Button;->setVisibility(I)V
 
-    .line 732
+    .line 734
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->keyword:Ljava/lang/String;
 
-    .line 733
+    .line 735
     iget-object v2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->allSearch:Lcom/tongpin/player4k/catalog/AllCatalogSearch;
 
     iget-object v3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->providers:Ljava/util/List;
@@ -9505,10 +9509,10 @@
 
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->searchHandle:Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;
 
-    .line 737
+    .line 739
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->updatePager()V
 
-    .line 738
+    .line 740
     return-void
 .end method
 
@@ -9525,9 +9529,11 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->browseHandle:Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;
+    iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->unifiedBrowse:Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse;
 
-    invoke-virtual {v0}, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->cancel()V
+    iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->browseHandle:Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;
+
+    invoke-virtual {v0, v1}, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse;->park(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;)V
 
     .line 608
     :cond_0
@@ -9680,7 +9686,7 @@
 
     invoke-direct {v4, p0}, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda9;-><init>(Lcom/tongpin/player4k/catalog/CatalogActivity;)V
 
-    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse;->start(Ljava/util/List;Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Section;Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Listener;)Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;
+    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse;->activate(Ljava/util/List;Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Section;Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Listener;)Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;
 
     move-result-object v0
 
@@ -9697,12 +9703,39 @@
 
     .line 624
     :cond_3
-    invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->loadBrowsePreview()V
+    iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->browseHandle:Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;
+
+    iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->browseHandle:Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;
+
+    invoke-virtual {v1}, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->snapshot()Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;
+
+    move-result-object v1
+
+    invoke-direct {p0, v0, v1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->applyUnifiedSnapshot(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;)V
 
     .line 625
-    invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->updatePager()V
+    iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->foreground:Z
+
+    if-eqz v0, :cond_4
+
+    iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->unifiedBrowse:Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse;
+
+    iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->browseHandle:Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;
+
+    invoke-virtual {v0, v1}, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse;->resume(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;)Z
+
+    iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->unifiedBrowse:Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse;
+
+    invoke-virtual {v0}, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse;->preload()V
 
     .line 626
+    :cond_4
+    invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->loadBrowsePreview()V
+
+    .line 627
+    invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->updatePager()V
+
+    .line 628
     return-void
 .end method
 
@@ -9796,7 +9829,7 @@
 .method static unifiedSubtitle(Lcom/tongpin/player4k/catalog/CatalogApi$Video;Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Group;)Ljava/lang/String;
     .locals 4
 
-    .line 1545
+    .line 1547
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -9863,7 +9896,7 @@
 
     move-result-object p1
 
-    .line 1546
+    .line 1548
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->subtitle:Ljava/lang/String;
 
     invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
@@ -9917,20 +9950,20 @@
 
     move-result-object p0
 
-    .line 1545
+    .line 1547
     return-object p0
 .end method
 
 .method private updatePager()V
     .locals 8
 
-    .line 955
+    .line 957
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->stateRow:Landroid/view/View;
 
-    .line 956
+    .line 958
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->progress:Landroid/widget/ProgressBar;
 
-    .line 955
+    .line 957
     invoke-virtual {v1}, Landroid/widget/ProgressBar;->getVisibility()I
 
     move-result v1
@@ -9949,7 +9982,7 @@
 
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->status:Landroid/widget/TextView;
 
-    .line 956
+    .line 958
     invoke-virtual {v1}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
     move-result-object v1
@@ -9971,11 +10004,11 @@
     :goto_0
     move v1, v2
 
-    .line 955
+    .line 957
     :goto_1
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 957
+    .line 959
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->keyword:Ljava/lang/String;
 
     invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
@@ -9996,14 +10029,14 @@
 
     if-eqz v0, :cond_5
 
-    .line 958
+    .line 960
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->searchHandle:Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;
 
     invoke-virtual {v0}, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;->snapshot()Lcom/tongpin/player4k/catalog/AllCatalogSearch$Snapshot;
 
     move-result-object v0
 
-    .line 959
+    .line 961
     iget-object v6, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->previous:Landroid/widget/Button;
 
     const-string v7, "\u8fd4\u56de\u6d4f\u89c8"
@@ -10014,7 +10047,7 @@
 
     invoke-virtual {v6, v5}, Landroid/widget/Button;->setEnabled(Z)V
 
-    .line 960
+    .line 962
     iget-object v6, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->next:Landroid/widget/Button;
 
     iget-boolean v7, v0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Snapshot;->canResume:Z
@@ -10026,7 +10059,7 @@
     :cond_2
     invoke-virtual {v6, v4}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
 
-    .line 961
+    .line 963
     iget-object v4, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->next:Landroid/widget/Button;
 
     iget-boolean v6, v0, Lcom/tongpin/player4k/catalog/AllCatalogSearch$Snapshot;->loading:Z
@@ -10051,7 +10084,7 @@
     :cond_4
     invoke-virtual {v4, v2}, Landroid/widget/Button;->setEnabled(Z)V
 
-    .line 962
+    .line 964
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->pageNumber:Landroid/widget/TextView;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -10082,10 +10115,10 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 963
+    .line 965
     return-void
 
-    .line 965
+    .line 967
     :cond_5
     iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->liveMode:Z
 
@@ -10103,14 +10136,14 @@
 
     if-eqz v0, :cond_9
 
-    .line 966
+    .line 968
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->browseHandle:Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;
 
     invoke-virtual {v0}, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->snapshot()Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;
 
     move-result-object v0
 
-    .line 967
+    .line 969
     iget-object v6, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->previous:Landroid/widget/Button;
 
     const-string v7, "\u56de\u5230\u9876\u90e8"
@@ -10129,7 +10162,7 @@
 
     invoke-virtual {v6, v7}, Landroid/widget/Button;->setEnabled(Z)V
 
-    .line 968
+    .line 970
     iget-object v6, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->next:Landroid/widget/Button;
 
     iget-boolean v7, v0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;->limited:Z
@@ -10151,7 +10184,7 @@
     :goto_2
     invoke-virtual {v6, v4}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
 
-    .line 969
+    .line 971
     iget-object v4, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->next:Landroid/widget/Button;
 
     iget-boolean v6, v0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;->loading:Z
@@ -10197,10 +10230,10 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 970
+    .line 972
     return-void
 
-    .line 972
+    .line 974
     :cond_9
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->previous:Landroid/widget/Button;
 
@@ -10220,7 +10253,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
 
-    .line 973
+    .line 975
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->previous:Landroid/widget/Button;
 
     iget-boolean v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->loading:Z
@@ -10241,7 +10274,7 @@
     :goto_3
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setEnabled(Z)V
 
-    .line 974
+    .line 976
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->next:Landroid/widget/Button;
 
     iget-boolean v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->loading:Z
@@ -10257,7 +10290,7 @@
     :cond_b
     invoke-virtual {v0, v2}, Landroid/widget/Button;->setEnabled(Z)V
 
-    .line 975
+    .line 977
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->pageNumber:Landroid/widget/TextView;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -10288,7 +10321,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 976
+    .line 978
     return-void
 .end method
 
@@ -10632,23 +10665,23 @@
 .method synthetic lambda$bridgeSourceSwitch$0$com-tongpin-player4k-catalog-CatalogActivity(Landroid/content/Intent;Lcom/tongpin/player4k/catalog/CatalogApi$Detail;Lcom/tongpin/player4k/catalog/CatalogApi$Line;IZ)V
     .locals 10
 
-    .line 1415
+    .line 1417
     iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->preparingPlayback:Z
 
     if-eqz v0, :cond_0
 
     return-void
 
-    .line 1416
+    .line 1418
     :cond_0
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->preparingPlayback:Z
 
-    .line 1417
+    .line 1419
     iget v5, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->detailTicket:I
 
-    .line 1418
+    .line 1420
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->requests:Ljava/util/concurrent/ExecutorService;
 
     new-instance v9, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda43;
@@ -10671,17 +10704,17 @@
 
     invoke-interface {v0, v9}, Ljava/util/concurrent/ExecutorService;->execute(Ljava/lang/Runnable;)V
 
-    .line 1439
+    .line 1441
     return-void
 .end method
 
 .method synthetic lambda$bridgeSourceSwitch$1$com-tongpin-player4k-catalog-CatalogActivity(Lcom/tongpin/player4k/catalog/CatalogApi$Detail;Lcom/tongpin/player4k/catalog/CatalogApi$Line;IILandroid/content/Intent;Z)V
     .locals 8
 
-    .line 1419
+    .line 1421
     nop
 
-    .line 1421
+    .line 1423
     :try_start_0
     invoke-static {p0, p1, p2}, Lcom/tongpin/player4k/catalog/PlayQueue;->save(Landroid/content/Context;Lcom/tongpin/player4k/catalog/CatalogApi$Detail;Lcom/tongpin/player4k/catalog/CatalogApi$Line;)Ljava/lang/String;
 
@@ -10689,10 +10722,10 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
 
-    .line 1422
+    .line 1424
     nop
 
-    .line 1423
+    .line 1425
     :try_start_1
     iget-object p2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->main:Landroid/os/Handler;
 
@@ -10718,10 +10751,10 @@
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 1437
+    .line 1439
     goto :goto_1
 
-    .line 1434
+    .line 1436
     :catch_0
     move-exception p2
 
@@ -10732,13 +10765,13 @@
 
     const/4 p1, 0x0
 
-    .line 1435
+    .line 1437
     :goto_0
     if-eqz p1, :cond_0
 
     invoke-static {p0, p1}, Lcom/tongpin/player4k/catalog/PlayQueue;->delete(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 1436
+    .line 1438
     :cond_0
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->main:Landroid/os/Handler;
 
@@ -10748,7 +10781,7 @@
 
     invoke-virtual {p1, p2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 1438
+    .line 1440
     :goto_1
     return-void
 .end method
@@ -10756,12 +10789,12 @@
 .method synthetic lambda$bridgeSourceSwitch$2$com-tongpin-player4k-catalog-CatalogActivity(ILjava/lang/String;ILandroid/content/Intent;Z)V
     .locals 3
 
-    .line 1424
+    .line 1426
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->preparingPlayback:Z
 
-    .line 1425
+    .line 1427
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->alive()Z
 
     move-result v1
@@ -10774,7 +10807,7 @@
 
     goto :goto_1
 
-    .line 1426
+    .line 1428
     :cond_0
     new-instance p1, Landroid/content/Intent;
 
@@ -10788,7 +10821,7 @@
 
     move-result-object p1
 
-    .line 1427
+    .line 1429
     const-string v1, "queue_index"
 
     invoke-virtual {p1, v1, p3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
@@ -10809,7 +10842,7 @@
 
     move-result-object p1
 
-    .line 1428
+    .line 1430
     const-string p3, "switch_playing"
 
     const/4 v1, 0x1
@@ -10826,7 +10859,7 @@
 
     move-result-object p1
 
-    .line 1429
+    .line 1431
     const-string p3, "source_provider"
 
     invoke-virtual {p4, p3}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
@@ -10843,7 +10876,7 @@
 
     move-result-object p1
 
-    .line 1430
+    .line 1432
     if-eqz p5, :cond_1
 
     const-string p3, "switch_position"
@@ -10862,7 +10895,7 @@
 
     invoke-virtual {p1, p5, p3, p4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;J)Landroid/content/Intent;
 
-    .line 1431
+    .line 1433
     :cond_1
     :try_start_0
     invoke-virtual {p0, p1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->startActivity(Landroid/content/Intent;)V
@@ -10871,7 +10904,7 @@
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1432
+    .line 1434
     goto :goto_0
 
     :catch_0
@@ -10887,11 +10920,11 @@
 
     invoke-virtual {p1}, Landroid/widget/Toast;->show()V
 
-    .line 1433
+    .line 1435
     :goto_0
     return-void
 
-    .line 1425
+    .line 1427
     :cond_2
     :goto_1
     invoke-static {p0, p2}, Lcom/tongpin/player4k/catalog/PlayQueue;->delete(Landroid/content/Context;Ljava/lang/String;)V
@@ -10902,7 +10935,7 @@
 .method synthetic lambda$bridgeSourceSwitch$3$com-tongpin-player4k-catalog-CatalogActivity()V
     .locals 2
 
-    .line 1436
+    .line 1438
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->preparingPlayback:Z
@@ -11665,7 +11698,7 @@
 .method synthetic lambda$loadBrowsePreview$0$com-tongpin-player4k-catalog-CatalogActivity(ILcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Section;Ljava/util/List;)V
     .locals 1
 
-    .line 638
+    .line 640
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->alive()Z
 
     move-result v0
@@ -11704,7 +11737,7 @@
 
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->keyword:Ljava/lang/String;
 
-    .line 639
+    .line 641
     invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
 
     move-result p1
@@ -11731,7 +11764,7 @@
 
     goto :goto_0
 
-    .line 640
+    .line 642
     :cond_0
     iput-object p5, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->pendingPreviewGroups:Ljava/util/List;
 
@@ -11739,10 +11772,10 @@
 
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->applyBrowsePreview()V
 
-    .line 641
+    .line 643
     return-void
 
-    .line 639
+    .line 641
     :cond_1
     :goto_0
     return-void
@@ -11751,13 +11784,13 @@
 .method synthetic lambda$loadDetail$0$com-tongpin-player4k-catalog-CatalogActivity(Lcom/tongpin/player4k/catalog/CatalogApi$Video;I)V
     .locals 3
 
-    .line 992
+    .line 994
     :try_start_0
     invoke-static {p1}, Lcom/tongpin/player4k/catalog/CatalogApi;->fetchDetail(Lcom/tongpin/player4k/catalog/CatalogApi$Video;)Lcom/tongpin/player4k/catalog/CatalogApi$Detail;
 
     move-result-object v0
 
-    .line 993
+    .line 995
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->main:Landroid/os/Handler;
 
     new-instance v2, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda44;
@@ -11768,14 +11801,14 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1010
+    .line 1012
     goto :goto_0
 
-    .line 1002
+    .line 1004
     :catch_0
     move-exception v0
 
-    .line 1003
+    .line 1005
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->main:Landroid/os/Handler;
 
     new-instance v1, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda45;
@@ -11784,7 +11817,7 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 1011
+    .line 1013
     :goto_0
     return-void
 .end method
@@ -11792,7 +11825,7 @@
 .method synthetic lambda$loadDetail$1$com-tongpin-player4k-catalog-CatalogActivity(ILcom/tongpin/player4k/catalog/CatalogApi$Detail;Lcom/tongpin/player4k/catalog/CatalogApi$Video;)V
     .locals 1
 
-    .line 994
+    .line 996
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->alive()Z
 
     move-result v0
@@ -11805,7 +11838,7 @@
 
     goto :goto_1
 
-    .line 995
+    .line 997
     :cond_0
     const/4 p1, 0x0
 
@@ -11817,14 +11850,14 @@
 
     invoke-virtual {p1, v0}, Landroid/widget/ProgressBar;->setVisibility(I)V
 
-    .line 996
+    .line 998
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->status:Landroid/widget/TextView;
 
     const-string v0, ""
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 997
+    .line 999
     iget-object p1, p2, Lcom/tongpin/player4k/catalog/CatalogApi$Detail;->lines:Ljava/util/List;
 
     invoke-interface {p1}, Ljava/util/List;->isEmpty()Z
@@ -11833,25 +11866,25 @@
 
     if-eqz p1, :cond_1
 
-    .line 998
+    .line 1000
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->restoreGlobalSearch()V
 
-    .line 999
+    .line 1001
     const/4 p1, 0x1
 
     invoke-direct {p0, p3, p1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->showUnavailableSources(Lcom/tongpin/player4k/catalog/CatalogApi$Video;Z)V
 
     goto :goto_0
 
-    .line 1000
+    .line 1002
     :cond_1
     invoke-direct {p0, p2}, Lcom/tongpin/player4k/catalog/CatalogActivity;->showDetail(Lcom/tongpin/player4k/catalog/CatalogApi$Detail;)V
 
-    .line 1001
+    .line 1003
     :goto_0
     return-void
 
-    .line 994
+    .line 996
     :cond_2
     :goto_1
     return-void
@@ -11860,7 +11893,7 @@
 .method synthetic lambda$loadDetail$2$com-tongpin-player4k-catalog-CatalogActivity(ILcom/tongpin/player4k/catalog/CatalogApi$Video;)V
     .locals 2
 
-    .line 1004
+    .line 1006
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->alive()Z
 
     move-result v0
@@ -11873,7 +11906,7 @@
 
     goto :goto_0
 
-    .line 1005
+    .line 1007
     :cond_0
     const/4 p1, 0x0
 
@@ -11885,23 +11918,23 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ProgressBar;->setVisibility(I)V
 
-    .line 1006
+    .line 1008
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->restoreGlobalSearch()V
 
-    .line 1007
+    .line 1009
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->status:Landroid/widget/TextView;
 
     const-string v1, "\u9009\u96c6\u8bfb\u53d6\u5931\u8d25\uff0c\u53ef\u9009\u62e9\u672c\u7247\u5176\u4ed6\u6765\u6e90"
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 1008
+    .line 1010
     invoke-direct {p0, p2, p1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->showUnavailableSources(Lcom/tongpin/player4k/catalog/CatalogApi$Video;Z)V
 
-    .line 1009
+    .line 1011
     return-void
 
-    .line 1004
+    .line 1006
     :cond_1
     :goto_0
     return-void
@@ -11910,7 +11943,7 @@
 .method synthetic lambda$loadHistory$0$com-tongpin-player4k-catalog-CatalogActivity(Lcom/tongpin/player4k/catalog/LibraryStore$Entry;I)V
     .locals 3
 
-    .line 1385
+    .line 1387
     :try_start_0
     iget-object v0, p1, Lcom/tongpin/player4k/catalog/LibraryStore$Entry;->video:Lcom/tongpin/player4k/catalog/CatalogApi$Video;
 
@@ -11918,7 +11951,7 @@
 
     move-result-object v0
 
-    .line 1386
+    .line 1388
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->main:Landroid/os/Handler;
 
     new-instance v2, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda55;
@@ -11929,14 +11962,14 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1404
+    .line 1406
     goto :goto_0
 
-    .line 1400
+    .line 1402
     :catch_0
     move-exception p1
 
-    .line 1401
+    .line 1403
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->main:Landroid/os/Handler;
 
     new-instance v0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda56;
@@ -11945,7 +11978,7 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 1405
+    .line 1407
     :goto_0
     return-void
 .end method
@@ -11953,7 +11986,7 @@
 .method synthetic lambda$loadHistory$1$com-tongpin-player4k-catalog-CatalogActivity(ILcom/tongpin/player4k/catalog/CatalogApi$Detail;Lcom/tongpin/player4k/catalog/LibraryStore$Entry;)V
     .locals 4
 
-    .line 1387
+    .line 1389
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->alive()Z
 
     move-result v0
@@ -11966,7 +11999,7 @@
 
     goto/16 :goto_2
 
-    .line 1388
+    .line 1390
     :cond_0
     const/4 p1, 0x0
 
@@ -11978,7 +12011,7 @@
 
     invoke-virtual {p1, v0}, Landroid/widget/ProgressBar;->setVisibility(I)V
 
-    .line 1389
+    .line 1391
     iget-object p1, p2, Lcom/tongpin/player4k/catalog/CatalogApi$Detail;->lines:Ljava/util/List;
 
     invoke-interface {p1}, Ljava/util/List;->isEmpty()Z
@@ -11997,14 +12030,14 @@
 
     return-void
 
-    .line 1390
+    .line 1392
     :cond_1
     invoke-direct {p0, p2}, Lcom/tongpin/player4k/catalog/CatalogActivity;->showDetail(Lcom/tongpin/player4k/catalog/CatalogApi$Detail;)V
 
-    .line 1391
+    .line 1393
     nop
 
-    .line 1392
+    .line 1394
     iget-object p1, p2, Lcom/tongpin/player4k/catalog/CatalogApi$Detail;->lines:Ljava/util/List;
 
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
@@ -12036,7 +12069,7 @@
 
     if-eqz v2, :cond_3
 
-    .line 1393
+    .line 1395
     if-eqz v0, :cond_2
 
     return-void
@@ -12044,17 +12077,17 @@
     :cond_2
     move-object v0, v1
 
-    .line 1392
+    .line 1394
     :cond_3
     goto :goto_0
 
-    .line 1395
+    .line 1397
     :cond_4
     if-nez v0, :cond_5
 
     return-void
 
-    .line 1396
+    .line 1398
     :cond_5
     new-instance p1, Ljava/util/ArrayList;
 
@@ -12085,7 +12118,7 @@
 
     goto :goto_1
 
-    .line 1397
+    .line 1399
     :cond_6
     iget-object p3, p3, Lcom/tongpin/player4k/catalog/LibraryStore$Entry;->episode:Ljava/lang/String;
 
@@ -12093,7 +12126,7 @@
 
     move-result p1
 
-    .line 1398
+    .line 1400
     if-ltz p1, :cond_7
 
     iget-object p3, v0, Lcom/tongpin/player4k/catalog/CatalogApi$Line;->episodes:Ljava/util/List;
@@ -12106,11 +12139,11 @@
 
     invoke-direct {p0, p2, p1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->play(Lcom/tongpin/player4k/catalog/CatalogApi$Detail;Lcom/tongpin/player4k/catalog/CatalogApi$Episode;)V
 
-    .line 1399
+    .line 1401
     :cond_7
     return-void
 
-    .line 1387
+    .line 1389
     :cond_8
     :goto_2
     return-void
@@ -12119,7 +12152,7 @@
 .method synthetic lambda$loadHistory$2$com-tongpin-player4k-catalog-CatalogActivity(I)V
     .locals 1
 
-    .line 1401
+    .line 1403
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->alive()Z
 
     move-result v0
@@ -12130,7 +12163,7 @@
 
     if-ne p1, v0, :cond_0
 
-    .line 1402
+    .line 1404
     const/4 p1, 0x0
 
     iput-boolean p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->readingDetail:Z
@@ -12149,7 +12182,7 @@
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 1403
+    .line 1405
     :cond_0
     return-void
 .end method
@@ -12157,13 +12190,13 @@
 .method synthetic lambda$loadPage$0$com-tongpin-player4k-catalog-CatalogActivity(Lcom/tongpin/player4k/catalog/CatalogApi$Provider;Ljava/lang/String;ILcom/tongpin/player4k/catalog/CatalogCategories$Selection;I)V
     .locals 0
 
-    .line 909
+    .line 911
     :try_start_0
     invoke-static {p1, p2, p3, p4}, Lcom/tongpin/player4k/catalog/CatalogApi;->fetchPage(Lcom/tongpin/player4k/catalog/CatalogApi$Provider;Ljava/lang/String;ILcom/tongpin/player4k/catalog/CatalogCategories$Selection;)Lcom/tongpin/player4k/catalog/CatalogApi$Page;
 
     move-result-object p2
 
-    .line 910
+    .line 912
     invoke-static {p1}, Lcom/tongpin/player4k/catalog/CatalogApi;->hasCategories(Lcom/tongpin/player4k/catalog/CatalogApi$Provider;)Z
 
     move-result p3
@@ -12184,7 +12217,7 @@
 
     if-eqz p3, :cond_1
 
-    .line 911
+    .line 913
     :cond_0
     :try_start_1
     invoke-static {p1}, Lcom/tongpin/player4k/catalog/CatalogApi;->fetchCategories(Lcom/tongpin/player4k/catalog/CatalogApi$Provider;)Lcom/tongpin/player4k/catalog/CatalogCategories;
@@ -12197,7 +12230,7 @@
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 912
+    .line 914
     :goto_0
     goto :goto_1
 
@@ -12206,12 +12239,12 @@
 
     goto :goto_0
 
-    .line 914
+    .line 916
     :cond_1
     :goto_1
     nop
 
-    .line 915
+    .line 917
     :try_start_2
     iget-object p3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->main:Landroid/os/Handler;
 
@@ -12223,14 +12256,14 @@
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
 
-    .line 950
+    .line 952
     goto :goto_2
 
-    .line 940
+    .line 942
     :catch_1
     move-exception p1
 
-    .line 941
+    .line 943
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->main:Landroid/os/Handler;
 
     new-instance p2, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda47;
@@ -12239,7 +12272,7 @@
 
     invoke-virtual {p1, p2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 951
+    .line 953
     :goto_2
     return-void
 .end method
@@ -12247,7 +12280,7 @@
 .method synthetic lambda$loadPage$1$com-tongpin-player4k-catalog-CatalogActivity(ILcom/tongpin/player4k/catalog/CatalogApi$Page;Lcom/tongpin/player4k/catalog/CatalogApi$Provider;)V
     .locals 2
 
-    .line 916
+    .line 918
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->alive()Z
 
     move-result v0
@@ -12272,13 +12305,13 @@
 
     goto/16 :goto_1
 
-    .line 917
+    .line 919
     :cond_0
     iget-object p1, p2, Lcom/tongpin/player4k/catalog/CatalogApi$Page;->categories:Lcom/tongpin/player4k/catalog/CatalogCategories;
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->categoryCatalog:Lcom/tongpin/player4k/catalog/CatalogCategories;
 
-    .line 918
+    .line 920
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->categoryCatalog:Lcom/tongpin/player4k/catalog/CatalogCategories;
 
     if-nez p1, :cond_1
@@ -12299,7 +12332,7 @@
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->categoryCatalog:Lcom/tongpin/player4k/catalog/CatalogCategories;
 
-    .line 920
+    .line 922
     :cond_1
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->pendingCategoryId:Ljava/lang/String;
 
@@ -12311,12 +12344,12 @@
 
     if-nez p1, :cond_2
 
-    .line 921
+    .line 923
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->pendingCategoryId:Ljava/lang/String;
 
     iput-object p3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->pendingCategoryId:Ljava/lang/String;
 
-    .line 922
+    .line 924
     :try_start_0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->categoryCatalog:Lcom/tongpin/player4k/catalog/CatalogCategories;
 
@@ -12334,13 +12367,13 @@
 
     return-void
 
-    .line 923
+    .line 925
     :catch_0
     move-exception p1
 
     iput-object p3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->categoryId:Ljava/lang/String;
 
-    .line 925
+    .line 927
     :cond_2
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->categoryId:Ljava/lang/String;
 
@@ -12350,7 +12383,7 @@
 
     if-nez p1, :cond_3
 
-    .line 926
+    .line 928
     :try_start_1
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->categoryCatalog:Lcom/tongpin/player4k/catalog/CatalogCategories;
 
@@ -12360,7 +12393,7 @@
     :try_end_1
     .catch Ljava/lang/IllegalArgumentException; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 927
+    .line 929
     goto :goto_0
 
     :catch_1
@@ -12376,36 +12409,36 @@
 
     return-void
 
-    .line 929
+    .line 931
     :cond_3
     :goto_0
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->renderCategories()V
 
-    .line 930
+    .line 932
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->videos:Ljava/util/ArrayList;
 
     iget-object v0, p2, Lcom/tongpin/player4k/catalog/CatalogApi$Page;->items:Ljava/util/List;
 
     invoke-virtual {p1, v0}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
 
-    .line 931
+    .line 933
     iget-boolean p1, p2, Lcom/tongpin/player4k/catalog/CatalogApi$Page;->hasMore:Z
 
     iput-boolean p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->hasMore:Z
 
-    .line 932
+    .line 934
     const/4 p1, 0x0
 
     iput-boolean p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->loading:Z
 
-    .line 933
+    .line 935
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->progress:Landroid/widget/ProgressBar;
 
     const/16 v0, 0x8
 
     invoke-virtual {p1, v0}, Landroid/widget/ProgressBar;->setVisibility(I)V
 
-    .line 934
+    .line 936
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->status:Landroid/widget/TextView;
 
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->videos:Ljava/util/ArrayList;
@@ -12421,12 +12454,12 @@
     :cond_4
     invoke-virtual {p1, p3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 935
+    .line 937
     iget p1, p2, Lcom/tongpin/player4k/catalog/CatalogApi$Page;->categoryMismatchCount:I
 
     if-lez p1, :cond_5
 
-    .line 936
+    .line 938
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->status:Landroid/widget/TextView;
 
     new-instance p3, Ljava/lang/StringBuilder;
@@ -12457,19 +12490,19 @@
 
     invoke-virtual {p1, p2}, Landroid/widget/TextView;->append(Ljava/lang/CharSequence;)V
 
-    .line 937
+    .line 939
     :cond_5
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->adapter:Lcom/tongpin/player4k/catalog/CatalogActivity$VideoAdapter;
 
     invoke-virtual {p1}, Lcom/tongpin/player4k/catalog/CatalogActivity$VideoAdapter;->notifyDataSetChanged()V
 
-    .line 938
+    .line 940
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->updatePager()V
 
-    .line 939
+    .line 941
     return-void
 
-    .line 916
+    .line 918
     :cond_6
     :goto_1
     return-void
@@ -12478,7 +12511,7 @@
 .method synthetic lambda$loadPage$2$com-tongpin-player4k-catalog-CatalogActivity(I)V
     .locals 2
 
-    .line 942
+    .line 944
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->alive()Z
 
     move-result v0
@@ -12503,27 +12536,27 @@
 
     goto :goto_0
 
-    .line 943
+    .line 945
     :cond_0
     const/4 p1, 0x0
 
     iput-boolean p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->loading:Z
 
-    .line 944
+    .line 946
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->progress:Landroid/widget/ProgressBar;
 
     const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Landroid/widget/ProgressBar;->setVisibility(I)V
 
-    .line 945
+    .line 947
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->status:Landroid/widget/TextView;
 
     const-string v1, "\u7247\u5e93\u6682\u65f6\u65e0\u6cd5\u8fde\u63a5\uff0c\u8bf7\u91cd\u8bd5\u6216\u5207\u6362\u7247\u5e93"
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 946
+    .line 948
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->categoryCatalog:Lcom/tongpin/player4k/catalog/CatalogCategories;
 
     if-nez v0, :cond_1
@@ -12532,19 +12565,19 @@
 
     invoke-virtual {v0, p1}, Landroid/widget/Button;->setEnabled(Z)V
 
-    .line 947
+    .line 949
     :cond_1
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->retry:Landroid/widget/Button;
 
     invoke-virtual {v0, p1}, Landroid/widget/Button;->setVisibility(I)V
 
-    .line 948
+    .line 950
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->updatePager()V
 
-    .line 949
+    .line 951
     return-void
 
-    .line 942
+    .line 944
     :cond_2
     :goto_0
     return-void
@@ -12571,13 +12604,13 @@
 .method synthetic lambda$play$0$com-tongpin-player4k-catalog-CatalogActivity(Lcom/tongpin/player4k/catalog/CatalogApi$Detail;Lcom/tongpin/player4k/catalog/CatalogApi$Line;ILcom/tongpin/player4k/catalog/CatalogApi$Episode;I)V
     .locals 10
 
-    .line 1214
+    .line 1216
     :try_start_0
     invoke-static {p0, p1, p2}, Lcom/tongpin/player4k/catalog/PlayQueue;->save(Landroid/content/Context;Lcom/tongpin/player4k/catalog/CatalogApi$Detail;Lcom/tongpin/player4k/catalog/CatalogApi$Line;)Ljava/lang/String;
 
     move-result-object v4
 
-    .line 1215
+    .line 1217
     iget-object v8, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->main:Landroid/os/Handler;
 
     new-instance v9, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda19;
@@ -12602,14 +12635,14 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1233
+    .line 1235
     goto :goto_0
 
-    .line 1227
+    .line 1229
     :catch_0
     move-exception p1
 
-    .line 1228
+    .line 1230
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->main:Landroid/os/Handler;
 
     new-instance p2, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda20;
@@ -12618,7 +12651,7 @@
 
     invoke-virtual {p1, p2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 1234
+    .line 1236
     :goto_0
     return-void
 .end method
@@ -12626,12 +12659,12 @@
 .method synthetic lambda$play$1$com-tongpin-player4k-catalog-CatalogActivity(ILcom/tongpin/player4k/catalog/CatalogApi$Detail;Ljava/lang/String;Lcom/tongpin/player4k/catalog/CatalogApi$Line;Lcom/tongpin/player4k/catalog/CatalogApi$Episode;I)V
     .locals 1
 
-    .line 1216
+    .line 1218
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->preparingPlayback:Z
 
-    .line 1217
+    .line 1219
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->alive()Z
 
     move-result v0
@@ -12648,7 +12681,7 @@
 
     goto :goto_1
 
-    .line 1219
+    .line 1221
     :cond_0
     :try_start_0
     iget-object p1, p2, Lcom/tongpin/player4k/catalog/CatalogApi$Detail;->video:Lcom/tongpin/player4k/catalog/CatalogApi$Video;
@@ -12659,7 +12692,7 @@
 
     invoke-static {p0, p1, p2, p4}, Lcom/tongpin/player4k/catalog/LibraryStore;->watched(Landroid/content/Context;Lcom/tongpin/player4k/catalog/CatalogApi$Video;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1220
+    .line 1222
     new-instance p1, Landroid/content/Intent;
 
     const-class p2, Lcom/tongpin/player4k/catalog/OpenPlayerActivity;
@@ -12668,7 +12701,7 @@
 
     const-string p2, "queue_token"
 
-    .line 1221
+    .line 1223
     invoke-virtual {p1, p2, p3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     move-result-object p1
@@ -12679,22 +12712,22 @@
 
     move-result-object p1
 
-    .line 1220
+    .line 1222
     invoke-virtual {p0, p1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->startActivity(Landroid/content/Intent;)V
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1225
+    .line 1227
     goto :goto_0
 
-    .line 1222
+    .line 1224
     :catch_0
     move-exception p1
 
-    .line 1223
+    .line 1225
     invoke-static {p0, p3}, Lcom/tongpin/player4k/catalog/PlayQueue;->delete(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 1224
+    .line 1226
     const-string p1, "\u6682\u65f6\u65e0\u6cd5\u6253\u5f00\u64ad\u653e\u5668\uff0c\u8bf7\u91cd\u8bd5"
 
     const/4 p2, 0x1
@@ -12705,11 +12738,11 @@
 
     invoke-virtual {p1}, Landroid/widget/Toast;->show()V
 
-    .line 1226
+    .line 1228
     :goto_0
     return-void
 
-    .line 1217
+    .line 1219
     :cond_1
     :goto_1
     invoke-static {p0, p3}, Lcom/tongpin/player4k/catalog/PlayQueue;->delete(Landroid/content/Context;Ljava/lang/String;)V
@@ -12720,12 +12753,12 @@
 .method synthetic lambda$play$2$com-tongpin-player4k-catalog-CatalogActivity(I)V
     .locals 1
 
-    .line 1229
+    .line 1231
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->preparingPlayback:Z
 
-    .line 1230
+    .line 1232
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->alive()Z
 
     move-result v0
@@ -12736,7 +12769,7 @@
 
     if-ne p1, v0, :cond_0
 
-    .line 1231
+    .line 1233
     const-string p1, "\u64ad\u653e\u5217\u8868\u6682\u4e0d\u53ef\u7528\uff0c\u8bf7\u8fd4\u56de\u7247\u5e93\u91cd\u65b0\u9009\u62e9\u3002"
 
     const/4 v0, 0x1
@@ -12747,7 +12780,7 @@
 
     invoke-virtual {p1}, Landroid/widget/Toast;->show()V
 
-    .line 1232
+    .line 1234
     :cond_0
     return-void
 .end method
@@ -12900,7 +12933,7 @@
 .method synthetic lambda$scheduleSortedDrain$0$com-tongpin-player4k-catalog-CatalogActivity()V
     .locals 1
 
-    .line 784
+    .line 786
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->sortedDrain:Ljava/lang/Runnable;
@@ -12926,7 +12959,7 @@
 .method synthetic lambda$searchChannels$0$com-tongpin-player4k-catalog-CatalogActivity(Landroid/widget/EditText;Landroid/content/DialogInterface;I)V
     .locals 0
 
-    .line 872
+    .line 874
     invoke-virtual {p1}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
     move-result-object p1
@@ -12939,7 +12972,7 @@
 
     move-result-object p1
 
-    .line 873
+    .line 875
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result p2
@@ -12960,7 +12993,7 @@
 
     return-void
 
-    .line 874
+    .line 876
     :cond_0
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->channelQuery:Ljava/lang/String;
 
@@ -12968,14 +13001,14 @@
 
     invoke-direct {p0, p1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->loadPage(I)V
 
-    .line 875
+    .line 877
     return-void
 .end method
 
 .method synthetic lambda$searchChannels$1$com-tongpin-player4k-catalog-CatalogActivity(Landroid/content/DialogInterface;I)V
     .locals 0
 
-    .line 875
+    .line 877
     const-string p1, ""
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->channelQuery:Ljava/lang/String;
@@ -12990,7 +13023,7 @@
 .method synthetic lambda$searchOtherSources$0$com-tongpin-player4k-catalog-CatalogActivity(Lcom/tongpin/player4k/catalog/CatalogApi$Detail;Lcom/tongpin/player4k/catalog/CatalogApi$Line;IZ)V
     .locals 1
 
-    .line 1062
+    .line 1064
     iget-object p4, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->detailGroup:Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Group;
 
     if-eqz p4, :cond_0
@@ -13011,7 +13044,7 @@
 
     iget-object v0, p1, Lcom/tongpin/player4k/catalog/CatalogApi$Detail;->video:Lcom/tongpin/player4k/catalog/CatalogApi$Video;
 
-    .line 1063
+    .line 1065
     invoke-static {v0}, Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy;->keyFor(Lcom/tongpin/player4k/catalog/CatalogApi$Video;)Ljava/lang/String;
 
     move-result-object v0
@@ -13026,7 +13059,7 @@
 
     iput-object p4, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->detailGroup:Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Group;
 
-    .line 1064
+    .line 1066
     :cond_0
     invoke-direct {p0, p1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->showDetail(Lcom/tongpin/player4k/catalog/CatalogApi$Detail;)V
 
@@ -13040,14 +13073,14 @@
 
     invoke-direct {p0, p1, p2}, Lcom/tongpin/player4k/catalog/CatalogActivity;->play(Lcom/tongpin/player4k/catalog/CatalogApi$Detail;Lcom/tongpin/player4k/catalog/CatalogApi$Episode;)V
 
-    .line 1065
+    .line 1067
     return-void
 .end method
 
 .method synthetic lambda$showCandidateChoices$0$com-tongpin-player4k-catalog-CatalogActivity(ILcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Group;Ljava/util/ArrayList;Lcom/tongpin/player4k/catalog/CatalogApi$Video;Landroid/content/DialogInterface;I)V
     .locals 0
 
-    .line 1048
+    .line 1050
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->alive()Z
 
     move-result p5
@@ -13068,7 +13101,7 @@
 
     goto :goto_1
 
-    .line 1049
+    .line 1051
     :cond_0
     invoke-virtual {p3}, Ljava/util/ArrayList;->size()I
 
@@ -13080,7 +13113,7 @@
 
     goto :goto_0
 
-    .line 1051
+    .line 1053
     :cond_1
     new-instance p1, Ljava/lang/StringBuilder;
 
@@ -13118,7 +13151,7 @@
 
     invoke-virtual {p1}, Landroid/widget/Toast;->show()V
 
-    .line 1052
+    .line 1054
     invoke-virtual {p3, p6}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object p1
@@ -13127,11 +13160,11 @@
 
     invoke-direct {p0, p1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->loadDetail(Lcom/tongpin/player4k/catalog/CatalogApi$Video;)V
 
-    .line 1054
+    .line 1056
     :goto_0
     return-void
 
-    .line 1048
+    .line 1050
     :cond_2
     :goto_1
     return-void
@@ -13167,7 +13200,7 @@
 .method synthetic lambda$showDetail$0$com-tongpin-player4k-catalog-CatalogActivity(Landroid/widget/Button;Lcom/tongpin/player4k/catalog/CatalogApi$Detail;Landroid/view/View;)V
     .locals 0
 
-    .line 1102
+    .line 1104
     iget-object p2, p2, Lcom/tongpin/player4k/catalog/CatalogApi$Detail;->video:Lcom/tongpin/player4k/catalog/CatalogApi$Video;
 
     invoke-static {p0, p2}, Lcom/tongpin/player4k/catalog/LibraryStore;->toggle(Landroid/content/Context;Lcom/tongpin/player4k/catalog/CatalogApi$Video;)Z
@@ -13192,7 +13225,7 @@
 .method synthetic lambda$showDetail$1$com-tongpin-player4k-catalog-CatalogActivity(Lcom/tongpin/player4k/catalog/CatalogApi$Detail;Landroid/view/View;)V
     .locals 0
 
-    .line 1105
+    .line 1107
     invoke-direct {p0, p1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->showKnownSources(Lcom/tongpin/player4k/catalog/CatalogApi$Detail;)V
 
     return-void
@@ -13201,12 +13234,12 @@
 .method synthetic lambda$showDetail$2$com-tongpin-player4k-catalog-CatalogActivity(Landroid/widget/Spinner;Lcom/tongpin/player4k/catalog/CatalogApi$Detail;Landroid/widget/TextView;Landroid/widget/Button;Landroid/widget/GridView;)V
     .locals 6
 
-    .line 1139
+    .line 1141
     invoke-virtual {p1}, Landroid/widget/Spinner;->getSelectedItemPosition()I
 
     move-result p1
 
-    .line 1140
+    .line 1142
     if-ltz p1, :cond_7
 
     iget-object v0, p2, Lcom/tongpin/player4k/catalog/CatalogApi$Detail;->lines:Ljava/util/List;
@@ -13219,7 +13252,7 @@
 
     goto/16 :goto_5
 
-    .line 1141
+    .line 1143
     :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -13253,7 +13286,7 @@
 
     invoke-virtual {p3, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 1142
+    .line 1144
     iget-object p3, p2, Lcom/tongpin/player4k/catalog/CatalogApi$Detail;->lines:Ljava/util/List;
 
     invoke-interface {p3, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -13270,12 +13303,12 @@
 
     move-result-object p1
 
-    .line 1143
+    .line 1145
     new-instance v4, Ljava/util/ArrayList;
 
     invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
 
-    .line 1144
+    .line 1146
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object p3
@@ -13293,14 +13326,14 @@
 
     check-cast v0, Lcom/tongpin/player4k/catalog/CatalogApi$Episode;
 
-    .line 1145
+    .line 1147
     iget-object v1, v0, Lcom/tongpin/player4k/catalog/CatalogApi$Episode;->streams:Ljava/util/List;
 
     invoke-static {v1}, Lcom/tongpin/player4k/catalog/CatalogApi;->bestStream(Ljava/util/List;)I
 
     move-result v1
 
-    .line 1146
+    .line 1148
     if-ltz v1, :cond_1
 
     iget-object v2, v0, Lcom/tongpin/player4k/catalog/CatalogApi$Episode;->streams:Ljava/util/List;
@@ -13316,7 +13349,7 @@
     :cond_1
     const/4 v1, 0x0
 
-    .line 1147
+    .line 1149
     :goto_1
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -13338,7 +13371,7 @@
 
     if-lez v2, :cond_2
 
-    .line 1148
+    .line 1150
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -13375,13 +13408,13 @@
 
     move-result-object v0
 
-    .line 1147
+    .line 1149
     invoke-virtual {v4, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 1149
+    .line 1151
     goto :goto_0
 
-    .line 1150
+    .line 1152
     :cond_3
     iget-boolean p3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->episodesDescending:Z
 
@@ -13397,7 +13430,7 @@
     :goto_3
     invoke-virtual {p4, p3}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
 
-    .line 1151
+    .line 1153
     iget-boolean p3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->episodesDescending:Z
 
     if-eqz p3, :cond_5
@@ -13412,7 +13445,7 @@
     :goto_4
     invoke-virtual {p4, p3}, Landroid/widget/Button;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    .line 1152
+    .line 1154
     new-instance p3, Lcom/tongpin/player4k/catalog/CatalogActivity$2;
 
     const v3, 0x1090003
@@ -13429,21 +13462,21 @@
 
     invoke-virtual {p5, p3}, Landroid/widget/GridView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    .line 1166
+    .line 1168
     iget-object p3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->selectedEpisode:Lcom/tongpin/player4k/catalog/CatalogApi$Episode;
 
     invoke-interface {p1, p3}, Ljava/util/List;->indexOf(Ljava/lang/Object;)I
 
     move-result p3
 
-    .line 1167
+    .line 1169
     if-ltz p3, :cond_6
 
     const/4 p4, 0x1
 
     invoke-virtual {p5, p3, p4}, Landroid/widget/GridView;->setItemChecked(IZ)V
 
-    .line 1168
+    .line 1170
     :cond_6
     new-instance p3, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda49;
 
@@ -13451,15 +13484,15 @@
 
     invoke-virtual {p5, p3}, Landroid/widget/GridView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
-    .line 1173
+    .line 1175
     const/4 p1, 0x0
 
     invoke-virtual {p5, p1}, Landroid/widget/GridView;->setSelection(I)V
 
-    .line 1174
+    .line 1176
     return-void
 
-    .line 1140
+    .line 1142
     :cond_7
     :goto_5
     return-void
@@ -13468,7 +13501,7 @@
 .method synthetic lambda$showDetail$3$com-tongpin-player4k-catalog-CatalogActivity(Ljava/util/List;Landroid/widget/GridView;Lcom/tongpin/player4k/catalog/CatalogApi$Detail;Landroid/widget/AdapterView;Landroid/view/View;IJ)V
     .locals 0
 
-    .line 1169
+    .line 1171
     invoke-interface {p1, p6}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object p1
@@ -13477,31 +13510,31 @@
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->selectedEpisode:Lcom/tongpin/player4k/catalog/CatalogApi$Episode;
 
-    .line 1170
+    .line 1172
     const/4 p1, 0x1
 
     invoke-virtual {p2, p6, p1}, Landroid/widget/GridView;->setItemChecked(IZ)V
 
-    .line 1171
+    .line 1173
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->selectedEpisode:Lcom/tongpin/player4k/catalog/CatalogApi$Episode;
 
     invoke-direct {p0, p3, p1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->play(Lcom/tongpin/player4k/catalog/CatalogApi$Detail;Lcom/tongpin/player4k/catalog/CatalogApi$Episode;)V
 
-    .line 1172
+    .line 1174
     return-void
 .end method
 
 .method synthetic lambda$showDetail$4$com-tongpin-player4k-catalog-CatalogActivity(Ljava/lang/Runnable;Landroid/view/View;)V
     .locals 2
 
-    .line 1176
+    .line 1178
     iget-boolean p2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->episodesDescending:Z
 
     xor-int/lit8 p2, p2, 0x1
 
     iput-boolean p2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->episodesDescending:Z
 
-    .line 1177
+    .line 1179
     const-string p2, "tongpin_ui"
 
     const/4 v0, 0x0
@@ -13516,7 +13549,7 @@
 
     iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->episodesDescending:Z
 
-    .line 1178
+    .line 1180
     const-string v1, "episodes_descending"
 
     invoke-interface {p2, v1, v0}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
@@ -13525,17 +13558,17 @@
 
     invoke-interface {p2}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    .line 1179
+    .line 1181
     invoke-interface {p1}, Ljava/lang/Runnable;->run()V
 
-    .line 1180
+    .line 1182
     return-void
 .end method
 
 .method synthetic lambda$showLibrary$0$com-tongpin-player4k-catalog-CatalogActivity(ZLjava/util/List;Ljava/util/List;Landroid/content/DialogInterface;I)V
     .locals 0
 
-    .line 1367
+    .line 1369
     if-nez p1, :cond_0
 
     invoke-interface {p2}, Ljava/util/List;->size()I
@@ -13554,7 +13587,7 @@
 
     goto :goto_0
 
-    .line 1368
+    .line 1370
     :cond_0
     invoke-interface {p3, p5}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -13564,7 +13597,7 @@
 
     invoke-direct {p0, p1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->loadDetail(Lcom/tongpin/player4k/catalog/CatalogApi$Video;)V
 
-    .line 1369
+    .line 1371
     :goto_0
     return-void
 .end method
@@ -13572,7 +13605,7 @@
 .method synthetic lambda$showLibrary$1$com-tongpin-player4k-catalog-CatalogActivity(ZLandroid/content/DialogInterface;I)V
     .locals 0
 
-    .line 1371
+    .line 1373
     :try_start_0
     new-instance p2, Landroid/content/Intent;
 
@@ -13604,7 +13637,7 @@
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1372
+    .line 1374
     goto :goto_1
 
     :catch_0
@@ -13620,7 +13653,7 @@
 
     invoke-virtual {p1}, Landroid/widget/Toast;->show()V
 
-    .line 1373
+    .line 1375
     :goto_1
     return-void
 .end method
@@ -13628,7 +13661,7 @@
 .method synthetic lambda$showLibraryMenu$0$com-tongpin-player4k-catalog-CatalogActivity(Landroid/content/DialogInterface;I)V
     .locals 0
 
-    .line 1354
+    .line 1356
     const/4 p1, 0x1
 
     if-ne p2, p1, :cond_0
@@ -13666,7 +13699,7 @@
 .method synthetic lambda$showSource$0$com-tongpin-player4k-catalog-CatalogActivity(Ljava/lang/String;Landroid/content/DialogInterface;I)V
     .locals 1
 
-    .line 1266
+    .line 1268
     invoke-static {p1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->httpUrl(Ljava/lang/String;)Z
 
     move-result p2
@@ -13685,7 +13718,7 @@
 
     return-void
 
-    .line 1267
+    .line 1269
     :cond_0
     :try_start_0
     new-instance p2, Landroid/content/Intent;
@@ -13702,7 +13735,7 @@
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1268
+    .line 1270
     goto :goto_0
 
     :catch_0
@@ -13716,7 +13749,7 @@
 
     invoke-virtual {p1}, Landroid/widget/Toast;->show()V
 
-    .line 1269
+    .line 1271
     :goto_0
     return-void
 .end method
@@ -13724,7 +13757,7 @@
 .method synthetic lambda$showUnavailableSources$0$com-tongpin-player4k-catalog-CatalogActivity(ILcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Group;Lcom/tongpin/player4k/catalog/CatalogApi$Video;Landroid/content/DialogInterface;I)V
     .locals 0
 
-    .line 1026
+    .line 1028
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->alive()Z
 
     move-result p4
@@ -13745,7 +13778,7 @@
 
     invoke-direct {p0, p3, p2}, Lcom/tongpin/player4k/catalog/CatalogActivity;->showCandidateChoices(Lcom/tongpin/player4k/catalog/CatalogApi$Video;Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Group;)V
 
-    .line 1027
+    .line 1029
     :cond_0
     return-void
 .end method
@@ -13753,7 +13786,7 @@
 .method synthetic lambda$startGlobalSearch$0$com-tongpin-player4k-catalog-CatalogActivity(ILcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;Lcom/tongpin/player4k/catalog/AllCatalogSearch$Snapshot;)V
     .locals 1
 
-    .line 734
+    .line 736
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->alive()Z
 
     move-result v0
@@ -13782,14 +13815,14 @@
 
     goto :goto_0
 
-    .line 735
+    .line 737
     :cond_0
     invoke-direct {p0, p2, p3}, Lcom/tongpin/player4k/catalog/CatalogActivity;->applyGlobalSnapshot(Lcom/tongpin/player4k/catalog/AllCatalogSearch$Handle;Lcom/tongpin/player4k/catalog/AllCatalogSearch$Snapshot;)V
 
-    .line 736
+    .line 738
     return-void
 
-    .line 734
+    .line 736
     :cond_1
     :goto_0
     return-void
@@ -13829,34 +13862,34 @@
 .method public onBackPressed()V
     .locals 4
 
-    .line 1273
+    .line 1275
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->detail:Lcom/tongpin/player4k/catalog/CatalogApi$Detail;
 
     const/4 v1, 0x0
 
     if-eqz v0, :cond_0
 
-    .line 1274
+    .line 1276
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->detail:Lcom/tongpin/player4k/catalog/CatalogApi$Detail;
 
-    .line 1275
+    .line 1277
     iget-object v2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->content:Landroid/widget/FrameLayout;
 
     iget-object v3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->detailScreen:Landroid/widget/LinearLayout;
 
     invoke-virtual {v2, v3}, Landroid/widget/FrameLayout;->removeView(Landroid/view/View;)V
 
-    .line 1276
+    .line 1278
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->detailScreen:Landroid/widget/LinearLayout;
 
-    .line 1277
+    .line 1279
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->catalogScreen:Landroid/widget/LinearLayout;
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    .line 1278
+    .line 1280
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->heading:Landroid/widget/TextView;
 
     const-string v1, "\u540c\u98914K"
@@ -13865,18 +13898,18 @@
 
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->updateSearchSupport()V
 
-    .line 1279
+    .line 1281
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->restoreGlobalSearch()V
 
     goto :goto_0
 
-    .line 1280
+    .line 1282
     :cond_0
     iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->readingDetail:Z
 
     if-eqz v0, :cond_2
 
-    .line 1281
+    .line 1283
     iget v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->detailTicket:I
 
     const/4 v2, 0x1
@@ -13885,7 +13918,7 @@
 
     iput v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->detailTicket:I
 
-    .line 1282
+    .line 1284
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->detailRequest:Ljava/util/concurrent/Future;
 
     if-eqz v0, :cond_1
@@ -13894,30 +13927,30 @@
 
     invoke-interface {v0, v2}, Ljava/util/concurrent/Future;->cancel(Z)Z
 
-    .line 1283
+    .line 1285
     :cond_1
     iput-boolean v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->readingDetail:Z
 
-    .line 1284
+    .line 1286
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->progress:Landroid/widget/ProgressBar;
 
     const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Landroid/widget/ProgressBar;->setVisibility(I)V
 
-    .line 1285
+    .line 1287
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->status:Landroid/widget/TextView;
 
     const-string v1, "\u5df2\u53d6\u6d88\u8bfb\u53d6\u9009\u96c6"
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 1286
+    .line 1288
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->restoreGlobalSearch()V
 
     goto :goto_0
 
-    .line 1287
+    .line 1289
     :cond_2
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->keyword:Ljava/lang/String;
 
@@ -13931,11 +13964,11 @@
 
     goto :goto_0
 
-    .line 1288
+    .line 1290
     :cond_3
     invoke-super {p0}, Landroid/app/Activity;->onBackPressed()V
 
-    .line 1289
+    .line 1291
     :goto_0
     return-void
 .end method
@@ -14484,7 +14517,7 @@
 .method protected onDestroy()V
     .locals 2
 
-    .line 1306
+    .line 1308
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->posterGrid:Landroid/widget/GridView;
 
     if-eqz v0, :cond_0
@@ -14499,7 +14532,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/GridView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
-    .line 1307
+    .line 1309
     :cond_0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->allSearch:Lcom/tongpin/player4k/catalog/AllCatalogSearch;
 
@@ -14509,7 +14542,7 @@
 
     invoke-virtual {v0}, Lcom/tongpin/player4k/catalog/AllCatalogSearch;->close()V
 
-    .line 1308
+    .line 1310
     :cond_1
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->unifiedBrowse:Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse;
 
@@ -14519,7 +14552,7 @@
 
     invoke-virtual {v0}, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse;->close()V
 
-    .line 1309
+    .line 1311
     :cond_2
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->sourcePicker:Lcom/tongpin/player4k/catalog/PhoneSourcePicker;
 
@@ -14529,7 +14562,7 @@
 
     invoke-virtual {v0}, Lcom/tongpin/player4k/catalog/PhoneSourcePicker;->close()V
 
-    .line 1310
+    .line 1312
     :cond_3
     iget v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->pageTicket:I
 
@@ -14537,31 +14570,31 @@
 
     iput v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->pageTicket:I
 
-    .line 1311
+    .line 1313
     iget v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->detailTicket:I
 
     add-int/lit8 v0, v0, 0x1
 
     iput v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->detailTicket:I
 
-    .line 1312
+    .line 1314
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->main:Landroid/os/Handler;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacksAndMessages(Ljava/lang/Object;)V
 
-    .line 1313
+    .line 1315
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->requests:Ljava/util/concurrent/ExecutorService;
 
     invoke-interface {v0}, Ljava/util/concurrent/ExecutorService;->shutdownNow()Ljava/util/List;
 
-    .line 1314
+    .line 1316
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->posters:Lcom/tongpin/player4k/catalog/CatalogPosters;
 
     invoke-virtual {v0}, Lcom/tongpin/player4k/catalog/CatalogPosters;->close()V
 
-    .line 1315
+    .line 1317
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->previewCache:Lcom/tongpin/player4k/catalog/CatalogPreviewCache;
 
     if-eqz v0, :cond_4
@@ -14570,18 +14603,18 @@
 
     invoke-virtual {v0}, Lcom/tongpin/player4k/catalog/CatalogPreviewCache;->close()V
 
-    .line 1316
+    .line 1318
     :cond_4
     invoke-super {p0}, Landroid/app/Activity;->onDestroy()V
 
-    .line 1317
+    .line 1319
     return-void
 .end method
 
 .method protected onPause()V
     .locals 3
 
-    .line 1320
+    .line 1322
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->detail:Lcom/tongpin/player4k/catalog/CatalogApi$Detail;
 
     if-nez v0, :cond_0
@@ -14596,7 +14629,7 @@
 
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->savedSearchAnchor:Lcom/tongpin/player4k/catalog/CatalogActivity$SearchAnchor;
 
-    .line 1321
+    .line 1323
     :cond_0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->searchTouch:Lcom/tongpin/player4k/catalog/CatalogActivity$SearchTouch;
 
@@ -14608,7 +14641,7 @@
 
     iput-boolean v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->gridClickSettling:Z
 
-    .line 1322
+    .line 1324
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->posterGrid:Landroid/widget/GridView;
 
     if-eqz v1, :cond_1
@@ -14623,22 +14656,22 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/GridView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
-    .line 1323
+    .line 1325
     :cond_1
     const/4 v1, 0x0
 
     iput-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->sortedDrain:Ljava/lang/Runnable;
 
-    .line 1324
+    .line 1326
     iput-boolean v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->foreground:Z
 
-    .line 1325
+    .line 1327
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->pauseCatalogue()V
 
-    .line 1326
+    .line 1328
     iput-boolean v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->readingDetail:Z
 
-    .line 1327
+    .line 1329
     iget v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->detailTicket:I
 
     const/4 v1, 0x1
@@ -14647,7 +14680,7 @@
 
     iput v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->detailTicket:I
 
-    .line 1328
+    .line 1330
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->detailRequest:Ljava/util/concurrent/Future;
 
     if-eqz v0, :cond_2
@@ -14656,7 +14689,7 @@
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Future;->cancel(Z)Z
 
-    .line 1329
+    .line 1331
     :cond_2
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->sourcePicker:Lcom/tongpin/player4k/catalog/PhoneSourcePicker;
 
@@ -14666,7 +14699,7 @@
 
     invoke-virtual {v0}, Lcom/tongpin/player4k/catalog/PhoneSourcePicker;->close()V
 
-    .line 1330
+    .line 1332
     :cond_3
     iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->loading:Z
 
@@ -14682,25 +14715,25 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ProgressBar;->setVisibility(I)V
 
-    .line 1331
+    .line 1333
     :cond_4
     invoke-super {p0}, Landroid/app/Activity;->onPause()V
 
-    .line 1332
+    .line 1334
     return-void
 .end method
 
 .method protected onResume()V
     .locals 1
 
-    .line 1348
+    .line 1350
     invoke-super {p0}, Landroid/app/Activity;->onResume()V
 
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->foreground:Z
 
-    .line 1349
+    .line 1351
     iget-boolean v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->bridgePending:Z
 
     if-eqz v0, :cond_0
@@ -14713,11 +14746,11 @@
 
     goto :goto_0
 
-    .line 1350
+    .line 1352
     :cond_0
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->restoreGlobalSearch()V
 
-    .line 1351
+    .line 1353
     :goto_0
     return-void
 .end method
@@ -14725,38 +14758,38 @@
 .method protected onSaveInstanceState(Landroid/os/Bundle;)V
     .locals 2
 
-    .line 1292
+    .line 1294
     invoke-super {p0, p1}, Landroid/app/Activity;->onSaveInstanceState(Landroid/os/Bundle;)V
 
-    .line 1293
+    .line 1295
     const-string v0, "provider"
 
     iget v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->providerIndex:I
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 1294
+    .line 1296
     const-string v0, "page"
 
     iget v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->page:I
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 1295
+    .line 1297
     const-string v0, "keyword"
 
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->keyword:Ljava/lang/String;
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1296
+    .line 1298
     const-string v0, "channelQuery"
 
     iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->channelQuery:Ljava/lang/String;
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1297
+    .line 1299
     const-string v0, "liveMode"
 
     iget-boolean v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->liveMode:Z
@@ -14773,7 +14806,7 @@
 
     invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1298
+    .line 1300
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->homeSection:Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Section;
 
     invoke-virtual {v0}, Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Section;->name()Ljava/lang/String;
@@ -14784,7 +14817,7 @@
 
     invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1299
+    .line 1301
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->providers:Ljava/util/List;
 
     if-eqz v0, :cond_1
@@ -14797,7 +14830,7 @@
 
     if-nez v0, :cond_1
 
-    .line 1300
+    .line 1302
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->providers:Ljava/util/List;
 
     iget v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->providerIndex:I
@@ -14814,7 +14847,7 @@
 
     invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1301
+    .line 1303
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->pendingCategoryId:Ljava/lang/String;
 
     invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
@@ -14835,7 +14868,7 @@
 
     invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1303
+    .line 1305
     :cond_1
     return-void
 .end method
@@ -14843,17 +14876,17 @@
 .method public onWindowFocusChanged(Z)V
     .locals 2
 
-    .line 1335
+    .line 1337
     invoke-super {p0, p1}, Landroid/app/Activity;->onWindowFocusChanged(Z)V
 
     iput-boolean p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->windowFocused:Z
 
-    .line 1336
+    .line 1338
     const/4 v0, 0x0
 
     if-nez p1, :cond_2
 
-    .line 1337
+    .line 1339
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->detail:Lcom/tongpin/player4k/catalog/CatalogApi$Detail;
 
     if-nez p1, :cond_0
@@ -14868,7 +14901,7 @@
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->savedSearchAnchor:Lcom/tongpin/player4k/catalog/CatalogActivity$SearchAnchor;
 
-    .line 1338
+    .line 1340
     :cond_0
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->searchTouch:Lcom/tongpin/player4k/catalog/CatalogActivity$SearchTouch;
 
@@ -14882,7 +14915,7 @@
 
     iput p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->gridScrollState:I
 
-    .line 1339
+    .line 1341
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->posterGrid:Landroid/widget/GridView;
 
     if-eqz p1, :cond_1
@@ -14897,13 +14930,13 @@
 
     invoke-virtual {p1, v1}, Landroid/widget/GridView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
-    .line 1340
+    .line 1342
     :cond_1
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->sortedDrain:Ljava/lang/Runnable;
 
     goto :goto_0
 
-    .line 1341
+    .line 1343
     :cond_2
     iget-boolean p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->foreground:Z
 
@@ -14917,10 +14950,10 @@
 
     if-nez p1, :cond_3
 
-    .line 1342
+    .line 1344
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity;->drainSortedSnapshot()V
 
-    .line 1343
+    .line 1345
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->pendingSortedSnapshot:Lcom/tongpin/player4k/catalog/AllCatalogSearch$Snapshot;
 
     if-nez p1, :cond_3
@@ -14931,7 +14964,7 @@
 
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity;->savedSearchAnchor:Lcom/tongpin/player4k/catalog/CatalogActivity$SearchAnchor;
 
-    .line 1345
+    .line 1347
     :cond_3
     :goto_0
     return-void

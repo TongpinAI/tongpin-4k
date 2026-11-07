@@ -1,0 +1,216 @@
+{
+  "passed": true,
+  "case_count": 38,
+  "cases": [
+    {
+      "name": "actual_current_full_preflight",
+      "passed": true,
+      "seconds": 6.391
+    },
+    {
+      "name": "formal_without_promotion",
+      "passed": true,
+      "rejected": "Formal integration requires completed review promotion"
+    },
+    {
+      "name": "missing_tool_pin",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "missing_test_runner_pin",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "missing_new_shared_java_pin",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "missing_caller_runner_pin",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "missing_caller_java_pin",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "missing_retained_codec_java_pin",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "extra_modified_source",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "new_class_not_approved",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "missing_current_java_pin",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "wrong_canonical_stage_dex",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "wrong_stage_smali_pin",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "missing_owner_coverage",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "resource_change_not_approved",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "new_style_not_approved",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "changed_compile_stub",
+      "passed": true,
+      "rejected": "150 changes no compile stubs"
+    },
+    {
+      "name": "wrong_preimage_index_pin",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "native_inventory_entry_missing_matching_pin",
+      "passed": true,
+      "rejected": "Native/resource/asset inventory changed"
+    },
+    {
+      "name": "failed_review_clear_text_matching_pin",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "formal_without_independent_tool_coverage",
+      "passed": true,
+      "rejected": "Missing independent source/tool review coverage"
+    },
+    {
+      "name": "reject_compile_only_shared_report",
+      "passed": true,
+      "rejected": "",
+      "nested_pins_updated": true
+    },
+    {
+      "name": "reject_partial_selected_case",
+      "passed": true,
+      "rejected": "",
+      "nested_pins_updated": true
+    },
+    {
+      "name": "reject_missing_335_new_assertions",
+      "passed": true,
+      "rejected": "",
+      "nested_pins_updated": true
+    },
+    {
+      "name": "reject_codec_dependency_count19",
+      "passed": true,
+      "rejected": "",
+      "nested_pins_updated": true
+    },
+    {
+      "name": "reject_codec_not_executed_original",
+      "passed": true,
+      "rejected": "",
+      "nested_pins_updated": true
+    },
+    {
+      "name": "reject_caller_wiring_only",
+      "passed": true,
+      "rejected": "",
+      "nested_pins_updated": true
+    },
+    {
+      "name": "reject_wrong_actual_caller_preimage",
+      "passed": true,
+      "rejected": "",
+      "nested_pins_updated": true
+    },
+    {
+      "name": "build_driver_ast_inverse_release_routes_only",
+      "passed": true
+    },
+    {
+      "name": "assert_dispatch_exact_added150_branch",
+      "passed": true
+    },
+    {
+      "name": "all11473_previous_resources_no_additions_positive",
+      "passed": true
+    },
+    {
+      "name": "old_id_moved",
+      "passed": true
+    },
+    {
+      "name": "old_id_removed",
+      "passed": true
+    },
+    {
+      "name": "extra_style_rejected",
+      "passed": true
+    },
+    {
+      "name": "nonempty_allowed_list_rejected",
+      "passed": true
+    },
+    {
+      "name": "empty_previous_rejected",
+      "passed": true
+    },
+    {
+      "name": "native_compiler_framework_and_final_reader_algorithms_retained",
+      "passed": true
+    },
+    {
+      "name": "independent_proof_reader_compile_byte_equal",
+      "passed": true
+    }
+  ],
+  "reviewed_main_sha256": "949a1829e699dee78f5d7b29867441265b750c90abaf6571c0fb2b838aacca89",
+  "source_sha256": {
+    "open-sources/integration/integrate_1_5_0.py": "8f391e99d72ff021071b3367b70a5e8880361185b3f910ec194bd489120e00c5",
+    "open-sources/toolchain/check_framework_api.py": "91209f30753abd8ea244655bd98762d4e0590c173dae2e842367d82559a61905",
+    "open-sources/integration/DisassembleOwn1500.java": "f30ee4c56e15dedefa0e91f1d52592285d4a61245cdf699c9a44d331439a4f74",
+    "open-sources/integration/check_timer_dex_1500.py": "f7f27acdf7e3a4cb23497fb6a5e556655f848ea665a5be9ca75d59fd961f04cd",
+    "open-sources/integration/ui_1500_contract.py": "4c6ab2c61007b1155fa30a6c7591fd5df4778408ff6ff33f091a3a353ad9113c",
+    "build_tongpin.py": "9950ed927e15b8ccebce6affa44191250916695e7ff93c9c2257a7cf9239c06e",
+    "verification/1.5.0/proof-tools/DisassembleOwn1500.class": "0cadf6620951a1fc831e920fed9bb5942a6d969fb06fe6e8ab3fa477c0c40eb9",
+    "open-sources/integration/check_native_bindings_1410.py": "9a69cd89a30993ac4ca4beaa7a8d1d7d0e1b981edbb2f2f62740f955c6a9d93c",
+    "open-sources/integration/assert_contract.py": "92a56ab1edba3f8953b61e7e21411a7ca7e54e759c75f19b28aae308fc866516",
+    "open-sources/toolchain/compile_java_to_smali.py": "b1b855f38294ecb7d392980b917f8fa17eaae77496c3bd1fcd961e557574cc9c",
+    "open-sources/integration/audit_final_ui_api_1500.py": "91623dddb165f8270456b70b82238c8125627132178b9bae5695ff6550565fe2"
+  },
+  "frozen_and_production_modified": false,
+  "proof_class_sha256": "0cadf6620951a1fc831e920fed9bb5942a6d969fb06fe6e8ab3fa477c0c40eb9",
+  "negative_digest_policy": "Reuse only actual-positive validated digests for unchanged native/source/tool inputs; all fixture document/hash overrides take precedence.",
+  "source_guard_inputs": {
+    "before-sha256.json": "2c98e1ecc211c2a5f3b9b3973581f569897b20d12ab127b0322419e1cb4782b4",
+    "baseline149-native-resource-sha256.json": "d60c7299ec764fafe3883a95b0424c9210d6970e7a1ca394071cab60ffbf0183",
+    "prior149-evidence-sha256.json": "39c28f480e451d4f2684343597356e7da716cd89e3685674d45939fd5a80d86c"
+  },
+  "device_tested": false
+}

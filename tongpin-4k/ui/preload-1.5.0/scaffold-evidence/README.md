@@ -1,0 +1,1 @@
+Version-only scaffold evidence, not final application inputs. The old23-case author fixture records this source_ready=false snapshot. Data-reader and other tools retained by hash; no AndroidSDK/application source was compiled at that point. Final release does not use these snapshots as currentsource gates.

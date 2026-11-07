@@ -1,6 +1,6 @@
 # 电视端构建输入与导出范围
 
-当前源码为 **同频4K TV1.4.3 / versionCode1403**，包名`com.tongpin.player4k.tv`，最低API21；Media3兼容后端仅在API23及以上进入。统一来源、分页搜索换源和直播策略见`ui/unified-library-1.3.4`，自动选源及互审见`ui/auto-source-1.3.5`，历史全库片名搜索见`ui/global-search-1.3.7`，统一首页历史见`ui/unified-library-1.3.8`，加载优化历史见`ui/startup-performance-1.3.9`，界面历史见`ui/unslop-1.4.0`，推荐与搜索历史见`ui/discovery-1.4.1`，二级分类及4K历史见`ui/sections-1.4.2`，本轮国内近期热播排序见`ui/domestic-1.4.3`，最终DEX、签名和API门控证据见`verification/1.4.3`。
+当前源码为 **同频4K TV1.4.4 / versionCode1404**，包名`com.tongpin.player4k.tv`，最低API21；Media3兼容后端仅在API23及以上进入。统一来源、分页搜索换源和直播策略见`ui/unified-library-1.3.4`，自动选源及互审见`ui/auto-source-1.3.5`，历史全库片名搜索见`ui/global-search-1.3.7`，统一首页历史见`ui/unified-library-1.3.8`，加载优化历史见`ui/startup-performance-1.3.9`，界面历史见`ui/unslop-1.4.0`，推荐与搜索历史见`ui/discovery-1.4.1`，二级分类及4K历史见`ui/sections-1.4.2`，国内近期热播排序历史见`ui/domestic-1.4.3`，本轮分类会话缓存与预取见`ui/preload-1.4.4`，最终DEX、签名和API门控证据见`verification/1.4.4`。
 
 ## 已保存内容
 
@@ -58,3 +58,6 @@ build/resource-check/generated/com/tongpin/player4k/tv/R.java
 
 
 143保留31份生产Java、全部32个资源ID和锁定Media3运行闭包，仅Policy/Browse/Cache三份改变。连续性输入`build/1.4.2/resource-ids.txt`及冻结前像以精确路径和哈希导出。实际31份SDK编译与460+72项逻辑/缓存检查通过；Home及播放器源码未变，不重复旧895项UI测试。未连接真机。
+
+
+144保留31份生产Java、全部32个资源ID及Media3锁定闭包，仅Browse和Home改变。143实际资源ID文本`build/1.4.3/resource-ids.txt`与其冻结前像按精确路径和83b9cbe0…SHA导出，该文本与已公开142资源ID逐字节一致。4份互不覆盖的前像／旧证据索引和新的共享／caller报告见ui/preload-1.4.4。未连接真机。

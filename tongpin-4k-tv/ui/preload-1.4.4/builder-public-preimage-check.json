@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "baseline_head": "9aead73d122083b4ac1b43b40558fbcfed38c130",
+  "checked_exact_blobs": 14,
+  "source_sha256": {
+    "BUILDING.md": "1ad8865434530b355bb0b3eac2ace0a27fc5fbe1aaf35c80b70c2b1d63bd521a",
+    "使用说明.md": "60b009fe365b692f338dbe4bafee4549eb421e752ddaff479c80aa9b48c42703",
+    "PRODUCT.md": "76ecaa61474bb6b470ee81ece8d636ba6040d8faa434a964d30fe9438bba5364",
+    "discovery_release_contract.py": "4c1a561ca623c1e5c22e2664cf05f037b804aa42f2d4de879e4449ec75be2e7b",
+    "sections_release_contract.py": "717e9e9adf0c180de0937492e8f2b5f1a1c4807aa64efc0ab46c402d27a13cb8",
+    "verification/1.4.3/frozen-inputs.json": "c93f11d8f41a9f27c7f32b5632627fae620d203a83e030d21ee7c16745773446",
+    "verification/1.4.3/input-hashes.json": "6fc2704ca41de06c8bfd1ed1c1050b3508a1ac3fa73abbb16460ea30d3786555",
+    "verification/1.4.3/result.json": "e91319823abc47737a2c4b5a5213d2d221c5868ad0d6ab11b624488e5fc609fa",
+    "verification/1.4.3/root-post-build-check.json": "9bb957a3e070d52c50b27e7ddeefb56cae9720ec24b375ccd9c200a033f5ed60",
+    "verification/1.4.3/preflight/input-hashes.json": "6fc2704ca41de06c8bfd1ed1c1050b3508a1ac3fa73abbb16460ea30d3786555",
+    "verification/1.4.3/preflight/result.json": "8fa084f240a8d3e3d988b0dc0b69a62604477834672db01f6676cc3374caa44f",
+    "ui/domestic-1.4.3/source-freeze.json": "0f7a0fd3dc3bc75fdf7a02666eb7b42912a15cbac3b0f21505b8c2d0aa7da846",
+    "ui/domestic-1.4.3/builder-independent-review.json": "b3d42eb2eb25c7a3dbf71ac5b798d2d93406c6a7a65da708a18441cac2205159",
+    "ui/domestic-1.4.3/source-and-builder-review.json": "6b66e670a881a36cbb600de2c98dcb7d3dec013bc41ded3f044b7eb54b15ef62"
+  },
+  "existing45_index_unchanged": true,
+  "existing7_supplement_unchanged": true
+}

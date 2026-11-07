@@ -1,0 +1,38 @@
+{
+  "passed": true,
+  "source_ready": true,
+  "baseline_version": "1.4.2",
+  "version": "1.4.3",
+  "source_sha256": {
+    "src/com/tongpin/player4k/tv/CatalogPreviewCache.java": "375ea381cc5a798594b0e6df14d1b28a1c70d1c14e3b6c35bf9a1f01081a437d",
+    "src/com/tongpin/player4k/tv/UnifiedCatalogBrowse.java": "3cc2bcfc3a48d36753617b4aabb90210375b1fe80508477d04b6b29d117eea7b",
+    "src/com/tongpin/player4k/tv/UnifiedCatalogPolicy.java": "a72beb6ada4999a0a9241887bc30c94c3a6282db70cb64941b5e444a9413b2e8"
+  },
+  "resource_sha256": {
+    "res/values/styles.xml": "afcf3a481f96419592cd5cbfe6bcec6756780fa6d7f636cc9bb71ecf73966054",
+    "res/drawable/tv_focus_dark.xml": "ef6ecfb6b95fa4d9d4ffb6b498741b310e47e6b57b77d12e9451c88a3cd0778f"
+  },
+  "evidence_sha256": {
+    "tongpin-4k/ui/domestic-1.4.9/shared-tests/verification.json": "b044376321e17a723a57c49b76c4e909c22a12e22e7237792176e24f901232f2",
+    "tongpin-4k/ui/domestic-1.4.9/cache-tests/verification.json": "e4a96da8e7fe4e2821f2455128809e5fcfbaa9dc205e475f489e83c5e8f72363",
+    "tongpin-4k/ui/domestic-1.4.9/shared-source-freeze.json": "0de64f5bfb7b2b4fed95a85173725c028397560e667ec6642de30fc9351de178",
+    "tongpin-4k/ui/domestic-1.4.9/preserved-rules.json": "c3462d64fc013aad7fed54726d69a729c56f2a416da65d00fdf109504062573a",
+    "tongpin-4k/ui/domestic-1.4.9/root-cache-independent-review.json": "b229d76caaca787b12953322cd485fbefccbd1efea7c47314ba1775d7f8ab034"
+  },
+  "test_file_sha256": {
+    "tongpin-4k/ui/domestic-1.4.9/shared-tests/run.py": "4d60b618049359caec3b53826bd09fecffd79740fc42d50a9d11a5de6d1a7312",
+    "tongpin-4k/ui/domestic-1.4.9/shared-tests/DomesticCatalogTest.java": "14c260f127453d15505501fcc5033b33d4fb28b11ff7867f34cf81347990d813",
+    "tongpin-4k/ui/domestic-1.4.9/cache-tests/run.py": "12d910473f2e3f1d8f8886d4d05077c238ea3b7071241960fecaea3d28bfa06c",
+    "tongpin-4k/ui/domestic-1.4.9/cache-tests/CatalogPreviewCacheTest.java": "bcd13cc37d701ff2e37256c4cea6761d5eaa95c8b231a94183a2592002eaccce"
+  },
+  "assertions": {
+    "shared": 460,
+    "cache": 72
+  },
+  "production_java_count": 31,
+  "changed_java_count": 3,
+  "native_resources_stubs_changed": false,
+  "device_tested": false,
+  "network_tested": false,
+  "scope": "Existing Section.ALL recommendation, general categories and4K catalogue pages prefer trusted domestic participation, then original recent/provider-period heat/update order. Cached ALL previews immediately follow the same order. Specific regional sections and natural-name search, primary source4K/update selection, identity, player and source registry are unchanged."
+}

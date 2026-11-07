@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "verdict": "clear: exact preload-session release boundary with retained143 builder guards",
+  "source_sha256": {
+    "build_tv.py": "b1094e338dda6f3596dd560ce5466f6662cc1a59e0334f49080121952b67e4ca",
+    "preload_release_contract.py": "47b8a7966f26cb726a4f501ec247202753976293c8873a3f34d7427ad8695820"
+  },
+  "reviewed_freeze_sha256": "429596a6e0fd879a32399be2fe169bda2ac6ebb0b1b3d539597860002a970345",
+  "checks": {
+    "actual_preflight_positive": true,
+    "full143_driver_ast_inverse": true,
+    "missing_owner": "rejected",
+    "missing_caller_report": "rejected",
+    "missing_shared_test": "rejected",
+    "missing_phone_caller_runner": "rejected",
+    "missing_snapshot_pin": "rejected",
+    "missing_supplement_pin": "rejected",
+    "missing_builder_before_pin": "rejected",
+    "missing_tool": "rejected",
+    "stale_tool": "rejected",
+    "stale_source_input": "rejected",
+    "missing_prior_count": "rejected",
+    "not_source_ready": "rejected",
+    "unauthorized_formal": "rejected"
+  },
+  "runner_sha256": "2ed08d0323c42555dbca1cce158d7dad3c5a5e17b31d246a895d942418efbd77",
+  "actual_43_input_gate_checked": true,
+  "old_resource32_exactmap_and_api21_media3_paths_preserved": true,
+  "build_signing_network_executed": false,
+  "device_tested": false
+}

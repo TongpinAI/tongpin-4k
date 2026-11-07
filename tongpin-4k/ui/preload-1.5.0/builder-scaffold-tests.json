@@ -1,0 +1,119 @@
+{
+  "passed": true,
+  "phase": "author scaffold only; independent final builder review still required",
+  "assertions": 23,
+  "cases": [
+    {
+      "name": "scaffold_has_no_source_readiness_or_promotion",
+      "passed": true
+    },
+    {
+      "name": "exact_two_existing_source_scope",
+      "passed": true
+    },
+    {
+      "name": "no_resource_or_stub_additions",
+      "passed": true
+    },
+    {
+      "name": "new_canonical_stage_declared",
+      "passed": true
+    },
+    {
+      "name": "application_compilation_not_run",
+      "passed": true
+    },
+    {
+      "name": "unready_source_rejects_preflight",
+      "passed": true
+    },
+    {
+      "name": "unready_source_rejects_formal",
+      "passed": true
+    },
+    {
+      "name": "whole_build_ast_inverse_is_version_only",
+      "passed": true
+    },
+    {
+      "name": "dispatcher_one_added150_branch",
+      "passed": true
+    },
+    {
+      "name": "version_only_decoded/res/values/strings.xml",
+      "passed": true
+    },
+    {
+      "name": "version_only_decoded/apktool.yml",
+      "passed": true
+    },
+    {
+      "name": "manifest_version_only",
+      "passed": true
+    },
+    {
+      "name": "all11473_prior_ids_retained",
+      "passed": true
+    },
+    {
+      "name": "reject_moved_prior_id",
+      "passed": true
+    },
+    {
+      "name": "reject_missing_prior_id",
+      "passed": true
+    },
+    {
+      "name": "reject_unapproved_new_resource",
+      "passed": true
+    },
+    {
+      "name": "reject_whitelist_must_stay_empty",
+      "passed": true
+    },
+    {
+      "name": "reject_duplicate_name",
+      "passed": true
+    },
+    {
+      "name": "reject_duplicate_id",
+      "passed": true
+    },
+    {
+      "name": "all74_preimages_unchanged",
+      "passed": true
+    },
+    {
+      "name": "old149_proofs_unchanged",
+      "passed": true
+    },
+    {
+      "name": "old149_own_namespace_unchanged",
+      "passed": true
+    },
+    {
+      "name": "eleven_prepared_tools_pinned",
+      "passed": true
+    }
+  ],
+  "frozen_scaffold_sha256": "55ff7dc6c24bc0a4c482973286d026d2f31b393787dfb91d268ea09b5781b413",
+  "tooling_sha256": {
+    "build_tongpin.py": "9950ed927e15b8ccebce6affa44191250916695e7ff93c9c2257a7cf9239c06e",
+    "open-sources/integration/DisassembleOwn1500.java": "f30ee4c56e15dedefa0e91f1d52592285d4a61245cdf699c9a44d331439a4f74",
+    "open-sources/integration/assert_contract.py": "92a56ab1edba3f8953b61e7e21411a7ca7e54e759c75f19b28aae308fc866516",
+    "open-sources/integration/audit_final_ui_api_1500.py": "91623dddb165f8270456b70b82238c8125627132178b9bae5695ff6550565fe2",
+    "open-sources/integration/check_native_bindings_1410.py": "9a69cd89a30993ac4ca4beaa7a8d1d7d0e1b981edbb2f2f62740f955c6a9d93c",
+    "open-sources/integration/check_timer_dex_1500.py": "f7f27acdf7e3a4cb23497fb6a5e556655f848ea665a5be9ca75d59fd961f04cd",
+    "open-sources/integration/integrate_1_5_0.py": "8f391e99d72ff021071b3367b70a5e8880361185b3f910ec194bd489120e00c5",
+    "open-sources/integration/ui_1500_contract.py": "77ea9c2abc62496f9b35a8fa9805032adaef6ca0cd4a9c1576b113f5b4383fa5",
+    "open-sources/toolchain/check_framework_api.py": "91209f30753abd8ea244655bd98762d4e0590c173dae2e842367d82559a61905",
+    "open-sources/toolchain/compile_java_to_smali.py": "b1b855f38294ecb7d392980b917f8fa17eaae77496c3bd1fcd961e557574cc9c",
+    "verification/1.5.0/proof-tools/DisassembleOwn1500.class": "0cadf6620951a1fc831e920fed9bb5942a6d969fb06fe6e8ab3fa477c0c40eb9"
+  },
+  "runner_sha256": "d59af96998b25d99a8a5cefbc56f1357d181266bbe5db1ef57d45bd856485def",
+  "application_sdk_compiled": false,
+  "application_code_executed": false,
+  "production_namespace_changed": false,
+  "promoted": false,
+  "device_tested": false
+}

@@ -1,0 +1,66 @@
+{
+  "passed": true,
+  "verdict": "clear: exact150 two-source retained catalogue/preload scope; unchanged149 taxonomy/ranking/API/search/player/native/resources/stubs and all11 final tools",
+  "source_sha256": {
+    "open-sources/integration/integrate_1_5_0.py": "8f391e99d72ff021071b3367b70a5e8880361185b3f910ec194bd489120e00c5",
+    "open-sources/toolchain/check_framework_api.py": "91209f30753abd8ea244655bd98762d4e0590c173dae2e842367d82559a61905",
+    "open-sources/integration/DisassembleOwn1500.java": "f30ee4c56e15dedefa0e91f1d52592285d4a61245cdf699c9a44d331439a4f74",
+    "open-sources/integration/check_timer_dex_1500.py": "f7f27acdf7e3a4cb23497fb6a5e556655f848ea665a5be9ca75d59fd961f04cd",
+    "open-sources/integration/ui_1500_contract.py": "4c6ab2c61007b1155fa30a6c7591fd5df4778408ff6ff33f091a3a353ad9113c",
+    "build_tongpin.py": "9950ed927e15b8ccebce6affa44191250916695e7ff93c9c2257a7cf9239c06e",
+    "verification/1.5.0/proof-tools/DisassembleOwn1500.class": "0cadf6620951a1fc831e920fed9bb5942a6d969fb06fe6e8ab3fa477c0c40eb9",
+    "open-sources/integration/check_native_bindings_1410.py": "9a69cd89a30993ac4ca4beaa7a8d1d7d0e1b981edbb2f2f62740f955c6a9d93c",
+    "open-sources/integration/assert_contract.py": "92a56ab1edba3f8953b61e7e21411a7ca7e54e759c75f19b28aae308fc866516",
+    "open-sources/toolchain/compile_java_to_smali.py": "b1b855f38294ecb7d392980b917f8fa17eaae77496c3bd1fcd961e557574cc9c",
+    "open-sources/integration/audit_final_ui_api_1500.py": "91623dddb165f8270456b70b82238c8125627132178b9bae5695ff6550565fe2"
+  },
+  "reviewed_frozen_input_sha256": "949a1829e699dee78f5d7b29867441265b750c90abaf6571c0fb2b838aacca89",
+  "readonly_guard_sha256": {
+    "before-sha256.json": "2c98e1ecc211c2a5f3b9b3973581f569897b20d12ab127b0322419e1cb4782b4",
+    "baseline149-native-resource-sha256.json": "d60c7299ec764fafe3883a95b0424c9210d6970e7a1ca394071cab60ffbf0183",
+    "prior149-evidence-sha256.json": "39c28f480e451d4f2684343597356e7da716cd89e3685674d45939fd5a80d86c"
+  },
+  "gate_tests": {
+    "path": "ui/preload-1.5.0/builder-gate-review-tests.json",
+    "sha256": "60276f027662f5179424eb404be3ba283f28f3b50a12c0103410fbf414dd7484",
+    "runner_path": "ui/preload-1.5.0/builder-gate-review-tests.py",
+    "runner_sha256": "b9f33e85ecbd5bc90ce2df6ee0174798176b4a80d4ab383922c605fb23ab73c3",
+    "cases": 38,
+    "actual_full_preflight_positive": 1,
+    "in_memory_rejections": 27,
+    "previous_resource_guard_cases": 6,
+    "production_or_frozen_files_modified": false,
+    "negative_digest_policy": "Reuse only actual-positive validated digests for unchanged native/source/tool inputs; all fixture document/hash overrides take precedence."
+  },
+  "scope": {
+    "modified_java": [
+      "com/tongpin/player4k/catalog/CatalogActivity.java",
+      "com/tongpin/player4k/catalog/UnifiedCatalogBrowse.java"
+    ],
+    "added_java": [],
+    "java_sources": 41,
+    "fresh_own_dex_classes": 366,
+    "canonical_stage_dex_sha256": "4c0b91ff8597f437f289ccc73251c78b9115fa64e2c43c7c4723c57261fa4891",
+    "native_baseline_entries": 12691,
+    "previous_verification_entries_retained": 36,
+    "compile_stub_changes": 0,
+    "resource_additions": 0,
+    "resource_ids_retained": 11473,
+    "provider_count": 28,
+    "provider_asset_sha256": "9793756bfa35672f9c2645cd981dce4e23431be664ebceb71e6f2b05966b3e05"
+  },
+  "checks": [
+    "Actual ui_1500_contract.verify(False) passes current41-source graph/18 unchanged stubs and canonical366-class stage, old native/resource/asset inventory and published149 output/evidence. No new application SDK/D8/795-shared/149-caller/72-codec execution was performed for this tool review.",
+    "Complete build driver AST precisely reverses to149 using only current/previous version routes and diagnostic substitutions. Zero-additions11473-resource policy plus package/SDK/backend/signing/ZIP algorithms are unchanged.",
+    "assert_contract contains exactly one new150 early branch; all historical branches and149 before/evidence bytes remain pinned.",
+    "New required evidence names cover both new run.py and Java test pairs, shared795, actual full-graph caller149, unchanged codec72 report/test/runner and all20 codec dependency hashes. Compile-only/selected-case/count/codec-dependency/caller-wiring/preimage malformed fixtures are rejected after nested report digests are coherently updated.",
+    "Integrator delta is release/previous149 routing and current canonical stage only; actual native member resolution,17 legacy proof readers, native field/inheritance binding, guarded namespace replacement and complete final instruction equality remain unchanged.",
+    "Native binding checker and Java/framework compile algorithms are byte-identical to the captured149 tools. Final disassembler and framework-reader algorithms differ only in release names; timer proof retains all previous instruction comparisons.",
+    "Fresh independent Java8 compilation of DisassembleOwn1500.java produces the exact frozen proof-class digest. The reader treats DEX as data and never executes application classes.",
+    "All38 cases passed, including27 malformed input/metadata fixtures and6 resource boundary cases. Actual-positive validated digests are reused only for unchanged files during negatives, with edited document/hash overrides taking precedence."
+  ],
+  "proof_class_sha256": "0cadf6620951a1fc831e920fed9bb5942a6d969fb06fe6e8ab3fa477c0c40eb9",
+  "unresolved_findings": [],
+  "device_tested": false,
+  "application_executed": false
+}

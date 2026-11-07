@@ -27,6 +27,8 @@ public final class UnifiedCatalogBrowse implements AutoCloseable {
     public static final int MAX_RESULTS = 2000;
     private static final int MAX_PROVIDERS = 128, MAX_PAGE_ITEMS = 1000, MAX_PAGE = 10000, MAX_CATEGORY_CACHE = 128;
     private static final long CATEGORY_CACHE_NS = TimeUnit.MINUTES.toNanos(15);
+    private static final int MAX_SESSIONS = 24, MAX_RETAINED_ROWS = 6000, MAX_RETAINED_BYTES = 16 * 1024 * 1024;
+    private static final int WARM_GROUPS = 18, WARM_REQUESTS = 12, MAX_SEED_ROWS = 240;
     public interface Backend {
         CatalogCategories categories(Provider provider) throws Exception;
         Page fetch(Provider provider, int page, Selection selection) throws Exception;
@@ -79,12 +81,17 @@ public final class UnifiedCatalogBrowse implements AutoCloseable {
         private final ArrayList<Work> runningJobs = new ArrayList<Work>();
         private List<Group> grouped = Collections.emptyList();
         private List<Video> primaryItems = Collections.emptyList();
+        private List<Video> seedCandidates = Collections.emptyList();
         private Listener listener;
         private int skippedLive, round, batchTotal, batchReturned;
         private boolean canceled, limited, deliveryQueued, preferPage = true;
         private long revision, readyRevision;
         private boolean projectionScheduled, projectionFailed;
         private FutureTask<Void> projectionTask;
+        private final long created = System.nanoTime(), epoch = cacheEpoch;
+        private boolean initialized, preloaded;
+        private int warmRequests;
+        private long activation;
         private Handle(Tab tab, Section section, Listener listener) { this.tab = tab; this.section = section; this.listener = listener; }
         public void cancel() { UnifiedCatalogBrowse.this.cancel(this); }
         public boolean isCurrent() { synchronized (lock) { return current(this); } }
@@ -115,6 +122,7 @@ public final class UnifiedCatalogBrowse implements AutoCloseable {
         final int page, round;
         final long cacheEpoch;
         FutureTask<Void> future;
+        boolean background, started, released;
         Work(Source source, Cursor cursor, int round, long cacheEpoch) { this.source = source; this.cursor = cursor; this.round = round; this.cacheEpoch = cacheEpoch; page = cursor == null ? 0 : cursor.nextPage; }
     }
     private static final class CategoryCache {
@@ -147,6 +155,12 @@ public final class UnifiedCatalogBrowse implements AutoCloseable {
     private final LinkedHashMap<String, CategoryCache> categoryCache = new LinkedHashMap<String, CategoryCache>(16, 0.75f, true);
     private long cacheEpoch;
     private Handle active;
+    private Handle warming;
+    private final LinkedHashMap<String, Handle> sessions = new LinkedHashMap<String, Handle>(16, 0.75f, true);
+    private List<Provider> configuration = Collections.emptyList();
+    private String configurationKey = "";
+    private boolean preloadRequested, preloadEnabled;
+    private int backgroundJobs;
     private boolean closed;
     public UnifiedCatalogBrowse(Executor delivery) {
         this(delivery, new Backend() {
@@ -162,34 +176,101 @@ public final class UnifiedCatalogBrowse implements AutoCloseable {
         return start(providers, tab, Section.ALL, listener);
     }
     public Handle start(List<Provider> providers, Tab tab, Section section, Listener listener) {
+        return begin(providers, tab, section, listener, false);
+    }
+    /** Reattach the category's existing rows and real pagination cursors. */
+    public Handle activate(List<Provider> providers, Tab tab, Section section, Listener listener) {
+        return begin(providers, tab, section, listener, true);
+    }
+    private Handle begin(List<Provider> providers, Tab tab, Section section, Listener listener, boolean reuse) {
         if (providers == null || providers.size() > MAX_PROVIDERS || !UnifiedCatalogPolicy.validSection(tab, section) || listener == null)
             throw new IllegalArgumentException("Invalid unified browse request");
         Handle h;
         synchronized (lock) {
             if (closed) throw new IllegalStateException("Browse closed");
-            if (active != null) cancelLocked(active);
-            workers.purge(); h = new Handle(tab, section, listener); active = h;
-            Set<String> unique = new HashSet<String>();
-            for (Provider p : providers) {
-                if (p == null) continue;
-                if (CatalogApi.liveProvider(p)) { h.skippedLive++; continue; }
-                Source s = new Source(p); if (!unique.add(s.identity)) continue;
-                h.sources.add(s);
-                if (tab == Tab.RECOMMEND) { s.metadataDone = true; s.cursors.add(new Cursor(s, null)); }
-                else {
-                    CategoryCache cached = categoryCache.get(s.cacheKey);
-                    if (cached != null && System.nanoTime() - cached.created > CATEGORY_CACHE_NS) { categoryCache.remove(s.cacheKey); cached = null; }
-                    if (cached != null) applyCategories(s, cached, tab, section);
-                }
+            String registry = registry(providers);
+            if (!registry.equals(configurationKey)) {
+                for (Handle previous : new ArrayList<Handle>(sessions.values())) cancelLocked(previous);
+                sessions.clear(); active = null; warming = null;
+                configurationKey = registry; configuration = new ArrayList<Provider>(providers);
             }
-            dispatchLocked(h, 0);
+            pauseWarmLocked();
+            if (active != null) parkLocked(active);
+            String key = sessionKey(tab, section); h = sessions.get(key);
+            if (h != null && (!reuse || expired(h))) { cancelLocked(h); h = null; }
+            if (h == null) { h = createLocked(tab, section, reuse); sessions.put(key, h); }
+            h.listener = listener; h.activation++; active = h;
+            if (!h.initialized) { h.initialized = true; dispatchLocked(h, 0); }
+            else if (suspended(h)) dispatchLocked(h, 2);
+            scheduleProjectionLocked(h); trimLocked();
         }
         publish(h); return h;
     }
-    public void invalidateCategories() { synchronized (lock) { categoryCache.clear(); cacheEpoch++; } }
+    private static String sessionKey(Tab tab, Section section) { return tab.name() + '/' + section.name(); }
+    private static String registry(List<Provider> providers) {
+        StringBuilder key = new StringBuilder();
+        for (Provider p : providers) {
+            if (p == null) { key.append("null;"); continue; }
+            for (String field : new String[]{p.id, p.api, p.kind, p.name, p.homepage, String.valueOf(p.supportsSearch)}) {
+                String value = String.valueOf(field); key.append(value.length()).append(':').append(value);
+            }
+        }
+        return key.toString();
+    }
+    private boolean expired(Handle h) { return h.canceled || h.epoch != cacheEpoch || System.nanoTime() - h.created > CATEGORY_CACHE_NS; }
+    private Handle createLocked(Tab tab, Section section, boolean seed) {
+        Handle h = new Handle(tab, section, null); Set<String> unique = new HashSet<String>();
+        for (Provider p : configuration) {
+            if (p == null) continue;
+            if (CatalogApi.liveProvider(p)) { h.skippedLive++; continue; }
+            Source s = new Source(p); if (!unique.add(s.identity)) continue; h.sources.add(s);
+            if (tab == Tab.RECOMMEND) { s.metadataDone = true; s.cursors.add(new Cursor(s, null)); }
+            else {
+                CategoryCache cached = categoryCache.get(s.cacheKey);
+                if (cached != null && System.nanoTime() - cached.created > CATEGORY_CACHE_NS) { categoryCache.remove(s.cacheKey); cached = null; }
+                if (cached != null) applyCategories(s, cached, tab, section);
+            }
+        }
+        // Reuse known rows; classification stays on the projection worker and never advances a source cursor.
+        Handle parent = !seed ? null : sessions.get(sessionKey(tab, Section.ALL));
+        if (parent == null || expired(parent)) parent = !seed ? null : sessions.get(sessionKey(Tab.RECOMMEND, Section.ALL));
+        if (parent != null && !expired(parent)) h.seedCandidates = new ArrayList<Video>(parent.items.subList(0, Math.min(MAX_SEED_ROWS, parent.items.size())));
+        return h;
+    }
+    /** Warm the other primary categories only while the catalogue is visible. */
+    public void preload() {
+        synchronized (lock) {
+            if (closed || active == null) return;
+            preloadRequested = preloadEnabled = true; scheduleWarmLocked();
+        }
+    }
+    public void park(Handle h) {
+        synchronized (lock) {
+            preloadEnabled = false; pauseWarmLocked();
+            if (h != null && h == active) { parkLocked(h); active = null; }
+        }
+    }
+    private void parkLocked(Handle h) {
+        pauseLocked(h); h.listener = null;
+    }
+    private void pauseWarmLocked() {
+        if (warming != null) { parkLocked(warming); warming = null; }
+    }
+    private static boolean suspended(Handle h) {
+        for (Source s : h.sources) {
+            if (s.metadataSuspended) return true;
+            for (Cursor c : s.cursors) if (c.suspended) return true;
+        }
+        return false;
+    }
+    public void invalidateCategories() { synchronized (lock) { categoryCache.clear(); cacheEpoch++; invalidateSessionsLocked(); } }
     public void invalidateCategories(Provider provider) {
         if (provider == null) return;
-        synchronized (lock) { categoryCache.remove(provider.id + '\0' + provider.api + '\0' + provider.kind); cacheEpoch++; }
+        synchronized (lock) { categoryCache.remove(provider.id + '\0' + provider.api + '\0' + provider.kind); cacheEpoch++; invalidateSessionsLocked(); }
+    }
+    private void invalidateSessionsLocked() {
+        pauseWarmLocked();
+        for (Handle h : new ArrayList<Handle>(sessions.values())) if (h != active) cancelLocked(h);
     }
     private static void applyCategories(Source source, CategoryCache cached, Tab tab, Section section) {
         source.catalog = cached.catalog; source.metadataDone = true; source.metadataFailed = false;
@@ -197,7 +278,14 @@ public final class UnifiedCatalogBrowse implements AutoCloseable {
     }
     public boolean loadMore(Handle h) { return request(h, 0); }
     public boolean retryFailed(Handle h) { return request(h, 1); }
-    public boolean resume(Handle h) { return request(h, 2); }
+    public boolean resume(Handle h) {
+        synchronized (lock) {
+            if (!current(h)) return false;
+            if (preloadRequested) { preloadEnabled = true; scheduleWarmLocked(); }
+            if (!suspended(h)) return false;
+        }
+        return request(h, 2);
+    }
     private boolean request(Handle h, int mode) {
         synchronized (lock) {
             if (!current(h) || busy(h) || h.limited) return false;
@@ -225,18 +313,73 @@ public final class UnifiedCatalogBrowse implements AutoCloseable {
     public void cancelRound(Handle h) {
         synchronized (lock) {
             if (!current(h)) return;
-            ++h.round;
-            for (Source s : h.sources) {
-                if (s.metadataInFlight) { s.metadataInFlight = false; s.metadataSuspended = true; }
-                for (Cursor c : s.cursors) if (c.inFlight) { c.inFlight = false; c.suspended = true; }
-            }
-            for (Work w : h.runningJobs) w.future.cancel(true);
-            h.runningJobs.clear(); clearQueuedLocked(h); workers.purge();
+            preloadEnabled = false; pauseWarmLocked(); pauseLocked(h); scheduleProjectionLocked(h);
         }
         publish(h);
     }
+    private void pauseLocked(Handle h) {
+        ++h.round; ++h.activation; h.deliveryQueued = false;
+        for (Source s : h.sources) {
+            if (s.metadataInFlight) { s.metadataInFlight = false; s.metadataSuspended = true; }
+            for (Cursor c : s.cursors) if (c.inFlight) { c.inFlight = false; c.suspended = true; }
+        }
+        for (Work w : h.runningJobs) { w.future.cancel(true); if (!w.started) releaseBackgroundLocked(w); }
+        h.runningJobs.clear(); clearQueuedLocked(h); workers.purge();
+        if (h.projectionTask != null) h.projectionTask.cancel(true);
+        h.projectionTask = null; h.projectionScheduled = false; projectionWorker.purge();
+    }
     private boolean current(Handle h) { return !closed && h != null && active == h && !h.canceled; }
+    private boolean owned(Handle h) { return !closed && h != null && !h.canceled && (h == active || h == warming); }
     private boolean busy(Handle h) { return !h.metadataQueue.isEmpty() || !h.readySources.isEmpty() || !h.runningJobs.isEmpty(); }
+    private void trimLocked() {
+        long rows = 0, bytes = 0;
+        for (Handle h : sessions.values()) {
+            rows += h.items.size() + h.seedCandidates.size();
+            for (Video v : h.items) bytes += retainedBytes(v);
+            for (Video v : h.seedCandidates) bytes += retainedBytes(v);
+            for (Source s : h.sources) for (Cursor c : s.cursors) if (c.buffer != null) {
+                rows += c.buffer.size(); for (Video v : c.buffer) bytes += retainedBytes(v);
+            }
+        }
+        if (sessions.size() <= MAX_SESSIONS && rows <= MAX_RETAINED_ROWS && bytes <= MAX_RETAINED_BYTES) return;
+        for (String key : new ArrayList<String>(sessions.keySet())) {
+            Handle h = sessions.get(key); if (h == active || h == warming) continue;
+            cancelLocked(h);
+            // Recount after eviction; the active window keeps its existing MAX_RESULTS contract.
+            trimLocked(); return;
+        }
+    }
+    private static long retainedBytes(Video v) {
+        long n = 512;
+        for (String s : new String[]{v.id,v.title,v.subtitle,v.poster,v.sourceUrl,v.description,v.author,v.licence,v.year,v.area,v.genre,v.categoryId,v.categoryName,v.categoryLabel})
+            if (s != null) n += 2L * s.length();
+        return n;
+    }
+    private void scheduleWarmLocked() {
+        if (!preloadEnabled || closed || active == null) return;
+        if (warming != null && (warming.projectionFailed || !warming.projectionScheduled && warming.revision == warming.readyRevision)
+                && (warming.grouped.size() >= WARM_GROUPS || warming.warmRequests >= WARM_REQUESTS || !busy(warming))) {
+            Handle completed = warming; completed.preloaded = true; parkLocked(completed); warming = null; trimLocked();
+        }
+        if ((!active.metadataQueue.isEmpty() || !active.readySources.isEmpty()) && active.grouped.size() < WARM_GROUPS
+                || active.runningJobs.size() > 2 || active.projectionScheduled) return;
+        if (warming == null) for (Tab tab : Tab.values()) {
+            if (tab == active.tab && active.section == Section.ALL) continue;
+            String key = sessionKey(tab, Section.ALL); Handle h = sessions.get(key);
+            if (h != null && expired(h)) { cancelLocked(h); h = null; }
+            if (h != null && (h.preloaded || !h.grouped.isEmpty() || h.initialized && !suspended(h) && !busy(h))) continue;
+            if (h == null) { h = createLocked(tab, Section.ALL, true); sessions.put(key, h); }
+            warming = h; h.warmRequests = 0;
+            if (!h.initialized) { h.initialized = true; dispatchLocked(h, 0); }
+            else if (suspended(h)) dispatchLocked(h, 2);
+            scheduleProjectionLocked(h); trimLocked();
+            if (!busy(h) && !h.projectionScheduled && h.revision == h.readyRevision) {
+                h.preloaded = true; parkLocked(h); warming = null; continue;
+            }
+            break;
+        }
+        if (warming != null) pumpLocked(warming);
+    }
     private boolean dispatchLocked(Handle h, int mode) {
         boolean suspended = false;
         for (Source s : h.sources) {
@@ -286,16 +429,31 @@ public final class UnifiedCatalogBrowse implements AutoCloseable {
         for (Source source : h.sources) { source.pendingPages.clear(); source.pageQueued = false; }
     }
     private void pumpLocked(Handle h) {
-        if (!current(h) || h.limited) return;
-        while (h.runningJobs.size() < 3 && (!h.metadataQueue.isEmpty() || !h.readySources.isEmpty())) {
+        if (!owned(h) || h.limited) return;
+        boolean background = h == warming;
+        if (background && (!preloadEnabled || backgroundJobs > 0 || h.projectionScheduled || h.warmRequests >= WARM_REQUESTS || h.grouped.size() >= WARM_GROUPS
+                || active == null || (!active.metadataQueue.isEmpty() || !active.readySources.isEmpty()) && active.grouped.size() < WARM_GROUPS
+                || active.runningJobs.size() > 2)) return;
+        int limit = background ? 1 : preloadEnabled && h.grouped.size() >= WARM_GROUPS ? 2 : 3;
+        while (h.runningJobs.size() < limit && (!h.metadataQueue.isEmpty() || !h.readySources.isEmpty())) {
             Work w = nextWorkLocked(h);
-            w.future = new FutureTask<Void>(() -> { fetch(h, w); return null; });
+            w.background = background;
+            if (background) { backgroundJobs++; h.warmRequests++; }
+            w.future = new FutureTask<Void>(() -> {
+                synchronized (lock) { w.started = true; }
+                try { fetch(h, w); }
+                finally { synchronized (lock) { releaseBackgroundLocked(w); if (active != null) pumpLocked(active); scheduleWarmLocked(); } }
+                return null;
+            });
             h.runningJobs.add(w);
             try { workers.execute(w.future); }
             catch (RuntimeException rejected) {
-                h.runningJobs.remove(w); suspend(w); w.future.cancel(true);
+                h.runningJobs.remove(w); suspend(w); w.future.cancel(true); releaseBackgroundLocked(w);
             }
         }
+    }
+    private void releaseBackgroundLocked(Work w) {
+        if (w.background && !w.released) { w.released = true; backgroundJobs--; }
     }
     private static void suspend(Work w) {
         if (w.cursor == null) { w.source.metadataInFlight = false; w.source.metadataSuspended = true; }
@@ -309,13 +467,14 @@ public final class UnifiedCatalogBrowse implements AutoCloseable {
         }
     }
     private void fetch(Handle h, Work w) {
+        synchronized (lock) { if (!owned(h) || w.round != h.round) return; }
         Page page = null; CategoryCache prepared = null; boolean ok = false;
         try {
             if (w.cursor == null) {
                 CatalogCategories catalog = backend.categories(w.source.provider);
                 ok = catalog != null && w.source.provider.id.equals(catalog.providerId);
                 if (ok) {
-                    synchronized (lock) { if (!current(h) || w.round != h.round) return; }
+                    synchronized (lock) { if (!owned(h) || w.round != h.round) return; }
                     prepared = new CategoryCache(catalog);
                 }
             } else {
@@ -324,7 +483,7 @@ public final class UnifiedCatalogBrowse implements AutoCloseable {
             }
         } catch (Exception unavailable) { ok = false; }
         synchronized (lock) {
-            if (!current(h) || w.round != h.round || !h.runningJobs.remove(w)) return;
+            if (!owned(h) || w.round != h.round || !h.runningJobs.remove(w)) return;
             h.batchReturned++;
             if (w.cursor == null) {
                 w.source.metadataInFlight = false; w.source.metadataSuspended = false;
@@ -346,7 +505,7 @@ public final class UnifiedCatalogBrowse implements AutoCloseable {
                 }
             }
             if (h.limited) pauseQueuedLocked(h);
-            scheduleProjectionLocked(h); pumpLocked(h);
+            scheduleProjectionLocked(h); pumpLocked(h); trimLocked(); scheduleWarmLocked();
         }
         publish(h);
     }
@@ -394,10 +553,11 @@ public final class UnifiedCatalogBrowse implements AutoCloseable {
         if (h.items.size() >= MAX_RESULTS && (!c.done || !h.metadataQueue.isEmpty() || !h.readySources.isEmpty())) h.limited = true;
     }
     private void scheduleProjectionLocked(Handle h) {
-        if (!current(h) || h.projectionScheduled || h.revision == h.readyRevision && !h.projectionFailed) return;
+        if (!owned(h) || h.projectionScheduled || h.revision == h.readyRevision && h.seedCandidates.isEmpty() && !h.projectionFailed) return;
         h.projectionFailed = false; h.projectionScheduled = true;
         projectionWorker.purge();
-        h.projectionTask = new FutureTask<Void>(() -> { project(h); return null; });
+        final long activation = h.activation;
+        h.projectionTask = new FutureTask<Void>(() -> { project(h, activation); return null; });
         try { projectionWorker.execute(h.projectionTask); }
         catch (RuntimeException rejected) { h.projectionTask = null; h.projectionScheduled = false; h.projectionFailed = true; }
     }
@@ -408,30 +568,39 @@ public final class UnifiedCatalogBrowse implements AutoCloseable {
         }
         publish(h); return true;
     }
-    private void project(Handle h) {
+    private void project(Handle h, long activation) {
         try {
             for (;;) {
-                List<Video> raw; long revision;
+                List<Video> raw, seed; long revision;
                 synchronized (lock) {
-                    if (!current(h)) return;
-                    revision = h.revision; raw = new ArrayList<Video>(h.items);
+                    if (!owned(h) || h.activation != activation) return;
+                    seed = h.seedCandidates;
+                }
+                ArrayList<Video> acceptedSeed = new ArrayList<Video>();
+                for (Video video : seed) if (UnifiedCatalogPolicy.matches(video, h.tab, h.section)) acceptedSeed.add(video);
+                synchronized (lock) {
+                    if (!owned(h) || h.activation != activation) return;
+                    for (Video video : acceptedSeed) if (h.items.size() < MAX_RESULTS && h.seen.add(UnifiedCatalogPolicy.identity(video))) { h.items.add(video); h.revision++; }
+                    h.seedCandidates = Collections.emptyList(); revision = h.revision; raw = new ArrayList<Video>(h.items);
                 }
                 List<Group> grouped = UnifiedCatalogPolicy.project(raw, false, h.section == Section.ALL);
                 ArrayList<Video> primary = new ArrayList<Video>();
                 for (Group group : grouped) primary.add(group.primary);
                 List<Video> immutable = Collections.unmodifiableList(primary);
                 synchronized (lock) {
-                    if (!current(h)) return;
+                    if (!owned(h) || h.activation != activation) return;
                     if (revision != h.revision) continue;
                     h.grouped = grouped; h.primaryItems = immutable; h.readyRevision = revision;
                     h.projectionTask = null; h.projectionScheduled = false; h.projectionFailed = false;
+                    scheduleWarmLocked();
                 }
                 publish(h); return;
             }
         } catch (RuntimeException failed) {
             synchronized (lock) {
-                if (!current(h)) return;
+                if (!owned(h) || h.activation != activation) return;
                 h.projectionTask = null; h.projectionScheduled = false; h.projectionFailed = true;
+                scheduleWarmLocked();
             }
             publish(h);
         }
@@ -441,32 +610,42 @@ public final class UnifiedCatalogBrowse implements AutoCloseable {
                 && s.provider.id.equals(v.provider.id) && s.provider.api.equals(v.provider.api);
     }
     private void publish(Handle h) {
-        synchronized (lock) { if (!current(h) || h.deliveryQueued) return; h.deliveryQueued = true; }
+        final long activation;
+        synchronized (lock) { if (!current(h) || h.deliveryQueued) return; h.deliveryQueued = true; activation = h.activation; }
         try {
             delivery.execute(() -> {
                 Listener listener; Snapshot snapshot;
                 synchronized (lock) {
-                    h.deliveryQueued = false; if (!current(h)) return;
+                    if (!current(h) || h.activation != activation) return;
+                    h.deliveryQueued = false;
                     listener = h.listener; snapshot = new Snapshot(h);
                 }
                 if (listener != null && h.isCurrent()) listener.onUpdate(h, snapshot);
             });
-        } catch (RuntimeException rejected) { synchronized (lock) { h.deliveryQueued = false; } }
+        } catch (RuntimeException rejected) { synchronized (lock) { if (h.activation == activation) h.deliveryQueued = false; } }
     }
-    private void cancel(Handle h) { synchronized (lock) { cancelLocked(h); workers.purge(); } }
+    private void cancel(Handle h) {
+        synchronized (lock) {
+            if (h == active) { preloadEnabled = false; pauseWarmLocked(); active = null; }
+            cancelLocked(h); workers.purge();
+        }
+    }
     private void cancelLocked(Handle h) {
         if (h == null || h.canceled) return;
+        String key = sessionKey(h.tab, h.section); if (sessions.get(key) == h) sessions.remove(key);
         h.canceled = true; h.listener = null; ++h.round;
         if (h.projectionTask != null) h.projectionTask.cancel(true);
         h.projectionTask = null; h.projectionScheduled = false; projectionWorker.purge();
-        for (Work w : h.runningJobs) w.future.cancel(true);
+        for (Work w : h.runningJobs) { w.future.cancel(true); if (!w.started) releaseBackgroundLocked(w); }
         h.runningJobs.clear(); clearQueuedLocked(h);
     }
     @Override public void close() {
         synchronized (lock) {
             if (closed) return;
-            if (active != null) cancelLocked(active);
-            active = null; closed = true; categoryCache.clear(); cacheEpoch++; workers.shutdownNow(); projectionWorker.shutdownNow();
+            preloadEnabled = false;
+            for (Handle h : new ArrayList<Handle>(sessions.values())) cancelLocked(h);
+            sessions.clear(); active = warming = null; configuration = Collections.emptyList(); configurationKey = "";
+            closed = true; categoryCache.clear(); cacheEpoch++; workers.shutdownNow(); projectionWorker.shutdownNow();
         }
     }
 }

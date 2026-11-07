@@ -604,7 +604,7 @@ public final class CatalogActivity extends Activity {
 
     private void startUnifiedBrowse() {
         pauseCatalogue(); cancelGlobalSearch();
-        if (browseHandle != null) browseHandle.cancel();
+        if (browseHandle != null) unifiedBrowse.park(browseHandle);
         pendingBrowseHandle = null; pendingBrowseSnapshot = null; renderedBrowseGroups = null;
         savedSearchAnchor = null;
         ++pageTicket; ++detailTicket; readingDetail = false;
@@ -616,11 +616,13 @@ public final class CatalogActivity extends Activity {
         resetAggregateViewport = true;
         updateSearchSupport(); renderCategories();
         status.setText("正在汇集" + browseLabel(homeTab, homeSection) + "…"); progress.setVisibility(View.VISIBLE); retry.setVisibility(View.GONE);
-        browseHandle = unifiedBrowse.start(providers, homeTab, homeSection, (handle, snapshot) -> {
+        browseHandle = unifiedBrowse.activate(providers, homeTab, homeSection, (handle, snapshot) -> {
             if (!alive() || !handle.isCurrent()) return;
             applyUnifiedSnapshot(handle, snapshot);
         });
         if (foreground) posters.resume();
+        applyUnifiedSnapshot(browseHandle, browseHandle.snapshot());
+        if (foreground) { unifiedBrowse.resume(browseHandle); unifiedBrowse.preload(); }
         loadBrowsePreview();
         updatePager();
     }
@@ -825,7 +827,7 @@ public final class CatalogActivity extends Activity {
         if (foreground && detail == null && !readingDetail) { posters.resume(); loadBrowsePreview(); }
         if (keyword.isEmpty()) {
             if (!liveMode && foreground && detail == null && !readingDetail && browseHandle != null && browseHandle.isCurrent()) {
-                applyUnifiedSnapshot(browseHandle, browseHandle.snapshot()); unifiedBrowse.resume(browseHandle);
+                applyUnifiedSnapshot(browseHandle, browseHandle.snapshot()); unifiedBrowse.resume(browseHandle); unifiedBrowse.preload();
             }
             return;
         }

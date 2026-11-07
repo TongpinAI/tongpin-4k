@@ -1,0 +1,50 @@
+����: [options] Դֵ 8 �ѹ�ʱ������δ�����а���ɾ��
+����: [options] Ŀ��ֵ 8 �ѹ�ʱ������δ�����а���ɾ��
+����: [options] Ҫ�����й��ѹ�ʱѡ��ľ���, ��ʹ�� -Xlint:-options��
+ע: ĳЩ�����ļ�ʹ�û򸲸����ѹ�ʱ�� API��
+ע: �й���ϸ��Ϣ, ��ʹ�� -Xlint:deprecation ���±��롣
+3 ������
+assertions passed: 16
+TV section UI assertions passed: 132
+layout_model 720 400 1.0 5 98 196 1 113 83 132 48 96 70
+layout_model 720 400 1.5 5 76 216 1 112 104 342 50 96 70
+layout_model 720 400 2.0 5 84 197 1 72 125 324 61 96 88
+layout_model 720 540 1.0 5 154 280 2 147 108 132 48 96 70
+layout_model 720 540 1.5 5 136 296 2 147 140 342 50 96 70
+layout_model 720 540 2.0 5 125 296 2 124 172 324 61 96 88
+layout_model 720 720 1.0 5 154 460 2 147 108 132 48 96 70
+layout_model 720 720 1.5 5 230 382 2 147 140 342 50 96 70
+layout_model 720 720 2.0 5 292 309 2 137 172 324 61 96 88
+layout_model 960 400 1.0 6 98 196 1 113 83 372 48 136 70
+layout_model 960 400 1.5 6 76 216 1 112 104 300 50 136 97
+layout_model 960 400 2.0 6 84 197 1 72 125 228 61 136 124
+layout_model 960 540 1.0 6 154 280 2 172 108 372 48 136 70
+layout_model 960 540 1.5 6 136 296 2 156 140 300 50 136 97
+layout_model 960 540 2.0 6 125 296 2 124 172 228 61 136 124
+layout_model 960 720 1.0 6 154 460 2 176 108 372 48 136 70
+layout_model 960 720 1.5 6 180 432 2 176 140 300 50 136 97
+layout_model 960 720 2.0 6 231 370 2 176 172 228 61 136 124
+layout_model 1280 400 1.0 6 98 196 1 113 83 692 48 189 70
+layout_model 1280 400 1.5 6 76 216 1 112 104 620 50 189 97
+layout_model 1280 400 2.0 6 84 197 1 72 125 548 61 189 124
+layout_model 1280 540 1.0 6 154 280 2 172 108 692 48 189 70
+layout_model 1280 540 1.5 6 136 296 2 156 140 620 50 189 97
+layout_model 1280 540 2.0 6 125 296 2 124 172 548 61 189 124
+layout_model 1280 720 1.0 6 154 460 2 255 108 692 48 189 70
+layout_model 1280 720 1.5 6 180 432 2 255 140 620 50 189 97
+layout_model 1280 720 2.0 6 231 370 2 198 172 548 61 189 124
+layout_model_minimum_poster_dp: 72
+layout_model_rows: 27
+TV unslop UI assertions passed: 233
+TV startup performance assertions passed: 21
+TV unified home assertions passed: 25
+TV search order assertions passed: 31
+TV global search UI assertions passed: 22
+assertions passed: 42
+assertions passed: 59
+assertions passed: 22
+assertions passed: 51
+TvPlayer production static contract assertions passed: 147
+TV home assertions passed: 23
+TV seek state assertions passed: 75
+TV seek input assertions passed: 12

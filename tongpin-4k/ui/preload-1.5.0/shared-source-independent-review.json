@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "verdict": "clear",
+  "workspace_sources": true,
+  "source_sha256": {
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogBrowse.java": "ca46b70af052840773a6c094b374876cf9e17741d1292f3ad01f1b053e284280",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/UnifiedCatalogBrowse.java": "3623fde819d86a0aeb44be93b302568360bea15a403e20a6a17fc3b18092b80b"
+  },
+  "owner_freeze": "tongpin-4k/ui/preload-1.5.0/shared-source-freeze.json",
+  "owner_freeze_sha256": "0b48082ee8571e93f54486226ac3f272062a64c70770210f0fbd9cb498b8a9f7",
+  "tests_report": "tongpin-4k/ui/preload-1.5.0/shared-tests/verification.json",
+  "tests_report_sha256": "57f481e2cbc5808b232ab0ecc6f04446fb1428076ff0f7f17682ccc0b932b409",
+  "independent_of_production_author": true,
+  "reviewer": "watermark_source_review",
+  "production_author": "root",
+  "checks": [
+    "Read complete scheduler delta against real149/143 before; both production files are package-only mirrors.",
+    "Fresh start and terminal cancel remain distinct from activate/park; accepted rows and each provider/category cursor survive A-B-A, including page2-to-page3.",
+    "Network round, projection activation and delivery activation guards independently reject canceled work/ABA; original blocked-projector+loadMore two-page regression passes.",
+    "Physical background slot remains occupied by interrupt-ignoring backend until finally, while foreground can use the remaining workers; total pool remains3.",
+    "Explicit warming reaches later Kids despite preceding undeclared zero-work categories, never publishes offscreen rows, caps12 actual requests/primary slot, retains resumable outstanding cursors and never enumerates all secondary slots.",
+    "Subcategory seeds are classified on projection worker from at most240 known parent candidates; child still requests real page1 and preserves hasMore/dedup.",
+    "TTL expiry simulated on actual private monotonic creation time; LRU/6000 raw+unconsumed buffer/estimated16MiB budgets exercised on real scheduler with controlled metadata; active window exception documented.",
+    "Each registry field id/api/kind/name/homepage/supportsSearch is independently changed against the same baseline; category invalidation uses unchanged registry and rejects the old session.",
+    "Close cancels sessions, listeners, queues and both executors; late background response cannot reactivate or deliver.",
+    "Original460 assertions executed without modifying old fixtures/reports; unchanged codec72 report, test, runner and all20 production dependency hashes verified, not reexecuted."
+  ],
+  "device_tested": false,
+  "live_network_tested": false,
+  "unresolved_findings": [],
+  "test_boundaries": [
+    "Controlled fake catalogue Backend and latches execute actual scheduler/models; no real Android View, transport interruption guarantees or measured perceived-speed claim.",
+    "Reflection only simulates elapsed TTL and inspects actual cache/buffer/executor state; no production test hooks were introduced."
+  ]
+}

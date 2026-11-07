@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "verdict": "clear: retained category sessions and bounded foreground-prioritized first-screen preload",
+  "source_sha256": {
+    "src/com/tongpin/player4k/tv/TvHomeActivity.java": "763b2a18ef56996cc5ada69a7730dbd46d8643b5b0d6a3206b617191ed2131e6",
+    "src/com/tongpin/player4k/tv/UnifiedCatalogBrowse.java": "3623fde819d86a0aeb44be93b302568360bea15a403e20a6a17fc3b18092b80b"
+  },
+  "resource_sha256": {
+    "res/values/styles.xml": "afcf3a481f96419592cd5cbfe6bcec6756780fa6d7f636cc9bb71ecf73966054",
+    "res/drawable/tv_focus_dark.xml": "ef6ecfb6b95fa4d9d4ffb6b498741b310e47e6b57b77d12e9451c88a3cd0778f"
+  },
+  "owner_freeze_sha256": "dffec4db39a636986ed313d4c6804ac11990e7f95e3e02d3bac292552583554c",
+  "cross_review_sha256": "566d7a49338aec0b0556cc3acbd288ed57344c1aa77cae1421c6d0d3daa29ea1",
+  "assertions": {
+    "shared": 795,
+    "caller": 911,
+    "retained_cache": 72
+  },
+  "assertions_total": 1778,
+  "review": "Independent shared scheduler review by a separate author covers root-owned Browse. Root reviewed both Home diffs: ordinary switches park/activate, phone immediately renders ready snapshots, foreground resumes/preloads, TV explicit refresh cancels only the current slot. Existing preview tickets, context/handle guards, row identity, click arbitration, viewport/DPAD, search/live/detail/background pause and complete close paths remain. Exact inverse/wiring and actual SDK-compiled Home state tests validate the two changed callers. Entire41/31 source maps compare to published149/143 with only2 changed files each; all sorting/search/player/source implementations remain byte-identical. Original codec72 evidence and20dependencies are unchanged and hash-verified rather than rerun.",
+  "limitations": "Preloads are bounded first screens and memory sessions, not the entire remote library. Cold/expired/evicted contexts still need network; provider metadata governs content. Host fake-backend/SDK checks do not measure device latency, native views, accessibility, remote gestures or media playback.",
+  "device_tested": false,
+  "native_views_executed": false,
+  "media_network_tested": false
+}

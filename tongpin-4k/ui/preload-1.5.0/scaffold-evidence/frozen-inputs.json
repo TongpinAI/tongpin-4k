@@ -1,0 +1,42 @@
+{
+  "version_name": "1.5.0",
+  "version_code": 1500,
+  "source_ready": false,
+  "promotion_ready": false,
+  "scaffold_only": true,
+  "source_scope_pending_final_owner": true,
+  "modified_own_sources": [
+    "com/tongpin/player4k/catalog/CatalogActivity.java",
+    "com/tongpin/player4k/catalog/UnifiedCatalogBrowse.java"
+  ],
+  "new_own_sources": [],
+  "expected_java_source_count": 41,
+  "canonical_stage_directory": "open-sources/staging-1.5.0-r1",
+  "source_sha256": {},
+  "smali": {},
+  "resources": {},
+  "new_resource_names": [],
+  "previous_integration_sha256": "a9a3d050d4580b09bd85032efe8f19bac448361b8bd58a8c01aefe0ea4ba0387",
+  "preimage_index_sha256": "2c98e1ecc211c2a5f3b9b3973581f569897b20d12ab127b0322419e1cb4782b4",
+  "native_baseline_index_sha256": "d60c7299ec764fafe3883a95b0424c9210d6970e7a1ca394071cab60ffbf0183",
+  "prior_evidence_index_sha256": "39c28f480e451d4f2684343597356e7da716cd89e3685674d45939fd5a80d86c",
+  "tooling_sha256": {
+    "build_tongpin.py": "9950ed927e15b8ccebce6affa44191250916695e7ff93c9c2257a7cf9239c06e",
+    "open-sources/integration/DisassembleOwn1500.java": "f30ee4c56e15dedefa0e91f1d52592285d4a61245cdf699c9a44d331439a4f74",
+    "open-sources/integration/assert_contract.py": "92a56ab1edba3f8953b61e7e21411a7ca7e54e759c75f19b28aae308fc866516",
+    "open-sources/integration/audit_final_ui_api_1500.py": "91623dddb165f8270456b70b82238c8125627132178b9bae5695ff6550565fe2",
+    "open-sources/integration/check_native_bindings_1410.py": "9a69cd89a30993ac4ca4beaa7a8d1d7d0e1b981edbb2f2f62740f955c6a9d93c",
+    "open-sources/integration/check_timer_dex_1500.py": "f7f27acdf7e3a4cb23497fb6a5e556655f848ea665a5be9ca75d59fd961f04cd",
+    "open-sources/integration/integrate_1_5_0.py": "8f391e99d72ff021071b3367b70a5e8880361185b3f910ec194bd489120e00c5",
+    "open-sources/integration/ui_1500_contract.py": "77ea9c2abc62496f9b35a8fa9805032adaef6ca0cd4a9c1576b113f5b4383fa5",
+    "open-sources/toolchain/check_framework_api.py": "91209f30753abd8ea244655bd98762d4e0590c173dae2e842367d82559a61905",
+    "open-sources/toolchain/compile_java_to_smali.py": "b1b855f38294ecb7d392980b917f8fa17eaae77496c3bd1fcd961e557574cc9c",
+    "verification/1.5.0/proof-tools/DisassembleOwn1500.class": "0cadf6620951a1fc831e920fed9bb5942a6d969fb06fe6e8ab3fa477c0c40eb9"
+  },
+  "evidence_sha256": {},
+  "owner_reports": [],
+  "independent_reviews": [],
+  "application_sdk_compiled": false,
+  "production_namespace_changed": false,
+  "note": "Version/tools only. Both preflight and formal integration are intentionally blocked until final actual41-source SDK/stage and new test/independent evidence are bound."
+}

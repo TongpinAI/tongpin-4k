@@ -38,27 +38,27 @@
 .method constructor <init>(Lcom/tongpin/player4k/catalog/CatalogCategories;)V
     .locals 9
 
-    .line 124
+    .line 132
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 122
+    .line 130
     invoke-static {}, Ljava/lang/System;->nanoTime()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$CategoryCache;->created:J
 
-    .line 125
+    .line 133
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$CategoryCache;->catalog:Lcom/tongpin/player4k/catalog/CatalogCategories;
 
-    .line 126
+    .line 134
     new-instance v0, Ljava/util/EnumMap;
 
     const-class v1, Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;
 
     invoke-direct {v0, v1}, Ljava/util/EnumMap;-><init>(Ljava/lang/Class;)V
 
-    .line 128
+    .line 136
     invoke-static {}, Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;->values()[Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;
 
     move-result-object v1
@@ -76,14 +76,14 @@
 
     if-eq v4, v5, :cond_1
 
-    .line 129
+    .line 137
     new-instance v5, Ljava/util/EnumMap;
 
     const-class v6, Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Section;
 
     invoke-direct {v5, v6}, Ljava/util/EnumMap;-><init>(Ljava/lang/Class;)V
 
-    .line 130
+    .line 138
     invoke-static {v4}, Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy;->sections(Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;)Ljava/util/List;
 
     move-result-object v6
@@ -113,7 +113,7 @@
 
     goto :goto_1
 
-    .line 131
+    .line 139
     :cond_0
     invoke-static {v5}, Ljava/util/Collections;->unmodifiableMap(Ljava/util/Map;)Ljava/util/Map;
 
@@ -121,13 +121,13 @@
 
     invoke-virtual {v0, v4, v5}, Ljava/util/EnumMap;->put(Ljava/lang/Enum;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 128
+    .line 136
     :cond_1
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 133
+    .line 141
     :cond_2
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableMap(Ljava/util/Map;)Ljava/util/Map;
 
@@ -135,6 +135,6 @@
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$CategoryCache;->plans:Ljava/util/Map;
 
-    .line 134
+    .line 142
     return-void
 .end method

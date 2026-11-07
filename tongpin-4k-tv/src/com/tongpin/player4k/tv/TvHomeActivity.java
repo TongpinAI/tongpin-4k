@@ -326,7 +326,7 @@ public final class TvHomeActivity extends Activity {
                 if (snapshot.projectionFailed) unifiedBrowse.retryProjection(browseHandle);
                 else if (snapshot.canResume) unifiedBrowse.resume(browseHandle);
                 else if (snapshot.failedSources > 0) unifiedBrowse.retryFailed(browseHandle);
-                else { unifiedBrowse.invalidateCategories(); restartUnifiedBrowse = true; loadPage(); return; }
+                else { browseHandle.cancel(); browseHandle = null; restartUnifiedBrowse = true; loadPage(); return; }
                 renderUnifiedBrowse(browseHandle); return;
             }
             if (!allCatalogSearch(mode, query) || searchHandle == null) { loadPage(); return; }
@@ -384,7 +384,7 @@ public final class TvHomeActivity extends Activity {
     }
     private void resetBrowseSelection() {
         clearSearchInteraction(); clearBrowsePreview();
-        if (browseHandle != null) { browseHandle.cancel(); browseHandle = null; }
+        if (browseHandle != null) { unifiedBrowse.park(browseHandle); browseHandle = null; }
         posters.clear(); videos.clear(); groups.clear(); latestGroups = Collections.emptyList(); renderedGroupItems = null;
         pendingSearchAnchor = null; focusVideoId = ""; restoreGridFocus = false; resetUnifiedWindow = false;
     }
@@ -661,16 +661,16 @@ public final class TvHomeActivity extends Activity {
         if (restartUnifiedBrowse || browseHandle == null || !browseHandle.isCurrent()
                 || !sameBrowse(browseHandle.snapshot().tab, browseHandle.snapshot().section, selectedTab, selectedSection)) {
             restartUnifiedBrowse = false; resetUnifiedWindow = false;
-            if (browseHandle != null) browseHandle.cancel();
+            if (browseHandle != null) unifiedBrowse.park(browseHandle);
             posters.clear();
             videos.clear(); groups.clear(); latestGroups = Collections.emptyList(); renderedGroupItems = null;
             adapter.notifyDataSetChanged();
-            browseHandle = unifiedBrowse.start(providers, selectedTab, selectedSection, (handle, ignored) -> renderUnifiedBrowse(handle));
+            browseHandle = unifiedBrowse.activate(providers, selectedTab, selectedSection, (handle, ignored) -> renderUnifiedBrowse(handle));
             clearBrowsePreview(); previewHandle = browseHandle;
         }
         loadBrowsePreview(browseHandle);
         renderUnifiedBrowse(browseHandle);
-        if (foreground && browseHandle.snapshot().canResume) { unifiedBrowse.resume(browseHandle); renderUnifiedBrowse(browseHandle); }
+        if (foreground) { unifiedBrowse.resume(browseHandle); unifiedBrowse.preload(); renderUnifiedBrowse(browseHandle); }
     }
 
     private void renderUnifiedBrowse(UnifiedCatalogBrowse.Handle handle) {

@@ -1,0 +1,2 @@
+150mainfalse 949a1829e699dee78f5d7b29867441265b750c90abaf6571c0fb2b838aacca89 tools 11 own 366
+{'passed': True, 'scope': '150 retained catalogue/preload; retain149 ranking/player/native/resources and all prior IDs', 'files': {'resources': {}, 'smali': {}}, 'new_resources': [], 'java_source_count': 41, 'provider_count': 28, 'checks': {'native149_unchanged': True, 'version_only_resource_metadata': True, 'exact2preload_sources': True, 'source_stubs_tests_and_reviews': True, 'published149_evidence_unchanged': True, 'canonical_stage_dex': True}, 'device_tested': False}

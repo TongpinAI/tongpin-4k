@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "verdict": "clear: independent source3 and builder2 reviews combined for TV143 promotion",
+  "source_sha256": {
+    "src/com/tongpin/player4k/tv/CatalogPreviewCache.java": "375ea381cc5a798594b0e6df14d1b28a1c70d1c14e3b6c35bf9a1f01081a437d",
+    "src/com/tongpin/player4k/tv/UnifiedCatalogBrowse.java": "3cc2bcfc3a48d36753617b4aabb90210375b1fe80508477d04b6b29d117eea7b",
+    "src/com/tongpin/player4k/tv/UnifiedCatalogPolicy.java": "a72beb6ada4999a0a9241887bc30c94c3a6282db70cb64941b5e444a9413b2e8",
+    "build_tv.py": "84ba0cfda2569d3e34d8dd061390931f1820729e1ea6a3e9be00d98f360aa108",
+    "domestic_release_contract.py": "51e20bc3cf47d70273817687fe1d1229e1ada429f240be268d23ae6973e5df8f"
+  },
+  "resource_sha256": {
+    "res/values/styles.xml": "afcf3a481f96419592cd5cbfe6bcec6756780fa6d7f636cc9bb71ecf73966054",
+    "res/drawable/tv_focus_dark.xml": "ef6ecfb6b95fa4d9d4ffb6b498741b310e47e6b57b77d12e9451c88a3cd0778f"
+  },
+  "independent_reviews": {
+    "ui/domestic-1.4.3/source-independent-review.json": "6c8eed0bcac6c9f0710df1cab282665335157a44616f1462bdf4821feb6a7e6e",
+    "ui/domestic-1.4.3/builder-independent-review.json": "b3d42eb2eb25c7a3dbf71ac5b798d2d93406c6a7a65da708a18441cac2205159"
+  },
+  "reviewed_preflight_freeze_sha256": "e63642a597474226d458655d1dad90409b1af5a233386d9a77a16844715062d0",
+  "device_tested": false,
+  "runtime_tested": false
+}

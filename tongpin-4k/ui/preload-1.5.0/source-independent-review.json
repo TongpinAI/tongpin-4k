@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "verdict": "clear: retained category sessions and bounded foreground-prioritized first-screen preload",
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogActivity.java": "d7aa0a0a41fbcdb9c70b18414f2d16660ec061daa187daf1a7c8f7af92ceb165",
+    "open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogBrowse.java": "ca46b70af052840773a6c094b374876cf9e17741d1292f3ad01f1b053e284280"
+  },
+  "resource_sha256": {
+    "decoded/res/values/tp_player_style.xml": "848d7f1802d9c35a2b059400a94cce4aef4dcfb569198fc51eeace8fe0514c59"
+  },
+  "owner_freeze_sha256": "9e456b64345c3a477e9e0608740636525e178d8ec0a554270a0501293a90d359",
+  "cross_review_sha256": "566d7a49338aec0b0556cc3acbd288ed57344c1aa77cae1421c6d0d3daa29ea1",
+  "assertions": {
+    "shared": 795,
+    "caller": 149,
+    "retained_cache": 72
+  },
+  "assertions_total": 1016,
+  "review": "Independent shared scheduler review by a separate author covers root-owned Browse. Root reviewed both Home diffs: ordinary switches park/activate, phone immediately renders ready snapshots, foreground resumes/preloads, TV explicit refresh cancels only the current slot. Existing preview tickets, context/handle guards, row identity, click arbitration, viewport/DPAD, search/live/detail/background pause and complete close paths remain. Exact inverse/wiring and actual SDK-compiled Home state tests validate the two changed callers. Entire41/31 source maps compare to published149/143 with only2 changed files each; all sorting/search/player/source implementations remain byte-identical. Original codec72 evidence and20dependencies are unchanged and hash-verified rather than rerun.",
+  "limitations": "Preloads are bounded first screens and memory sessions, not the entire remote library. Cold/expired/evicted contexts still need network; provider metadata governs content. Host fake-backend/SDK checks do not measure device latency, native views, accessibility, remote gestures or media playback.",
+  "device_tested": false,
+  "native_views_executed": false,
+  "media_network_tested": false
+}

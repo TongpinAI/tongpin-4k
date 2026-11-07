@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "workspace_sources": true,
+  "source_sha256": {
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogBrowse.java": "ca46b70af052840773a6c094b374876cf9e17741d1292f3ad01f1b053e284280",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/UnifiedCatalogBrowse.java": "3623fde819d86a0aeb44be93b302568360bea15a403e20a6a17fc3b18092b80b"
+  },
+  "test_files_sha256": {
+    "tongpin-4k/ui/preload-1.5.0/shared-tests/run.py": "2e21d98553c0545f95dbb15d7aa392cde17ec2697423c2274cf2ed87602f4a7a",
+    "tongpin-4k/ui/preload-1.5.0/shared-tests/PreloadCatalogTest.java": "2b0a21c8eb36669894e3a96b1cc2368a20782e76cd1e91c089d4e39eb70aa1e1",
+    "tongpin-4k-tv/ui/preload-1.4.4/shared-tests/run.py": "2e21d98553c0545f95dbb15d7aa392cde17ec2697423c2274cf2ed87602f4a7a",
+    "tongpin-4k-tv/ui/preload-1.4.4/shared-tests/PreloadCatalogTest.java": "192e061324d71fa17bb3ec32971dca86ed154dded693c82a03c1eccf03317122"
+  },
+  "tests_report": "tongpin-4k/ui/preload-1.5.0/shared-tests/verification.json",
+  "tests_report_sha256": "57f481e2cbc5808b232ab0ecc6f04446fb1428076ff0f7f17682ccc0b932b409",
+  "production_author": "root",
+  "test_author_and_independent_reviewer": "watermark_source_review",
+  "assertions_per_app": {
+    "new_session_preload": 335,
+    "retained_shared_executed": 460,
+    "total_executed": 795,
+    "unchanged_codec_retained_not_reexecuted": 72
+  },
+  "scope": "Only existing UnifiedCatalogBrowse in both packages; same-body package mirrors. Fresh start retained; activate/park cached sessions and explicit bounded primary-ALL idle warming. No API/model/registry/codec/player/theme changes in this shared scope.",
+  "contract": {
+    "start": "fresh",
+    "activate": "tab+section reusable session",
+    "preload_primary_all_slots": 9,
+    "warm_group_goal": 18,
+    "warm_request_budget_per_slot": 12,
+    "known_seed_candidates_max": 240,
+    "network_workers": 3,
+    "physical_background_max": 1,
+    "retained_sessions_max": 24,
+    "retained_raw_and_buffer_rows": 6000,
+    "estimated_metadata_bytes": 16777216,
+    "session_ttl_minutes": 15
+  },
+  "limits": [
+    "Group goal is checked after an accepted bounded catalogue page, not a media request or an exact18-row truncation.",
+    "Retention uses a conservative string estimate, not measured Java heap size; a current MAX_RESULTS window remains usable while inactive sessions are evicted.",
+    "Interrupted HTTP can remain physically running until transport completion; at most one such background job is counted and late results are rejected.",
+    "No device or live-network measurements."
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "phase": "baseline-only; no production, builder, version or promotion changes",
+  "public_head": "9aead73d122083b4ac1b43b40558fbcfed38c130",
+  "public_commit_check": "125 direct raw Git blobs and one explicitly documented byte-identical generated143 IDtext alias; no full-worktree scan",
+  "phone": {
+    "previous_version": "1.4.9",
+    "next_version": "1.5.0",
+    "next_version_code": 1500,
+    "production_java_count": 41,
+    "before_input_count": 74,
+    "own_class_count": 366,
+    "native_resource_asset_count": 12691,
+    "prior_evidence_count": 36,
+    "apk_sha256": "e867a062f1919339ea0ea5c118c57ac8cfc574f6a0d49c05213c9e080340dc38",
+    "indexes": {
+      "before-sha256.json": "2c98e1ecc211c2a5f3b9b3973581f569897b20d12ab127b0322419e1cb4782b4",
+      "before-source-sha256.json": "64df213166587bb18d3883d4831fee0ef3b0bc53693cc778cb28f27976b7347b",
+      "baseline149-own-smali-sha256.json": "8cc3958ea2f84c74fbc833f4fe7f61e98ac52d05649c918d9dbb858dd0c37d06",
+      "baseline149-native-resource-sha256.json": "d60c7299ec764fafe3883a95b0424c9210d6970e7a1ca394071cab60ffbf0183",
+      "prior149-evidence-sha256.json": "39c28f480e451d4f2684343597356e7da716cd89e3685674d45939fd5a80d86c",
+      "public-baseline-check.json": "41119577214fc13f8c66d21ed7dda9bccf34708914f8aa7c8c42c61a3f2b9765"
+    }
+  },
+  "tv": {
+    "previous_version": "1.4.3",
+    "next_version": "1.4.4",
+    "next_version_code": 1404,
+    "production_java_count": 31,
+    "frozen_input_count": 43,
+    "before_input_count": 45,
+    "supplementary_input_count": 7,
+    "prior_evidence_count": 34,
+    "apk_sha256": "c590b4d4ddc7be4be8e450735935a163063c93ec2fa604119e04bb1c2f12bc3b",
+    "runtime_lock_sha256": "ac815aa6acc4315422af245f7aabd7a47449e493cbf8806886755c3d44f6684e",
+    "previous_resource_ids_sha256": "83b9cbe06ccb78a07a8da2d31686c6f21bc41d380cab2d4c1eb241aebe36e423",
+    "indexes": {
+      "before-snapshot.json": "bca99f3718e4f669ba37eee8707c1e17537a87566fc114f96f6896c801b90f1e",
+      "before-source-sha256.json": "16e6808a37052981d490e64085165b204161bdcf0683ff2cade2e4462ee2a159",
+      "baseline143-source-resource-sha256.json": "8fe2d4cf644b03df8c7ea34b7b1321e88bbdfbd4eba7bce5a2ab0939f8add8e8",
+      "supplement-before-sha256.json": "d40945caefe6c6165580a5b36db08625d251c2288dc898f4878c402de9151b4e",
+      "prior-evidence-sha256.json": "4807f7346e9a50375184b67a351fb1e29a40e03c0c066abdbc0539af8042d55c",
+      "public-baseline-check.json": "41119577214fc13f8c66d21ed7dda9bccf34708914f8aa7c8c42c61a3f2b9765"
+    }
+  },
+  "source_scope_pending": true,
+  "implementation_started_by_builder_agent": false,
+  "device_tested": false
+}

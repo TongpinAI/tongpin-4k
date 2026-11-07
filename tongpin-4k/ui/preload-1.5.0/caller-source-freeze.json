@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "source_ready": true,
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogActivity.java": "d7aa0a0a41fbcdb9c70b18414f2d16660ec061daa187daf1a7c8f7af92ceb165"
+  },
+  "before_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogActivity.java": "dc41ef5405c012c61123fd7e7a40e088f41e3ab5a902ba55b3cea95e819ee16a"
+  },
+  "test_reports": {
+    "caller-tests/verification.json": "a3a61eb67bd84504687deb8737b1d11a410f623152bca91c9b2ea460689458cd"
+  },
+  "test_file_sha256": {
+    "ui/preload-1.5.0/caller-tests/HomePreloadSequenceTest.java": "b06210120e4b0239dbb30ea8c3e4ea18914af19bf3f0d79962ca2c1c172adcdf",
+    "ui/sections-1.4.8/caller-tests/CatalogSectionsUiTest.java": "c3708d88cbf8ced43dc581e99edcd7c24cddc1de4b29cc834254b0395c48c78e",
+    "ui/preload-1.5.0/caller-tests/run.py": "dbd45484c3ab4423a1adee0439e9e56adecc5ec56def159effff1c3ea5369c84"
+  },
+  "assertions_total": 149,
+  "new_sequence_assertions": 16,
+  "retained_ui_assertions": 133,
+  "sdk_compiled_java": 41,
+  "whole_home_exact_inverse": true,
+  "scope": "Activate retained tab/section sessions, park ordinary switches, render ready groups immediately, foreground-only explicit preload, and force-refresh only the current TV slot. Preview, query, bound-card gestures, pagination, player and visual layout are retained.",
+  "device_tested": false,
+  "actual_http_tested": false,
+  "android_views_constructed": false
+}

@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "verdict": "clear: independent retained-session source2 and builder2 reviews combined for TV144 promotion",
+  "source_sha256": {
+    "src/com/tongpin/player4k/tv/TvHomeActivity.java": "763b2a18ef56996cc5ada69a7730dbd46d8643b5b0d6a3206b617191ed2131e6",
+    "src/com/tongpin/player4k/tv/UnifiedCatalogBrowse.java": "3623fde819d86a0aeb44be93b302568360bea15a403e20a6a17fc3b18092b80b",
+    "build_tv.py": "b1094e338dda6f3596dd560ce5466f6662cc1a59e0334f49080121952b67e4ca",
+    "preload_release_contract.py": "47b8a7966f26cb726a4f501ec247202753976293c8873a3f34d7427ad8695820"
+  },
+  "independent_reviews": {
+    "ui/preload-1.4.4/source-independent-review.json": "0338f39d683d5aa3fd655fbb0d7046e2430926417f9a43a1e3d051b1d88e631a",
+    "ui/preload-1.4.4/builder-independent-review.json": "ab981b5f2e12dd01f28199ba44f82725c5059641e0ebf9f58ffe343aa52dd4b3"
+  },
+  "reviewed_preflight_freeze_sha256": "429596a6e0fd879a32399be2fe169bda2ac6ebb0b1b3d539597860002a970345",
+  "device_tested": false,
+  "runtime_tested": false
+}

@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "public_head": "9aead73d122083b4ac1b43b40558fbcfed38c130",
+  "checked_blob_count": 126,
+  "mismatches": [],
+  "method": "Bounded git cat-file --batch; compare SHA256 of committed raw blobs with exact captured before indexes, no worktree stat scan or network.",
+  "direct_committed_blob_count": 125,
+  "verified_blob_count": 126,
+  "generated_output_aliases": [
+    {
+      "captured": "tongpin-4k-tv/build/1.4.3/resource-ids.txt",
+      "committed_byte_identical_to": "tongpin-4k-tv/build/1.4.2/resource-ids.txt",
+      "sha256": "83b9cbe06ccb78a07a8da2d31686c6f21bc41d380cab2d4c1eb241aebe36e423",
+      "reason": "Current143 generatedIDtext was not exported in143; unchanged32IDs produce identical committed142text."
+    }
+  ]
+}

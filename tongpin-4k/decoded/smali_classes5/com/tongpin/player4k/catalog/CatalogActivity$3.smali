@@ -43,7 +43,7 @@
         }
     .end annotation
 
-    .line 1181
+    .line 1183
     iput-object p2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$3;->val$renderEpisodes:Ljava/lang/Runnable;
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$3;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
@@ -67,7 +67,7 @@
         }
     .end annotation
 
-    .line 1183
+    .line 1185
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$3;->val$renderEpisodes:Ljava/lang/Runnable;
 
     invoke-interface {p1}, Ljava/lang/Runnable;->run()V
@@ -85,6 +85,6 @@
         }
     .end annotation
 
-    .line 1182
+    .line 1184
     return-void
 .end method
