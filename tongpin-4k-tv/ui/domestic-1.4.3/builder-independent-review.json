@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "verdict": "clear: exact domestic-priority release boundary with retained142 builder guards",
+  "source_sha256": {
+    "build_tv.py": "84ba0cfda2569d3e34d8dd061390931f1820729e1ea6a3e9be00d98f360aa108",
+    "domestic_release_contract.py": "51e20bc3cf47d70273817687fe1d1229e1ada429f240be268d23ae6973e5df8f"
+  },
+  "reviewed_freeze_sha256": "e63642a597474226d458655d1dad90409b1af5a233386d9a77a16844715062d0",
+  "checks": {
+    "actual_preflight_positive": true,
+    "full142_driver_ast_inverse": true,
+    "missing_owner": "rejected",
+    "missing_cache_report": "rejected",
+    "missing_shared_test": "rejected",
+    "missing_cache_runner": "rejected",
+    "missing_snapshot_pin": "rejected",
+    "missing_tool": "rejected",
+    "stale_tool": "rejected",
+    "stale_source_input": "rejected",
+    "missing_prior_count": "rejected",
+    "not_source_ready": "rejected",
+    "unauthorized_formal": "rejected"
+  },
+  "runner_sha256": "77b45894f221b76b6313fa6454761cb8a6aafa3c1f2fc9e7488f9b783a78b142",
+  "actual_43_input_gate_checked": true,
+  "old_resource32_exactmap_and_api21_media3_paths_preserved": true,
+  "build_signing_network_executed": false,
+  "device_tested": false
+}

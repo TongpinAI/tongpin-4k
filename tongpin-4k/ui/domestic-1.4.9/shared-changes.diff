@@ -1,0 +1,130 @@
+--- before/open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogPolicy.java
++++ open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogPolicy.java
+@@ -244,7 +244,13 @@
+     public static List<Group> project(List<Video> videos, boolean naturalName) {
+         return project(videos, naturalName, System.currentTimeMillis());
+     }
++    public static List<Group> project(List<Video> videos, boolean naturalName, boolean preferDomestic) {
++        return project(videos, naturalName, System.currentTimeMillis(), preferDomestic);
++    }
+     static List<Group> project(List<Video> videos, boolean naturalName, long nowMs) {
++        return project(videos, naturalName, nowMs, false);
++    }
++    static List<Group> project(List<Video> videos, boolean naturalName, long nowMs, boolean preferDomestic) {
+         if (videos == null || videos.isEmpty()) return Collections.emptyList();
+         LinkedHashMap<String, ArrayList<Video>> buckets = new LinkedHashMap<String, ArrayList<Video>>();
+         Set<String> seen = new HashSet<String>();
+@@ -266,7 +272,7 @@
+             result.clear();
+             for (Video v : CatalogTitleOrder.sortedCopy(primary)) result.add(byPrimary.get(identity(v)));
+         } else {
+-            orderDiscovery(result, nowMs);
++            orderDiscovery(result, nowMs, preferDomestic);
+         }
+         return Collections.unmodifiableList(result);
+     }
+@@ -311,6 +317,9 @@
+      * No extra requests or player/source preference changes are made here.
+      */
+     private static void orderDiscovery(List<Group> groups, long now) {
++        orderDiscovery(groups, now, false);
++    }
++    static void orderDiscovery(List<Group> groups, long now, boolean preferDomestic) {
+         Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"), Locale.ROOT);
+         calendar.setTimeInMillis(now); int year = calendar.get(Calendar.YEAR);
+         Map<String, ArrayList<Video>> sources = new LinkedHashMap<String, ArrayList<Video>>();
+@@ -340,9 +349,11 @@
+             }
+         }
+         Map<String, DiscoveryRank> ranks = new LinkedHashMap<String, DiscoveryRank>();
++        Set<String> domestic = new HashSet<String>();
+         for (Group g : groups) {
+             DiscoveryRank best = null;
+             for (Video v : g.alternatives) {
++                if (preferDomestic && domestic(v)) domestic.add(g.key);
+                 Integer h = heat.get(identity(v));
+                 DiscoveryRank rank = new DiscoveryRank(v, year, now, h == null ? -1 : h);
+                 if (best == null || compareDiscovery(rank, best) > 0) best = rank;
+@@ -350,9 +361,71 @@
+             ranks.put(g.key, best);
+         }
+         Collections.sort(groups, (a, b) -> {
++            if (preferDomestic && domestic.contains(a.key) != domestic.contains(b.key)) return domestic.contains(a.key) ? -1 : 1;
+             int c = compareDiscovery(ranks.get(a.key), ranks.get(b.key));
+             return c == 0 ? a.key.compareTo(b.key) : -c;
+         });
++    }
++
++    /** Home ordering only: these country aliases never assign a concrete regional section. */
++    private static String[] countryParts(String declared, boolean directory) {
++        String value = normalized(declared).replace("people's republic of china", "peoplesrepublicofchina")
++                .replace("people’s republic of china", "peoplesrepublicofchina")
++                .replace("united states of america", "unitedstatesofamerica")
++                .replace("united states", "unitedstates").replace("united kingdom", "unitedkingdom")
++                .replace("mainland china", "mainlandchina").replace("hong kong", "hongkong")
++                .replace("south korea", "southkorea").replace("south africa", "southafrica")
++                .replace("north korea", "northkorea").replace("new zealand", "newzealand").replace("sri lanka", "srilanka");
++        if (directory) value = value.replaceAll("电视剧|電視劇|综艺|綜藝|动漫|動漫|动画|動畫|电影|電影|剧集|劇集|剧|劇|片|专区|專區", "");
++        return value.split("[,，、/|;；&+\\s\\p{Z}]+");
++    }
++    private static boolean extraChineseCountry(String declared, boolean directory) {
++        for (String part : countryParts(declared, directory)) if (oneOf(regionToken(part),
++                "中国|中國|中华人民共和国|中華人民共和國|china|cn|prc|peoplesrepublicofchina|澳门|澳門|中国澳门|中國澳門|macau|macao")) return true;
++        return false;
++    }
++    private static boolean wholeChineseCountry(String declared, boolean directory) {
++        for (String part : countryParts(declared, directory)) if (oneOf(regionToken(part),
++                "中国|中國|中华人民共和国|中華人民共和國|china|cn|prc|peoplesrepublicofchina")) return true;
++        return false;
++    }
++    private static boolean regionalDomestic(RegionEvidence r) {
++        return r.exact.contains(Section.MAINLAND) || r.exact.contains(Section.HONG_KONG)
++                || r.exact.contains(Section.TAIWAN) || r.hkTaiwan;
++    }
++    private static boolean declaredForeignCountry(String declared, boolean directory) {
++        for (String part : countryParts(declared, directory)) {
++            if (extraChineseCountry(part, directory)) continue;
++            RegionEvidence r = regions(part, directory);
++            if (r.western || r.japanKorea || r.otherKnown || r.exact.contains(Section.KOREA)
++                    || r.exact.contains(Section.JAPAN) || r.exact.contains(Section.USA)
++                    || r.exact.contains(Section.UK) || r.exact.contains(Section.THAILAND)) return true;
++        }
++        return false;
++    }
++    private static boolean domestic(Video video) {
++        if (video == null || video.provider == null || CatalogApi.liveProvider(video.provider)) return false;
++        List<String> path = declaredPath(video, null);
++        RegionEvidence directory = directoryRegions(path);
++        if (directory.conflict) return false;
++        boolean pathDomestic = false, pathPureChina = false, pathForeignOnly = false;
++        for (String node : path) {
++            boolean extra = extraChineseCountry(node, true);
++            boolean foreign = declaredForeignCountry(node, true);
++            boolean local = regionalDomestic(regions(node, true)) || extra;
++            pathDomestic |= local; pathPureChina |= extra && !foreign; pathForeignOnly |= foreign && !local;
++        }
++        if (pathPureChina && pathForeignOnly) return false;
++        if (text(video.area).trim().isEmpty()) return pathDomestic
++                && !(directory.foreign && !regionalDomestic(directory) && pathPureChina);
++        RegionEvidence area = regions(video.area, false);
++        boolean areaExtra = extraChineseCountry(video.area, false);
++        boolean areaForeign = declaredForeignCountry(video.area, false);
++        boolean areaDomestic = regionalDomestic(area) || areaExtra;
++        if (!areaDomestic || !compatible(area, directory)
++                && !(wholeChineseCountry(video.area, false) && regionalDomestic(directory))) return false;
++        if (areaExtra && !areaForeign && (pathForeignOnly || directory.foreign && !regionalDomestic(directory))) return false;
++        return true;
+     }
+ 
+     private static final class RegionEvidence {
+--- before/open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogBrowse.java
++++ open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogBrowse.java
+@@ -416,7 +416,7 @@
+                     if (!current(h)) return;
+                     revision = h.revision; raw = new ArrayList<Video>(h.items);
+                 }
+-                List<Group> grouped = UnifiedCatalogPolicy.project(raw, false);
++                List<Group> grouped = UnifiedCatalogPolicy.project(raw, false, h.section == Section.ALL);
+                 ArrayList<Video> primary = new ArrayList<Video>();
+                 for (Group group : grouped) primary.add(group.primary);
+                 List<Video> immutable = Collections.unmodifiableList(primary);

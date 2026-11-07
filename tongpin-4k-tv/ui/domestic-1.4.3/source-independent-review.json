@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "verdict": "clear: domestic recent discovery priority with existing search, regions and playback retained",
+  "source_sha256": {
+    "src/com/tongpin/player4k/tv/CatalogPreviewCache.java": "375ea381cc5a798594b0e6df14d1b28a1c70d1c14e3b6c35bf9a1f01081a437d",
+    "src/com/tongpin/player4k/tv/UnifiedCatalogBrowse.java": "3cc2bcfc3a48d36753617b4aabb90210375b1fe80508477d04b6b29d117eea7b",
+    "src/com/tongpin/player4k/tv/UnifiedCatalogPolicy.java": "a72beb6ada4999a0a9241887bc30c94c3a6282db70cb64941b5e444a9413b2e8"
+  },
+  "resource_sha256": {
+    "res/values/styles.xml": "afcf3a481f96419592cd5cbfe6bcec6756780fa6d7f636cc9bb71ecf73966054",
+    "res/drawable/tv_focus_dark.xml": "ef6ecfb6b95fa4d9d4ffb6b498741b310e47e6b57b77d12e9451c88a3cd0778f"
+  },
+  "owner_freeze_sha256": "0f7a0fd3dc3bc75fdf7a02666eb7b42912a15cbac3b0f21505b8c2d0aa7da846",
+  "cross_review_sha256": "b229d76caaca787b12953322cd485fbefccbd1efea7c47314ba1775d7f8ab034",
+  "assertions": {
+    "shared": 460,
+    "cache": 72
+  },
+  "assertions_total": 532,
+  "review": "Reviewed Policy/Browse against published sources: opt-in only on Section.ALL; natural title search and specific sections retain old paths. Domestic classification uses explicit country/region and trusted category ancestors; unknown nonempty areas and conflicting paths are not guessed from title, actor or language. Generic China permits documented coproduction but never becomes an exact mainland filter. Sorting preserves original recent/period-percentile/update ordering within domestic and remaining buckets, and keeps all work alternatives and primary4K selection. Root identified and corrected generic-China coproduction and redundant path parsing edge cases before final460 checks. Independent cross-review covers both one-line cache changes after validation; fresh decoded list reordered without cache deletion or extra I/O. All41/31 sources compared to baseline with precisely3 changed per app.",
+  "limitations": "Provider metadata and the current candidate window determine recent popularity; this is not an independently verified national chart. Device UI, native decoders and media networks were not executed.",
+  "device_tested": false,
+  "native_views_executed": false,
+  "media_network_tested": false
+}

@@ -48,10 +48,10 @@
 .method private constructor <init>()V
     .locals 1
 
-    .line 358
+    .line 431
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 359
+    .line 432
     const-class v0, Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Section;
 
     invoke-static {v0}, Ljava/util/EnumSet;->noneOf(Ljava/lang/Class;)Ljava/util/EnumSet;
@@ -66,7 +66,7 @@
 .method synthetic constructor <init>(Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$1;)V
     .locals 0
 
-    .line 358
+    .line 431
     invoke-direct {p0}, Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$RegionEvidence;-><init>()V
 
     return-void
@@ -77,7 +77,7 @@
 .method known()Z
     .locals 1
 
-    .line 361
+    .line 434
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$RegionEvidence;->exact:Ljava/util/Set;
 
     invoke-interface {v0}, Ljava/util/Set;->isEmpty()Z

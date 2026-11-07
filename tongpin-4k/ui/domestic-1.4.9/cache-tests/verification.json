@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "assertions": {
+    "phone": 72,
+    "tv": 72
+  },
+  "workspace_sources": true,
+  "source_sha256": {
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/CatalogPreviewCache.java": "1e9534df11e8c7041efe85905af6869df7f17584ea2e2907448bfab69bf4a308",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogPolicy.java": "09fb7712acd23d8501902904da6a914ceae1aacc4d846cdf2eac277e1aa1fefa",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/AutoSourcePolicy.java": "ce4fd68b0e2f3f0ed9eed19bd15868bc71e3e9c3dfb3394c384e0e4aa2bc1e87",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/CrossSourcePolicy.java": "f443a406641ec8e8ed8d891642afb7da8a046bb5213faddf40e37158afab195c",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/CatalogTitleOrder.java": "10c4f74322315555fd4ba7bdc86004a0feb44b6736906d9a23614c222952ea62",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/CatalogApi.java": "1bfe70cd8a5b82e1336dbd0f11b6a57d15bd25a31d2d650e13ab82ea053a1626",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/CatalogCategories.java": "3c368a9e8ebbfbcf15e8426b1cdacfd0e3289efdfeb1f887569840528425f03b",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/MacCmsXml.java": "5ca12bf836e1c8e10c8efd06d0054e0ce25c8c63c707f7513e77eddccf5b8f68",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/TvBoxJson.java": "4fe2bf0bdaf94a431a5ddc6514eb51a37d668006b608659a1cf16fd558faab24",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/M3uCatalog.java": "710daeaabe91bab03e078106de0b4cdd5d1b852cbdb4c7992ed0b2e3626ead51",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/CatalogPreviewCache.java": "375ea381cc5a798594b0e6df14d1b28a1c70d1c14e3b6c35bf9a1f01081a437d",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/UnifiedCatalogPolicy.java": "a72beb6ada4999a0a9241887bc30c94c3a6282db70cb64941b5e444a9413b2e8",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/AutoSourcePolicy.java": "ca0f1a207816bbc010a5ef7df7545d62acf9ce51d27cafbf9edc7a8df4cefeb5",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/CrossSourcePolicy.java": "10f4440f3970a3f3bd233548496ea98680dfbd0ed8eb8d7018d3df1e96108bc3",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/CatalogTitleOrder.java": "f0bed14db3eff3a7480c6feb103b8d704e9a8845ae6e70dacf0e9e9781f5577f",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/CatalogApi.java": "9927669a1cd3497373c9d0f6dd27ae85e47d92cd692acf8ccd04889a16863df2",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/CatalogCategories.java": "94ad50088414706688648027634e6acd76fc52214bac47dcf29d1d2e9e86ae8a",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/MacCmsXml.java": "74ccc2ea09021a677a39e11e38017ebfa31a79a35cfda90793da425e364d41be",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/TvBoxJson.java": "5299156e9e08c5a1633a7fd4666682d2a801c1435e35cc1a663303f5e811817a",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/M3uCatalog.java": "82ef4af6c0046df839aca596ede569b4ba9585b6b1aeb7a1d3851bf784eed281"
+  },
+  "tv_cache_sha256": "375ea381cc5a798594b0e6df14d1b28a1c70d1c14e3b6c35bf9a1f01081a437d",
+  "test_sha256": "bcd13cc37d701ff2e37256c4cea6761d5eaa95c8b231a94183a2592002eaccce",
+  "runner_sha256": "12d910473f2e3f1d8f8886d4d05077c238ea3b7071241960fecaea3d28bfa06c",
+  "actual_api_and_models_compiled": true,
+  "codec_executed": true,
+  "android_stub_methods_executed": false,
+  "atomicfile_runtime_executed": false,
+  "network_tested": false,
+  "device_tested": false,
+  "scope": "Metadata-only preview codec, source registry rebinding, original category ancestry and work key, TTL, immutable alternatives, malformed data and count/byte bounds. AtomicFile is the platform implementation; no device I/O claim."
+}

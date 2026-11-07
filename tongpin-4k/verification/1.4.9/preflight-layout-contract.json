@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "scope": "149 domestic-first; retain148 classification/UI/player/native/resources and all prior IDs",
+  "files": {
+    "resources": {},
+    "smali": {}
+  },
+  "new_resources": [],
+  "java_source_count": 41,
+  "provider_count": 28,
+  "checks": {
+    "native148_unchanged": true,
+    "version_only_resource_metadata": true,
+    "exact3ranking_sources": true,
+    "source_stubs_tests_and_reviews": true,
+    "published148_evidence_unchanged": true,
+    "canonical_stage_dex": true
+  },
+  "device_tested": false
+}

@@ -1,0 +1,66 @@
+{
+  "passed": true,
+  "verdict": "clear: exact149 domestic-first3-source scope, retained148 UI/API/search/player/native/resources/stubs and final11 tools",
+  "source_sha256": {
+    "build_tongpin.py": "a2aa5dfe03ca54cc6f8511f2d72a30ad24fe5a08af5c3a2e24969e7072285da8",
+    "open-sources/toolchain/check_framework_api.py": "91209f30753abd8ea244655bd98762d4e0590c173dae2e842367d82559a61905",
+    "open-sources/integration/check_timer_dex_1490.py": "3a15337aaa35d9d76525a190275d135c1d0d4f036db7cda31037cadb72068027",
+    "verification/1.4.9/proof-tools/DisassembleOwn1490.class": "494a04e6f619c04814ccabd8d4c88eef0e35e3af502d248a8c3a9e3460b4e37f",
+    "open-sources/integration/DisassembleOwn1490.java": "f825053a446ad7a3ae4d57cc9aa09e63312532762865c1b50701961966cc9791",
+    "open-sources/integration/check_native_bindings_1410.py": "9a69cd89a30993ac4ca4beaa7a8d1d7d0e1b981edbb2f2f62740f955c6a9d93c",
+    "open-sources/toolchain/compile_java_to_smali.py": "b1b855f38294ecb7d392980b917f8fa17eaae77496c3bd1fcd961e557574cc9c",
+    "open-sources/integration/assert_contract.py": "2a405e41a7de0fdee0fdd718b6f691330b9476c1fef55bd6c69f3d6fff5066e9",
+    "open-sources/integration/integrate_1_4_9.py": "37eaba269953cd0d2ad062f629241b94d09b8a50c762f0c13809413f15827076",
+    "open-sources/integration/ui_1490_contract.py": "f787b30e75ae665161ec6fb41e3949b2012b922b045e9575269c88a729496857",
+    "open-sources/integration/audit_final_ui_api_1490.py": "b62c8c97db821a4c3cf7d95dcd60ca40678b64218d3e9c8e7bccc3b91eb010a1"
+  },
+  "reviewed_frozen_input_sha256": "7763292b7c808a97d3fdb79f28c41e4cc4d8b097ad657e567db63c0097b7311c",
+  "readonly_guard_sha256": {
+    "before-sha256.json": "874ca084c26758f6eef6bacad1b176dd46079f719fddeb3dd96aed62d6c7dc6a",
+    "baseline148-native-resource-sha256.json": "ef973fb8382ad99f7ffd2fa8b81bbc834254a47b8e34a4830ea5e30160e0dd1f",
+    "prior148-evidence-sha256.json": "3081c5629df9196485e2a4c848c5334a73195e66afbd6a53893aafaf4ce6eb8f"
+  },
+  "gate_tests": {
+    "path": "ui/domestic-1.4.9/builder-gate-review-tests.json",
+    "sha256": "1b0c92203910cd7c6669e69f2896e65729b7a508b8b63fc9c828cf053d072202",
+    "cases": 27,
+    "actual_full_preflight_positive": 1,
+    "in_memory_rejections": 16,
+    "previous_resource_guard_cases": 6,
+    "production_or_frozen_files_modified": false,
+    "negative_digest_policy": "Reuse only actual-positive validated digests for unchanged native/source/tool inputs; all fixture document/hash overrides take precedence."
+  },
+  "scope": {
+    "modified_java": [
+      "com/tongpin/player4k/catalog/CatalogPreviewCache.java",
+      "com/tongpin/player4k/catalog/UnifiedCatalogBrowse.java",
+      "com/tongpin/player4k/catalog/UnifiedCatalogPolicy.java"
+    ],
+    "added_java": [],
+    "java_sources": 41,
+    "fresh_own_dex_classes": 366,
+    "canonical_stage_dex_sha256": "b1a9c4fecfffb1f32faa6ee33c5e627bebeb38727c7a463c10015070e99fb170",
+    "native_baseline_entries": 12691,
+    "previous_verification_entries_retained": 36,
+    "compile_stub_changes": 0,
+    "resource_additions": 0,
+    "resource_ids_retained": 11473,
+    "provider_count": 28,
+    "provider_asset_sha256": "9793756bfa35672f9c2645cd981dce4e23431be664ebceb71e6f2b05966b3e05"
+  },
+  "checks": [
+    "Actual ui_1490_contract.verify(False) passed against41 current sources,18 unchanged stubs,148 native/resource/asset inventory and canonical366-class r1 stage. Existing460 shared/72 codec assertions and30 preservation checks are hash-bound; no SDK/D8/logic/codec rerun was performed for tool review.",
+    "Build driver AST precisely reverses to148 after version-routing and diagnostic substitutions. Zero-additions resource policy and original package/SDK/backend/signing/ZIP validation remain unchanged.",
+    "assert_contract adds exactly one149 early branch; historical contracts and148 published evidence remain pinned and unchanged.",
+    "Integrator retains actual native/member resolution,17 legacy proof classes,field/inheritance checks,bounded namespace replacement and complete final instruction equality. Differences are release routing,previous148 and canonicalr1 stage.",
+    "Native-binding1410 checker,Java compiler and official framework scanner are byte-identical to148. Final disassembler/API readers differ only release names; timer retains its opcode/register/branch checks while routing to149-r1.",
+    "Contract enforcesexact3 modified existing Java files,zero new tops/resources/stubs,unchanged API/Home/search/player/source registry,41-source graph and precise stageDEX/smali map. Required shared/cache runners,Java fixtures,scopeflags,independent reviews and oldenum declaration set are bound.",
+    "16 coherent malformed in-memory cases reject missing tools/tests/source/owner/preimage/native pins,wrong DEX/smali stage,changed stub/resource scope,failed-but-clear review with a matching changed pin and missing formal tool coverage.",
+    "Actual resource guard accepts all11473 prior IDs unchanged and rejects moved/removed IDs,any added style,a nonempty permission list and empty baseline.",
+    "DisassembleOwn1490.java independently compiled with actual JDK --release8 and actual apktool dependency; resulting bytes equal the pinned proof reader."
+  ],
+  "independently_compiled_proof_class_sha256": "494a04e6f619c04814ccabd8d4c88eef0e35e3af502d248a8c3a9e3460b4e37f",
+  "device_tested": false,
+  "apk_signed_or_application_executed_during_review": false,
+  "limitations": "Independent build-tool/contract review only. Production logic and cache review are covered by the separately authored source reviews in frozen inputs. No device rendering/playback or live network claim."
+}

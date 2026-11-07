@@ -1,0 +1,162 @@
+{
+  "min_sdk": 24,
+  "higher_api_references": [
+    {
+      "kind": "class",
+      "owner": "android/graphics/Insets",
+      "since": 29
+    },
+    {
+      "kind": "class",
+      "owner": "android/view/DisplayCutout",
+      "since": 28
+    },
+    {
+      "kind": "class",
+      "owner": "android/view/WindowInsets$Type",
+      "since": 30
+    },
+    {
+      "kind": "class",
+      "owner": "android/view/WindowInsetsController",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/view/DisplayCutout;",
+      "member": "getSafeInsetBottom()I",
+      "since": 28
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/view/DisplayCutout;",
+      "member": "getSafeInsetLeft()I",
+      "since": 28
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/view/DisplayCutout;",
+      "member": "getSafeInsetRight()I",
+      "since": 28
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/view/DisplayCutout;",
+      "member": "getSafeInsetTop()I",
+      "since": 28
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/view/Window;",
+      "member": "getInsetsController()Landroid/view/WindowInsetsController;",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/view/Window;",
+      "member": "setDecorFitsSystemWindows(Z)V",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/view/Window;",
+      "member": "setNavigationBarContrastEnforced(Z)V",
+      "since": 29
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/view/WindowInsets$Type;",
+      "member": "displayCutout()I",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/view/WindowInsets$Type;",
+      "member": "ime()I",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/view/WindowInsets$Type;",
+      "member": "systemBars()I",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/view/WindowInsets;",
+      "member": "getDisplayCutout()Landroid/view/DisplayCutout;",
+      "since": 28
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/view/WindowInsets;",
+      "member": "getInsets(I)Landroid/graphics/Insets;",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/view/WindowInsetsController;",
+      "member": "hide(I)V",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/view/WindowInsetsController;",
+      "member": "setSystemBarsAppearance(II)V",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/view/WindowInsetsController;",
+      "member": "setSystemBarsBehavior(I)V",
+      "since": 30
+    },
+    {
+      "kind": "method",
+      "owner": "Landroid/view/WindowInsetsController;",
+      "member": "show(I)V",
+      "since": 30
+    },
+    {
+      "kind": "field",
+      "owner": "Landroid/graphics/Insets;",
+      "member": "bottom",
+      "since": 29
+    },
+    {
+      "kind": "field",
+      "owner": "Landroid/graphics/Insets;",
+      "member": "left",
+      "since": 29
+    },
+    {
+      "kind": "field",
+      "owner": "Landroid/graphics/Insets;",
+      "member": "right",
+      "since": 29
+    },
+    {
+      "kind": "field",
+      "owner": "Landroid/graphics/Insets;",
+      "member": "top",
+      "since": 29
+    },
+    {
+      "kind": "field",
+      "owner": "Landroid/view/WindowManager$LayoutParams;",
+      "member": "layoutInDisplayCutoutMode",
+      "since": 28
+    }
+  ],
+  "passed": true,
+  "scope": "Fresh149 own DEX: higher API references unchanged from148; guarded UI/player sources byte-exact, domestic-only ranking sources independently reviewed.",
+  "method_reference_count": 3058,
+  "field_reference_count": 1473,
+  "stage_dex_sha256": "b1a9c4fecfffb1f32faa6ee33c5e627bebeb38727c7a463c10015070e99fb170",
+  "previous_review_sha256": "1cd45bd453b11067fda60676170bc81213156576d83e279fb594f5a6de8e180b",
+  "guard_source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/PhoneUi.java": "c8fef3ac6bf9ddc149a8534d51e3d485d374c97b75e1899c199e689f2eb5bb79",
+    "open-sources/src/com/tongpin/player4k/catalog/OpenPlayerActivity.java": "f2d5b52a34e64c08df0c833d2cc29d7f828aab4d80f69d6feb8a703822bbab9e"
+  },
+  "device_tested": false
+}

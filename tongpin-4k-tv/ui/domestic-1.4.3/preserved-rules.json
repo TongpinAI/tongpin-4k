@@ -1,0 +1,191 @@
+{
+  "passed": true,
+  "workspace_sources": true,
+  "source_sha256": {
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogPolicy.java": "09fb7712acd23d8501902904da6a914ceae1aacc4d846cdf2eac277e1aa1fefa",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogBrowse.java": "eb1a71ed1d663795a87cb0cd2d33c5676b0cac4b4c049e88a25ad48b9986200b",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/UnifiedCatalogPolicy.java": "a72beb6ada4999a0a9241887bc30c94c3a6282db70cb64941b5e444a9413b2e8",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/UnifiedCatalogBrowse.java": "3cc2bcfc3a48d36753617b4aabb90210375b1fe80508477d04b6b29d117eea7b"
+  },
+  "checks": [
+    {
+      "source": "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogPolicy.java",
+      "method": "private static int preference(",
+      "body_sha256": "07a38a912ff8380eaf5e25d71b3dadf3394e553cf014b7743a668d8253cb67d0",
+      "passed": true
+    },
+    {
+      "source": "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogPolicy.java",
+      "method": "public static String keyFor(Video v)",
+      "body_sha256": "303b7c61c52cee05a7384e05851a8b5c60df43ce739367d84cb5d35f5c0a9418",
+      "passed": true
+    },
+    {
+      "source": "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogPolicy.java",
+      "method": "private static boolean same(",
+      "body_sha256": "c220dbacb06597e94d2fc6ff8175b0084b791c32d6a2a7797e832c27fac7873c",
+      "passed": true
+    },
+    {
+      "source": "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogPolicy.java",
+      "method": "public static Tab category(String declared)",
+      "body_sha256": "16c2c1a1d23cea0046e1c14d15441dff8d5bcfd323dc9c0e8651ca76f2a7f2ab",
+      "passed": true
+    },
+    {
+      "source": "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogPolicy.java",
+      "method": "static Tab category(Video v, CatalogCategories fallback)",
+      "body_sha256": "139f884e23985dde126b5c70d8ca7034ac940af645c1e53c19d89f04cf9ffd1b",
+      "passed": true
+    },
+    {
+      "source": "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogPolicy.java",
+      "method": "public static int quality(",
+      "body_sha256": "85f6df243417b35d11aa0dc8653d16872fe8e1eab83adaf3be8a25cf5542e0af",
+      "passed": true
+    },
+    {
+      "source": "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogPolicy.java",
+      "method": "public static int episodes(",
+      "body_sha256": "3749062e5cd58c391764361ceb6958f9079139e9474a5c07e64daf06a85cafa1",
+      "passed": true
+    },
+    {
+      "source": "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogPolicy.java",
+      "method": "private static int compareDiscovery(",
+      "body_sha256": "4ef480af2ac93399209e846fccc3f7694aed72d883b4a1dce5ef2721f6153e56",
+      "passed": true
+    },
+    {
+      "source": "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogPolicy.java",
+      "method": "private static RegionEvidence regions(",
+      "body_sha256": "cb723e44551dab31dd7da6a9fb9263ce9f90dcb03f039e8978acb7af17756e13",
+      "passed": true
+    },
+    {
+      "source": "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogPolicy.java",
+      "method": "private static boolean compatible(",
+      "body_sha256": "72e1d9e9c63b52fd39ebe7a01f3586948360288e7e773fcf75501eb7e2fc6574",
+      "passed": true
+    },
+    {
+      "source": "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogPolicy.java",
+      "method": "private static List<String> declaredPath(",
+      "body_sha256": "3a0a28fa12fa9ba6fb4663534db935afd532b64678154bf08fe0fdec1ddc2e5c",
+      "passed": true
+    },
+    {
+      "source": "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogPolicy.java",
+      "method": "private static RegionEvidence directoryRegions(",
+      "body_sha256": "e1c90c9efacad6d463352e09c570702d509b8d694e5117355d1b84bc208433c8",
+      "passed": true
+    },
+    {
+      "source": "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogPolicy.java",
+      "method": "static boolean matches(Video video, Tab tab, Section section, CatalogCategories catalog)",
+      "body_sha256": "9dd7937697e17e079f19ec5ba2bc2561f1873125905ce3390f516ad6ad1929e5",
+      "passed": true
+    },
+    {
+      "source": "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogPolicy.java",
+      "method": "public static List<CatalogCategories.Selection> selections(CatalogCategories catalog, Tab tab, Section section)",
+      "body_sha256": "f9dcf87702f16844919796faaa1dae7f6e90886c8a9b1d20981f4b4647a95ff7",
+      "passed": true
+    },
+    {
+      "source": "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogBrowse.java",
+      "check": "entire_class_inverse_one_project_flag",
+      "passed": true
+    },
+    {
+      "source": "tongpin-4k-tv/src/com/tongpin/player4k/tv/UnifiedCatalogPolicy.java",
+      "method": "private static int preference(",
+      "body_sha256": "07a38a912ff8380eaf5e25d71b3dadf3394e553cf014b7743a668d8253cb67d0",
+      "passed": true
+    },
+    {
+      "source": "tongpin-4k-tv/src/com/tongpin/player4k/tv/UnifiedCatalogPolicy.java",
+      "method": "public static String keyFor(Video v)",
+      "body_sha256": "303b7c61c52cee05a7384e05851a8b5c60df43ce739367d84cb5d35f5c0a9418",
+      "passed": true
+    },
+    {
+      "source": "tongpin-4k-tv/src/com/tongpin/player4k/tv/UnifiedCatalogPolicy.java",
+      "method": "private static boolean same(",
+      "body_sha256": "c220dbacb06597e94d2fc6ff8175b0084b791c32d6a2a7797e832c27fac7873c",
+      "passed": true
+    },
+    {
+      "source": "tongpin-4k-tv/src/com/tongpin/player4k/tv/UnifiedCatalogPolicy.java",
+      "method": "public static Tab category(String declared)",
+      "body_sha256": "16c2c1a1d23cea0046e1c14d15441dff8d5bcfd323dc9c0e8651ca76f2a7f2ab",
+      "passed": true
+    },
+    {
+      "source": "tongpin-4k-tv/src/com/tongpin/player4k/tv/UnifiedCatalogPolicy.java",
+      "method": "static Tab category(Video v, CatalogCategories fallback)",
+      "body_sha256": "139f884e23985dde126b5c70d8ca7034ac940af645c1e53c19d89f04cf9ffd1b",
+      "passed": true
+    },
+    {
+      "source": "tongpin-4k-tv/src/com/tongpin/player4k/tv/UnifiedCatalogPolicy.java",
+      "method": "public static int quality(",
+      "body_sha256": "85f6df243417b35d11aa0dc8653d16872fe8e1eab83adaf3be8a25cf5542e0af",
+      "passed": true
+    },
+    {
+      "source": "tongpin-4k-tv/src/com/tongpin/player4k/tv/UnifiedCatalogPolicy.java",
+      "method": "public static int episodes(",
+      "body_sha256": "3749062e5cd58c391764361ceb6958f9079139e9474a5c07e64daf06a85cafa1",
+      "passed": true
+    },
+    {
+      "source": "tongpin-4k-tv/src/com/tongpin/player4k/tv/UnifiedCatalogPolicy.java",
+      "method": "private static int compareDiscovery(",
+      "body_sha256": "4ef480af2ac93399209e846fccc3f7694aed72d883b4a1dce5ef2721f6153e56",
+      "passed": true
+    },
+    {
+      "source": "tongpin-4k-tv/src/com/tongpin/player4k/tv/UnifiedCatalogPolicy.java",
+      "method": "private static RegionEvidence regions(",
+      "body_sha256": "cb723e44551dab31dd7da6a9fb9263ce9f90dcb03f039e8978acb7af17756e13",
+      "passed": true
+    },
+    {
+      "source": "tongpin-4k-tv/src/com/tongpin/player4k/tv/UnifiedCatalogPolicy.java",
+      "method": "private static boolean compatible(",
+      "body_sha256": "72e1d9e9c63b52fd39ebe7a01f3586948360288e7e773fcf75501eb7e2fc6574",
+      "passed": true
+    },
+    {
+      "source": "tongpin-4k-tv/src/com/tongpin/player4k/tv/UnifiedCatalogPolicy.java",
+      "method": "private static List<String> declaredPath(",
+      "body_sha256": "3a0a28fa12fa9ba6fb4663534db935afd532b64678154bf08fe0fdec1ddc2e5c",
+      "passed": true
+    },
+    {
+      "source": "tongpin-4k-tv/src/com/tongpin/player4k/tv/UnifiedCatalogPolicy.java",
+      "method": "private static RegionEvidence directoryRegions(",
+      "body_sha256": "e1c90c9efacad6d463352e09c570702d509b8d694e5117355d1b84bc208433c8",
+      "passed": true
+    },
+    {
+      "source": "tongpin-4k-tv/src/com/tongpin/player4k/tv/UnifiedCatalogPolicy.java",
+      "method": "static boolean matches(Video video, Tab tab, Section section, CatalogCategories catalog)",
+      "body_sha256": "9dd7937697e17e079f19ec5ba2bc2561f1873125905ce3390f516ad6ad1929e5",
+      "passed": true
+    },
+    {
+      "source": "tongpin-4k-tv/src/com/tongpin/player4k/tv/UnifiedCatalogPolicy.java",
+      "method": "public static List<CatalogCategories.Selection> selections(CatalogCategories catalog, Tab tab, Section section)",
+      "body_sha256": "f9dcf87702f16844919796faaa1dae7f6e90886c8a9b1d20981f4b4647a95ff7",
+      "passed": true
+    },
+    {
+      "source": "tongpin-4k-tv/src/com/tongpin/player4k/tv/UnifiedCatalogBrowse.java",
+      "check": "entire_class_inverse_one_project_flag",
+      "passed": true
+    }
+  ],
+  "scope": "Old regional membership/aliases/ancestor conflict rules and source-quality/update/groupidentity/heatcomparison remain exact. Whole Browse class reverses by its one ALL-only projection flag. No changes to admission,cursors,queues,network or player."
+}

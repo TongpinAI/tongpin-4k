@@ -1,0 +1,48 @@
+{
+  "passed": true,
+  "source_ready": true,
+  "baseline_version": "1.4.1",
+  "version": "1.4.2",
+  "source_sha256": {
+    "src/com/tongpin/player4k/tv/CatalogApi.java": "9927669a1cd3497373c9d0f6dd27ae85e47d92cd692acf8ccd04889a16863df2",
+    "src/com/tongpin/player4k/tv/CatalogPreviewCache.java": "b7f1779862365a8eea7c47e9f0248de721ad2243509655476923611280edf738",
+    "src/com/tongpin/player4k/tv/TvHomeActivity.java": "63978769027687545bc53cb4893e578908eef3afb2fd3c68ecb3d784e5c09241",
+    "src/com/tongpin/player4k/tv/UnifiedCatalogBrowse.java": "53b37bc361239f911ffabc139dbcde40062320a858fc140d6f1771cb1189208d",
+    "src/com/tongpin/player4k/tv/UnifiedCatalogPolicy.java": "0d2a41ae6e297cec2ec1655ce137f26f9f22963ba4410cca7721837ea769d173"
+  },
+  "resource_sha256": {
+    "res/values/styles.xml": "afcf3a481f96419592cd5cbfe6bcec6756780fa6d7f636cc9bb71ecf73966054",
+    "res/drawable/tv_focus_dark.xml": "ef6ecfb6b95fa4d9d4ffb6b498741b310e47e6b57b77d12e9451c88a3cd0778f"
+  },
+  "evidence_sha256": {
+    "tongpin-4k/ui/sections-1.4.8/shared-tests/verification.json": "b38ed509ce996181a5bb61fd91524c9dc32802134e3499c910a753058d39c82a",
+    "tongpin-4k/ui/sections-1.4.8/cache-tests/verification.json": "0e1edc085811c4d18fc2f3fbde94c92da76451da0803970fa72b1f80b150753e",
+    "tongpin-4k/ui/sections-1.4.8/caller-tests/verification.json": "b79a3ee5956622663db2dae41b0509c79672212b779ca5eec7f3ff826f5a65ac",
+    "tongpin-4k/ui/sections-1.4.8/shared-source-freeze.json": "04e9e867219b0e5c9981d8769c533f8766b4ff8240fae9694b1d76eff35f56d9",
+    "tongpin-4k/ui/sections-1.4.8/unchanged-methods.json": "31a5e1b3fac42aba58d072ff5381027288ad22124f7d59ae835e7657ba6e1376",
+    "tongpin-4k/ui/sections-1.4.8/root-ui-cache-independent-review.json": "eede6b5a5d4911598e260297f590846cc53954b802887d4541f43cac44f95799",
+    "tongpin-4k-tv/ui/sections-1.4.2/tv-ui-source-freeze.json": "c8e503812c903f3cc11b6bbfbb633e9970ce396a2cc3ede5c0056086426e74d0",
+    "tongpin-4k-tv/ui/sections-1.4.2/tests/verification.json": "02fc4aab41189a804f72624bd23e8979dcd7b4760c265f5c8bb239990faa85f4"
+  },
+  "test_file_sha256": {
+    "tongpin-4k/ui/sections-1.4.8/shared-tests/run.py": "5bc9b84dc318a5d208726d4ddc9d9f4211a8ce3a52aee8b8247714cd0fb18cda",
+    "tongpin-4k/ui/sections-1.4.8/shared-tests/SectionCatalogTest.java": "4e3582e1c73ec597ea997c8e55df6897b6c59d0dcb8cc34d0298e37bf5473e32",
+    "tongpin-4k/ui/sections-1.4.8/cache-tests/run.py": "12d910473f2e3f1d8f8886d4d05077c238ea3b7071241960fecaea3d28bfa06c",
+    "tongpin-4k/ui/sections-1.4.8/cache-tests/CatalogPreviewCacheTest.java": "26e72a5294eac633d198037fddc80f55ebe354e2a2b4f68df9810711a56ad3a6",
+    "tongpin-4k/ui/sections-1.4.8/caller-tests/run.py": "3a1b0c862d9924e59a08dc2eac004d1f0e9b3401fa48001a5f8b83a6d55c7267",
+    "tongpin-4k/ui/sections-1.4.8/caller-tests/CatalogSectionsUiTest.java": "c3708d88cbf8ced43dc581e99edcd7c24cddc1de4b29cc834254b0395c48c78e",
+    "tongpin-4k-tv/ui/sections-1.4.2/tests/run.py": "d98b8b988e6ea959dc92c2031e95e00a5cdc82f192c7989bc8f13a0166177831",
+    "tongpin-4k-tv/ui/sections-1.4.2/tests/TvSectionUiTest.java": "289a1fa592758a9db1b67cb25c8086432e9ea77462e99199e4a37c78713f1771"
+  },
+  "assertions": {
+    "shared": 400,
+    "cache": 61,
+    "ui": 895
+  },
+  "production_java_count": 31,
+  "changed_java_count": 5,
+  "native_resources_stubs_changed": false,
+  "device_tested": false,
+  "network_tested": false,
+  "scope": "Traditional tab-scoped secondary sections and an independent4K declaration group; trusted full category ancestors, area/genre metadata, bounded fair empty-page continuation, isolated backwards-compatible previews and lifecycle/selection state. Existing all-library title search, group identity/source preference, catalogue popularity, player/seek/session/decoder and source registry remain unchanged."
+}

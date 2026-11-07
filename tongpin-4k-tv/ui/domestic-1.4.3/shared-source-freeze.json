@@ -1,0 +1,48 @@
+{
+  "passed": true,
+  "workspace_sources": true,
+  "phone_version": "1.4.9",
+  "tv_version": "1.4.3",
+  "baseline_phone": "1.4.8",
+  "baseline_tv": "1.4.2",
+  "baseline_public_head": "54596d7281877bfa5c189edce035a966b650faf3",
+  "source_sha256": {
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogPolicy.java": "09fb7712acd23d8501902904da6a914ceae1aacc4d846cdf2eac277e1aa1fefa",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogBrowse.java": "eb1a71ed1d663795a87cb0cd2d33c5676b0cac4b4c049e88a25ad48b9986200b",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/UnifiedCatalogPolicy.java": "a72beb6ada4999a0a9241887bc30c94c3a6282db70cb64941b5e444a9413b2e8",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/UnifiedCatalogBrowse.java": "3cc2bcfc3a48d36753617b4aabb90210375b1fe80508477d04b6b29d117eea7b"
+  },
+  "before_source_sha256": {
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogPolicy.java": "fe047281a53b4c749fe614e527eb58af662e95b2fabac79830d47c72f24fc0f3",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogBrowse.java": "1672ca3e550694351f3dc017cd0c6787ca8aa291c36174693230a93a29e5a08a",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/UnifiedCatalogPolicy.java": "0d2a41ae6e297cec2ec1655ce137f26f9f22963ba4410cca7721837ea769d173",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/UnifiedCatalogBrowse.java": "53b37bc361239f911ffabc139dbcde40062320a858fc140d6f1771cb1189208d"
+  },
+  "test_report_sha256": {
+    "tongpin-4k/ui/domestic-1.4.9/shared-tests/verification.json": "b044376321e17a723a57c49b76c4e909c22a12e22e7237792176e24f901232f2",
+    "tongpin-4k-tv/ui/domestic-1.4.3/shared-tests/verification.json": "78bcbb07a8edf84eadd2a3fb1c7d337e784e796f5058c4227c1f8858b5eb54ff"
+  },
+  "test_source_sha256": {
+    "tongpin-4k/ui/domestic-1.4.9/shared-tests/run.py": "4d60b618049359caec3b53826bd09fecffd79740fc42d50a9d11a5de6d1a7312",
+    "tongpin-4k/ui/domestic-1.4.9/shared-tests/DomesticCatalogTest.java": "14c260f127453d15505501fcc5033b33d4fb28b11ff7867f34cf81347990d813",
+    "tongpin-4k-tv/ui/domestic-1.4.3/shared-tests/run.py": "4d60b618049359caec3b53826bd09fecffd79740fc42d50a9d11a5de6d1a7312",
+    "tongpin-4k-tv/ui/domestic-1.4.3/shared-tests/DomesticCatalogTest.java": "08c490e30400d9afe36c69cba43ae110704acfe03160e2cfcd892fba1a529cc0"
+  },
+  "new_assertions_per_app": 60,
+  "retained_assertions_per_app": 400,
+  "assertions_per_app": 460,
+  "preserved_rules_sha256": "c3462d64fc013aad7fed54726d69a729c56f2a416da65d00fdf109504062573a",
+  "scope": "Two existing shared Java sources perapp only: opt-in domestic work ordering on Section.ALL in existing background projection. Root separately ownsCache preview final reordering. No new Java tops,resources,stubs,APIfields,network,UI,registry or player changes.",
+  "contract": {
+    "new_public_projection": "project(List<Video>,boolean naturalName,boolean preferDomestic)",
+    "fixed_clock_projection": "package project(List<Video>,boolean naturalName,long now,boolean preferDomestic)",
+    "cache_sort": "package orderDiscovery(List<Group>,long now,boolean preferDomestic)",
+    "old_defaults": "Old projection overloads preferDomestic=false; naturalName always retains natural title ordering",
+    "browse_flag": "h.section == Section.ALL; nonALL regional or genre selections keep old order"
+  },
+  "country": "ExplicitMainland/HK/TW/broad港台,China/CN/PRC/PeopleRepublic andMacao/Macau tokens or compatible trusteddeclaredancestor. Nonemptyunknownarea cannot use title/actor/language/provider/ancestor as rescue. Newcountry aliases never alter exactMAINLAND matching. GenericChina participates in coproduction for matching domestic or foreign declared directories; concreteMacao doesnotrescue Mainland/HK conflict. Contradictorypaths never rescued.",
+  "ranking": "One domestic tier before others; within both tiers originalrecent/period-provider-percentile/update/key order. Any valid domesticcandidate establishes group participation whileprimary4K/update source and alternatives are unchanged. Overseas/unknown remain eligible afterdomestic; no fabricated origin or measuredresolution.",
+  "complexity": "New country ancestor flags are computed once pernode; no nested reparsing. Existing projection stays background and no extra requests.",
+  "device_tested": false,
+  "network_or_media_tested": false
+}

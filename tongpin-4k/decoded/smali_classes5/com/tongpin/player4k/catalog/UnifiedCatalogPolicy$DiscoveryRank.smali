@@ -28,10 +28,10 @@
 .method constructor <init>(Lcom/tongpin/player4k/catalog/CatalogApi$Video;IJI)V
     .locals 10
 
-    .line 280
+    .line 286
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 281
+    .line 287
     iget-wide v0, p1, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->updatedAtMs:J
 
     invoke-static {v0, v1, p3, p4}, Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy;->access$200(JJ)J
@@ -40,7 +40,7 @@
 
     iput-wide v0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$DiscoveryRank;->updated:J
 
-    .line 282
+    .line 288
     iget-wide v0, p1, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->publishedAtMs:J
 
     invoke-static {v0, v1, p3, p4}, Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy;->access$200(JJ)J
@@ -49,12 +49,12 @@
 
     iput-wide v0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$DiscoveryRank;->published:J
 
-    .line 283
+    .line 289
     invoke-static {p1}, Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy;->access$300(Lcom/tongpin/player4k/catalog/CatalogApi$Video;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 284
+    .line 290
     invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
 
     move-result v1
@@ -72,7 +72,7 @@
 
     move-result v0
 
-    .line 285
+    .line 291
     :goto_0
     iget-object p1, p1, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->subtitle:Ljava/lang/String;
 
@@ -80,7 +80,7 @@
 
     move-result-object p1
 
-    .line 286
+    .line 292
     invoke-static {}, Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy;->access$500()Ljava/util/regex/Pattern;
 
     move-result-object v1
@@ -113,7 +113,7 @@
 
     if-nez v1, :cond_1
 
-    .line 287
+    .line 293
     invoke-static {}, Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy;->access$700()Ljava/util/regex/Pattern;
 
     move-result-object v1
@@ -151,7 +151,7 @@
     :cond_1
     move p1, v2
 
-    .line 289
+    .line 295
     :goto_1
     iget-wide v6, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$DiscoveryRank;->published:J
 
@@ -185,7 +185,7 @@
     :cond_3
     move p3, v2
 
-    .line 291
+    .line 297
     :goto_2
     if-nez p1, :cond_6
 
@@ -204,7 +204,7 @@
 
     goto :goto_4
 
-    .line 292
+    .line 298
     :cond_5
     if-nez v0, :cond_7
 
@@ -212,19 +212,19 @@
 
     goto :goto_4
 
-    .line 291
+    .line 297
     :cond_6
     :goto_3
     const/4 v2, 0x3
 
-    .line 292
+    .line 298
     :cond_7
     :goto_4
     iput v2, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$DiscoveryRank;->recent:I
 
-    .line 293
+    .line 299
     iput p5, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$DiscoveryRank;->heat:I
 
-    .line 294
+    .line 300
     return-void
 .end method

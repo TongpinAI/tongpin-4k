@@ -416,7 +416,7 @@ public final class UnifiedCatalogBrowse implements AutoCloseable {
                     if (!current(h)) return;
                     revision = h.revision; raw = new ArrayList<Video>(h.items);
                 }
-                List<Group> grouped = UnifiedCatalogPolicy.project(raw, false);
+                List<Group> grouped = UnifiedCatalogPolicy.project(raw, false, h.section == Section.ALL);
                 ArrayList<Video> primary = new ArrayList<Video>();
                 for (Group group : grouped) primary.add(group.primary);
                 List<Video> immutable = Collections.unmodifiableList(primary);

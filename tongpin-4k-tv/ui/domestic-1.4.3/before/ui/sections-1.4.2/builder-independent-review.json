@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "verdict": "clear: exact secondary-section release boundary with retained141 builder guards",
+  "source_sha256": {
+    "build_tv.py": "7682e62e4a5b53f5f31ce4e1fa70b7479e2c43a9d428e49aad2401edadae22de",
+    "sections_release_contract.py": "717e9e9adf0c180de0937492e8f2b5f1a1c4807aa64efc0ab46c402d27a13cb8"
+  },
+  "reviewed_freeze_sha256": "e9dbc38b13baf04a7d0c46ad6523ce29e8f5277b4dbaac1224b08095b20cbf9b",
+  "checks": {
+    "actual_preflight_positive": true,
+    "full141_driver_ast_inverse": true,
+    "missing_owner": "rejected",
+    "missing_cache_report": "rejected",
+    "missing_shared_test": "rejected",
+    "missing_ui_runner": "rejected",
+    "missing_snapshot_pin": "rejected",
+    "missing_tool": "rejected",
+    "stale_tool": "rejected",
+    "stale_source_input": "rejected",
+    "missing_prior_count": "rejected",
+    "not_source_ready": "rejected",
+    "unauthorized_formal": "rejected"
+  },
+  "runner_sha256": "ab0675776969102d4c557c35679a1a027e64930b41f77d7b8f1d3ba14e4a4c41",
+  "actual_43_input_gate_checked": true,
+  "old_resource32_exactmap_and_api21_media3_paths_preserved": true,
+  "build_signing_network_executed": false,
+  "device_tested": false
+}

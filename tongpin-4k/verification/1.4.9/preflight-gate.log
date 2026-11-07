@@ -1,0 +1,2 @@
+149mainfalse 7763292b7c808a97d3fdb79f28c41e4cc4d8b097ad657e567db63c0097b7311c tools 11 classes 366
+{'passed': True, 'scope': '149 domestic-first; retain148 classification/UI/player/native/resources and all prior IDs', 'files': {'resources': {}, 'smali': {}}, 'new_resources': [], 'java_source_count': 41, 'provider_count': 28, 'checks': {'native148_unchanged': True, 'version_only_resource_metadata': True, 'exact3ranking_sources': True, 'source_stubs_tests_and_reviews': True, 'published148_evidence_unchanged': True, 'canonical_stage_dex': True}, 'device_tested': False}

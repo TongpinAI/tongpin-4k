@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "version": "1.4.3",
+  "version_code": 1403,
+  "sha256": "c590b4d4ddc7be4be8e450735935a163063c93ec2fa604119e04bb1c2f12bc3b",
+  "bytes": 7846720,
+  "downloads_identical": true,
+  "actual_apk_dex_equals_compiled_dex": true,
+  "unchanged_32_resource_ids": true,
+  "actual_resource_r_equals142": true,
+  "unchanged28_providers": true,
+  "frozen_source_and_tool_inputs_stable": true,
+  "old142_evidence_unchanged": 119,
+  "formal_contract_rechecked": true,
+  "build_result_sha256": "e91319823abc47737a2c4b5a5213d2d221c5868ad0d6ab11b624488e5fc609fa",
+  "source_freeze_sha256": "0f7a0fd3dc3bc75fdf7a02666eb7b42912a15cbac3b0f21505b8c2d0aa7da846",
+  "frozen_inputs_sha256": "c93f11d8f41a9f27c7f32b5632627fae620d203a83e030d21ee7c16745773446",
+  "signed_build_certificate": "c6977a378251b81f1dc7f9564d5c7817f4620f54f2f2ec3befe7bfdf13fffe89",
+  "native_device_tested": false,
+  "runtime_tested": false
+}

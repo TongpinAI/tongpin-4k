@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "verdict": "clear",
+  "workspace_sources": true,
+  "source_sha256": {
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/CatalogPreviewCache.java": "1e9534df11e8c7041efe85905af6869df7f17584ea2e2907448bfab69bf4a308",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/CatalogPreviewCache.java": "375ea381cc5a798594b0e6df14d1b28a1c70d1c14e3b6c35bf9a1f01081a437d"
+  },
+  "scope": "Independent source review of root-owned two preview-cache changes only; does not self-approve core Policy/Browse or claim Android rendering/I/O.",
+  "checks": [
+    {
+      "source": "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/CatalogPreviewCache.java",
+      "before_sha256": "8660b6097ebf3ebfe94dca73c0eb2a7993e7c0ba696e57c9a2258ec776108e2f",
+      "one_added_line_exact_byte_inverse": true
+    },
+    {
+      "source": "tongpin-4k-tv/src/com/tongpin/player4k/tv/CatalogPreviewCache.java",
+      "before_sha256": "b7f1779862365a8eea7c47e9f0248de721ad2243509655476923611280edf738",
+      "one_added_line_exact_byte_inverse": true
+    }
+  ],
+  "review": "OnlyALL decode invokes package orderDiscovery(groups,now,true) after validation and reconstruction of a fresh localArrayList, then returns the existing unmodifiable wrapper. Specific overseas sections retain the original sequence. Allother source bytes equal published148/TV142: file paths, schema, missing-old-field compatibility, registry rebinding, category ancestors, item/byte/depth/TTL limits and no playableURL restoration remain unchanged. Reordering cannot mutate the encoded-input group list or erase old caches.",
+  "author_codec_assertions_per_app": 72,
+  "author_codec_report": "tongpin-4k/ui/domestic-1.4.9/cache-tests/verification.json",
+  "author_codec_report_sha256": "e4a96da8e7fe4e2821f2455128809e5fcfbaa9dc205e475f489e83c5e8f72363",
+  "author_runner_sha256": "12d910473f2e3f1d8f8886d4d05077c238ea3b7071241960fecaea3d28bfa06c",
+  "author_test_source_sha256": "bcd13cc37d701ff2e37256c4cea6761d5eaa95c8b231a94183a2592002eaccce",
+  "current_report_dependency_sources_verified": 20,
+  "new_tests_read": [
+    "ALL recent domestic ordering onRECOMMEND/TV/UHD",
+    "overseas preserved behind domestic",
+    "input list unchanged",
+    "legacyALL missinggenre/ranking metadata remains usable",
+    "specificKorean section keeps its order"
+  ],
+  "codec_reexecuted_by_reviewer": false,
+  "device_tested": false,
+  "android_views_executed": false,
+  "atomicfile_device_io_executed": false,
+  "no_production_edits": true
+}

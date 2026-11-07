@@ -175,6 +175,7 @@ public final class CatalogPreviewCache implements AutoCloseable {
             if (projected.size() != 1 || !projected.get(0).key.equals(key)) return Collections.emptyList();
             groups.add(projected.get(0)); videos += candidates.length();
         }
+        if (section == Section.ALL) UnifiedCatalogPolicy.orderDiscovery(groups, now, true);
         return Collections.unmodifiableList(groups);
     }
 
