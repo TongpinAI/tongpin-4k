@@ -6,6 +6,7 @@ import com.tongpin.player4k.tv.CatalogApi.Video;
 import com.tongpin.player4k.tv.CatalogCategories.Selection;
 import com.tongpin.player4k.tv.UnifiedCatalogPolicy.Group;
 import com.tongpin.player4k.tv.UnifiedCatalogPolicy.Tab;
+import com.tongpin.player4k.tv.UnifiedCatalogPolicy.Section;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -33,13 +34,14 @@ public final class UnifiedCatalogBrowse implements AutoCloseable {
     public interface Listener { void onUpdate(Handle handle, Snapshot snapshot); }
     public static final class Snapshot {
         public final Tab tab;
+        public final Section section;
         public final List<Group> groups;
         public final List<Video> items;
         public final boolean loading, hasMore, canResume, limited, projecting, projectionFailed;
         public final int totalSources, skippedLive, successfulSources, failedSources, repeatStoppedSources,
                 unmatchedSources, pending, batchTotal, batchReturned;
         private Snapshot(Handle h) {
-            tab = h.tab; groups = h.grouped; items = h.primaryItems;
+            tab = h.tab; section = h.section; groups = h.grouped; items = h.primaryItems;
             projectionFailed = h.projectionFailed;
             projecting = !projectionFailed && (h.projectionScheduled || h.revision != h.readyRevision);
             int success = 0, failed = 0, repeated = 0, working = 0, unmatched = 0;
@@ -68,6 +70,7 @@ public final class UnifiedCatalogBrowse implements AutoCloseable {
     }
     public final class Handle {
         public final Tab tab;
+        public final Section section;
         private final ArrayList<Source> sources = new ArrayList<Source>();
         private final ArrayList<Video> items = new ArrayList<Video>();
         private final Set<String> seen = new HashSet<String>();
@@ -82,7 +85,7 @@ public final class UnifiedCatalogBrowse implements AutoCloseable {
         private long revision, readyRevision;
         private boolean projectionScheduled, projectionFailed;
         private FutureTask<Void> projectionTask;
-        private Handle(Tab tab, Listener listener) { this.tab = tab; this.listener = listener; }
+        private Handle(Tab tab, Section section, Listener listener) { this.tab = tab; this.section = section; this.listener = listener; }
         public void cancel() { UnifiedCatalogBrowse.this.cancel(this); }
         public boolean isCurrent() { synchronized (lock) { return current(this); } }
         public Snapshot snapshot() { synchronized (lock) { return new Snapshot(this); } }
@@ -100,7 +103,7 @@ public final class UnifiedCatalogBrowse implements AutoCloseable {
     private static final class Cursor {
         final Source source;
         final Selection selection;
-        int nextPage = 1, successes, offset;
+        int nextPage = 1, successes, offset, emptyRound = -1, emptyFollowUps;
         boolean done, failed, inFlight, suspended, repeatStopped, bufferHasMore;
         String previousPage = "";
         List<Video> buffer;
@@ -117,12 +120,16 @@ public final class UnifiedCatalogBrowse implements AutoCloseable {
     private static final class CategoryCache {
         final CatalogCategories catalog;
         final long created = System.nanoTime();
-        final Map<Tab, List<Selection>> plans;
+        final Map<Tab, Map<Section, List<Selection>>> plans;
         CategoryCache(CatalogCategories catalog) {
             this.catalog = catalog;
-            EnumMap<Tab, List<Selection>> ready = new EnumMap<Tab, List<Selection>>(Tab.class);
+            EnumMap<Tab, Map<Section, List<Selection>>> ready = new EnumMap<Tab, Map<Section, List<Selection>>>(Tab.class);
             // Prepare reusable plans off the UI thread and outside the state lock.
-            for (Tab tab : Tab.values()) if (tab != Tab.RECOMMEND) ready.put(tab, UnifiedCatalogPolicy.selections(catalog, tab));
+            for (Tab tab : Tab.values()) if (tab != Tab.RECOMMEND) {
+                EnumMap<Section, List<Selection>> sections = new EnumMap<Section, List<Selection>>(Section.class);
+                for (Section section : UnifiedCatalogPolicy.sections(tab)) sections.put(section, UnifiedCatalogPolicy.selections(catalog, tab, section));
+                ready.put(tab, Collections.unmodifiableMap(sections));
+            }
             plans = Collections.unmodifiableMap(ready);
         }
     }
@@ -152,13 +159,16 @@ public final class UnifiedCatalogBrowse implements AutoCloseable {
         this.delivery = delivery; this.backend = backend;
     }
     public Handle start(List<Provider> providers, Tab tab, Listener listener) {
-        if (providers == null || providers.size() > MAX_PROVIDERS || tab == null || listener == null)
+        return start(providers, tab, Section.ALL, listener);
+    }
+    public Handle start(List<Provider> providers, Tab tab, Section section, Listener listener) {
+        if (providers == null || providers.size() > MAX_PROVIDERS || !UnifiedCatalogPolicy.validSection(tab, section) || listener == null)
             throw new IllegalArgumentException("Invalid unified browse request");
         Handle h;
         synchronized (lock) {
             if (closed) throw new IllegalStateException("Browse closed");
             if (active != null) cancelLocked(active);
-            workers.purge(); h = new Handle(tab, listener); active = h;
+            workers.purge(); h = new Handle(tab, section, listener); active = h;
             Set<String> unique = new HashSet<String>();
             for (Provider p : providers) {
                 if (p == null) continue;
@@ -169,7 +179,7 @@ public final class UnifiedCatalogBrowse implements AutoCloseable {
                 else {
                     CategoryCache cached = categoryCache.get(s.cacheKey);
                     if (cached != null && System.nanoTime() - cached.created > CATEGORY_CACHE_NS) { categoryCache.remove(s.cacheKey); cached = null; }
-                    if (cached != null) applyCategories(s, cached, tab);
+                    if (cached != null) applyCategories(s, cached, tab, section);
                 }
             }
             dispatchLocked(h, 0);
@@ -181,9 +191,9 @@ public final class UnifiedCatalogBrowse implements AutoCloseable {
         if (provider == null) return;
         synchronized (lock) { categoryCache.remove(provider.id + '\0' + provider.api + '\0' + provider.kind); cacheEpoch++; }
     }
-    private static void applyCategories(Source source, CategoryCache cached, Tab tab) {
+    private static void applyCategories(Source source, CategoryCache cached, Tab tab, Section section) {
         source.catalog = cached.catalog; source.metadataDone = true; source.metadataFailed = false;
-        for (Selection selection : cached.plans.get(tab)) source.cursors.add(new Cursor(source, selection));
+        for (Selection selection : cached.plans.get(tab).get(section)) source.cursors.add(new Cursor(source, selection));
     }
     public boolean loadMore(Handle h) { return request(h, 0); }
     public boolean retryFailed(Handle h) { return request(h, 1); }
@@ -320,7 +330,7 @@ public final class UnifiedCatalogBrowse implements AutoCloseable {
                 w.source.metadataInFlight = false; w.source.metadataSuspended = false;
                 w.source.metadataFailed = !ok;
                 if (ok) {
-                    applyCategories(w.source, prepared, h.tab);
+                    applyCategories(w.source, prepared, h.tab, h.section);
                     if (w.cacheEpoch == cacheEpoch) {
                         categoryCache.put(w.source.cacheKey, prepared);
                         while (categoryCache.size() > MAX_CATEGORY_CACHE) categoryCache.remove(categoryCache.keySet().iterator().next());
@@ -350,7 +360,8 @@ public final class UnifiedCatalogBrowse implements AutoCloseable {
         }
         for (Video v : page.items) if (belongs(c.source, v)) {
             ids.add(v.id);
-            if (h.tab == Tab.RECOMMEND || UnifiedCatalogPolicy.category(v, catalog) == h.tab) accepted.add(v);
+            if (h.section != Section.ALL || h.tab == Tab.UHD ? UnifiedCatalogPolicy.matches(v, h.tab, h.section, catalog)
+                    : h.tab == Tab.RECOMMEND || UnifiedCatalogPolicy.category(v, catalog) == h.tab) accepted.add(v);
         }
         Collections.sort(ids); StringBuilder signature = new StringBuilder();
         for (String id : ids) signature.append(id.length()).append(':').append(id);
@@ -364,6 +375,11 @@ public final class UnifiedCatalogBrowse implements AutoCloseable {
         // nextPage remains the requested page until its accepted items have all been retained.
         c.nextPage = requestedPage;
         drainLocked(h, c);
+        // Only an explicit subcategory follows empty matches. Keep raw-page hasMore and fair source queues.
+        if ((h.section != Section.ALL || h.tab == Tab.UHD) && accepted.isEmpty() && !c.done && !h.limited) {
+            if (c.emptyRound != h.round) { c.emptyRound = h.round; c.emptyFollowUps = 0; }
+            if (c.emptyFollowUps < 2) { c.emptyFollowUps++; enqueueLocked(h, c.source, c); }
+        }
     }
     private void drainLocked(Handle h, Cursor c) {
         while (c.buffer != null && c.offset < c.buffer.size()) {

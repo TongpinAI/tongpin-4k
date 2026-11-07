@@ -15,9 +15,11 @@
 
 .field public final synthetic f$3:Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;
 
+.field public final synthetic f$4:Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Section;
+
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/tongpin/player4k/catalog/CatalogActivity;ILcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;)V
+.method public synthetic constructor <init>(Lcom/tongpin/player4k/catalog/CatalogActivity;ILcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Section;)V
     .locals 0
 
     .line 0
@@ -31,13 +33,15 @@
 
     iput-object p4, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda13;->f$3:Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;
 
+    iput-object p5, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda13;->f$4:Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Section;
+
     return-void
 .end method
 
 
 # virtual methods
 .method public final onLoaded(Ljava/util/List;)V
-    .locals 4
+    .locals 6
 
     .line 0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda13;->f$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
@@ -48,7 +52,11 @@
 
     iget-object v3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda13;->f$3:Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;
 
-    invoke-virtual {v0, v1, v2, v3, p1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->lambda$loadBrowsePreview$0$com-tongpin-player4k-catalog-CatalogActivity(ILcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;Ljava/util/List;)V
+    iget-object v4, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda13;->f$4:Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Section;
+
+    move-object v5, p1
+
+    invoke-virtual/range {v0 .. v5}, Lcom/tongpin/player4k/catalog/CatalogActivity;->lambda$loadBrowsePreview$0$com-tongpin-player4k-catalog-CatalogActivity(ILcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Section;Ljava/util/List;)V
 
     return-void
 .end method

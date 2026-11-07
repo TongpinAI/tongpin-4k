@@ -32,7 +32,7 @@
         }
     .end annotation
 
-    .line 1423
+    .line 1480
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$PosterGrid;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
     invoke-direct {p0, p2}, Landroid/widget/GridView;-><init>(Landroid/content/Context;)V
@@ -45,10 +45,10 @@
 .method protected onSizeChanged(IIII)V
     .locals 0
 
-    .line 1425
+    .line 1482
     invoke-super {p0, p1, p2, p3, p4}, Landroid/widget/GridView;->onSizeChanged(IIII)V
 
-    .line 1426
+    .line 1483
     int-to-float p1, p1
 
     invoke-virtual {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity$PosterGrid;->getResources()Landroid/content/res/Resources;
@@ -67,7 +67,7 @@
 
     move-result p1
 
-    .line 1427
+    .line 1484
     invoke-virtual {p0}, Lcom/tongpin/player4k/catalog/CatalogActivity$PosterGrid;->getResources()Landroid/content/res/Resources;
 
     move-result-object p2
@@ -84,6 +84,6 @@
 
     invoke-virtual {p0, p1}, Lcom/tongpin/player4k/catalog/CatalogActivity$PosterGrid;->setNumColumns(I)V
 
-    .line 1428
+    .line 1485
     return-void
 .end method

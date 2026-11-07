@@ -57,6 +57,8 @@
 
 .field public final repeatStoppedSources:I
 
+.field public final section:Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Section;
+
 .field public final skippedLive:I
 
 .field public final successfulSources:I
@@ -72,17 +74,21 @@
 .method private constructor <init>(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;)V
     .locals 17
 
-    .line 41
+    .line 43
     move-object/from16 v0, p0
+
+    move-object/from16 v1, p1
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 42
-    move-object/from16 v1, p1
-
+    .line 44
     iget-object v2, v1, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->tab:Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;
 
     iput-object v2, v0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;->tab:Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;
+
+    iget-object v2, v1, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->section:Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Section;
+
+    iput-object v2, v0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;->section:Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Section;
 
     invoke-static/range {p1 .. p1}, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->access$000(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;)Ljava/util/List;
 
@@ -96,14 +102,14 @@
 
     iput-object v2, v0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;->items:Ljava/util/List;
 
-    .line 43
+    .line 45
     invoke-static/range {p1 .. p1}, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->access$200(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;)Z
 
     move-result v2
 
     iput-boolean v2, v0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;->projectionFailed:Z
 
-    .line 44
+    .line 46
     iget-boolean v2, v0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;->projectionFailed:Z
 
     if-nez v2, :cond_1
@@ -137,13 +143,13 @@
     :goto_0
     iput-boolean v2, v0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;->projecting:Z
 
-    .line 45
-    nop
-
-    .line 46
-    nop
-
     .line 47
+    nop
+
+    .line 48
+    nop
+
+    .line 49
     invoke-static/range {p1 .. p1}, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->access$600(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;)Ljava/util/ArrayList;
 
     move-result-object v2
@@ -179,17 +185,17 @@
 
     check-cast v12, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Source;
 
-    .line 48
+    .line 50
     iget-boolean v13, v12, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Source;->metadataFailed:Z
 
-    .line 49
+    .line 51
     iget-boolean v14, v12, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Source;->metadataInFlight:Z
 
     if-eqz v14, :cond_2
 
     add-int/lit8 v9, v9, 0x1
 
-    .line 50
+    .line 52
     :cond_2
     iget-boolean v14, v12, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Source;->metadataSuspended:Z
 
@@ -197,7 +203,7 @@
 
     const/4 v10, 0x1
 
-    .line 51
+    .line 53
     :cond_3
     iget-boolean v14, v12, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Source;->metadataDone:Z
 
@@ -209,7 +215,7 @@
 
     const/4 v11, 0x1
 
-    .line 52
+    .line 54
     :cond_4
     iget-boolean v14, v12, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Source;->metadataDone:Z
 
@@ -225,7 +231,7 @@
 
     add-int/lit8 v8, v8, 0x1
 
-    .line 53
+    .line 55
     :cond_5
     iget-object v12, v12, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Source;->cursors:Ljava/util/ArrayList;
 
@@ -252,7 +258,7 @@
 
     check-cast v3, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Cursor;
 
-    .line 54
+    .line 56
     iget v4, v3, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Cursor;->successes:I
 
     if-lez v4, :cond_6
@@ -275,14 +281,14 @@
 
     or-int/2addr v15, v4
 
-    .line 55
+    .line 57
     iget-boolean v4, v3, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Cursor;->inFlight:Z
 
     if-eqz v4, :cond_7
 
     add-int/lit8 v9, v9, 0x1
 
-    .line 56
+    .line 58
     :cond_7
     iget-boolean v4, v3, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Cursor;->suspended:Z
 
@@ -290,7 +296,7 @@
 
     const/4 v10, 0x1
 
-    .line 57
+    .line 59
     :cond_8
     iget-object v4, v3, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Cursor;->buffer:Ljava/util/List;
 
@@ -307,11 +313,11 @@
     :cond_9
     const/4 v11, 0x1
 
-    .line 58
+    .line 60
     :cond_a
     goto :goto_2
 
-    .line 59
+    .line 61
     :cond_b
     if-eqz v14, :cond_c
 
@@ -327,11 +333,11 @@
 
     add-int/lit8 v7, v7, 0x1
 
-    .line 60
+    .line 62
     :cond_e
     goto :goto_1
 
-    .line 61
+    .line 63
     :cond_f
     invoke-static/range {p1 .. p1}, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->access$600(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;)Ljava/util/ArrayList;
 
@@ -349,14 +355,14 @@
 
     iput v2, v0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;->skippedLive:I
 
-    .line 62
+    .line 64
     iput v5, v0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;->successfulSources:I
 
     iput v6, v0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;->failedSources:I
 
     iput v7, v0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;->repeatStoppedSources:I
 
-    .line 63
+    .line 65
     iput v8, v0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;->unmatchedSources:I
 
     iput v9, v0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;->pending:I
@@ -381,7 +387,7 @@
     :goto_5
     iput-boolean v2, v0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;->loading:Z
 
-    .line 64
+    .line 66
     invoke-static/range {p1 .. p1}, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->access$800(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;)Z
 
     move-result v2
@@ -390,7 +396,7 @@
 
     iput-boolean v10, v0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;->canResume:Z
 
-    .line 65
+    .line 67
     iget-boolean v2, v0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;->limited:Z
 
     if-nez v2, :cond_13
@@ -413,7 +419,7 @@
     :goto_7
     iput-boolean v3, v0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;->hasMore:Z
 
-    .line 66
+    .line 68
     invoke-static/range {p1 .. p1}, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->access$900(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;)I
 
     move-result v2
@@ -426,14 +432,14 @@
 
     iput v1, v0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;->batchReturned:I
 
-    .line 67
+    .line 69
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$1;)V
     .locals 0
 
-    .line 34
+    .line 35
     invoke-direct {p0, p1}, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;-><init>(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;)V
 
     return-void

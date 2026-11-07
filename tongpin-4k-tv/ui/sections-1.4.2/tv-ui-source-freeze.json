@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "source_ready": true,
+  "source_sha256": {
+    "src/com/tongpin/player4k/tv/TvHomeActivity.java": "63978769027687545bc53cb4893e578908eef3afb2fd3c68ecb3d784e5c09241"
+  },
+  "baseline_version": "1.4.1",
+  "scope": "TV Home only: native horizontal secondary row from Policy sections, saved tab-scoped Section, complete tab+section handle/preview/DPAD context and UHD declaration caption. Existing catalogue rendering/style/search/playback methods retained.",
+  "evidence_sha256": {
+    "ui/sections-1.4.2/before-check.json": "f27e989d7294b5c9397bdec287cecea19f187b9a0ce56d225565784f329ceb0d",
+    "ui/sections-1.4.2/tests/run.py": "d98b8b988e6ea959dc92c2031e95e00a5cdc82f192c7989bc8f13a0166177831",
+    "ui/sections-1.4.2/tests/TvSectionUiTest.java": "289a1fa592758a9db1b67cb25c8086432e9ea77462e99199e4a37c78713f1771",
+    "ui/sections-1.4.2/tests/verification.json": "02fc4aab41189a804f72624bd23e8979dcd7b4760c265f5c8bb239990faa85f4"
+  },
+  "assertions_total": 895,
+  "new_ui_assertions": 132,
+  "actual_android_sdk35_and_media3_compiled": true,
+  "device_tested": false,
+  "android_views_instantiated": false,
+  "network_tested": false,
+  "scope_note": "Final2 ancestor-aware Policy0d2a41ae and Section/cache graph compiled; Home source remains63978769. No native UI execution."
+}

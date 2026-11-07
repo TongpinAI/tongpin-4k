@@ -109,6 +109,8 @@
     .end annotation
 .end field
 
+.field public final section:Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Section;
+
 .field private final seen:Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -137,100 +139,104 @@
 
 
 # direct methods
-.method private constructor <init>(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse;Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Listener;)V
+.method private constructor <init>(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse;Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Section;Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Listener;)V
     .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x8010,
+            0x0,
             0x0,
             0x0
         }
         names = {
             null,
             null,
+            null,
             null
         }
     .end annotation
 
-    .line 85
+    .line 88
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->this$0:Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 71
+    .line 74
     new-instance p1, Ljava/util/ArrayList;
 
     invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->sources:Ljava/util/ArrayList;
 
-    .line 72
+    .line 75
     new-instance p1, Ljava/util/ArrayList;
 
     invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->items:Ljava/util/ArrayList;
 
-    .line 73
+    .line 76
     new-instance p1, Ljava/util/HashSet;
 
     invoke-direct {p1}, Ljava/util/HashSet;-><init>()V
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->seen:Ljava/util/Set;
 
-    .line 74
+    .line 77
     new-instance p1, Ljava/util/ArrayDeque;
 
     invoke-direct {p1}, Ljava/util/ArrayDeque;-><init>()V
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->metadataQueue:Ljava/util/ArrayDeque;
 
-    .line 75
+    .line 78
     new-instance p1, Ljava/util/ArrayDeque;
 
     invoke-direct {p1}, Ljava/util/ArrayDeque;-><init>()V
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->readySources:Ljava/util/ArrayDeque;
 
-    .line 76
+    .line 79
     new-instance p1, Ljava/util/ArrayList;
 
     invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->runningJobs:Ljava/util/ArrayList;
 
-    .line 77
+    .line 80
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
     move-result-object p1
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->grouped:Ljava/util/List;
 
-    .line 78
+    .line 81
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
     move-result-object p1
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->primaryItems:Ljava/util/List;
 
-    .line 81
+    .line 84
     const/4 p1, 0x1
 
     iput-boolean p1, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->preferPage:Z
 
-    .line 85
+    .line 88
     iput-object p2, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->tab:Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;
 
-    iput-object p3, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->listener:Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Listener;
+    iput-object p3, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->section:Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Section;
+
+    iput-object p4, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->listener:Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Listener;
 
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse;Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Listener;Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$1;)V
+.method synthetic constructor <init>(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse;Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Section;Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Listener;Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$1;)V
     .locals 0
 
-    .line 69
-    invoke-direct {p0, p1, p2, p3}, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;-><init>(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse;Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Listener;)V
+    .line 71
+    invoke-direct {p0, p1, p2, p3, p4}, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;-><init>(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse;Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Tab;Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Section;Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Listener;)V
 
     return-void
 .end method
@@ -238,7 +244,7 @@
 .method static synthetic access$000(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;)Ljava/util/List;
     .locals 0
 
-    .line 69
+    .line 71
     iget-object p0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->grouped:Ljava/util/List;
 
     return-object p0
@@ -247,7 +253,7 @@
 .method static synthetic access$002(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;Ljava/util/List;)Ljava/util/List;
     .locals 0
 
-    .line 69
+    .line 71
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->grouped:Ljava/util/List;
 
     return-object p1
@@ -256,7 +262,7 @@
 .method static synthetic access$100(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;)Ljava/util/List;
     .locals 0
 
-    .line 69
+    .line 71
     iget-object p0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->primaryItems:Ljava/util/List;
 
     return-object p0
@@ -265,7 +271,7 @@
 .method static synthetic access$1000(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;)I
     .locals 0
 
-    .line 69
+    .line 71
     iget p0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->batchReturned:I
 
     return p0
@@ -274,7 +280,7 @@
 .method static synthetic access$1002(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;I)I
     .locals 0
 
-    .line 69
+    .line 71
     iput p1, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->batchReturned:I
 
     return p1
@@ -283,7 +289,7 @@
 .method static synthetic access$1008(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;)I
     .locals 2
 
-    .line 69
+    .line 71
     iget v0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->batchReturned:I
 
     add-int/lit8 v1, v0, 0x1
@@ -296,7 +302,7 @@
 .method static synthetic access$102(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;Ljava/util/List;)Ljava/util/List;
     .locals 0
 
-    .line 69
+    .line 71
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->primaryItems:Ljava/util/List;
 
     return-object p1
@@ -305,7 +311,7 @@
 .method static synthetic access$1600(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;)Ljava/util/ArrayList;
     .locals 0
 
-    .line 69
+    .line 71
     iget-object p0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->items:Ljava/util/ArrayList;
 
     return-object p0
@@ -314,7 +320,7 @@
 .method static synthetic access$1700(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;)Ljava/util/Set;
     .locals 0
 
-    .line 69
+    .line 71
     iget-object p0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->seen:Ljava/util/Set;
 
     return-object p0
@@ -323,7 +329,7 @@
 .method static synthetic access$1800(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;)I
     .locals 0
 
-    .line 69
+    .line 71
     iget p0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->round:I
 
     return p0
@@ -332,7 +338,7 @@
 .method static synthetic access$1804(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;)I
     .locals 1
 
-    .line 69
+    .line 71
     iget v0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->round:I
 
     add-int/lit8 v0, v0, 0x1
@@ -345,7 +351,7 @@
 .method static synthetic access$1900(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;)Ljava/util/ArrayList;
     .locals 0
 
-    .line 69
+    .line 71
     iget-object p0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->runningJobs:Ljava/util/ArrayList;
 
     return-object p0
@@ -354,7 +360,7 @@
 .method static synthetic access$200(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;)Z
     .locals 0
 
-    .line 69
+    .line 71
     iget-boolean p0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->projectionFailed:Z
 
     return p0
@@ -363,7 +369,7 @@
 .method static synthetic access$2000(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;)Z
     .locals 0
 
-    .line 69
+    .line 71
     iget-boolean p0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->canceled:Z
 
     return p0
@@ -372,7 +378,7 @@
 .method static synthetic access$2002(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;Z)Z
     .locals 0
 
-    .line 69
+    .line 71
     iput-boolean p1, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->canceled:Z
 
     return p1
@@ -381,7 +387,7 @@
 .method static synthetic access$202(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;Z)Z
     .locals 0
 
-    .line 69
+    .line 71
     iput-boolean p1, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->projectionFailed:Z
 
     return p1
@@ -390,7 +396,7 @@
 .method static synthetic access$2100(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;)Ljava/util/ArrayDeque;
     .locals 0
 
-    .line 69
+    .line 71
     iget-object p0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->metadataQueue:Ljava/util/ArrayDeque;
 
     return-object p0
@@ -399,7 +405,7 @@
 .method static synthetic access$2200(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;)Ljava/util/ArrayDeque;
     .locals 0
 
-    .line 69
+    .line 71
     iget-object p0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->readySources:Ljava/util/ArrayDeque;
 
     return-object p0
@@ -408,7 +414,7 @@
 .method static synthetic access$2300(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;)Z
     .locals 0
 
-    .line 69
+    .line 71
     iget-boolean p0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->preferPage:Z
 
     return p0
@@ -417,7 +423,7 @@
 .method static synthetic access$2302(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;Z)Z
     .locals 0
 
-    .line 69
+    .line 71
     iput-boolean p1, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->preferPage:Z
 
     return p1
@@ -426,7 +432,7 @@
 .method static synthetic access$2400(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;)Ljava/util/concurrent/FutureTask;
     .locals 0
 
-    .line 69
+    .line 71
     iget-object p0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->projectionTask:Ljava/util/concurrent/FutureTask;
 
     return-object p0
@@ -435,7 +441,7 @@
 .method static synthetic access$2402(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;Ljava/util/concurrent/FutureTask;)Ljava/util/concurrent/FutureTask;
     .locals 0
 
-    .line 69
+    .line 71
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->projectionTask:Ljava/util/concurrent/FutureTask;
 
     return-object p1
@@ -444,7 +450,7 @@
 .method static synthetic access$2500(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;)Z
     .locals 0
 
-    .line 69
+    .line 71
     iget-boolean p0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->deliveryQueued:Z
 
     return p0
@@ -453,7 +459,7 @@
 .method static synthetic access$2502(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;Z)Z
     .locals 0
 
-    .line 69
+    .line 71
     iput-boolean p1, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->deliveryQueued:Z
 
     return p1
@@ -462,7 +468,7 @@
 .method static synthetic access$2600(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;)Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Listener;
     .locals 0
 
-    .line 69
+    .line 71
     iget-object p0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->listener:Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Listener;
 
     return-object p0
@@ -471,7 +477,7 @@
 .method static synthetic access$2602(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Listener;)Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Listener;
     .locals 0
 
-    .line 69
+    .line 71
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->listener:Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Listener;
 
     return-object p1
@@ -480,7 +486,7 @@
 .method static synthetic access$300(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;)Z
     .locals 0
 
-    .line 69
+    .line 71
     iget-boolean p0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->projectionScheduled:Z
 
     return p0
@@ -489,7 +495,7 @@
 .method static synthetic access$302(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;Z)Z
     .locals 0
 
-    .line 69
+    .line 71
     iput-boolean p1, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->projectionScheduled:Z
 
     return p1
@@ -498,7 +504,7 @@
 .method static synthetic access$400(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;)J
     .locals 2
 
-    .line 69
+    .line 71
     iget-wide v0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->revision:J
 
     return-wide v0
@@ -507,7 +513,7 @@
 .method static synthetic access$408(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;)J
     .locals 4
 
-    .line 69
+    .line 71
     iget-wide v0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->revision:J
 
     const-wide/16 v2, 0x1
@@ -522,7 +528,7 @@
 .method static synthetic access$500(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;)J
     .locals 2
 
-    .line 69
+    .line 71
     iget-wide v0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->readyRevision:J
 
     return-wide v0
@@ -531,7 +537,7 @@
 .method static synthetic access$502(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;J)J
     .locals 0
 
-    .line 69
+    .line 71
     iput-wide p1, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->readyRevision:J
 
     return-wide p1
@@ -540,7 +546,7 @@
 .method static synthetic access$600(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;)Ljava/util/ArrayList;
     .locals 0
 
-    .line 69
+    .line 71
     iget-object p0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->sources:Ljava/util/ArrayList;
 
     return-object p0
@@ -549,7 +555,7 @@
 .method static synthetic access$700(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;)I
     .locals 0
 
-    .line 69
+    .line 71
     iget p0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->skippedLive:I
 
     return p0
@@ -558,7 +564,7 @@
 .method static synthetic access$708(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;)I
     .locals 2
 
-    .line 69
+    .line 71
     iget v0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->skippedLive:I
 
     add-int/lit8 v1, v0, 0x1
@@ -571,7 +577,7 @@
 .method static synthetic access$800(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;)Z
     .locals 0
 
-    .line 69
+    .line 71
     iget-boolean p0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->limited:Z
 
     return p0
@@ -580,7 +586,7 @@
 .method static synthetic access$802(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;Z)Z
     .locals 0
 
-    .line 69
+    .line 71
     iput-boolean p1, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->limited:Z
 
     return p1
@@ -589,7 +595,7 @@
 .method static synthetic access$900(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;)I
     .locals 0
 
-    .line 69
+    .line 71
     iget p0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->batchTotal:I
 
     return p0
@@ -598,7 +604,7 @@
 .method static synthetic access$902(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;I)I
     .locals 0
 
-    .line 69
+    .line 71
     iput p1, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->batchTotal:I
 
     return p1
@@ -607,7 +613,7 @@
 .method static synthetic access$908(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;)I
     .locals 2
 
-    .line 69
+    .line 71
     iget v0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->batchTotal:I
 
     add-int/lit8 v1, v0, 0x1
@@ -622,7 +628,7 @@
 .method public cancel()V
     .locals 1
 
-    .line 86
+    .line 89
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->this$0:Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse;
 
     invoke-static {v0, p0}, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse;->access$1100(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse;Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;)V
@@ -633,7 +639,7 @@
 .method public isCurrent()Z
     .locals 2
 
-    .line 87
+    .line 90
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->this$0:Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse;
 
     invoke-static {v0}, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse;->access$1200(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse;)Ljava/lang/Object;
@@ -666,7 +672,7 @@
 .method public snapshot()Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Snapshot;
     .locals 3
 
-    .line 88
+    .line 91
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Handle;->this$0:Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse;
 
     invoke-static {v0}, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse;->access$1200(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse;)Ljava/lang/Object;

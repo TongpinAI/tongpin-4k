@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "scope": "148 sections/UHD; retain147 discovery/player/native/resources and all prior IDs",
+  "files": {
+    "resources": {},
+    "smali": {}
+  },
+  "new_resources": [],
+  "java_source_count": 41,
+  "provider_count": 28,
+  "checks": {
+    "native147_unchanged": true,
+    "version_only_resource_metadata": true,
+    "exact5section_sources": true,
+    "source_stubs_tests_and_reviews": true,
+    "published147_evidence_unchanged": true,
+    "canonical_stage_dex": true
+  },
+  "device_tested": false
+}

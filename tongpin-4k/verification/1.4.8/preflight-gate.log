@@ -1,0 +1,2 @@
+148mainfalse e3eac23bc03687b5e7f2bbdf57eb19c0a232cd25122e6af0ff0f94521ce44358 tools 11 r2classes 366
+{'passed': True, 'scope': '148 sections/UHD; retain147 discovery/player/native/resources and all prior IDs', 'files': {'resources': {}, 'smali': {}}, 'new_resources': [], 'java_source_count': 41, 'provider_count': 28, 'checks': {'native147_unchanged': True, 'version_only_resource_metadata': True, 'exact5section_sources': True, 'source_stubs_tests_and_reviews': True, 'published147_evidence_unchanged': True, 'canonical_stage_dex': True}, 'device_tested': False}

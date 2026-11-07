@@ -3,15 +3,21 @@
 .source "D8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/tongpin/player4k/catalog/PhoneSourcePicker$Selection;
+.implements Landroid/widget/AdapterView$OnItemClickListener;
 
 
 # instance fields
 .field public final synthetic f$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
+.field public final synthetic f$1:Ljava/util/List;
+
+.field public final synthetic f$2:Landroid/widget/GridView;
+
+.field public final synthetic f$3:Lcom/tongpin/player4k/catalog/CatalogApi$Detail;
+
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/tongpin/player4k/catalog/CatalogActivity;)V
+.method public synthetic constructor <init>(Lcom/tongpin/player4k/catalog/CatalogActivity;Ljava/util/List;Landroid/widget/GridView;Lcom/tongpin/player4k/catalog/CatalogApi$Detail;)V
     .locals 0
 
     .line 0
@@ -19,18 +25,38 @@
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda49;->f$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
+    iput-object p2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda49;->f$1:Ljava/util/List;
+
+    iput-object p3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda49;->f$2:Landroid/widget/GridView;
+
+    iput-object p4, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda49;->f$3:Lcom/tongpin/player4k/catalog/CatalogApi$Detail;
+
     return-void
 .end method
 
 
 # virtual methods
-.method public final selected(Lcom/tongpin/player4k/catalog/CatalogApi$Detail;Lcom/tongpin/player4k/catalog/CatalogApi$Line;IZ)V
-    .locals 1
+.method public final onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
+    .locals 9
 
     .line 0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda49;->f$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
-    invoke-virtual {v0, p1, p2, p3, p4}, Lcom/tongpin/player4k/catalog/CatalogActivity;->lambda$searchOtherSources$0$com-tongpin-player4k-catalog-CatalogActivity(Lcom/tongpin/player4k/catalog/CatalogApi$Detail;Lcom/tongpin/player4k/catalog/CatalogApi$Line;IZ)V
+    iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda49;->f$1:Ljava/util/List;
+
+    iget-object v2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda49;->f$2:Landroid/widget/GridView;
+
+    iget-object v3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda49;->f$3:Lcom/tongpin/player4k/catalog/CatalogApi$Detail;
+
+    move-object v4, p1
+
+    move-object v5, p2
+
+    move v6, p3
+
+    move-wide v7, p4
+
+    invoke-virtual/range {v0 .. v8}, Lcom/tongpin/player4k/catalog/CatalogActivity;->lambda$showDetail$3$com-tongpin-player4k-catalog-CatalogActivity(Ljava/util/List;Landroid/widget/GridView;Lcom/tongpin/player4k/catalog/CatalogApi$Detail;Landroid/widget/AdapterView;Landroid/view/View;IJ)V
 
     return-void
 .end method

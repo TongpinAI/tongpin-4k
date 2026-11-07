@@ -3,6 +3,9 @@ package com.tongpin.player4k.catalog;
 import com.tongpin.player4k.catalog.CatalogApi.Video;
 import java.text.Normalizer;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.EnumMap;
+import java.util.EnumSet;
 import java.util.Calendar;
 import java.util.TimeZone;
 import java.util.Collections;
@@ -21,9 +24,66 @@ public final class UnifiedCatalogPolicy {
     private UnifiedCatalogPolicy() {}
     public enum Tab {
         RECOMMEND("推荐"), MOVIE("电影"), TV("电视剧"), VARIETY("综艺"), ANIME("动漫"),
-        DOCUMENTARY("纪录片"), SHORT("短剧"), KIDS("少儿");
+        UHD("4K"), DOCUMENTARY("纪录片"), SHORT("短剧"), KIDS("少儿");
         public final String label;
         Tab(String label) { this.label = label; }
+    }
+    public enum Section {
+        ALL("全部"), MAINLAND("中国大陆"), HONG_KONG("中国香港"), TAIWAN("中国台湾"),
+        KOREA("韩国"), JAPAN("日本"), USA("美国"), UK("英国"), THAILAND("泰国"),
+        OTHER_REGION("其他地区"), WESTERN("欧美"), HONGKONG_TAIWAN("港台"),
+        ACTION("动作"), COMEDY("喜剧"), ROMANCE("爱情"), SCIFI("科幻"), SUSPENSE("悬疑"),
+        THRILLER("惊悚"), HORROR("恐怖"), DRAMA("剧情"), WAR("战争"), ANIMATED("动画"),
+        NATURE("自然"), HISTORY("历史"), HUMANITIES("人文"), SOCIETY("社会"), FOOD("美食"),
+        SCIENCE("科学"), MILITARY("军事"), URBAN("都市"), COSTUME("古装"), FANTASY("奇幻"),
+        EDUCATION("教育"), NURSERY_RHYMES("儿歌"), PARENT_CHILD("亲子"), ADVENTURE("冒险");
+        public final String label;
+        Section(String label) { this.label = label; }
+    }
+    private static final Map<Tab, List<Section>> SECTIONS;
+    static {
+        EnumMap<Tab, List<Section>> choices = new EnumMap<Tab, List<Section>>(Tab.class);
+        choices.put(Tab.RECOMMEND, options(Section.ALL));
+        choices.put(Tab.UHD, options(Section.ALL));
+        choices.put(Tab.TV, options(Section.ALL, Section.MAINLAND, Section.HONG_KONG, Section.TAIWAN,
+                Section.KOREA, Section.JAPAN, Section.USA, Section.UK, Section.THAILAND, Section.OTHER_REGION));
+        choices.put(Tab.MOVIE, options(Section.ALL, Section.ACTION, Section.COMEDY, Section.ROMANCE, Section.SCIFI,
+                Section.SUSPENSE, Section.THRILLER, Section.HORROR, Section.DRAMA, Section.WAR, Section.ANIMATED));
+        choices.put(Tab.VARIETY, options(Section.ALL, Section.MAINLAND, Section.HONGKONG_TAIWAN,
+                Section.KOREA, Section.JAPAN, Section.WESTERN, Section.OTHER_REGION));
+        choices.put(Tab.ANIME, options(Section.ALL, Section.MAINLAND, Section.JAPAN, Section.WESTERN, Section.OTHER_REGION));
+        choices.put(Tab.DOCUMENTARY, options(Section.ALL, Section.NATURE, Section.HISTORY, Section.HUMANITIES,
+                Section.SOCIETY, Section.FOOD, Section.SCIENCE, Section.MILITARY));
+        choices.put(Tab.SHORT, options(Section.ALL, Section.URBAN, Section.ROMANCE, Section.COSTUME,
+                Section.SUSPENSE, Section.FANTASY, Section.COMEDY));
+        choices.put(Tab.KIDS, options(Section.ALL, Section.ANIMATED, Section.EDUCATION,
+                Section.NURSERY_RHYMES, Section.PARENT_CHILD, Section.ADVENTURE));
+        SECTIONS = Collections.unmodifiableMap(choices);
+    }
+    private static List<Section> options(Section... values) {
+        return Collections.unmodifiableList(Arrays.asList(values));
+    }
+    public static List<Section> sections(Tab tab) {
+        List<Section> result = SECTIONS.get(tab);
+        return result == null ? Collections.<Section>emptyList() : result;
+    }
+    public static boolean validSection(Tab tab, Section section) {
+        return section != null && sections(tab).contains(section);
+    }
+    public static String sectionLabel(Tab tab, Section section) {
+        if (!validSection(tab, section)) return "";
+        if (tab == Tab.TV) switch (section) {
+            case KOREA: return "韩剧"; case JAPAN: return "日剧"; case USA: return "美剧";
+            case UK: return "英剧"; case THAILAND: return "泰剧"; default: break;
+        }
+        if (tab == Tab.ANIME) switch (section) {
+            case MAINLAND: return "国漫"; case JAPAN: return "日漫"; case WESTERN: return "欧美动漫"; default: break;
+        }
+        if (tab == Tab.VARIETY) switch (section) {
+            case MAINLAND: return "内地综艺"; case HONGKONG_TAIWAN: return "港台综艺";
+            case KOREA: return "韩国综艺"; case JAPAN: return "日本综艺"; case WESTERN: return "欧美综艺"; default: break;
+        }
+        return section.label;
     }
     public static final class Group {
         public final String key, qualityEvidence;
@@ -106,7 +166,7 @@ public final class UnifiedCatalogPolicy {
                 || leaf.matches("(?:内地|內地|大陆|大陸|中国|中國|国产|國產|香港|港澳|港|澳门|澳門|台湾|台灣|台|日韩|日韓|日|韩|韓|泰|美|英|欧美|歐美|海外|新马|新馬|新加坡|马来西亚|馬來西亞|越南|印度|其他|其它)剧")) return Tab.TV;
         return Tab.RECOMMEND;
     }
-    public static boolean matches(Video v, Tab tab) { return tab == Tab.RECOMMEND || category(v) == tab; }
+    public static boolean matches(Video v, Tab tab) { return tab == Tab.UHD ? declared4k(v) : tab == Tab.RECOMMEND || category(v) == tab; }
     /** Strong stable key. Unknown year/family stays source-specific; seasons remain in the full title. */
     public static String keyFor(Video v) {
         if (v == null) return "";
@@ -295,9 +355,222 @@ public final class UnifiedCatalogPolicy {
         });
     }
 
+    private static final class RegionEvidence {
+        final Set<Section> exact = EnumSet.noneOf(Section.class);
+        boolean western, westernBroad, westernOther, hkTaiwan, japanKorea, foreign, other, otherKnown, conflict;
+        boolean known() { return !exact.isEmpty() || western || hkTaiwan || japanKorea || foreign || other || otherKnown; }
+    }
+    private static String regionToken(String value) {
+        return normalized(value).replaceAll("[\\s\\p{Z}]+", "");
+    }
+    // Keys are the fixed private alias declarations below, never remote strings.
+    private static final Map<String, Set<String>> REGION_ALIASES = new LinkedHashMap<String, Set<String>>();
+    private static boolean oneOf(String token, String aliases) {
+        synchronized (REGION_ALIASES) {
+            Set<String> choices = REGION_ALIASES.get(aliases);
+            if (choices == null) {
+                choices = new HashSet<String>();
+                for (String alias : aliases.split("\\|")) choices.add(regionToken(alias));
+                REGION_ALIASES.put(aliases, choices);
+            }
+            return choices.contains(token);
+        }
+    }
+    private static RegionEvidence regions(String declared, boolean directory) {
+        RegionEvidence r = new RegionEvidence();
+        String value = normalized(declared).replace("united states of america", "unitedstatesofamerica")
+                .replace("south africa", "southafrica").replace("north korea", "northkorea").replace("sri lanka", "srilanka")
+                .replace("hong kong", "hongkong").replace("south korea", "southkorea")
+                .replace("united states", "unitedstates").replace("united kingdom", "unitedkingdom")
+                .replace("mainland china", "mainlandchina").replace("new zealand", "newzealand");
+        if (directory) {
+            value = value.replaceAll("电视剧|電視劇|综艺|綜藝|动漫|動漫|动画|動畫|电影|電影|剧集|劇集|剧|劇|片|专区|專區", "");
+            if (value.equals("国漫") || value.equals("國漫")) value = "国产";
+            if (value.equals("日漫")) value = "日本";
+            if (value.equals("韩") || value.equals("韓")) value = "韩国";
+            if (value.equals("日")) value = "日本";
+            if (value.equals("美")) value = "美国";
+            if (value.equals("英")) value = "英国";
+            if (value.equals("泰")) value = "泰国";
+            if (value.equals("港")) value = "香港";
+            if (value.equals("台") || value.equals("臺")) value = "台湾";
+        }
+        for (String part : value.split("[,，、/|;；&+\\s\\p{Z}]+")) {
+            String token = regionToken(part); if (token.isEmpty()) continue;
+            if (oneOf(token, "中国大陆|中國大陸|大陆|大陸|中国内地|中國內地|内地|內地|国产|國產|mainlandchina")) r.exact.add(Section.MAINLAND);
+            else if (oneOf(token, "中国香港|中國香港|香港|hongkong")) r.exact.add(Section.HONG_KONG);
+            else if (oneOf(token, "中国台湾|中國台灣|中國臺灣|台湾|台灣|臺灣|taiwan")) r.exact.add(Section.TAIWAN);
+            else if (oneOf(token, "韩国|韓國|南韩|南韓|大韩民国|大韓民國|southkorea")) r.exact.add(Section.KOREA);
+            else if (oneOf(token, "日本|japan")) r.exact.add(Section.JAPAN);
+            else if (oneOf(token, "美国|美國|usa|us|unitedstates|unitedstatesofamerica")) { r.exact.add(Section.USA); r.western = true; }
+            else if (oneOf(token, "英国|英國|uk|unitedkingdom")) { r.exact.add(Section.UK); r.western = true; }
+            else if (oneOf(token, "泰国|泰國|thailand")) r.exact.add(Section.THAILAND);
+            else if (oneOf(token, "港台|港澳台|香港台湾|香港台灣")) r.hkTaiwan = true;
+            else if (oneOf(token, "日韩|日韓|日本韩国|日本韓國")) r.japanKorea = true;
+            else if (oneOf(token, "欧美|歐美|欧洲|歐洲|美洲|北美|南美|europe|america")) { r.western = true; r.westernBroad = true; }
+            else if (oneOf(token, "海外|国外|國外|foreign|overseas")) r.foreign = true;
+            else if (oneOf(token, "其他|其它|其他地区|其他地區|其它地区|其它地區|other")) r.other = true;
+            else if (oneOf(token, "法国|法國|德国|德國|意大利|義大利|西班牙|葡萄牙|荷兰|荷蘭|比利时|比利時|瑞典|丹麦|丹麥|挪威|芬兰|芬蘭|冰岛|冰島|瑞士|奥地利|奧地利|爱尔兰|愛爾蘭|波兰|波蘭|捷克|乌克兰|烏克蘭|俄罗斯|俄羅斯|希腊|希臘|加拿大|墨西哥|巴西|阿根廷|智利|哥伦比亚|哥倫比亞|秘鲁|秘魯|france|germany|italy|spain|portugal|netherlands|belgium|sweden|denmark|norway|finland|iceland|switzerland|austria|ireland|poland|czech|ukraine|russia|greece|canada|mexico|brazil|argentina|chile|colombia|peru")) { r.western = true; r.westernOther = true; }
+            else if (oneOf(token, "印度|新加坡|马来西亚|馬來西亞|印度尼西亚|印度尼西亞|印尼|越南|菲律宾|菲律賓|柬埔寨|老挝|老撾|缅甸|緬甸|尼泊尔|尼泊爾|巴基斯坦|孟加拉国|孟加拉國|斯里兰卡|斯里蘭卡|土耳其|伊朗|以色列|阿联酋|阿聯酋|沙特|埃及|南非|尼日利亚|尼日利亞|肯尼亚|肯尼亞|摩洛哥|阿尔及利亚|阿爾及利亞|澳大利亚|澳大利亞|新西兰|新西蘭|朝鲜|朝鮮|蒙古|澳门|澳門|india|singapore|malaysia|indonesia|vietnam|philippines|cambodia|laos|myanmar|nepal|pakistan|bangladesh|srilanka|turkey|iran|israel|uae|egypt|southafrica|nigeria|kenya|morocco|algeria|australia|newzealand|northkorea|mongolia|macau")) r.otherKnown = true;
+        }
+        return r;
+    }
+    private static boolean potential(RegionEvidence r, Section section) {
+        if (r.exact.contains(section)) return true;
+        if (section == Section.MAINLAND) return false;
+        if (r.foreign) return true;
+        return r.hkTaiwan && (section == Section.HONG_KONG || section == Section.TAIWAN)
+                || r.japanKorea && (section == Section.JAPAN || section == Section.KOREA)
+                || r.westernBroad && (section == Section.USA || section == Section.UK);
+    }
+    private static boolean compatible(RegionEvidence area, RegionEvidence directory) {
+        if (area.conflict || directory.conflict) return false;
+        if (!area.known() || !directory.known() || area.other || directory.other) return true;
+        for (Section s : new Section[]{Section.MAINLAND, Section.HONG_KONG, Section.TAIWAN,
+                Section.KOREA, Section.JAPAN, Section.USA, Section.UK, Section.THAILAND})
+            if (potential(area, s) && potential(directory, s)) return true;
+        return area.western && directory.western && (area.westernBroad || directory.westernBroad || area.westernOther && directory.westernOther)
+                || area.otherKnown && (directory.otherKnown || directory.foreign)
+                || directory.otherKnown && area.foreign;
+    }
+    /** Only a validated provider category path supplies ancestors; a work title never does. */
+    private static List<String> declaredPath(Video v, CatalogCategories fallback) {
+        CatalogCategories catalog = v.categoryCatalog != null && !v.categoryCatalog.isEmpty() ? v.categoryCatalog : fallback;
+        String label;
+        if (catalog != null && !catalog.isEmpty()) {
+            label = catalog.label(text(v.categoryId), text(v.categoryName));
+            if (label.startsWith("未分类")) return Collections.emptyList();
+        } else {
+            String name = text(v.categoryName).trim();
+            label = text(v.categoryLabel).trim();
+            if (label.isEmpty() || label.startsWith("未分类") || !name.isEmpty()
+                    && !label.equals(name) && !label.endsWith(" / " + name)) label = name;
+        }
+        label = label.replaceFirst("（上级未提供）$", "").trim();
+        return label.isEmpty() ? Collections.<String>emptyList() : Arrays.asList(label.split(" / "));
+    }
+    private static int regionSpecificity(RegionEvidence r) {
+        return !r.exact.isEmpty() || r.otherKnown || r.westernOther ? 3
+                : r.westernBroad || r.hkTaiwan || r.japanKorea ? 2 : 1;
+    }
+    private static RegionEvidence directoryRegions(List<String> path) {
+        RegionEvidence nearest = null;
+        // The nearest specific declaration wins; broader ancestors constrain it, never add countries.
+        for (int i = path.size() - 1; i >= 0; i--) {
+            RegionEvidence ancestor = regions(path.get(i), true);
+            if (!ancestor.known()) continue;
+            if (nearest == null) nearest = ancestor;
+            else {
+                if (!compatible(nearest, ancestor)) { nearest.conflict = true; return nearest; }
+                if (regionSpecificity(ancestor) > regionSpecificity(nearest)) nearest = ancestor;
+            }
+        }
+        return nearest == null ? new RegionEvidence() : nearest;
+    }
+    private static boolean regionSection(Section section) {
+        return section.ordinal() >= Section.MAINLAND.ordinal() && section.ordinal() <= Section.HONGKONG_TAIWAN.ordinal();
+    }
+    private static boolean regionMatches(RegionEvidence r, Tab tab, Section section) {
+        if (r.exact.contains(section)) return true;
+        if (section == Section.WESTERN) return r.western;
+        if (section == Section.HONGKONG_TAIWAN) return r.hkTaiwan
+                || r.exact.contains(Section.HONG_KONG) || r.exact.contains(Section.TAIWAN);
+        if (section != Section.OTHER_REGION) return false;
+        if (r.other || r.otherKnown || r.foreign || r.japanKorea) return true;
+        if (tab == Tab.TV) return r.westernBroad || r.westernOther;
+        if (tab == Tab.ANIME) return r.hkTaiwan || r.exact.contains(Section.HONG_KONG) || r.exact.contains(Section.TAIWAN)
+                || r.exact.contains(Section.KOREA) || r.exact.contains(Section.THAILAND);
+        return r.exact.contains(Section.THAILAND);
+    }
+    private static String genreAliases(Section section) {
+        switch (section) {
+            case ACTION: return "动作|動作"; case COMEDY: return "喜剧|喜劇|搞笑";
+            case ROMANCE: return "爱情|愛情|言情|恋爱|戀愛"; case SCIFI: return "科幻|科学幻想|科學幻想";
+            case SUSPENSE: return "悬疑|懸疑|推理"; case THRILLER: return "惊悚|驚悚";
+            case HORROR: return "恐怖"; case DRAMA: return "剧情|劇情"; case WAR: return "战争|戰爭";
+            case ANIMATED: return "动画|動畫|动漫|動漫"; case NATURE: return "自然|动物|動物|生态|生態";
+            case HISTORY: return "历史|歷史"; case HUMANITIES: return "人文|文化|艺术|藝術|人物|传记|傳記";
+            case SOCIETY: return "社会|社會|民生"; case FOOD: return "美食|饮食|飲食|烹饪|烹飪";
+            case SCIENCE: return "科学|科學|科技|科普"; case MILITARY: return "军事|軍事";
+            case URBAN: return "都市|现代|現代"; case COSTUME: return "古装|古裝";
+            case FANTASY: return "奇幻|玄幻|魔幻|仙侠|仙俠"; case EDUCATION: return "教育|早教|启蒙|啟蒙|益智";
+            case NURSERY_RHYMES: return "儿歌|兒歌|童谣|童謠"; case PARENT_CHILD: return "亲子|親子";
+            case ADVENTURE: return "冒险|冒險|历险|歷險"; default: return "";
+        }
+    }
+    private static boolean genreMatches(String declared, Section section) {
+        String value = normalized(declared), aliases = genreAliases(section);
+        if (value.isEmpty() || aliases.isEmpty()) return false;
+        for (String alias : aliases.split("\\|")) if (value.contains(alias)) return true;
+        return false;
+    }
+    /** A source declaration, not measured resolution. Provider names and work titles are never consulted. */
+    public static boolean declared4k(Video video) { return declared4k(video, null); }
+    private static boolean declared4k(Video video, CatalogCategories fallback) {
+        if (video == null || video.provider == null || CatalogApi.liveProvider(video.provider)) return false;
+        String remarks = normalized(video.subtitle);
+        if (QUALITY_4K.matcher(remarks).find()) return true;
+        if (QUALITY_1080.matcher(remarks).find() || QUALITY_720.matcher(remarks).find()
+                || remarks.equals("1080") || remarks.equals("720")) return false;
+        CatalogCategories catalog = video.categoryCatalog != null && !video.categoryCatalog.isEmpty() ? video.categoryCatalog : fallback;
+        String declared = catalog == null || catalog.isEmpty() ? text(video.categoryName) + " " + text(video.categoryLabel)
+                : catalog.label(text(video.categoryId), text(video.categoryName));
+        return !declared.startsWith("未分类") && QUALITY_4K.matcher(normalized(declared)).find();
+    }
+    private static List<CatalogCategories.Selection> uhdSelections(CatalogCategories catalog) {
+        if (catalog == null) return Collections.emptyList();
+        ArrayList<CatalogCategories.Category> declared = new ArrayList<CatalogCategories.Category>();
+        for (CatalogCategories.Category c : catalog.categories())
+            if (QUALITY_4K.matcher(normalized(catalog.display(c))).find()) declared.add(c);
+        ArrayList<CatalogCategories.Selection> out = new ArrayList<CatalogCategories.Selection>();
+        for (CatalogCategories.Category c : declared) {
+            boolean covered = false;
+            for (CatalogCategories.Category a : declared) if (!a.id.equals(c.id) && catalog.contains(a.id, c.id)) { covered = true; break; }
+            if (!covered) out.add(catalog.select(c.id));
+        }
+        if (out.isEmpty()) out.add(catalog.select(""));
+        return Collections.unmodifiableList(out);
+    }
+    public static boolean matches(Video video, Tab tab, Section section) { return matches(video, tab, section, null); }
+    static boolean matches(Video video, Tab tab, Section section, CatalogCategories catalog) {
+        if (!validSection(tab, section) || video == null) return false;
+        if (tab == Tab.UHD) return declared4k(video, catalog);
+        if (category(video, catalog) != tab && tab != Tab.RECOMMEND) return false;
+        if (section == Section.ALL) return true;
+        List<String> path = declaredPath(video, catalog);
+        if (!regionSection(section)) {
+            if (genreMatches(video.genre, section)) return true;
+            for (String declared : path) if (genreMatches(declared, section)) return true;
+            return false;
+        }
+        RegionEvidence directory = directoryRegions(path);
+        if (directory.conflict) return false;
+        if (text(video.area).trim().isEmpty()) return regionMatches(directory, tab, section);
+        RegionEvidence area = regions(video.area, false);
+        return compatible(area, directory) && regionMatches(area, tab, section);
+    }
+    /** Use actual declared subcategory IDs; a broad fallback retains real page cursors. */
+    public static List<CatalogCategories.Selection> selections(CatalogCategories catalog, Tab tab, Section section) {
+        if (!validSection(tab, section)) return Collections.emptyList();
+        List<CatalogCategories.Selection> broad = selections(catalog, tab);
+        if (section == Section.ALL || catalog == null) return broad;
+        ArrayList<CatalogCategories.Category> declared = new ArrayList<CatalogCategories.Category>();
+        for (CatalogCategories.Category c : catalog.categories()) if (category(catalog.display(c)) == tab
+                && (regionSection(section) ? regionMatches(regions(c.name, true), tab, section) : genreMatches(c.name, section))) declared.add(c);
+        if (declared.isEmpty()) return broad;
+        ArrayList<CatalogCategories.Selection> out = new ArrayList<CatalogCategories.Selection>();
+        for (CatalogCategories.Category c : declared) {
+            boolean covered = false;
+            for (CatalogCategories.Category a : declared) if (!a.id.equals(c.id) && catalog.contains(a.id, c.id)) { covered = true; break; }
+            if (!covered) out.add(catalog.select(c.id));
+        }
+        return Collections.unmodifiableList(out);
+    }
+
     /** Minimal declared ancestors, so a root and its descendants do not repeat the same query. */
     public static List<CatalogCategories.Selection> selections(CatalogCategories catalog, Tab tab) {
         if (catalog == null || tab == null || tab == Tab.RECOMMEND) return Collections.emptyList();
+        if (tab == Tab.UHD) return uhdSelections(catalog);
         ArrayList<CatalogCategories.Category> candidates = new ArrayList<CatalogCategories.Category>();
         for (CatalogCategories.Category c : catalog.categories()) if (category(catalog.display(c)) == tab) candidates.add(c);
         ArrayList<CatalogCategories.Selection> out = new ArrayList<CatalogCategories.Selection>();

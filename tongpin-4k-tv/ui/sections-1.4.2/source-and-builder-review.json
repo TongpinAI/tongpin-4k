@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "verdict": "clear",
+  "source_sha256": {
+    "src/com/tongpin/player4k/tv/CatalogApi.java": "9927669a1cd3497373c9d0f6dd27ae85e47d92cd692acf8ccd04889a16863df2",
+    "src/com/tongpin/player4k/tv/CatalogPreviewCache.java": "b7f1779862365a8eea7c47e9f0248de721ad2243509655476923611280edf738",
+    "src/com/tongpin/player4k/tv/TvHomeActivity.java": "63978769027687545bc53cb4893e578908eef3afb2fd3c68ecb3d784e5c09241",
+    "src/com/tongpin/player4k/tv/UnifiedCatalogBrowse.java": "53b37bc361239f911ffabc139dbcde40062320a858fc140d6f1771cb1189208d",
+    "src/com/tongpin/player4k/tv/UnifiedCatalogPolicy.java": "0d2a41ae6e297cec2ec1655ce137f26f9f22963ba4410cca7721837ea769d173",
+    "build_tv.py": "7682e62e4a5b53f5f31ce4e1fa70b7479e2c43a9d428e49aad2401edadae22de",
+    "sections_release_contract.py": "717e9e9adf0c180de0937492e8f2b5f1a1c4807aa64efc0ab46c402d27a13cb8"
+  },
+  "resource_sha256": {
+    "res/values/styles.xml": "afcf3a481f96419592cd5cbfe6bcec6756780fa6d7f636cc9bb71ecf73966054",
+    "res/drawable/tv_focus_dark.xml": "ef6ecfb6b95fa4d9d4ffb6b498741b310e47e6b57b77d12e9451c88a3cd0778f"
+  },
+  "review_reports": {
+    "ui/sections-1.4.2/source-independent-review.json": "e79445fcd0acb76ab7eabdbebb2d24c705b1c01ba538b67db317294daa40f5b7",
+    "ui/sections-1.4.2/builder-independent-review.json": "ff29dea6dbcac8723a0bdce17bb4ffa0f78398788aa5a0043e6b704011e614f6"
+  },
+  "scope": "Aggregate of separate independent source5 and build-tool2 reviews. Originals retained; no additional production change or device claim."
+}

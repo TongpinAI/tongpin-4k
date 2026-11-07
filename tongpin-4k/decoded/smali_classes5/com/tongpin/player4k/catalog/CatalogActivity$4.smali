@@ -44,7 +44,7 @@
         }
     .end annotation
 
-    .line 1400
+    .line 1457
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$4;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
     invoke-direct {p0, p2, p3, p4}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;ILjava/util/List;)V
@@ -55,20 +55,20 @@
 .method private style(Landroid/view/View;)Landroid/view/View;
     .locals 5
 
-    .line 1402
+    .line 1459
     check-cast p1, Landroid/widget/TextView;
 
-    .line 1403
+    .line 1460
     const v0, -0xe8d3be
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 1404
+    .line 1461
     const/high16 v0, 0x41700000    # 15.0f
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setTextSize(F)V
 
-    .line 1405
+    .line 1462
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$4;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
     const/16 v1, 0x30
@@ -79,7 +79,7 @@
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setMinHeight(I)V
 
-    .line 1406
+    .line 1463
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$4;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
     const/16 v1, 0xc
@@ -110,17 +110,17 @@
 
     invoke-virtual {p1, v0, v2, v1, v3}, Landroid/widget/TextView;->setPadding(IIII)V
 
-    .line 1407
+    .line 1464
     const/4 v0, 0x2
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setMaxLines(I)V
 
-    .line 1408
+    .line 1465
     sget-object v0, Landroid/text/TextUtils$TruncateAt;->END:Landroid/text/TextUtils$TruncateAt;
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setEllipsize(Landroid/text/TextUtils$TruncateAt;)V
 
-    .line 1409
+    .line 1466
     return-object p1
 .end method
 
@@ -129,7 +129,7 @@
 .method public getDropDownView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 0
 
-    .line 1412
+    .line 1469
     invoke-super {p0, p1, p2, p3}, Landroid/widget/ArrayAdapter;->getDropDownView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object p1
@@ -144,7 +144,7 @@
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 0
 
-    .line 1411
+    .line 1468
     invoke-super {p0, p1, p2, p3}, Landroid/widget/ArrayAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object p1

@@ -29,6 +29,10 @@
 
 .field done:Z
 
+.field emptyFollowUps:I
+
+.field emptyRound:I
+
 .field failed:Z
 
 .field inFlight:Z
@@ -54,20 +58,24 @@
 .method constructor <init>(Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Source;Lcom/tongpin/player4k/catalog/CatalogCategories$Selection;)V
     .locals 1
 
-    .line 107
+    .line 110
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 103
+    .line 106
     const/4 v0, 0x1
 
     iput v0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Cursor;->nextPage:I
 
-    .line 105
+    const/4 v0, -0x1
+
+    iput v0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Cursor;->emptyRound:I
+
+    .line 108
     const-string v0, ""
 
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Cursor;->previousPage:Ljava/lang/String;
 
-    .line 107
+    .line 110
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Cursor;->source:Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Source;
 
     iput-object p2, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Cursor;->selection:Lcom/tongpin/player4k/catalog/CatalogCategories$Selection;

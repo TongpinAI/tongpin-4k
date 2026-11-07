@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "verdict": "clear",
+  "workspace_sources": true,
+  "source_sha256": {
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/CatalogActivity.java": "dc41ef5405c012c61123fd7e7a40e088f41e3ab5a902ba55b3cea95e819ee16a",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/CatalogPreviewCache.java": "8660b6097ebf3ebfe94dca73c0eb2a7993e7c0ba696e57c9a2258ec776108e2f",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/CatalogPreviewCache.java": "b7f1779862365a8eea7c47e9f0248de721ad2243509655476923611280edf738"
+  },
+  "scope": "Independent read-only review of root-owned phone Home and both preview caches. Excludes shared API/Policy/Browse authored by the core owner and excludes TVHome.",
+  "review": {
+    "home": "Read full147 delta and caller methods: saved Section restored only if allowed for the actual Tab; parent Tab changes resetALL; search/live hide secondary row. Fresh browse and preview delivery check handle/ticket/tab/section/foreground. Switching invalidates old requests, preview and rendered anchors. Existing search/touch/click/paging methods remain protected by exact source tests. Source-label-only4K explanation retained.",
+    "cache": "Both packages are equal after package normalization. ExistingALL overloads and file names remain; absent section defaultsALL and cannot populate nonALL. Optional genre defaults empty. Section filenames are enum-scoped; decode verifies tab/section/currentregistry and each candidate metadata before restoring immutable known alternatives. Byte/depth/count/TTL/privateAtomicFile bounds preserved. Final ancestry-policy dependency refreshed; two additional61-case codec fixtures confirm parent-region and parent-genre evidence survives decode."
+  },
+  "evidence_sha256": {
+    "tongpin-4k/ui/sections-1.4.8/cache-tests/verification.json": "0e1edc085811c4d18fc2f3fbde94c92da76451da0803970fa72b1f80b150753e",
+    "tongpin-4k/ui/sections-1.4.8/cache-tests/independent-verification.json": "0e1edc085811c4d18fc2f3fbde94c92da76451da0803970fa72b1f80b150753e",
+    "tongpin-4k/ui/sections-1.4.8/caller-tests/verification.json": "b79a3ee5956622663db2dae41b0509c79672212b779ca5eec7f3ff826f5a65ac"
+  },
+  "independent_codec_assertions_per_app": 61,
+  "independent_execution": "Executed exact authored cache runner with only output log/report destinations redirected; actual20 production source hashes before/after, both codec packages, SDK compile symbols, no executed platform I/O.",
+  "reviewed_caller_assertions": 133,
+  "reviewed_static_wiring_checks": 14,
+  "native_views_executed": false,
+  "device_tested": false,
+  "atomicfile_device_io_executed": false,
+  "no_production_edits": true
+}

@@ -42,6 +42,7 @@ import java.util.concurrent.Future;
 import com.tongpin.player4k.tv.CatalogApi.*;
 import com.tongpin.player4k.tv.UnifiedCatalogPolicy.Group;
 import com.tongpin.player4k.tv.UnifiedCatalogPolicy.Tab;
+import com.tongpin.player4k.tv.UnifiedCatalogPolicy.Section;
 
 /** A complete paginated view of the configured public catalogs, independent of the old APK. */
 public final class TvHomeActivity extends Activity {
@@ -66,6 +67,7 @@ public final class TvHomeActivity extends Activity {
     private final UnifiedCatalogBrowse unifiedBrowse = new UnifiedCatalogBrowse(command -> main.post(command));
     private UnifiedCatalogBrowse.Handle browseHandle;
     private Tab selectedTab = Tab.RECOMMEND;
+    private Section selectedSection = Section.ALL;
     private boolean liveMode, restartUnifiedBrowse, resetUnifiedWindow;
     private final List<Group> groups = new ArrayList<Group>();
     private List<Group> latestGroups = Collections.emptyList(), renderedGroupItems;
@@ -119,6 +121,7 @@ public final class TvHomeActivity extends Activity {
                 liveMode = saved.getBoolean("liveMode", false);
                 try { selectedTab = Tab.valueOf(saved.getString("tab", Tab.RECOMMEND.name())); }
                 catch (IllegalArgumentException invalidTab) { selectedTab = Tab.RECOMMEND; }
+                selectedSection = restoredSection(selectedTab, saved.getString("section", Section.ALL.name()));
                 mode = saved.getString("mode", "catalog");
                 if (!mode.equals("catalog") && !mode.equals("history") && !mode.equals("favorites")) mode = "catalog";
                 page = Math.max(1, saved.getInt("page", 1));
@@ -232,6 +235,22 @@ public final class TvHomeActivity extends Activity {
             action(tabs, button, v -> switchTab(tab));
         }
         scrollRow(chrome, tabs);
+        List<Section> sections = UnifiedCatalogPolicy.sections(selectedTab);
+        if (sectionRowVisible(unifiedHome(), sections.size())) {
+            LinearLayout sectionRow = row();
+            final Tab rowTab = selectedTab; final Section rowSection = selectedSection;
+            for (Section section : sections) {
+                Button button = TvUi.button(this, UnifiedCatalogPolicy.sectionLabel(selectedTab, section));
+                button.setSelected(selectedSection == section);
+                button.setContentDescription(selectedTab.label + " · " + UnifiedCatalogPolicy.sectionLabel(selectedTab, section));
+                if (button.isSelected()) activeSource = button;
+                action(sectionRow, button, view -> {
+                    if (homeEventAllowed(foreground, hasWindowFocus(), destroyed, inDetail, restoringSearchPosition)
+                            && unifiedHome() && sameBrowse(rowTab, rowSection, selectedTab, selectedSection)) switchSection(section);
+                });
+            }
+            scrollRow(chrome, sectionRow);
+        }
         categoryPicker = null;
         if (liveMode && mode.equals("catalog") && !allCatalogSearch(mode, query)) {
             LinearLayout categoryRow = row();
@@ -346,11 +365,38 @@ public final class TvHomeActivity extends Activity {
     private boolean unifiedHome() { return mode.equals("catalog") && !liveMode && query.isEmpty(); }
     private boolean orderedCatalog() { return allCatalogSearch(mode, query) || unifiedHome(); }
     private Object catalogSession() { return allCatalogSearch(mode, query) ? searchHandle : browseHandle; }
-    private String catalogContext() { return allCatalogSearch(mode, query) ? "query:" + query : "tab:" + selectedTab.name(); }
+    private String catalogContext() { return allCatalogSearch(mode, query) ? "query:" + query : browseContext(selectedTab, selectedSection); }
+
+    static Section restoredSection(Tab tab, String value) {
+        Section section;
+        try { section = Section.valueOf(value == null ? "" : value); }
+        catch (IllegalArgumentException invalid) { section = Section.ALL; }
+        return UnifiedCatalogPolicy.validSection(tab, section) ? section : Section.ALL;
+    }
+    static boolean sectionRowVisible(boolean unified, int options) { return unified && options > 1; }
+    static boolean sameBrowse(Tab tab, Section section, Tab currentTab, Section currentSection) {
+        return tab == currentTab && section == currentSection;
+    }
+    static String browseContext(Tab tab, Section section) { return "tab:" + tab.name() + "/section:" + section.name(); }
+    static String browseLabel(Tab tab, Section section) {
+        String label = tab == Tab.UHD ? tab.label + "（片源标注）" : tab.label;
+        return section == Section.ALL ? label : label + " · " + UnifiedCatalogPolicy.sectionLabel(tab, section);
+    }
+    private void resetBrowseSelection() {
+        clearSearchInteraction(); clearBrowsePreview();
+        if (browseHandle != null) { browseHandle.cancel(); browseHandle = null; }
+        posters.clear(); videos.clear(); groups.clear(); latestGroups = Collections.emptyList(); renderedGroupItems = null;
+        pendingSearchAnchor = null; focusVideoId = ""; restoreGridFocus = false; resetUnifiedWindow = false;
+    }
+    private void switchSection(Section section) {
+        if (!unifiedHome() || !UnifiedCatalogPolicy.validSection(selectedTab, section) || section == selectedSection) return;
+        resetBrowseSelection(); selectedSection = section; page = 1;
+        showHome(); loadPage();
+    }
 
     private void switchTab(Tab tab) {
         if (liveMode && query.isEmpty()) browsePage = page;
-        selectedTab = tab; resetUnifiedWindow = false; liveMode = false; providerId = ""; mode = "catalog"; query = ""; page = 1;
+        resetBrowseSelection(); selectedTab = tab; selectedSection = Section.ALL; liveMode = false; providerId = ""; mode = "catalog"; query = ""; page = 1;
         showHome(); loadPage();
     }
 
@@ -612,13 +658,14 @@ public final class TvHomeActivity extends Activity {
     }
 
     private void showUnifiedBrowse() {
-        if (restartUnifiedBrowse || browseHandle == null || !browseHandle.isCurrent() || browseHandle.snapshot().tab != selectedTab) {
+        if (restartUnifiedBrowse || browseHandle == null || !browseHandle.isCurrent()
+                || !sameBrowse(browseHandle.snapshot().tab, browseHandle.snapshot().section, selectedTab, selectedSection)) {
             restartUnifiedBrowse = false; resetUnifiedWindow = false;
             if (browseHandle != null) browseHandle.cancel();
             posters.clear();
             videos.clear(); groups.clear(); latestGroups = Collections.emptyList(); renderedGroupItems = null;
             adapter.notifyDataSetChanged();
-            browseHandle = unifiedBrowse.start(providers, selectedTab, (handle, ignored) -> renderUnifiedBrowse(handle));
+            browseHandle = unifiedBrowse.start(providers, selectedTab, selectedSection, (handle, ignored) -> renderUnifiedBrowse(handle));
             clearBrowsePreview(); previewHandle = browseHandle;
         }
         loadBrowsePreview(browseHandle);
@@ -628,14 +675,16 @@ public final class TvHomeActivity extends Activity {
 
     private void renderUnifiedBrowse(UnifiedCatalogBrowse.Handle handle) {
         if (destroyed || !foreground || inDetail || !unifiedHome() || handle == null || handle != browseHandle || !handle.isCurrent()) return;
-        UnifiedCatalogBrowse.Snapshot snapshot = handle.snapshot(); if (snapshot.tab != selectedTab) return;
+        UnifiedCatalogBrowse.Snapshot snapshot = handle.snapshot();
+        if (!sameBrowse(snapshot.tab, snapshot.section, selectedTab, selectedSection)) return;
         List<Group> shown = visibleBrowseGroups(snapshot.groups, previewHandle == handle ? previewGroups : Collections.emptyList());
         renderGroupRows(shown); hasMore = snapshot.hasMore;
         if (!snapshot.groups.isEmpty() && (lastSavedBrowseGroups == null
                 || !snapshot.loading && snapshot.groups != lastSavedBrowseGroups)) {
-            lastSavedBrowseGroups = snapshot.groups; previewCache.save(providers, snapshot.tab, snapshot.groups);
+            lastSavedBrowseGroups = snapshot.groups; previewCache.save(providers, snapshot.tab, snapshot.section, snapshot.groups);
         }
-        String text = selectedTab.label + " · 近期热播推荐 · " + snapshot.totalSources + "个影视库 · 本批返回" + snapshot.batchReturned + "/" + snapshot.batchTotal
+        String text = browseLabel(selectedTab, selectedSection)
+                + (selectedTab == Tab.UHD ? " · 实际画质以开播检测为准" : "") + " · 近期热播推荐 · " + snapshot.totalSources + "个影视库 · 本批返回" + snapshot.batchReturned + "/" + snapshot.batchTotal
                 + " · 当前待回" + snapshot.pending + (snapshot.failedSources > 0 ? " · " + snapshot.failedSources + "源待重试" : "");
         if (snapshot.groups.isEmpty() && !shown.isEmpty()) text = "上次片库 · " + text + (snapshot.loading ? " · 后台更新中" : " · 可刷新更新");
         if (snapshot.projecting) text += " · 正在整理影片";
@@ -655,13 +704,14 @@ public final class TvHomeActivity extends Activity {
     private void loadBrowsePreview(UnifiedCatalogBrowse.Handle handle) {
         if (previewCache == null || previewRequested || !previewGroups.isEmpty() || destroyed || !foreground || inDetail || !unifiedHome()
                 || handle == null || handle != browseHandle || handle != previewHandle || !handle.isCurrent()
+                || !sameBrowse(handle.snapshot().tab, handle.snapshot().section, selectedTab, selectedSection)
                 || !handle.snapshot().groups.isEmpty()) return;
         previewRequested = true;
-        final int ticket = ++previewGeneration; final Tab tab = selectedTab;
-        previewCache.load(providers, tab, cached -> {
+        final int ticket = ++previewGeneration; final Tab tab = selectedTab; final Section section = selectedSection;
+        previewCache.load(providers, tab, section, cached -> {
             if (!previewAllowed(foreground, inDetail, destroyed, ticket == previewGeneration,
                     unifiedHome() && handle == browseHandle && handle == previewHandle && handle.isCurrent(),
-                    tab == selectedTab, handle.snapshot().groups.isEmpty()) || cached.isEmpty()) return;
+                    sameBrowse(tab, section, selectedTab, selectedSection), handle.snapshot().groups.isEmpty()) || cached.isEmpty()) return;
             previewGroups = cached; renderUnifiedBrowse(handle);
         });
     }
@@ -890,7 +940,7 @@ public final class TvHomeActivity extends Activity {
             next.setText(snapshot != null && snapshot.limited ? "继续浏览" : "加载更多");
             next.setEnabled(!loading && snapshot != null && snapshot.hasMore);
             refresh.setText(snapshot != null && snapshot.canResume ? "继续未完成" : snapshot != null && snapshot.failedSources > 0 ? "重试失败片库" : "刷新片库");
-            refresh.setEnabled(!loading); pageLabel.setText(selectedTab.label + " · " + videos.size() + "部"); return;
+            refresh.setEnabled(!loading); pageLabel.setText(browseLabel(selectedTab, selectedSection) + " · " + videos.size() + "部"); return;
         }
         previous.setText("上一页"); next.setText("下一页"); refresh.setText("刷新 / 重试"); refresh.setEnabled(!loading);
         previous.setEnabled(!loading && page > 1); next.setEnabled(!loading && hasMore);
@@ -936,7 +986,8 @@ public final class TvHomeActivity extends Activity {
                 renderedSearchItems = snapshot.items; projectedSearchGroups = snapshot.groups;
             }
             latestGroups = projectedSearchGroups;
-        } else if (unifiedHome() && browseHandle != null && browseHandle.isCurrent())
+        } else if (unifiedHome() && browseHandle != null && browseHandle.isCurrent()
+                && sameBrowse(browseHandle.snapshot().tab, browseHandle.snapshot().section, selectedTab, selectedSection))
             latestGroups = visibleBrowseGroups(browseHandle.snapshot().groups, previewHandle == browseHandle ? previewGroups : Collections.emptyList());
     }
 
@@ -1196,7 +1247,7 @@ public final class TvHomeActivity extends Activity {
         if (!inDetail && allCatalogSearch(mode, query) && searchHandle != null && searchHandle.isCurrent()) {
             allSearch.resume(searchHandle); renderSearch(searchHandle);
         } else if (!inDetail && unifiedHome() && browseHandle != null && browseHandle.isCurrent()) {
-            loadBrowsePreview(browseHandle); unifiedBrowse.resume(browseHandle); renderUnifiedBrowse(browseHandle);
+            showUnifiedBrowse();
         }
     }
     @Override protected void onPause() {
@@ -1206,7 +1257,7 @@ public final class TvHomeActivity extends Activity {
     @Override protected void onSaveInstanceState(Bundle out) {
         out.putString("categoryProvider", providerId);
         out.putString("category", pendingCategoryId.isEmpty() ? categoryId : pendingCategoryId);
-        out.putBoolean("liveMode", liveMode); out.putString("tab", selectedTab.name());
+        out.putBoolean("liveMode", liveMode); out.putString("tab", selectedTab.name()); out.putString("section", selectedSection.name());
         out.putInt("browsePage", browsePage); out.putString("channelQuery", channelQuery);
         out.putString("provider", providerId); out.putString("query", query); out.putString("mode", mode); out.putInt("page", page);
         super.onSaveInstanceState(out);

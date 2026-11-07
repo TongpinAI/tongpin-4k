@@ -1,0 +1,62 @@
+{
+  "passed": true,
+  "workspace_sources": true,
+  "phone_version": "1.4.8",
+  "tv_version": "1.4.2",
+  "baseline_phone_version": "1.4.7",
+  "baseline_tv_version": "1.4.1",
+  "source_sha256": {
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/CatalogApi.java": "1bfe70cd8a5b82e1336dbd0f11b6a57d15bd25a31d2d650e13ab82ea053a1626",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogPolicy.java": "fe047281a53b4c749fe614e527eb58af662e95b2fabac79830d47c72f24fc0f3",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogBrowse.java": "1672ca3e550694351f3dc017cd0c6787ca8aa291c36174693230a93a29e5a08a",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/CatalogApi.java": "9927669a1cd3497373c9d0f6dd27ae85e47d92cd692acf8ccd04889a16863df2",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/UnifiedCatalogPolicy.java": "0d2a41ae6e297cec2ec1655ce137f26f9f22963ba4410cca7721837ea769d173",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/UnifiedCatalogBrowse.java": "53b37bc361239f911ffabc139dbcde40062320a858fc140d6f1771cb1189208d"
+  },
+  "before_source_sha256": {
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/CatalogApi.java": "d3139e76422d9dd9b0b8daa7dfba1ccebac21e3c0d4dfa21cacdfac4043e5c46",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogPolicy.java": "680daa5a27e20b90755c7075150676884ba9d004a61e16a170cfeda6cfac9630",
+    "tongpin-4k/open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogBrowse.java": "2ab605e7a828d794019e03e5eddf9479dad780af8eef5ee29d20219e51b44ba3",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/CatalogApi.java": "e91b684100d722a1ac54d12c338ae211787eccd0e5ed4deee7d74e4ac7802c6b",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/UnifiedCatalogPolicy.java": "286948b737fe12ef35a67321e693e68cf49d69a03b1b7356420050d8a5502f66",
+    "tongpin-4k-tv/src/com/tongpin/player4k/tv/UnifiedCatalogBrowse.java": "04241abaa1664f7ec2141ce738fb53296b6d3abac73bcb6231c34ad659b58caf"
+  },
+  "test_report_sha256": {
+    "tongpin-4k/ui/sections-1.4.8/shared-tests/verification.json": "b38ed509ce996181a5bb61fd91524c9dc32802134e3499c910a753058d39c82a",
+    "tongpin-4k-tv/ui/sections-1.4.2/shared-tests/verification.json": "847294da585199414aee2ace67626cff8767b1c684e93d510d20ad040c0ad32c"
+  },
+  "test_source_sha256": {
+    "tongpin-4k/ui/sections-1.4.8/shared-tests/run.py": "5bc9b84dc318a5d208726d4ddc9d9f4211a8ce3a52aee8b8247714cd0fb18cda",
+    "tongpin-4k/ui/sections-1.4.8/shared-tests/SectionCatalogTest.java": "4e3582e1c73ec597ea997c8e55df6897b6c59d0dcb8cc34d0298e37bf5473e32",
+    "tongpin-4k-tv/ui/sections-1.4.2/shared-tests/run.py": "5bc9b84dc318a5d208726d4ddc9d9f4211a8ce3a52aee8b8247714cd0fb18cda",
+    "tongpin-4k-tv/ui/sections-1.4.2/shared-tests/SectionCatalogTest.java": "2c6a1990d6909807e4dcc0123daca516ca432d3e8ecaa078b64962d92986f770"
+  },
+  "new_assertions_per_app": 156,
+  "retained_assertions_per_app": 244,
+  "assertions_per_app": 400,
+  "unchanged_method_proof_sha256": "31a5e1b3fac42aba58d072ff5381027288ad22124f7d59ae835e7657ba6e1376",
+  "new_top_level_java": [],
+  "resource_changes": [],
+  "stub_changes": [],
+  "scope": "Three existing shared sources perapp: optional declaredgenre,traditionalSection taxonomy and exactrealarea/genre/leaf matching,section-ownedreal category/page cursors and boundedtwoextraemptyfetches viaold3workerfairqueue;source-declaredUHDnavigationwithoutchangingworkfamily/quality. Root ownsCache/Home.",
+  "public_contract": {
+    "Section": "nested UnifiedCatalogPolicy enum",
+    "sections": "public static immutable List<Section> sections(Tab)",
+    "sectionLabel": "public static String sectionLabel(Tab,Section)",
+    "validSection": "public static boolean validSection(Tab,Section), false for null",
+    "matches": "public static boolean matches(Video,Tab,Section)",
+    "declared4k": "public static boolean declared4k(Video), source label only",
+    "browse_start": "start(List<Provider>,Tab,Section,Listener), old overload ->ALL",
+    "session_section": "Handle.section and Snapshot.section",
+    "Video.genre": "vod_class declared text only, missing empty"
+  },
+  "guarantees": [
+    "Exact region aliases and co-productions only; no title/actor/language inference. Unknown remainsALL. Conflicting actualarea and preciseleaf remainsunknown. Generic港台 doesnotbecomeHK/TW/TVOther.",
+    "Actual declared childcategoryIDs whenavailable; otherwise primarycategorypagesandmetadatafilter. UHDnoexclusiveclass usesemptyIDcataloguepage evenforemptycategorymetadata.",
+    "Raw-row fingerprint and page.hasMore precedesectionfilter. OnlynonALL/UHD mayfollowemptyacceptedpages up totwoextraper cursor/round; allrequestsreuseoldfair3workerqueue.",
+    "No newnetworktimeout/APIquery/registry/media/player changes. DefaultALL otherthanUHD makesnoextraHTTP.",
+    "Workfamily/groupidentity/naturaltitlesort/4Kupdatesourcepreference/recentrecommendationmethodbodies unchanged."
+  ],
+  "device_tested": false,
+  "network_or_media_tested": false
+}

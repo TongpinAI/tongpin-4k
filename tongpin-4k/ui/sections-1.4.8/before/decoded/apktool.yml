@@ -1,0 +1,22 @@
+version: 3.0.3
+apkFileName: kanke-4k-latest-noads.apk
+usesFramework:
+  ids:
+  - 1
+sdkInfo:
+  minSdkVersion: 24
+  targetSdkVersion: 33
+versionInfo:
+  versionCode: 1470
+  versionName: 1.4.7
+resourcesInfo:
+  packageId: 127
+doNotCompress:
+- 3gp
+- arsc
+- jpg
+- png
+- so
+- webp
+- assets/dexopt/baseline.prof
+- assets/dexopt/baseline.profm

@@ -1,0 +1,67 @@
+{
+  "passed": true,
+  "verdict": "clear: exact148 section/UHD5-source scope, retained147 player/native/resources/stubs and final11 tools",
+  "source_sha256": {
+    "open-sources/integration/ui_1480_contract.py": "42fbaaf7932efcda4269c16178ba93bf33f60b328ddc939a8a402881c5ca48bf",
+    "verification/1.4.8/proof-tools/DisassembleOwn1480.class": "3b3b4a57dda8dca35ef9cbeccfa26b5d61a82870891c12bc6e04e98a3aa88274",
+    "open-sources/integration/audit_final_ui_api_1480.py": "14df31ea0d5bbf19adf21e425e6a6515ada768240095067f77c47b68a7dbb963",
+    "open-sources/integration/integrate_1_4_8.py": "5f1cc1c34d7854f0d720bb26f77c33b6baff64c6e5f9b39012766b7792d2f7d8",
+    "open-sources/integration/assert_contract.py": "05003be1f80b7acfdc4d3f332fbbfe0bf4a0135dd5db0ffb3d2f31e80d6d8018",
+    "open-sources/toolchain/check_framework_api.py": "91209f30753abd8ea244655bd98762d4e0590c173dae2e842367d82559a61905",
+    "open-sources/integration/DisassembleOwn1480.java": "ad725e4093969857ce7a0a9f574adb454ffefcd3789f609642f45efdac9aef68",
+    "open-sources/integration/check_native_bindings_1410.py": "9a69cd89a30993ac4ca4beaa7a8d1d7d0e1b981edbb2f2f62740f955c6a9d93c",
+    "open-sources/toolchain/compile_java_to_smali.py": "b1b855f38294ecb7d392980b917f8fa17eaae77496c3bd1fcd961e557574cc9c",
+    "open-sources/integration/check_timer_dex_1480.py": "f63c49d3956f3337c974342d525ecaa7b501054554501c1519be1ab8ed01e86f",
+    "build_tongpin.py": "a429db03ffbce937cb6375c23853643f9f0abbae8c10f601e2d0db3b9e5e1907"
+  },
+  "reviewed_frozen_input_sha256": "e3eac23bc03687b5e7f2bbdf57eb19c0a232cd25122e6af0ff0f94521ce44358",
+  "readonly_guard_sha256": {
+    "before-sha256.json": "f045e43e71bbbb52432ef033328edbd2dca7007cf4f9215ba312fa0559ce75ee",
+    "baseline147-native-resource-sha256.json": "a47c86c45b1460fbdb94178938bc7335f4a7d07053552f01feb90551ebf45db3",
+    "prior147-evidence-sha256.json": "bf9278960110f859c725dbfa458f8f707b599c30e6387f26803cf4038e37600a"
+  },
+  "gate_tests": {
+    "path": "ui/sections-1.4.8/builder-gate-review-tests.json",
+    "sha256": "3d4c9fb2032795f324529ac0ec6f15682f42b4019b062351c71e48a79383186f",
+    "cases": 27,
+    "actual_full_preflight_positive": 1,
+    "in_memory_rejections": 16,
+    "previous_resource_guard_cases": 6,
+    "production_or_frozen_files_modified": false,
+    "negative_digest_policy": "Reuse only actual-positive validated digests for unchanged native/source/tool inputs; all fixture document/hash overrides take precedence."
+  },
+  "scope": {
+    "modified_java": [
+      "com/tongpin/player4k/catalog/CatalogActivity.java",
+      "com/tongpin/player4k/catalog/CatalogApi.java",
+      "com/tongpin/player4k/catalog/CatalogPreviewCache.java",
+      "com/tongpin/player4k/catalog/UnifiedCatalogBrowse.java",
+      "com/tongpin/player4k/catalog/UnifiedCatalogPolicy.java"
+    ],
+    "added_java": [],
+    "java_sources": 41,
+    "fresh_own_dex_classes": 366,
+    "canonical_stage_dex_sha256": "cfb155711d5c49941dbe09a3e3cb814d041b66985705d71d172b3d382be065f2",
+    "native_baseline_entries": 12691,
+    "compile_stub_changes": 0,
+    "resource_additions": 0,
+    "resource_ids_retained": 11473,
+    "provider_count": 28,
+    "provider_asset_sha256": "9793756bfa35672f9c2645cd981dce4e23431be664ebceb71e6f2b05966b3e05"
+  },
+  "checks": [
+    "Actual ui_1480_contract.verify(False) passed against current41-source graph,18 unchanged compile stubs,147 native/resource/asset inventory and canonical366-class r2 stage. Existing400 shared/61 codec/133 caller assertion reports with14 wiring checks and58 preserved-method proof are hash-bound; no expensive SDK/D8/logic/codec suite repeated for tool review.",
+    "Build driver AST precisely reverses to147 after release routing and diagnostic version substitutions; the zero-additions resource guard remains identical. Original package,SDK,backend,resource,signing and ZIP entry validation are unchanged.",
+    "assert_contract adds exactly one148 early branch; all historical branches/contracts remain unchanged. Published147 verification evidence and real preimages are pinned.",
+    "Integrator preserves actual native/member resolution,17 legacy classes,field/inheritance checker,namespace ownership before replacing only the pinned fresh stage and complete final-method equality. Only release routing and previous147 baseline change.",
+    "Native-binding checker1410,Java-to-smali compiler and official framework scanner are byte-identical to147. Final disassembler and API proof readers differ only version names; timer uses canonical r2 and updated honest scope text while retaining complete opcode/register/branch comparison.",
+    "Exact5 changed existing Java files,zero new top-level files,unchanged styles/resources/stubs,28-provider registry,41-source compile graph and staged DEX/smali maps are enforced. Shared and caller evidence source hashes must match the current final ancestor-policy source.",
+    "16 coherent malformed in-memory fixtures reject missing tool,test,source,owner,preimage/native pins,wrong canonical stage or smali map,changed stub/resource scope,failed-but-clear review with a matching changed pin and missing independent formal coverage.",
+    "Actual resource guard accepts all11473 previous IDs unchanged and rejects moved/removed IDs,any added style,nonempty addition whitelist and empty prior baseline.",
+    "DisassembleOwn1480.java independently compiled with actual JDK --release8 and apktool dependency; generated class bytes equal the pinned proof class."
+  ],
+  "independently_compiled_proof_class_sha256": "3b3b4a57dda8dca35ef9cbeccfa26b5d61a82870891c12bc6e04e98a3aa88274",
+  "device_tested": false,
+  "apk_signed_or_application_executed_during_review": false,
+  "limitations": "Independent build-tool/contract review; production classification and UI/cache review remain with the separate source reviewers named in frozen inputs. No native-device rendering or playback performance claim."
+}

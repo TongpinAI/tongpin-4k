@@ -60,6 +60,8 @@ public final class CatalogApi {
         public String categoryId = "", categoryName = "", categoryLabel = "未分类";
         /** Source-declared metadata only; zero means absent/invalid, never an inferred count/date. */
         public long publishedAtMs, updatedAtMs, weeklyHits, monthlyHits;
+        /** Declared vod_class only; never inferred from a title or synopsis. */
+        public String genre = "";
         CatalogCategories categoryCatalog;
         public Video() {}
     }
@@ -458,6 +460,7 @@ public final class CatalogApi {
         video.weeklyHits = metadataHits(item, "vod_hits_week");
         video.monthlyHits = metadataHits(item, "vod_hits_month");
         video.area = plain(text(item, "vod_area", 256), 256);
+        video.genre = plain(text(item, "vod_class", 1024), 1024);
         video.author = plain(text(item, "vod_director", 512), 512);
         video.licence = plain(text(item, "licence", 512), 512);
         video.sourceUrl = http(text(item, "vod_detail_url", 8192));

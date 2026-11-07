@@ -48,7 +48,7 @@
         }
     .end annotation
 
-    .line 1096
+    .line 1152
     iput-object p5, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$2;->val$displayed:Ljava/util/List;
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$2;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
@@ -63,14 +63,14 @@
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 4
 
-    .line 1098
+    .line 1154
     invoke-super {p0, p1, p2, p3}, Landroid/widget/ArrayAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object p2
 
     check-cast p2, Landroid/widget/TextView;
 
-    .line 1099
+    .line 1155
     const/high16 p3, 0x41700000    # 15.0f
 
     invoke-virtual {p2, p3}, Landroid/widget/TextView;->setTextSize(F)V
@@ -79,7 +79,7 @@
 
     invoke-virtual {p2, p3}, Landroid/widget/TextView;->setGravity(I)V
 
-    .line 1100
+    .line 1156
     iget-object p3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$2;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$2;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
@@ -114,7 +114,7 @@
 
     invoke-virtual {p2, p3}, Landroid/widget/TextView;->setMinHeight(I)V
 
-    .line 1101
+    .line 1157
     const/4 p3, 0x2
 
     invoke-virtual {p2, p3}, Landroid/widget/TextView;->setMaxLines(I)V
@@ -123,7 +123,7 @@
 
     invoke-virtual {p2, p3}, Landroid/widget/TextView;->setEllipsize(Landroid/text/TextUtils$TruncateAt;)V
 
-    .line 1102
+    .line 1158
     iget-object p3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$2;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
     const/16 v0, 0x8
@@ -152,7 +152,7 @@
 
     invoke-virtual {p2, p3, v1, v2, v0}, Landroid/widget/TextView;->setPadding(IIII)V
 
-    .line 1103
+    .line 1159
     new-instance p3, Landroid/content/res/ColorStateList;
 
     const v0, 0x10102fe
@@ -181,10 +181,10 @@
 
     invoke-virtual {p2, p3}, Landroid/widget/TextView;->setTextColor(Landroid/content/res/ColorStateList;)V
 
-    .line 1105
+    .line 1161
     invoke-static {p2, v1}, Lcom/tongpin/player4k/catalog/PhoneUi;->styleEpisodeBackground(Landroid/widget/TextView;I)V
 
-    .line 1106
+    .line 1162
     iget-object p3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$2;->val$displayed:Ljava/util/List;
 
     invoke-interface {p3, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -204,6 +204,6 @@
     :cond_0
     invoke-virtual {p2, v1}, Landroid/widget/TextView;->setActivated(Z)V
 
-    .line 1107
+    .line 1163
     return-object p2
 .end method

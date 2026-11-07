@@ -3,17 +3,15 @@
 .source "D8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/widget/AdapterView$OnItemClickListener;
+.implements Landroid/widget/TextView$OnEditorActionListener;
 
 
 # instance fields
 .field public final synthetic f$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
-.field public final synthetic f$1:Landroid/widget/GridView;
-
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/tongpin/player4k/catalog/CatalogActivity;Landroid/widget/GridView;)V
+.method public synthetic constructor <init>(Lcom/tongpin/player4k/catalog/CatalogActivity;)V
     .locals 0
 
     .line 0
@@ -21,30 +19,20 @@
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda34;->f$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
-    iput-object p2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda34;->f$1:Landroid/widget/GridView;
-
     return-void
 .end method
 
 
 # virtual methods
-.method public final onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .locals 7
+.method public final onEditorAction(Landroid/widget/TextView;ILandroid/view/KeyEvent;)Z
+    .locals 1
 
     .line 0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda34;->f$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
-    iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda34;->f$1:Landroid/widget/GridView;
+    invoke-virtual {v0, p1, p2, p3}, Lcom/tongpin/player4k/catalog/CatalogActivity;->lambda$buildScreen$5$com-tongpin-player4k-catalog-CatalogActivity(Landroid/widget/TextView;ILandroid/view/KeyEvent;)Z
 
-    move-object v2, p1
+    move-result p1
 
-    move-object v3, p2
-
-    move v4, p3
-
-    move-wide v5, p4
-
-    invoke-virtual/range {v0 .. v6}, Lcom/tongpin/player4k/catalog/CatalogActivity;->lambda$buildScreen$7$com-tongpin-player4k-catalog-CatalogActivity(Landroid/widget/GridView;Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-
-    return-void
+    return p1
 .end method

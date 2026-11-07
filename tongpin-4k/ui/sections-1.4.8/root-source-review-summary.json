@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "phone_assertions": 594,
+  "tv_assertions": 1356,
+  "production_java_modified_per_app": 5,
+  "production_java_added": 0,
+  "dependencies_added": 0,
+  "player_sources_changed": 0,
+  "device_tested": false
+}

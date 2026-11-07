@@ -30,7 +30,7 @@
     .line 0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda30;->f$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
-    invoke-virtual {v0, p1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->lambda$buildScreen$3$com-tongpin-player4k-catalog-CatalogActivity(Landroid/view/View;)V
+    invoke-virtual {v0, p1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->lambda$buildScreen$1$com-tongpin-player4k-catalog-CatalogActivity(Landroid/view/View;)V
 
     return-void
 .end method

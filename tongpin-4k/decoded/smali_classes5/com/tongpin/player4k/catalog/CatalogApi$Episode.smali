@@ -32,21 +32,21 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 90
+    .line 92
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 88
+    .line 90
     const-string v0, ""
 
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Episode;->name:Ljava/lang/String;
 
-    .line 89
+    .line 91
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Episode;->streams:Ljava/util/List;
 
-    .line 90
+    .line 92
     return-void
 .end method

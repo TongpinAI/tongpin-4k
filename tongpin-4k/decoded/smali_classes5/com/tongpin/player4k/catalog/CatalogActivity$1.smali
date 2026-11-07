@@ -33,7 +33,7 @@
         }
     .end annotation
 
-    .line 318
+    .line 330
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$1;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,22 +46,22 @@
 .method public onScroll(Landroid/widget/AbsListView;III)V
     .locals 0
 
-    .line 319
+    .line 331
     return-void
 .end method
 
 .method public onScrollStateChanged(Landroid/widget/AbsListView;I)V
     .locals 0
 
-    .line 321
+    .line 333
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$1;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
     invoke-static {p1, p2}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$102(Lcom/tongpin/player4k/catalog/CatalogActivity;I)I
 
-    .line 322
+    .line 334
     if-eqz p2, :cond_0
 
-    .line 323
+    .line 335
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$1;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
     invoke-static {p1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$200(Lcom/tongpin/player4k/catalog/CatalogActivity;)Lcom/tongpin/player4k/catalog/CatalogActivity$SearchTouch;
@@ -70,7 +70,7 @@
 
     invoke-virtual {p1}, Lcom/tongpin/player4k/catalog/CatalogActivity$SearchTouch;->cancel()V
 
-    .line 324
+    .line 336
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$1;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
     invoke-static {p1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$300(Lcom/tongpin/player4k/catalog/CatalogActivity;)Z
@@ -103,7 +103,7 @@
 
     if-nez p1, :cond_1
 
-    .line 325
+    .line 337
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$1;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
     const/4 p2, 0x0
@@ -130,7 +130,7 @@
 
     goto :goto_0
 
-    .line 328
+    .line 340
     :cond_0
     iget-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$1;->this$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
@@ -152,7 +152,7 @@
 
     invoke-static {p1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->access$1200(Lcom/tongpin/player4k/catalog/CatalogActivity;)V
 
-    .line 329
+    .line 341
     :cond_1
     :goto_0
     return-void

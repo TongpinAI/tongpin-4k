@@ -1,13 +1,13 @@
 # 手机端构建输入与恢复说明
 
-当前源码为 **1.4.7 / versionCode1470**，包名 `com.tongpin.player4k`。它是在现有APK/原生播放库基础上维护的fork，含自有Java、继承资源与smali，不描述为完整Gradle或clean-room重写项目。
+当前源码为 **1.4.8 / versionCode1480**，包名 `com.tongpin.player4k`。它是在现有APK/原生播放库基础上维护的fork，含自有Java、继承资源与smali，不描述为完整Gradle或clean-room重写项目。
 
 ## 当前输入与检查范围
 
-- `open-sources/src`有41份自有Java，本轮重新编译到`open-sources/staging-1.4.7-r2`，自有类数量以当前compile-report和最终DEX核对为准；编译桩和host JSON实现不打进安装包。
+- `open-sources/src`有41份自有Java，本轮重新编译到`open-sources/staging-1.4.8-r2`，自有类数量以当前compile-report和最终DEX核对为准；编译桩和host JSON实现不打进安装包。
 - `decoded`包含实际构建资源、五组smali及42个原生库。前四DEX继续核对`kanke-noads/decoded`的对应输入；原生第五码仅旧历史点击桥接的一个方法改动，其余继承代码保持合同范围。
 - 统一首页、实际来源换源、旧记录转入新确认流程以及本地历史/收藏见`ui/unified-sources-1.3.9`。XML/M3U/无code JSON不增加运行库依赖，使用平台API和既有播放器。
-- `verification/1.4.7/proof-tools`中的全部真实检查器`.class`及嵌套类是最终DEX审计输入，对应源码位于`open-sources/integration`。134–145的历史证明类继续保留；普通测试编译产物不提交。
+- `verification/1.4.8/proof-tools`中的全部真实检查器`.class`及嵌套类是最终DEX审计输入，对应源码位于`open-sources/integration`。134–145的历史证明类继续保留；普通测试编译产物不提交。
 - 旧冻结报告、before快照、stage与实际R夹具按原字节保留，不把历史报告改成当前验证结果。
 
 ## 历史140自动选源构建输入
@@ -93,3 +93,6 @@
 
 
 147重新编译41份自有Java，本轮仅改7份目录／搜索源码，无新增生产Java、资源或依赖；播放器与原生资源保留146字节。规范DEX为`open-sources/staging-1.4.7-r2/own-classes.dex`，SHA256 `de2d0fc97f9522e7780ff34fe8a17ab4b88abb7afebbddec21e1b2c648fbee65`。随v1.4.7新增两端APK及DEX构建ZIP后共42项资产／50个恢复目标，旧39项资产原样保留。前像反汇编class、资源及完整基线均以精确哈希绑定；验证见`ui/discovery-1.4.7`、`verification/1.4.7`。
+
+
+148仍41份生产Java，只改5份分类／目录／缓存／首页文件，不增依赖、资源或编译桩。规范DEX为`open-sources/staging-1.4.8-r2/own-classes.dex`，SHA256 `cfb155711d5c49941dbe09a3e3cb814d041b66985705d71d172b3d382be065f2`。随v1.4.8增加两端APK与规范DEX压缩包后，共45项资产／53个恢复目标；旧42项资产原样保留。r1仅为被祖先分类修复取代的未发布主机阶段，不是正式恢复依赖；正式门禁只读r2。全部147资源ID及原生输入保留。

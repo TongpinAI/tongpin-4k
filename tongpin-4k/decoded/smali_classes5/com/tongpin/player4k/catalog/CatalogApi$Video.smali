@@ -29,6 +29,8 @@
 
 .field public description:Ljava/lang/String;
 
+.field public genre:Ljava/lang/String;
+
 .field public id:Ljava/lang/String;
 
 .field public licence:Ljava/lang/String;
@@ -56,9 +58,9 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .locals 2
 
-    .line 64
+    .line 66
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 58
@@ -90,10 +92,13 @@
 
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->categoryName:Ljava/lang/String;
 
-    const-string v0, "\u672a\u5206\u7c7b"
+    const-string v1, "\u672a\u5206\u7c7b"
 
-    iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->categoryLabel:Ljava/lang/String;
+    iput-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->categoryLabel:Ljava/lang/String;
 
     .line 64
+    iput-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogApi$Video;->genre:Ljava/lang/String;
+
+    .line 66
     return-void
 .end method

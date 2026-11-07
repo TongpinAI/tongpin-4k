@@ -9,11 +9,15 @@
 # instance fields
 .field public final synthetic f$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
-.field public final synthetic f$1:I
+.field public final synthetic f$1:Landroid/widget/Button;
+
+.field public final synthetic f$2:Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Section;
+
+.field public final synthetic f$3:Z
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/tongpin/player4k/catalog/CatalogActivity;I)V
+.method public synthetic constructor <init>(Lcom/tongpin/player4k/catalog/CatalogActivity;Landroid/widget/Button;Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Section;Z)V
     .locals 0
 
     .line 0
@@ -21,7 +25,11 @@
 
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda18;->f$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
-    iput p2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda18;->f$1:I
+    iput-object p2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda18;->f$1:Landroid/widget/Button;
+
+    iput-object p3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda18;->f$2:Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Section;
+
+    iput-boolean p4, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda18;->f$3:Z
 
     return-void
 .end method
@@ -29,14 +37,18 @@
 
 # virtual methods
 .method public final run()V
-    .locals 2
+    .locals 4
 
     .line 0
     iget-object v0, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda18;->f$0:Lcom/tongpin/player4k/catalog/CatalogActivity;
 
-    iget v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda18;->f$1:I
+    iget-object v1, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda18;->f$1:Landroid/widget/Button;
 
-    invoke-virtual {v0, v1}, Lcom/tongpin/player4k/catalog/CatalogActivity;->lambda$play$2$com-tongpin-player4k-catalog-CatalogActivity(I)V
+    iget-object v2, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda18;->f$2:Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Section;
+
+    iget-boolean v3, p0, Lcom/tongpin/player4k/catalog/CatalogActivity$$ExternalSyntheticLambda18;->f$3:Z
+
+    invoke-virtual {v0, v1, v2, v3}, Lcom/tongpin/player4k/catalog/CatalogActivity;->lambda$renderSections$1$com-tongpin-player4k-catalog-CatalogActivity(Landroid/widget/Button;Lcom/tongpin/player4k/catalog/UnifiedCatalogPolicy$Section;Z)V
 
     return-void
 .end method

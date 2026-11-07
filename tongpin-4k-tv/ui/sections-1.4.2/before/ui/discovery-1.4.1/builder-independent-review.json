@@ -1,0 +1,37 @@
+{
+  "passed": true,
+  "verdict": "clear",
+  "source_sha256": {
+    "build_tv.py": "7af64102b0c9b6cd6e4aa37611f1ec6b915c12ad11b15c885ceb0e995c631130",
+    "discovery_release_contract.py": "4c1a561ca623c1e5c22e2664cf05f037b804aa42f2d4de879e4449ec75be2e7b"
+  },
+  "reviewed_freeze_sha256": "aa04086f3c75e81c0ea5741971a821a67d69b9ff1b0b04a0f38de264fe65c638",
+  "actual_43_input_preflight_gate_passed": true,
+  "negative_actual_input_gate_checks": {
+    "unapproved_formal_promotion": true,
+    "missing_snapshot_index_pin": true,
+    "stale_prior_evidence_pin": true,
+    "missing_tooling_pin": true,
+    "missing_required_search_report": true,
+    "substituting_an_unrelated_file_cannot_replace_search_test": true
+  },
+  "complete_140_builder_ast_inverse_verified": true,
+  "virtual_gate_positive_and_negative_checks": {
+    "virtual_preflight_positive": "passed",
+    "virtual_formal_positive": "passed",
+    "missing_promotion_authorization": "rejected",
+    "unexpected_resource_change": "rejected",
+    "missing_snapshot_pin": "rejected",
+    "stale_snapshot_pin": "rejected",
+    "empty_prior_index_even_with_resealed_hash": "rejected",
+    "missing_mandatory_report": "rejected",
+    "missing_tool_pin": "rejected",
+    "missing_all_test_pins": "rejected",
+    "substituted_test_does_not_satisfy_minimum_count": "rejected"
+  },
+  "mock_report_sha256": "82249a4571c1b515f419afb3d8971365efb1f5adf593f8d5613402d790cb3b0e",
+  "runner_sha256": "31c1afc3320de4ff88f4e1a772530ca711243064851901b72cd3f762f06b52f6",
+  "old_resource_exactmap_and_api21_media3_paths_preserved": true,
+  "build_signing_network_executed": false,
+  "formal_promotion_requires_aggregate_source_and_tool_review": true
+}

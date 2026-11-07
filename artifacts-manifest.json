@@ -1,7 +1,7 @@
 {
   "release_tag": "backup-2026-11-06",
-  "phone_version": "1.4.7",
-  "tv_version": "1.4.1",
+  "phone_version": "1.4.8",
+  "tv_version": "1.4.2",
   "signing_keys_uploaded": false,
   "artifacts": [
     {
@@ -369,7 +369,34 @@
         "tongpin-4k/open-sources/staging-1.4.7-r2/own-classes.dex"
       ],
       "download_release": "v1.4.7"
+    },
+    {
+      "asset": "tongpin-4k-1.4.8.apk",
+      "restore_to": "tongpin-4k/output/tongpin-4k-1.4.8.apk",
+      "size": 77136437,
+      "sha256": "0371b3bcead4f2d48375a9a1491ea821b37562af855bc1403a0584b192b9bef4",
+      "kind": "file",
+      "download_release": "v1.4.8"
+    },
+    {
+      "asset": "tongpin-4k-tv-1.4.2.apk",
+      "restore_to": "tongpin-4k-tv/output/tongpin-4k-tv-1.4.2.apk",
+      "size": 7846720,
+      "sha256": "77a202640635658c2b55475c2b30f9fe4e5ef8d6b928f54bc558c911fa7016a2",
+      "kind": "file",
+      "download_release": "v1.4.8"
+    },
+    {
+      "asset": "tongpin-4k-build-inputs-1.4.8.zip",
+      "restore_to": ".",
+      "size": 211043,
+      "sha256": "95400abf9cbb293399d357eb1823a81bc259664cae83abf8de2eec4703f845ab",
+      "kind": "zip",
+      "contains": [
+        "tongpin-4k/open-sources/staging-1.4.8-r2/own-classes.dex"
+      ],
+      "download_release": "v1.4.8"
     }
   ],
-  "current_release_tag": "v1.4.7"
+  "current_release_tag": "v1.4.8"
 }

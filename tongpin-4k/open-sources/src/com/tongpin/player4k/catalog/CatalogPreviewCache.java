@@ -7,6 +7,7 @@ import com.tongpin.player4k.catalog.CatalogApi.Video;
 import com.tongpin.player4k.catalog.CatalogCategories.Category;
 import com.tongpin.player4k.catalog.UnifiedCatalogPolicy.Group;
 import com.tongpin.player4k.catalog.UnifiedCatalogPolicy.Tab;
+import com.tongpin.player4k.catalog.UnifiedCatalogPolicy.Section;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -49,12 +50,16 @@ public final class CatalogPreviewCache implements AutoCloseable {
     }
 
     public void load(List<Provider> providers, Tab tab, Listener listener) {
-        if (closed || tab == null || listener == null || !validProviders(providers)) return;
+        load(providers, tab, Section.ALL, listener);
+    }
+
+    public void load(List<Provider> providers, Tab tab, Section section, Listener listener) {
+        if (closed || !UnifiedCatalogPolicy.validSection(tab, section) || listener == null || !validProviders(providers)) return;
         final List<Provider> configuration = new ArrayList<Provider>(providers);
         disk.execute(() -> {
             List<Group> result = Collections.emptyList();
             try {
-                AtomicFile file = file(tab);
+                AtomicFile file = file(tab, section);
                 try (FileInputStream input = file.openRead(); ByteArrayOutputStream bytes = new ByteArrayOutputStream()) {
                     byte[] buffer = new byte[8192]; int count;
                     while ((count = input.read(buffer)) != -1) {
@@ -62,7 +67,7 @@ public final class CatalogPreviewCache implements AutoCloseable {
                             throw new IOException("Preview unavailable");
                         bytes.write(buffer, 0, count);
                     }
-                    result = decode(new String(bytes.toByteArray(), StandardCharsets.UTF_8), configuration, tab, System.currentTimeMillis());
+                    result = decode(new String(bytes.toByteArray(), StandardCharsets.UTF_8), configuration, tab, section, System.currentTimeMillis());
                 }
             } catch (Exception unavailable) { result = Collections.emptyList(); }
             final List<Group> loaded = result;
@@ -71,15 +76,19 @@ public final class CatalogPreviewCache implements AutoCloseable {
     }
 
     public void save(List<Provider> providers, Tab tab, List<Group> groups) {
-        if (closed || tab == null || groups == null || groups.isEmpty() || !validProviders(providers)) return;
+        save(providers, tab, Section.ALL, groups);
+    }
+
+    public void save(List<Provider> providers, Tab tab, Section section, List<Group> groups) {
+        if (closed || !UnifiedCatalogPolicy.validSection(tab, section) || groups == null || groups.isEmpty() || !validProviders(providers)) return;
         final List<Provider> configuration = new ArrayList<Provider>(providers);
         final List<Group> preview = new ArrayList<Group>(groups.subList(0, Math.min(MAX_GROUPS, groups.size())));
         disk.execute(() -> {
             AtomicFile file = null; FileOutputStream output = null;
             try {
-                String encoded = encode(configuration, tab, preview, System.currentTimeMillis());
+                String encoded = encode(configuration, tab, section, preview, System.currentTimeMillis());
                 if (closed || Thread.currentThread().isInterrupted() || encoded == null) return;
-                file = file(tab); output = file.startWrite();
+                file = file(tab, section); output = file.startWrite();
                 output.write(encoded.getBytes(StandardCharsets.UTF_8));
                 if (closed || Thread.currentThread().isInterrupted()) throw new IOException("Preview canceled");
                 file.finishWrite(output); output = null;
@@ -89,12 +98,12 @@ public final class CatalogPreviewCache implements AutoCloseable {
         });
     }
 
-    private AtomicFile file(Tab tab) throws IOException {
+    private AtomicFile file(Tab tab, Section section) throws IOException {
         File cache = context.getCacheDir().getCanonicalFile();
         File directory = new File(cache, "tp-catalog-previews").getCanonicalFile();
         if (!cache.equals(directory.getParentFile())) throw new IOException("Invalid preview directory");
         if (!directory.isDirectory() && !directory.mkdirs()) throw new IOException("Preview unavailable");
-        File target = new File(directory, tab.name() + ".json").getCanonicalFile();
+        File target = new File(directory, tab.name() + (section == Section.ALL ? "" : "__" + section.name()) + ".json").getCanonicalFile();
         if (!directory.equals(target.getParentFile())) throw new IOException("Invalid preview path");
         return new AtomicFile(target);
     }
@@ -102,9 +111,13 @@ public final class CatalogPreviewCache implements AutoCloseable {
     @Override public void close() { closed = true; disk.shutdownNow(); }
 
     static String encode(List<Provider> providers, Tab tab, List<Group> groups, long now) throws Exception {
-        if (!validProviders(providers) || tab == null || groups == null || now <= 0) return null;
+        return encode(providers, tab, Section.ALL, groups, now);
+    }
+
+    static String encode(List<Provider> providers, Tab tab, Section section, List<Group> groups, long now) throws Exception {
+        if (!validProviders(providers) || !UnifiedCatalogPolicy.validSection(tab, section) || groups == null || now <= 0) return null;
         JSONObject root = new JSONObject().put("version", 1).put("saved", now)
-                .put("registry", registryKey(providers)).put("tab", tab.name());
+                .put("registry", registryKey(providers)).put("tab", tab.name()).put("section", section.name());
         JSONArray rows = new JSONArray(); root.put("groups", rows);
         int bytes = size(root), videos = 0;
         for (Group group : groups) {
@@ -113,7 +126,7 @@ public final class CatalogPreviewCache implements AutoCloseable {
             JSONObject row = new JSONObject().put("key", group.key); JSONArray candidates = new JSONArray();
             boolean valid = true;
             for (Video video : group.alternatives) {
-                if (!currentProvider(providers, video) || !UnifiedCatalogPolicy.matches(video, tab)) { valid = false; break; }
+                if (!currentProvider(providers, video) || !UnifiedCatalogPolicy.matches(video, tab, section)) { valid = false; break; }
                 candidates.put(encodeVideo(video));
             }
             if (!valid) continue;
@@ -128,7 +141,11 @@ public final class CatalogPreviewCache implements AutoCloseable {
     }
 
     static List<Group> decode(String encoded, List<Provider> providers, Tab tab, long now) throws Exception {
-        if (!validProviders(providers) || tab == null || now <= 0 || encoded == null
+        return decode(encoded, providers, tab, Section.ALL, now);
+    }
+
+    static List<Group> decode(String encoded, List<Provider> providers, Tab tab, Section section, long now) throws Exception {
+        if (!validProviders(providers) || !UnifiedCatalogPolicy.validSection(tab, section) || now <= 0 || encoded == null
                 || encoded.length() > MAX_BYTES || encoded.getBytes(StandardCharsets.UTF_8).length > MAX_BYTES)
             return Collections.emptyList();
         checkDepth(encoded); JSONTokener reader = new JSONTokener(encoded); Object value = reader.nextValue();
@@ -138,6 +155,8 @@ public final class CatalogPreviewCache implements AutoCloseable {
         if (root.getInt("version") != 1 || saved <= 0 || saved > now || now - saved > MAX_AGE
                 || !registryKey(providers).equals(root.getString("registry")) || !tab.name().equals(root.getString("tab")))
             return Collections.emptyList();
+        String cachedSection = root.has("section") ? field(root, "section", 64) : Section.ALL.name();
+        if (!section.name().equals(cachedSection)) return Collections.emptyList();
         JSONArray rows = root.getJSONArray("groups");
         if (rows.length() > MAX_GROUPS) return Collections.emptyList();
         ArrayList<Group> groups = new ArrayList<Group>(); Set<String> keys = new HashSet<String>(), identities = new HashSet<String>();
@@ -149,7 +168,7 @@ public final class CatalogPreviewCache implements AutoCloseable {
             ArrayList<Video> restored = new ArrayList<Video>();
             for (int j = 0; j < candidates.length(); j++) {
                 Video video = decodeVideo(candidates.getJSONObject(j), providers);
-                if (!UnifiedCatalogPolicy.matches(video, tab) || !identities.add(UnifiedCatalogPolicy.identity(video))) return Collections.emptyList();
+                if (!UnifiedCatalogPolicy.matches(video, tab, section) || !identities.add(UnifiedCatalogPolicy.identity(video))) return Collections.emptyList();
                 restored.add(video);
             }
             List<Group> projected = UnifiedCatalogPolicy.project(restored, false);
@@ -162,7 +181,7 @@ public final class CatalogPreviewCache implements AutoCloseable {
     private static JSONObject encodeVideo(Video v) throws Exception {
         JSONObject out = new JSONObject().put("provider", v.provider.id).put("api", v.provider.api)
                 .put("id", v.id).put("title", v.title).put("subtitle", v.subtitle).put("poster", v.poster)
-                .put("sourceUrl", v.sourceUrl).put("year", v.year).put("area", v.area)
+                .put("sourceUrl", v.sourceUrl).put("year", v.year).put("area", v.area).put("genre", v.genre)
                 .put("publishedAtMs", v.publishedAtMs).put("updatedAtMs", v.updatedAtMs)
                 .put("weeklyHits", v.weeklyHits).put("monthlyHits", v.monthlyHits)
                 .put("author", v.author).put("licence", v.licence).put("categoryId", v.categoryId)
@@ -190,6 +209,7 @@ public final class CatalogPreviewCache implements AutoCloseable {
         if (v.id.isEmpty() || v.title.trim().isEmpty()) throw new IOException("Invalid preview title");
         v.subtitle = field(item, "subtitle", 4096); v.poster = field(item, "poster", 8192);
         v.sourceUrl = field(item, "sourceUrl", 8192); v.year = field(item, "year", 128); v.area = field(item, "area", 512);
+        v.genre = item.has("genre") ? field(item, "genre", 4096) : "";
         v.author = field(item, "author", 512); v.licence = field(item, "licence", 512);
         v.publishedAtMs = optionalCount(item, "publishedAtMs", 4102444800000L);
         v.updatedAtMs = optionalCount(item, "updatedAtMs", 4102444800000L);

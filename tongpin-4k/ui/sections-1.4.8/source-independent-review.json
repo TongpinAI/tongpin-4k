@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "verdict": "clear: secondary catalogue navigation and source-labelled4K group with retained native player contracts",
+  "source_sha256": {
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogActivity.java": "dc41ef5405c012c61123fd7e7a40e088f41e3ab5a902ba55b3cea95e819ee16a",
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogApi.java": "1bfe70cd8a5b82e1336dbd0f11b6a57d15bd25a31d2d650e13ab82ea053a1626",
+    "open-sources/src/com/tongpin/player4k/catalog/CatalogPreviewCache.java": "8660b6097ebf3ebfe94dca73c0eb2a7993e7c0ba696e57c9a2258ec776108e2f",
+    "open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogBrowse.java": "1672ca3e550694351f3dc017cd0c6787ca8aa291c36174693230a93a29e5a08a",
+    "open-sources/src/com/tongpin/player4k/catalog/UnifiedCatalogPolicy.java": "fe047281a53b4c749fe614e527eb58af662e95b2fabac79830d47c72f24fc0f3"
+  },
+  "resource_sha256": {
+    "decoded/res/values/tp_player_style.xml": "848d7f1802d9c35a2b059400a94cce4aef4dcfb569198fc51eeace8fe0514c59"
+  },
+  "owner_freeze_sha256": "b9f0f19de2257cc24e30068c6f84a32afca0596fdd4d69e1f616f6ac1257fa9e",
+  "cross_review_sha256": "eede6b5a5d4911598e260297f590846cc53954b802887d4541f43cac44f95799",
+  "assertions": {
+    "shared": 400,
+    "cache": 61,
+    "caller": 133
+  },
+  "assertions_total": 594,
+  "review": "Reviewed actual bounded metadata genre parsing and full trusted category ancestors. Geographic evidence uses explicit areas or compatible directory ancestors; broad parent labels never invent specific countries. The corrected hierarchy tests reject overseas/mainland conflicts and retain Hong Kong/genre leaves. Source plans use actual IDs and retain fair cursors, raw fingerprints and bounded continuation; all-library title search and4K/update preference methods are retained. Separate review covers phone Home and both optional metadata caches. TV Home diff and895 SDK-compiled state/wiring/regression checks preserve DPAD model ownership, selected context, lifecycle cancellation and source/player behavior.",
+  "limitations": "Source4K declarations are catalogue metadata, not verified decoded dimensions; unknown geography remains only underALL. Host SDK/logic/source checks do not execute native Android views, accessibility, remote gestures or media playback.",
+  "device_tested": false,
+  "native_views_executed": false,
+  "media_network_tested": false
+}

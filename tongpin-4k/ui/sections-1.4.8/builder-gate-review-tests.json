@@ -1,0 +1,154 @@
+{
+  "passed": true,
+  "case_count": 27,
+  "cases": [
+    {
+      "name": "actual_current_full_preflight",
+      "passed": true,
+      "seconds": 7.204
+    },
+    {
+      "name": "formal_without_promotion",
+      "passed": true,
+      "rejected": "Formal integration requires completed review promotion"
+    },
+    {
+      "name": "missing_tool_pin",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "missing_test_runner_pin",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "extra_modified_source",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "new_class_not_approved",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "missing_current_java_pin",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "wrong_canonical_stage_dex",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "wrong_stage_smali_pin",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "missing_owner_coverage",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "resource_change_not_approved",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "new_style_not_approved",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "changed_compile_stub",
+      "passed": true,
+      "rejected": "148 changes no compile stubs"
+    },
+    {
+      "name": "wrong_preimage_index_pin",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "native_inventory_entry_missing_matching_pin",
+      "passed": true,
+      "rejected": "Native/resource/asset inventory changed"
+    },
+    {
+      "name": "failed_review_clear_text_matching_pin",
+      "passed": true,
+      "rejected": ""
+    },
+    {
+      "name": "formal_without_independent_tool_coverage",
+      "passed": true,
+      "rejected": "Missing independent source/tool review coverage"
+    },
+    {
+      "name": "build_driver_ast_inverse_release_routes_only",
+      "passed": true
+    },
+    {
+      "name": "assert_dispatch_exact_added148_branch",
+      "passed": true
+    },
+    {
+      "name": "all11473_previous_resources_no_additions_positive",
+      "passed": true
+    },
+    {
+      "name": "old_id_moved",
+      "passed": true
+    },
+    {
+      "name": "old_id_removed",
+      "passed": true
+    },
+    {
+      "name": "extra_style_rejected",
+      "passed": true
+    },
+    {
+      "name": "nonempty_allowed_list_rejected",
+      "passed": true
+    },
+    {
+      "name": "empty_previous_rejected",
+      "passed": true
+    },
+    {
+      "name": "native_compiler_framework_and_final_reader_algorithms_retained",
+      "passed": true
+    },
+    {
+      "name": "independent_proof_reader_compile_byte_equal",
+      "passed": true
+    }
+  ],
+  "reviewed_main_sha256": "e3eac23bc03687b5e7f2bbdf57eb19c0a232cd25122e6af0ff0f94521ce44358",
+  "source_sha256": {
+    "open-sources/integration/ui_1480_contract.py": "42fbaaf7932efcda4269c16178ba93bf33f60b328ddc939a8a402881c5ca48bf",
+    "verification/1.4.8/proof-tools/DisassembleOwn1480.class": "3b3b4a57dda8dca35ef9cbeccfa26b5d61a82870891c12bc6e04e98a3aa88274",
+    "open-sources/integration/audit_final_ui_api_1480.py": "14df31ea0d5bbf19adf21e425e6a6515ada768240095067f77c47b68a7dbb963",
+    "open-sources/integration/integrate_1_4_8.py": "5f1cc1c34d7854f0d720bb26f77c33b6baff64c6e5f9b39012766b7792d2f7d8",
+    "open-sources/integration/assert_contract.py": "05003be1f80b7acfdc4d3f332fbbfe0bf4a0135dd5db0ffb3d2f31e80d6d8018",
+    "open-sources/toolchain/check_framework_api.py": "91209f30753abd8ea244655bd98762d4e0590c173dae2e842367d82559a61905",
+    "open-sources/integration/DisassembleOwn1480.java": "ad725e4093969857ce7a0a9f574adb454ffefcd3789f609642f45efdac9aef68",
+    "open-sources/integration/check_native_bindings_1410.py": "9a69cd89a30993ac4ca4beaa7a8d1d7d0e1b981edbb2f2f62740f955c6a9d93c",
+    "open-sources/toolchain/compile_java_to_smali.py": "b1b855f38294ecb7d392980b917f8fa17eaae77496c3bd1fcd961e557574cc9c",
+    "open-sources/integration/check_timer_dex_1480.py": "f63c49d3956f3337c974342d525ecaa7b501054554501c1519be1ab8ed01e86f",
+    "build_tongpin.py": "a429db03ffbce937cb6375c23853643f9f0abbae8c10f601e2d0db3b9e5e1907"
+  },
+  "frozen_and_production_modified": false,
+  "proof_class_sha256": "3b3b4a57dda8dca35ef9cbeccfa26b5d61a82870891c12bc6e04e98a3aa88274",
+  "negative_digest_policy": "Reuse only actual-positive validated digests for unchanged native/source/tool inputs; all fixture document/hash overrides take precedence.",
+  "source_guard_inputs": {
+    "before-sha256.json": "f045e43e71bbbb52432ef033328edbd2dca7007cf4f9215ba312fa0559ce75ee",
+    "baseline147-native-resource-sha256.json": "a47c86c45b1460fbdb94178938bc7335f4a7d07053552f01feb90551ebf45db3",
+    "prior147-evidence-sha256.json": "bf9278960110f859c725dbfa458f8f707b599c30e6387f26803cf4038e37600a"
+  },
+  "device_tested": false
+}

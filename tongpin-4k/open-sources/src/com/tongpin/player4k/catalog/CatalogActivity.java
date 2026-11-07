@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Typeface;
+import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Build;
@@ -50,6 +51,7 @@ import java.util.HashMap;
 import java.util.Map;
 import com.tongpin.player4k.catalog.UnifiedCatalogPolicy.Group;
 import com.tongpin.player4k.catalog.UnifiedCatalogPolicy.Tab;
+import com.tongpin.player4k.catalog.UnifiedCatalogPolicy.Section;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -93,6 +95,8 @@ public final class CatalogActivity extends Activity {
     private String channelQuery = "";
     private View browseCategoryRow, stateRow;
     private LinearLayout categoryTabs;
+    private LinearLayout sectionTabs;
+    private HorizontalScrollView sectionScroll;
     private Button categoryFilter;
     private Button channelSearch;
     private GridView posterGrid;
@@ -108,6 +112,7 @@ public final class CatalogActivity extends Activity {
     private UnifiedCatalogBrowse.Handle browseHandle, pendingBrowseHandle;
     private UnifiedCatalogBrowse.Snapshot pendingBrowseSnapshot;
     private Tab homeTab = Tab.RECOMMEND;
+    private Section homeSection = Section.ALL;
     private boolean liveMode;
     private Button liveEntry;
     private List<Group> visibleGroups = Collections.emptyList(), renderedBrowseGroups;
@@ -165,6 +170,7 @@ public final class CatalogActivity extends Activity {
             channelQuery = saved.getString("channelQuery", "");
             liveMode = saved.getBoolean("liveMode", false) && CatalogApi.liveProvider(providers.get(providerIndex));
             try { homeTab = Tab.valueOf(saved.getString("homeTab", "RECOMMEND")); } catch (IllegalArgumentException changedTab) { homeTab = Tab.RECOMMEND; }
+            homeSection = restoredSection(homeTab, saved.getString("homeSection", "ALL"));
             if (providers.get(providerIndex).id.equals(saved.getString("categoryProvider", "")))
                 pendingCategoryId = saved.getString("category", "");
         } else {
@@ -223,6 +229,12 @@ public final class CatalogActivity extends Activity {
         channelSearch.setOnClickListener(view -> searchChannels());
         categoryRow.addView(channelSearch, new LinearLayout.LayoutParams(-2, dp(48)));
         catalogScreen.addView(categoryRow); browseCategoryRow = categoryRow;
+        sectionScroll = new HorizontalScrollView(this);
+        sectionScroll.setHorizontalScrollBarEnabled(false);
+        sectionScroll.setPadding(dp(8), 0, dp(8), 0);
+        sectionTabs = row();
+        sectionScroll.addView(sectionTabs, new HorizontalScrollView.LayoutParams(-2, -2));
+        catalogScreen.addView(sectionScroll, new LinearLayout.LayoutParams(-1, -2));
         renderCategories();
         LinearLayout searchRow = row();
         searchRow.setPadding(dp(16), 0, dp(16), dp(4));
@@ -375,6 +387,8 @@ public final class CatalogActivity extends Activity {
         boolean browsing = keyword.isEmpty();
         search.setEnabled(true); searchSubmit.setEnabled(true); search.setHint("搜索全部影视片库");
         if (browseCategoryRow != null) browseCategoryRow.setVisibility(browsing ? View.VISIBLE : View.GONE);
+        if (sectionScroll != null) sectionScroll.setVisibility(browsing && !liveMode
+                && UnifiedCatalogPolicy.sections(homeTab).size() > 1 ? View.VISIBLE : View.GONE);
         if (channelSearch != null) channelSearch.setVisibility(browsing && liveMode ? View.VISIBLE : View.GONE);
         if (categoryFilter != null) categoryFilter.setVisibility(browsing && liveMode ? View.VISIBLE : View.GONE);
         if (liveEntry != null) liveEntry.setText(detail != null ? "来源" : liveMode ? "影视" : "直播");
@@ -407,6 +421,7 @@ public final class CatalogActivity extends Activity {
 
     private void renderCategories() {
         if (categoryTabs == null) return;
+        renderSections();
         categoryTabs.removeAllViews(); categoryOptions.clear(); categoryOptions.add("");
         if (!liveMode) {
             for (Tab tab : Tab.values()) {
@@ -416,13 +431,13 @@ public final class CatalogActivity extends Activity {
                 choice.setContentDescription(tab.label + (tab == homeTab ? "，已选中" : "，聚合全部影视来源"));
                 choice.setOnClickListener(view -> {
                     if (homeTab != tab || !keyword.isEmpty()) {
-                        pauseCatalogue(); cancelGlobalSearch(); keyword = ""; search.setText(""); homeTab = tab;
+                        pauseCatalogue(); cancelGlobalSearch(); keyword = ""; search.setText(""); homeTab = tab; homeSection = Section.ALL;
                         startUnifiedBrowse();
                     }
                 });
                 categoryTabs.addView(choice, new LinearLayout.LayoutParams(-2, dp(48)));
             }
-            if (keyword.isEmpty() && caption != null) caption.setText(homeTab.label + " · 全部影视片库");
+            if (keyword.isEmpty() && caption != null) caption.setText(browseLabel(homeTab, homeSection) + " · 全部影视片库");
             return;
         }
         ArrayList<CatalogCategories.Category> declared = new ArrayList<>();
@@ -437,6 +452,44 @@ public final class CatalogActivity extends Activity {
         String chosen = "全部分类";
         for (CatalogCategories.Category category : declared) if (category.id.equals(categoryId)) chosen = categoryCatalog.display(category);
         if (keyword.isEmpty() && caption != null) caption.setText(providers.get(providerIndex).name + " · " + chosen);
+    }
+
+    static Section restoredSection(Tab tab, String name) {
+        try {
+            Section section = Section.valueOf(name == null ? "ALL" : name);
+            return UnifiedCatalogPolicy.validSection(tab, section) ? section : Section.ALL;
+        } catch (IllegalArgumentException changedSection) { return Section.ALL; }
+    }
+
+    static String browseLabel(Tab tab, Section section) {
+        String label = tab == Tab.UHD ? "4K（片源标注）" : tab.label;
+        return section == Section.ALL ? label : label + " · " + UnifiedCatalogPolicy.sectionLabel(tab, section);
+    }
+
+    private void renderSections() {
+        if (sectionTabs == null) return;
+        final boolean restoreFocus = sectionScroll.hasFocus();
+        sectionTabs.removeAllViews();
+        if (!UnifiedCatalogPolicy.validSection(homeTab, homeSection)) homeSection = Section.ALL;
+        for (Section section : UnifiedCatalogPolicy.sections(homeTab)) {
+            String label = UnifiedCatalogPolicy.sectionLabel(homeTab, section);
+            Button choice = button(label, false); choice.setSingleLine(true);
+            choice.setSelected(section == homeSection);
+            choice.setContentDescription(homeTab.label + "，" + label + (section == homeSection ? "，已选中" : "，选择此分类"));
+            choice.setOnClickListener(view -> {
+                if (!liveMode && keyword.isEmpty() && homeSection != section) {
+                    homeSection = section; startUnifiedBrowse();
+                }
+            });
+            sectionTabs.addView(choice, new LinearLayout.LayoutParams(-2, -2));
+            if (section == homeSection) choice.post(() -> {
+                if (!alive() || liveMode || !keyword.isEmpty() || choice.getParent() != sectionTabs || homeSection != section) return;
+                if (restoreFocus) choice.requestFocus();
+                choice.requestRectangleOnScreen(new Rect(0, 0, choice.getWidth(), choice.getHeight()), true);
+            });
+        }
+        sectionScroll.setVisibility(!liveMode && keyword.isEmpty()
+                && UnifiedCatalogPolicy.sections(homeTab).size() > 1 ? View.VISIBLE : View.GONE);
     }
 
     private void addCategoryTab(String id, String name, String description) {
@@ -553,6 +606,7 @@ public final class CatalogActivity extends Activity {
         pauseCatalogue(); cancelGlobalSearch();
         if (browseHandle != null) browseHandle.cancel();
         pendingBrowseHandle = null; pendingBrowseSnapshot = null; renderedBrowseGroups = null;
+        savedSearchAnchor = null;
         ++pageTicket; ++detailTicket; readingDetail = false;
         if (pageRequest != null) pageRequest.cancel(true);
         if (detailRequest != null) detailRequest.cancel(true);
@@ -561,8 +615,8 @@ public final class CatalogActivity extends Activity {
         posters.clear(); clearGroups(); videos.clear(); adapter.notifyDataSetChanged();
         resetAggregateViewport = true;
         updateSearchSupport(); renderCategories();
-        status.setText("正在汇集" + homeTab.label + "…"); progress.setVisibility(View.VISIBLE); retry.setVisibility(View.GONE);
-        browseHandle = unifiedBrowse.start(providers, homeTab, (handle, snapshot) -> {
+        status.setText("正在汇集" + browseLabel(homeTab, homeSection) + "…"); progress.setVisibility(View.VISIBLE); retry.setVisibility(View.GONE);
+        browseHandle = unifiedBrowse.start(providers, homeTab, homeSection, (handle, snapshot) -> {
             if (!alive() || !handle.isCurrent()) return;
             applyUnifiedSnapshot(handle, snapshot);
         });
@@ -579,9 +633,10 @@ public final class CatalogActivity extends Activity {
         if (previewCache == null || !foreground || liveMode || !keyword.isEmpty() || freshBrowseRows || showingPreview
                 || readingDetail || detail != null || browseHandle == null || !browseHandle.isCurrent()) return;
         final int ticket = ++previewTicket; final UnifiedCatalogBrowse.Handle handle = browseHandle; final Tab tab = homeTab;
-        previewCache.load(providers, tab, groups -> {
+        final Section section = homeSection;
+        previewCache.load(providers, tab, section, groups -> {
             if (!alive() || !foreground || ticket != previewTicket || browseHandle != handle || !handle.isCurrent()
-                    || homeTab != tab || liveMode || !keyword.isEmpty() || readingDetail || detail != null || freshBrowseRows || groups.isEmpty()) return;
+                    || homeTab != tab || homeSection != section || liveMode || !keyword.isEmpty() || readingDetail || detail != null || freshBrowseRows || groups.isEmpty()) return;
             pendingPreviewGroups = groups; pendingPreviewHandle = handle; applyBrowsePreview();
         });
     }
@@ -591,20 +646,20 @@ public final class CatalogActivity extends Activity {
                 || liveMode || !keyword.isEmpty() || readingDetail || detail != null || freshBrowseRows
                 || gridTouchActive || gridClickSettling || gridScrollState != 0) return;
         List<Group> groups = pendingPreviewGroups; pendingPreviewGroups = null; pendingPreviewHandle = null;
-        if (browseHandle == null || !browseHandle.isCurrent()) return;
+        if (browseHandle == null || !browseHandle.isCurrent() || browseHandle.tab != homeTab || browseHandle.section != homeSection) return;
         showingPreview = true; presentGroups(groups); renderedBrowseGroups = null;
         if (resetAggregateViewport) { posterGrid.setSelection(0); resetAggregateViewport = false; }
         posters.resume(); status.setText(previewStatus(browseHandle.snapshot())); updatePager();
     }
 
     private void applyUnifiedSnapshot(UnifiedCatalogBrowse.Handle handle, UnifiedCatalogBrowse.Snapshot snapshot) {
-        if (handle != browseHandle || !handle.isCurrent() || liveMode || !keyword.isEmpty() || snapshot.tab != homeTab) return;
+        if (handle != browseHandle || !handle.isCurrent() || liveMode || !keyword.isEmpty() || snapshot.tab != homeTab || snapshot.section != homeSection) return;
         loading = snapshot.loading; hasMore = snapshot.hasMore;
         if (!snapshot.groups.isEmpty()) {
             freshBrowseRows = true; invalidatePreviewDelivery();
             if (!previewFirstSaved || !snapshot.loading && previewSavedGroups != snapshot.groups) {
                 previewFirstSaved = true; previewSavedGroups = snapshot.groups;
-                if (previewCache != null) previewCache.save(providers, homeTab, snapshot.groups);
+                if (previewCache != null) previewCache.save(providers, homeTab, homeSection, snapshot.groups);
             }
         }
         if (!foreground || !windowFocused || readingDetail || detail != null || gridTouchActive || gridClickSettling || gridScrollState != 0) {
@@ -620,7 +675,7 @@ public final class CatalogActivity extends Activity {
             } else restoreSearchAnchor(anchor);
         } else if (savedSearchAnchor != null) restoreSearchAnchor(savedSearchAnchor);
         savedSearchAnchor = null;
-        caption.setText(homeTab.label + " · 近期热播推荐 · " + snapshot.totalSources + "个影视片库");
+        caption.setText(browseLabel(homeTab, homeSection) + " · 近期热播推荐 · " + snapshot.totalSources + "个影视片库");
         status.setText(showingPreview ? previewStatus(snapshot) : browseStatus(snapshot));
         progress.setVisibility(snapshot.loading ? View.VISIBLE : View.GONE);
         retry.setText(snapshot.projectionFailed ? "重试" : "重试失败"); retry.setEnabled(!snapshot.loading);
@@ -642,6 +697,7 @@ public final class CatalogActivity extends Activity {
                 : snapshot.groups.isEmpty() ? "暂未收到匹配影片，可继续载入或换个分类" : "";
         if (snapshot.failedSources > 0) text += (text.isEmpty() ? "" : " · ") + snapshot.failedSources + "个来源暂未返回";
         if (snapshot.repeatStoppedSources > 0) text += (text.isEmpty() ? "" : " · ") + snapshot.repeatStoppedSources + "个来源分页重复，已停止追加";
+        if (snapshot.tab == Tab.UHD) text += (text.isEmpty() ? "" : " · ") + "4K按片源标注收录，实际画质以开播检测为准";
         return text;
     }
 
@@ -824,7 +880,7 @@ public final class CatalogActivity extends Activity {
         if (requestedPage < 1 || providers == null) return;
         if (!keyword.isEmpty()) { startGlobalSearch(); return; }
         if (!liveMode) {
-            if (browseHandle != null && browseHandle.isCurrent() && browseHandle.tab == homeTab) restoreGlobalSearch();
+            if (browseHandle != null && browseHandle.isCurrent() && browseHandle.tab == homeTab && browseHandle.section == homeSection) restoreGlobalSearch();
             else startUnifiedBrowse();
             return;
         }
@@ -1239,6 +1295,7 @@ public final class CatalogActivity extends Activity {
         saved.putString("keyword", keyword);
         saved.putString("channelQuery", channelQuery);
         saved.putBoolean("liveMode", liveMode); saved.putString("homeTab", homeTab.name());
+        saved.putString("homeSection", homeSection.name());
         if (providers != null && !providers.isEmpty()) {
             saved.putString("categoryProvider", providers.get(providerIndex).id);
             saved.putString("category", pendingCategoryId.isEmpty() ? categoryId : pendingCategoryId);

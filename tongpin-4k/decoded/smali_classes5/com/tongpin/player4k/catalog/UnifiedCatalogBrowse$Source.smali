@@ -58,24 +58,24 @@
 .method constructor <init>(Lcom/tongpin/player4k/catalog/CatalogApi$Provider;)V
     .locals 3
 
-    .line 98
+    .line 101
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 93
+    .line 96
     new-instance v0, Ljava/util/ArrayDeque;
 
     invoke-direct {v0}, Ljava/util/ArrayDeque;-><init>()V
 
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Source;->pendingPages:Ljava/util/ArrayDeque;
 
-    .line 95
+    .line 98
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Source;->cursors:Ljava/util/ArrayList;
 
-    .line 98
+    .line 101
     iput-object p1, p0, Lcom/tongpin/player4k/catalog/UnifiedCatalogBrowse$Source;->provider:Lcom/tongpin/player4k/catalog/CatalogApi$Provider;
 
     new-instance v0, Ljava/lang/StringBuilder;
